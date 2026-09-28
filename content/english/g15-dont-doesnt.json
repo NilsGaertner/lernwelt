@@ -1,0 +1,37 @@
+{
+  "id": "dont-doesnt",
+  "line": "grammar",
+  "order": 15,
+  "title": "don't / doesn't",
+  "subtitle": "Simple Present: Verneinung",
+  "icon": "🚫",
+  "explain": [
+    { "p": "Im Englischen kannst du nicht einfach „not“ hinter das Verb stellen. Du brauchst ein Hilfsverb: **don't** oder **doesn't**." },
+    { "table": { "head": ["Wer?", "Verneinung", "Beispiel"], "rows": [
+      ["I / you / we / they", "**don't** + Verb", "I **don't like** fish."],
+      ["he / she / it", "**doesn't** + Verb", "She **doesn't like** fish."]
+    ] } },
+    { "tip": "Das -s wandert zu **doesn't**. Das Verb danach bekommt **kein -s** mehr: She doesn't like**s** ✗ → She doesn't **like** ✓" },
+    { "p": "Langform: don't = do not, doesn't = does not." },
+    { "p": "Ausnahme: Bei **am/is/are**, **can** und **have got** brauchst du kein don't – die haben ihre eigene Verneinung (isn't, can't, haven't got)." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "I ___ like carrots.", "options": ["don't", "doesn't", "not", "am not"], "answer": "don't" },
+    { "type": "choice", "q": "He ___ play tennis.", "options": ["doesn't", "don't", "not", "isn't"], "answer": "doesn't" },
+    { "type": "choice", "q": "We ___ go to school on Sundays.", "options": ["don't", "doesn't", "aren't", "not"], "answer": "don't" },
+    { "type": "choice", "q": "My cat ___ like water.", "options": ["doesn't", "don't", "isn't", "not"], "answer": "doesn't" },
+    { "type": "choice", "q": "She doesn't ___ milk.", "options": ["drink", "drinks", "drinking", "to drink"], "answer": "drink", "explain": "Nach doesn't kommt das Verb **ohne -s**." },
+    { "type": "choice", "q": "They ___ live in Germany.", "options": ["don't", "doesn't", "aren't", "not"], "answer": "don't" },
+    { "type": "choice", "q": "Tom doesn't ___ his homework.", "options": ["do", "does", "doing", "did"], "answer": "do" },
+    { "type": "choice", "q": "Welcher Satz ist richtig?", "options": ["She doesn't like pizza.", "She don't like pizza.", "She doesn't likes pizza.", "She not likes pizza."], "answer": "She doesn't like pizza.", "speak": false },
+    { "type": "choice", "q": "Welcher Satz ist richtig?", "options": ["I don't play the guitar.", "I doesn't play the guitar.", "I not play the guitar.", "I don't plays the guitar."], "answer": "I don't play the guitar.", "speak": false },
+    { "type": "input", "q": "My dad ___ like football.", "answer": "doesn't", "hint": "don't / doesn't" },
+    { "type": "input", "q": "You ___ eat meat.", "answer": "don't", "hint": "don't / doesn't" },
+    { "type": "input", "q": "My friends ___ watch TV in the morning.", "answer": "don't", "hint": "don't / doesn't" },
+    { "type": "input", "q": "Anna ___ have breakfast at school.", "answer": "doesn't", "hint": "don't / doesn't" },
+    { "type": "input", "q": "He doesn't ___ in London. (live)", "answer": "live", "hint": "live" },
+    { "type": "order", "de": "Ich mag keinen Fisch.", "answer": "I don't like fish." },
+    { "type": "order", "de": "Er spielt nicht Fußball.", "answer": "He doesn't play football." },
+    { "type": "order", "de": "Wir gehen samstags nicht zur Schule.", "answer": "We don't go to school on Saturdays." }
+  ]
+}

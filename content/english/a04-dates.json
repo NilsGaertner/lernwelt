@@ -1,0 +1,49 @@
+{
+  "id": "dates",
+  "line": "everyday",
+  "order": 4,
+  "title": "When is your birthday?",
+  "subtitle": "Ordnungszahlen und Datum",
+  "icon": "🎂",
+  "explain": [
+    { "p": "Für das Datum brauchst du **Ordnungszahlen** (erste, zweite, dritte …). Meistens hängst du **-th** an: four → four**th**, six → six**th**." },
+    { "table": { "head": ["Zahl", "Englisch", "Kurz"], "rows": [
+      ["1.", "**first**", "1st"],
+      ["2.", "**second**", "2nd"],
+      ["3.", "**third**", "3rd"],
+      ["4.", "fourth", "4th"],
+      ["5.", "**fifth**", "5th"],
+      ["12.", "**twelfth**", "12th"],
+      ["20.", "twentieth", "20th"],
+      ["21.", "twenty-first", "21st"]
+    ] } },
+    { "p": "Die fett gedruckten sind Ausnahmen – die musst du dir extra merken." },
+    { "ex": [["When is your birthday?", "Wann hast du Geburtstag?"], ["My birthday is on the 3rd of May.", "Mein Geburtstag ist am 3. Mai."]] },
+    { "tip": "Vor einem Datum steht **on**: on the 3rd of May." }
+  ],
+  "vocab": [
+    { "en": "first", "de": "1." },
+    { "en": "second", "de": "2." },
+    { "en": "third", "de": "3." },
+    { "en": "fourth", "de": "4." },
+    { "en": "fifth", "de": "5." },
+    { "en": "sixth", "de": "6." },
+    { "en": "seventh", "de": "7." },
+    { "en": "eighth", "de": "8." },
+    { "en": "ninth", "de": "9." },
+    { "en": "tenth", "de": "10." },
+    { "en": "eleventh", "de": "11." },
+    { "en": "twelfth", "de": "12." },
+    { "en": "twentieth", "de": "20." },
+    { "en": "twenty-first", "de": "21.", "alt": ["twenty first"] },
+    { "en": "thirtieth", "de": "30." },
+    { "en": "birthday", "de": "Geburtstag" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "My birthday is ___ the 5th of June.", "options": ["on", "in", "at"], "answer": "on", "explain": "Vor einem Datum steht **on**." },
+    { "type": "choice", "q": "How do you write 3rd?", "options": ["third", "threeth", "thirdth", "thrid"], "answer": "third", "speak": false },
+    { "type": "choice", "q": "How do you write 2nd?", "options": ["second", "twoth", "twond", "secont"], "answer": "second", "speak": false },
+    { "type": "order", "de": "Wann hast du Geburtstag?", "answer": "When is your birthday?" },
+    { "type": "order", "de": "Mein Geburtstag ist am ersten April.", "answer": "My birthday is on the first of April." }
+  ]
+}

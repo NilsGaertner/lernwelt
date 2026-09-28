@@ -1,0 +1,43 @@
+{
+  "id": "animals",
+  "line": "words",
+  "order": 7,
+  "title": "Animals",
+  "subtitle": "Tiere",
+  "icon": "🐾",
+  "explain": [
+    { "p": "Einige Tiere haben eine besondere Mehrzahl (Plural):" },
+    { "table": { "head": ["eins", "viele"], "rows": [
+      ["a mouse", "two **mice**"],
+      ["a sheep", "two **sheep**"],
+      ["a fish", "two **fish**"]
+    ] } },
+    { "p": "Haustier heißt **pet**: Have you got a pet? – Yes, I've got a rabbit." }
+  ],
+  "vocab": [
+    { "en": "dog", "de": "Hund" },
+    { "en": "cat", "de": "Katze" },
+    { "en": "horse", "de": "Pferd" },
+    { "en": "rabbit", "de": "Kaninchen" },
+    { "en": "guinea pig", "de": "Meerschweinchen" },
+    { "en": "bird", "de": "Vogel" },
+    { "en": "fish", "de": "Fisch" },
+    { "en": "mouse", "de": "Maus" },
+    { "en": "hamster", "de": "Hamster" },
+    { "en": "cow", "de": "Kuh" },
+    { "en": "pig", "de": "Schwein" },
+    { "en": "sheep", "de": "Schaf" },
+    { "en": "duck", "de": "Ente" },
+    { "en": "chicken", "de": "Huhn" },
+    { "en": "elephant", "de": "Elefant" },
+    { "en": "lion", "de": "Löwe" },
+    { "en": "tiger", "de": "Tiger" },
+    { "en": "monkey", "de": "Affe" },
+    { "en": "snake", "de": "Schlange" },
+    { "en": "frog", "de": "Frosch" },
+    { "en": "bear", "de": "Bär" },
+    { "en": "tortoise", "de": "Schildkröte", "alt": ["turtle"] },
+    { "en": "budgie", "de": "Wellensittich" },
+    { "en": "pet", "de": "Haustier" }
+  ]
+}

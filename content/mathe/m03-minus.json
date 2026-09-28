@@ -1,0 +1,6 @@
+{
+  "id": "plus-minus", "line": "kopfrechnen", "order": 3,
+  "title": "Minus bis 1000", "subtitle": "Abziehen im Kopf", "icon": "➖",
+  "generator": "rechnen", "params": { "op": "sub", "min": 100, "max": 1000 }, "itemCount": 100,
+  "explain": [ { "p": "Tipp: Erst die Hunderter, dann die Zehner, dann die Einer abziehen." } ]
+}

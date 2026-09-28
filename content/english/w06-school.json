@@ -1,0 +1,41 @@
+{
+  "id": "school",
+  "line": "words",
+  "order": 6,
+  "title": "At school",
+  "subtitle": "In der Schule",
+  "icon": "🏫",
+  "explain": [
+    { "p": "Viele Schulsachen kennst du schon aus dem Deutschen – aber Vorsicht bei der Schreibung!" },
+    { "table": { "head": ["Englisch", "Deutsch", "Achtung"], "rows": [
+      ["rubber", "Radiergummi", "in den USA: eraser"],
+      ["pencil case", "Federmäppchen", "zwei Wörter"],
+      ["homework", "Hausaufgaben", "ohne -s am Ende!"]
+    ] } },
+    { "ex": [["I've got a new ruler.", "Ich habe ein neues Lineal."], ["Where is my pencil case?", "Wo ist mein Federmäppchen?"]] }
+  ],
+  "vocab": [
+    { "en": "school", "de": "Schule" },
+    { "en": "classroom", "de": "Klassenzimmer" },
+    { "en": "teacher", "de": "Lehrer / Lehrerin" },
+    { "en": "pupil", "de": "Schüler / Schülerin", "alt": ["student"] },
+    { "en": "book", "de": "Buch" },
+    { "en": "exercise book", "de": "Heft" },
+    { "en": "pen", "de": "Füller / Kuli" },
+    { "en": "pencil", "de": "Bleistift" },
+    { "en": "rubber", "de": "Radiergummi", "alt": ["eraser"] },
+    { "en": "ruler", "de": "Lineal" },
+    { "en": "pencil case", "de": "Federmäppchen" },
+    { "en": "schoolbag", "de": "Schultasche", "alt": ["school bag"] },
+    { "en": "board", "de": "Tafel" },
+    { "en": "desk", "de": "Schreibtisch / Pult" },
+    { "en": "chair", "de": "Stuhl" },
+    { "en": "scissors", "de": "Schere" },
+    { "en": "glue stick", "de": "Klebestift" },
+    { "en": "homework", "de": "Hausaufgaben" },
+    { "en": "break", "de": "Pause" },
+    { "en": "lesson", "de": "Unterrichtsstunde" },
+    { "en": "subject", "de": "Schulfach" },
+    { "en": "timetable", "de": "Stundenplan" }
+  ]
+}

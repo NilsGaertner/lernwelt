@@ -1,0 +1,34 @@
+{
+  "id": "clothes",
+  "line": "words",
+  "order": 10,
+  "title": "Clothes",
+  "subtitle": "Kleidung",
+  "icon": "👕",
+  "explain": [
+    { "p": "**trousers**, **jeans** und **shorts** stehen im Englischen immer in der Mehrzahl – eine Hose hat ja zwei Beine: My jeans **are** new." },
+    { "p": "Tragen / anhaben heißt **wear**: I'm wearing a red jumper." },
+    { "tip": "Turnschuhe heißen in Großbritannien **trainers**, in den USA **sneakers**." }
+  ],
+  "vocab": [
+    { "en": "T-shirt", "de": "T-Shirt", "alt": ["tshirt", "t shirt"] },
+    { "en": "shirt", "de": "Hemd" },
+    { "en": "jumper", "de": "Pullover", "alt": ["sweater", "pullover"] },
+    { "en": "trousers", "de": "Hose", "alt": ["pants"] },
+    { "en": "jeans", "de": "Jeans" },
+    { "en": "shorts", "de": "kurze Hose" },
+    { "en": "skirt", "de": "Rock" },
+    { "en": "dress", "de": "Kleid" },
+    { "en": "jacket", "de": "Jacke" },
+    { "en": "coat", "de": "Mantel" },
+    { "en": "shoes", "de": "Schuhe" },
+    { "en": "trainers", "de": "Turnschuhe", "alt": ["sneakers"] },
+    { "en": "socks", "de": "Socken" },
+    { "en": "cap", "de": "Kappe" },
+    { "en": "hat", "de": "Hut / Mütze" },
+    { "en": "scarf", "de": "Schal" },
+    { "en": "gloves", "de": "Handschuhe" },
+    { "en": "boots", "de": "Stiefel" },
+    { "en": "pyjamas", "de": "Schlafanzug", "alt": ["pajamas"] }
+  ]
+}

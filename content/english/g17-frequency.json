@@ -1,0 +1,38 @@
+{
+  "id": "frequency",
+  "line": "grammar",
+  "order": 17,
+  "title": "always, often, never",
+  "subtitle": "Wie oft?",
+  "icon": "⏱️",
+  "explain": [
+    { "p": "Diese Wörter sagen, **wie oft** etwas passiert. Sie sind typische Signalwörter für das Simple Present." },
+    { "table": { "head": ["Englisch", "Deutsch", "wie oft?"], "rows": [
+      ["**always**", "immer", "100 %"],
+      ["**usually**", "normalerweise", "90 %"],
+      ["**often**", "oft", "70 %"],
+      ["**sometimes**", "manchmal", "40 %"],
+      ["**never**", "nie", "0 %"]
+    ] } },
+    { "p": "**Wo stehen sie?** Direkt **vor** dem Verb – aber **nach** am / is / are:" },
+    { "ex": [["I **often** play football.", "Ich spiele oft Fußball."], ["She **never** eats meat.", "Sie isst nie Fleisch."], ["He is **always** late.", "Er ist immer zu spät."]] },
+    { "tip": "Anders als im Deutschen! Nicht „I play often football“, sondern: I **often play** football." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Welcher Satz ist richtig?", "q": "Ich esse immer Frühstück.", "options": ["I always eat breakfast.", "I eat always breakfast.", "Always I eat breakfast.", "I eat breakfast always."], "answer": "I always eat breakfast.", "speak": false },
+    { "type": "choice", "task": "Welcher Satz ist richtig?", "q": "Er ist oft müde.", "options": ["He is often tired.", "He often is tired.", "Often he tired is.", "He is tired often."], "answer": "He is often tired.", "speak": false, "explain": "Bei am/is/are steht das Häufigkeitswort **danach**." },
+    { "type": "choice", "task": "Welcher Satz ist richtig?", "q": "Wir spielen manchmal Tennis.", "options": ["We sometimes play tennis.", "We play sometimes tennis.", "We sometimes plays tennis.", "Sometimes play we tennis."], "answer": "We sometimes play tennis.", "speak": false },
+    { "type": "choice", "q": "I ___ go to bed at 8 o'clock. (normalerweise)", "options": ["usually", "never", "often", "always"], "answer": "usually", "speak": false },
+    { "type": "choice", "q": "My cat ___ drinks milk. It only drinks water. (nie)", "options": ["never", "always", "often", "usually"], "answer": "never", "speak": false },
+    { "type": "choice", "q": "Was heißt „manchmal“?", "options": ["sometimes", "sometime", "some times", "often"], "answer": "sometimes", "speak": false },
+    { "type": "choice", "q": "Was heißt „immer“?", "options": ["always", "all ways", "usually", "ever"], "answer": "always", "speak": false },
+    { "type": "input", "q": "She ___ helps her mum. (oft)", "answer": "often", "hint": "oft", "speak": false },
+    { "type": "input", "q": "I ___ watch horror films. (nie)", "answer": "never", "hint": "nie", "speak": false },
+    { "type": "input", "q": "Tom is ___ happy. (immer)", "answer": "always", "hint": "immer", "speak": false },
+    { "type": "input", "q": "We ___ go swimming on Fridays. (normalerweise)", "answer": "usually", "hint": "normalerweise", "speak": false },
+    { "type": "order", "de": "Ich spiele oft Fußball.", "answer": "I often play football." },
+    { "type": "order", "de": "Sie isst nie Fleisch.", "answer": "She never eats meat." },
+    { "type": "order", "de": "Er ist immer zu spät.", "answer": "He is always late." },
+    { "type": "order", "de": "Wir fahren manchmal mit dem Bus.", "answer": "We sometimes go by bus." }
+  ]
+}

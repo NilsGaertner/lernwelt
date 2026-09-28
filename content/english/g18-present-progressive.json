@@ -1,0 +1,43 @@
+{
+  "id": "present-progressive",
+  "line": "grammar",
+  "order": 18,
+  "title": "I'm playing",
+  "subtitle": "Present Progressive",
+  "icon": "🎬",
+  "explain": [
+    { "p": "Das **Present Progressive** benutzt du für Dinge, die **genau jetzt** passieren – wie bei einem Live-Video." },
+    { "p": "So wird es gebaut: **am / is / are + Verb mit -ing**" },
+    { "table": { "head": ["Wer?", "Form", "Beispiel"], "rows": [
+      ["I", "**am** + -ing", "I'm read**ing**."],
+      ["he / she / it", "**is** + -ing", "She's sleep**ing**."],
+      ["we / you / they", "**are** + -ing", "They're play**ing**."]
+    ] } },
+    { "table": { "head": ["Regel", "Beispiel"], "rows": [
+      ["stummes -e fällt weg", "make → mak**ing**, write → writ**ing**"],
+      ["kurzer Vokal + ein Konsonant → verdoppeln", "swim → swi**mm**ing, run → ru**nn**ing, sit → si**tt**ing"],
+      ["-ie wird zu -y", "lie → l**y**ing"]
+    ] } },
+    { "tip": "Signalwörter: **now**, **at the moment**, **Look!**, **Listen!**" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Look! The dog ___ in the garden.", "options": ["is running", "runs", "are running", "running"], "answer": "is running" },
+    { "type": "choice", "q": "I ___ my homework at the moment.", "options": ["am doing", "is doing", "doing", "do"], "answer": "am doing" },
+    { "type": "choice", "q": "The children ___ football now.", "options": ["are playing", "is playing", "plays", "playing"], "answer": "are playing" },
+    { "type": "choice", "q": "Listen! Mum ___.", "options": ["is singing", "sings", "are singing", "sing"], "answer": "is singing" },
+    { "type": "choice", "q": "Which -ing form is correct? (swim)", "options": ["swimming", "swiming", "swimeing", "swimmming"], "answer": "swimming", "speak": false, "explain": "Kurzer Vokal + ein Konsonant → verdoppeln: swi**mm**ing." },
+    { "type": "choice", "q": "Which -ing form is correct? (write)", "options": ["writing", "writeing", "writting", "writes"], "answer": "writing", "speak": false, "explain": "Stummes -e fällt weg: writ**ing**." },
+    { "type": "choice", "q": "Which -ing form is correct? (play)", "options": ["playing", "plaing", "playying", "plaiing"], "answer": "playing", "speak": false },
+    { "type": "choice", "q": "Are you watching TV? – No, ___.", "options": ["I'm not", "I don't", "I amn't", "I isn't"], "answer": "I'm not", "explain": "Kurzantwort: No, I**'m not**." },
+    { "type": "input", "q": "She is ___ a book. (read)", "answer": "reading", "hint": "read" },
+    { "type": "input", "q": "We are ___ a cake. (make)", "answer": "making", "hint": "make" },
+    { "type": "input", "q": "He is ___ on the chair. (sit)", "answer": "sitting", "hint": "sit" },
+    { "type": "input", "q": "I ___ listening to music.", "answer": "am", "hint": "am / is / are" },
+    { "type": "input", "q": "They ___ eating lunch.", "answer": "are", "hint": "am / is / are" },
+    { "type": "input", "q": "The baby ___ sleeping.", "answer": "is", "hint": "am / is / are" },
+    { "type": "input", "q": "My dad is ___ the car. (wash)", "answer": "washing", "hint": "wash" },
+    { "type": "order", "de": "Ich lese gerade ein Buch.", "answer": "I am reading a book.", "accept": ["I'm reading a book."] },
+    { "type": "order", "de": "Was machst du gerade?", "answer": "What are you doing?" },
+    { "type": "order", "de": "Die Kinder spielen im Park.", "answer": "The children are playing in the park." }
+  ]
+}

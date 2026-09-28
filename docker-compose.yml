@@ -1,0 +1,17 @@
+services:
+  lernwelt:
+    build: .
+    image: lernwelt:latest
+    container_name: lernwelt
+    restart: unless-stopped
+    ports:
+      - "8080:8080"          # links den Port anpassen, falls 8080 auf dem Server schon belegt ist
+    environment:
+      - TZ=Europe/Berlin
+      - PARENT_PIN=1234      # Start-PIN für den Elternbereich (gilt nur beim allerersten Start)
+    volumes:
+      # Fortschritt, Sterne und Einstellungen – bleiben bei Updates erhalten
+      - /mnt/user/appdata/lernwelt/data:/data
+      # Optional: Inhalte von außen einbinden, um sie ohne Neubau zu bearbeiten
+      # (danach im Elternbereich „Inhalte neu einlesen“ klicken)
+      # - /mnt/user/appdata/lernwelt/content:/app/content

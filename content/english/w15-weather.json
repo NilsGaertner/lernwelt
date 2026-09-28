@@ -1,0 +1,40 @@
+{
+  "id": "weather",
+  "line": "words",
+  "order": 15,
+  "title": "Weather and seasons",
+  "subtitle": "Wetter und Jahreszeiten",
+  "icon": "🌦️",
+  "explain": [
+    { "p": "Aus vielen Wetter-Nomen wird mit **-y** ein Adjektiv: sun → sunn**y**, rain → rain**y**, cloud → cloud**y**, wind → wind**y**." },
+    { "ex": [["What's the weather like today?", "Wie ist das Wetter heute?"], ["It's sunny and warm.", "Es ist sonnig und warm."], ["It's raining.", "Es regnet."]] },
+    { "tip": "Herbst heißt in Großbritannien **autumn**, in den USA **fall**." }
+  ],
+  "vocab": [
+    { "en": "weather", "de": "Wetter" },
+    { "en": "sun", "de": "Sonne" },
+    { "en": "sunny", "de": "sonnig" },
+    { "en": "rain", "de": "Regen" },
+    { "en": "rainy", "de": "regnerisch" },
+    { "en": "cloud", "de": "Wolke" },
+    { "en": "cloudy", "de": "bewölkt" },
+    { "en": "wind", "de": "Wind" },
+    { "en": "windy", "de": "windig" },
+    { "en": "snow", "de": "Schnee" },
+    { "en": "foggy", "de": "neblig" },
+    { "en": "hot", "de": "heiß" },
+    { "en": "warm", "de": "warm" },
+    { "en": "cold", "de": "kalt" },
+    { "en": "spring", "de": "Frühling" },
+    { "en": "summer", "de": "Sommer" },
+    { "en": "autumn", "de": "Herbst", "alt": ["fall"] },
+    { "en": "winter", "de": "Winter" },
+    { "en": "season", "de": "Jahreszeit" },
+    { "en": "thunderstorm", "de": "Gewitter" }
+  ],
+  "exercises": [
+    { "type": "order", "de": "Wie ist das Wetter heute?", "answer": "What's the weather like today?" },
+    { "type": "order", "de": "Es ist kalt und windig.", "answer": "It's cold and windy." },
+    { "type": "choice", "q": "It's ___ today. Take your umbrella!", "options": ["rainy", "sunny", "hot", "warm"], "answer": "rainy", "explain": "umbrella = Regenschirm. Den braucht man, wenn es **rainy** ist." }
+  ]
+}

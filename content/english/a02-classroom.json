@@ -1,0 +1,34 @@
+{
+  "id": "classroom",
+  "line": "everyday",
+  "order": 2,
+  "title": "Classroom English",
+  "subtitle": "Sätze für den Unterricht",
+  "icon": "🙋",
+  "explain": [
+    { "p": "Diese Sätze hörst und brauchst du in jeder Englischstunde. Wenn du sie kennst, verstehst du viel mehr – und kannst selbst nachfragen!" },
+    { "tip": "Traust du dich? Frag im Unterricht einfach: **Can you say that again, please?** Das zeigt, dass du mitdenkst." }
+  ],
+  "typing": false,
+  "vocab": [
+    { "en": "Open your books.", "de": "Öffnet eure Bücher." },
+    { "en": "Close your books.", "de": "Schließt eure Bücher." },
+    { "en": "Listen.", "de": "Hört zu." },
+    { "en": "Look at the board.", "de": "Schaut an die Tafel." },
+    { "en": "Sit down, please.", "de": "Setzt euch bitte." },
+    { "en": "Stand up, please.", "de": "Steht bitte auf." },
+    { "en": "Be quiet, please.", "de": "Seid bitte leise." },
+    { "en": "Work with a partner.", "de": "Arbeitet mit einem Partner." },
+    { "en": "Can you help me, please?", "de": "Können Sie mir bitte helfen?" },
+    { "en": "Can you say that again, please?", "de": "Können Sie das bitte wiederholen?" },
+    { "en": "What does that mean?", "de": "Was bedeutet das?" },
+    { "en": "How do you say that in English?", "de": "Wie sagt man das auf Englisch?" },
+    { "en": "I don't know.", "de": "Ich weiß es nicht." },
+    { "en": "I don't understand.", "de": "Ich verstehe das nicht." },
+    { "en": "Sorry, I'm late.", "de": "Entschuldigung, dass ich zu spät bin." },
+    { "en": "Can I go to the toilet, please?", "de": "Darf ich bitte auf die Toilette gehen?" },
+    { "en": "I haven't got my homework.", "de": "Ich habe meine Hausaufgaben nicht." },
+    { "en": "What page?", "de": "Welche Seite?" },
+    { "en": "Here you are.", "de": "Bitte schön. (beim Geben)" }
+  ]
+}

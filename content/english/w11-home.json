@@ -1,0 +1,35 @@
+{
+  "id": "home",
+  "line": "words",
+  "order": 11,
+  "title": "My home",
+  "subtitle": "Zuhause",
+  "icon": "🏠",
+  "explain": [
+    { "p": "Eine Wohnung heißt in Großbritannien **flat**, in den USA **apartment**." },
+    { "p": "Zimmer mit **room** am Ende: bed**room**, bath**room**, living **room** (zwei Wörter!)." },
+    { "ex": [["My bedroom is small, but I like it.", "Mein Schlafzimmer ist klein, aber ich mag es."], ["We live in a flat.", "Wir wohnen in einer Wohnung."]] }
+  ],
+  "vocab": [
+    { "en": "house", "de": "Haus" },
+    { "en": "flat", "de": "Wohnung", "alt": ["apartment"] },
+    { "en": "room", "de": "Zimmer" },
+    { "en": "bedroom", "de": "Schlafzimmer" },
+    { "en": "bathroom", "de": "Badezimmer" },
+    { "en": "kitchen", "de": "Küche" },
+    { "en": "living room", "de": "Wohnzimmer" },
+    { "en": "garden", "de": "Garten" },
+    { "en": "door", "de": "Tür" },
+    { "en": "window", "de": "Fenster" },
+    { "en": "table", "de": "Tisch" },
+    { "en": "bed", "de": "Bett" },
+    { "en": "sofa", "de": "Sofa" },
+    { "en": "cupboard", "de": "Schrank" },
+    { "en": "lamp", "de": "Lampe" },
+    { "en": "stairs", "de": "Treppe" },
+    { "en": "wall", "de": "Wand" },
+    { "en": "floor", "de": "Fußboden" },
+    { "en": "shelf", "de": "Regal" },
+    { "en": "toilet", "de": "Toilette" }
+  ]
+}

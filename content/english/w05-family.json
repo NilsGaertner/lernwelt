@@ -1,0 +1,35 @@
+{
+  "id": "family",
+  "line": "words",
+  "order": 5,
+  "title": "My family",
+  "subtitle": "Familie",
+  "icon": "👪",
+  "explain": [
+    { "p": "**mother** und **father** sind die „offiziellen“ Wörter. Zuhause sagt man meistens **mum** und **dad** (in den USA: mom)." },
+    { "p": "**cousin** passt für Jungen und Mädchen – also für Cousin und Cousine." },
+    { "ex": [["This is my sister. Her name is Lena.", "Das ist meine Schwester. Sie heißt Lena."], ["I have got two brothers.", "Ich habe zwei Brüder."]] }
+  ],
+  "vocab": [
+    { "en": "mother", "de": "Mutter" },
+    { "en": "father", "de": "Vater" },
+    { "en": "mum", "de": "Mama", "alt": ["mom", "mummy"] },
+    { "en": "dad", "de": "Papa", "alt": ["daddy"] },
+    { "en": "parents", "de": "Eltern" },
+    { "en": "brother", "de": "Bruder" },
+    { "en": "sister", "de": "Schwester" },
+    { "en": "grandma", "de": "Oma", "alt": ["granny", "grandmother"] },
+    { "en": "grandpa", "de": "Opa", "alt": ["grandad", "granddad", "grandfather"] },
+    { "en": "grandparents", "de": "Großeltern" },
+    { "en": "aunt", "de": "Tante" },
+    { "en": "uncle", "de": "Onkel" },
+    { "en": "cousin", "de": "Cousin / Cousine" },
+    { "en": "son", "de": "Sohn" },
+    { "en": "daughter", "de": "Tochter" },
+    { "en": "baby", "de": "Baby" },
+    { "en": "family", "de": "Familie" },
+    { "en": "twins", "de": "Zwillinge" },
+    { "en": "boy", "de": "Junge" },
+    { "en": "girl", "de": "Mädchen" }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "hello",
+  "line": "everyday",
+  "order": 1,
+  "title": "Hello and goodbye",
+  "subtitle": "Begrüßen und Vorstellen",
+  "icon": "👋",
+  "explain": [
+    { "p": "Mit diesen Sätzen kannst du dich vorstellen und jemanden kennenlernen." },
+    { "ex": [
+      ["Hi! What's your name?", "Hallo! Wie heißt du?"],
+      ["My name is Jonas. / I'm Jonas.", "Ich heiße Jonas."],
+      ["How old are you?", "Wie alt bist du?"],
+      ["I'm ten years old.", "Ich bin zehn Jahre alt."],
+      ["Where are you from?", "Woher kommst du?"],
+      ["I'm from Germany.", "Ich komme aus Deutschland."],
+      ["Nice to meet you!", "Schön, dich kennenzulernen!"]
+    ] },
+    { "tip": "Beim Alter sagt man **I'm** ten – nicht „I have ten“!" }
+  ],
+  "typing": false,
+  "vocab": [
+    { "en": "Good morning!", "de": "Guten Morgen!" },
+    { "en": "Good afternoon!", "de": "Guten Tag! (nachmittags)" },
+    { "en": "Good evening!", "de": "Guten Abend!" },
+    { "en": "Good night!", "de": "Gute Nacht!" },
+    { "en": "Goodbye!", "de": "Auf Wiedersehen!" },
+    { "en": "See you later!", "de": "Bis später!" },
+    { "en": "How are you?", "de": "Wie geht es dir?" },
+    { "en": "I'm fine, thanks.", "de": "Mir geht es gut, danke." },
+    { "en": "What's your name?", "de": "Wie heißt du?" },
+    { "en": "My name is Max.", "de": "Ich heiße Max." },
+    { "en": "How old are you?", "de": "Wie alt bist du?" },
+    { "en": "I'm ten years old.", "de": "Ich bin zehn Jahre alt." },
+    { "en": "Where are you from?", "de": "Woher kommst du?" },
+    { "en": "I'm from Germany.", "de": "Ich komme aus Deutschland." },
+    { "en": "Nice to meet you.", "de": "Schön, dich kennenzulernen." },
+    { "en": "Thank you!", "de": "Danke!" },
+    { "en": "You're welcome.", "de": "Gern geschehen." },
+    { "en": "Sorry!", "de": "Entschuldigung! (Es tut mir leid.)" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "How old are you? – ___", "options": ["I'm eleven.", "I have eleven.", "I'm eleven years.", "I'm fine."], "answer": "I'm eleven.", "speak": false, "explain": "Beim Alter: **I'm** eleven (years old). Nie „I have“!" },
+    { "type": "choice", "q": "How are you? – ___", "options": ["I'm fine, thanks.", "I'm Tom.", "I'm ten.", "I'm from Berlin."], "answer": "I'm fine, thanks.", "speak": false },
+    { "type": "choice", "q": "Thank you! – ___", "options": ["You're welcome.", "Sorry.", "Please.", "Goodbye."], "answer": "You're welcome.", "speak": false },
+    { "type": "choice", "q": "Where are you from? – ___", "options": ["I'm from Germany.", "I'm Germany.", "I come Germany.", "I live Germany."], "answer": "I'm from Germany.", "speak": false }
+  ]
+}

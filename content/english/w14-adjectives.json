@@ -1,0 +1,40 @@
+{
+  "id": "adjectives",
+  "line": "words",
+  "order": 14,
+  "title": "Describing things",
+  "subtitle": "Eigenschaftswörter",
+  "icon": "📏",
+  "explain": [
+    { "p": "Eigenschaftswörter (Adjektive) beschreiben, wie etwas ist. Sie stehen **vor** dem Nomen und verändern sich nie:" },
+    { "ex": [["a big dog", "ein großer Hund"], ["big dogs", "große Hunde"], ["The film is boring.", "Der Film ist langweilig."]] },
+    { "tip": "Viele Adjektive lernt man am besten als Gegenteil-Paar: big – small, old – new, fast – slow." }
+  ],
+  "vocab": [
+    { "en": "big", "de": "groß" },
+    { "en": "small", "de": "klein" },
+    { "en": "old", "de": "alt" },
+    { "en": "new", "de": "neu" },
+    { "en": "young", "de": "jung" },
+    { "en": "good", "de": "gut" },
+    { "en": "bad", "de": "schlecht" },
+    { "en": "happy", "de": "glücklich" },
+    { "en": "sad", "de": "traurig" },
+    { "en": "fast", "de": "schnell" },
+    { "en": "slow", "de": "langsam" },
+    { "en": "nice", "de": "nett" },
+    { "en": "beautiful", "de": "schön" },
+    { "en": "funny", "de": "lustig" },
+    { "en": "boring", "de": "langweilig" },
+    { "en": "easy", "de": "leicht / einfach" },
+    { "en": "difficult", "de": "schwierig" },
+    { "en": "long", "de": "lang" },
+    { "en": "short", "de": "kurz" },
+    { "en": "clean", "de": "sauber" },
+    { "en": "dirty", "de": "schmutzig" },
+    { "en": "tired", "de": "müde" },
+    { "en": "friendly", "de": "freundlich" },
+    { "en": "loud", "de": "laut" },
+    { "en": "quiet", "de": "leise / ruhig" }
+  ]
+}

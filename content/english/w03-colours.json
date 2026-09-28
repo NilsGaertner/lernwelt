@@ -1,0 +1,35 @@
+{
+  "id": "colours",
+  "line": "words",
+  "order": 3,
+  "title": "Colours",
+  "subtitle": "Farben",
+  "icon": "🎨",
+  "explain": [
+    { "p": "In Großbritannien schreibt man **colour**, in den USA **color**. Beides ist richtig – in der Schule lernst du meistens die britische Form." },
+    { "p": "Hell- und Dunkel-: **light** blue (hellblau), **dark** green (dunkelgrün)." },
+    { "ex": [["My bike is red.", "Mein Fahrrad ist rot."], ["What colour is your bag? – It's blue.", "Welche Farbe hat deine Tasche? – Sie ist blau."]] }
+  ],
+  "vocab": [
+    { "en": "red", "de": "rot" },
+    { "en": "blue", "de": "blau" },
+    { "en": "green", "de": "grün" },
+    { "en": "yellow", "de": "gelb" },
+    { "en": "orange", "de": "orange" },
+    { "en": "purple", "de": "lila" },
+    { "en": "pink", "de": "rosa" },
+    { "en": "brown", "de": "braun" },
+    { "en": "black", "de": "schwarz" },
+    { "en": "white", "de": "weiß" },
+    { "en": "grey", "de": "grau", "alt": ["gray"] },
+    { "en": "light blue", "de": "hellblau" },
+    { "en": "dark green", "de": "dunkelgrün" },
+    { "en": "colour", "de": "Farbe", "alt": ["color"] }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "The sky is ___.", "options": ["blue", "black", "brown", "pink"], "answer": "blue" },
+    { "type": "choice", "q": "Snow is ___.", "options": ["white", "yellow", "green", "red"], "answer": "white" },
+    { "type": "choice", "q": "Bananas are ___.", "options": ["yellow", "purple", "grey", "blue"], "answer": "yellow" },
+    { "type": "order", "de": "Welche Farbe hat dein Fahrrad?", "answer": "What colour is your bike?", "accept": ["What color is your bike?"] }
+  ]
+}

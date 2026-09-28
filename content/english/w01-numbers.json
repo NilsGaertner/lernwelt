@@ -1,0 +1,43 @@
+{
+  "id": "numbers",
+  "line": "words",
+  "order": 1,
+  "title": "Numbers 1–20",
+  "subtitle": "Zahlen bis 20",
+  "icon": "🔢",
+  "explain": [
+    { "p": "Die Zahlen von **13 bis 19** enden alle auf **-teen**: thir**teen**, four**teen**, fif**teen** …" },
+    { "table": { "head": ["Zahl", "Englisch", "Achtung"], "rows": [
+      ["3", "three", ""],
+      ["13", "thirteen", "nicht „threeteen“"],
+      ["5", "five", ""],
+      ["15", "fifteen", "nicht „fiveteen“"],
+      ["8", "eight", ""],
+      ["18", "eighteen", "nur ein t"]
+    ] } },
+    { "tip": "Hör genau hin: Bei **-teen** liegt die Betonung am Ende: four**TEEN**." }
+  ],
+  "vocab": [
+    { "en": "one", "de": "1" },
+    { "en": "two", "de": "2" },
+    { "en": "three", "de": "3" },
+    { "en": "four", "de": "4" },
+    { "en": "five", "de": "5" },
+    { "en": "six", "de": "6" },
+    { "en": "seven", "de": "7" },
+    { "en": "eight", "de": "8" },
+    { "en": "nine", "de": "9" },
+    { "en": "ten", "de": "10" },
+    { "en": "eleven", "de": "11" },
+    { "en": "twelve", "de": "12" },
+    { "en": "thirteen", "de": "13" },
+    { "en": "fourteen", "de": "14" },
+    { "en": "fifteen", "de": "15" },
+    { "en": "sixteen", "de": "16" },
+    { "en": "seventeen", "de": "17" },
+    { "en": "eighteen", "de": "18" },
+    { "en": "nineteen", "de": "19" },
+    { "en": "twenty", "de": "20" },
+    { "en": "zero", "de": "0" }
+  ]
+}

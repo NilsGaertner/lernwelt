@@ -1,0 +1,47 @@
+{
+  "id": "numbers-100",
+  "line": "words",
+  "order": 2,
+  "title": "Numbers to 100",
+  "subtitle": "Zahlen bis 100",
+  "icon": "💯",
+  "explain": [
+    { "p": "Die Zehner enden auf **-ty**: twen**ty**, thir**ty**, for**ty** …" },
+    { "p": "Anders als im Deutschen sagt man zuerst den Zehner, dann den Einer – mit Bindestrich: **twenty-one** (21), **forty-five** (45)." },
+    { "table": { "head": ["Zahl", "Englisch", "Achtung"], "rows": [
+      ["40", "forty", "ohne u! (aber: four, fourteen)"],
+      ["50", "fifty", "nicht „fivety“"],
+      ["80", "eighty", "nur ein t"],
+      ["100", "a hundred", "oder: one hundred"]
+    ] } },
+    { "tip": "Deutsch: ein**und**zwanzig. Englisch: twenty-**one**. Die Reihenfolge ist umgekehrt!" }
+  ],
+  "vocab": [
+    { "en": "thirty", "de": "30" },
+    { "en": "forty", "de": "40" },
+    { "en": "fifty", "de": "50" },
+    { "en": "sixty", "de": "60" },
+    { "en": "seventy", "de": "70" },
+    { "en": "eighty", "de": "80" },
+    { "en": "ninety", "de": "90" },
+    { "en": "a hundred", "de": "100", "alt": ["one hundred", "hundred"] },
+    { "en": "twenty-one", "de": "21", "alt": ["twenty one"] },
+    { "en": "twenty-five", "de": "25", "alt": ["twenty five"] },
+    { "en": "thirty-three", "de": "33", "alt": ["thirty three"] },
+    { "en": "forty-four", "de": "44", "alt": ["forty four"] },
+    { "en": "fifty-eight", "de": "58", "alt": ["fifty eight"] },
+    { "en": "sixty-two", "de": "62", "alt": ["sixty two"] },
+    { "en": "seventy-nine", "de": "79", "alt": ["seventy nine"] },
+    { "en": "eighty-six", "de": "86", "alt": ["eighty six"] },
+    { "en": "ninety-nine", "de": "99", "alt": ["ninety nine"] }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Which number is **forty-three**?", "options": ["43", "34", "403", "14"], "answer": "43", "speak": false },
+    { "type": "choice", "q": "Which number is **fifteen**?", "options": ["15", "50", "51", "5"], "answer": "15", "speak": false },
+    { "type": "choice", "q": "How do you write 40?", "options": ["forty", "fourty", "fourteen", "fortee"], "answer": "forty", "explain": "40 = **forty** – ohne u. Nur four und fourteen haben ein u." },
+    { "type": "choice", "q": "How do you write 50?", "options": ["fifty", "fivety", "fiveteen", "fifteen"], "answer": "fifty", "explain": "Aus five wird **fif-**: fifteen (15), fifty (50)." },
+    { "type": "input", "q": "10 + 10 = ___", "answer": "twenty", "task": "Schreib die Zahl auf Englisch.", "speak": false },
+    { "type": "input", "q": "30 + 30 = ___", "answer": "sixty", "task": "Schreib die Zahl auf Englisch.", "speak": false },
+    { "type": "input", "q": "50 + 50 = ___", "answer": "a hundred", "accept": ["one hundred", "hundred"], "task": "Schreib die Zahl auf Englisch.", "speak": false }
+  ]
+}

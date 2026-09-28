@@ -1,0 +1,12 @@
+{
+  "id": "english",
+  "name": "Englisch",
+  "icon": "🇬🇧",
+  "order": 1,
+  "speechLang": "en-GB",
+  "lines": [
+    { "id": "words", "name": "Wörter-Linie", "short": "Wörter", "color": "#1F6FD1" },
+    { "id": "grammar", "name": "Grammatik-Linie", "short": "Grammatik", "color": "#0E8A4B" },
+    { "id": "everyday", "name": "Alltags-Linie", "short": "Alltag", "color": "#8B3FA3" }
+  ]
+}

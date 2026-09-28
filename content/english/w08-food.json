@@ -1,0 +1,39 @@
+{
+  "id": "food",
+  "line": "words",
+  "order": 8,
+  "title": "Food and drinks",
+  "subtitle": "Essen und Trinken",
+  "icon": "🍎",
+  "explain": [
+    { "p": "Achtung, Falle! In Großbritannien sind **chips** Pommes frites. Kartoffelchips heißen **crisps**." },
+    { "p": "Die Mahlzeiten: **breakfast** (Frühstück), **lunch** (Mittagessen), **dinner** (Abendessen)." },
+    { "ex": [["I'm hungry. Can I have a sandwich, please?", "Ich habe Hunger. Kann ich bitte ein Sandwich haben?"], ["I like apples, but I don't like bananas.", "Ich mag Äpfel, aber ich mag keine Bananen."]] }
+  ],
+  "vocab": [
+    { "en": "bread", "de": "Brot" },
+    { "en": "butter", "de": "Butter" },
+    { "en": "cheese", "de": "Käse" },
+    { "en": "egg", "de": "Ei" },
+    { "en": "apple", "de": "Apfel" },
+    { "en": "banana", "de": "Banane" },
+    { "en": "milk", "de": "Milch" },
+    { "en": "water", "de": "Wasser" },
+    { "en": "juice", "de": "Saft" },
+    { "en": "tea", "de": "Tee" },
+    { "en": "chips", "de": "Pommes frites" },
+    { "en": "crisps", "de": "Kartoffelchips" },
+    { "en": "sausage", "de": "Würstchen" },
+    { "en": "potato", "de": "Kartoffel" },
+    { "en": "tomato", "de": "Tomate" },
+    { "en": "carrot", "de": "Karotte" },
+    { "en": "cake", "de": "Kuchen" },
+    { "en": "biscuit", "de": "Keks", "alt": ["cookie"] },
+    { "en": "ice cream", "de": "Eis (zum Essen)", "alt": ["icecream"] },
+    { "en": "breakfast", "de": "Frühstück" },
+    { "en": "lunch", "de": "Mittagessen" },
+    { "en": "dinner", "de": "Abendessen" },
+    { "en": "hungry", "de": "hungrig" },
+    { "en": "thirsty", "de": "durstig" }
+  ]
+}

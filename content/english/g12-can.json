@@ -1,0 +1,36 @@
+{
+  "id": "can",
+  "line": "grammar",
+  "order": 12,
+  "title": "can / can't",
+  "subtitle": "Können und dürfen",
+  "icon": "💪",
+  "explain": [
+    { "p": "**can** heißt „kann / können“ oder „darf / dürfen“. Das Gute: **can** bleibt immer gleich – auch bei he, she, it!" },
+    { "table": { "head": ["", "Englisch", "Deutsch"], "rows": [
+      ["Aussage", "I **can** swim. She **can** swim.", "Ich kann schwimmen. Sie kann schwimmen."],
+      ["Verneinung", "I **can't** swim. (cannot)", "Ich kann nicht schwimmen."],
+      ["Frage", "**Can** you swim?", "Kannst du schwimmen?"],
+      ["Kurzantwort", "Yes, I **can**. / No, I **can't**.", "Ja. / Nein."]
+    ] } },
+    { "tip": "Nach can kommt das Verb **ohne** to und **ohne** -s: She can swim. — nicht „She can swims“ oder „She can to swim“." },
+    { "p": "Höflich fragen: **Can I** go to the toilet, please? (Darf ich …?)" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "She ___ play the piano.", "options": ["can", "cans", "can to", "is can"], "answer": "can", "explain": "can bleibt immer gleich: she **can**." },
+    { "type": "choice", "q": "My brother can ___ very fast.", "options": ["run", "runs", "to run", "running"], "answer": "run", "explain": "Nach can: Verb ohne -s und ohne to." },
+    { "type": "choice", "q": "I ___ swim. I'm scared of water.", "options": ["can't", "can", "don't can", "not can"], "answer": "can't" },
+    { "type": "choice", "q": "___ you ride a bike?", "options": ["Can", "Do", "Are", "Is"], "answer": "Can" },
+    { "type": "choice", "q": "Can your dad cook? – Yes, he ___.", "options": ["can", "does", "is", "cans"], "answer": "can" },
+    { "type": "choice", "q": "Can you dance? – No, I ___.", "options": ["can't", "don't", "am not", "not"], "answer": "can't" },
+    { "type": "choice", "q": "Penguins ___ fly.", "de": "Pinguine können nicht fliegen.", "options": ["can't", "can", "don't can", "aren't"], "answer": "can't" },
+    { "type": "choice", "q": "___ I open the window, please?", "de": "Darf ich bitte das Fenster öffnen?", "options": ["Can", "Do", "Am", "Have"], "answer": "Can" },
+    { "type": "input", "q": "Birds ___ fly.", "answer": "can", "hint": "können" },
+    { "type": "input", "q": "Fish ___ walk.", "answer": "can't", "hint": "können nicht (Kurzform)" },
+    { "type": "input", "q": "My sister can ___ three languages.", "answer": "speak", "hint": "sprechen" },
+    { "type": "input", "q": "___ you help me, please?", "answer": "Can", "hint": "Kannst …?" },
+    { "type": "order", "de": "Kannst du schwimmen?", "answer": "Can you swim?" },
+    { "type": "order", "de": "Er kann nicht singen.", "answer": "He can't sing.", "accept": ["He cannot sing."] },
+    { "type": "order", "de": "Darf ich mitkommen?", "answer": "Can I come with you?" }
+  ]
+}

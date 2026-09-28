@@ -1,0 +1,44 @@
+{
+  "id": "to-be",
+  "line": "grammar",
+  "order": 2,
+  "title": "am, is, are",
+  "subtitle": "Das Verb „sein“",
+  "icon": "🟰",
+  "explain": [
+    { "p": "„sein“ heißt auf Englisch **to be**. Es hat drei Formen: **am**, **is** und **are**." },
+    { "table": { "head": ["Langform", "Kurzform", "Deutsch"], "rows": [
+      ["I **am**", "I'm", "ich bin"],
+      ["you **are**", "you're", "du bist"],
+      ["he / she / it **is**", "he's / she's / it's", "er / sie / es ist"],
+      ["we **are**", "we're", "wir sind"],
+      ["you **are**", "you're", "ihr seid"],
+      ["they **are**", "they're", "sie sind"]
+    ] } },
+    { "tip": "Merksatz: **I → am**. **He, she, it → is**. **Alle anderen → are**." },
+    { "p": "Für ein Ding, eine Person oder ein Tier steht **is**, für mehrere **are**:" },
+    { "ex": [["My dog is black.", "Mein Hund ist schwarz."], ["My dogs are black.", "Meine Hunde sind schwarz."]] }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "I ___ ten years old.", "options": ["am", "is", "are"], "answer": "am", "explain": "Nach **I** kommt immer **am**." },
+    { "type": "choice", "q": "She ___ my best friend.", "options": ["is", "am", "are"], "answer": "is", "explain": "he, she, it → **is**." },
+    { "type": "choice", "q": "We ___ in the garden.", "options": ["are", "is", "am"], "answer": "are", "explain": "we → **are**." },
+    { "type": "choice", "q": "My cat ___ very old.", "options": ["is", "are", "am"], "answer": "is", "explain": "My cat = it → **is**." },
+    { "type": "choice", "q": "Tom and Ben ___ brothers.", "options": ["are", "is", "am"], "answer": "are", "explain": "Tom und Ben = they → **are**." },
+    { "type": "choice", "q": "You ___ very funny!", "options": ["are", "is", "am"], "answer": "are", "explain": "you → **are**." },
+    { "type": "choice", "q": "It ___ cold today.", "options": ["is", "are", "am"], "answer": "is" },
+    { "type": "choice", "q": "My parents ___ at work.", "options": ["are", "is", "am"], "answer": "are", "explain": "My parents = they → **are**." },
+    { "type": "input", "q": "I ___ from Germany.", "answer": "am", "hint": "am / is / are" },
+    { "type": "input", "q": "He ___ twelve.", "answer": "is", "hint": "am / is / are" },
+    { "type": "input", "q": "They ___ in my class.", "answer": "are", "hint": "am / is / are" },
+    { "type": "input", "q": "The pencils ___ on the desk.", "answer": "are", "hint": "am / is / are" },
+    { "type": "input", "q": "My mum ___ a teacher.", "answer": "is", "hint": "am / is / are" },
+    { "type": "input", "q": "We ___ hungry.", "answer": "are", "hint": "am / is / are" },
+    { "type": "choice", "task": "Welche Kurzform ist richtig?", "q": "I am happy. → ___ happy.", "options": ["I'm", "I's", "Im'", "I're"], "answer": "I'm", "speak": false },
+    { "type": "choice", "task": "Welche Kurzform ist richtig?", "q": "They are late. → ___ late.", "options": ["They're", "Their", "They's", "There"], "answer": "They're", "speak": false, "explain": "they are → **they're**. Achtung: **their** (ihr/ihre) und **there** (dort) sind andere Wörter!" },
+    { "type": "choice", "task": "Welche Kurzform ist richtig?", "q": "She is nice. → ___ nice.", "options": ["She's", "Shes'", "She're", "She'm"], "answer": "She's", "speak": false },
+    { "type": "order", "de": "Ich bin elf Jahre alt.", "answer": "I am eleven years old.", "accept": ["I'm eleven years old."] },
+    { "type": "order", "de": "Sie sind meine Freunde.", "answer": "They are my friends." },
+    { "type": "order", "de": "Mein Name ist Max.", "answer": "My name is Max." }
+  ]
+}

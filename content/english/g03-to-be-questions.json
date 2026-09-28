@@ -1,0 +1,41 @@
+{
+  "id": "to-be-not",
+  "line": "grammar",
+  "order": 3,
+  "title": "I'm not … / Are you …?",
+  "subtitle": "„sein“: Verneinung und Fragen",
+  "icon": "❓",
+  "explain": [
+    { "p": "**Verneinung:** Du hängst einfach **not** an am / is / are." },
+    { "table": { "head": ["Langform", "Kurzform"], "rows": [
+      ["I am **not**", "I'm not"],
+      ["he / she / it is **not**", "he / she / it **isn't**"],
+      ["we / you / they are **not**", "we / you / they **aren't**"]
+    ] } },
+    { "p": "**Fragen:** Du stellst am / is / are einfach **nach vorne** – wie im Deutschen „Bist du …?“." },
+    { "ex": [["You are ten. → Are you ten?", "Du bist zehn. → Bist du zehn?"], ["He is at home. → Is he at home?", "Er ist zu Hause. → Ist er zu Hause?"]] },
+    { "p": "**Kurzantworten:** Yes, I **am**. / No, I'**m not**. — Yes, she **is**. / No, she **isn't**. — Yes, they **are**. / No, they **aren't**." },
+    { "tip": "Bei „Yes“ darf man keine Kurzform benutzen: „Yes, I am.“ – nicht „Yes, I'm.“" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "I ___ tired.", "de": "Ich bin nicht müde.", "options": ["am not", "isn't", "aren't", "not am"], "answer": "am not" },
+    { "type": "choice", "q": "She ___ at school today.", "de": "Sie ist heute nicht in der Schule.", "options": ["isn't", "aren't", "am not", "not is"], "answer": "isn't" },
+    { "type": "choice", "q": "We ___ hungry.", "de": "Wir sind nicht hungrig.", "options": ["aren't", "isn't", "am not", "not are"], "answer": "aren't" },
+    { "type": "choice", "q": "The dog ___ in the garden.", "de": "Der Hund ist nicht im Garten.", "options": ["isn't", "aren't", "not is", "am not"], "answer": "isn't" },
+    { "type": "choice", "q": "___ you from England?", "options": ["Are", "Is", "Am", "Do"], "answer": "Are", "explain": "you → **are** → Are you …?" },
+    { "type": "choice", "q": "___ your sister eight?", "options": ["Is", "Are", "Am", "Does"], "answer": "Is", "explain": "your sister = she → **is** → Is your sister …?" },
+    { "type": "choice", "q": "___ Tom and Ben at home?", "options": ["Are", "Is", "Am", "Do"], "answer": "Are" },
+    { "type": "choice", "q": "___ I late?", "options": ["Am", "Is", "Are", "Do"], "answer": "Am" },
+    { "type": "choice", "q": "Are you ten? – Yes, ___.", "options": ["I am", "I'm", "you are", "I is"], "answer": "I am", "explain": "Bei „Yes“ keine Kurzform: **Yes, I am.**" },
+    { "type": "choice", "q": "Is she your cousin? – No, she ___.", "options": ["isn't", "aren't", "is", "not"], "answer": "isn't" },
+    { "type": "choice", "q": "Are they your friends? – Yes, they ___.", "options": ["are", "is", "aren't", "am"], "answer": "are" },
+    { "type": "choice", "q": "Is it your bag? – No, it ___.", "options": ["isn't", "aren't", "not", "is"], "answer": "isn't" },
+    { "type": "input", "q": "He ___ my brother. He's my cousin.", "answer": "isn't", "hint": "Verneinung, Kurzform" },
+    { "type": "input", "q": "They ___ at school. They're at home.", "answer": "aren't", "hint": "Verneinung, Kurzform" },
+    { "type": "input", "q": "___ he your teacher?", "answer": "Is", "hint": "Frage" },
+    { "type": "input", "q": "___ you OK?", "answer": "Are", "hint": "Frage" },
+    { "type": "order", "de": "Bist du müde?", "answer": "Are you tired?" },
+    { "type": "order", "de": "Ist das deine Katze?", "answer": "Is this your cat?" },
+    { "type": "order", "de": "Wir sind nicht in London.", "answer": "We aren't in London.", "accept": ["We are not in London."] }
+  ]
+}

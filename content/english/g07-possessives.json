@@ -1,0 +1,42 @@
+{
+  "id": "possessives",
+  "line": "grammar",
+  "order": 7,
+  "title": "my, your, his, her …",
+  "subtitle": "Wem gehört es?",
+  "icon": "🔑",
+  "explain": [
+    { "p": "Diese Wörter zeigen, **wem** etwas gehört. Sie stehen vor dem Nomen." },
+    { "table": { "head": ["Person", "gehört …", "Deutsch"], "rows": [
+      ["I", "**my**", "mein / meine"],
+      ["you", "**your**", "dein / deine"],
+      ["he", "**his**", "sein / seine"],
+      ["she", "**her**", "ihr / ihre"],
+      ["it", "**its**", "sein / ihr (Ding, Tier)"],
+      ["we", "**our**", "unser / unsere"],
+      ["you", "**your**", "euer / eure"],
+      ["they", "**their**", "ihr / ihre (mehrere)"]
+    ] } },
+    { "tip": "Achtung, Falle! Deutsch „**ihr**“ kann **her** (ein Mädchen) oder **their** (mehrere) sein. Frag dich: Wem gehört es?" },
+    { "ex": [["Lisa and her dog", "Lisa und ihr Hund"], ["Tom and his dog", "Tom und sein Hund"], ["Lisa and Tom and their dog", "Lisa und Tom und ihr Hund"]] }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "I love ___ dog.", "options": ["my", "your", "his", "I"], "answer": "my" },
+    { "type": "choice", "q": "Tom is in ___ room.", "options": ["his", "her", "its", "their"], "answer": "his", "explain": "Tom = he → **his**." },
+    { "type": "choice", "q": "Lisa is with ___ mum.", "options": ["her", "his", "their", "she"], "answer": "her", "explain": "Lisa = she → **her**." },
+    { "type": "choice", "q": "Ben and Mia are with ___ dad.", "options": ["their", "her", "his", "they"], "answer": "their", "explain": "Ben und Mia = they → **their**." },
+    { "type": "choice", "q": "We like ___ school.", "options": ["our", "we", "their", "us"], "answer": "our" },
+    { "type": "choice", "q": "The cat is in ___ basket.", "options": ["its", "it's", "his", "her"], "answer": "its", "explain": "**its** = sein/ihr (für Dinge und Tiere). **it's** = it is!" },
+    { "type": "choice", "q": "Is this ___ bag, Sam?", "options": ["your", "you", "his", "my"], "answer": "your" },
+    { "type": "choice", "q": "Mr Smith and ___ wife live in York.", "options": ["his", "her", "their", "its"], "answer": "his", "explain": "Die Frau gehört zu Mr Smith (he) → **his** wife." },
+    { "type": "choice", "q": "Mrs Brown and ___ son are in the garden.", "options": ["her", "his", "their", "your"], "answer": "her", "explain": "Der Sohn gehört zu Mrs Brown (she) → **her** son." },
+    { "type": "choice", "q": "The children are in ___ classroom.", "options": ["their", "there", "they're", "our"], "answer": "their" },
+    { "type": "input", "q": "I'm Max. ___ sister is Anna.", "answer": "My", "hint": "mein / meine" },
+    { "type": "input", "q": "This is Paul. ___ bike is blue.", "answer": "His", "hint": "Paul → ?" },
+    { "type": "input", "q": "This is Emma. ___ hamster is small.", "answer": "Her", "hint": "Emma → ?" },
+    { "type": "input", "q": "We've got a dog. ___ dog is called Rex.", "answer": "Our", "hint": "unser" },
+    { "type": "input", "q": "They've got a house. ___ house is big.", "answer": "Their", "hint": "ihr (mehrere)" },
+    { "type": "order", "de": "Wie heißt deine Schwester?", "answer": "What is your sister's name?", "accept": ["What's your sister's name?"] },
+    { "type": "order", "de": "Das ist ihr Zimmer.", "answer": "This is her room." }
+  ]
+}

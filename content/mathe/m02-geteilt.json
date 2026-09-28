@@ -1,0 +1,6 @@
+{
+  "id": "geteilt", "line": "kopfrechnen", "order": 2,
+  "title": "Geteilt durch", "subtitle": "Die Umkehraufgaben", "icon": "➗",
+  "generator": "rechnen", "params": { "op": "div", "min": 2, "max": 10 }, "itemCount": 90,
+  "explain": [ { "p": "Teilen ist Malnehmen rückwärts: 7 · 8 = 56, also 56 : 8 = 7." } ]
+}

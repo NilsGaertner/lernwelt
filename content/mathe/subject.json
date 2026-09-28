@@ -1,0 +1,10 @@
+{
+  "id": "mathe",
+  "name": "Mathe",
+  "icon": "➗",
+  "order": 2,
+  "enabled": false,
+  "lines": [
+    { "id": "kopfrechnen", "name": "Kopfrechnen-Linie", "short": "Kopfrechnen", "color": "#D9631E" }
+  ]
+}

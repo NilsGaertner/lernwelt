@@ -1,0 +1,39 @@
+{
+  "id": "verbs",
+  "line": "words",
+  "order": 13,
+  "title": "Important verbs",
+  "subtitle": "Wichtige Verben",
+  "icon": "🏃",
+  "explain": [
+    { "p": "Verben sind Tu-Wörter. Diese brauchst du ständig – präg sie dir gut ein!" },
+    { "p": "Manche Verben bestehen aus zwei Wörtern: **get up** (aufstehen), **look at** (anschauen)." },
+    { "ex": [["I get up at seven.", "Ich stehe um sieben auf."], ["Can you help me?", "Kannst du mir helfen?"]] }
+  ],
+  "vocab": [
+    { "en": "go", "de": "gehen" },
+    { "en": "come", "de": "kommen" },
+    { "en": "eat", "de": "essen" },
+    { "en": "drink", "de": "trinken" },
+    { "en": "sleep", "de": "schlafen" },
+    { "en": "get up", "de": "aufstehen" },
+    { "en": "write", "de": "schreiben" },
+    { "en": "speak", "de": "sprechen" },
+    { "en": "learn", "de": "lernen" },
+    { "en": "help", "de": "helfen" },
+    { "en": "open", "de": "öffnen" },
+    { "en": "close", "de": "schließen" },
+    { "en": "run", "de": "rennen" },
+    { "en": "jump", "de": "springen" },
+    { "en": "sit", "de": "sitzen" },
+    { "en": "buy", "de": "kaufen" },
+    { "en": "like", "de": "mögen" },
+    { "en": "want", "de": "wollen" },
+    { "en": "need", "de": "brauchen" },
+    { "en": "find", "de": "finden" },
+    { "en": "look at", "de": "anschauen" },
+    { "en": "know", "de": "wissen / kennen" },
+    { "en": "live", "de": "wohnen / leben" },
+    { "en": "work", "de": "arbeiten" }
+  ]
+}

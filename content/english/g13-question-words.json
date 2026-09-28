@@ -1,0 +1,43 @@
+{
+  "id": "question-words",
+  "line": "grammar",
+  "order": 13,
+  "title": "What? Where? Who?",
+  "subtitle": "Fragewörter",
+  "icon": "🔍",
+  "explain": [
+    { "p": "Fast alle englischen Fragewörter beginnen mit **wh-** – darum heißen sie auch „W-Fragen“." },
+    { "table": { "head": ["Englisch", "Deutsch", "Beispiel"], "rows": [
+      ["**What**", "Was?", "What's your name?"],
+      ["**Where**", "Wo? Wohin?", "Where do you live?"],
+      ["**Who**", "Wer?", "Who is your teacher?"],
+      ["**When**", "Wann?", "When is your birthday?"],
+      ["**Why**", "Warum?", "Why are you sad?"],
+      ["**How**", "Wie?", "How are you?"],
+      ["**How old**", "Wie alt?", "How old are you?"],
+      ["**How many**", "Wie viele?", "How many pets have you got?"],
+      ["**What colour**", "Welche Farbe?", "What colour is your bike?"],
+      ["**What time**", "Um wie viel Uhr?", "What time is it?"]
+    ] } },
+    { "tip": "Vorsicht, Falle! **Where** = wo. **Who** = wer. Das deutsche „wer“ klingt wie „where“ – bedeutet aber etwas anderes!" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "___ is your name? – My name is Leo.", "options": ["What", "Who", "Where", "How"], "answer": "What" },
+    { "type": "choice", "q": "___ do you live? – In Berlin.", "options": ["Where", "Who", "What", "When"], "answer": "Where" },
+    { "type": "choice", "q": "___ is that boy? – That's my cousin.", "options": ["Who", "Where", "What", "Why"], "answer": "Who", "explain": "Wer? = **Who**. (Nicht where!)" },
+    { "type": "choice", "q": "___ is your birthday? – In May.", "options": ["When", "Where", "Who", "How"], "answer": "When" },
+    { "type": "choice", "q": "___ are you sad? – Because my cat is ill.", "options": ["Why", "What", "When", "Who"], "answer": "Why", "explain": "because = weil → die Frage ist **Why** (warum)." },
+    { "type": "choice", "q": "___ are you? – I'm fine, thanks.", "options": ["How", "Who", "What", "Where"], "answer": "How" },
+    { "type": "choice", "q": "___ are you? – I'm eleven.", "options": ["How old", "How many", "What", "When"], "answer": "How old" },
+    { "type": "choice", "q": "___ brothers have you got? – Two.", "options": ["How many", "How old", "What", "Who"], "answer": "How many" },
+    { "type": "choice", "q": "___ is your bag? – It's blue.", "options": ["What colour", "What time", "How many", "Who"], "answer": "What colour" },
+    { "type": "choice", "q": "___ is it? – It's three o'clock.", "options": ["What time", "When", "How old", "What colour"], "answer": "What time" },
+    { "type": "input", "q": "___ is your favourite animal? – The lion.", "answer": "What", "hint": "Was?" },
+    { "type": "input", "q": "___ is my pencil? – It's under your desk.", "answer": "Where", "hint": "Wo?" },
+    { "type": "input", "q": "___ is your best friend? – Jonas.", "answer": "Who", "hint": "Wer?" },
+    { "type": "input", "q": "___ many pets have you got?", "answer": "How", "hint": "Wie viele?" },
+    { "type": "order", "de": "Wo ist meine Tasche?", "answer": "Where is my bag?" },
+    { "type": "order", "de": "Wie alt ist deine Schwester?", "answer": "How old is your sister?" },
+    { "type": "order", "de": "Wer ist das?", "answer": "Who is that?" }
+  ]
+}

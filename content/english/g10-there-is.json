@@ -1,0 +1,35 @@
+{
+  "id": "there-is",
+  "line": "grammar",
+  "order": 10,
+  "title": "there is / there are",
+  "subtitle": "Es gibt …",
+  "icon": "📍",
+  "explain": [
+    { "p": "„Es gibt“ oder „da ist / da sind“ heißt auf Englisch **there is** oder **there are**." },
+    { "table": { "head": ["", "Englisch", "Beispiel"], "rows": [
+      ["eins", "**there is** (there's)", "There's a cat in the garden."],
+      ["mehrere", "**there are**", "There are two cats in the garden."],
+      ["Verneinung", "there **isn't** / there **aren't**", "There aren't any cats here."],
+      ["Frage", "**Is there** …? / **Are there** …?", "Is there a park near your house?"]
+    ] } },
+    { "tip": "Nicht verwechseln: „Es gibt“ heißt **nicht** „it gives“! Immer **there is / there are**." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "There ___ a bed in my room.", "options": ["is", "are"], "answer": "is" },
+    { "type": "choice", "q": "There ___ three chairs in the kitchen.", "options": ["are", "is"], "answer": "are" },
+    { "type": "choice", "q": "There ___ a lot of children in the park.", "options": ["are", "is"], "answer": "are", "explain": "a lot of children = viele Kinder → **are**." },
+    { "type": "choice", "q": "There ___ a dog under the table.", "options": ["is", "are"], "answer": "is" },
+    { "type": "choice", "q": "___ a cinema in your town?", "options": ["Is there", "Are there", "There is", "It gives"], "answer": "Is there" },
+    { "type": "choice", "q": "___ any shops near here?", "options": ["Are there", "Is there", "There are", "Have there"], "answer": "Are there" },
+    { "type": "choice", "q": "Sorry, there ___ any milk.", "options": ["isn't", "aren't", "not is", "don't"], "answer": "isn't" },
+    { "type": "choice", "q": "There ___ any apples.", "options": ["aren't", "isn't", "not are", "doesn't"], "answer": "aren't" },
+    { "type": "choice", "q": "Is there a lamp on the desk? – Yes, ___.", "options": ["there is", "it is", "there are", "is there"], "answer": "there is" },
+    { "type": "input", "q": "There ___ two windows in my room.", "answer": "are", "hint": "is / are" },
+    { "type": "input", "q": "There ___ a big tree in our garden.", "answer": "is", "hint": "is / are" },
+    { "type": "input", "q": "There ___ five people in my family.", "answer": "are", "hint": "is / are" },
+    { "type": "input", "q": "___ there a bus stop near here?", "answer": "Is", "hint": "Frage" },
+    { "type": "order", "de": "Es gibt einen Park in meiner Stadt.", "answer": "There is a park in my town.", "accept": ["There's a park in my town."] },
+    { "type": "order", "de": "Es gibt zwei Katzen im Garten.", "answer": "There are two cats in the garden." }
+  ]
+}

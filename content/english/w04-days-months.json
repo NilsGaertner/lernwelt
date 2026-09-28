@@ -1,0 +1,45 @@
+{
+  "id": "days-months",
+  "line": "words",
+  "order": 4,
+  "title": "Days and months",
+  "subtitle": "Wochentage und Monate",
+  "icon": "📅",
+  "explain": [
+    { "p": "Wochentage und Monate schreibt man im Englischen **immer groß**: **M**onday, **J**uly." },
+    { "p": "Vor Wochentagen steht **on**, vor Monaten **in**:" },
+    { "ex": [["on Monday", "am Montag"], ["on Saturday", "am Samstag"], ["in May", "im Mai"], ["in December", "im Dezember"]] },
+    { "tip": "Merkhilfe: **Wed**nesday spricht man „Wens-day“ – das d hört man nicht." }
+  ],
+  "vocab": [
+    { "en": "Monday", "de": "Montag" },
+    { "en": "Tuesday", "de": "Dienstag" },
+    { "en": "Wednesday", "de": "Mittwoch" },
+    { "en": "Thursday", "de": "Donnerstag" },
+    { "en": "Friday", "de": "Freitag" },
+    { "en": "Saturday", "de": "Samstag" },
+    { "en": "Sunday", "de": "Sonntag" },
+    { "en": "January", "de": "Januar" },
+    { "en": "February", "de": "Februar" },
+    { "en": "March", "de": "März" },
+    { "en": "April", "de": "April" },
+    { "en": "May", "de": "Mai" },
+    { "en": "June", "de": "Juni" },
+    { "en": "July", "de": "Juli" },
+    { "en": "August", "de": "August" },
+    { "en": "September", "de": "September" },
+    { "en": "October", "de": "Oktober" },
+    { "en": "November", "de": "November" },
+    { "en": "December", "de": "Dezember" },
+    { "en": "weekend", "de": "Wochenende" },
+    { "en": "today", "de": "heute" },
+    { "en": "tomorrow", "de": "morgen" },
+    { "en": "yesterday", "de": "gestern" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "I play football ___ Monday.", "options": ["on", "in", "at"], "answer": "on", "explain": "Vor Wochentagen steht **on**: on Monday." },
+    { "type": "choice", "q": "My birthday is ___ June.", "options": ["in", "on", "at"], "answer": "in", "explain": "Vor Monaten steht **in**: in June." },
+    { "type": "choice", "q": "The day after Friday is ___.", "options": ["Saturday", "Thursday", "Sunday", "Tuesday"], "answer": "Saturday" },
+    { "type": "choice", "q": "The month after March is ___.", "options": ["April", "May", "February", "June"], "answer": "April" }
+  ]
+}

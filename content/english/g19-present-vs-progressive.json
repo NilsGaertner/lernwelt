@@ -1,0 +1,36 @@
+{
+  "id": "present-vs-progressive",
+  "line": "grammar",
+  "order": 19,
+  "title": "I play or I'm playing?",
+  "subtitle": "Simple Present oder Progressive?",
+  "icon": "⚖️",
+  "explain": [
+    { "p": "Jetzt kennst du beide Zeiten. Aber wann nimmst du welche?" },
+    { "table": { "head": ["", "Simple Present", "Present Progressive"], "rows": [
+      ["Wann?", "regelmäßig, immer wieder, Gewohnheiten", "genau jetzt, in diesem Moment"],
+      ["Form", "I play / he play**s**", "I'**m** play**ing** / he'**s** play**ing**"],
+      ["Signalwörter", "every day, always, often, never, on Mondays", "now, at the moment, Look!, Listen!"]
+    ] } },
+    { "ex": [["I play football every Saturday.", "Ich spiele jeden Samstag Fußball. (regelmäßig)"], ["I'm playing football now.", "Ich spiele gerade Fußball. (jetzt)"]] },
+    { "tip": "Such zuerst das **Signalwort** im Satz – dann weißt du fast immer, welche Zeit passt!" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "I ___ to school every day.", "options": ["go", "am going", "goes", "going"], "answer": "go", "explain": "every day → regelmäßig → **Simple Present**." },
+    { "type": "choice", "q": "Look! It ___.", "options": ["is snowing", "snows", "snow", "are snowing"], "answer": "is snowing", "explain": "Look! → jetzt → **Present Progressive**." },
+    { "type": "choice", "q": "She usually ___ tea for breakfast.", "options": ["drinks", "is drinking", "drink", "drinking"], "answer": "drinks", "explain": "usually → Gewohnheit → **Simple Present**." },
+    { "type": "choice", "q": "Be quiet! The baby ___.", "options": ["is sleeping", "sleeps", "sleep", "are sleeping"], "answer": "is sleeping" },
+    { "type": "choice", "q": "We ___ tennis on Fridays.", "options": ["play", "are playing", "plays", "playing"], "answer": "play" },
+    { "type": "choice", "q": "What ___ at the moment?", "options": ["are you doing", "do you do", "you are doing", "does you do"], "answer": "are you doing" },
+    { "type": "choice", "q": "My dad never ___ the dishes.", "options": ["washes", "is washing", "wash", "washing"], "answer": "washes" },
+    { "type": "choice", "q": "Listen! Someone ___ the piano.", "options": ["is playing", "plays", "play", "are playing"], "answer": "is playing" },
+    { "type": "input", "q": "Tom ___ his bike every morning. (ride)", "answer": "rides", "hint": "ride" },
+    { "type": "input", "q": "Tom ___ his bike now. (ride)", "answer": "is riding", "hint": "ride" },
+    { "type": "input", "q": "I often ___ my grandma. (visit)", "answer": "visit", "hint": "visit" },
+    { "type": "input", "q": "Look! The cat ___ a mouse. (chase)", "answer": "is chasing", "hint": "chase" },
+    { "type": "input", "q": "At the moment we ___ English. (learn)", "answer": "are learning", "hint": "learn" },
+    { "type": "input", "q": "My sister ___ fish. She thinks it's yucky. (not like)", "answer": "doesn't like", "hint": "not like" },
+    { "type": "order", "de": "Ich esse gerade.", "answer": "I am eating now.", "accept": ["I'm eating now."] },
+    { "type": "order", "de": "Sie spielt jeden Tag Gitarre.", "answer": "She plays the guitar every day." }
+  ]
+}

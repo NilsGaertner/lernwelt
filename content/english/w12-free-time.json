@@ -1,0 +1,33 @@
+{
+  "id": "free-time",
+  "line": "words",
+  "order": 12,
+  "title": "Free time",
+  "subtitle": "Freizeit und Hobbys",
+  "icon": "⚽",
+  "explain": [
+    { "p": "Bei Sportarten steht **kein** „the“: play football, play tennis." },
+    { "p": "Bei Instrumenten steht **the**: play **the** guitar, play **the** piano." },
+    { "ex": [["I like riding my bike.", "Ich fahre gern Fahrrad."], ["What do you do in your free time?", "Was machst du in deiner Freizeit?"]] }
+  ],
+  "vocab": [
+    { "en": "play football", "de": "Fußball spielen" },
+    { "en": "ride a bike", "de": "Fahrrad fahren" },
+    { "en": "swim", "de": "schwimmen" },
+    { "en": "read", "de": "lesen" },
+    { "en": "dance", "de": "tanzen" },
+    { "en": "sing", "de": "singen" },
+    { "en": "draw", "de": "zeichnen" },
+    { "en": "paint", "de": "malen" },
+    { "en": "watch TV", "de": "fernsehen" },
+    { "en": "play computer games", "de": "Computerspiele spielen" },
+    { "en": "listen to music", "de": "Musik hören" },
+    { "en": "meet friends", "de": "Freunde treffen" },
+    { "en": "go shopping", "de": "einkaufen gehen" },
+    { "en": "cook", "de": "kochen" },
+    { "en": "play the guitar", "de": "Gitarre spielen" },
+    { "en": "take photos", "de": "Fotos machen" },
+    { "en": "free time", "de": "Freizeit" },
+    { "en": "hobby", "de": "Hobby" }
+  ]
+}

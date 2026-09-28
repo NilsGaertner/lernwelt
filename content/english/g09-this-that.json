@@ -1,0 +1,33 @@
+{
+  "id": "this-that",
+  "line": "grammar",
+  "order": 9,
+  "title": "this, that, these, those",
+  "subtitle": "Hier oder dort?",
+  "icon": "👈",
+  "explain": [
+    { "p": "Mit diesen Wörtern zeigst du auf Dinge. Es kommt darauf an: **nah oder fern?** Und: **eins oder mehrere?**" },
+    { "table": { "head": ["", "hier (nah)", "dort (fern)"], "rows": [
+      ["eins", "**this** (dies hier)", "**that** (das dort)"],
+      ["mehrere", "**these** (diese hier)", "**those** (die dort)"]
+    ] } },
+    { "ex": [["This is my pen.", "Das (hier) ist mein Stift."], ["These are my pens.", "Das (hier) sind meine Stifte."], ["Look at that bird!", "Schau dir den Vogel dort an!"], ["Those shoes are cool.", "Die Schuhe dort sind cool."]] },
+    { "tip": "Nach **these** und **those** kommt **are**: These **are** my friends." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "___ is my book. (hier, eins)", "options": ["This", "These", "That", "Those"], "answer": "This", "speak": false },
+    { "type": "choice", "q": "___ are my sisters. (hier, mehrere)", "options": ["These", "This", "Those", "That"], "answer": "These", "speak": false },
+    { "type": "choice", "q": "Look at ___ house over there!", "options": ["that", "this", "these", "those"], "answer": "that", "explain": "over there = dort drüben, eins → **that**." },
+    { "type": "choice", "q": "Can you see ___ birds over there?", "options": ["those", "these", "that", "this"], "answer": "those", "explain": "dort drüben, mehrere → **those**." },
+    { "type": "choice", "q": "___ apples here are very good.", "options": ["These", "This", "That", "Those"], "answer": "These" },
+    { "type": "choice", "q": "Is ___ your phone here in my hand?", "options": ["this", "these", "those", "that"], "answer": "this" },
+    { "type": "choice", "q": "These ___ my new shoes.", "options": ["are", "is", "am"], "answer": "are", "explain": "Nach these kommt **are**." },
+    { "type": "choice", "q": "That ___ my teacher over there.", "options": ["is", "are", "am"], "answer": "is" },
+    { "type": "input", "q": "___ is my cat. (hier, eins)", "answer": "This", "hint": "this / that / these / those", "speak": false },
+    { "type": "input", "q": "___ are my friends. (hier, mehrere)", "answer": "These", "hint": "this / that / these / those", "speak": false },
+    { "type": "input", "q": "What's ___ over there? (dort, eins)", "answer": "that", "hint": "this / that / these / those", "speak": false },
+    { "type": "input", "q": "Are ___ your trainers over there? (dort, mehrere)", "answer": "those", "hint": "this / that / these / those", "speak": false },
+    { "type": "order", "de": "Das hier sind meine Bücher.", "answer": "These are my books." },
+    { "type": "order", "de": "Ist das dort dein Hund?", "answer": "Is that your dog?" }
+  ]
+}

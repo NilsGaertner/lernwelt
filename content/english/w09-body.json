@@ -1,0 +1,39 @@
+{
+  "id": "body",
+  "line": "words",
+  "order": 9,
+  "title": "My body",
+  "subtitle": "Körper",
+  "icon": "🙋",
+  "explain": [
+    { "p": "Zwei Körperteile haben eine besondere Mehrzahl:" },
+    { "table": { "head": ["eins", "viele"], "rows": [
+      ["a foot", "two **feet**"],
+      ["a tooth", "32 **teeth**"]
+    ] } },
+    { "p": "**hair** (Haare) steht im Englischen in der Einzahl: My hair **is** brown." },
+    { "ex": [["My head hurts.", "Mein Kopf tut weh."], ["She has got blue eyes.", "Sie hat blaue Augen."]] }
+  ],
+  "vocab": [
+    { "en": "head", "de": "Kopf" },
+    { "en": "face", "de": "Gesicht" },
+    { "en": "eye", "de": "Auge" },
+    { "en": "ear", "de": "Ohr" },
+    { "en": "nose", "de": "Nase" },
+    { "en": "mouth", "de": "Mund" },
+    { "en": "tooth", "de": "Zahn" },
+    { "en": "teeth", "de": "Zähne" },
+    { "en": "hair", "de": "Haare" },
+    { "en": "neck", "de": "Hals" },
+    { "en": "arm", "de": "Arm" },
+    { "en": "hand", "de": "Hand" },
+    { "en": "finger", "de": "Finger" },
+    { "en": "leg", "de": "Bein" },
+    { "en": "knee", "de": "Knie" },
+    { "en": "foot", "de": "Fuß" },
+    { "en": "feet", "de": "Füße" },
+    { "en": "back", "de": "Rücken" },
+    { "en": "tummy", "de": "Bauch", "alt": ["stomach", "belly"] },
+    { "en": "shoulder", "de": "Schulter" }
+  ]
+}

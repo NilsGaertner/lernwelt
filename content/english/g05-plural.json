@@ -1,0 +1,46 @@
+{
+  "id": "plural",
+  "line": "grammar",
+  "order": 5,
+  "title": "one cat – two cats",
+  "subtitle": "Die Mehrzahl (Plural)",
+  "icon": "🐈",
+  "explain": [
+    { "p": "Meistens hängst du einfach **-s** an: a cat → two cat**s**, a book → three book**s**." },
+    { "table": { "head": ["Wort endet auf …", "Plural", "Beispiel"], "rows": [
+      ["-s, -sh, -ch, -x", "**-es**", "bus → bus**es**, box → box**es**, watch → watch**es**"],
+      ["Konsonant + y", "y wird zu **-ies**", "baby → bab**ies**, city → cit**ies**"],
+      ["Vokal + y", "nur **-s**", "boy → boy**s**, day → day**s**"]
+    ] } },
+    { "p": "Und ein paar Wörter tanzen ganz aus der Reihe – die musst du auswendig lernen:" },
+    { "table": { "head": ["eins", "viele"], "rows": [
+      ["man", "**men**"],
+      ["woman", "**women**"],
+      ["child", "**children**"],
+      ["foot", "**feet**"],
+      ["tooth", "**teeth**"],
+      ["mouse", "**mice**"],
+      ["sheep", "**sheep**"]
+    ] } }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "one dog – two ___", "options": ["dogs", "doges", "dog", "dogies"], "answer": "dogs" },
+    { "type": "choice", "q": "one box – two ___", "options": ["boxes", "boxs", "boxies", "box"], "answer": "boxes", "explain": "Wörter auf **-x** bekommen **-es**." },
+    { "type": "choice", "q": "one baby – two ___", "options": ["babies", "babys", "babyes", "baby"], "answer": "babies", "explain": "Konsonant (b) + y → **-ies**." },
+    { "type": "choice", "q": "one boy – two ___", "options": ["boys", "boies", "boyes", "boy"], "answer": "boys", "explain": "Vokal (o) + y → nur **-s**." },
+    { "type": "choice", "q": "one child – three ___", "options": ["children", "childs", "childes", "childrens"], "answer": "children", "explain": "child → **children** ist unregelmäßig." },
+    { "type": "choice", "q": "one mouse – two ___", "options": ["mice", "mouses", "mices", "mouse"], "answer": "mice" },
+    { "type": "choice", "q": "one man – two ___", "options": ["men", "mans", "mens", "manes"], "answer": "men" },
+    { "type": "choice", "q": "one sheep – five ___", "options": ["sheep", "sheeps", "shoop", "sheepes"], "answer": "sheep", "explain": "sheep bleibt gleich: one sheep, five **sheep**." },
+    { "type": "choice", "q": "one watch – two ___", "options": ["watches", "watchs", "watchies", "watch"], "answer": "watches" },
+    { "type": "input", "q": "one bus – two ___", "answer": "buses", "hint": "Plural" },
+    { "type": "input", "q": "one book – four ___", "answer": "books", "hint": "Plural" },
+    { "type": "input", "q": "one city – two ___", "answer": "cities", "hint": "Plural" },
+    { "type": "input", "q": "one day – seven ___", "answer": "days", "hint": "Plural" },
+    { "type": "input", "q": "one woman – two ___", "answer": "women", "hint": "unregelmäßig!" },
+    { "type": "input", "q": "one foot – two ___", "answer": "feet", "hint": "unregelmäßig!" },
+    { "type": "input", "q": "one tooth – many ___", "answer": "teeth", "hint": "unregelmäßig!" },
+    { "type": "input", "q": "one dish – two ___", "answer": "dishes", "hint": "Plural · dish = Schüssel" },
+    { "type": "input", "q": "one family – two ___", "answer": "families", "hint": "Plural" }
+  ]
+}

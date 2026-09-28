@@ -1,0 +1,31 @@
+{
+  "id": "genitive",
+  "line": "grammar",
+  "order": 8,
+  "title": "Tom's bike",
+  "subtitle": "Wem gehört es? (Apostroph-s)",
+  "icon": "🚲",
+  "explain": [
+    { "p": "Wenn etwas einer Person gehört, hängst du **'s** an den Namen: **Tom's** bike = Toms Fahrrad." },
+    { "table": { "head": ["Wer?", "Regel", "Beispiel"], "rows": [
+      ["eine Person", "**'s**", "my sister**'s** room (das Zimmer meiner Schwester)"],
+      ["mehrere mit -s", "nur **'**", "my parents**'** car (das Auto meiner Eltern)"],
+      ["mehrere ohne -s", "**'s**", "the children**'s** toys (die Spielsachen der Kinder)"]
+    ] } },
+    { "tip": "Im Deutschen: „Toms Fahrrad“ – ohne Apostroph. Im Englischen **immer mit** Apostroph: Tom**'s** bike." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "This is ___ bike.", "de": "Das ist Toms Fahrrad.", "options": ["Tom's", "Toms", "Toms'", "Tom"], "answer": "Tom's" },
+    { "type": "choice", "q": "___ cat is black.", "de": "Annas Katze ist schwarz.", "options": ["Anna's", "Annas", "Annas'", "Anna"], "answer": "Anna's" },
+    { "type": "choice", "q": "My ___ room is big.", "de": "Das Zimmer meines Bruders ist groß.", "options": ["brother's", "brothers", "brothers'", "brother"], "answer": "brother's" },
+    { "type": "choice", "q": "My ___ car is red.", "de": "Das Auto meiner Eltern ist rot.", "options": ["parents'", "parent's", "parents", "parents's"], "answer": "parents'", "explain": "parents endet schon auf -s → nur Apostroph: **parents'**." },
+    { "type": "choice", "q": "The ___ toys are on the floor.", "de": "Die Spielsachen der Kinder liegen auf dem Boden.", "options": ["children's", "childrens'", "childrens", "children"], "answer": "children's", "explain": "children endet nicht auf -s → **'s**." },
+    { "type": "choice", "q": "The ___ bowl is empty.", "de": "Der Napf des Hundes ist leer.", "options": ["dog's", "dogs", "dog", "dogs's"], "answer": "dog's" },
+    { "type": "input", "q": "This is ___ ball.", "de": "Das ist Bens Ball.", "answer": "Ben's", "hint": "Ben + ?" },
+    { "type": "input", "q": "___ hair is long.", "de": "Lisas Haare sind lang.", "answer": "Lisa's", "hint": "Lisa + ?" },
+    { "type": "input", "q": "Where is my ___ bag?", "de": "Wo ist die Tasche meiner Mama?", "answer": "mum's", "accept": ["mom's"], "hint": "mum + ?" },
+    { "type": "input", "q": "My ___ house is old.", "de": "Das Haus meiner Großeltern ist alt.", "answer": "grandparents'", "hint": "grandparents + ?", "strict": true },
+    { "type": "order", "de": "Das ist Pauls Hund.", "answer": "This is Paul's dog." },
+    { "type": "order", "de": "Wo ist Sarahs Jacke?", "answer": "Where is Sarah's jacket?" }
+  ]
+}
