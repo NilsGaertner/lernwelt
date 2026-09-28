@@ -50,54 +50,59 @@ Im Elternbereich siehst du pro Kind: Übungszeit der letzten 14 Tage, was noch s
 
 Der Ordner `/mnt/user/appdata/lernwelt/` wird im Folgenden verwendet. Du kannst auch einen anderen nehmen.
 
-### 1. Dateien auf den Server kopieren
+### 1. Dateien auf den Server holen
 
-Kopiere diesen Projektordner (ohne `node_modules`) nach
-`\\DEIN-UNRAID\appdata\lernwelt\app` (im Windows-Explorer über die Freigabe `appdata`).
+Im Unraid-Terminal (Symbol `>_` oben rechts):
+```bash
+git clone https://github.com/NilsGaertner/lernwelt.git /mnt/user/appdata/lernwelt/app
+```
+Das Repo ist privat, deshalb fragt git nach deinem Benutzernamen und einem GitHub-Token (statt Passwort).
+Alternativ kannst du den Projektordner (ohne `node_modules`) über die Freigabe nach `\\DEIN-UNRAID\appdata\lernwelt\app` kopieren.
 
-### 2a. Mit dem Plugin „Docker Compose Manager“ (empfohlen)
-
-1. In Unraid unter **Apps** das Plugin **Docker Compose Manager** installieren.
-2. Das Unraid-Terminal öffnen (Symbol `>_` oben rechts) und eingeben:
-   ```bash
-   cd /mnt/user/appdata/lernwelt/app
-   docker compose up -d --build
-   ```
-3. Fertig. Die Lernwelt läuft unter **`http://DEIN-UNRAID:8080`**.
-
-Ist Port 8080 schon belegt, ändere in `docker-compose.yml` die Zeile `"8080:8080"`, z. B. zu `"8095:8080"`.
-
-### 2b. Ohne Plugin (nur Terminal)
+### 2. Image bauen und Template anlegen
 
 ```bash
-docker build -t lernwelt /mnt/user/appdata/lernwelt/app
-docker run -d --name lernwelt --restart unless-stopped \
-  -p 8080:8080 -e TZ=Europe/Berlin \
-  -v /mnt/user/appdata/lernwelt/data:/data \
-  lernwelt
+bash /mnt/user/appdata/lernwelt/app/unraid/build.sh
 ```
-Der Container erscheint dann im Unraid-Reiter **Docker**, dort kannst du ihn starten und stoppen.
+Das Skript baut das Image `lernwelt` und legt das Unraid-Template an
+(`/boot/config/plugins/dockerMan/templates-user/my-lernwelt.xml`).
 
-### 3. Einrichten
+### 3. Container in Unraid anlegen
+
+1. Reiter **Docker** → **Add Container**.
+2. Oben bei **Template** unter „User templates“ **lernwelt** auswählen.
+3. Port und Datenordner prüfen (Standard: `8080` und `/mnt/user/appdata/lernwelt/data`), optional eine Start-PIN eintragen → **Apply**.
+4. In der Docker-Liste bei „lernwelt“ **Autostart** einschalten.
+
+Die Lernwelt läuft dann unter **`http://DEIN-UNRAID:8080`**. Über das Symbol in der Docker-Liste kommst du mit **WebUI** direkt hin.
+
+> Falls schon ein Container `lernwelt` läuft (z. B. per `docker run` gestartet), entferne ihn vorher mit `docker rm -f lernwelt`. Die Daten in `appdata/lernwelt/data` bleiben dabei erhalten.
+
+### 4. Einrichten
 
 1. `http://DEIN-UNRAID:8080` öffnen und auf **Elternbereich** klicken.
-2. Mit PIN `1234` anmelden, **eigene PIN festlegen** und ein **Kinderprofil anlegen**.
-3. Auf dem Tablet oder Laptop deines Kindes die Seite öffnen und am besten „Zum Startbildschirm hinzufügen“ wählen. Dann sieht sie aus wie eine App.
+2. Mit PIN `1234` (oder der Start-PIN aus dem Template) anmelden, **eigene PIN festlegen** und ein **Kinderprofil anlegen**.
+3. Auf dem Tablet oder Laptop deines Kindes die Seite öffnen und „Zum Startbildschirm hinzufügen“ wählen. Dann sieht sie aus wie eine App.
 
 ### Updates
 
-Neue Dateien nach `appdata/lernwelt/app` kopieren, dann:
 ```bash
-cd /mnt/user/appdata/lernwelt/app && docker compose up -d --build
+bash /mnt/user/appdata/lernwelt/app/unraid/build.sh
 ```
-(ohne Plugin: Container im Docker-Reiter entfernen und Schritt 2b wiederholen)
+Das holt die neueste Version von GitHub und baut das Image neu. Danach in Unraid: **Docker** → auf **lernwelt** klicken → **Edit** → **Apply**.
+Bitte **nicht** „Force Update“ verwenden: Das versucht, das Image aus dem Internet zu laden, es existiert aber nur lokal.
 
 Fortschritt, Sterne und Einstellungen liegen in `appdata/lernwelt/data` und bleiben bei Updates erhalten. Dieser Ordner ist auch das, was gesichert werden sollte (das Plugin „Appdata Backup“ erledigt das automatisch).
+
+### Alternative: Docker Compose
+
+Mit dem Plugin **Docker Compose Manager** geht statt des Templates auch `docker compose up -d --build` im Projektordner (siehe `docker-compose.yml`). Ohne das Plugin kennt Unraid den Befehl `docker compose` nicht.
 
 ### Hinweise
 
 - Die Seite ist fürs **Heimnetz** gedacht. Bitte nicht per Portfreigabe ins Internet stellen, denn es gibt kein HTTPS und nur eine einfache PIN.
 - Das Vorlesen nutzt die Stimmen des Geräts. Auf iPad, Android, Windows und in Chrome/Edge klappt das gut. Falls nichts zu hören ist: Lautstärke prüfen und in den Geräteeinstellungen eine englische Stimme installieren.
+- In der Docker-Liste steht beim Update-Status „not available“. Das ist normal, weil das Image lokal gebaut wird. Solange das Repo privat ist, zeigt Unraid statt des Lernwelt-Symbols ein Standard-Symbol.
 - Die Schriften kommen von Google Fonts. Ohne Internet sieht es etwas schlichter aus, funktioniert aber genauso.
 
 ---
@@ -181,6 +186,7 @@ server/        Node.js-Server (Express, SQLite über das eingebaute node:sqlite)
   content.js     liest die Inhalte ein
   generators/    berechnete Aufgaben (Mathe)
 public/        Oberfläche (reines HTML/CSS/JS, kein Build-Schritt)
+unraid/        Docker-Template und Build-Skript für Unraid
 content/       Lerninhalte als JSON
 data/          Datenbank (wird automatisch angelegt, im Container: /data)
 ```
