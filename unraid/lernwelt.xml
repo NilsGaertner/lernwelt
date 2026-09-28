@@ -24,5 +24,7 @@
   <Config Name="Web-Oberfläche" Target="8080" Default="8080" Mode="tcp" Description="Port, unter dem die Lernwelt im Heimnetz erreichbar ist." Type="Port" Display="always" Required="true" Mask="false">8080</Config>
   <Config Name="Daten" Target="/data" Default="/mnt/user/appdata/lernwelt/data" Mode="rw" Description="Fortschritt, Sterne und Einstellungen. Diesen Ordner sichern." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/lernwelt/data</Config>
   <Config Name="Start-PIN Elternbereich" Target="PARENT_PIN" Default="" Mode="" Description="Gilt nur beim allerersten Start. Leer lassen = 1234. Später im Elternbereich änderbar." Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Benutzer-ID für die Dateien im Datenordner (Unraid-Standard: 99 = nobody)." Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Gruppen-ID für die Dateien im Datenordner (Unraid-Standard: 100 = users)." Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
   <Config Name="Zeitzone" Target="TZ" Default="Europe/Berlin" Mode="" Description="Für „heute“ und die Tage am Stück." Type="Variable" Display="advanced" Required="false" Mask="false">Europe/Berlin</Config>
 </Container>

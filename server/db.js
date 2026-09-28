@@ -6,7 +6,16 @@ import { hashPin } from './util.js';
 const DATA_DIR = process.env.DATA_DIR || path.resolve(import.meta.dirname, '..', 'data');
 fs.mkdirSync(DATA_DIR, { recursive: true });
 
-export const db = new DatabaseSync(path.join(DATA_DIR, 'lernwelt.db'));
+function openDatabase(file) {
+  try {
+    return new DatabaseSync(file);
+  } catch (err) {
+    console.error(`Die Datenbank ${file} lässt sich nicht öffnen. Darf die App in ${DATA_DIR} schreiben?`);
+    throw err;
+  }
+}
+
+export const db = openDatabase(path.join(DATA_DIR, 'lernwelt.db'));
 
 db.exec(`
 PRAGMA journal_mode = WAL;

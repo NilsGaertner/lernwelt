@@ -8,6 +8,8 @@ services:
       - "8080:8080"          # links den Port anpassen, falls 8080 auf dem Server schon belegt ist
     environment:
       - TZ=Europe/Berlin
+      - PUID=99              # Besitzer der Dateien im Datenordner (Unraid: nobody)
+      - PGID=100             # Gruppe (Unraid: users)
       - PARENT_PIN=1234      # Start-PIN für den Elternbereich (gilt nur beim allerersten Start)
     volumes:
       # Fortschritt, Sterne und Einstellungen – bleiben bei Updates erhalten
