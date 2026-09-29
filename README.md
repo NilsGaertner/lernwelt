@@ -87,37 +87,28 @@ Das **Fahrtenbuch** listet jede abgeschlossene Fahrt aller Kinder: Uhrzeit, Stat
 
 ## Installation auf Unraid
 
-Der Ordner `/mnt/user/appdata/lernwelt/` wird im Folgenden verwendet. Du kannst auch einen anderen nehmen.
+Das Image wird bei jedem Push auf `main` automatisch von GitHub gebaut und als `ghcr.io/nilsgaertner/lernwelt:latest` veröffentlicht. Auf dem Server musst du nichts bauen.
 
-### 1. Dateien auf den Server holen
+### 1. Template holen
 
 Im Unraid-Terminal (Symbol `>_` oben rechts):
 ```bash
-git clone https://github.com/NilsGaertner/lernwelt.git /mnt/user/appdata/lernwelt/app
+wget -O /boot/config/plugins/dockerMan/templates-user/my-lernwelt.xml \
+  https://raw.githubusercontent.com/NilsGaertner/lernwelt/main/unraid/lernwelt.xml
 ```
-Das Repo ist privat, deshalb fragt git nach deinem Benutzernamen und einem GitHub-Token (statt Passwort).
-Alternativ kannst du den Projektordner (ohne `node_modules`) über die Freigabe nach `\\DEIN-UNRAID\appdata\lernwelt\app` kopieren.
 
-### 2. Image bauen und Template anlegen
-
-```bash
-bash /mnt/user/appdata/lernwelt/app/unraid/build.sh
-```
-Das Skript baut das Image `lernwelt` und legt das Unraid-Template an
-(`/boot/config/plugins/dockerMan/templates-user/my-lernwelt.xml`).
-
-### 3. Container in Unraid anlegen
+### 2. Container in Unraid anlegen
 
 1. Reiter **Docker** → **Add Container**.
 2. Oben bei **Template** unter „User templates“ **lernwelt** auswählen.
-3. Port und Datenordner prüfen (Standard: `8080` und `/mnt/user/appdata/lernwelt/data`), optional eine Start-PIN eintragen → **Apply**.
+3. Port und Datenordner prüfen (Standard: `8080` und `/mnt/user/appdata/lernwelt/data`), optional eine Start-PIN eintragen → **Apply**. Unraid lädt das Image dabei von GitHub.
 4. In der Docker-Liste bei „lernwelt“ **Autostart** einschalten.
 
 Die Lernwelt läuft dann unter **`http://DEIN-UNRAID:8080`**. Über das Symbol in der Docker-Liste kommst du mit **WebUI** direkt hin.
 
 > Falls schon ein Container `lernwelt` läuft (z. B. per `docker run` gestartet), entferne ihn vorher mit `docker rm -f lernwelt`. Die Daten in `appdata/lernwelt/data` bleiben dabei erhalten.
 
-### 4. Einrichten
+### 3. Einrichten
 
 1. `http://DEIN-UNRAID:8080` öffnen und auf **Elternbereich** klicken.
 2. Mit PIN `1234` (oder der Start-PIN aus dem Template) anmelden, **eigene PIN festlegen** und ein **Kinderprofil anlegen**.
@@ -138,25 +129,46 @@ Chrome kann die Lernwelt als eigene App installieren (Menü ⋮ → **„App ins
 
 ### Updates
 
-```bash
-bash /mnt/user/appdata/lernwelt/app/unraid/build.sh
-```
-Das holt die neueste Version von GitHub, baut das Image neu und stellt den laufenden Container gleich auf die neue Version um. Port, Datenordner und die übrigen Einstellungen aus der Unraid-Oberfläche bleiben dabei erhalten. Startet die neue Version nicht, stellt das Skript automatisch die alte wieder her.
+Neue Versionen erkennt Unraid selbst:
 
-Klappt die Umstellung nicht, sagt das Skript das und nennt den Weg von Hand: **Docker** → auf **lernwelt** klicken → **Edit**, irgendein Feld kurz ändern und wieder zurücksetzen (z. B. beim Port eine Ziffer anhängen und löschen) → **Apply**. Unraid schaltet „Apply“ erst nach einer Änderung frei.
-Bitte **nicht** „Force Update“ verwenden: Das versucht, das Image aus dem Internet zu laden, es existiert aber nur lokal.
+1. Reiter **Docker** → unten **Check for Updates** (Unraid prüft das auch regelmäßig von sich aus).
+2. Bei „lernwelt“ steht dann **update ready** → darauf klicken → **apply update**.
+
+Mit dem Plugin **Auto Update Applications** (aus den Community Applications) geht das auch automatisch, z. B. jede Nacht.
 
 Fortschritt, Sterne und Einstellungen liegen in `appdata/lernwelt/data` und bleiben bei Updates erhalten. Dieser Ordner ist auch das, was gesichert werden sollte (das Plugin „Appdata Backup“ erledigt das automatisch).
 
+**Neue Version veröffentlichen:** Neue Funktionen und Inhalte entstehen auf einem eigenen Branch. Auf Branches und in Pull Requests prüft GitHub nur, ob die Inhalte in Ordnung sind und das Image baut und startet. Erst ein Push (bzw. Merge) auf `main` veröffentlicht das Image und löst in Unraid das Update aus. Den Stand siehst du im Repo unter **Actions**.
+
+### Umstieg vom selbst gebauten Image
+
+Hast du die Lernwelt früher mit `build.sh` gebaut, steht im Container noch das Image `lernwelt`. Einmal umstellen:
+
+1. **Docker** → auf **lernwelt** klicken → **Edit**.
+2. Bei **Repository** `ghcr.io/nilsgaertner/lernwelt:latest` eintragen → **Apply**.
+
+Einstellungen und Daten bleiben erhalten. Danach kommen Updates wie oben beschrieben. Das alte Image kannst du danach im Terminal mit `docker rmi lernwelt` entfernen.
+
+### Notlösung: selbst bauen
+
+Falls GitHub einmal nicht erreichbar ist oder du eine Version testen willst, die noch nicht auf `main` liegt, kannst du das Image auch auf dem Server bauen:
+
+```bash
+git clone https://github.com/NilsGaertner/lernwelt.git /mnt/user/appdata/lernwelt/app   # nur beim ersten Mal
+bash /mnt/user/appdata/lernwelt/app/unraid/build.sh
+```
+Das Skript holt die neueste Version, baut das Image unter demselben Namen (`ghcr.io/nilsgaertner/lernwelt:latest`) und stellt den laufenden Container gleich darauf um. Port, Datenordner und die übrigen Einstellungen bleiben erhalten. Startet die neue Version nicht, stellt es automatisch die alte wieder her. Ein älteres Template stellt es dabei auch gleich auf das Image von GitHub um.
+
+Mit **Force Update** in der Docker-Liste kommst du danach wieder auf die Version von GitHub.
+
 ### Alternative: Docker Compose
 
-Mit dem Plugin **Docker Compose Manager** geht statt des Templates auch `docker compose up -d --build` im Projektordner (siehe `docker-compose.yml`). Ohne das Plugin kennt Unraid den Befehl `docker compose` nicht.
+Mit dem Plugin **Docker Compose Manager** geht statt des Templates auch `docker compose up -d` im Projektordner (siehe `docker-compose.yml`). Updates holst du dann mit `docker compose pull && docker compose up -d`. Ohne das Plugin kennt Unraid den Befehl `docker compose` nicht.
 
 ### Hinweise
 
 - Die Seite ist fürs **Heimnetz** gedacht. Bitte nicht per Portfreigabe ins Internet stellen, denn der Container selbst kann kein HTTPS und es gibt nur eine einfache PIN.
 - Das Vorlesen nutzt die Stimmen des Geräts. Auf iPad, Android, Windows und in Chrome/Edge klappt das gut. Falls nichts zu hören ist: Lautstärke prüfen und in den Geräteeinstellungen eine englische Stimme installieren.
-- In der Docker-Liste steht beim Update-Status „not available“. Das ist normal, weil das Image lokal gebaut wird. Solange das Repo privat ist, zeigt Unraid statt des Lernwelt-Symbols ein Standard-Symbol.
 - Die Schriften kommen von Google Fonts. Ohne Internet sieht es etwas schlichter aus, funktioniert aber genauso.
 
 ---
@@ -172,7 +184,7 @@ npm run check      # prüft alle Inhaltsdateien auf Fehler
 
 ## Inhalte ändern und erweitern
 
-Alle Lerninhalte liegen als JSON-Dateien in `content/<fach>/`. Nach einer Änderung `npm run check` ausführen und dann im Elternbereich **„Inhalte neu einlesen“** klicken (oder den Container neu bauen).
+Alle Lerninhalte liegen als JSON-Dateien in `content/<fach>/`. Nach einer Änderung `npm run check` ausführen und die Änderung wie jede andere über einen Branch auf `main` bringen. Das neue Image enthält dann die neuen Inhalte (Update in Unraid wie oben). Lokal beim Ausprobieren reicht es, im Elternbereich **„Inhalte neu einlesen“** zu klicken.
 
 ### Eine Station (eine Datei pro Station)
 
