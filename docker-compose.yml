@@ -1,7 +1,9 @@
 services:
   lernwelt:
-    build: .
-    image: lernwelt:latest
+    # Fertiges Image von GitHub. Update: docker compose pull && docker compose up -d
+    image: ghcr.io/nilsgaertner/lernwelt:latest
+    # Stattdessen selbst bauen: die nächste Zeile einkommentieren und docker compose up -d --build
+    # build: .
     container_name: lernwelt
     restart: unless-stopped
     ports:

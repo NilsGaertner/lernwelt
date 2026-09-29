@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>lernwelt</Name>
-  <Repository>lernwelt</Repository>
-  <Registry>https://github.com/NilsGaertner/lernwelt</Registry>
+  <Repository>ghcr.io/nilsgaertner/lernwelt:latest</Repository>
+  <Registry>https://github.com/NilsGaertner/lernwelt/pkgs/container/lernwelt</Registry>
   <Network>bridge</Network>
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
   <Support>https://github.com/NilsGaertner/lernwelt</Support>
   <Project>https://github.com/NilsGaertner/lernwelt</Project>
-  <Overview>Lernwelt: Übungen fürs Heimnetz. Das Kind sammelt Sterne und Abzeichen und tauscht die Sterne gegen Medienzeit, die Eltern im Elternbereich bestätigen. Das Image wird lokal gebaut: docker build -t lernwelt /mnt/user/appdata/lernwelt/app</Overview>
+  <Overview>Lernwelt: Übungen fürs Heimnetz. Das Kind sammelt Sterne und Abzeichen und tauscht die Sterne gegen Medienzeit, die Eltern im Elternbereich bestätigen. Neue Versionen erscheinen in der Docker-Liste als Update.</Overview>
   <Category>Tools: Other:</Category>
   <WebUI>http://[IP]:[PORT:8080]/</WebUI>
   <TemplateURL/>
@@ -20,7 +20,7 @@
   <DateInstalled/>
   <DonateText/>
   <DonateLink/>
-  <Requires>Das Image „lernwelt“ muss vorher auf dem Server gebaut werden (siehe README).</Requires>
+  <Requires/>
   <Config Name="Web-Oberfläche" Target="8080" Default="8080" Mode="tcp" Description="Port, unter dem die Lernwelt im Heimnetz erreichbar ist." Type="Port" Display="always" Required="true" Mask="false">8080</Config>
   <Config Name="Daten" Target="/data" Default="/mnt/user/appdata/lernwelt/data" Mode="rw" Description="Fortschritt, Sterne und Einstellungen. Diesen Ordner sichern." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/lernwelt/data</Config>
   <Config Name="Start-PIN Elternbereich" Target="PARENT_PIN" Default="" Mode="" Description="Gilt nur beim allerersten Start. Leer lassen = 1234. Später im Elternbereich änderbar." Type="Variable" Display="always" Required="false" Mask="true"/>

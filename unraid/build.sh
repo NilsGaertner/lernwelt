@@ -1,6 +1,7 @@
 #!/bin/bash
-# Baut das Lernwelt-Image auf dem Unraid-Server, legt das Docker-Template an
+# Notlösung: Baut das Lernwelt-Image direkt auf dem Unraid-Server, legt das Docker-Template an
 # und aktualisiert einen schon laufenden Container auf die neue Version.
+# Normalerweise kommen Updates fertig gebaut von GitHub (Docker-Liste → „apply update“), siehe README.
 # Aufruf im Unraid-Terminal:  bash /mnt/user/appdata/lernwelt/app/unraid/build.sh
 set -e
 
@@ -8,6 +9,8 @@ APP_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 TEMPLATE_DIR="${TEMPLATE_DIR:-/boot/config/plugins/dockerMan/templates-user}"
 TEMPLATE="$TEMPLATE_DIR/my-lernwelt.xml"
 NAME=lernwelt
+# Gleicher Name wie das Image aus der GitHub Container Registry, damit Template und Container passen
+IMAGE=ghcr.io/nilsgaertner/lernwelt:latest
 
 manual_steps() {
   echo "Bitte von Hand aktualisieren:"
@@ -46,7 +49,7 @@ recreate_container() {
   was_running=$(docker container inspect -f '{{.State.Running}}' "$NAME")
 
   docker rm -f "$NAME-neu" >/dev/null 2>&1 || true
-  if ! docker create --name "$NAME-neu" "${args[@]}" lernwelt >/dev/null; then
+  if ! docker create --name "$NAME-neu" "${args[@]}" "$IMAGE" >/dev/null; then
     echo "Der neue Container ließ sich nicht anlegen. Der alte läuft unverändert weiter."
     return 1
   fi
@@ -75,8 +78,8 @@ if [ -d .git ]; then
   git pull --ff-only
 fi
 
-echo "==> Image „lernwelt“ bauen"
-docker build -t lernwelt "$APP_DIR"
+echo "==> Image „$IMAGE“ lokal bauen"
+docker build -t "$IMAGE" "$APP_DIR"
 
 # Ein bereits vorhandenes Template wird nicht überschrieben,
 # damit in der Unraid-Oberfläche geänderte Einstellungen (Port, Pfade) erhalten bleiben.
@@ -84,6 +87,10 @@ if [ ! -f "$TEMPLATE" ]; then
   mkdir -p "$TEMPLATE_DIR"
   cp "$APP_DIR/unraid/lernwelt.xml" "$TEMPLATE"
   echo "==> Template angelegt: $TEMPLATE"
+elif grep -q '<Repository>lernwelt</Repository>' "$TEMPLATE"; then
+  # Älteres Template mit dem nur lokal gebauten Image: auf das Image von GitHub umstellen
+  sed -i "s#<Repository>lernwelt</Repository>#<Repository>$IMAGE</Repository>#" "$TEMPLATE"
+  echo "==> Template auf $IMAGE umgestellt"
 fi
 
 if ! docker container inspect "$NAME" >/dev/null 2>&1; then
@@ -92,7 +99,7 @@ if ! docker container inspect "$NAME" >/dev/null 2>&1; then
   exit 0
 fi
 
-NEW_IMAGE=$(docker image inspect -f '{{.Id}}' lernwelt)
+NEW_IMAGE=$(docker image inspect -f '{{.Id}}' "$IMAGE")
 CURRENT_IMAGE=$(docker container inspect -f '{{.Image}}' "$NAME")
 echo
 if [ "$NEW_IMAGE" = "$CURRENT_IMAGE" ]; then
