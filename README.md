@@ -126,7 +126,9 @@ Chrome kann die Lernwelt als eigene App installieren (Menü ⋮ → **„App ins
 ```bash
 bash /mnt/user/appdata/lernwelt/app/unraid/build.sh
 ```
-Das holt die neueste Version von GitHub und baut das Image neu. Danach in Unraid: **Docker** → auf **lernwelt** klicken → **Edit** → **Apply**.
+Das holt die neueste Version von GitHub, baut das Image neu und stellt den laufenden Container gleich auf die neue Version um. Port, Datenordner und die übrigen Einstellungen aus der Unraid-Oberfläche bleiben dabei erhalten. Startet die neue Version nicht, stellt das Skript automatisch die alte wieder her.
+
+Klappt die Umstellung nicht, sagt das Skript das und nennt den Weg von Hand: **Docker** → auf **lernwelt** klicken → **Edit**, irgendein Feld kurz ändern und wieder zurücksetzen (z. B. beim Port eine Ziffer anhängen und löschen) → **Apply**. Unraid schaltet „Apply“ erst nach einer Änderung frei.
 Bitte **nicht** „Force Update“ verwenden: Das versucht, das Image aus dem Internet zu laden, es existiert aber nur lokal.
 
 Fortschritt, Sterne und Einstellungen liegen in `appdata/lernwelt/data` und bleiben bei Updates erhalten. Dieser Ordner ist auch das, was gesichert werden sollte (das Plugin „Appdata Backup“ erledigt das automatisch).
