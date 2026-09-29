@@ -1,7 +1,7 @@
 import { DatabaseSync } from 'node:sqlite';
 import fs from 'node:fs';
 import path from 'node:path';
-import { hashPin } from './util.js';
+import { hashPin, localDay, nowIso } from './util.js';
 
 const DATA_DIR = process.env.DATA_DIR || path.resolve(import.meta.dirname, '..', 'data');
 fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -106,6 +106,11 @@ CREATE TABLE IF NOT EXISTS settings (
   value TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS day_limits (
+  day TEXT PRIMARY KEY,
+  star_limit INTEGER NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS daily_plans (
   child_id INTEGER NOT NULL REFERENCES children(id) ON DELETE CASCADE,
   day TEXT NOT NULL,
@@ -128,14 +133,38 @@ addColumn('children', 'adult', 'INTEGER NOT NULL DEFAULT 0');
 export const EARN_KINDS = ['session', 'bonus', 'badge'];
 
 const DEFAULT_SETTINGS = {
-  minutesPerStar: '2',
-  dailyStarLimit: '30',
+  minutesPerStar: '1',
+  dailyStarLimit: '60',
   questionsPerSession: '10',
   ticketMinutes: '15,30,60',
+  starScale: '2',
 };
 
+const freshDatabase = !db.prepare("SELECT 1 FROM settings WHERE key = 'minutesPerStar'").get();
+if (!freshDatabase && !getSetting('starScale')) doubleStarScale();
 for (const [key, value] of Object.entries(DEFAULT_SETTINGS)) {
   db.prepare('INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)').run(key, value);
+}
+
+/**
+ * Einmalige Umstellung auf die gestaffelten Sterne (1. Fahrt am Tag zählt doppelt): Alle Sterne sind ab jetzt
+ * halb so viel Medienzeit wert. Damit nichts verloren geht, werden Konto, Tickets und Einstellungen umgerechnet.
+ */
+function doubleStarScale() {
+  transaction(() => {
+    db.exec('UPDATE star_ledger SET amount = amount * 2');
+    db.exec('UPDATE redemptions SET stars = stars * 2');
+    db.exec('UPDATE sessions SET stars = stars * 2');
+    setSetting('minutesPerStar', Number(getSetting('minutesPerStar') ?? 2) / 2);
+    setSetting('dailyStarLimit', Number(getSetting('dailyStarLimit') ?? 30) * 2);
+    db.prepare(
+      `INSERT INTO star_ledger (child_id, amount, kind, note, day, created_at)
+       SELECT DISTINCT child_id, 0, 'system', 'Umstellung: alle Sterne verdoppelt, ein Stern ist jetzt halb so viel Zeit wert', ?, ?
+       FROM star_ledger`
+    ).run(localDay(), nowIso());
+    setSetting('starScale', '2');
+  });
+  console.log('Sterne auf die neue Staffelung umgestellt (Konto verdoppelt, Minuten pro Stern halbiert).');
 }
 if (!db.prepare("SELECT 1 FROM settings WHERE key = 'pinHash'").get()) {
   const pin = process.env.PARENT_PIN || '1234';

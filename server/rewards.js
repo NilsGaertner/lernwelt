@@ -1,4 +1,4 @@
-import { db, EARN_KINDS, getPublicSettings, transaction } from './db.js';
+import { db, EARN_KINDS, getPublicSettings, getSetting, setSetting, transaction } from './db.js';
 import { BADGES, BADGE_BONUS } from './badges.js';
 import { localDay, nowIso } from './util.js';
 import { streak, dailyPlan, stampCount, examsPassed, xpOf, rankInfo, PASSED_SQL } from './progress.js';
@@ -52,11 +52,53 @@ function badgeStats(childId) {
   };
 }
 
+/** Sterne-Limit für einen Tag: ein Sonder-Limit aus dem Elternbereich, sonst die normale Einstellung (0 = unbegrenzt). */
+export function starLimitFor(day = localDay()) {
+  const special = db.prepare('SELECT star_limit FROM day_limits WHERE day = ?').get(day);
+  return special ? special.star_limit : getPublicSettings().dailyStarLimit;
+}
+
+/** Sonder-Limits ab heute. */
+export function upcomingDayLimits() {
+  return db.prepare('SELECT day, star_limit AS "limit" FROM day_limits WHERE day >= ? ORDER BY day').all(localDay());
+}
+
+/** Läuft gerade ein „Doppelte Sterne“-Event? Zählt für alle Fahrten, die bis zum Ende gestartet werden. */
+export function activeBoost() {
+  const until = getSetting('boostUntil');
+  return until && until > nowIso() ? { until } : null;
+}
+
+export function startBoost(minutes) {
+  const until = new Date(Date.now() + minutes * 60_000).toISOString();
+  setSetting('boostUntil', until);
+  return { until };
+}
+
+export function stopBoost() {
+  db.prepare("DELETE FROM settings WHERE key = 'boostUntil'").run();
+}
+
+/** Einmalige Boni in Sternen. */
+export const BONUS = { mastered: 4, exam: 6, firstToday: 2 };
+
+/**
+ * Sterne für eine Fahrt. Wer dieselbe Station (bzw. denselben Endbahnhof) am selben Tag wiederholt,
+ * bekommt weniger: 1. Fahrt Bewertung × 2, 2. Fahrt Bewertung × 1, danach 1 Stern.
+ * Das Fehler-Training zählt immer als erste Fahrt – es begrenzt sich selbst, weil es nur Fehler übt.
+ */
+export function sessionStars(rating, runToday) {
+  if (runToday <= 1) return rating * 2;
+  if (runToday === 2) return rating;
+  return 1;
+}
+
 /**
  * Schließt eine Übung ab: speichert sie, vergibt Sterne (mit Tageslimit), Abzeichen, Fahrplan-Stempel und XP.
  * mode: 'unit' | 'review' | 'exam' (unitId = Linie) | 'blitz' (unitId = Blitz-Thema, keine Sterne für die Runde selbst)
+ * boosted: die Fahrt wurde während eines „Doppelte Sterne“-Events gestartet
  */
-export function completeSession({ sessionId, childId, subject, unitId, unitTitle, mode, startedAt, total, correct, bestCombo = 0 }) {
+export function completeSession({ sessionId, childId, subject, unitId, unitTitle, mode, startedAt, total, correct, bestCombo = 0, boosted = false }) {
   return transaction(() => {
     const day = localDay();
     const now = nowIso();
@@ -82,6 +124,11 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
             .get(childId, subject, unitId)
         : null;
     const firstToday = !db.prepare('SELECT 1 FROM sessions WHERE child_id = ? AND day = ?').get(childId, day);
+    const runToday =
+      mode === 'unit' || mode === 'exam'
+        ? db.prepare('SELECT COUNT(*) AS n FROM sessions WHERE child_id = ? AND day = ? AND mode = ? AND subject = ? AND unit_id = ?')
+            .get(childId, day, mode, subject, unitId).n + 1
+        : 1;
 
     const duration = Math.max(0, Math.round((Date.now() - new Date(startedAt).getTime()) / 1000));
     db.prepare(
@@ -90,11 +137,16 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
     ).run(sessionId, childId, subject, unitId ?? null, mode, day, startedAt, now, total, correct, rating, duration, bestCombo);
 
     const rewards = [];
-    if (mode !== 'blitz') rewards.push({ kind: 'session', amount: rating, note: `${unitTitle}: ${correct} von ${total} richtig` });
-    if (mode === 'unit' && rating === 3 && prevBest < 3) rewards.push({ kind: 'bonus', amount: 2, note: 'Station gemeistert' });
+    if (mode !== 'blitz') {
+      const repeat = runToday > 1 ? ` (${runToday}. Fahrt heute)` : '';
+      const stars = sessionStars(rating, runToday);
+      rewards.push({ kind: 'session', amount: stars, note: `${unitTitle}: ${correct} von ${total} richtig${repeat}` });
+      if (boosted) rewards.push({ kind: 'bonus', amount: stars, note: '🎉 Doppelte Sterne' });
+    }
+    if (mode === 'unit' && rating === 3 && prevBest < 3) rewards.push({ kind: 'bonus', amount: BONUS.mastered, note: 'Station gemeistert' });
     const examPassed = mode === 'exam' && correct * 5 >= total * 4;
-    if (examPassed && !prevExamPassed) rewards.push({ kind: 'bonus', amount: 3, note: `${unitTitle} geschafft` });
-    if (firstToday) rewards.push({ kind: 'bonus', amount: 1, note: 'Erste Übung heute' });
+    if (examPassed && !prevExamPassed) rewards.push({ kind: 'bonus', amount: BONUS.exam, note: `${unitTitle} geschafft` });
+    if (firstToday) rewards.push({ kind: 'bonus', amount: BONUS.firstToday, note: 'Erste Übung heute' });
 
     const plan = dailyPlan(childId);
 
@@ -107,7 +159,7 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
     }
 
     // Erwachsenen-Profile (z. B. für die Blitz-Herausforderung) sammeln keine Sterne.
-    const { dailyStarLimit } = getPublicSettings();
+    const dailyStarLimit = starLimitFor(day);
     let room = adult ? 0 : dailyStarLimit > 0 ? Math.max(0, dailyStarLimit - earnedOn(childId, day)) : Infinity;
     let awarded = 0;
     let capped = 0;
@@ -145,6 +197,8 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
       bestCombo,
       comboRecord: mode !== 'blitz' && bestCombo >= 3 && bestCombo > prevCombo,
       newCard: mode === 'unit' && rating === 3 && prevBest < 3,
+      runToday,
+      boosted: boosted && mode !== 'blitz',
       exam: mode === 'exam' ? { passed: examPassed, first: examPassed && !prevExamPassed, percent: Math.round(ratio * 100) } : null,
       blitz: prevBlitz ? { score: correct, answered: total, prevBest: prevBlitz.b, newRecord: prevBlitz.n > 0 && correct > prevBlitz.b } : null,
       plan,

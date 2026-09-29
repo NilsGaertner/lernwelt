@@ -2,7 +2,7 @@ import { h, toast, starRow, fmtDate, relDay } from './ui.js';
 import { api, parentToken } from './api.js';
 
 const AVATARS = ['🦊', '🐼', '🐯', '🦁', '🐸', '🐙', '🦄', '🐲', '🐧', '🐨', '🦖', '🐱', '🐶', '🚀', '⚽', '🎮'];
-const KIND = { session: 'Übung', bonus: 'Bonus', badge: 'Abzeichen', ticket: 'Ticket', refund: 'Rückgabe', manual: 'Eltern' };
+const KIND = { session: 'Übung', bonus: 'Bonus', badge: 'Abzeichen', ticket: 'Ticket', refund: 'Rückgabe', manual: 'Eltern', system: 'Hinweis' };
 
 const papi = (path, opts = {}) => api(`/parent${path}`, { ...opts, parent: true });
 
@@ -94,7 +94,7 @@ async function dashboard(root, render, reloadMeta) {
           h('.who', h('span.face', c.avatar), h('div', h('h2', c.name), h('span.muted.small', `zuletzt aktiv: ${relDay(c.lastActive)}`))),
           h('.kpis',
             kpi(`${c.balance} ★`, 'Guthaben'),
-            kpi(`${c.earnedToday} ★`, `heute verdient${data.settings.dailyStarLimit ? ` (max. ${data.settings.dailyStarLimit})` : ''}`),
+            kpi(`${c.earnedToday} ★`, `heute verdient${data.todayLimit ? ` (max. ${data.todayLimit})` : ''}`),
             kpi(`${c.today.sessions}`, `Übungen heute · ${c.today.minutes} Min.`),
             kpi(c.today.accuracy == null ? '–' : `${c.today.accuracy} %`, 'richtig heute'),
             kpi(`${c.week.sessions}`, `Übungen in 7 Tagen · ${c.week.minutes} Min.`),
@@ -141,8 +141,8 @@ async function dashboard(root, render, reloadMeta) {
   },
     h('h2', '⚙️ Regeln für Sterne und Medienzeit'),
     h('.form-grid',
-      f('minutesPerStar', 'Minuten Medienzeit pro Stern', s.minutesPerStar, 'Eine Übung bringt 1–3 Sterne, dazu Boni.', { type: 'number', min: 1, max: 60 }),
-      f('dailyStarLimit', 'Maximale Sterne pro Tag', s.dailyStarLimit, '0 = unbegrenzt. Üben geht auch danach, nur ohne Sterne.', { type: 'number', min: 0, max: 1000 }),
+      f('minutesPerStar', 'Minuten Medienzeit pro Stern', s.minutesPerStar, 'Die erste Fahrt einer Station am Tag bringt bis zu 6 Sterne, die zweite bis zu 3, jede weitere 1. Dazu kommen Boni.', { type: 'number', min: 0.5, max: 60, step: 0.5 }),
+      f('dailyStarLimit', 'Maximale Sterne pro Tag', s.dailyStarLimit, '0 = unbegrenzt. Üben geht auch danach, nur ohne Sterne.', { type: 'number', min: 0, max: 2000 }),
       f('questionsPerSession', 'Aufgaben pro Übung', s.questionsPerSession, 'Empfohlen: 8–12.', { type: 'number', min: 5, max: 30 }),
       f('ticketMinutes', 'Ticket-Größen in Minuten', s.ticketMinutes.join(', '), 'Mit Komma getrennt, z. B. 15, 30, 60.')),
     h('button.btn', { type: 'submit' }, 'Speichern'));
@@ -183,11 +183,102 @@ async function dashboard(root, render, reloadMeta) {
     data.pinIsDefault ? h('p.alert', '⚠️ Die Eltern-PIN ist noch „1234“. Bitte unten eine eigene PIN festlegen.') : null,
     pending,
     kids,
+    boostPanel(data, refresh),
+    dayLimitPanel(data, refresh),
     settingsForm,
     addForm,
     pinForm,
     contentPanel
   );
+}
+
+// ================================================================ Extra-Sterne: Event und Sonder-Limits
+
+const clock = (iso) => new Date(iso).toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
+const weekday = (day) => new Date(`${day}T12:00:00`).toLocaleDateString('de-DE', { weekday: 'long', day: '2-digit', month: '2-digit' });
+const limitText = (n) => (n > 0 ? `${n} Sterne` : 'unbegrenzt');
+
+function boostPanel(data, refresh) {
+  const call = async (method, body) => {
+    try {
+      await papi('/boost', { method, body });
+      toast(method === 'POST' ? 'Doppelte Sterne gestartet!' : 'Event beendet.');
+      refresh();
+    } catch (err) { toast(err.message); }
+  };
+  const limitNote = h('span.help', `Das Tageslimit gilt weiterhin (heute: ${limitText(data.todayLimit)}). Heb es unten für heute an, wenn die doppelten Sterne nicht daran scheitern sollen.`);
+  if (data.boost) {
+    return h('section.panel.boost-panel.on',
+      h('h2', '🎉 Doppelte Sterne laufen'),
+      h('p', `Jede Fahrt, die bis ${clock(data.boost.until)} Uhr gestartet wird, bringt doppelte Sterne.`),
+      limitNote,
+      h('.row-actions', h('button.btn.danger.small', { type: 'button', onclick: () => call('DELETE') }, 'Event beenden')));
+  }
+  const duration = h('select.input', { id: 'boost-minutes', 'aria-label': 'Dauer' },
+    [[30, '30 Minuten'], [60, '1 Stunde'], [120, '2 Stunden'], [180, '3 Stunden']].map(([v, l]) => h('option', { value: v, selected: v === 60 }, l)));
+  return h('section.panel.boost-panel',
+    h('h2', '🎉 Doppelte Sterne'),
+    h('p.muted', 'Starte ein Event: Jede Fahrt, die dein Kind in dieser Zeit beginnt, bringt doppelte Sterne. Die Kinder sehen das Event auf ihrem Netzplan.'),
+    h('.row-actions',
+      h('.field', h('label', { for: 'boost-minutes' }, 'Dauer'), duration),
+      h('button.btn.go', { type: 'button', onclick: () => call('POST', { minutes: Number(duration.value) }) }, 'Event starten')),
+    limitNote);
+}
+
+function localIso(d) {
+  const z = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${z(d.getMonth() + 1)}-${z(d.getDate())}`;
+}
+
+/** Samstag und Sonntag dieses Wochenendes (ab heute). */
+function weekendDays() {
+  const d = new Date();
+  const out = [];
+  for (let i = 0; i < 7 && out.length < 2; i++) {
+    const day = new Date(d.getFullYear(), d.getMonth(), d.getDate() + i);
+    if (day.getDay() === 6 || day.getDay() === 0) out.push(localIso(day));
+    else if (out.length) break;
+  }
+  return out;
+}
+
+function dayLimitPanel(data, refresh) {
+  const today = localIso(new Date());
+  const normal = data.settings.dailyStarLimit;
+  const dateInput = h('input.input', { id: 'dl-day', type: 'date', min: today, value: today });
+  const limitInput = h('input.input', { id: 'dl-limit', type: 'number', min: 0, max: 2000, value: normal ? normal * 2 : 0 });
+  const save = async (days) => {
+    try {
+      for (const day of days) await papi(`/day-limits/${day}`, { method: 'PUT', body: { limit: Number(limitInput.value) } });
+      toast(days.length === 1 ? 'Sonder-Limit gespeichert.' : 'Sonder-Limit fürs Wochenende gespeichert.');
+      refresh();
+    } catch (err) { toast(err.message); }
+  };
+  const remove = async (day) => {
+    try {
+      await papi(`/day-limits/${day}`, { method: 'DELETE' });
+      toast('Sonder-Limit entfernt.');
+      refresh();
+    } catch (err) { toast(err.message); }
+  };
+  return h('section.panel',
+    h('h2', '📅 Mehr Sterne an einzelnen Tagen'),
+    h('p.muted', `Normalerweise gibt es höchstens ${limitText(normal)} pro Tag. Hier kannst du das Limit für bestimmte Tage anheben, z. B. am Wochenende. 0 = unbegrenzt.`),
+    h('form', {
+      onsubmit: (e) => { e.preventDefault(); save([dateInput.value]); },
+    },
+      h('.form-grid',
+        h('.field', h('label', { for: 'dl-day' }, 'Tag'), dateInput),
+        h('.field', h('label', { for: 'dl-limit' }, 'Sterne an diesem Tag'), limitInput)),
+      h('.row-actions',
+        h('button.btn', { type: 'submit' }, 'Für diesen Tag festlegen'),
+        h('button.btn.ghost', { type: 'button', onclick: () => save(weekendDays()) }, 'Für dieses Wochenende'))),
+    data.dayLimits.length
+      ? h('ul.pending-list', data.dayLimits.map((d) =>
+          h('li',
+            h('.what', h('strong', d.day === today ? `Heute (${weekday(d.day)})` : weekday(d.day)), h('div.muted.small', `Limit: ${limitText(d.limit)}`)),
+            h('button.btn.danger.small', { type: 'button', onclick: () => remove(d.day) }, 'Entfernen'))))
+      : null);
 }
 
 function kpi(v, l) {

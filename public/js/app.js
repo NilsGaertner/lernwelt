@@ -225,9 +225,13 @@ async function homeView(id, subjectId) {
   const shieldNote = ov.streakInfo.shieldUsedOn && ov.streakInfo.shieldUsedOn >= addDaysIso(-2)
     ? h('p.shield-note', `🛡️ Dein Serienschutz hat deine Serie gerettet! Du bist jetzt ${ov.streak} Tage dabei. Der nächste Schutz ist in einer Woche wieder bereit.`)
     : null;
+  const boostNote = ov.boost && !ov.child.adult
+    ? h('p.boost-note', `🎉 Doppelte Sterne! Jede Fahrt, die du bis ${new Date(ov.boost.until).toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })} Uhr startest, bringt doppelt so viele Sterne.`)
+    : null;
   const today = ov.child.adult ? null : h('section.today',
     h('div',
       h('h2', limit > 0 ? `Heute verdient: ${ov.earnedToday} von ${limit} Sternen` : `Heute verdient: ${ov.earnedToday} Sterne`),
+      ov.specialLimit ? h('p.muted.small', '🎁 Heute gibt es ein Extra-Limit von deinen Eltern!') : null,
       limit > 0 ? h('.meter', { role: 'img', 'aria-label': `${ov.earnedToday} von ${limit}` },
         h('span', { style: { width: `${Math.min(100, (ov.earnedToday / limit) * 100)}%` } })) : null),
     h('a.btn.ghost', { href: `#/kid/${id}/tickets` }, '🎟️ Sterne eintauschen'));
@@ -303,7 +307,7 @@ async function homeView(id, subjectId) {
       }), terminus));
   }));
 
-  render(kidBar(ov), shieldNote, planCard(id, ov.plan, meta), tabs, today, review, blitz, map);
+  render(kidBar(ov), shieldNote, boostNote, planCard(id, ov.plan, meta), tabs, today, review, blitz, map);
 }
 
 function addDaysIso(n) {
@@ -500,7 +504,7 @@ function badgePanel(id, meta, ov) {
   return [
     h('section.panel',
       h('h2', `🏅 Deine Abzeichen – ${earned.size} von ${meta.badges.length}`),
-      h('p.muted', 'Für jedes neue Abzeichen bekommst du 3 Extra-Sterne.')),
+      h('p.muted', 'Für jedes neue Abzeichen bekommst du 6 Extra-Sterne.')),
     h('.badges', meta.badges.map((b) =>
       h('.badge', { class: earned.has(b.id) ? '' : 'locked' },
         h('.medal', { 'aria-hidden': 'true' }, b.icon),
@@ -574,7 +578,9 @@ async function ticketsView(id) {
     kidBar(ov),
     h('section.panel',
       h('h2', '🎟️ Sterne gegen Medienzeit tauschen'),
-      h('p.muted', `Ein Stern ist ${minutesPerStar} ${minutesPerStar === 1 ? 'Minute' : 'Minuten'} wert. Deine Eltern bestätigen das Ticket, dann geht’s los.`)),
+      h('p.muted', `${minutesPerStar < 1
+        ? `${1 / minutesPerStar} Sterne sind 1 Minute wert.`
+        : `Ein Stern ist ${String(minutesPerStar).replace('.', ',')} ${minutesPerStar === 1 ? 'Minute' : 'Minuten'} wert.`} Deine Eltern bestätigen das Ticket, dann geht’s los.`)),
     h('.tickets', ticketMinutes.map((m) => {
       const stars = Math.ceil(m / minutesPerStar);
       const missing = stars - ov.balance;

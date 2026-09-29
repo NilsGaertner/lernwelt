@@ -32,22 +32,35 @@ Die Welt-Linie hat die Stationen Die Kontinente, Kontinente-Wissen, Die Ozeane u
 
 ## Sterne, Abzeichen und Medienzeit
 
-| Wofür | Sterne |
+Jede Fahrt wird mit 1 bis 3 Sternen bewertet (unter 70 % richtig: 1 Stern, ab 70 %: 2 Sterne, ab 90 %: 3 Sterne). Wie viele Sterne es dafür aufs Konto gibt, hängt davon ab, wie oft dein Kind **dieselbe Station heute schon gefahren** ist:
+
+| Fahrt auf derselben Station am selben Tag | Sterne |
 |---|---|
-| Übung beendet | 1 |
-| mindestens 70 % richtig | 2 |
-| mindestens 90 % richtig | 3 |
-| Station zum ersten Mal mit 3 Sternen | +2 |
-| erste Übung des Tages | +1 |
-| Endbahnhof-Prüfung einer Linie zum ersten Mal bestanden | +3 |
-| neues Abzeichen (30 Stück, z. B. 3 Tage am Stück, 10 fehlerfreie Übungen) | +3 |
+| 1. Fahrt | Bewertung × 2 (2, 4 oder 6) |
+| 2. Fahrt | Bewertung × 1 (1, 2 oder 3) |
+| ab der 3. Fahrt | 1 |
+
+So lohnt sich Wiederholen weiterhin, aber eine leichte Station immer wieder abzufahren bringt kaum etwas. Die Endbahnhof-Prüfung ist genauso gestaffelt (pro Linie). Das Fehler-Training bringt immer Bewertung × 2, weil es nur Aufgaben enthält, die noch nicht sitzen.
+
+| Bonus | Sterne |
+|---|---|
+| Station zum ersten Mal mit 3 Sternen | +4 |
+| erste Übung des Tages | +2 |
+| Endbahnhof-Prüfung einer Linie zum ersten Mal bestanden | +6 |
+| neues Abzeichen (30 Stück, z. B. 3 Tage am Stück, 10 fehlerfreie Übungen) | +6 |
 
 Die Blitzrunde selbst bringt keine Sterne, nur Rekorde und XP.
 
 Im **Elternbereich** stellst du ein:
-- wie viele Minuten Medienzeit ein Stern wert ist (Standard: 2 Minuten)
-- wie viele Sterne es höchstens pro Tag gibt (Standard: 30). Üben geht danach weiter, nur ohne Sterne.
+- wie viele Minuten Medienzeit ein Stern wert ist (Standard: 1 Minute, auch 0,5er-Schritte möglich)
+- wie viele Sterne es höchstens pro Tag gibt (Standard: 60). Üben geht danach weiter, nur ohne Sterne.
 - welche Ticket-Größen es gibt (Standard: 15, 30 und 60 Minuten)
+
+Für besondere Tage gibt es im Elternbereich zwei Extras (sie gelten für alle Kinder):
+- **Mehr Sterne an einzelnen Tagen:** ein eigenes Tageslimit für ein bestimmtes Datum, z. B. am Wochenende. Ein Knopf legt es gleich für Samstag und Sonntag fest.
+- **Doppelte Sterne:** ein Event für 30 Minuten bis 3 Stunden. Jede Fahrt, die in dieser Zeit gestartet wird, bringt doppelte Sterne (Boni und Abzeichen zählen normal). Die Kinder sehen das Event auf ihrem Netzplan. Das Tageslimit gilt weiter, heb es also bei Bedarf für den Tag an.
+
+Hattest du die Lernwelt schon vor der Staffelung im Einsatz, stellt sie beim ersten Start einmal um: Kontostände, Sterne-Verlauf und offene Tickets werden verdoppelt, die Minuten pro Stern halbiert und das Tageslimit verdoppelt. Die Medienzeit, die dein Kind schon gespart hat, bleibt also gleich.
 
 Löst dein Kind ein Ticket, werden die Sterne sofort abgezogen und das Ticket wartet auf dein OK. Lehnst du ab (oder gibt dein Kind es zurück), kommen die Sterne zurück. Du kannst außerdem von Hand Sterne gutschreiben oder abziehen, etwa für einen guten Vokabeltest.
 

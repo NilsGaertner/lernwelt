@@ -1,6 +1,6 @@
 import { db } from './db.js';
 import { subjects, vocabKey, exerciseKey, resolveItem, getGenerator, mediaUrl } from './content.js';
-import { completeSession } from './rewards.js';
+import { completeSession, activeBoost } from './rewards.js';
 import { lineStatus, lineUnits, blitzTopics } from './progress.js';
 import { normalize, levenshtein, shuffle, pick, randomId, nowIso } from './util.js';
 
@@ -264,6 +264,7 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     title,
     mode,
     startedAt,
+    boosted: mode !== 'blitz' && !!activeBoost(),
     deadline: mode === 'blitz' ? Date.now() + (BLITZ_SECONDS + 3) * 1000 : null,
     combo: 0,
     bestCombo: 0,
@@ -276,6 +277,7 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     title,
     mode,
     seconds: mode === 'blitz' ? BLITZ_SECONDS : null,
+    boosted: session.boosted,
     speechLang: mode === 'blitz' ? null : subject.meta.speechLang ?? null,
     questions: session.questions.map((q, i) => ({ id: i, ...q.pub })),
   };
@@ -381,6 +383,7 @@ export function finishSession(sessionId) {
     unitTitle: s.title,
     mode: s.mode,
     startedAt: s.startedAt,
+    boosted: s.boosted,
     total: answered.length,
     correct: answered.filter((q) => q.firstCorrect).length,
     bestCombo: s.bestCombo,

@@ -401,6 +401,11 @@ export function runRide(root, session, { lineColor, train: trainIcon = '🚆', c
                   ? [r.given ? `+${r.given} ★ ` : '', h('span.capped', `+${r.amount - r.given}`)]
                   : `+${r.given} ★`)))),
             result.capped > 0 ? h('p.muted', 'Dein Sterne-Limit für heute ist erreicht. Morgen gibt es wieder neue – üben lohnt sich trotzdem!') : null,
+            !result.capped && result.runToday >= 2 && ['unit', 'exam'].includes(result.mode)
+              ? h('p.muted', result.runToday === 2
+                  ? `Deine 2. Fahrt ${result.mode === 'exam' ? 'zu diesem Endbahnhof' : 'auf dieser Station'} heute – dafür gibt es halbe Sterne. Neue Stationen bringen mehr!`
+                  : 'Diese Strecke bist du heute schon oft gefahren – jetzt gibt es nur noch 1 Stern. Probier eine andere Station, dort gibt es wieder die vollen Sterne!')
+              : null,
             h('p', h('strong', 'Du hast jetzt ', balanceEl, ' Sterne.'))),
       result.newBadges.length
         ? h('section.panel',

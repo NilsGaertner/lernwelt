@@ -1,5 +1,5 @@
 // Abzeichen: gelten fächerübergreifend. Jedes neue Abzeichen bringt BADGE_BONUS Sterne.
-export const BADGE_BONUS = 3;
+export const BADGE_BONUS = 6;
 
 export const BADGES = [
   { id: 'start', icon: '🚂', name: 'Abfahrt!', desc: 'Deine erste Übung geschafft', test: (s) => s.sessions >= 1 },
@@ -19,8 +19,8 @@ export const BADGES = [
   { id: 'items300', icon: '🎓', name: 'Wandelndes Wörterbuch', desc: '300 Wörter oder Aufgaben sicher gelernt', test: (s) => s.mastered >= 300 },
   { id: 'review5', icon: '🔧', name: 'Fehlerjäger', desc: '5 Fehler-Trainings gemacht', test: (s) => s.reviews >= 5 },
   { id: 'listen50', icon: '🎧', name: 'Gute Ohren', desc: '50 Hör-Aufgaben richtig', test: (s) => s.listen >= 50 },
-  { id: 'stars100', icon: '✨', name: '100 Sterne', desc: 'Insgesamt 100 Sterne verdient', test: (s) => s.starsEarned >= 100 },
-  { id: 'stars500', icon: '🌠', name: '500 Sterne', desc: 'Insgesamt 500 Sterne verdient', test: (s) => s.starsEarned >= 500 },
+  { id: 'stars100', icon: '✨', name: '200 Sterne', desc: 'Insgesamt 200 Sterne verdient', test: (s) => s.starsEarned >= 200 },
+  { id: 'stars500', icon: '🌠', name: '1000 Sterne', desc: 'Insgesamt 1000 Sterne verdient', test: (s) => s.starsEarned >= 1000 },
   { id: 'combo8', icon: '🚄', name: 'Schnellzug', desc: '8 richtige Antworten hintereinander', test: (s) => s.bestCombo >= 8 },
   { id: 'combo15', icon: '🚅', name: 'Hochgeschwindigkeit', desc: '15 richtige Antworten hintereinander', test: (s) => s.bestCombo >= 15 },
   { id: 'plan1', icon: '📋', name: 'Nach Fahrplan', desc: 'Zum ersten Mal den Tagesfahrplan erfüllt', test: (s) => s.stamps >= 1 },

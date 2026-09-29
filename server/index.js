@@ -6,6 +6,7 @@ import { publicBadges } from './badges.js';
 import { startSession, answerQuestion, finishSession, reviewCounts } from './session.js';
 import {
   balance, earnedOn, streak, unitProgress, earnedBadges, requestTicket, decideTicket, tickets, adjustStars,
+  starLimitFor, upcomingDayLimits, activeBoost, startBoost, stopBoost,
 } from './rewards.js';
 import { localDay, addDays, nowIso, randomId, hashPin, verifyPin } from './util.js';
 import {
@@ -59,7 +60,9 @@ app.get('/api/children/:id/overview', (req, res) => {
     child,
     balance: balance(child.id),
     earnedToday: earnedOn(child.id),
-    dailyLimit: settings.dailyStarLimit,
+    dailyLimit: starLimitFor(),
+    specialLimit: starLimitFor() !== settings.dailyStarLimit,
+    boost: activeBoost(),
     streak: streak(child.id),
     streakInfo: streakInfo(child.id),
     progress: unitProgress(child.id),
@@ -198,7 +201,10 @@ parent.get('/overview', (req, res) => {
        WHERE r.status = 'pending' ORDER BY r.created_at`
     )
     .all();
-  res.json({ children, pending, settings: getPublicSettings(), pinIsDefault: getSetting('pinIsDefault') === '1' });
+  res.json({
+    children, pending, settings: getPublicSettings(), pinIsDefault: getSetting('pinIsDefault') === '1',
+    today, todayLimit: starLimitFor(today), dayLimits: upcomingDayLimits(), boost: activeBoost(),
+  });
 });
 
 parent.get('/children/:id', (req, res) => {
@@ -331,8 +337,12 @@ parent.put('/settings', (req, res) => {
     if (!Number.isFinite(n) || n < min || n > max) throw fail(400, `Wert muss zwischen ${min} und ${max} liegen.`);
     return n;
   };
-  if (b.minutesPerStar != null) setSetting('minutesPerStar', int(b.minutesPerStar, 1, 60));
-  if (b.dailyStarLimit != null) setSetting('dailyStarLimit', int(b.dailyStarLimit, 0, 1000));
+  if (b.minutesPerStar != null) {
+    const n = Math.round(Number(String(b.minutesPerStar).replace(',', '.')) * 2) / 2;
+    if (!Number.isFinite(n) || n < 0.5 || n > 60) throw fail(400, 'Minuten pro Stern: bitte einen Wert zwischen 0,5 und 60 eingeben.');
+    setSetting('minutesPerStar', n);
+  }
+  if (b.dailyStarLimit != null) setSetting('dailyStarLimit', int(b.dailyStarLimit, 0, 2000));
   if (b.questionsPerSession != null) setSetting('questionsPerSession', int(b.questionsPerSession, 5, 30));
   if (b.ticketMinutes != null) {
     const list = String(b.ticketMinutes).split(',').map((m) => int(m.trim(), 1, 600));
@@ -340,6 +350,34 @@ parent.put('/settings', (req, res) => {
     setSetting('ticketMinutes', [...new Set(list)].sort((a, c) => a - c).join(','));
   }
   res.json(getPublicSettings());
+});
+
+// Sonder-Limit für einen Tag, z. B. am Wochenende mehr Sterne erlauben
+parent.put('/day-limits/:day', (req, res) => {
+  const { day } = req.params;
+  if (!/^d{4}-d{2}-d{2}$/.test(day) || Number.isNaN(Date.parse(day))) throw fail(400, 'Bitte ein gültiges Datum wählen.');
+  if (day < localDay()) throw fail(400, 'Für vergangene Tage lässt sich kein Limit mehr festlegen.');
+  const limit = Math.trunc(Number(req.body?.limit));
+  if (!Number.isFinite(limit) || limit < 0 || limit > 2000) throw fail(400, 'Das Limit muss zwischen 0 und 2000 liegen.');
+  db.prepare('INSERT OR REPLACE INTO day_limits (day, star_limit) VALUES (?, ?)').run(day, limit);
+  res.json({ dayLimits: upcomingDayLimits() });
+});
+
+parent.delete('/day-limits/:day', (req, res) => {
+  db.prepare('DELETE FROM day_limits WHERE day = ?').run(req.params.day);
+  res.json({ dayLimits: upcomingDayLimits() });
+});
+
+// „Doppelte Sterne“-Event: gilt für alle Fahrten, die in den nächsten Minuten gestartet werden
+parent.post('/boost', (req, res) => {
+  const minutes = Math.trunc(Number(req.body?.minutes));
+  if (!minutes || minutes < 5 || minutes > 720) throw fail(400, 'Die Dauer muss zwischen 5 und 720 Minuten liegen.');
+  res.json({ boost: startBoost(minutes) });
+});
+
+parent.delete('/boost', (req, res) => {
+  stopBoost();
+  res.json({ boost: null });
 });
 
 parent.put('/pin', (req, res) => {
