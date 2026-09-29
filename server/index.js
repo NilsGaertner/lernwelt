@@ -1,13 +1,16 @@
 import express from 'express';
 import path from 'node:path';
 import { db, getSetting, setSetting, getPublicSettings } from './db.js';
-import { loadContent, publicSubjects, publicUnit, subjects, itemLabel } from './content.js';
+import { loadContent, publicSubjects, publicUnit, subjects, itemLabel, CONTENT_DIR } from './content.js';
 import { publicBadges } from './badges.js';
 import { startSession, answerQuestion, finishSession, reviewCounts } from './session.js';
 import {
   balance, earnedOn, streak, unitProgress, earnedBadges, requestTicket, decideTicket, tickets, adjustStars,
 } from './rewards.js';
 import { localDay, addDays, nowIso, randomId, hashPin, verifyPin } from './util.js';
+import {
+  streakInfo, xpOf, rankInfo, unlockedTrains, RANKS, dailyPlan, stampDays, stampCount, lineStatus, blitzBests, blitzRecords, blitzTopics,
+} from './progress.js';
 
 const PORT = Number(process.env.PORT) || 8080;
 const problems = await loadContent();
@@ -17,10 +20,17 @@ const app = express();
 app.use(express.json({ limit: '100kb' }));
 app.use(express.static(path.resolve(import.meta.dirname, '..', 'public'), { extensions: ['html'] }));
 
+// Karten und Bilder der Fächer (content/<fach>/media/…)
+app.get('/media/:subject/:file', (req, res, next) => {
+  const { subject, file } = req.params;
+  if (!/^[\w-]+$/.test(subject) || !/^[\w-]+\.(svg|png|jpg|webp)$/.test(file)) return next();
+  res.sendFile(path.join(CONTENT_DIR, subject, 'media', file), { maxAge: '1h' }, (err) => err && next());
+});
+
 const fail = (status, message) => Object.assign(new Error(message), { status });
 
 function childOr404(id) {
-  const child = db.prepare('SELECT id, name, avatar FROM children WHERE id = ?').get(Number(id));
+  const child = db.prepare('SELECT id, name, avatar, train, adult FROM children WHERE id = ?').get(Number(id));
   if (!child) throw fail(404, 'Dieses Profil gibt es nicht.');
   return child;
 }
@@ -32,11 +42,18 @@ app.get('/api/meta', (req, res) => {
 });
 
 app.get('/api/children', (req, res) => {
-  res.json(db.prepare('SELECT id, name, avatar FROM children ORDER BY id').all());
+  res.json(db.prepare('SELECT id, name, avatar, adult FROM children ORDER BY adult, id').all());
 });
+
+/** Der gewählte Zug – falls (noch) nicht freigeschaltet, der beste freigeschaltete. */
+function trainOf(child, xp) {
+  const trains = unlockedTrains(xp);
+  return trains.includes(child.train) ? child.train : trains[trains.length - 1];
+}
 
 app.get('/api/children/:id/overview', (req, res) => {
   const child = childOr404(req.params.id);
+  const xp = xpOf(child.id);
   const settings = getPublicSettings();
   res.json({
     child,
@@ -44,7 +61,16 @@ app.get('/api/children/:id/overview', (req, res) => {
     earnedToday: earnedOn(child.id),
     dailyLimit: settings.dailyStarLimit,
     streak: streak(child.id),
+    streakInfo: streakInfo(child.id),
     progress: unitProgress(child.id),
+    lines: lineStatus(child.id),
+    plan: dailyPlan(child.id),
+    blitz: blitzBests(child.id),
+    rank: rankInfo(xp),
+    ranks: RANKS,
+    train: trainOf(child, xp),
+    trains: unlockedTrains(xp),
+    stampDays: stampDays(child.id),
     review: reviewCounts(child.id),
     badges: earnedBadges(child.id),
     tickets: tickets(child.id, 10),
@@ -59,10 +85,28 @@ app.get('/api/subjects/:subject/units/:unit', (req, res) => {
 });
 
 app.post('/api/sessions', (req, res) => {
-  const { childId, subject, unit, mode } = req.body ?? {};
+  const { childId, subject, unit, line, topic, mode } = req.body ?? {};
   const child = childOr404(childId);
   const count = getPublicSettings().questionsPerSession;
-  res.json(startSession({ childId: child.id, subjectId: subject, unitId: unit, mode: mode === 'review' ? 'review' : 'unit', count }));
+  res.json(startSession({
+    childId: child.id, subjectId: subject, unitId: unit, line, topic,
+    mode: ['review', 'exam', 'blitz'].includes(mode) ? mode : 'unit', count,
+  }));
+});
+
+app.get('/api/children/:id/blitz/:subject/:topic', (req, res) => {
+  const child = childOr404(req.params.id);
+  const topic = blitzTopics(req.params.subject).find((t) => t.id === req.params.topic);
+  if (!topic) throw fail(404, 'Diese Blitzrunde gibt es nicht.');
+  res.json({ topic: { id: topic.id, title: topic.title, icon: topic.icon ?? '⚡', subtitle: topic.subtitle ?? '' }, ...blitzRecords(child.id, req.params.subject, topic.id) });
+});
+
+app.post('/api/children/:id/train', (req, res) => {
+  const child = childOr404(req.params.id);
+  const train = String(req.body?.train ?? '');
+  if (!unlockedTrains(xpOf(child.id)).includes(train)) throw fail(400, 'Diesen Zug hast du noch nicht freigeschaltet.');
+  db.prepare('UPDATE children SET train = ? WHERE id = ?').run(train, child.id);
+  res.json({ train });
 });
 
 app.post('/api/sessions/:id/answer', (req, res) => {
@@ -75,6 +119,7 @@ app.post('/api/sessions/:id/finish', (req, res) => {
 
 app.post('/api/children/:id/tickets', (req, res) => {
   const child = childOr404(req.params.id);
+  if (child.adult) throw fail(400, 'Erwachsenen-Profile können keine Medienzeit eintauschen.');
   res.json(requestTicket(child.id, Number(req.body?.minutes)));
 });
 
@@ -124,7 +169,7 @@ parent.post('/logout', (req, res) => {
 parent.get('/overview', (req, res) => {
   const today = localDay();
   const weekStart = addDays(today, -6);
-  const children = db.prepare('SELECT id, name, avatar FROM children ORDER BY id').all().map((c) => {
+  const children = db.prepare('SELECT id, name, avatar, adult FROM children ORDER BY adult, id').all().map((c) => {
     const t = db
       .prepare(
         `SELECT COUNT(*) AS sessions, COALESCE(SUM(duration_sec), 0) AS secs, COALESCE(SUM(correct), 0) AS correct, COALESCE(SUM(total), 0) AS total
@@ -140,6 +185,8 @@ parent.get('/overview', (req, res) => {
       balance: balance(c.id),
       earnedToday: earnedOn(c.id, today),
       streak: streak(c.id),
+      rank: rankInfo(xpOf(c.id)),
+      planDone: dailyPlan(c.id).done,
       today: { sessions: t.sessions, minutes: Math.round(t.secs / 60), accuracy: t.total ? Math.round((t.correct * 100) / t.total) : null },
       week: { sessions: w.sessions, minutes: Math.round(w.secs / 60) },
       lastActive: last,
@@ -196,6 +243,15 @@ parent.get('/children/:id', (req, res) => {
   }
 
   const unitTitle = (sid, uid) => subjects.get(sid)?.units.get(uid)?.title ?? uid ?? 'Fehler-Training';
+  const sessionTitle = (s) => {
+    if (s.mode === 'review') return 'Fehler-Training';
+    if (s.mode === 'blitz') return `⚡ ${blitzTopics(s.subject).find((t) => t.id === s.unit_id)?.title ?? 'Blitzrunde'}`;
+    if (s.mode === 'exam') {
+      const line = subjects.get(s.subject)?.meta.lines?.find((l) => l.id === s.unit_id);
+      return `🏁 Endbahnhof ${line?.name ?? s.unit_id}`;
+    }
+    return unitTitle(s.subject, s.unit_id);
+  };
   const weak = db
     .prepare(
       `SELECT * FROM item_stats WHERE child_id = ? AND wrong > 0 AND box < 3
@@ -209,13 +265,15 @@ parent.get('/children/:id', (req, res) => {
   const sessions = db
     .prepare('SELECT * FROM sessions WHERE child_id = ? ORDER BY finished_at DESC LIMIT 25')
     .all(child.id)
-    .map((s) => ({ ...s, title: s.mode === 'review' ? 'Fehler-Training' : unitTitle(s.subject, s.unit_id) }));
+    .map((s) => ({ ...s, title: sessionTitle(s) }));
   const ledger = db.prepare('SELECT * FROM star_ledger WHERE child_id = ? ORDER BY id DESC LIMIT 40').all(child.id);
 
   res.json({
     child,
     balance: balance(child.id),
     streak: streak(child.id),
+    rank: rankInfo(xpOf(child.id)),
+    stamps: stampCount(child.id),
     badges: earnedBadges(child.id),
     days,
     units,
@@ -232,8 +290,11 @@ parent.post('/children', (req, res) => {
   const name = String(req.body?.name ?? '').trim().slice(0, 40);
   if (!name) throw fail(400, 'Bitte einen Namen eingeben.');
   const avatar = String(req.body?.avatar ?? '🦊').slice(0, 8);
-  const { lastInsertRowid } = db.prepare('INSERT INTO children (name, avatar, created_at) VALUES (?, ?, ?)').run(name, avatar, nowIso());
-  res.json({ id: Number(lastInsertRowid), name, avatar });
+  const adult = req.body?.adult ? 1 : 0;
+  const { lastInsertRowid } = db
+    .prepare('INSERT INTO children (name, avatar, adult, created_at) VALUES (?, ?, ?, ?)')
+    .run(name, avatar, adult, nowIso());
+  res.json({ id: Number(lastInsertRowid), name, avatar, adult });
 });
 
 parent.put('/children/:id', (req, res) => {

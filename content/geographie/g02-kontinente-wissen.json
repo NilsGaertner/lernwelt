@@ -1,0 +1,31 @@
+{
+  "id": "kontinente-wissen",
+  "line": "welt",
+  "order": 2,
+  "title": "Kontinente-Wissen",
+  "subtitle": "Größe, Länder und Tiere",
+  "icon": "🧭",
+  "card": "Wusstest du? In Asien lebt mehr als die Hälfte aller Menschen auf der Erde.",
+  "explain": [
+    { "p": "Die Kontinente sind sehr unterschiedlich groß. Hier von groß nach klein:" },
+    { "table": { "head": ["", "Kontinent", "Zum Beispiel"], "rows": [["1", "**Asien** (der größte)", "China, Indien, Japan"], ["2", "**Afrika**", "Ägypten, Kenia, Südafrika"], ["3", "**Nordamerika**", "USA, Kanada, Mexiko"], ["4", "**Südamerika**", "Brasilien, Argentinien, Peru"], ["5", "**Antarktis**", "keine Länder – nur Forschungsstationen"], ["6", "**Europa**", "Deutschland, Frankreich, Italien"], ["7", "**Australien** (der kleinste)", "Australien, Neuseeland"]] } },
+    { "tip": "In Asien leben die meisten Menschen – mehr als in allen anderen Kontinenten zusammen." },
+    { "p": "Europa und Asien zusammen nennt man auch **Eurasien**." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Auf welchem Kontinent liegt Deutschland?", "options": ["Europa", "Asien", "Afrika", "Nordamerika"], "answer": "Europa" },
+    { "type": "choice", "q": "Welcher Kontinent ist der größte?", "options": ["Asien", "Afrika", "Europa", "Nordamerika"], "answer": "Asien" },
+    { "type": "choice", "q": "Welcher Kontinent ist der kleinste?", "options": ["Australien", "Europa", "Antarktis", "Südamerika"], "answer": "Australien", "explain": "Australien ist der kleinste Kontinent, Europa der zweitkleinste." },
+    { "type": "choice", "q": "Welcher Kontinent ist fast ganz mit Eis bedeckt?", "options": ["Antarktis", "Europa", "Nordamerika", "Asien"], "answer": "Antarktis" },
+    { "type": "choice", "q": "Wie viele Kontinente gibt es?", "options": ["7", "5", "6", "9"], "answer": "7" },
+    { "type": "choice", "q": "Auf welchem Kontinent leben die meisten Menschen?", "options": ["Asien", "Afrika", "Europa", "Nordamerika"], "answer": "Asien" },
+    { "type": "choice", "q": "Auf welchem Kontinent liegt Ägypten?", "options": ["Afrika", "Asien", "Europa", "Südamerika"], "answer": "Afrika" },
+    { "type": "choice", "q": "Auf welchem Kontinent liegt Brasilien?", "options": ["Südamerika", "Afrika", "Nordamerika", "Australien"], "answer": "Südamerika" },
+    { "type": "choice", "q": "Auf welchem Kontinent liegen die USA und Kanada?", "options": ["Nordamerika", "Südamerika", "Europa", "Asien"], "answer": "Nordamerika" },
+    { "type": "choice", "q": "Auf welchem Kontinent liegen China und Indien?", "options": ["Asien", "Afrika", "Australien", "Europa"], "answer": "Asien" },
+    { "type": "choice", "q": "Wo leben Kängurus in freier Natur?", "options": ["Australien", "Afrika", "Südamerika", "Asien"], "answer": "Australien" },
+    { "type": "choice", "q": "Auf welchem Kontinent gibt es keine Städte, sondern nur Forschungsstationen?", "options": ["Antarktis", "Australien", "Nordamerika", "Asien"], "answer": "Antarktis" },
+    { "type": "choice", "q": "Wie nennt man Europa und Asien zusammen?", "options": ["Eurasien", "Europasien", "Asiropa", "Großeuropa"], "answer": "Eurasien" },
+    { "type": "choice", "q": "Welches Gebirge liegt an der Grenze zwischen Europa und Asien?", "options": ["Ural", "Alpen", "Himalaya", "Anden"], "answer": "Ural" }
+  ]
+}

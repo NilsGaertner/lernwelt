@@ -1,4 +1,4 @@
-import { h, md, gapText, speak, canSpeak, sfx, escapeHtml } from './ui.js';
+import { h, md, gapText, speak, canSpeak, sfx, escapeHtml, mapFigure, confetti, countUp, rankMeter } from './ui.js';
 import { api } from './api.js';
 
 const PRAISE = ['Richtig!', 'Super!', 'Klasse!', 'Genau!', 'Stark!', 'Perfekt!'];
@@ -16,7 +16,7 @@ const shuffle = (arr) => {
  * Spielt eine Übung („Fahrt“) ab.
  * Falsch beantwortete Aufgaben kommen am Ende noch einmal – gewertet wird nur der erste Versuch.
  */
-export function runRide(root, session, { lineColor, onExit, onAgain }) {
+export function runRide(root, session, { lineColor, train: trainIcon = '🚆', card = null, onExit, onAgain }) {
   const lang = session.speechLang;
   const total = session.questions.length;
   const queue = session.questions.map((q) => ({ q, retry: false }));
@@ -24,6 +24,7 @@ export function runRide(root, session, { lineColor, onExit, onAgain }) {
   let pos = 0;
   let busy = false;
   let onEnter = null;
+  let combo = 0;
   const keys = new AbortController();
 
   const say = (text) => lang && text && speak(text, lang);
@@ -31,14 +32,16 @@ export function runRide(root, session, { lineColor, onExit, onAgain }) {
   // ---------------------------------------------------------------- Gerüst
   const trackDots = h('.dots', status.map(() => h('span.dot')));
   const railDone = h('.rail-done');
-  const train = h('span.train', { 'aria-hidden': 'true' }, '🚆');
+  const train = h('span.train', { 'aria-hidden': 'true' }, trainIcon);
   const count = h('span.ride-count');
+  const comboBadge = h('span.combo', { 'aria-live': 'polite' });
   const stage = h('div');
   const wrap = h('section.ride', { style: { '--line': lineColor } },
     h('.ride-top',
       h('button.icon-btn', { type: 'button', title: 'Fahrt abbrechen', 'aria-label': 'Fahrt abbrechen', onclick: exit }, '✕'),
       h('.track', { role: 'progressbar', 'aria-valuemin': 0, 'aria-valuemax': total }, h('.rail'), railDone, trackDots, train),
       count),
+    comboBadge,
     stage);
   root.replaceChildren(wrap);
   window.scrollTo(0, 0);
@@ -93,6 +96,7 @@ export function runRide(root, session, { lineColor, onExit, onAgain }) {
           ? h('button.listen-btn', { type: 'button', 'aria-label': 'Anhören', onclick: () => say(q.audio) }, '🔊')
           : h('.qtext', q.audio)
         : q.text ? h('.qtext', { html: gapText(q.text) }) : null,
+      q.map ? mapFigure(q.map.src, { mark: q.map.mark }) : null,
       q.textDe ? h('p.qde', `🇩🇪 ${q.textDe}`) : null,
       q.hint ? h('span.qhint', { html: `Hilfe: ${md(q.hint)}` }) : null,
       h('.answer-area', answerArea(q)));
@@ -245,15 +249,42 @@ export function runRide(root, session, { lineColor, onExit, onAgain }) {
     if (res.firstTry) status[q.id] = res.correct ? 'ok' : 'miss';
     if (!res.correct && res.firstTry && q.type !== 'match') queue.push({ q, retry: true });
     updateTrack();
-    const gap = stage.querySelector('.qtext .gap');
-    if (gap && res.solution) {
-      gap.textContent = res.correct && q.type === 'input' ? String(answer).trim() : res.solution;
-      gap.classList.add('filled');
+    // Mehrere Lücken (z. B. ___ · ___ = 144) bekommen alle dieselbe Lösung.
+    if (res.solution) {
+      for (const gap of stage.querySelectorAll('.qtext .gap')) {
+        gap.textContent = res.correct && q.type === 'input' ? String(answer).trim() : res.solution;
+        gap.classList.add('filled');
+      }
     }
-    if (res.correct) sfx.right(); else sfx.wrong();
+    updateCombo(res.combo ?? 0);
+    if (res.correct && combo >= 3) sfx.combo(combo);
+    else if (res.correct) sfx.right();
+    else sfx.wrong();
     if (res.speak) setTimeout(() => say(res.speak), res.correct ? 250 : 600);
     feedback(q, res);
     return res;
+  }
+
+  // ---------------------------------------------------------------- Serie
+  const COMBO_STEPS = { 3: 'Schnellzug!', 5: 'ICE!', 8: 'Hochgeschwindigkeit!', 12: 'Rekordfahrt!' };
+  function updateCombo(n) {
+    const prev = combo;
+    combo = n;
+    train.classList.toggle('express', n >= 3 && n < 5);
+    train.classList.toggle('ice', n >= 5);
+    comboBadge.replaceChildren();
+    comboBadge.className = 'combo';
+    if (n >= 2) {
+      comboBadge.append(h('span.combo-n', `🔥 ${n} in Folge`));
+      comboBadge.classList.add('on');
+    }
+    if (n > prev && COMBO_STEPS[n]) {
+      const pop = h('span.combo-pop', COMBO_STEPS[n]);
+      comboBadge.append(pop);
+      setTimeout(() => pop.remove(), 1600);
+    } else if (prev >= 3 && n === 0) {
+      comboBadge.append(h('span.combo-lost', `Serie beendet – ${prev} in Folge!`));
+    }
   }
 
   function feedback(q, res) {
@@ -303,9 +334,49 @@ export function runRide(root, session, { lineColor, onExit, onAgain }) {
       stage.replaceChildren(h('.empty', h('p', err.message), h('button.btn', { type: 'button', onclick: onExit }, 'Zurück')));
       return;
     }
-    sfx.arrive();
-    const headline = { 3: 'Perfekte Fahrt!', 2: 'Gute Fahrt!', 1: 'Angekommen!' }[result.rating];
-    const sub = { 3: 'Du bist spitze!', 2: 'Nur noch ein kleines Stück bis zu drei Sternen.', 1: 'Übung macht den Meister – fahr die Strecke ruhig nochmal.' }[result.rating];
+    const exam = result.exam;
+    const headline = exam
+      ? exam.passed ? 'Endbahnhof erreicht!' : 'Knapp vor dem Ziel!'
+      : { 3: 'Perfekte Fahrt!', 2: 'Gute Fahrt!', 1: 'Angekommen!' }[result.rating];
+    const sub = exam
+      ? exam.passed ? 'Du kennst die ganze Linie!' : `Ab 80 % ist die Prüfung bestanden, du hattest ${exam.percent} %. Übe die Stationen und versuch es nochmal.`
+      : { 3: 'Du bist spitze!', 2: 'Nur noch ein kleines Stück bis zu drei Sternen.', 1: 'Übung macht den Meister – fahr die Strecke ruhig nochmal.' }[result.rating];
+    const celebrate = result.rating === 3 || result.xp.rankUp || result.plan?.justCompleted || exam?.first;
+    if (celebrate) {
+      sfx.fanfare();
+      setTimeout(() => confetti(), 700);
+    } else sfx.arrive();
+
+    const balanceEl = h('span');
+    countUp(balanceEl, result.balance - result.awarded, result.balance, { delay: 1400 });
+
+    const panels = [];
+    if (result.plan?.justCompleted) {
+      setTimeout(() => sfx.stamp(), 1200);
+      panels.push(h('section.panel.plan-done',
+        h('.stamp', { 'aria-hidden': 'true' }, h('span', '✔'), h('small', 'Erledigt')),
+        h('div', h('h2', '📋 Tagesfahrplan erfüllt!'), h('p', `Ein neuer Stempel für dein Stempelheft – das ist schon Stempel Nr. ${result.plan.stamps}.`))));
+    }
+    if (result.newCard && card) {
+      panels.push(h('section.panel',
+        h('h2', '🃏 Neue Sammelkarte!'),
+        h('.card-reveal', collectCard({ ...card, owned: true, fresh: true }))));
+    }
+    if (exam?.first && card) {
+      panels.push(h('section.panel',
+        h('h2', '🏆 Goldkarte freigeschaltet!'),
+        h('.card-reveal', collectCard({ ...card, owned: true, fresh: true, gold: true }))));
+    }
+    if (result.xp.rankUp) {
+      const r = result.xp.rankUp;
+      panels.push(h('section.panel.rank-up',
+        h('.big-train', { 'aria-hidden': 'true' }, r.train),
+        h('div', h('h2', `Neuer Rang: ${r.name}!`), h('p', `Du hast einen neuen Zug freigeschaltet: ${r.train}. Du kannst ihn in deiner Sammlung auswählen.`))));
+    }
+
+    const comboLine = result.bestCombo >= 3
+      ? h('p.score', `🔥 Längste Serie: ${result.bestCombo} in Folge${result.comboRecord ? ' – neuer Rekord!' : ''}`)
+      : null;
 
     root.replaceChildren(h('section.arrival', { style: { '--line': lineColor } },
       h('.board',
@@ -313,17 +384,24 @@ export function runRide(root, session, { lineColor, onExit, onAgain }) {
         h('h1', headline),
         h('.big-stars', { role: 'img', 'aria-label': `${result.rating} von 3 Sternen` },
           [1, 2, 3].map((i) => h('span', { class: i <= result.rating ? 'on' : 'off' }, '★'))),
-        h('p.score', `${result.correct} von ${result.total} beim ersten Versuch richtig. ${sub}`)),
-      h('section.panel', { style: { marginTop: '16px', textAlign: 'left' } },
-        h('h2', 'Deine Sterne'),
-        h('ul.rewards', result.rewards.map((r) =>
-          h('li',
-            h('span', r.note),
-            h('span.amt', r.given < r.amount
-              ? [r.given ? `+${r.given} ★ ` : '', h('span.capped', `+${r.amount - r.given}`)]
-              : `+${r.given} ★`)))),
-        result.capped > 0 ? h('p.muted', 'Dein Sterne-Limit für heute ist erreicht. Morgen gibt es wieder neue – üben lohnt sich trotzdem!') : null,
-        h('p', h('strong', `Du hast jetzt ${result.balance} Sterne.`))),
+        h('p.score', `${result.correct} von ${result.total} beim ersten Versuch richtig. ${sub}`),
+        comboLine),
+      ...panels,
+      h('section.panel', { style: { textAlign: 'left' } },
+        h('h2', `✨ +${result.xp.gained} XP`),
+        rankMeter(result.xp.rank)),
+      result.adult
+        ? h('section.panel', { style: { textAlign: 'left' } }, h('p.muted', 'Erwachsenen-Profil: Hier gibt es keine Sterne – aber Rekorde und XP zählen!'))
+        : h('section.panel', { style: { textAlign: 'left' } },
+            h('h2', 'Deine Sterne'),
+            h('ul.rewards', result.rewards.map((r) =>
+              h('li',
+                h('span', r.note),
+                h('span.amt', r.given < r.amount
+                  ? [r.given ? `+${r.given} ★ ` : '', h('span.capped', `+${r.amount - r.given}`)]
+                  : `+${r.given} ★`)))),
+            result.capped > 0 ? h('p.muted', 'Dein Sterne-Limit für heute ist erreicht. Morgen gibt es wieder neue – üben lohnt sich trotzdem!') : null,
+            h('p', h('strong', 'Du hast jetzt ', balanceEl, ' Sterne.'))),
       result.newBadges.length
         ? h('section.panel',
             h('h2', result.newBadges.length === 1 ? '🎉 Neues Abzeichen!' : '🎉 Neue Abzeichen!'),
@@ -340,3 +418,15 @@ export function runRide(root, session, { lineColor, onExit, onAgain }) {
   show();
 }
 
+/** Eine Sammelkarte (für die Ankunft und das Sammelalbum). */
+export function collectCard({ icon, title, text, color, number, owned, fresh = false, gold = false, hint = null }) {
+  const cls = [owned ? '' : 'locked', fresh ? 'fresh' : '', gold ? 'gold' : ''].filter(Boolean).join(' ');
+  return h('article.ccard', { class: cls, style: { '--line': color } },
+    h('.ccard-inner',
+      h('.ccard-top', h('span.ccard-no', gold ? 'Goldkarte' : number ? `Nr. ${number}` : ''), gold ? h('span', '🏆') : null),
+      h('.ccard-icon', { 'aria-hidden': 'true' }, owned ? icon : '?'),
+      h('.ccard-title', title),
+      owned
+        ? h('.ccard-text', { html: md(text ?? '') })
+        : h('.ccard-text.muted', hint ?? 'Hol 3 Sterne bei dieser Station, dann gehört die Karte dir.')));
+}

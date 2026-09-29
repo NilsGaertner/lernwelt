@@ -1,0 +1,35 @@
+{
+  "id": "meere-europa",
+  "line": "welt",
+  "order": 4,
+  "title": "Meere in Europa",
+  "subtitle": "Nordsee, Ostsee, Mittelmeer …",
+  "icon": "⛵",
+  "card": "Wusstest du? Die Ostsee ist nur ganz wenig salzig – an manchen Stellen fast wie Süßwasser.",
+  "explain": [
+    { "p": "Deutschland grenzt im Norden an **zwei Meere**: die **Nordsee** und die **Ostsee**." },
+    { "map": "europa", "legend": [["nordsee", "Nordsee"], ["ostsee", "Ostsee"], ["mittelmeer", "Mittelmeer"], ["schwarzes-meer", "Schwarzes Meer"], ["atlantik", "Atlantik"], ["deutschland", "Deutschland"]] },
+    { "table": { "head": ["Meer", "Gut zu wissen"], "rows": [["**Nordsee**", "Starke Ebbe und Flut, das Wattenmeer. Inseln: Sylt, Helgoland"], ["**Ostsee**", "Kaum Ebbe und Flut. Inseln: Rügen, Fehmarn, Usedom"], ["**Mittelmeer**", "Liegt zwischen Europa und Afrika. Beliebt für den Urlaub, z. B. in Italien oder Spanien"], ["**Schwarzes Meer**", "Liegt im Südosten Europas, nördlich der Türkei"], ["**Atlantik**", "Der Ozean im Westen Europas. Nordsee und Mittelmeer sind mit ihm verbunden"]] } }
+  ],
+  "exercises": [
+    { "id": "karte-nordsee", "type": "choice", "task": "Wie heißt das markierte Meer?", "map": "europa", "mark": "nordsee", "options": ["Nordsee", "Atlantik", "Ostsee", "Schwarzes Meer"], "answer": "Nordsee" },
+    { "id": "karte-ostsee", "type": "choice", "task": "Wie heißt das markierte Meer?", "map": "europa", "mark": "ostsee", "options": ["Ostsee", "Nordsee", "Atlantik", "Schwarzes Meer"], "answer": "Ostsee" },
+    { "id": "karte-mittelmeer", "type": "choice", "task": "Wie heißt das markierte Meer?", "map": "europa", "mark": "mittelmeer", "options": ["Mittelmeer", "Atlantik", "Nordsee", "Ostsee"], "answer": "Mittelmeer" },
+    { "id": "karte-schwarzes-meer", "type": "choice", "task": "Wie heißt das markierte Meer?", "map": "europa", "mark": "schwarzes-meer", "options": ["Schwarzes Meer", "Atlantik", "Mittelmeer", "Ostsee"], "answer": "Schwarzes Meer" },
+    { "id": "karte-atlantik", "type": "choice", "task": "Wie heißt das markierte Meer?", "map": "europa", "mark": "atlantik", "options": ["Atlantik", "Schwarzes Meer", "Mittelmeer", "Nordsee"], "answer": "Atlantik" },
+    { "id": "schreib-nordsee", "type": "input", "task": "Schreib den Namen des markierten Meeres.", "map": "europa", "mark": "nordsee", "answer": "Nordsee", "accept": ["Nord See"], "placeholder": "Meer" },
+    { "id": "schreib-ostsee", "type": "input", "task": "Schreib den Namen des markierten Meeres.", "map": "europa", "mark": "ostsee", "answer": "Ostsee", "accept": ["Ost See"], "placeholder": "Meer" },
+    { "id": "schreib-mittelmeer", "type": "input", "task": "Schreib den Namen des markierten Meeres.", "map": "europa", "mark": "mittelmeer", "answer": "Mittelmeer", "placeholder": "Meer" },
+    { "id": "schreib-schwarzes-meer", "type": "input", "task": "Schreib den Namen des markierten Meeres.", "map": "europa", "mark": "schwarzes-meer", "answer": "Schwarzes Meer", "accept": ["Schwarze Meer"], "placeholder": "Meer" },
+    { "id": "schreib-atlantik", "type": "input", "task": "Schreib den Namen des markierten Meeres.", "map": "europa", "mark": "atlantik", "answer": "Atlantik", "accept": ["Atlantischer Ozean"], "placeholder": "Meer" },
+    { "type": "choice", "q": "An welche zwei Meere grenzt Deutschland?", "options": ["Nordsee und Ostsee", "Nordsee und Mittelmeer", "Ostsee und Schwarzes Meer", "Mittelmeer und Atlantik"], "answer": "Nordsee und Ostsee" },
+    { "type": "choice", "q": "Welches Meer liegt zwischen Europa und Afrika?", "options": ["Mittelmeer", "Nordsee", "Ostsee", "Schwarzes Meer"], "answer": "Mittelmeer" },
+    { "type": "choice", "q": "Die Insel Sylt liegt in der ___.", "options": ["Nordsee", "Ostsee", "Mittelmeer", "Schwarzes Meer"], "answer": "Nordsee" },
+    { "type": "choice", "q": "Die Insel Rügen liegt in der ___.", "options": ["Ostsee", "Nordsee", "Mittelmeer", "Schwarzes Meer"], "answer": "Ostsee" },
+    { "type": "choice", "q": "Wo gibt es das Wattenmeer mit starker Ebbe und Flut?", "options": ["Nordsee", "Ostsee", "Mittelmeer", "Schwarzes Meer"], "answer": "Nordsee" },
+    { "type": "choice", "q": "Italien ist eine Halbinsel im ___.", "options": ["Mittelmeer", "Atlantik", "Schwarzen Meer", "Nordsee"], "answer": "Mittelmeer" },
+    { "type": "choice", "q": "Welches Meer liegt nördlich der Türkei?", "options": ["Schwarzes Meer", "Ostsee", "Nordsee", "Mittelmeer"], "answer": "Schwarzes Meer" },
+    { "type": "choice", "q": "Die Stadt Rostock liegt an der ___.", "options": ["Ostsee", "Nordsee", "Mittelmeer", "Atlantik"], "answer": "Ostsee" },
+    { "type": "choice", "q": "Portugal und Irland liegen am ___.", "options": ["Atlantik", "Mittelmeer", "Schwarzen Meer", "Pazifik"], "answer": "Atlantik" }
+  ]
+}

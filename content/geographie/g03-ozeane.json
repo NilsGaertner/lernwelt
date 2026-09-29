@@ -1,0 +1,37 @@
+{
+  "id": "ozeane",
+  "line": "welt",
+  "order": 3,
+  "title": "Die Ozeane",
+  "subtitle": "Die großen Meere der Welt",
+  "icon": "🌊",
+  "card": "Wusstest du? Der Pazifik ist größer als alle Länder und Kontinente der Erde zusammen.",
+  "explain": [
+    { "p": "Mehr als **zwei Drittel** der Erde sind mit Wasser bedeckt. Die ganz großen Meere heißen **Ozeane**." },
+    { "map": "welt", "legend": [["pazifik", "Pazifik"], ["atlantik", "Atlantik"], ["indischer-ozean", "Indischer Ozean"], ["nordpolarmeer", "Nordpolarmeer"], ["suedpolarmeer", "Südpolarmeer"]] },
+    { "p": "Die drei großen Ozeane sind der **Pazifik** (der größte), der **Atlantik** und der **Indische Ozean**. Dazu kommen das **Nordpolarmeer** rund um den Nordpol und das **Südpolarmeer** rund um die Antarktis." },
+    { "tip": "Der Pazifik ist so riesig, dass er auf der Weltkarte an beiden Rändern auftaucht – links und rechts!" },
+    { "p": "Andere Namen: Pazifik = Pazifischer Ozean oder Stiller Ozean, Atlantik = Atlantischer Ozean." }
+  ],
+  "exercises": [
+    { "id": "karte-pazifik", "type": "choice", "task": "Wie heißt der markierte Ozean?", "map": "welt", "mark": "pazifik", "options": ["Pazifik", "Nordpolarmeer", "Indischer Ozean", "Atlantik"], "answer": "Pazifik" },
+    { "id": "karte-atlantik", "type": "choice", "task": "Wie heißt der markierte Ozean?", "map": "welt", "mark": "atlantik", "options": ["Atlantik", "Indischer Ozean", "Südpolarmeer", "Pazifik"], "answer": "Atlantik" },
+    { "id": "karte-indischer-ozean", "type": "choice", "task": "Wie heißt der markierte Ozean?", "map": "welt", "mark": "indischer-ozean", "options": ["Indischer Ozean", "Pazifik", "Nordpolarmeer", "Südpolarmeer"], "answer": "Indischer Ozean" },
+    { "id": "karte-nordpolarmeer", "type": "choice", "task": "Wie heißt der markierte Ozean?", "map": "welt", "mark": "nordpolarmeer", "options": ["Nordpolarmeer", "Pazifik", "Indischer Ozean", "Südpolarmeer"], "answer": "Nordpolarmeer" },
+    { "id": "karte-suedpolarmeer", "type": "choice", "task": "Wie heißt der markierte Ozean?", "map": "welt", "mark": "suedpolarmeer", "options": ["Südpolarmeer", "Indischer Ozean", "Pazifik", "Nordpolarmeer"], "answer": "Südpolarmeer" },
+    { "id": "schreib-pazifik", "type": "input", "task": "Schreib den Namen des markierten Ozeans.", "map": "welt", "mark": "pazifik", "answer": "Pazifik", "accept": ["Pazifischer Ozean", "Stiller Ozean", "Großer Ozean"], "placeholder": "Ozean" },
+    { "id": "schreib-atlantik", "type": "input", "task": "Schreib den Namen des markierten Ozeans.", "map": "welt", "mark": "atlantik", "answer": "Atlantik", "accept": ["Atlantischer Ozean"], "placeholder": "Ozean" },
+    { "id": "schreib-indischer-ozean", "type": "input", "task": "Schreib den Namen des markierten Ozeans.", "map": "welt", "mark": "indischer-ozean", "answer": "Indischer Ozean", "accept": ["Indik"], "placeholder": "Ozean" },
+    { "id": "schreib-nordpolarmeer", "type": "input", "task": "Schreib den Namen des markierten Ozeans.", "map": "welt", "mark": "nordpolarmeer", "answer": "Nordpolarmeer", "accept": ["Arktischer Ozean", "Nördliches Eismeer", "Nordpolar Meer"], "placeholder": "Ozean" },
+    { "id": "schreib-suedpolarmeer", "type": "input", "task": "Schreib den Namen des markierten Ozeans.", "map": "welt", "mark": "suedpolarmeer", "answer": "Südpolarmeer", "accept": ["Suedpolarmeer", "Südlicher Ozean", "Antarktischer Ozean", "Südpolar Meer"], "placeholder": "Ozean" },
+    { "type": "choice", "q": "Welcher Ozean ist der größte?", "options": ["Pazifik", "Atlantik", "Indischer Ozean", "Nordpolarmeer"], "answer": "Pazifik" },
+    { "type": "choice", "q": "Welcher Ozean liegt zwischen Europa und Amerika?", "options": ["Atlantik", "Pazifik", "Indischer Ozean", "Südpolarmeer"], "answer": "Atlantik" },
+    { "type": "choice", "q": "Welcher Ozean liegt zwischen Afrika und Australien?", "options": ["Indischer Ozean", "Atlantik", "Pazifik", "Nordpolarmeer"], "answer": "Indischer Ozean" },
+    { "type": "choice", "q": "Welcher Ozean liegt zwischen Asien und Amerika?", "options": ["Pazifik", "Atlantik", "Indischer Ozean", "Südpolarmeer"], "answer": "Pazifik" },
+    { "type": "choice", "q": "Welches Meer liegt rund um den Nordpol?", "options": ["Nordpolarmeer", "Südpolarmeer", "Atlantik", "Mittelmeer"], "answer": "Nordpolarmeer" },
+    { "type": "choice", "q": "Welches Meer liegt rund um die Antarktis?", "options": ["Südpolarmeer", "Nordpolarmeer", "Indischer Ozean", "Ostsee"], "answer": "Südpolarmeer" },
+    { "type": "choice", "q": "Wie viel der Erde ist mit Wasser bedeckt?", "options": ["mehr als zwei Drittel", "etwa die Hälfte", "etwa ein Viertel", "fast alles"], "answer": "mehr als zwei Drittel" },
+    { "type": "choice", "q": "Ein anderer Name für den Pazifik ist …", "options": ["Stiller Ozean", "Weites Meer", "Blauer Ozean", "Warmer Ozean"], "answer": "Stiller Ozean" },
+    { "type": "choice", "q": "Mit dem Schiff von Hamburg nach New York: Über welchen Ozean fährst du?", "options": ["Atlantik", "Pazifik", "Indischer Ozean", "Nordpolarmeer"], "answer": "Atlantik" }
+  ]
+}

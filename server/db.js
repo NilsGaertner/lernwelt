@@ -105,7 +105,24 @@ CREATE TABLE IF NOT EXISTS settings (
   key TEXT PRIMARY KEY,
   value TEXT NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS daily_plans (
+  child_id INTEGER NOT NULL REFERENCES children(id) ON DELETE CASCADE,
+  day TEXT NOT NULL,
+  missions TEXT NOT NULL,
+  completed_at TEXT,
+  PRIMARY KEY (child_id, day)
+);
 `);
+
+// Spalten, die nach der ersten Version dazugekommen sind
+function addColumn(table, column, definition) {
+  const has = db.prepare(`PRAGMA table_info(${table})`).all().some((c) => c.name === column);
+  if (!has) db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${definition}`);
+}
+addColumn('sessions', 'best_combo', 'INTEGER NOT NULL DEFAULT 0');
+addColumn('children', 'train', 'TEXT');
+addColumn('children', 'adult', 'INTEGER NOT NULL DEFAULT 0');
 
 /** Sterne-Arten, die als „verdient“ zählen (für Tageslimit und Statistik). */
 export const EARN_KINDS = ['session', 'bonus', 'badge'];

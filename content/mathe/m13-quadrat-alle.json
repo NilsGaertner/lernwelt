@@ -1,0 +1,35 @@
+{
+  "id": "quadrat-alle",
+  "line": "kopfrechnen",
+  "order": 13,
+  "title": "Alle Quadratzahlen",
+  "subtitle": "11 · 11 bis 20 · 20 gemischt",
+  "icon": "🏁",
+  "card": "Wusstest du? Die Abstände zwischen Quadratzahlen sind immer ungerade: 121 → 144 (+23) → 169 (+25) → 196 (+27) …",
+  "explain": [
+    { "p": "Jetzt kommen alle Quadratzahlen von 11 · 11 bis 20 · 20 durcheinander – vorwärts und rückwärts." },
+    { "table": { "head": ["Aufgabe", "Ergebnis"], "rows": [["11 · 11", "**121**"], ["12 · 12", "**144**"], ["13 · 13", "**169**"], ["14 · 14", "**196**"], ["15 · 15", "**225**"], ["16 · 16", "**256**"], ["17 · 17", "**289**"], ["18 · 18", "**324**"], ["19 · 19", "**361**"], ["20 · 20", "**400**"]] } }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Rechne im Kopf.", "q": "11 · 11 = ___", "answer": "121", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 121", "answer": "11", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "12 · 12 = ___", "answer": "144", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 144", "answer": "12", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "13 · 13 = ___", "answer": "169", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 169", "answer": "13", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "14 · 14 = ___", "answer": "196", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 196", "answer": "14", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "15 · 15 = ___", "answer": "225", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 225", "answer": "15", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "16 · 16 = ___", "answer": "256", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 256", "answer": "16", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "17 · 17 = ___", "answer": "289", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 289", "answer": "17", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "18 · 18 = ___", "answer": "324", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 324", "answer": "18", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "19 · 19 = ___", "answer": "361", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 361", "answer": "19", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "20 · 20 = ___", "answer": "400", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 400", "answer": "20", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." }
+  ]
+}

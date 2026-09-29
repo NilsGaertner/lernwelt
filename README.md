@@ -1,6 +1,6 @@
 # Lernwelt
 
-Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch auf einem **Netzplan** wie bei der U-Bahn: Jede Lernlinie ist eine Bahnlinie, jede Einheit eine Station. Für jede Übung gibt es Sterne, dazu Abzeichen, und die Sterne lassen sich gegen **Fahrkarten für Medienzeit** tauschen. Du bestätigst die Tickets im Elternbereich und siehst dort auch den Lernfortschritt.
+Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch, Mathe und Geographie auf einem **Netzplan** wie bei der U-Bahn: Jede Lernlinie ist eine Bahnlinie, jede Einheit eine Station. Für jede Übung gibt es Sterne, dazu Abzeichen, und die Sterne lassen sich gegen **Fahrkarten für Medienzeit** tauschen. Du bestätigst die Tickets im Elternbereich und siehst dort auch den Lernfortschritt.
 
 ## Was drin ist
 
@@ -13,6 +13,14 @@ Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch auf einem **Ne
 | Alltags-Linie (4) | Begrüßen und Vorstellen, Classroom English, Uhrzeit, Datum und Geburtstag |
 
 Jede Station hat eine **„Merke“-Erklärung** auf Deutsch (kindgerecht, mit Beispielen und Vorlese-Knopf) und danach eine Übung mit 10 Aufgaben.
+
+**Mathe: Quadratzahlen (3 Stationen)**
+
+Die Kopfrechnen-Linie übt 11 · 11 bis 20 · 20: erst 11 bis 15, dann 16 bis 20, dann alle gemischt. Gefragt wird vorwärts (13 · 13 = ?) und rückwärts (? · ? = 169), mit Rechentricks im „Merke“.
+
+**Geographie: Kontinente und Meere (4 Stationen)**
+
+Die Welt-Linie hat die Stationen Die Kontinente, Kontinente-Wissen, Die Ozeane und Meere in Europa. Auf einer Welt- bzw. Europakarte wird ein Gebiet farbig markiert, und dein Kind wählt oder schreibt den Namen. Dazu kommen Wissensfragen (größter Kontinent, Sylt liegt in der …). Im „Merke“ ist jeweils eine bunte Karte mit Legende.
 
 **Aufgabentypen:** Auswahl, Eintippen, Sätze aus Wortkärtchen bauen, Paare finden und Hörverstehen (die englischen Wörter werden vorgelesen).
 
@@ -31,7 +39,10 @@ Jede Station hat eine **„Merke“-Erklärung** auf Deutsch (kindgerecht, mit B
 | mindestens 90 % richtig | 3 |
 | Station zum ersten Mal mit 3 Sternen | +2 |
 | erste Übung des Tages | +1 |
-| neues Abzeichen (19 Stück, z. B. 3 Tage am Stück, 10 fehlerfreie Übungen) | +3 |
+| Endbahnhof-Prüfung einer Linie zum ersten Mal bestanden | +3 |
+| neues Abzeichen (30 Stück, z. B. 3 Tage am Stück, 10 fehlerfreie Übungen) | +3 |
+
+Die Blitzrunde selbst bringt keine Sterne, nur Rekorde und XP.
 
 Im **Elternbereich** stellst du ein:
 - wie viele Minuten Medienzeit ein Stern wert ist (Standard: 2 Minuten)
@@ -39,6 +50,19 @@ Im **Elternbereich** stellst du ein:
 - welche Ticket-Größen es gibt (Standard: 15, 30 und 60 Minuten)
 
 Löst dein Kind ein Ticket, werden die Sterne sofort abgezogen und das Ticket wartet auf dein OK. Lehnst du ab (oder gibt dein Kind es zurück), kommen die Sterne zurück. Du kannst außerdem von Hand Sterne gutschreiben oder abziehen, etwa für einen guten Vokabeltest.
+
+## Spiel-Elemente
+
+Diese Elemente sollen die Aufmerksamkeit halten, ohne zusätzliche Medienzeit zu verteilen:
+
+- **Serie in der Fahrt:** Ab 3 richtigen Antworten hintereinander wird der Zug zum Schnellzug, ab 5 zum ICE. Am Ziel steht die längste Serie, mit Hinweis auf einen neuen Rekord.
+- **Tagesfahrplan:** Jeden Tag gibt es 3 kleine Aufgaben, z. B. „Fahr eine Station in Mathe“, „Mach ein Fehler-Training“ oder „Mach eine Blitzrunde“. Sind alle erledigt, gibt es einen Stempel im Stempelheft.
+- **Blitzrunde:** 60 Sekunden, so viele Aufgaben wie möglich. Es gibt einen persönlichen Rekord, eine Kurve der letzten Runden und **Familien-Rekorde**. Wenn du mitspielen willst, lege im Elternbereich ein **Erwachsenen-Profil** an. Das sammelt keine Sterne und kann keine Tickets lösen.
+- **Endbahnhof:** Haben alle Stationen einer Linie mindestens 2 Sterne, öffnet sich eine gemischte Prüfung über die ganze Linie. Ab 80 % ist sie bestanden, und es gibt eine Goldkarte.
+- **Sammelalbum:** Jede Station mit 3 Sternen bringt eine Sammelkarte mit einem „Wusstest du?“-Text oder dem Merksatz der Station.
+- **Ränge und Züge:** XP gibt es für richtige Antworten (10), Stempel (50) und Endbahnhöfe (100). Der Weg führt über 9 Ränge vom Fahrgast bis zur Streckenlegende, und jeder Rang schaltet einen Zug frei, mit dem das Kind fährt.
+- **Serienschutz:** Einmal pro Woche darf ein Tag ausfallen, ohne dass die Tage-Serie reißt.
+- **Effekte:** Konfetti, Fanfare und hochzählende Sterne bei besonderen Momenten. Bei „Bewegung reduzieren“ in den Geräteeinstellungen fallen die Animationen weg.
 
 Im Elternbereich siehst du pro Kind: Übungszeit der letzten 14 Tage, was noch schwerfällt (konkrete Wörter und Sätze), den Stand jeder Station, die letzten Übungen und das komplette Sterne-Konto.
 
@@ -82,7 +106,20 @@ Die Lernwelt läuft dann unter **`http://DEIN-UNRAID:8080`**. Über das Symbol i
 
 1. `http://DEIN-UNRAID:8080` öffnen und auf **Elternbereich** klicken.
 2. Mit PIN `1234` (oder der Start-PIN aus dem Template) anmelden, **eigene PIN festlegen** und ein **Kinderprofil anlegen**.
-3. Auf dem Tablet oder Laptop deines Kindes die Seite öffnen und „Zum Startbildschirm hinzufügen“ wählen. Dann sieht sie aus wie eine App.
+3. Auf dem Tablet oder Laptop deines Kindes die Seite öffnen und „Zum Startbildschirm hinzufügen“ wählen. Dann sieht sie aus wie eine App. Für eine echte App-Installation auf Android siehe unten.
+
+### Als App auf Android installieren
+
+Chrome kann die Lernwelt als eigene App installieren (Menü ⋮ → **„App installieren“**). Sie hat dann ein eigenes Symbol, läuft ohne Adressleiste und taucht in der App-Liste auf. Die Seite bringt dafür alles mit (Manifest, Service Worker, Icons).
+
+**Voraussetzung ist HTTPS.** Über `http://DEIN-UNRAID:8080` bietet Chrome nur eine Verknüpfung an, die im normalen Chrome öffnet. Ein Weg ohne Portfreigabe:
+
+1. Bei [DuckDNS](https://www.duckdns.org) eine kostenlose Adresse anlegen (z. B. `lernwelt-familie.duckdns.org`) und als IP die **Heimnetz-IP** des Unraid-Servers eintragen (z. B. `192.168.178.20`). Die Adresse funktioniert dadurch nur zu Hause.
+2. In Unraid den Container **Nginx Proxy Manager** installieren, einen Proxy Host für die Adresse anlegen (Ziel: Unraid-IP, Port 8080) und unter **SSL** ein Let's-Encrypt-Zertifikat mit **„DNS Challenge“ → DuckDNS** anfordern (Token von der DuckDNS-Seite).
+3. Bei einer **FRITZ!Box**: Heimnetz → Netzwerk → Netzwerkeinstellungen → **DNS-Rebind-Schutz**, dort die DuckDNS-Adresse als Ausnahme eintragen. Sonst löst die Box die Adresse nicht auf.
+4. Auf dem Handy `https://lernwelt-familie.duckdns.org` öffnen → ⋮ → **App installieren**.
+
+**Family Link:** Die installierte App erscheint in Family Link als eigene App. Ob sie auch funktioniert, wenn Chrome gesperrt oder die Chrome-Zeit aufgebraucht ist, hängt von Android- und Chrome-Version ab (die App läuft intern mit Chrome). Bitte einmal ausprobieren, bevor du dich darauf verlässt.
 
 ### Updates
 
@@ -100,7 +137,7 @@ Mit dem Plugin **Docker Compose Manager** geht statt des Templates auch `docker 
 
 ### Hinweise
 
-- Die Seite ist fürs **Heimnetz** gedacht. Bitte nicht per Portfreigabe ins Internet stellen, denn es gibt kein HTTPS und nur eine einfache PIN.
+- Die Seite ist fürs **Heimnetz** gedacht. Bitte nicht per Portfreigabe ins Internet stellen, denn der Container selbst kann kein HTTPS und es gibt nur eine einfache PIN.
 - Das Vorlesen nutzt die Stimmen des Geräts. Auf iPad, Android, Windows und in Chrome/Edge klappt das gut. Falls nichts zu hören ist: Lautstärke prüfen und in den Geräteeinstellungen eine englische Stimme installieren.
 - In der Docker-Liste steht beim Update-Status „not available“. Das ist normal, weil das Image lokal gebaut wird. Solange das Repo privat ist, zeigt Unraid statt des Lernwelt-Symbols ein Standard-Symbol.
 - Die Schriften kommen von Google Fonts. Ohne Internet sieht es etwas schlichter aus, funktioniert aber genauso.
@@ -148,7 +185,11 @@ Alle Lerninhalte liegen als JSON-Dateien in `content/<fach>/`. Nach einer Änder
 ```
 
 - **`vocab`**: Aus Wortlisten werden die Aufgaben automatisch gebaut (Auswahl, Eintippen, Hören, Paare finden). `alt` sind weitere richtige Schreibweisen. Mit `"typing": false` auf Stationsebene muss nichts eingetippt werden, bei Sätzen wird dann aus Wortkärtchen gebaut.
-- **`exercises`**: `choice` (Auswahl), `input` (Eintippen, `___` markiert die Lücke) und `order` (Satz bauen). Weitere Felder: `accept` für weitere richtige Antworten, `task` für einen eigenen Aufgabentext, `de` für eine deutsche Übersetzung als Hilfe, `"speak": false`, wenn der Satz nicht vorgelesen werden soll, und `"strict": true`, wenn Kurz- und Langform (don't / do not) nicht beide gelten sollen.
+- **`exercises`**: `choice` (Auswahl), `input` (Eintippen, `___` markiert die Lücke) und `order` (Satz bauen). Weitere Felder: `accept` für weitere richtige Antworten, `task` für einen eigenen Aufgabentext, `de` für eine deutsche Übersetzung als Hilfe, `"numeric": true` für eine Zahlentastatur, `"speak": false`, wenn der Satz nicht vorgelesen werden soll, und `"strict": true`, wenn Kurz- und Langform (don't / do not) nicht beide gelten sollen.
+- **Karten**: `"map": "welt", "mark": "afrika"` zeigt in einer Aufgabe die Karte `content/<fach>/media/welt.svg` und hebt das Gebiet mit der id `afrika` hervor. Im „Merke“ zeigt `{ "map": "welt", "legend": [["afrika", "Afrika"], …] }` die Karte mit bunt gefärbten Gebieten und Legende. `npm run check` meldet fehlende Karten und Gebiete.
+- **`"enabled": false`** in einer Stationsdatei blendet diese Station aus.
+- **`"card"`**: eigener Text für die Sammelkarte der Station. Ohne dieses Feld steht der erste Merksatz auf der Karte.
+- **Blitzrunden** stehen in der `subject.json` des Fachs, z. B. `"blitz": [{ "id": "quadrate", "title": "Quadratzahlen-Blitz", "units": ["quadrat-11-15"] }]`. Statt `units` geht auch `"line": "words"` für eine ganze Linie. Mit `"types": ["choice"]` kommen nur Auswahlaufgaben dran.
 
 ### Ein neues Fach (z. B. Deutsch)
 
@@ -167,7 +208,7 @@ Sobald es mehr als ein Fach gibt, erscheinen oben auf dem Netzplan Reiter zum Um
 
 ### Mathe: berechnete Aufgaben
 
-Unter `content/mathe/` liegt schon ein Beispiel-Fach (Einmaleins, Geteilt, Minus bis 1000), das noch **ausgeschaltet** ist. Zum Einschalten in `content/mathe/subject.json` `"enabled": false` auf `true` setzen.
+Unter `content/mathe/` liegen außerdem drei Beispiel-Stationen (Einmaleins, Geteilt, Minus bis 1000), die noch **ausgeschaltet** sind. Zum Einschalten in der jeweiligen Datei die Zeile `"enabled": false` löschen.
 
 Diese Stationen haben keine festen Aufgaben. Sie werden von `server/generators/rechnen.js` jedes Mal neu erzeugt:
 ```json
@@ -187,6 +228,6 @@ server/        Node.js-Server (Express, SQLite über das eingebaute node:sqlite)
   generators/    berechnete Aufgaben (Mathe)
 public/        Oberfläche (reines HTML/CSS/JS, kein Build-Schritt)
 unraid/        Docker-Template und Build-Skript für Unraid
-content/       Lerninhalte als JSON
+content/       Lerninhalte als JSON (Karten in content/<fach>/media/, Kartendaten: Natural Earth)
 data/          Datenbank (wird automatisch angelegt, im Container: /data)
 ```

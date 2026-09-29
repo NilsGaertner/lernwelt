@@ -1,4 +1,5 @@
 {
+  "enabled": false,
   "id": "einmaleins", "line": "kopfrechnen", "order": 1,
   "title": "Das kleine Einmaleins", "subtitle": "Malnehmen bis 10 · 10", "icon": "✖️",
   "generator": "rechnen", "params": { "op": "mul", "min": 2, "max": 10 }, "itemCount": 90,

@@ -50,6 +50,39 @@ export function gapText(s, fill = '') {
   return md(s).replace(/_{3,}/g, `<span class="gap">${escapeHtml(fill) || '&nbsp;'}</span>`);
 }
 
+// ---------------------------------------------------------------- Karten
+
+const svgCache = new Map();
+
+/**
+ * Zeigt eine SVG-Karte. mark: Gebiet, das in der Aufgabe hervorgehoben wird.
+ * legend: [[id, Name], …] – diese Gebiete werden bunt gefärbt und darunter erklärt.
+ */
+export function mapFigure(src, { mark = null, legend = null } = {}) {
+  const box = h('.geo-map', { class: legend ? 'colored' : '' });
+  const fig = h('figure.map-figure', box);
+  if (!svgCache.has(src)) {
+    svgCache.set(src, fetch(src).then((r) => (r.ok ? r.text() : Promise.reject(new Error(r.status)))));
+  }
+  svgCache.get(src).then(
+    (svg) => {
+      box.innerHTML = svg;
+      if (mark) box.querySelector(`#${CSS.escape(mark)}`)?.classList.add('mark');
+      if (!legend) return;
+      const items = legend.map(([id, name]) => {
+        const el = box.querySelector(`#${CSS.escape(id)}`);
+        el?.classList.add('show');
+        return h('li', h('span.swatch', { style: { background: el?.style.getPropertyValue('--c') || 'var(--muted)' } }), name);
+      });
+      fig.append(h('figcaption', h('ul.legend', items)));
+    },
+    () => {
+      svgCache.delete(src);
+      box.replaceChildren(h('p.muted', 'Die Karte konnte nicht geladen werden.'));
+    });
+  return fig;
+}
+
 export function starRow(n, max = 3) {
   return h('span.stars', { 'aria-label': `${n} von ${max} Sternen` },
     Array.from({ length: max }, (_, i) => h(`span.${i < n ? 'on' : 'off'}`, { 'aria-hidden': 'true' }, '★')));
@@ -146,7 +179,88 @@ export const sfx = {
   right: () => tone([660, 880], { type: 'triangle' }),
   wrong: () => tone([220, 180], { type: 'sawtooth', vol: 0.07, dur: 0.16 }),
   arrive: () => tone([523, 659, 784, 1047], { type: 'triangle', gap: 0.12, dur: 0.25 }),
+  /** Serie: je länger, desto höher */
+  combo: (n) => tone([660, 880, 880 * 2 ** (Math.min(n, 12) / 12)], { type: 'triangle', gap: 0.07 }),
+  tick: () => tone([880], { type: 'square', vol: 0.06, dur: 0.08 }),
+  go: () => tone([1175], { type: 'square', vol: 0.08, dur: 0.25 }),
+  fanfare: () => tone([523, 659, 784, 1047, 784, 1047], { type: 'triangle', gap: 0.1, dur: 0.22 }),
+  stamp: () => tone([196, 147], { type: 'square', vol: 0.1, gap: 0.05, dur: 0.12 }),
 };
+
+const reducedMotion = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+/** Konfetti-Regen über der ganzen Seite (ohne Bibliothek). */
+export function confetti({ count = 120, duration = 2600 } = {}) {
+  if (reducedMotion()) return;
+  const canvas = h('canvas.confetti', { 'aria-hidden': 'true' });
+  document.body.append(canvas);
+  const ctx2d = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const W = (canvas.width = innerWidth * dpr);
+  const H = (canvas.height = innerHeight * dpr);
+  const colors = ['#F5A800', '#D7263D', '#1F6FD1', '#15834F', '#8B3FA3', '#0B7A75', '#FF7AB6'];
+  const parts = Array.from({ length: count }, () => ({
+    x: W / 2 + (Math.random() - 0.5) * W * 0.3,
+    y: H * 0.35,
+    vx: (Math.random() - 0.5) * 16 * dpr,
+    vy: (-Math.random() * 14 - 6) * dpr,
+    r: (4 + Math.random() * 5) * dpr,
+    rot: Math.random() * Math.PI,
+    vr: (Math.random() - 0.5) * 0.3,
+    c: colors[Math.floor(Math.random() * colors.length)],
+  }));
+  const t0 = performance.now();
+  const frame = (t) => {
+    const k = (t - t0) / duration;
+    ctx2d.clearRect(0, 0, W, H);
+    ctx2d.globalAlpha = Math.max(0, 1 - Math.max(0, k - 0.7) / 0.3);
+    for (const p of parts) {
+      p.vy += 0.45 * dpr;
+      p.vx *= 0.99;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rot += p.vr;
+      ctx2d.save();
+      ctx2d.translate(p.x, p.y);
+      ctx2d.rotate(p.rot);
+      ctx2d.fillStyle = p.c;
+      ctx2d.fillRect(-p.r, -p.r / 2, p.r * 2, p.r);
+      ctx2d.restore();
+    }
+    if (k < 1) requestAnimationFrame(frame);
+    else canvas.remove();
+  };
+  requestAnimationFrame(frame);
+}
+
+/** Zählt eine Zahl in einem Element hoch (z. B. den Sterne-Kontostand). */
+export function countUp(el, from, to, { duration = 900, delay = 0 } = {}) {
+  el.textContent = from;
+  if (from === to || reducedMotion()) {
+    el.textContent = to;
+    return;
+  }
+  setTimeout(() => {
+    const t0 = performance.now();
+    const step = (t) => {
+      const k = Math.min(1, (t - t0) / duration);
+      el.textContent = Math.round(from + (to - from) * (1 - (1 - k) ** 3));
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, delay);
+}
+
+/** Fortschrittsbalken zum nächsten Rang. */
+export function rankMeter(rank) {
+  const next = rank.next;
+  const pct = next ? Math.round(((rank.xp - rank.min) / (next.min - rank.min)) * 100) : 100;
+  return h('.rank-meter',
+    h('.rank-row',
+      h('span.rank-name', `${rank.train} ${rank.name}`),
+      h('span.muted.small', next ? `noch ${next.min - rank.xp} XP bis ${next.name}` : 'Höchster Rang!')),
+    h('.meter.xp', { role: 'img', 'aria-label': `${pct} % bis zum nächsten Rang` }, h('span', { style: { width: `${pct}%` } })));
+}
 
 export function fmtDate(iso, withTime = false) {
   if (!iso) return '–';

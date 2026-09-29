@@ -1,10 +1,13 @@
 {
   "id": "mathe",
   "name": "Mathe",
-  "icon": "➗",
+  "icon": "🔢",
   "order": 2,
-  "enabled": false,
+  "enabled": true,
   "lines": [
     { "id": "kopfrechnen", "name": "Kopfrechnen-Linie", "short": "Kopfrechnen", "color": "#D9631E" }
+  ],
+  "blitz": [
+    { "id": "quadrate", "title": "Quadratzahlen-Blitz", "icon": "⚡", "subtitle": "11 · 11 bis 20 · 20", "units": ["quadrat-11-15", "quadrat-16-20"] }
   ]
 }

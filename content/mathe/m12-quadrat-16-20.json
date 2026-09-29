@@ -1,0 +1,32 @@
+{
+  "id": "quadrat-16-20",
+  "line": "kopfrechnen",
+  "order": 12,
+  "title": "Quadratzahlen 16 bis 20",
+  "subtitle": "16 · 16 bis 20 · 20",
+  "icon": "🟥",
+  "card": "Wusstest du? 16 · 16 = 256 ist auch 2 · 2 · 2 · 2 · 2 · 2 · 2 · 2. Computer lieben diese Zahl!",
+  "explain": [
+    { "table": { "head": ["Aufgabe", "Ergebnis"], "rows": [["16 · 16", "**256**"], ["17 · 17", "**289**"], ["18 · 18", "**324**"], ["19 · 19", "**361**"], ["20 · 20", "**400**"]] } },
+    { "tip": "Von einer Quadratzahl zur nächsten: Zähl beide Zahlen dazu. 16 · 16 = 256, also 17 · 17 = 256 + 16 + 17 = **289**" },
+    { "tip": "Trick „Zerlegen“: 18 · 18 = 18 · 10 + 18 · 8 = 180 + 144 = **324**" },
+    { "p": "Und 20 · 20 ist leicht: 2 · 2 = 4, dazu die zwei Nullen → **400**." }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Rechne im Kopf.", "q": "16 · 16 = ___", "answer": "256", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "choice", "task": "Welches Ergebnis stimmt?", "q": "16 · 16 = ___", "options": ["256", "289", "225", "246"], "answer": "256" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 256", "answer": "16", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "17 · 17 = ___", "answer": "289", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "choice", "task": "Welches Ergebnis stimmt?", "q": "17 · 17 = ___", "options": ["289", "324", "306", "290"], "answer": "289" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 289", "answer": "17", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "18 · 18 = ___", "answer": "324", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "choice", "task": "Welches Ergebnis stimmt?", "q": "18 · 18 = ___", "options": ["324", "198", "314", "289"], "answer": "324" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 324", "answer": "18", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "19 · 19 = ___", "answer": "361", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "choice", "task": "Welches Ergebnis stimmt?", "q": "19 · 19 = ___", "options": ["361", "362", "324", "380"], "answer": "361" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 361", "answer": "19", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "20 · 20 = ___", "answer": "400", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "choice", "task": "Welches Ergebnis stimmt?", "q": "20 · 20 = ___", "options": ["400", "361", "401", "220"], "answer": "400" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 400", "answer": "20", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." }
+  ]
+}

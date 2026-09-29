@@ -21,6 +21,16 @@ export const BADGES = [
   { id: 'listen50', icon: '🎧', name: 'Gute Ohren', desc: '50 Hör-Aufgaben richtig', test: (s) => s.listen >= 50 },
   { id: 'stars100', icon: '✨', name: '100 Sterne', desc: 'Insgesamt 100 Sterne verdient', test: (s) => s.starsEarned >= 100 },
   { id: 'stars500', icon: '🌠', name: '500 Sterne', desc: 'Insgesamt 500 Sterne verdient', test: (s) => s.starsEarned >= 500 },
+  { id: 'combo8', icon: '🚄', name: 'Schnellzug', desc: '8 richtige Antworten hintereinander', test: (s) => s.bestCombo >= 8 },
+  { id: 'combo15', icon: '🚅', name: 'Hochgeschwindigkeit', desc: '15 richtige Antworten hintereinander', test: (s) => s.bestCombo >= 15 },
+  { id: 'plan1', icon: '📋', name: 'Nach Fahrplan', desc: 'Zum ersten Mal den Tagesfahrplan erfüllt', test: (s) => s.stamps >= 1 },
+  { id: 'plan10', icon: '🗓️', name: 'Pünktlich wie die Bahn', desc: '10 Stempel im Stempelheft', test: (s) => s.stamps >= 10 },
+  { id: 'plan30', icon: '📒', name: 'Volles Stempelheft', desc: '30 Stempel im Stempelheft', test: (s) => s.stamps >= 30 },
+  { id: 'blitz1', icon: '⚡', name: 'Blitzstart', desc: 'Die erste Blitzrunde gespielt', test: (s) => s.blitzRuns >= 1 },
+  { id: 'blitz20', icon: '🌩️', name: 'Blitzschnell', desc: '20 Treffer in einer Blitzrunde', test: (s) => s.blitzBest >= 20 },
+  { id: 'exam1', icon: '🏁', name: 'Endbahnhof', desc: 'Die erste Endbahnhof-Prüfung bestanden', test: (s) => s.exams >= 1 },
+  { id: 'exam3', icon: '🛤️', name: 'Streckennetz', desc: '3 Endbahnhof-Prüfungen bestanden', test: (s) => s.exams >= 3 },
+  { id: 'rank5', icon: '🧑‍✈️', name: 'Am Steuer', desc: 'Rang „Lokführer-Azubi“ erreicht', test: (s) => s.level >= 5 },
 ];
 
 export const publicBadges = () => BADGES.map(({ test, ...b }) => b);

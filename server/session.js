@@ -1,10 +1,12 @@
 import { db } from './db.js';
-import { subjects, vocabKey, exerciseKey, resolveItem, getGenerator } from './content.js';
+import { subjects, vocabKey, exerciseKey, resolveItem, getGenerator, mediaUrl } from './content.js';
 import { completeSession } from './rewards.js';
+import { lineStatus, lineUnits, blitzTopics } from './progress.js';
 import { normalize, levenshtein, shuffle, pick, randomId, nowIso } from './util.js';
 
 const active = new Map();
 const SESSION_TTL_MS = 3 * 60 * 60 * 1000;
+const BLITZ_SECONDS = 60;
 
 setInterval(() => {
   const cutoff = Date.now() - SESSION_TTL_MS;
@@ -38,6 +40,17 @@ function choose(candidates, stats, n) {
   // Kleine Einheiten: Aufgaben dürfen (in anderer Form) wiederkommen.
   while (out.length < n && ranked.length) out.push(ranked[out.length % ranked.length]);
   return shuffle(out);
+}
+
+/** Blitzrunde: Sicheres zuerst (es geht um Tempo), dann der Rest; bei Bedarf wiederholt. */
+function chooseForBlitz(candidates, stats, n) {
+  const ranked = shuffle(candidates)
+    .map((c) => ({ c, p: Math.min(stats.get(c.key)?.box ?? 0, 3) + Math.random() * 1.5 }))
+    .sort((a, b) => b.p - a.p)
+    .map((x) => x.c);
+  const out = [...ranked];
+  while (out.length < n && ranked.length) out.push(...shuffle(ranked));
+  return out.slice(0, n);
 }
 
 function unitCandidates(subjectId, unit, count) {
@@ -82,7 +95,7 @@ function vocabDistractors(subject, unit, v, field) {
   return values.slice(0, 3);
 }
 
-function vocabQuestion(subject, cand, stat, canSpeak) {
+function vocabQuestion(subject, cand, stat, canSpeak, onlyChoice = false) {
   const v = cand.data;
   const unit = cand.unit;
   const box = stat?.box ?? 0;
@@ -94,6 +107,7 @@ function vocabQuestion(subject, cand, stat, canSpeak) {
   if (box === 0) variants = ['en2de', 'de2en', 'listen2de'];
   else if (box === 1) variants = ['de2en', 'listen2de', canType ? 'type' : canOrder ? 'order' : 'en2de'];
   else variants = canType ? ['type', 'dictation', 'type'] : canOrder ? ['order', 'order', 'listen2de'] : ['de2en', 'listen2de'];
+  if (onlyChoice) variants = ['en2de', 'de2en'];
   if (!canSpeak) variants = variants.filter((x) => !x.startsWith('listen') && x !== 'dictation');
   if (!variants.length) variants = ['de2en'];
   const variant = pick(variants);
@@ -133,8 +147,9 @@ function vocabQuestion(subject, cand, stat, canSpeak) {
   }
 }
 
-function exerciseQuestion(cand, canSpeak) {
+function exerciseQuestion(subjectId, cand, canSpeak) {
   const ex = cand.data;
+  const map = ex.map ? { src: mediaUrl(subjectId, ex.map), mark: ex.mark ?? null } : null;
   const filled = (ex.q ? ex.q.replace(/_{3,}/, ex.answer) : ex.answer)
     .replace(/\s*\([^)]*\)/g, '')
     .replace(/\*\*/g, '');
@@ -144,7 +159,7 @@ function exerciseQuestion(cand, canSpeak) {
   if (ex.type === 'choice') {
     return {
       ...base,
-      pub: { type: 'choice', prompt: ex.task ?? 'Was passt?', text: ex.q, textDe: ex.de ?? null, options: shuffle(ex.options) },
+      pub: { type: 'choice', prompt: ex.task ?? 'Was passt?', text: ex.q, textDe: ex.de ?? null, map, options: shuffle(ex.options) },
       expected: [ex.answer], qtype: 'choice',
     };
   }
@@ -157,7 +172,7 @@ function exerciseQuestion(cand, canSpeak) {
   }
   return {
     ...base,
-    pub: { type: 'input', prompt: ex.task ?? 'Schreib das fehlende Wort.', text: ex.q, textDe: ex.de ?? null, hint: ex.hint ?? null, placeholder: ex.placeholder ?? '…', numeric: !!ex.numeric },
+    pub: { type: 'input', prompt: ex.task ?? 'Schreib das fehlende Wort.', text: ex.q, textDe: ex.de ?? null, map, hint: ex.hint ?? null, placeholder: ex.placeholder ?? '…', numeric: !!ex.numeric },
     expected: [ex.answer, ...(ex.accept ?? [])], qtype: 'input',
   };
 }
@@ -169,7 +184,7 @@ function matchQuestion(unit) {
 
 // ---------------------------------------------------------------- Sitzung
 
-export function startSession({ childId, subjectId, unitId, mode = 'unit', count = 10 }) {
+export function startSession({ childId, subjectId, unitId, line: lineId, topic: topicId, mode = 'unit', count = 10 }) {
   const subject = subjects.get(subjectId);
   if (!subject) throw httpError(404, 'Dieses Fach gibt es nicht.');
   const canSpeak = !!subject.meta.speechLang;
@@ -177,6 +192,7 @@ export function startSession({ childId, subjectId, unitId, mode = 'unit', count 
   let candidates;
   let title;
   let unit = null;
+  let refId = null;
   if (mode === 'review') {
     const rows = db
       .prepare(
@@ -194,32 +210,63 @@ export function startSession({ childId, subjectId, unitId, mode = 'unit', count 
     if (!candidates.length) throw httpError(400, 'Gerade gibt es nichts zu wiederholen. Super!');
     title = 'Fehler-Training';
     count = Math.min(count, candidates.length);
+  } else if (mode === 'exam') {
+    const line = (subject.meta.lines ?? []).find((l) => l.id === lineId);
+    const status = lineStatus(childId)[subjectId]?.[lineId];
+    if (!line || !status) throw httpError(404, 'Diesen Endbahnhof gibt es nicht.');
+    if (!status.unlocked) throw httpError(400, 'Der Endbahnhof öffnet, wenn alle Stationen der Linie mindestens 2 Sterne haben.');
+    candidates = lineUnits(subjectId, lineId).flatMap((u) => unitCandidates(subjectId, u, count));
+    title = `Endbahnhof ${line.short ?? line.name}`;
+    refId = line.id;
+    count = Math.max(12, Math.round(count * 1.5));
+  } else if (mode === 'blitz') {
+    const topic = blitzTopics(subjectId).find((t) => t.id === topicId);
+    if (!topic) throw httpError(404, 'Diese Blitzrunde gibt es nicht.');
+    const units = [...subject.units.values()].filter((u) =>
+      topic.units ? topic.units.includes(u.id) : topic.line ? u.line === topic.line : true);
+    candidates = units
+      .flatMap((u) => unitCandidates(subjectId, u, 60))
+      .filter((c) => c.kind === 'vocab' || !topic.types || topic.types.includes(c.data.type));
+    if (!candidates.length) throw httpError(400, 'Für diese Blitzrunde gibt es noch keine Aufgaben.');
+    title = topic.title;
+    refId = topic.id;
+    count = 80;
   } else {
     unit = subject.units.get(unitId);
     if (!unit) throw httpError(404, 'Diese Station gibt es nicht.');
     candidates = unitCandidates(subjectId, unit, count);
     title = unit.title;
+    refId = unit.id;
   }
 
   const withMatch = mode === 'unit' && unit.vocab.length >= 5 && count >= 8;
-  const stats = statsFor(childId, candidates.map((c) => c.key));
-  const chosen = choose(candidates, stats, withMatch ? count - 1 : count);
+  const stats = statsFor(childId, [...new Set(candidates.map((c) => c.key))]);
+  const chosen =
+    mode === 'blitz' ? chooseForBlitz(candidates, stats, count)
+    : mode === 'exam' ? shuffle(candidates).slice(0, count) // Prüfung: bunt gemischt über die ganze Linie
+    : choose(candidates, stats, withMatch ? count - 1 : count);
 
   const questions = chosen.map((c) => {
-    const q = c.kind === 'vocab' ? vocabQuestion(subject, c, stats.get(c.key), canSpeak) : exerciseQuestion(c, canSpeak);
+    const q = c.kind === 'vocab'
+      ? vocabQuestion(subject, c, stats.get(c.key), canSpeak && mode !== 'blitz', mode === 'blitz')
+      : exerciseQuestion(subjectId, c, canSpeak && mode !== 'blitz');
     return { ...q, key: c.key, unitId: c.unit.id };
   });
   if (withMatch) questions.splice(Math.floor(questions.length / 2), 0, { ...matchQuestion(unit), unitId: unit.id });
 
   const id = randomId();
+  const startedAt = nowIso();
   const session = {
     id,
     childId,
     subject: subjectId,
-    unitId: unit?.id ?? null,
+    unitId: refId,
     title,
     mode,
-    startedAt: nowIso(),
+    startedAt,
+    deadline: mode === 'blitz' ? Date.now() + (BLITZ_SECONDS + 3) * 1000 : null,
+    combo: 0,
+    bestCombo: 0,
     questions: questions.map((q) => ({ ...q, answered: false, firstCorrect: false })),
   };
   active.set(id, session);
@@ -228,7 +275,8 @@ export function startSession({ childId, subjectId, unitId, mode = 'unit', count 
     sessionId: id,
     title,
     mode,
-    speechLang: subject.meta.speechLang ?? null,
+    seconds: mode === 'blitz' ? BLITZ_SECONDS : null,
+    speechLang: mode === 'blitz' ? null : subject.meta.speechLang ?? null,
     questions: session.questions.map((q, i) => ({ id: i, ...q.pub })),
   };
 }
@@ -263,6 +311,7 @@ export function answerQuestion(sessionId, qid, given) {
   if (!s) throw httpError(404, 'Diese Übung ist abgelaufen. Starte sie einfach neu.');
   const q = s.questions[qid];
   if (!q) throw httpError(400, 'Unbekannte Aufgabe.');
+  if (s.deadline && Date.now() > s.deadline) throw httpError(409, 'Die Zeit ist um.');
 
   let result;
   let givenText;
@@ -280,6 +329,8 @@ export function answerQuestion(sessionId, qid, given) {
     q.answered = true;
     q.firstCorrect = result.correct;
   }
+  s.combo = result.correct ? s.combo + 1 : 0;
+  s.bestCombo = Math.max(s.bestCombo, s.combo);
 
   const now = nowIso();
   db.prepare(
@@ -301,6 +352,7 @@ export function answerQuestion(sessionId, qid, given) {
   return {
     ...result,
     firstTry,
+    combo: s.combo,
     solution: q.pub.type === 'match' ? null : q.expected[0],
     reveal: q.reveal ?? null,
     explain: q.explain ?? null,
@@ -311,7 +363,15 @@ export function answerQuestion(sessionId, qid, given) {
 export function finishSession(sessionId) {
   const s = active.get(sessionId);
   if (!s) throw httpError(404, 'Diese Übung ist abgelaufen.');
-  if (s.questions.some((q) => !q.answered)) throw httpError(400, 'Es sind noch Aufgaben offen.');
+  const answered = s.questions.filter((q) => q.answered);
+  if (s.mode === 'blitz') {
+    if (!answered.length) {
+      active.delete(sessionId);
+      return { mode: 'blitz', empty: true };
+    }
+  } else if (answered.length < s.questions.length) {
+    throw httpError(400, 'Es sind noch Aufgaben offen.');
+  }
   active.delete(sessionId);
   return completeSession({
     sessionId: s.id,
@@ -321,8 +381,9 @@ export function finishSession(sessionId) {
     unitTitle: s.title,
     mode: s.mode,
     startedAt: s.startedAt,
-    total: s.questions.length,
-    correct: s.questions.filter((q) => q.firstCorrect).length,
+    total: answered.length,
+    correct: answered.filter((q) => q.firstCorrect).length,
+    bestCombo: s.bestCombo,
   });
 }
 

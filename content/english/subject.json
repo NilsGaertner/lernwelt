@@ -8,5 +8,9 @@
     { "id": "words", "name": "Wörter-Linie", "short": "Wörter", "color": "#1F6FD1" },
     { "id": "grammar", "name": "Grammatik-Linie", "short": "Grammatik", "color": "#0E8A4B" },
     { "id": "everyday", "name": "Alltags-Linie", "short": "Alltag", "color": "#8B3FA3" }
+  ],
+  "blitz": [
+    { "id": "woerter", "title": "Wörter-Blitz", "icon": "⚡", "subtitle": "Englische Wörter so schnell du kannst", "line": "words", "types": ["choice"] },
+    { "id": "grammatik", "title": "Grammatik-Blitz", "icon": "🌩️", "subtitle": "Welche Form passt?", "line": "grammar", "types": ["choice"] }
   ]
 }

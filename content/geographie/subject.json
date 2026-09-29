@@ -1,0 +1,12 @@
+{
+  "id": "geographie",
+  "name": "Geographie",
+  "icon": "🌍",
+  "order": 3,
+  "lines": [
+    { "id": "welt", "name": "Welt-Linie", "short": "Welt", "color": "#0B7A75" }
+  ],
+  "blitz": [
+    { "id": "welt", "title": "Welt-Blitz", "icon": "⚡", "subtitle": "Kontinente, Ozeane und Meere", "types": ["choice"] }
+  ]
+}

@@ -1,6 +1,7 @@
-import { h, md, starRow, toast, prefs, speak, canSpeak } from './ui.js';
+import { h, md, starRow, toast, prefs, speak, canSpeak, mapFigure, rankMeter, sfx } from './ui.js';
 import { api } from './api.js';
-import { runRide } from './player.js';
+import { runRide, collectCard } from './player.js';
+import { runBlitz, runChart, familyBoard } from './blitz.js';
 import { parentView } from './parent.js';
 
 const app = document.getElementById('app');
@@ -34,14 +35,16 @@ const routes = [
   [/^kid\/(\d+)$/, (id) => homeView(id)],
   [/^kid\/(\d+)\/s\/([\w-]+)$/, (id, subject) => homeView(id, subject)],
   [/^kid\/(\d+)\/station\/([\w-]+)\/([\w-]+)$/, stationView],
-  [/^kid\/(\d+)\/badges$/, badgesView],
+  [/^kid\/(\d+)\/badges$/, (id) => collectionView(id, 'abzeichen')],
+  [/^kid\/(\d+)\/sammlung(?:\/(\w+))?$/, (id, tab) => collectionView(id, tab ?? 'rang')],
+  [/^kid\/(\d+)\/blitz\/([\w-]+)\/([\w-]+)$/, blitzView],
   [/^kid\/(\d+)\/tickets$/, ticketsView],
   [/^parent(?:\/(.*))?$/, (rest) => parentView(app, rest ?? '', { reloadMeta: () => loadMeta(true) })],
 ];
 
 async function route() {
   window.speechSynthesis?.cancel();
-  document.querySelectorAll('.sheet, .dock').forEach((el) => el.remove());
+  document.querySelectorAll('.sheet, .dock, .card-view').forEach((el) => el.remove());
   const path = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
   for (const [re, fn] of routes) {
     const m = path.match(re);
@@ -57,6 +60,12 @@ async function route() {
 }
 window.addEventListener('hashchange', route);
 route();
+
+// Service Worker: Voraussetzung, damit Chrome die Seite als App installieren kann.
+// Klappt nur über HTTPS (oder localhost), sonst still ignorieren.
+if ('serviceWorker' in navigator && window.isSecureContext) {
+  navigator.serviceWorker.register('/sw.js').catch(() => {});
+}
 
 // ================================================================ Bausteine
 
@@ -81,10 +90,17 @@ function kidBar(ov) {
       h('span.ring', { 'aria-hidden': 'true' }, ov.child.avatar),
       h('span.bar', ov.child.name)),
     h('.spacer'),
-    ov.streak > 0 ? h('span.streak', { title: `${ov.streak} Tage am Stück geübt` }, '🔥 ', ov.streak) : null,
-    h('a.fare', { href: `#/kid/${id}/tickets`, title: 'Deine Sterne – hier gegen Medienzeit eintauschen' },
-      h('span.star', { 'aria-hidden': 'true' }, '★'), h('span.num', ov.balance), h('span.sr-only', ' Sterne')),
-    h('a.icon-btn', { href: `#/kid/${id}/badges`, title: 'Abzeichen' }, '🏅'),
+    ov.streak > 0
+      ? h('span.streak', {
+          title: `${ov.streak} Tage am Stück geübt.${ov.streakInfo.shieldReady ? ' Serienschutz bereit: Einmal pro Woche darf ein Tag ausfallen.' : ' Serienschutz diese Woche schon benutzt.'}`,
+        }, '🔥 ', ov.streak, ov.streakInfo.shieldReady ? h('span.shield', { 'aria-label': 'Serienschutz bereit' }, '🛡️') : null)
+      : null,
+    ov.child.adult
+      ? null
+      : h('a.fare', { href: `#/kid/${id}/tickets`, title: 'Deine Sterne – hier gegen Medienzeit eintauschen' },
+          h('span.star', { 'aria-hidden': 'true' }, '★'), h('span.num', ov.balance), h('span.sr-only', ' Sterne')),
+    h('a.icon-btn.rank-btn', { href: `#/kid/${id}/sammlung`, title: `Deine Sammlung · ${ov.rank.name} (Rang ${ov.rank.level})` },
+      ov.train, h('span.lvl', ov.rank.level)),
     soundToggle(),
     h('a.icon-btn', { href: '#/', title: 'Profil wechseln' }, '👥')
   );
@@ -106,6 +122,7 @@ export function renderExplain(blocks, speechLang) {
       return h('ul.examples', b.ex.map(([en, de]) =>
         h('li', sayBtn(en.replace(/\*\*/g, '')) ?? h('span'), h('span.en', { html: md(en) }), h('span.de', de))));
     }
+    if (b.map) return mapFigure(b.map, { legend: b.legend ?? [] });
     if (b.table) {
       return h('.table-wrap', h('table',
         b.table.head ? h('thead', h('tr', b.table.head.map((c) => h('th', { html: md(c) })))) : null,
@@ -115,10 +132,11 @@ export function renderExplain(blocks, speechLang) {
   });
 }
 
-async function startRide({ childId, subject, unit, mode = 'unit', lineColor, backHash }) {
+async function startRide(opts) {
+  const { childId, subject, unit, line, mode = 'unit', lineColor, backHash, train, card } = opts;
   let session;
   try {
-    session = await api('/sessions', { method: 'POST', body: { childId, subject, unit, mode } });
+    session = await api('/sessions', { method: 'POST', body: { childId, subject, unit, line, mode } });
   } catch (err) {
     toast(err.message);
     return;
@@ -126,12 +144,50 @@ async function startRide({ childId, subject, unit, mode = 'unit', lineColor, bac
   document.querySelectorAll('.dock').forEach((el) => el.remove());
   runRide(app, session, {
     lineColor,
+    train,
+    card,
     onExit: () => {
       if (location.hash === backHash) route();
       else location.hash = backHash;
     },
-    onAgain: () => startRide({ childId, subject, unit, mode, lineColor, backHash }),
+    onAgain: () => startRide(opts),
   });
+}
+
+/** Karte einer Station fürs Sammelalbum. */
+const unitCard = (subject, u, number) => ({
+  icon: u.icon, title: u.title, text: u.card, color: lineOf(subject, u.line).color, number,
+});
+/** Goldkarte einer ganzen Linie (nach bestandener Endbahnhof-Prüfung). */
+const lineCard = (subject, line) => ({
+  icon: '🏆', title: line.name, color: line.color,
+  text: `Endbahnhof erreicht: Du hast alle Stationen der ${line.name} (${subject.name}) gemeistert!`,
+});
+
+function missionHref(id, m, meta) {
+  if (m.type === 'subject') return `#/kid/${id}/s/${m.subject}`;
+  if (m.type === 'blitz') {
+    const s = meta.subjects.find((x) => x.blitz?.length);
+    return s ? `#/kid/${id}/blitz/${s.id}/${s.blitz[0].id}` : null;
+  }
+  return null;
+}
+
+function planCard(id, plan, meta) {
+  return h('section.plan', { class: plan.done ? 'done' : '' },
+    h('.plan-head',
+      h('h2', '📋 Tagesfahrplan'),
+      h('a.plan-stamps', { href: `#/kid/${id}/sammlung/stempel`, title: 'Zum Stempelheft' }, `🔖 ${plan.stamps} Stempel`)),
+    h('ol.missions', plan.missions.map((m) => {
+      const href = !m.done && missionHref(id, m, meta);
+      const body = [h('span.check', { 'aria-hidden': 'true' }, m.done ? '✔' : ''), h('span.m-icon', { 'aria-hidden': 'true' }, m.icon), h('span.m-label', m.label)];
+      return h('li', { class: m.done ? 'done' : '' },
+        href ? h('a', { href }, body) : h('span.m-row', body),
+        h('span.sr-only', m.done ? ' (erledigt)' : ' (offen)'));
+    })),
+    plan.done
+      ? h('p.plan-msg', 'Alles erledigt – der Stempel für heute ist dir sicher! 🎉')
+      : h('p.plan-msg.muted', `Schaffst du alle drei, gibt es einen Stempel und +50 XP.`));
 }
 
 // ================================================================ Profilauswahl
@@ -166,7 +222,10 @@ async function homeView(id, subjectId) {
   const hash = `#/kid/${id}${subjectId ? `/s/${subject.id}` : ''}`;
 
   const limit = ov.dailyLimit;
-  const today = h('section.today',
+  const shieldNote = ov.streakInfo.shieldUsedOn && ov.streakInfo.shieldUsedOn >= addDaysIso(-2)
+    ? h('p.shield-note', `🛡️ Dein Serienschutz hat deine Serie gerettet! Du bist jetzt ${ov.streak} Tage dabei. Der nächste Schutz ist in einer Woche wieder bereit.`)
+    : null;
+  const today = ov.child.adult ? null : h('section.today',
     h('div',
       h('h2', limit > 0 ? `Heute verdient: ${ov.earnedToday} von ${limit} Sternen` : `Heute verdient: ${ov.earnedToday} Sterne`),
       limit > 0 ? h('.meter', { role: 'img', 'aria-label': `${ov.earnedToday} von ${limit}` },
@@ -181,7 +240,7 @@ async function homeView(id, subjectId) {
           reviewN === 1 ? 'Eine Aufgabe will nochmal geübt werden.' : `${reviewN} Aufgaben wollen nochmal geübt werden.`),
         h('button.btn', {
           type: 'button',
-          onclick: () => startRide({ childId: Number(id), subject: subject.id, mode: 'review', lineColor: '#D7263D', backHash: hash }),
+          onclick: () => startRide({ childId: Number(id), subject: subject.id, mode: 'review', lineColor: '#D7263D', backHash: hash, train: ov.train }),
         }, 'Jetzt üben'))
     : null;
 
@@ -190,10 +249,44 @@ async function homeView(id, subjectId) {
         h('a', { href: `#/kid/${id}/s/${s.id}`, 'aria-current': s.id === subject.id ? 'page' : null }, `${s.icon} ${s.name}`)))
     : null;
 
+  const blitz = subject.blitz?.length
+    ? h('section.blitz-row', subject.blitz.map((t) => {
+        const best = ov.blitz[`${subject.id}/${t.id}`];
+        return h('a.blitz-tile', { href: `#/kid/${id}/blitz/${subject.id}/${t.id}` },
+          h('span.b-icon', { 'aria-hidden': 'true' }, t.icon),
+          h('span.b-text', h('strong', t.title), h('span.muted.small', best ? `Dein Rekord: ⚡ ${best}` : '60 Sekunden – wie viele schaffst du?')),
+          h('span.b-go', { 'aria-hidden': 'true' }, '▶'));
+      }))
+    : null;
+
   const map = h('section.map', subject.lines.map((line) => {
     const units = subject.units.filter((u) => u.line === line.id);
     const next = units.find((u) => (progress[u.id]?.best ?? 0) < 2);
     const doneCount = units.filter((u) => (progress[u.id]?.best ?? 0) === 3).length;
+    const exam = ov.lines[subject.id]?.[line.id];
+    const lineCardData = lineCard(subject, line);
+    const terminus = exam
+      ? h('li.station.terminus', { class: exam.passed ? 'mastered' : exam.unlocked ? 'next' : 'locked' },
+          exam.unlocked
+            ? h('button', {
+                type: 'button',
+                onclick: (e) => {
+                  e.currentTarget.disabled = true;
+                  startRide({ childId: Number(id), subject: subject.id, line: line.id, mode: 'exam', lineColor: line.color, backHash: hash, train: ov.train, card: lineCardData });
+                },
+              },
+                h('span.stop', { 'aria-hidden': 'true' }),
+                h('span.st-text',
+                  h('span.st-name', `🏁 Endbahnhof`),
+                  h('span.st-sub', exam.passed ? `Bestanden (bestes Ergebnis ${exam.best} %) – nochmal fahren?` : 'Die große Prüfung über die ganze Linie!'),
+                  exam.passed ? null : h('span.st-flag', 'Jetzt offen')),
+                h('span.term-icon', { 'aria-hidden': 'true' }, exam.passed ? '🏆' : '🎯'))
+            : h('span.term-locked',
+                h('span.stop', { 'aria-hidden': 'true' }),
+                h('span.st-text',
+                  h('span.st-name', '🔒 Endbahnhof'),
+                  h('span.st-sub', 'Öffnet, wenn alle Stationen mindestens 2 Sterne haben.'))))
+      : null;
     return h('div.line-col', { style: { '--line': line.color } },
       h('.line-head', h('span.line-pill', line.name), h('span.count', `${doneCount} / ${units.length} gemeistert`)),
       h('ol.stations', units.map((u) => {
@@ -207,10 +300,16 @@ async function homeView(id, subjectId) {
               h('span.st-sub', u.subtitle),
               u === next ? h('span.st-flag', 'Nächster Halt') : null),
             starRow(p?.best ?? 0)));
-      })));
+      }), terminus));
   }));
 
-  render(kidBar(ov), tabs, today, review, map);
+  render(kidBar(ov), shieldNote, planCard(id, ov.plan, meta), tabs, today, review, blitz, map);
+}
+
+function addDaysIso(n) {
+  const d = new Date();
+  d.setDate(d.getDate() + n);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
 // ================================================================ Station
@@ -253,7 +352,11 @@ async function stationView(id, subjectId, unitId) {
         type: 'button',
         onclick: (e) => {
           e.currentTarget.disabled = true;
-          startRide({ childId: Number(id), subject: subjectId, unit: unitId, lineColor: line.color, backHash: location.hash });
+          const u = subject.units.find((x) => x.id === unitId);
+          startRide({
+            childId: Number(id), subject: subjectId, unit: unitId, lineColor: line.color, backHash: location.hash,
+            train: ov.train, card: u ? unitCard(subject, u, subject.units.indexOf(u) + 1) : null,
+          });
         },
       }, `🚆 Losfahren · ${n} Aufgaben`)));
 
@@ -261,13 +364,140 @@ async function stationView(id, subjectId, unitId) {
   document.body.append(dock);
 }
 
-// ================================================================ Abzeichen
+// ================================================================ Sammlung: Rang & Züge, Album, Stempelheft, Abzeichen
 
-async function badgesView(id) {
+const TABS = [
+  ['rang', '🚂 Rang & Züge'],
+  ['album', '🃏 Album'],
+  ['stempel', '🔖 Stempel'],
+  ['abzeichen', '🏅 Abzeichen'],
+];
+
+async function collectionView(id, tab) {
   const [meta, ov] = await Promise.all([loadMeta(), api(`/children/${id}/overview`)]);
+  if (!TABS.some(([t]) => t === tab)) tab = 'rang';
+  const nav = h('nav.subject-tabs', { 'aria-label': 'Sammlung' }, TABS.map(([t, label]) =>
+    h('a', { href: `#/kid/${id}/sammlung/${t}`, 'aria-current': t === tab ? 'page' : null }, label)));
+  const body = { rang: rankPanel, album: albumPanel, stempel: stampPanel, abzeichen: badgePanel }[tab](id, meta, ov);
+  render(kidBar(ov), nav, ...[body].flat());
+}
+
+function rankPanel(id, meta, ov) {
+  const pick = async (train) => {
+    try {
+      await api(`/children/${id}/train`, { method: 'POST', body: { train } });
+      sfx.right();
+      toast(`${train} ist jetzt dein Zug!`);
+      collectionView(id, 'rang');
+    } catch (err) {
+      toast(err.message);
+    }
+  };
+  return [
+    h('section.panel',
+      h('h2', `⭐ Dein Rang (${ov.rank.level} von ${ov.ranks.length})`),
+      rankMeter(ov.rank),
+      h('p.muted.small', 'XP gibt es für jede richtige Antwort (10 XP), für jeden Fahrplan-Stempel (50 XP) und für jeden Endbahnhof (100 XP).')),
+    h('section.panel',
+      h('h2', '🚉 Dein Zug'),
+      h('p.muted', 'Mit diesem Zug fährst du durch die Übungen. Jeder neue Rang schaltet einen neuen Zug frei.'),
+      h('.trains', ov.ranks.map((r, i) => {
+        const unlocked = ov.trains.includes(r.train);
+        const current = ov.train === r.train;
+        return h('button.train-pick', {
+          type: 'button',
+          class: [unlocked ? '' : 'locked', current ? 'current' : ''].filter(Boolean).join(' '),
+          disabled: !unlocked || current,
+          'aria-pressed': String(current),
+          onclick: () => pick(r.train),
+        },
+          h('span.t-emoji', { 'aria-hidden': 'true' }, unlocked ? r.train : '🔒'),
+          h('span.t-name', r.name),
+          h('span.t-sub', current ? 'Dein Zug' : unlocked ? 'Auswählen' : `ab ${r.min} XP`));
+      }))),
+  ];
+}
+
+function albumPanel(id, meta, ov) {
+  let owned = 0;
+  let total = 0;
+  const sections = meta.subjects.map((subject) => {
+    const progress = ov.progress[subject.id] ?? {};
+    return h('section.panel',
+      h('h2', `${subject.icon} ${subject.name}`),
+      subject.lines.map((line) => {
+        const units = subject.units.filter((u) => u.line === line.id);
+        if (!units.length) return null;
+        const exam = ov.lines[subject.id]?.[line.id];
+        total += units.length + 1;
+        const cards = units.map((u) => {
+          const has = (progress[u.id]?.best ?? 0) === 3;
+          if (has) owned++;
+          return albumCard({ ...unitCard(subject, u, subject.units.indexOf(u) + 1), owned: has });
+        });
+        if (exam?.passed) owned++;
+        const gold = albumCard({
+          ...lineCard(subject, line), owned: !!exam?.passed, gold: true,
+          hint: 'Besteh die Endbahnhof-Prüfung dieser Linie, dann bekommst du die Goldkarte.',
+        });
+        return h('div.album-line', { style: { '--line': line.color } },
+          h('h3.line-pill', line.name),
+          h('.album', gold, cards));
+      }));
+  });
+  return [
+    h('section.panel',
+      h('h2', `🃏 Sammelalbum – ${owned} von ${total} Karten`),
+      h('p.muted', 'Für jede Station, die du mit 3 Sternen schaffst, bekommst du eine Karte. Für jeden Endbahnhof gibt es eine Goldkarte.'),
+      h('.meter', h('span', { style: { width: `${total ? (owned / total) * 100 : 0}%` } }))),
+    ...sections,
+  ];
+}
+
+/** Kleine Karte im Album; antippen zeigt sie groß. */
+function albumCard(data) {
+  return h('button.card-btn', {
+    type: 'button',
+    'aria-label': `${data.title}${data.owned ? '' : ' (noch nicht gesammelt)'}`,
+    onclick: () => {
+      const view = h('.card-view', { role: 'dialog', 'aria-modal': 'true', onclick: () => view.remove() }, collectCard({ ...data, fresh: data.owned }));
+      document.body.append(view);
+    },
+  }, collectCard(data));
+}
+
+function stampPanel(id, meta, ov) {
+  const stamped = new Set(ov.stampDays);
+  const days = [];
+  const start = new Date();
+  // 4 Wochen, beginnend am Montag
+  start.setDate(start.getDate() - 27 - ((start.getDay() + 6) % 7));
+  for (let i = 0; i < 35; i++) {
+    const d = new Date(start);
+    d.setDate(start.getDate() + i);
+    const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    days.push({ iso, day: d.getDate(), future: d > new Date(), today: iso === ov.plan.day });
+  }
+  return [
+    h('section.panel',
+      h('h2', `🔖 Stempelheft – ${ov.plan.stamps} Stempel`),
+      h('p.muted', 'Jeden Tag, an dem du alle drei Aufgaben vom Tagesfahrplan schaffst, bekommst du einen Stempel.'),
+      h('.stamp-grid',
+        ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'].map((d) => h('span.sg-head', d)),
+        days.map((d) => h('span.sg-day', { class: [stamped.has(d.iso) ? 'stamped' : '', d.future ? 'future' : '', d.today ? 'today' : ''].filter(Boolean).join(' ') },
+          stamped.has(d.iso) ? h('span.sg-stamp', { 'aria-label': `${d.day}.: Stempel` }, '✔') : h('span', d.day))))),
+    planCard(id, ov.plan, meta),
+    h('section.panel',
+      h('h2', '🛡️ Serienschutz'),
+      h('p', ov.streakInfo.shieldReady
+        ? 'Dein Serienschutz ist bereit: Wenn du mal einen Tag nicht übst, bleibt deine Serie trotzdem erhalten. Das geht einmal pro Woche.'
+        : 'Dein Serienschutz wurde in den letzten 7 Tagen schon benutzt. Also heute lieber üben, damit deine Serie weiterläuft!')),
+  ];
+}
+
+function badgePanel(id, meta, ov) {
   const earned = new Map(ov.badges.map((b) => [b.id, b.earned_at]));
-  render(
-    kidBar(ov),
+  return [
     h('section.panel',
       h('h2', `🏅 Deine Abzeichen – ${earned.size} von ${meta.badges.length}`),
       h('p.muted', 'Für jedes neue Abzeichen bekommst du 3 Extra-Sterne.')),
@@ -276,8 +506,40 @@ async function badgesView(id) {
         h('.medal', { 'aria-hidden': 'true' }, b.icon),
         h('.bname', b.name),
         h('.bdesc', b.desc),
-        earned.has(b.id) ? h('.bdesc', `✓ ${new Date(earned.get(b.id)).toLocaleDateString('de-DE')}`) : null)))
-  );
+        earned.has(b.id) ? h('.bdesc', `✓ ${new Date(earned.get(b.id)).toLocaleDateString('de-DE')}`) : null))),
+  ];
+}
+
+// ================================================================ Blitzrunde
+
+async function blitzView(id, subjectId, topicId) {
+  const [meta, ov, rec] = await Promise.all([loadMeta(), api(`/children/${id}/overview`), api(`/children/${id}/blitz/${subjectId}/${topicId}`)]);
+  const subject = meta.subjects.find((s) => s.id === subjectId);
+  const color = subject?.lines[0]?.color ?? '#D9631E';
+  const backHash = `#/kid/${id}/s/${subjectId}`;
+  const start = () => {
+    document.querySelectorAll('.dock').forEach((el) => el.remove());
+    runBlitz(app, {
+      childId: Number(id), subject: subjectId, topic: rec.topic, lineColor: color,
+      onExit: () => { if (location.hash === backHash) route(); else location.hash = backHash; },
+      onAgain: () => (location.hash === `#/kid/${id}/blitz/${subjectId}/${topicId}` ? start() : null),
+    });
+  };
+  render(
+    kidBar(ov),
+    h('div', { style: { '--line': color } },
+      h('a.back', { href: backHash }, '← Zum Netzplan'),
+      h('header.sign',
+        h('span.icon', { 'aria-hidden': 'true' }, rec.topic.icon),
+        h('div', h('h1', rec.topic.title), h('p', rec.topic.subtitle || subject?.name))),
+      h('section.panel',
+        h('h2', '⏱️ So geht’s'),
+        h('p', 'Du hast ', h('strong', '60 Sekunden'), '. Beantworte so viele Aufgaben wie möglich. Falsche Antworten kosten nur Zeit – also schnell, aber genau!'),
+        h('p.blitz-record', rec.best ? `Dein Rekord: ⚡ ${rec.best}` : 'Du hast hier noch keinen Rekord. Leg los!')),
+      rec.runs.length > 1 ? h('section.panel', h('h2', '📈 Deine letzten Runden'), runChart(rec.runs)) : null,
+      familyBoard(rec.family, id)));
+  document.body.append(h('.dock', { style: { '--line': color } },
+    h('.dock-inner', h('button.btn.line.big', { type: 'button', onclick: start }, '⚡ Blitzrunde starten'))));
 }
 
 // ================================================================ Fahrkarten (Medienzeit)

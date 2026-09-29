@@ -98,18 +98,21 @@ async function dashboard(root, render, reloadMeta) {
             kpi(`${c.today.sessions}`, `Übungen heute · ${c.today.minutes} Min.`),
             kpi(c.today.accuracy == null ? '–' : `${c.today.accuracy} %`, 'richtig heute'),
             kpi(`${c.week.sessions}`, `Übungen in 7 Tagen · ${c.week.minutes} Min.`),
-            kpi(`${c.streak}`, 'Tage am Stück')),
+            kpi(`${c.streak}`, 'Tage am Stück'),
+            kpi(`${c.rank.train} ${c.rank.level}`, c.rank.name),
+            kpi(c.planDone ? '✔' : '–', 'Tagesfahrplan heute')),
           h('a.btn.small', { href: `#/parent/child/${c.id}` }, 'Details und Fortschritt →'))))
     : h('section.panel', h('p', 'Noch kein Kinderprofil angelegt. Lege unten eins an.'));
 
   // Neues Profil
   let avatar = AVATARS[0];
   const nameInput = h('input.input', { id: 'new-name', maxlength: 40, required: true, placeholder: 'z. B. Leon' });
+  const adultBox = h('input', { type: 'checkbox' });
   const addForm = h('form.panel', {
     onsubmit: async (e) => {
       e.preventDefault();
       try {
-        await papi('/children', { method: 'POST', body: { name: nameInput.value, avatar } });
+        await papi('/children', { method: 'POST', body: { name: nameInput.value, avatar, adult: adultBox.checked } });
         toast('Profil angelegt.');
         refresh();
       } catch (err) { toast(err.message); }
@@ -118,6 +121,8 @@ async function dashboard(root, render, reloadMeta) {
     h('h2', '➕ Kinderprofil anlegen'),
     h('.field', h('label', { for: 'new-name' }, 'Name'), nameInput),
     h('.field', h('label', 'Bild'), avatarPicker(avatar, (a) => { avatar = a; })),
+    h('.field', h('label.check', adultBox, ' Erwachsenen-Profil'),
+      h('span.help', 'Zum Mitspielen und Herausfordern in der Blitzrunde. Sammelt keine Sterne und kann keine Medienzeit eintauschen.')),
     h('button.btn', { type: 'submit' }, 'Profil anlegen'));
 
   const s = data.settings;
@@ -325,6 +330,8 @@ async function childView(root, id, render) {
     h('section.panel', h('.kpis',
       kpi(`${d.balance} ★`, 'Guthaben'),
       kpi(`${d.streak}`, 'Tage am Stück'),
+      kpi(`${d.rank.train} ${d.rank.level}`, `${d.rank.name} · ${d.rank.xp} XP`),
+      kpi(`${d.stamps}`, 'Fahrplan-Stempel'),
       kpi(`${d.mastered}`, 'sicher gelernt'),
       kpi(`${d.badges.length}`, 'Abzeichen'))),
     chart,

@@ -1,0 +1,32 @@
+{
+  "id": "quadrat-11-15",
+  "line": "kopfrechnen",
+  "order": 11,
+  "title": "Quadratzahlen 11 bis 15",
+  "subtitle": "11 · 11 bis 15 · 15",
+  "icon": "🟧",
+  "card": "Wusstest du? 12 · 12 = 144 nannte man früher ein **Gros**. Händler haben Knöpfe und Nägel in Gros gezählt.",
+  "explain": [
+    { "p": "Eine **Quadratzahl** entsteht, wenn du eine Zahl mit sich selbst malnimmst. 12 · 12 = 144 – man schreibt auch **12²** und sagt „12 hoch 2“." },
+    { "table": { "head": ["Aufgabe", "Ergebnis"], "rows": [["11 · 11", "**121**"], ["12 · 12", "**144**"], ["13 · 13", "**169**"], ["14 · 14", "**196**"], ["15 · 15", "**225**"]] } },
+    { "tip": "Trick „Zerlegen“: 14 · 14 = 14 · 10 + 14 · 4 = 140 + 56 = **196**" },
+    { "tip": "Trick für die 15: Rechne 1 · 2 = 2 und hänge **25** an → 15 · 15 = **225**" }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Rechne im Kopf.", "q": "11 · 11 = ___", "answer": "121", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "choice", "task": "Welches Ergebnis stimmt?", "q": "11 · 11 = ___", "options": ["121", "111", "122", "110"], "answer": "121" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 121", "answer": "11", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "12 · 12 = ___", "answer": "144", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "choice", "task": "Welches Ergebnis stimmt?", "q": "12 · 12 = ___", "options": ["144", "154", "169", "156"], "answer": "144" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 144", "answer": "12", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "13 · 13 = ___", "answer": "169", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "choice", "task": "Welches Ergebnis stimmt?", "q": "13 · 13 = ___", "options": ["169", "156", "143", "196"], "answer": "169" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 169", "answer": "13", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "14 · 14 = ___", "answer": "196", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "choice", "task": "Welches Ergebnis stimmt?", "q": "14 · 14 = ___", "options": ["196", "169", "225", "210"], "answer": "196" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 196", "answer": "14", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "15 · 15 = ___", "answer": "225", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "choice", "task": "Welches Ergebnis stimmt?", "q": "15 · 15 = ___", "options": ["225", "165", "235", "240"], "answer": "225" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___ · ___ = 225", "answer": "15", "numeric": true, "placeholder": "Zahl", "hint": "Beide Lücken sind dieselbe Zahl." }
+  ]
+}

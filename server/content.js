@@ -3,7 +3,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { shortHash } from './util.js';
 
-const CONTENT_DIR = process.env.CONTENT_DIR || path.resolve(import.meta.dirname, '..', 'content');
+export const CONTENT_DIR = process.env.CONTENT_DIR || path.resolve(import.meta.dirname, '..', 'content');
 const GENERATOR_DIR = path.resolve(import.meta.dirname, 'generators');
 
 /** subjectId -> { meta, units: Map(unitId -> unit) } */
@@ -41,16 +41,21 @@ export async function loadContent() {
     for (const file of fs.readdirSync(subjectDir)) {
       if (!file.endsWith('.json') || file === 'subject.json') continue;
       const unit = readJson(path.join(subjectDir, file), problems);
-      if (!unit) continue;
+      if (!unit || unit.enabled === false) continue;
       unit.id ??= path.basename(file, '.json');
       unit.vocab ??= [];
       unit.exercises ??= [];
       unit.explain ??= [];
       units.push(unit);
-      validateUnit(meta, unit, file, problems);
+      validateUnit(meta, unit, file, problems, subjectDir);
     }
     const lineOrder = (meta.lines ?? []).map((l) => l.id);
     units.sort((a, b) => lineOrder.indexOf(a.line) - lineOrder.indexOf(b.line) || (a.order ?? 0) - (b.order ?? 0));
+
+    for (const t of meta.blitz ?? []) {
+      if (!t.id || !t.title) problems.push(`${meta.id}/subject.json: Blitzrunde braucht "id" und "title"`);
+      for (const uid of t.units ?? []) if (!units.some((u) => u.id === uid)) problems.push(`${meta.id}/subject.json: Blitzrunde "${t.id}" – Station "${uid}" gibt es nicht`);
+    }
 
     const unitMap = new Map();
     for (const unit of units) {
@@ -76,8 +81,17 @@ function readJson(file, problems) {
   }
 }
 
-function validateUnit(meta, unit, file, problems) {
+function validateUnit(meta, unit, file, problems, subjectDir) {
   const where = `${meta.id}/${file}`;
+  const svgCache = new Map();
+  const checkMap = (name, marks) => {
+    const svgFile = path.join(subjectDir, 'media', `${name}.svg`);
+    if (!svgCache.has(name)) svgCache.set(name, fs.existsSync(svgFile) ? fs.readFileSync(svgFile, 'utf8') : null);
+    const svg = svgCache.get(name);
+    if (svg == null) return problems.push(`${where}: Karte "media/${name}.svg" nicht gefunden`);
+    for (const m of marks) if (!svg.includes(`id="${m}"`)) problems.push(`${where}: Karte "${name}" hat kein Gebiet "${m}"`);
+  };
+  for (const b of unit.explain) if (b.map) checkMap(b.map, (b.legend ?? []).map(([id]) => id));
   if (!unit.title) problems.push(`${where}: "title" fehlt`);
   if (meta.lines && !meta.lines.some((l) => l.id === unit.line)) problems.push(`${where}: unbekannte Linie "${unit.line}"`);
   if (unit.generator && !generators.has(unit.generator)) problems.push(`${where}: Generator "${unit.generator}" nicht gefunden`);
@@ -104,8 +118,12 @@ function validateUnit(meta, unit, file, problems) {
     if (ex.type === 'choice' && !ex.options?.includes(ex.answer))
       problems.push(`${where}: Antwort "${ex.answer}" steht nicht in options: ${JSON.stringify(ex)}`);
     if (ex.type === 'order' && !ex.de && !ex.q) problems.push(`${where}: order-Aufgabe braucht "de" oder "q"`);
+    if (ex.map) checkMap(ex.map, ex.mark ? [ex.mark] : []);
   }
 }
+
+/** Karten und Bilder eines Fachs liegen in content/<fach>/media/ und werden unter /media/<fach>/ ausgeliefert. */
+export const mediaUrl = (subjectId, name) => `/media/${subjectId}/${name}.svg`;
 
 export function getGenerator(name) {
   return generators.get(name);
@@ -130,6 +148,7 @@ export function itemLabel(key) {
   const ex = item.data;
   if (ex.type === 'order') return ex.answer;
   const q = (ex.q ?? '').replace(/\*\*/g, '');
+  if (!q && ex.map) return `Karte: ${ex.answer}`;
   if (/_{3,}/.test(q)) return q.replace(/_{3,}/g, `[${ex.answer}]`);
   return q ? `${q} → ${ex.answer}` : ex.answer;
 }
@@ -137,6 +156,11 @@ export function itemLabel(key) {
 export function unitItemCount(unit) {
   if (unit.generator) return unit.itemCount ?? 0;
   return unit.vocab.length + unit.exercises.length;
+}
+
+/** Text auf der Sammelkarte: eigener "card"-Text, sonst der erste Merksatz der Station. */
+function cardText(u) {
+  return u.card ?? u.explain.find((b) => b.tip)?.tip ?? u.explain.find((b) => b.p)?.p ?? u.subtitle ?? '';
 }
 
 export function publicSubjects() {
@@ -148,6 +172,7 @@ export function publicSubjects() {
       icon: meta.icon,
       speechLang: meta.speechLang ?? null,
       lines: meta.lines ?? [{ id: 'main', name: meta.name, color: '#0072CE' }],
+      blitz: (meta.blitz ?? []).map((t) => ({ id: t.id, title: t.title, icon: t.icon ?? '⚡', subtitle: t.subtitle ?? '' })),
       units: [...units.values()].map((u) => ({
         id: u.id,
         line: u.line ?? 'main',
@@ -155,6 +180,7 @@ export function publicSubjects() {
         subtitle: u.subtitle ?? '',
         icon: u.icon ?? '•',
         items: unitItemCount(u),
+        card: cardText(u),
       })),
     }));
 }
@@ -169,7 +195,7 @@ export function publicUnit(subjectId, unitId) {
     title: unit.title,
     subtitle: unit.subtitle ?? '',
     icon: unit.icon ?? '•',
-    explain: unit.explain,
+    explain: unit.explain.map((b) => (b.map ? { ...b, map: mediaUrl(subjectId, b.map) } : b)),
     vocab: unit.showVocab === false ? [] : unit.vocab.map((v) => ({ en: v.en, de: v.de })),
     items: unitItemCount(unit),
   };
