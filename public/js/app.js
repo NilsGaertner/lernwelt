@@ -225,13 +225,11 @@ async function homeView(id, subjectId) {
   const shieldNote = ov.streakInfo.shieldUsedOn && ov.streakInfo.shieldUsedOn >= addDaysIso(-2)
     ? h('p.shield-note', `🛡️ Dein Serienschutz hat deine Serie gerettet! Du bist jetzt ${ov.streak} Tage dabei. Der nächste Schutz ist in einer Woche wieder bereit.`)
     : null;
-  const boostNote = ov.boost && !ov.child.adult
-    ? h('p.boost-note', `🎉 Doppelte Sterne! Jede Fahrt, die du bis ${new Date(ov.boost.until).toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })} Uhr startest, bringt doppelt so viele Sterne.`)
-    : null;
+  const boostNote = ov.child.adult ? null : boostBanner(id, meta, ov.boost, subject.id);
   const today = ov.child.adult ? null : h('section.today',
     h('div',
       h('h2', limit > 0 ? `Heute verdient: ${ov.earnedToday} von ${limit} Sternen` : `Heute verdient: ${ov.earnedToday} Sterne`),
-      ov.specialLimit ? h('p.muted.small', '🎁 Heute gibt es ein Extra-Limit von deinen Eltern!') : null,
+      ov.limitRaised ? h('p.muted.small', '🎁 Heute gibt es ein Extra-Limit von deinen Eltern!') : null,
       limit > 0 ? h('.meter', { role: 'img', 'aria-label': `${ov.earnedToday} von ${limit}` },
         h('span', { style: { width: `${Math.min(100, (ov.earnedToday / limit) * 100)}%` } })) : null),
     h('a.btn.ghost', { href: `#/kid/${id}/tickets` }, '🎟️ Sterne eintauschen'));
@@ -250,7 +248,8 @@ async function homeView(id, subjectId) {
 
   const tabs = meta.subjects.length > 1
     ? h('nav.subject-tabs', { 'aria-label': 'Fächer' }, meta.subjects.map((s) =>
-        h('a', { href: `#/kid/${id}/s/${s.id}`, 'aria-current': s.id === subject.id ? 'page' : null }, `${s.icon} ${s.name}`)))
+        h('a', { href: `#/kid/${id}/s/${s.id}`, 'aria-current': s.id === subject.id ? 'page' : null },
+          `${s.icon} ${s.name}${ov.boost?.subject === s.id ? ' 🎉' : ''}`)))
     : null;
 
   const blitz = subject.blitz?.length
@@ -292,22 +291,56 @@ async function homeView(id, subjectId) {
                   h('span.st-sub', 'Öffnet, wenn alle Stationen mindestens 2 Sterne haben.'))))
       : null;
     return h('div.line-col', { style: { '--line': line.color } },
-      h('.line-head', h('span.line-pill', line.name), h('span.count', `${doneCount} / ${units.length} gemeistert`)),
+      h('.line-head', h('span.line-pill', line.name),
+        ov.boost?.subject === subject.id && ov.boost.line === line.id ? h('span.boost-tag', '🎉 ×2 Sterne') : null,
+        h('span.count', `${doneCount} / ${units.length} gemeistert`)),
       h('ol.stations', units.map((u) => {
         const p = progress[u.id];
         const cls = [p?.best === 3 ? 'mastered' : p ? 'visited' : '', u === next ? 'next' : ''].filter(Boolean).join(' ');
+        const boosted = ov.boost?.subject === subject.id && ov.boost.unit === u.id;
         return h('li.station', { class: cls },
           h('a', { href: `#/kid/${id}/station/${subject.id}/${u.id}` },
             h('span.stop', { 'aria-hidden': 'true' }),
             h('span.st-text',
               h('span.st-name', `${u.icon} ${u.title}`),
               h('span.st-sub', u.subtitle),
-              u === next ? h('span.st-flag', 'Nächster Halt') : null),
+              u === next ? h('span.st-flag', 'Nächster Halt') : null,
+              boosted ? h('span.boost-tag', '🎉 ×2 Sterne') : null),
             starRow(p?.best ?? 0)));
       }), terminus));
   }));
 
   render(kidBar(ov), shieldNote, boostNote, planCard(id, ov.plan, meta), tabs, today, review, blitz, map);
+}
+
+function boostHere(boost, subjectId, lineId, unitId) {
+  if (!boost) return false;
+  if (!boost.subject) return true;
+  if (boost.subject !== subjectId) return false;
+  if (boost.unit) return boost.unit === unitId;
+  return !boost.line || boost.line === lineId;
+}
+
+/** Wofür das „Doppelte Sterne“-Event gilt, in Kindersprache. */
+function boostWhere(meta, boost) {
+  const sub = meta.subjects.find((x) => x.id === boost.subject);
+  if (!sub) return null;
+  if (boost.unit) return `auf der Station „${sub.units.find((u) => u.id === boost.unit)?.title ?? boost.unit}“`;
+  if (boost.line) return `auf der Linie „${sub.lines.find((l) => l.id === boost.line)?.name ?? boost.line}“`;
+  return `in ${sub.name}`;
+}
+
+/** Banner fürs laufende Event – mit Link dorthin, wenn es nur für einen Teil gilt. */
+function boostBanner(id, meta, boost, currentSubject) {
+  if (!boost) return null;
+  const where = boostWhere(meta, boost);
+  const time = new Date(boost.until).toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
+  const text = boost.once
+    ? `🎉 Deine nächste Fahrt${where ? ` ${where}` : ''} bringt doppelte Sterne!`
+    : `🎉 Doppelte Sterne${where ? ` ${where}` : ''}! Jede Fahrt${where ? ' dort' : ''}, die du bis ${time} Uhr startest, bringt doppelt so viele Sterne.`;
+  const href = boost.unit ? `#/kid/${id}/station/${boost.subject}/${boost.unit}`
+    : boost.subject && boost.subject !== currentSubject ? `#/kid/${id}/s/${boost.subject}` : null;
+  return h('p.boost-note', text, href ? [' ', h('a', { href }, 'Hinfahren →')] : null);
 }
 
 function addDaysIso(n) {
@@ -331,6 +364,9 @@ async function stationView(id, subjectId, unitId) {
     h('header.sign',
       h('span.icon', { 'aria-hidden': 'true' }, unit.icon),
       h('div', h('h1', unit.title), h('p', `${unit.subtitle} · ${line.name}`))),
+    !ov.child.adult && boostHere(ov.boost, subjectId, unit.line, unitId)
+      ? h('p.boost-note', ov.boost.once ? '🎉 Deine nächste Fahrt hier bringt doppelte Sterne!' : '🎉 Hier gibt es gerade doppelte Sterne!')
+      : null,
     h('.record',
       starRow(p?.best ?? 0),
       h('span', p ? `${p.runs}× gefahren · im Schnitt ${p.avg} % richtig` : 'Hier warst du noch nie – los geht’s!')),

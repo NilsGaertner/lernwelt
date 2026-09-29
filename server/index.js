@@ -11,6 +11,7 @@ import {
 import { localDay, addDays, nowIso, randomId, hashPin, verifyPin } from './util.js';
 import {
   streakInfo, xpOf, rankInfo, unlockedTrains, RANKS, dailyPlan, stampDays, stampCount, lineStatus, blitzBests, blitzRecords, blitzTopics,
+  lineUnits,
 } from './progress.js';
 
 const PORT = Number(process.env.PORT) || 8080;
@@ -61,7 +62,8 @@ app.get('/api/children/:id/overview', (req, res) => {
     balance: balance(child.id),
     earnedToday: earnedOn(child.id),
     dailyLimit: starLimitFor(),
-    specialLimit: starLimitFor() !== settings.dailyStarLimit,
+    // Nur ein höheres Sonder-Limit wird dem Kind als Geschenk angezeigt (0 = unbegrenzt)
+    limitRaised: settings.dailyStarLimit > 0 && (starLimitFor() === 0 || starLimitFor() > settings.dailyStarLimit),
     boost: activeBoost(),
     streak: streak(child.id),
     streakInfo: streakInfo(child.id),
@@ -204,6 +206,10 @@ parent.get('/overview', (req, res) => {
   res.json({
     children, pending, settings: getPublicSettings(), pinIsDefault: getSetting('pinIsDefault') === '1',
     today, todayLimit: starLimitFor(today), dayLimits: upcomingDayLimits(), boost: activeBoost(),
+    recent: logEntries({ limit: 8 }).entries,
+    subjects: publicSubjects().map(({ id, name, icon, lines, units }) => ({
+      id, name, icon, lines: lines.map(({ id, name }) => ({ id, name })), units: units.map(({ id, title, line }) => ({ id, title, line })),
+    })),
   });
 });
 
@@ -248,16 +254,6 @@ parent.get('/children/:id', (req, res) => {
     }
   }
 
-  const unitTitle = (sid, uid) => subjects.get(sid)?.units.get(uid)?.title ?? uid ?? 'Fehler-Training';
-  const sessionTitle = (s) => {
-    if (s.mode === 'review') return 'Fehler-Training';
-    if (s.mode === 'blitz') return `⚡ ${blitzTopics(s.subject).find((t) => t.id === s.unit_id)?.title ?? 'Blitzrunde'}`;
-    if (s.mode === 'exam') {
-      const line = subjects.get(s.subject)?.meta.lines?.find((l) => l.id === s.unit_id);
-      return `🏁 Endbahnhof ${line?.name ?? s.unit_id}`;
-    }
-    return unitTitle(s.subject, s.unit_id);
-  };
   const weak = db
     .prepare(
       `SELECT * FROM item_stats WHERE child_id = ? AND wrong > 0 AND box < 3
@@ -268,10 +264,7 @@ parent.get('/children/:id', (req, res) => {
   const mastered = db.prepare('SELECT COUNT(*) AS n FROM item_stats WHERE child_id = ? AND box >= 3').get(child.id).n;
   const seen = db.prepare('SELECT COUNT(*) AS n FROM item_stats WHERE child_id = ?').get(child.id).n;
 
-  const sessions = db
-    .prepare('SELECT * FROM sessions WHERE child_id = ? ORDER BY finished_at DESC LIMIT 25')
-    .all(child.id)
-    .map((s) => ({ ...s, title: sessionTitle(s) }));
+  const sessions = logEntries({ childId: child.id, limit: 15 }).entries;
   const ledger = db.prepare('SELECT * FROM star_ledger WHERE child_id = ? ORDER BY id DESC LIMIT 40').all(child.id);
 
   res.json({
@@ -368,11 +361,27 @@ parent.delete('/day-limits/:day', (req, res) => {
   res.json({ dayLimits: upcomingDayLimits() });
 });
 
-// „Doppelte Sterne“-Event: gilt für alle Fahrten, die in den nächsten Minuten gestartet werden
+// „Doppelte Sterne“-Event: gilt für alle Fahrten, die in den nächsten Minuten gestartet werden (oder nur die nächste),
+// wahlweise nur für ein Fach, eine Linie oder eine Station
 parent.post('/boost', (req, res) => {
-  const minutes = Math.trunc(Number(req.body?.minutes));
-  if (!minutes || minutes < 5 || minutes > 720) throw fail(400, 'Die Dauer muss zwischen 5 und 720 Minuten liegen.');
-  res.json({ boost: startBoost(minutes) });
+  const b = req.body ?? {};
+  const once = !!b.once;
+  const minutes = Math.trunc(Number(b.minutes));
+  if (!once && (!minutes || minutes < 5 || minutes > 720)) throw fail(400, 'Die Dauer muss zwischen 5 und 720 Minuten liegen.');
+  const scope = {};
+  if (b.subject) {
+    const subject = subjects.get(String(b.subject));
+    if (!subject) throw fail(400, 'Dieses Fach gibt es nicht.');
+    scope.subject = subject.meta.id;
+    if (b.unit) {
+      if (!subject.units.has(String(b.unit))) throw fail(400, 'Diese Station gibt es nicht.');
+      scope.unit = String(b.unit);
+    } else if (b.line) {
+      if (!lineUnits(scope.subject, String(b.line)).length) throw fail(400, 'Diese Linie gibt es nicht.');
+      scope.line = String(b.line);
+    }
+  }
+  res.json({ boost: startBoost({ minutes, once, scope }) });
 });
 
 parent.delete('/boost', (req, res) => {
@@ -392,6 +401,70 @@ parent.put('/pin', (req, res) => {
 parent.post('/reload-content', async (req, res) => {
   const issues = await loadContent();
   res.json({ ok: true, problems: issues });
+});
+
+// ---------------------------------------------------------------- Fahrtenbuch
+
+const unitTitle = (sid, uid) => subjects.get(sid)?.units.get(uid)?.title ?? uid ?? 'Fehler-Training';
+
+function sessionTitle(s) {
+  if (s.mode === 'review') return '🔧 Fehler-Training';
+  if (s.mode === 'blitz') return `⚡ ${blitzTopics(s.subject).find((t) => t.id === s.unit_id)?.title ?? 'Blitzrunde'}`;
+  if (s.mode === 'exam') {
+    const line = subjects.get(s.subject)?.meta.lines?.find((l) => l.id === s.unit_id);
+    return `🏁 Endbahnhof ${line?.name ?? s.unit_id}`;
+  }
+  return unitTitle(s.subject, s.unit_id);
+}
+
+function logEntry(s) {
+  const subject = subjects.get(s.subject);
+  const unit = s.mode === 'unit' ? subject?.units.get(s.unit_id) : null;
+  const line = unit ? subject.meta.lines?.find((l) => l.id === (unit.line ?? 'main')) : null;
+  return {
+    id: s.id,
+    childId: s.child_id,
+    childName: s.child_name,
+    avatar: s.avatar,
+    day: s.day,
+    finishedAt: s.finished_at,
+    mode: s.mode,
+    title: sessionTitle(s),
+    subject: subject ? `${subject.meta.icon ?? ''} ${subject.meta.name}`.trim() : s.subject,
+    line: line?.name ?? null,
+    correct: s.correct,
+    total: s.total,
+    percent: s.total ? Math.round((s.correct * 100) / s.total) : 0,
+    rating: s.rating,
+    stars: s.stars,
+    minutes: Math.max(1, Math.round(s.duration_sec / 60)),
+    runToday: s.run_today,
+    boosted: !!s.boosted,
+  };
+}
+
+/** Abgeschlossene Fahrten, neueste zuerst. before: finished_at der letzten geladenen Fahrt (zum Nachladen). */
+function logEntries({ childId, days, before, limit = 50 }) {
+  const where = [];
+  const args = [];
+  if (childId) { where.push('s.child_id = ?'); args.push(childId); }
+  if (days > 0) { where.push('s.day >= ?'); args.push(addDays(localDay(), -(days - 1))); }
+  if (before) { where.push('s.finished_at < ?'); args.push(before); }
+  const rows = db
+    .prepare(
+      `SELECT s.*, c.name AS child_name, c.avatar FROM sessions s JOIN children c ON c.id = s.child_id
+       ${where.length ? `WHERE ${where.join(' AND ')}` : ''} ORDER BY s.finished_at DESC LIMIT ?`
+    )
+    .all(...args, limit + 1);
+  return { entries: rows.slice(0, limit).map(logEntry), more: rows.length > limit };
+}
+
+parent.get('/log', (req, res) => {
+  const limit = Math.min(200, Math.max(1, Math.trunc(Number(req.query.limit)) || 50));
+  res.json({
+    ...logEntries({ childId: Number(req.query.child) || null, days: Number(req.query.days) || 0, before: req.query.before ? String(req.query.before) : null, limit }),
+    children: db.prepare('SELECT id, name, avatar FROM children ORDER BY adult, id').all(),
+  });
 });
 
 app.use('/api/parent', parent);

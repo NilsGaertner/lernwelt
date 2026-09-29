@@ -126,6 +126,8 @@ function addColumn(table, column, definition) {
   if (!has) db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${definition}`);
 }
 addColumn('sessions', 'best_combo', 'INTEGER NOT NULL DEFAULT 0');
+addColumn('sessions', 'run_today', 'INTEGER NOT NULL DEFAULT 1');
+addColumn('sessions', 'boosted', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('children', 'train', 'TEXT');
 addColumn('children', 'adult', 'INTEGER NOT NULL DEFAULT 0');
 

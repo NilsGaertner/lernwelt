@@ -810,3 +810,25 @@ label.check input { width: 20px; height: 20px; }
 .row-actions .field { margin-bottom: 0; min-width: 180px; }
 .boost-panel.on { border-left: 8px solid var(--star); background: var(--star-bg); }
 .boost-panel.on h2, .boost-panel.on p { color: var(--star-ink); }
+.boost-note a { color: inherit; font-weight: 700; white-space: nowrap; }
+.boost-tag {
+  display: inline-block; margin: 3px 0 0; padding: 1px 8px; border-radius: 6px;
+  font-size: 0.72rem; font-weight: 700; background: var(--star-bg); color: var(--star-ink); border: 1px solid var(--star);
+}
+.line-head .boost-tag { margin: 0; }
+.st-flag + .boost-tag { margin-left: 6px; }
+
+/* Fahrtenbuch */
+table.log td { vertical-align: middle; }
+table.log td:first-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
+table.log tr.log-day th {
+  padding-top: 16px; font-size: 0.85rem; text-transform: none; letter-spacing: 0; color: var(--ink); font-weight: 700;
+  border-bottom: 2px solid var(--rule);
+}
+table.log tbody tr.log-day:first-child th { padding-top: 6px; }
+.log-tag {
+  display: inline-block; margin: 3px 6px 0 0; padding: 0 7px; border-radius: 6px; font-size: 0.72rem; font-weight: 600;
+  background: var(--paper-2); color: var(--ink-2); border: 1px solid var(--rule);
+}
+.log-tag.boost { background: var(--star-bg); color: var(--star-ink); border-color: var(--star); }
+.mid { font-weight: 700; }

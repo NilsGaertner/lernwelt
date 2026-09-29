@@ -57,8 +57,8 @@ Im **Elternbereich** stellst du ein:
 - welche Ticket-Größen es gibt (Standard: 15, 30 und 60 Minuten)
 
 Für besondere Tage gibt es im Elternbereich zwei Extras (sie gelten für alle Kinder):
-- **Mehr Sterne an einzelnen Tagen:** ein eigenes Tageslimit für ein bestimmtes Datum, z. B. am Wochenende. Ein Knopf legt es gleich für Samstag und Sonntag fest.
-- **Doppelte Sterne:** ein Event für 30 Minuten bis 3 Stunden. Jede Fahrt, die in dieser Zeit gestartet wird, bringt doppelte Sterne (Boni und Abzeichen zählen normal). Die Kinder sehen das Event auf ihrem Netzplan. Das Tageslimit gilt weiter, heb es also bei Bedarf für den Tag an.
+- **Tageslimit für einzelne Tage:** ein eigenes Tageslimit für ein bestimmtes Datum, höher (z. B. am Wochenende) oder niedriger. Ein Knopf legt es gleich für Samstag und Sonntag fest.
+- **Doppelte Sterne:** ein Event für 30 Minuten bis 3 Stunden oder nur für die nächste Fahrt. Jede Fahrt, die in dieser Zeit gestartet wird, bringt doppelte Sterne (Boni und Abzeichen zählen normal). Du kannst das Event auf ein Fach, eine Linie oder eine einzelne Station beschränken, um dein Kind gezielt zu Aufgaben zu locken, die es gerade braucht. Die Kinder sehen das Event auf ihrem Netzplan, mit Link dorthin; die betroffenen Stationen sind markiert. Das Tageslimit gilt weiter, heb es also bei Bedarf für den Tag an.
 
 Hattest du die Lernwelt schon vor der Staffelung im Einsatz, stellt sie beim ersten Start einmal um: Kontostände, Sterne-Verlauf und offene Tickets werden verdoppelt, die Minuten pro Stern halbiert und das Tageslimit verdoppelt. Die Medienzeit, die dein Kind schon gespart hat, bleibt also gleich.
 
@@ -77,7 +77,9 @@ Diese Elemente sollen die Aufmerksamkeit halten, ohne zusätzliche Medienzeit zu
 - **Serienschutz:** Einmal pro Woche darf ein Tag ausfallen, ohne dass die Tage-Serie reißt.
 - **Effekte:** Konfetti, Fanfare und hochzählende Sterne bei besonderen Momenten. Bei „Bewegung reduzieren“ in den Geräteeinstellungen fallen die Animationen weg.
 
-Im Elternbereich siehst du pro Kind: Übungszeit der letzten 14 Tage, was noch schwerfällt (konkrete Wörter und Sätze), den Stand jeder Station, die letzten Übungen und das komplette Sterne-Konto.
+Im Elternbereich siehst du pro Kind: Übungszeit der letzten 14 Tage, was noch schwerfällt (konkrete Wörter und Sätze), den Stand jeder Station, die letzten Fahrten und das komplette Sterne-Konto.
+
+Das **Fahrtenbuch** listet jede abgeschlossene Fahrt aller Kinder: Uhrzeit, Station mit Fach und Linie, wie viel Prozent richtig war, die Bewertung (1–3 Sterne) und wie viele Sterne es dafür gab. Wiederholungen am selben Tag und Fahrten mit doppelten Sternen sind markiert. Filtern lässt es sich nach Kind und Zeitraum; die letzten Fahrten stehen auch direkt auf der Übersicht.
 
 **Die Eltern-PIN ist am Anfang `1234`.** Bitte gleich im Elternbereich ändern (oder vor dem ersten Start `PARENT_PIN` setzen).
 

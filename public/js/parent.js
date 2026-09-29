@@ -11,7 +11,9 @@ export async function parentView(root, rest, { reloadMeta }) {
   if (!parentToken.get()) return loginView(root, rest, reloadMeta);
   try {
     const m = rest.match(/^child\/(\d+)$/);
+    const log = rest.match(/^log(?:\/(\d+))?$/);
     if (m) await childView(root, Number(m[1]), render);
+    else if (log) await logView(render, Number(log[1]) || null);
     else await dashboard(root, render, reloadMeta);
   } catch (err) {
     if (err.status === 401) return loginView(root, rest, reloadMeta);
@@ -183,6 +185,10 @@ async function dashboard(root, render, reloadMeta) {
     data.pinIsDefault ? h('p.alert', '⚠️ Die Eltern-PIN ist noch „1234“. Bitte unten eine eigene PIN festlegen.') : null,
     pending,
     kids,
+    h('section.panel',
+      h('h2', '📖 Letzte Fahrten'),
+      data.recent.length ? logTable(data.recent, { showChild: true }) : h('p.muted', 'Noch keine Fahrten.'),
+      h('a.btn.ghost.small', { href: '#/parent/log' }, 'Ganzes Fahrtenbuch →')),
     boostPanel(data, refresh),
     dayLimitPanel(data, refresh),
     settingsForm,
@@ -190,6 +196,91 @@ async function dashboard(root, render, reloadMeta) {
     pinForm,
     contentPanel
   );
+}
+
+// ================================================================ Fahrtenbuch
+
+const PERIODS = [[1, 'Heute'], [7, 'Letzte 7 Tage'], [30, 'Letzte 30 Tage'], [0, 'Alles']];
+
+function dayLabel(day) {
+  const d = new Date();
+  const today = localIso(d);
+  d.setDate(d.getDate() - 1);
+  if (day === today) return `Heute · ${weekday(day)}`;
+  if (day === localIso(d)) return `Gestern · ${weekday(day)}`;
+  return weekday(day);
+}
+
+/** Tabelle der Fahrten, nach Tagen gruppiert. */
+function logTable(entries, { showChild }) {
+  const cols = showChild ? 7 : 6;
+  const rows = [];
+  let lastDay = null;
+  for (const e of entries) {
+    if (e.day !== lastDay) {
+      rows.push(h('tr.log-day', h('th', { colspan: cols, scope: 'rowgroup' }, dayLabel(e.day))));
+      lastDay = e.day;
+    }
+    const blitz = e.mode === 'blitz';
+    rows.push(h('tr',
+      h('td', clock(e.finishedAt)),
+      showChild ? h('td', `${e.avatar} ${e.childName}`) : null,
+      h('td',
+        h('strong', e.title),
+        h('div.muted.small', [e.subject, e.line ? `Linie ${e.line}` : null].filter(Boolean).join(' · ')),
+        e.runToday > 1 && !blitz ? h('span.log-tag', `${e.runToday}. Fahrt heute`) : null,
+        e.boosted ? h('span.log-tag.boost', '🎉 ×2') : null),
+      h('td', blitz
+        ? `⚡ ${e.correct} Treffer`
+        : [h(`span.${e.percent >= 90 ? 'pos' : e.percent < 70 ? 'neg' : 'mid'}`, `${e.percent} %`), h('div.muted.small', `${e.correct} von ${e.total}`)]),
+      h('td', blitz ? '–' : starRow(e.rating)),
+      h('td', e.stars ? `+${e.stars} ★` : '–'),
+      h('td', `${e.minutes} Min.`)));
+  }
+  return h('.table-wrap', h('table.data.log',
+    h('thead', h('tr',
+      h('th', 'Uhrzeit'), showChild ? h('th', 'Kind') : null, h('th', 'Fahrt'), h('th', 'Richtig'),
+      h('th', 'Bewertung'), h('th', 'Sterne'), h('th', 'Dauer'))),
+    h('tbody', rows)));
+}
+
+async function logView(render, childId) {
+  let days = 7;
+  let child = childId;
+  let entries = [];
+  const body = h('div');
+  const moreBtn = h('button.btn.ghost', { type: 'button', hidden: true, onclick: () => load(true) }, 'Weitere laden');
+  const childSel = h('select.input', { id: 'log-child', onchange: () => { child = Number(childSel.value) || null; load(); } });
+  const periodSel = h('select.input', { id: 'log-days', onchange: () => { days = Number(periodSel.value); load(); } },
+    PERIODS.map(([v, l]) => h('option', { value: v, selected: v === days }, l)));
+
+  async function load(append = false) {
+    const q = new URLSearchParams({ days, limit: 50 });
+    if (child) q.set('child', child);
+    if (append && entries.length) q.set('before', entries[entries.length - 1].finishedAt);
+    try {
+      const r = await papi(`/log?${q}`);
+      entries = append ? entries.concat(r.entries) : r.entries;
+      moreBtn.hidden = !r.more;
+      body.replaceChildren(entries.length
+        ? logTable(entries, { showChild: !child })
+        : h('p.muted', 'In diesem Zeitraum gab es keine Fahrten.'));
+      if (!childSel.options.length) {
+        childSel.append(h('option', { value: '' }, 'Alle Kinder'),
+          ...r.children.map((c) => h('option', { value: c.id, selected: c.id === child }, `${c.avatar} ${c.name}`)));
+      }
+    } catch (err) { toast(err.message); }
+  }
+
+  render(
+    head('📖 Fahrtenbuch', h('a.btn.ghost.small', { href: '#/parent' }, '← Übersicht')),
+    h('section.panel',
+      h('.row-actions',
+        h('.field', h('label', { for: 'log-child' }, 'Kind'), childSel),
+        h('.field', h('label', { for: 'log-days' }, 'Zeitraum'), periodSel)),
+      body,
+      moreBtn));
+  await load();
 }
 
 // ================================================================ Extra-Sterne: Event und Sonder-Limits
@@ -207,21 +298,47 @@ function boostPanel(data, refresh) {
     } catch (err) { toast(err.message); }
   };
   const limitNote = h('span.help', `Das Tageslimit gilt weiterhin (heute: ${limitText(data.todayLimit)}). Heb es unten für heute an, wenn die doppelten Sterne nicht daran scheitern sollen.`);
-  if (data.boost) {
+  const b = data.boost;
+  if (b) {
+    const where = b.label ? ` für ${b.label}` : '';
     return h('section.panel.boost-panel.on',
       h('h2', '🎉 Doppelte Sterne laufen'),
-      h('p', `Jede Fahrt, die bis ${clock(data.boost.until)} Uhr gestartet wird, bringt doppelte Sterne.`),
+      h('p', b.once
+        ? `Die nächste Fahrt${where} bringt doppelte Sterne (gilt bis heute Abend).`
+        : `Jede Fahrt${where}, die bis ${clock(b.until)} Uhr gestartet wird, bringt doppelte Sterne.`),
       limitNote,
       h('.row-actions', h('button.btn.danger.small', { type: 'button', onclick: () => call('DELETE') }, 'Event beenden')));
   }
-  const duration = h('select.input', { id: 'boost-minutes', 'aria-label': 'Dauer' },
-    [[30, '30 Minuten'], [60, '1 Stunde'], [120, '2 Stunden'], [180, '3 Stunden']].map(([v, l]) => h('option', { value: v, selected: v === 60 }, l)));
+
+  // Bereich: alles, ein Fach, eine Linie oder eine Station (Wert z. B. "english|grammar|" oder "english||w03")
+  const scope = h('select.input', { id: 'boost-scope' },
+    h('option', { value: '' }, 'Alle Fächer'),
+    data.subjects.map((sub) =>
+      h('optgroup', { label: `${sub.icon} ${sub.name}` },
+        h('option', { value: `${sub.id}||` }, `${sub.name}: alles`),
+        sub.lines.map((line) => {
+          const units = sub.units.filter((u) => u.line === line.id);
+          if (!units.length) return null;
+          return [
+            h('option', { value: `${sub.id}|${line.id}|` }, `Linie ${line.name}`),
+            units.map((u) => h('option', { value: `${sub.id}||${u.id}` }, `   Station ${u.title}`)),
+          ];
+        }))));
+  const duration = h('select.input', { id: 'boost-minutes' },
+    [['once', 'Nur die nächste Fahrt'], [30, '30 Minuten'], [60, '1 Stunde'], [120, '2 Stunden'], [180, '3 Stunden']]
+      .map(([v, l]) => h('option', { value: v, selected: v === 60 }, l)));
+  const start = () => {
+    const [subject, line, unit] = scope.value.split('|');
+    const once = duration.value === 'once';
+    call('POST', { subject: subject || null, line: line || null, unit: unit || null, once, minutes: once ? null : Number(duration.value) });
+  };
   return h('section.panel.boost-panel',
     h('h2', '🎉 Doppelte Sterne'),
-    h('p.muted', 'Starte ein Event: Jede Fahrt, die dein Kind in dieser Zeit beginnt, bringt doppelte Sterne. Die Kinder sehen das Event auf ihrem Netzplan.'),
+    h('p.muted', 'Starte ein Event: Fahrten, die dein Kind in dieser Zeit beginnt, bringen doppelte Sterne. Du kannst es auf ein Fach, eine Linie oder eine Station beschränken, um dein Kind gezielt dorthin zu locken. Die Kinder sehen das Event auf ihrem Netzplan.'),
     h('.row-actions',
-      h('.field', h('label', { for: 'boost-minutes' }, 'Dauer'), duration),
-      h('button.btn.go', { type: 'button', onclick: () => call('POST', { minutes: Number(duration.value) }) }, 'Event starten')),
+      h('.field', h('label', { for: 'boost-scope' }, 'Wofür'), scope),
+      h('.field', h('label', { for: 'boost-minutes' }, 'Wie lange'), duration),
+      h('button.btn.go', { type: 'button', onclick: start }, 'Event starten')),
     limitNote);
 }
 
@@ -262,8 +379,8 @@ function dayLimitPanel(data, refresh) {
     } catch (err) { toast(err.message); }
   };
   return h('section.panel',
-    h('h2', '📅 Mehr Sterne an einzelnen Tagen'),
-    h('p.muted', `Normalerweise gibt es höchstens ${limitText(normal)} pro Tag. Hier kannst du das Limit für bestimmte Tage anheben, z. B. am Wochenende. 0 = unbegrenzt.`),
+    h('h2', '📅 Tageslimit für einzelne Tage'),
+    h('p.muted', `Normalerweise gibt es höchstens ${limitText(normal)} pro Tag. Hier kannst du das Limit für bestimmte Tage ändern – höher, z. B. am Wochenende, oder niedriger. 0 = unbegrenzt. Das Limit begrenzt, wie viele Sterne dein Kind an dem Tag verdienen kann; gesparte Sterne kann es trotzdem eintauschen.`),
     h('form', {
       onsubmit: (e) => { e.preventDefault(); save([dateInput.value]); },
     },
@@ -349,17 +466,9 @@ async function childView(root, id, render) {
           h('td', u.last ? fmtDate(u.last) : '–')))))))));
 
   const sessions = h('section.panel',
-    h('h2', '🕑 Letzte Übungen'),
-    d.sessions.length
-      ? h('.table-wrap', h('table.data',
-          h('thead', h('tr', h('th', 'Wann'), h('th', 'Station'), h('th', 'Richtig'), h('th', 'Sterne'), h('th', 'Dauer'))),
-          h('tbody', d.sessions.map((s) => h('tr',
-            h('td', fmtDate(s.finished_at, true)),
-            h('td', s.title),
-            h('td', `${s.correct}/${s.total}`),
-            h('td', `+${s.stars}`),
-            h('td', `${Math.max(1, Math.round(s.duration_sec / 60))} Min.`))))))
-      : h('p.muted', 'Noch keine Übungen.'));
+    h('h2', '📖 Letzte Fahrten'),
+    d.sessions.length ? logTable(d.sessions, { showChild: false }) : h('p.muted', 'Noch keine Fahrten.'),
+    d.sessions.length ? h('a.btn.ghost.small', { href: `#/parent/log/${id}` }, 'Alle Fahrten →') : null);
 
   const amount = h('input.input', { type: 'number', id: 'adj-amount', min: -500, max: 500, required: true, placeholder: 'z. B. 5 oder -3' });
   const note = h('input.input', { id: 'adj-note', maxlength: 80, placeholder: 'z. B. Vokabeltest gut gemacht' });

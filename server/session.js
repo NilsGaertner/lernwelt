@@ -1,6 +1,6 @@
 import { db } from './db.js';
 import { subjects, vocabKey, exerciseKey, resolveItem, getGenerator, mediaUrl } from './content.js';
-import { completeSession, activeBoost } from './rewards.js';
+import { completeSession, activeBoost, boostApplies } from './rewards.js';
 import { lineStatus, lineUnits, blitzTopics } from './progress.js';
 import { normalize, levenshtein, shuffle, pick, randomId, nowIso } from './util.js';
 
@@ -264,7 +264,7 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     title,
     mode,
     startedAt,
-    boosted: mode !== 'blitz' && !!activeBoost(),
+    boosted: boostApplies(activeBoost(), { subject: subjectId, mode, line: mode === 'exam' ? refId : unit?.line ?? 'main', unit: refId }),
     deadline: mode === 'blitz' ? Date.now() + (BLITZ_SECONDS + 3) * 1000 : null,
     combo: 0,
     bestCombo: 0,

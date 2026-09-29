@@ -1,5 +1,6 @@
 import { db, EARN_KINDS, getPublicSettings, getSetting, setSetting, transaction } from './db.js';
 import { BADGES, BADGE_BONUS } from './badges.js';
+import { subjects } from './content.js';
 import { localDay, nowIso } from './util.js';
 import { streak, dailyPlan, stampCount, examsPassed, xpOf, rankInfo, PASSED_SQL } from './progress.js';
 
@@ -63,20 +64,50 @@ export function upcomingDayLimits() {
   return db.prepare('SELECT day, star_limit AS "limit" FROM day_limits WHERE day >= ? ORDER BY day').all(localDay());
 }
 
-/** Läuft gerade ein „Doppelte Sterne“-Event? Zählt für alle Fahrten, die bis zum Ende gestartet werden. */
+// ---------------------------------------------------------------- „Doppelte Sterne“-Event
+
+/**
+ * Das laufende Event, falls es eins gibt. Es gilt für alle Fahrten, die bis `until` gestartet werden –
+ * wahlweise nur in einem Fach, auf einer Linie oder einer Station (scope). Bei `once` endet es nach der ersten Fahrt.
+ */
 export function activeBoost() {
   const until = getSetting('boostUntil');
-  return until && until > nowIso() ? { until } : null;
+  if (!until || until <= nowIso()) return null;
+  const scope = JSON.parse(getSetting('boostScope') ?? '{}');
+  return { until, once: getSetting('boostOnce') === '1', ...scope, label: boostLabel(scope) };
 }
 
-export function startBoost(minutes) {
-  const until = new Date(Date.now() + minutes * 60_000).toISOString();
-  setSetting('boostUntil', until);
-  return { until };
+function boostLabel({ subject, line, unit }) {
+  const s = subjects.get(subject);
+  if (!s) return null;
+  if (unit) return `Station „${s.units.get(unit)?.title ?? unit}“ (${s.meta.name})`;
+  if (line) return `Linie „${s.meta.lines?.find((l) => l.id === line)?.name ?? line}“ (${s.meta.name})`;
+  return s.meta.name;
+}
+
+/** minutes: Dauer; once: nur die nächste passende Fahrt (bis Tagesende). scope: { subject?, line?, unit? } */
+export function startBoost({ minutes, once = false, scope = {} }) {
+  const end = new Date();
+  if (once) end.setHours(23, 59, 59, 0);
+  else end.setTime(end.getTime() + minutes * 60_000);
+  setSetting('boostUntil', end.toISOString());
+  setSetting('boostScope', JSON.stringify(scope));
+  setSetting('boostOnce', once ? '1' : '0');
+  return activeBoost();
 }
 
 export function stopBoost() {
-  db.prepare("DELETE FROM settings WHERE key = 'boostUntil'").run();
+  db.prepare("DELETE FROM settings WHERE key IN ('boostUntil', 'boostScope', 'boostOnce')").run();
+}
+
+/** Gehört eine Fahrt zum Event? Blitzrunden nie; das Fehler-Training nur, wenn das Event ein ganzes Fach (oder alles) umfasst. */
+export function boostApplies(boost, { subject, mode, line, unit }) {
+  if (!boost || mode === 'blitz') return false;
+  if (!boost.subject) return true;
+  if (boost.subject !== subject) return false;
+  if (boost.unit) return mode === 'unit' && unit === boost.unit;
+  if (boost.line) return (mode === 'unit' || mode === 'exam') && line === boost.line;
+  return true;
 }
 
 /** Einmalige Boni in Sternen. */
@@ -132,16 +163,19 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
 
     const duration = Math.max(0, Math.round((Date.now() - new Date(startedAt).getTime()) / 1000));
     db.prepare(
-      `INSERT INTO sessions (id, child_id, subject, unit_id, mode, day, started_at, finished_at, total, correct, rating, stars, duration_sec, best_combo)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?)`
-    ).run(sessionId, childId, subject, unitId ?? null, mode, day, startedAt, now, total, correct, rating, duration, bestCombo);
+      `INSERT INTO sessions (id, child_id, subject, unit_id, mode, day, started_at, finished_at, total, correct, rating, stars, duration_sec, best_combo, run_today, boosted)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?)`
+    ).run(sessionId, childId, subject, unitId ?? null, mode, day, startedAt, now, total, correct, rating, duration, bestCombo, runToday, boosted && mode !== 'blitz' ? 1 : 0);
 
     const rewards = [];
     if (mode !== 'blitz') {
       const repeat = runToday > 1 ? ` (${runToday}. Fahrt heute)` : '';
       const stars = sessionStars(rating, runToday);
       rewards.push({ kind: 'session', amount: stars, note: `${unitTitle}: ${correct} von ${total} richtig${repeat}` });
-      if (boosted) rewards.push({ kind: 'bonus', amount: stars, note: '🎉 Doppelte Sterne' });
+      if (boosted) {
+        rewards.push({ kind: 'bonus', amount: stars, note: '🎉 Doppelte Sterne' });
+        if (activeBoost()?.once) stopBoost();
+      }
     }
     if (mode === 'unit' && rating === 3 && prevBest < 3) rewards.push({ kind: 'bonus', amount: BONUS.mastered, note: 'Station gemeistert' });
     const examPassed = mode === 'exam' && correct * 5 >= total * 4;
