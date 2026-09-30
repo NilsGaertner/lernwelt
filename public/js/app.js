@@ -3,6 +3,7 @@ import { api } from './api.js';
 import { runRide, collectCard } from './player.js';
 import { runBlitz, runChart, familyBoard } from './blitz.js';
 import { parentView } from './parent.js';
+import { lootbox, openedBox } from './lootbox.js';
 
 const app = document.getElementById('app');
 const state = { meta: null };
@@ -39,6 +40,7 @@ const routes = [
   [/^kid\/(\d+)\/sammlung(?:\/(\w+))?$/, (id, tab) => collectionView(id, tab ?? 'rang')],
   [/^kid\/(\d+)\/blitz\/([\w-]+)\/([\w-]+)$/, blitzView],
   [/^kid\/(\d+)\/tickets$/, ticketsView],
+  [/^kid\/(\d+)\/boxen$/, boxesView],
   [/^parent(?:\/(.*))?$/, (rest) => parentView(app, rest ?? '', { reloadMeta: () => loadMeta(true) })],
 ];
 
@@ -99,6 +101,10 @@ function kidBar(ov) {
       ? null
       : h('a.fare', { href: `#/kid/${id}/tickets`, title: 'Deine Sterne – hier gegen Medienzeit eintauschen' },
           h('span.star', { 'aria-hidden': 'true' }, '★'), h('span.num', ov.balance), h('span.sr-only', ' Sterne')),
+    ov.lootboxes.closed.length
+      ? h('a.icon-btn.rank-btn.box-btn', { href: `#/kid/${id}/boxen`, title: 'Deine Lootboxen – antippen zum Öffnen' },
+          '🎁', h('span.lvl', ov.lootboxes.closed.length))
+      : null,
     h('a.icon-btn.rank-btn', { href: `#/kid/${id}/sammlung`, title: `Deine Sammlung · ${ov.rank.name} (Rang ${ov.rank.level})` },
       ov.train, h('span.lvl', ov.rank.level)),
     soundToggle(),
@@ -132,8 +138,9 @@ export function renderExplain(blocks, speechLang) {
   });
 }
 
+/** backHash: hierhin nach einem Abbruch · mapHash: der Netzplan des Fachs */
 async function startRide(opts) {
-  const { childId, subject, unit, line, mode = 'unit', lineColor, backHash, train, card } = opts;
+  const { childId, subject, unit, line, mode = 'unit', lineColor, backHash, mapHash = backHash, train, card } = opts;
   let session;
   try {
     session = await api('/sessions', { method: 'POST', body: { childId, subject, unit, line, mode } });
@@ -142,15 +149,20 @@ async function startRide(opts) {
     return;
   }
   document.querySelectorAll('.dock').forEach((el) => el.remove());
+  const go = (hash) => {
+    if (location.hash === hash) route();
+    else location.hash = hash;
+  };
   runRide(app, session, {
+    childId,
+    subject,
     lineColor,
     train,
     card,
-    onExit: () => {
-      if (location.hash === backHash) route();
-      else location.hash = backHash;
-    },
+    onExit: () => go(backHash),
+    onMap: () => go(mapHash),
     onAgain: () => startRide(opts),
+    onNext: (next) => go(`#/kid/${childId}/station/${next.subject}/${next.unit}`),
   });
 }
 
@@ -226,6 +238,12 @@ async function homeView(id, subjectId) {
     ? h('p.shield-note', `🛡️ Dein Serienschutz hat deine Serie gerettet! Du bist jetzt ${ov.streak} Tage dabei. Der nächste Schutz ist in einer Woche wieder bereit.`)
     : null;
   const boostNote = ov.child.adult ? null : boostBanner(id, meta, ov.boost, subject.id);
+  const boxes = ov.lootboxes.closed.length;
+  const lootNote = boxes
+    ? h('p.loot-note', `🎁 Du hast ${boxes === 1 ? 'eine ungeöffnete Lootbox' : `${boxes} ungeöffnete Lootboxen`}! `,
+        h('a', { href: `#/kid/${id}/boxen` }, 'Jetzt öffnen →'))
+    : null;
+  const retireAfter = ov.settings.retireAfter;
   const today = ov.child.adult ? null : h('section.today',
     h('div',
       h('h2', limit > 0 ? `Heute verdient: ${ov.earnedToday} von ${limit} Sternen` : `Heute verdient: ${ov.earnedToday} Sterne`),
@@ -263,8 +281,10 @@ async function homeView(id, subjectId) {
     : null;
 
   const map = h('section.map', subject.lines.map((line) => {
-    const units = subject.units.filter((u) => u.line === line.id);
-    const next = units.find((u) => (progress[u.id]?.best ?? 0) < 2);
+    // Archivierte Stationen haben die Eltern aus dem Fahrplan genommen.
+    const units = subject.units.filter((u) => u.line === line.id && !progress[u.id]?.archived);
+    if (!units.length) return null;
+    const next = units.find((u) => (progress[u.id]?.best ?? 0) < 2 && !progress[u.id]?.parked);
     const doneCount = units.filter((u) => (progress[u.id]?.best ?? 0) === 3).length;
     const exam = ov.lines[subject.id]?.[line.id];
     const lineCardData = lineCard(subject, line);
@@ -290,27 +310,83 @@ async function homeView(id, subjectId) {
                   h('span.st-name', '🔒 Endbahnhof'),
                   h('span.st-sub', 'Öffnet, wenn alle Stationen mindestens 2 Sterne haben.'))))
       : null;
+    const boostedUnit = (u) => ov.boost?.subject === subject.id && ov.boost.unit === u.id && !progress[u.id]?.parked;
+    // Geschafft = 3 Sterne oder Abstellgleis. Zurückgeholte Stationen und Event-Stationen bleiben sichtbar.
+    const isDone = (u) => {
+      const p = progress[u.id];
+      return (p?.parked || p?.best === 3) && !(p.retired && !p.parked) && !boostedUnit(u) && u !== next;
+    };
+    const doneN = units.filter(isDone).length;
+    const foldKey = `${subject.id}/${line.id}`;
+    const list = h('ol.stations', { class: doneN >= 2 && prefs.isFolded(foldKey) ? 'folded' : '' });
+    const fold = doneN >= 2 ? foldToggle(list, foldKey, doneN) : null;
+    list.append(...[fold, ...units.map((u) => {
+      const p = progress[u.id];
+      const cls = [p?.parked ? 'parked' : p?.best === 3 ? 'mastered' : p?.runs ? 'visited' : '', u === next ? 'next' : '', isDone(u) ? 'done' : ''].filter(Boolean).join(' ');
+      const boosted = boostedUnit(u);
+      return h('li.station', { class: cls },
+        h('a', { href: `#/kid/${id}/station/${subject.id}/${u.id}` },
+          h('span.stop', { 'aria-hidden': 'true' }),
+          h('span.st-text',
+            h('span.st-name', `${u.icon} ${u.title}`),
+            h('span.st-sub', u.subtitle),
+            u === next ? h('span.st-flag', 'Nächster Halt') : null,
+            p?.parked ? h('span.st-flag.parked', '🅿️ Abstellgleis') : null,
+            p?.retired && !p.parked ? h('span.st-flag.back', `🔄 Noch ${p.extraRides}× mit Sternen`) : null,
+            !ov.child.adult && retireAfter > 0 && p?.perfect > 0 && !p.retired
+              ? h('span.loot-tag', { title: `${p.perfect} von ${retireAfter} Fahrten mit 3 Sternen – dann gibt es eine Lootbox` }, `🎁 ${p.perfect}/${retireAfter}`)
+              : null,
+            boosted ? h('span.boost-tag', '🎉 ×2 Sterne') : null),
+          starRow(p?.best ?? 0)));
+    }), terminus].filter(Boolean));
     return h('div.line-col', { style: { '--line': line.color } },
       h('.line-head', h('span.line-pill', line.name),
         ov.boost?.subject === subject.id && ov.boost.line === line.id ? h('span.boost-tag', '🎉 ×2 Sterne') : null,
         h('span.count', `${doneCount} / ${units.length} gemeistert`)),
-      h('ol.stations', units.map((u) => {
-        const p = progress[u.id];
-        const cls = [p?.best === 3 ? 'mastered' : p ? 'visited' : '', u === next ? 'next' : ''].filter(Boolean).join(' ');
-        const boosted = ov.boost?.subject === subject.id && ov.boost.unit === u.id;
-        return h('li.station', { class: cls },
-          h('a', { href: `#/kid/${id}/station/${subject.id}/${u.id}` },
-            h('span.stop', { 'aria-hidden': 'true' }),
-            h('span.st-text',
-              h('span.st-name', `${u.icon} ${u.title}`),
-              h('span.st-sub', u.subtitle),
-              u === next ? h('span.st-flag', 'Nächster Halt') : null,
-              boosted ? h('span.boost-tag', '🎉 ×2 Sterne') : null),
-            starRow(p?.best ?? 0)));
-      }), terminus));
+      list);
   }));
 
-  render(kidBar(ov), shieldNote, boostNote, planCard(id, ov.plan, meta), tabs, today, review, blitz, map);
+  render(kidBar(ov), shieldNote, boostNote, lootNote, continueCard(id, subject, progress), planCard(id, ov.plan, meta), tabs, today, review, blitz, map);
+}
+
+/** Klappt die geschafften Stationen einer Linie ein und aus. */
+function foldToggle(list, key, n) {
+  const name = h('span.st-name');
+  const sub = h('span.st-sub');
+  const btn = h('button', { type: 'button', onclick: () => set(!list.classList.contains('folded')) },
+    h('span.stop', { 'aria-hidden': 'true' }), h('span.st-text', name, sub));
+  const set = (folded, remember = true) => {
+    list.classList.toggle('folded', folded);
+    btn.setAttribute('aria-expanded', String(!folded));
+    name.textContent = folded ? `✔ ${n} geschaffte Stationen` : '✔ Geschaffte Stationen ausblenden';
+    sub.textContent = folded ? 'Antippen, um sie zu zeigen' : 'Sie bleiben in deinem Album';
+    if (remember) prefs.setFolded(key, folded);
+  };
+  set(list.classList.contains('folded'), false);
+  return h('li.station.fold', btn);
+}
+
+/**
+ * Großer „Weiter geht’s“-Knopf oben im Netzplan: die erste Station dieses Fachs,
+ * auf der es heute noch volle Sterne gibt – am liebsten eine, die noch nicht sitzt.
+ */
+function continueCard(id, subject, progress) {
+  const units = subject.lines.flatMap((l) => subject.units.filter((u) => u.line === l.id));
+  const open = units.filter((u) => {
+    const p = progress[u.id];
+    return !p?.archived && !p?.parked && !p?.today;
+  });
+  const best = (u) => progress[u.id]?.best ?? 0;
+  const u = open.find((x) => best(x) < 2) ?? open.find((x) => best(x) < 3) ?? open[0];
+  if (!u) return null;
+  const line = lineOf(subject, u.line);
+  return h('a.continue', { href: `#/kid/${id}/station/${subject.id}/${u.id}`, style: { '--line': line.color } },
+    h('span.c-icon', { 'aria-hidden': 'true' }, u.icon),
+    h('span.c-text',
+      h('span.c-label', 'Weiter geht’s'),
+      h('strong.c-title', u.title),
+      h('span.c-sub', `${subject.icon} ${subject.name} · ${line.name}`)),
+    h('span.c-go', { 'aria-hidden': 'true' }, '▶'));
 }
 
 function boostHere(boost, subjectId, lineId, unitId) {
@@ -352,24 +428,54 @@ function addDaysIso(n) {
 // ================================================================ Station
 
 async function stationView(id, subjectId, unitId) {
-  const [meta, ov, unit] = await Promise.all([loadMeta(), api(`/children/${id}/overview`), api(`/subjects/${subjectId}/units/${unitId}`)]);
+  const [meta, ov, unit, { next }] = await Promise.all([
+    loadMeta(), api(`/children/${id}/overview`), api(`/subjects/${subjectId}/units/${unitId}`), api(`/children/${id}/next/${subjectId}/${unitId}`),
+  ]);
   const subject = meta.subjects.find((s) => s.id === subjectId);
   const line = lineOf(subject, unit.line);
   const p = ov.progress[subjectId]?.[unitId];
-  const backHash = `#/kid/${id}${meta.subjects[0]?.id === subjectId ? '' : `/s/${subjectId}`}`;
+  const mapHash = `#/kid/${id}${meta.subjects[0]?.id === subjectId ? '' : `/s/${subjectId}`}`;
   const n = ov.settings.questionsPerSession;
+  const retireAfter = ov.settings.retireAfter;
+  const sign = h('header.sign',
+    h('span.icon', { 'aria-hidden': 'true' }, unit.icon),
+    h('div', h('h1', unit.title), h('p', `${unit.subtitle} · ${line.name}`)));
+
+  if (p?.archived) {
+    render(kidBar(ov), h('div', { style: { '--line': line.color } },
+      h('a.back', { href: mapHash }, '← Zum Netzplan'),
+      sign,
+      h('p.parked-note', '🚧 Diese Station ist gerade außer Betrieb.')));
+    return;
+  }
+
+  const nextHref = next ? `#/kid/${id}/station/${next.subject}/${next.unit}` : null;
+  const otherSubject = next && next.subject !== subjectId ? ` (${next.subjectName})` : '';
+  // Heute schon geschafft oder auf dem Abstellgleis: lieber weiter zum nächsten Halt
+  const moveOn = nextHref && (p?.parked || (p?.today > 0 && p.best >= 2));
+  const status = p?.parked
+    ? h('p.parked-note', `🅿️ Abstellgleis: Du hast diese Station ${p.perfect}× mit 3 Sternen geschafft. Hier gibt es keine Sterne mehr – üben darfst du trotzdem.`)
+    : p?.retired
+      ? h('p.parked-note.back', `🔄 Deine Eltern haben diese Station zurückgeholt: ${p.extraRides === 1 ? 'Die nächste Fahrt bringt' : `Die nächsten ${p.extraRides} Fahrten bringen`} wieder Sterne.`)
+      : !ov.child.adult && retireAfter > 0
+        ? h('p.loot-progress', `🎁 ${p?.perfect ?? 0} von ${retireAfter} Fahrten mit 3 Sternen. Bei ${retireAfter} kommt die Station aufs Abstellgleis, und du bekommst eine Lootbox.`)
+        : null;
 
   const page = h('div', { style: { '--line': line.color } },
-    h('a.back', { href: backHash }, '← Zum Netzplan'),
-    h('header.sign',
-      h('span.icon', { 'aria-hidden': 'true' }, unit.icon),
-      h('div', h('h1', unit.title), h('p', `${unit.subtitle} · ${line.name}`))),
-    !ov.child.adult && boostHere(ov.boost, subjectId, unit.line, unitId)
+    h('a.back', { href: mapHash }, '← Zum Netzplan'),
+    sign,
+    !ov.child.adult && !p?.parked && boostHere(ov.boost, subjectId, unit.line, unitId)
       ? h('p.boost-note', ov.boost.once ? '🎉 Deine nächste Fahrt hier bringt doppelte Sterne!' : '🎉 Hier gibt es gerade doppelte Sterne!')
       : null,
     h('.record',
       starRow(p?.best ?? 0),
-      h('span', p ? `${p.runs}× gefahren · im Schnitt ${p.avg} % richtig` : 'Hier warst du noch nie – los geht’s!')),
+      h('span', p?.runs ? `${p.runs}× gefahren · im Schnitt ${p.avg} % richtig` : 'Hier warst du noch nie – los geht’s!')),
+    status,
+    moveOn
+      ? h('p.next-note',
+          p.parked ? 'Neue Sterne gibt es beim nächsten Halt: ' : 'Hier warst du heute schon. Beim nächsten Halt gibt es wieder volle Sterne: ',
+          h('a', { href: nextHref }, `${next.icon} ${next.title}${otherSubject} →`))
+      : null,
     unit.explain.length
       ? h('section.panel.merke', h('h2', '📌 Merke'), renderExplain(unit.explain, subject.speechLang))
       : null,
@@ -386,19 +492,22 @@ async function stationView(id, subjectId, unitId) {
       : null
   );
 
+  const ride = h('button.btn.big', {
+    type: 'button',
+    class: moveOn ? 'ghost' : 'line',
+    onclick: (e) => {
+      e.currentTarget.disabled = true;
+      const u = subject.units.find((x) => x.id === unitId);
+      startRide({
+        childId: Number(id), subject: subjectId, unit: unitId, lineColor: line.color, backHash: location.hash, mapHash,
+        train: ov.train, card: u ? unitCard(subject, u, subject.units.indexOf(u) + 1) : null,
+      });
+    },
+  }, moveOn ? '🔁 Nochmal' : `🚆 Losfahren · ${n} Aufgaben`);
   const dock = h('.dock', { style: { '--line': line.color } },
     h('.dock-inner',
-      h('button.btn.line.big', {
-        type: 'button',
-        onclick: (e) => {
-          e.currentTarget.disabled = true;
-          const u = subject.units.find((x) => x.id === unitId);
-          startRide({
-            childId: Number(id), subject: subjectId, unit: unitId, lineColor: line.color, backHash: location.hash,
-            train: ov.train, card: u ? unitCard(subject, u, subject.units.indexOf(u) + 1) : null,
-          });
-        },
-      }, `🚆 Losfahren · ${n} Aufgaben`)));
+      moveOn ? h('a.btn.line.big', { href: nextHref }, '🚉 Nächster Halt →') : null,
+      ride));
 
   render(kidBar(ov), page);
   document.body.append(dock);
@@ -466,7 +575,8 @@ function albumPanel(id, meta, ov) {
     return h('section.panel',
       h('h2', `${subject.icon} ${subject.name}`),
       subject.lines.map((line) => {
-        const units = subject.units.filter((u) => u.line === line.id);
+        // Archivierte Stationen nur, wenn die Karte schon gesammelt ist
+        const units = subject.units.filter((u) => u.line === line.id && (!progress[u.id]?.archived || progress[u.id].best === 3));
         if (!units.length) return null;
         const exam = ov.lines[subject.id]?.[line.id];
         total += units.length + 1;
@@ -580,6 +690,28 @@ async function blitzView(id, subjectId, topicId) {
       familyBoard(rec.family, id)));
   document.body.append(h('.dock', { style: { '--line': color } },
     h('.dock-inner', h('button.btn.line.big', { type: 'button', onclick: start }, '⚡ Blitzrunde starten'))));
+}
+
+// ================================================================ Lootboxen
+
+async function boxesView(id) {
+  const ov = await api(`/children/${id}/overview`);
+  const { closed, opened } = ov.lootboxes;
+  const retireAfter = ov.settings.retireAfter;
+  const how = retireAfter > 0
+    ? `Eine Lootbox bekommst du, wenn du eine Station ${retireAfter}× mit 3 Sternen schaffst (dann kommt sie aufs Abstellgleis) und wenn du zum ersten Mal den Endbahnhof einer Linie bestehst.`
+    : 'Eine Lootbox bekommst du, wenn du zum ersten Mal den Endbahnhof einer Linie bestehst.';
+  render(
+    kidBar(ov),
+    h('section.panel',
+      h('h2', '🎁 Deine Lootboxen'),
+      h('p', 'In jeder Lootbox steckt Medienzeit, als Sterne auf dein Konto. Wie viel? Das verrät sie erst beim Öffnen!'),
+      h('p.muted.small', how)),
+    closed.length
+      ? h('.lootboxes', closed.map((b) => lootbox(id, b)))
+      : h('section.panel', h('p.muted', 'Gerade hast du keine ungeöffnete Lootbox.')),
+    opened.length ? h('section.panel', h('h2', 'Schon geöffnet'), h('ul.lb-list', opened.map(openedBox))) : null
+  );
 }
 
 // ================================================================ Fahrkarten (Medienzeit)

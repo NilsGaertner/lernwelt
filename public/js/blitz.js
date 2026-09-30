@@ -1,4 +1,4 @@
-import { h, md, gapText, sfx, mapFigure, confetti, rankMeter } from './ui.js';
+import { h, md, gapText, sfx, mapFigure, confetti, rankMeter, guardBack } from './ui.js';
 import { api } from './api.js';
 
 /**
@@ -8,6 +8,8 @@ import { api } from './api.js';
 export function runBlitz(root, { childId, subject, topic, lineColor, onExit, onAgain }) {
   const keys = new AbortController();
   let session = null;
+  let stopped = false;
+  let cd = 0;
   let pos = 0;
   let score = 0;
   let busy = false;
@@ -16,15 +18,21 @@ export function runBlitz(root, { childId, subject, topic, lineColor, onExit, onA
   let timerId = 0;
   let onEnter = null;
 
+  // Hält Countdown und Uhr an – sonst taucht das Ergebnis später über einer anderen Seite auf.
   const cleanup = () => {
+    stopped = true;
     keys.abort();
+    clearInterval(cd);
     clearInterval(timerId);
   };
+  const exit = () => {
+    if (timeUp || confirm('Blitzrunde abbrechen?')) {
+      cleanup();
+      release(onExit);
+    }
+  };
 
-  const exitBtn = h('button.icon-btn', {
-    type: 'button', title: 'Abbrechen', 'aria-label': 'Abbrechen',
-    onclick: () => { if (timeUp || confirm('Blitzrunde abbrechen?')) { cleanup(); onExit(); } },
-  }, '✕');
+  const exitBtn = h('button.icon-btn', { type: 'button', title: 'Abbrechen', 'aria-label': 'Abbrechen', onclick: exit }, '✕');
   const bar = h('.blitz-bar', h('span'));
   const secs = h('span.blitz-secs', '60');
   const scoreEl = h('span.blitz-score', '⚡ 0');
@@ -44,12 +52,15 @@ export function runBlitz(root, { childId, subject, topic, lineColor, onExit, onA
     }
   }, { signal: keys.signal });
 
+  const release = guardBack(exit);
+  window.addEventListener('hashchange', () => { cleanup(); release(); }, { signal: keys.signal });
+
   // ---------------------------------------------------------------- 3 – 2 – 1
   const countdown = h('.countdown', '3');
   stage.replaceChildren(h('.blitz-ready', h('p', topic.title), countdown));
   let n = 3;
   sfx.tick();
-  const cd = setInterval(async () => {
+  cd = setInterval(async () => {
     n--;
     if (n > 0) {
       countdown.textContent = n;
@@ -62,9 +73,11 @@ export function runBlitz(root, { childId, subject, topic, lineColor, onExit, onA
     try {
       session = await api('/sessions', { method: 'POST', body: { childId, subject, topic: topic.id, mode: 'blitz' } });
     } catch (err) {
-      stage.replaceChildren(h('.empty', h('p', err.message), h('button.btn', { type: 'button', onclick: () => { cleanup(); onExit(); } }, 'Zurück')));
+      if (stopped) return;
+      stage.replaceChildren(h('.empty', h('p', err.message), h('button.btn', { type: 'button', onclick: () => { cleanup(); release(onExit); } }, 'Zurück')));
       return;
     }
+    if (stopped) return;
     const total = session.seconds * 1000;
     endAt = Date.now() + total;
     timerId = setInterval(() => {
@@ -79,7 +92,7 @@ export function runBlitz(root, { childId, subject, topic, lineColor, onExit, onA
 
   // ---------------------------------------------------------------- Aufgaben
   function show() {
-    if (timeUp) return;
+    if (timeUp || stopped) return;
     const q = session.questions[pos];
     if (!q) return finish();
     busy = false;
@@ -102,7 +115,7 @@ export function runBlitz(root, { childId, subject, topic, lineColor, onExit, onA
   function inputArea(q) {
     const input = h('input.type-in', {
       type: 'text', autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', spellcheck: 'false',
-      inputmode: q.numeric ? 'numeric' : null, placeholder: q.placeholder ?? '', 'aria-label': 'Deine Antwort',
+      inputmode: q.numeric ? 'numeric' : null, enterkeyhint: 'done', placeholder: q.placeholder ?? '', 'aria-label': 'Deine Antwort',
     });
     const check = () => {
       if (!input.value.trim()) return input.focus();
@@ -113,7 +126,7 @@ export function runBlitz(root, { childId, subject, topic, lineColor, onExit, onA
   }
 
   async function submit(q, answer, el) {
-    if (busy || timeUp) return;
+    if (busy || timeUp || stopped) return;
     busy = true;
     let res;
     try {
@@ -144,13 +157,15 @@ export function runBlitz(root, { childId, subject, topic, lineColor, onExit, onA
 
   // ---------------------------------------------------------------- Ergebnis
   async function finish() {
-    if (timeUp) return;
+    if (timeUp || stopped) return;
     timeUp = true;
     cleanup();
+    release();
     bar.firstChild.style.width = '0%';
     secs.textContent = '0';
     stage.replaceChildren(h('.blitz-ready', h('.countdown', 'Zeit!')));
     sfx.arrive();
+    const here = location.hash;
     let result;
     let records;
     try {
@@ -160,6 +175,8 @@ export function runBlitz(root, { childId, subject, topic, lineColor, onExit, onA
       stage.replaceChildren(h('.empty', h('p', err.message), h('button.btn', { type: 'button', onclick: onExit }, 'Zurück')));
       return;
     }
+    // Inzwischen woanders hin gewechselt? Dann das Ergebnis nicht über die neue Seite legen.
+    if (location.hash !== here) return;
     if (result.empty) {
       stage.replaceChildren(h('.empty', h('p', 'Keine Aufgabe beantwortet – das zählt nicht. Probier es nochmal!'),
         h('.actions', h('button.btn.line', { type: 'button', onclick: onAgain }, '⚡ Nochmal'), h('button.btn.ghost', { type: 'button', onclick: onExit }, 'Zurück'))));

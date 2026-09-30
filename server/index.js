@@ -1,6 +1,6 @@
 import express from 'express';
 import path from 'node:path';
-import { db, getSetting, setSetting, getPublicSettings } from './db.js';
+import { db, getSetting, setSetting, getPublicSettings, transaction } from './db.js';
 import { loadContent, publicSubjects, publicUnit, subjects, itemLabel, CONTENT_DIR } from './content.js';
 import { publicBadges } from './badges.js';
 import { startSession, answerQuestion, finishSession, reviewCounts } from './session.js';
@@ -11,8 +11,9 @@ import {
 import { localDay, addDays, nowIso, randomId, hashPin, verifyPin } from './util.js';
 import {
   streakInfo, xpOf, rankInfo, unlockedTrains, RANKS, dailyPlan, stampDays, stampCount, lineStatus, blitzBests, blitzRecords, blitzTopics,
-  lineUnits,
+  lineUnits, nextStation, setStationState, notArchivedSql,
 } from './progress.js';
+import { lootboxes, openLootbox } from './lootbox.js';
 
 const PORT = Number(process.env.PORT) || 8080;
 const problems = await loadContent();
@@ -79,8 +80,21 @@ app.get('/api/children/:id/overview', (req, res) => {
     review: reviewCounts(child.id),
     badges: earnedBadges(child.id),
     tickets: tickets(child.id, 10),
+    lootboxes: child.adult ? { closed: [], opened: [] } : lootboxes(child.id),
     settings,
   });
+});
+
+/** Nächster Halt nach einer Station (für den Hinweis „Weiter zur nächsten Station“). */
+app.get('/api/children/:id/next/:subject/:unit', (req, res) => {
+  const child = childOr404(req.params.id);
+  res.json({ next: nextStation(child.id, req.params.subject, req.params.unit) });
+});
+
+app.post('/api/children/:id/lootboxes/:box/open', (req, res) => {
+  const child = childOr404(req.params.id);
+  const opened = openLootbox(child.id, Number(req.params.box));
+  res.json({ ...opened, balance: balance(child.id) });
 });
 
 app.get('/api/subjects/:subject/units/:unit', (req, res) => {
@@ -250,13 +264,19 @@ parent.get('/children/:id', (req, res) => {
   for (const [sid, { meta, units: us }] of subjects) {
     for (const u of us.values()) {
       const p = progress[sid]?.[u.id];
-      units.push({ subject: sid, subjectName: meta.name, id: u.id, title: u.title, subtitle: u.subtitle ?? '', line: u.line, best: p?.best ?? 0, runs: p?.runs ?? 0, avg: p?.avg ?? null, last: p?.last ?? null });
+      const line = meta.lines?.find((l) => l.id === (u.line ?? 'main'));
+      units.push({
+        subject: sid, subjectName: meta.name, id: u.id, title: u.title, subtitle: u.subtitle ?? '',
+        line: u.line ?? 'main', lineName: line?.name ?? meta.name, lineColor: line?.color ?? null,
+        best: p?.best ?? 0, runs: p?.runs ?? 0, avg: p?.avg ?? null, last: p?.last ?? null,
+        perfect: p?.perfect ?? 0, retired: !!p?.retired, parked: !!p?.parked, extraRides: p?.extraRides ?? 0, archived: !!p?.archived,
+      });
     }
   }
 
   const weak = db
     .prepare(
-      `SELECT * FROM item_stats WHERE child_id = ? AND wrong > 0 AND box < 3
+      `SELECT * FROM item_stats WHERE child_id = ? AND wrong > 0 AND box < 3 AND ${notArchivedSql('item_stats')}
        ORDER BY (wrong - correct * 0.5) DESC, box ASC LIMIT 20`
     )
     .all(child.id)
@@ -282,7 +302,36 @@ parent.get('/children/:id', (req, res) => {
     sessions,
     ledger,
     tickets: tickets(child.id, 20),
+    lootboxes: lootboxes(child.id, 20),
+    retireAfter: getPublicSettings().retireAfter,
   });
+});
+
+// Station archivieren (für das Kind ausblenden) oder vom Abstellgleis für ein paar Fahrten zurückholen
+parent.put('/children/:id/units/:subject/:unit', (req, res) => {
+  const child = childOr404(req.params.id);
+  const subject = subjects.get(req.params.subject);
+  if (!subject?.units.has(req.params.unit)) throw fail(404, 'Diese Station gibt es nicht.');
+  const b = req.body ?? {};
+  let extraRides = null;
+  if (b.extraRides != null) {
+    extraRides = Math.trunc(Number(b.extraRides));
+    if (!Number.isFinite(extraRides) || extraRides < 0 || extraRides > 50) throw fail(400, 'Bitte zwischen 0 und 50 Fahrten angeben.');
+  }
+  setStationState(child.id, subject.meta.id, req.params.unit, { archived: b.archived == null ? null : !!b.archived, extraRides });
+  res.json({ ok: true });
+});
+
+// Alle Stationen einer Linie auf einmal archivieren oder zurückholen
+parent.put('/children/:id/lines/:subject/:line', (req, res) => {
+  const child = childOr404(req.params.id);
+  const units = lineUnits(req.params.subject, req.params.line);
+  if (!units.length) throw fail(404, 'Diese Linie gibt es nicht.');
+  const archived = !!req.body?.archived;
+  transaction(() => {
+    for (const u of units) setStationState(child.id, req.params.subject, u.id, { archived });
+  });
+  res.json({ ok: true });
 });
 
 parent.post('/children', (req, res) => {
@@ -337,6 +386,7 @@ parent.put('/settings', (req, res) => {
   }
   if (b.dailyStarLimit != null) setSetting('dailyStarLimit', int(b.dailyStarLimit, 0, 2000));
   if (b.questionsPerSession != null) setSetting('questionsPerSession', int(b.questionsPerSession, 5, 30));
+  if (b.retireAfter != null) setSetting('retireAfter', int(b.retireAfter, 0, 50));
   if (b.ticketMinutes != null) {
     const list = String(b.ticketMinutes).split(',').map((m) => int(m.trim(), 1, 600));
     if (!list.length) throw fail(400, 'Bitte mindestens eine Ticket-Dauer angeben.');
@@ -348,7 +398,7 @@ parent.put('/settings', (req, res) => {
 // Sonder-Limit für einen Tag, z. B. am Wochenende mehr Sterne erlauben
 parent.put('/day-limits/:day', (req, res) => {
   const { day } = req.params;
-  if (!/^d{4}-d{2}-d{2}$/.test(day) || Number.isNaN(Date.parse(day))) throw fail(400, 'Bitte ein gültiges Datum wählen.');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || Number.isNaN(Date.parse(day))) throw fail(400, 'Bitte ein gültiges Datum wählen.');
   if (day < localDay()) throw fail(400, 'Für vergangene Tage lässt sich kein Limit mehr festlegen.');
   const limit = Math.trunc(Number(req.body?.limit));
   if (!Number.isFinite(limit) || limit < 0 || limit > 2000) throw fail(400, 'Das Limit muss zwischen 0 und 2000 liegen.');
@@ -440,6 +490,7 @@ function logEntry(s) {
     minutes: Math.max(1, Math.round(s.duration_sec / 60)),
     runToday: s.run_today,
     boosted: !!s.boosted,
+    parked: !!s.parked,
   };
 }
 

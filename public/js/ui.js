@@ -8,7 +8,8 @@ export function h(tag, attrs, ...children) {
     if (part[0] === '.') el.classList.add(part.slice(1));
     else el.id = part.slice(1);
   }
-  if (attrs && (typeof attrs !== 'object' || attrs instanceof Node || Array.isArray(attrs))) {
+  // attrs != null statt attrs: sonst verschwindet eine 0 als erstes Kind (z. B. Kontostand 0).
+  if (attrs != null && (typeof attrs !== 'object' || attrs instanceof Node || Array.isArray(attrs))) {
     children.unshift(attrs);
     attrs = null;
   }
@@ -88,6 +89,40 @@ export function starRow(n, max = 3) {
     Array.from({ length: max }, (_, i) => h(`span.${i < n ? 'on' : 'off'}`, { 'aria-hidden': 'true' }, '★')));
 }
 
+/**
+ * Fängt die Zurück-Geste (Android) bzw. den Zurück-Knopf ab, solange eine Fahrt läuft:
+ * Statt die Seite still zu verlassen, wird onBack gefragt.
+ * Gibt release(then) zurück: gibt den Verlauf wieder frei und ruft danach then auf.
+ */
+export function guardBack(onBack) {
+  history.pushState({ lwGuard: true }, '');
+  let after = null;
+  let active = true;
+  const onPop = () => {
+    if (after) {
+      window.removeEventListener('popstate', onPop);
+      const then = after;
+      after = null;
+      then();
+      return;
+    }
+    history.pushState({ lwGuard: true }, '');
+    onBack();
+  };
+  window.addEventListener('popstate', onPop);
+  return function release(then = () => {}) {
+    if (!active) return then();
+    active = false;
+    if (history.state?.lwGuard) {
+      after = then;
+      history.back();
+    } else {
+      window.removeEventListener('popstate', onPop);
+      then();
+    }
+  };
+}
+
 let toastTimer;
 export function toast(msg) {
   const el = document.getElementById('toast');
@@ -119,6 +154,14 @@ export const prefs = {
   set sound(v) { save('lw.sound', v); },
   get lastChild() { return store('lw.lastChild', null); },
   set lastChild(v) { save('lw.lastChild', v); },
+  /** Geschaffte Stationen einer Linie sind eingeklappt, bis das Kind sie aufklappt (gemerkt pro Gerät). */
+  isFolded(key) { return store('lw.unfolded', {})[key] !== true; },
+  setFolded(key, folded) {
+    const open = store('lw.unfolded', {});
+    if (folded) delete open[key];
+    else open[key] = true;
+    save('lw.unfolded', open);
+  },
 };
 
 // ---------------------------------------------------------------- Sprache (Vorlesen)

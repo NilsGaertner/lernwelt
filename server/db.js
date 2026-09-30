@@ -118,6 +118,33 @@ CREATE TABLE IF NOT EXISTS daily_plans (
   completed_at TEXT,
   PRIMARY KEY (child_id, day)
 );
+
+-- Einstellungen der Eltern pro Kind und Station: archiviert (ausgeblendet) oder
+-- vom Abstellgleis für ein paar Fahrten zurückgeholt (extra_rides = so viele Fahrten bringen wieder Sterne)
+CREATE TABLE IF NOT EXISTS unit_state (
+  child_id INTEGER NOT NULL REFERENCES children(id) ON DELETE CASCADE,
+  subject TEXT NOT NULL,
+  unit_id TEXT NOT NULL,
+  archived INTEGER NOT NULL DEFAULT 0,
+  extra_rides INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (child_id, subject, unit_id)
+);
+
+-- Lootboxen: source 'station' (Station aufs Abstellgleis gebracht) oder 'line' (Endbahnhof bestanden), ref = Station bzw. Linie.
+-- Der Inhalt wird erst beim Öffnen ausgelost.
+CREATE TABLE IF NOT EXISTS lootboxes (
+  id INTEGER PRIMARY KEY,
+  child_id INTEGER NOT NULL REFERENCES children(id) ON DELETE CASCADE,
+  source TEXT NOT NULL,
+  subject TEXT NOT NULL,
+  ref TEXT NOT NULL,
+  note TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  opened_at TEXT,
+  minutes INTEGER,
+  stars INTEGER,
+  UNIQUE (child_id, source, subject, ref)
+);
 `);
 
 // Spalten, die nach der ersten Version dazugekommen sind
@@ -128,6 +155,7 @@ function addColumn(table, column, definition) {
 addColumn('sessions', 'best_combo', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('sessions', 'run_today', 'INTEGER NOT NULL DEFAULT 1');
 addColumn('sessions', 'boosted', 'INTEGER NOT NULL DEFAULT 0');
+addColumn('sessions', 'parked', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('children', 'train', 'TEXT');
 addColumn('children', 'adult', 'INTEGER NOT NULL DEFAULT 0');
 
@@ -140,6 +168,7 @@ const DEFAULT_SETTINGS = {
   questionsPerSession: '10',
   ticketMinutes: '15,30,60',
   starScale: '2',
+  retireAfter: '5',
 };
 
 const freshDatabase = !db.prepare("SELECT 1 FROM settings WHERE key = 'minutesPerStar'").get();
@@ -187,6 +216,7 @@ export function getPublicSettings() {
     minutesPerStar: Number(getSetting('minutesPerStar')),
     dailyStarLimit: Number(getSetting('dailyStarLimit')),
     questionsPerSession: Number(getSetting('questionsPerSession')),
+    retireAfter: Number(getSetting('retireAfter')),
     ticketMinutes: getSetting('ticketMinutes')
       .split(',')
       .map((m) => Number(m.trim()))

@@ -51,6 +51,23 @@ So lohnt sich Wiederholen weiterhin, aber eine leichte Station immer wieder abzu
 
 Die Blitzrunde selbst bringt keine Sterne, nur Rekorde und XP.
 
+### Abstellgleis und Lootboxen
+
+Hat dein Kind eine Station **5-mal mit 3 Sternen** geschafft, kommt sie aufs **Abstellgleis**: Sie ist auf dem Netzplan grau markiert und bringt keine Sterne mehr (auch keine doppelten). Üben geht dort weiterhin. Bis dahin zeigt der Netzplan den Stand, z. B. „🎁 3/5“. Die Zahl stellst du im Elternbereich unter den Regeln ein (0 = kein Abstellgleis). Beim Kind unter **Stationen** kannst du eine Station mit „Reaktivieren“ für ein paar Fahrten zurückholen. Danach steht sie wieder auf dem Abstellgleis.
+
+Eine **Lootbox** gibt es einmalig, wenn eine Station aufs Abstellgleis kommt und wenn der Endbahnhof einer Linie zum ersten Mal bestanden ist. Dein Kind sammelt die Boxen (🎁 oben in der Leiste) und öffnet sie, wann es will. Erst beim Öffnen wird ausgelost, was drin ist:
+
+| Medienzeit | Wahrscheinlichkeit |
+|---|---|
+| 5 Minuten | 50 % |
+| 10 Minuten | 30 % |
+| 15 Minuten | 15 % |
+| 20 Minuten | 5 % |
+
+Die Minuten werden als Sterne gutgeschrieben (Minuten ÷ Minuten pro Stern, aufgerundet) und **zählen nicht zum Tageslimit**. Erwachsenen-Profile bekommen keine Boxen.
+
+Nach einer geschafften Fahrt (ab 2 Sternen) schlägt die Ankunft den **nächsten Halt** vor: eine Station, die heute noch nicht dran war, am liebsten eine ohne 3 Sterne. „Nochmal fahren“ gibt es weiterhin, aber nur als zweite Wahl. Auch auf einer Station, die heute schon geschafft wurde oder auf dem Abstellgleis steht, zeigt die Seite den Weg zum nächsten Halt.
+
 Im **Elternbereich** stellst du ein:
 - wie viele Minuten Medienzeit ein Stern wert ist (Standard: 1 Minute, auch 0,5er-Schritte möglich)
 - wie viele Sterne es höchstens pro Tag gibt (Standard: 60). Üben geht danach weiter, nur ohne Sterne.
@@ -77,7 +94,9 @@ Diese Elemente sollen die Aufmerksamkeit halten, ohne zusätzliche Medienzeit zu
 - **Serienschutz:** Einmal pro Woche darf ein Tag ausfallen, ohne dass die Tage-Serie reißt.
 - **Effekte:** Konfetti, Fanfare und hochzählende Sterne bei besonderen Momenten. Bei „Bewegung reduzieren“ in den Geräteeinstellungen fallen die Animationen weg.
 
-Im Elternbereich siehst du pro Kind: Übungszeit der letzten 14 Tage, was noch schwerfällt (konkrete Wörter und Sätze), den Stand jeder Station, die letzten Fahrten und das komplette Sterne-Konto.
+Im Elternbereich siehst du pro Kind: Übungszeit der letzten 14 Tage, was noch schwerfällt (konkrete Wörter und Sätze), den Stand jeder Station, die Lootboxen, die letzten Fahrten und das komplette Sterne-Konto.
+
+**Stationen archivieren:** Ist ein Thema vom Stoff her nicht mehr dran, archivierst du die Station (oder gleich die ganze Linie) beim Kind unter **Stationen**. Sie verschwindet dann vom Netzplan, aus dem Fehler-Training, aus der Blitzrunde und aus dem Endbahnhof. Der Endbahnhof braucht dann nur noch die übrigen Stationen. Der Fortschritt bleibt gespeichert, und mit „Zurückholen“ ist die Station wieder da. Das gilt pro Kind.
 
 Das **Fahrtenbuch** listet jede abgeschlossene Fahrt aller Kinder: Uhrzeit, Station mit Fach und Linie, wie viel Prozent richtig war, die Bewertung (1–3 Sterne) und wie viele Sterne es dafür gab. Wiederholungen am selben Tag und Fahrten mit doppelten Sternen sind markiert. Filtern lässt es sich nach Kind und Zeitraum; die letzten Fahrten stehen auch direkt auf der Übersicht.
 
@@ -253,6 +272,8 @@ server/        Node.js-Server (Express, SQLite über das eingebaute node:sqlite)
   index.js       API-Routen für Kinder und Eltern
   session.js     Aufgaben auswählen, Antworten prüfen, Wiederholungs-Logik
   rewards.js     Sterne, Tageslimit, Abzeichen, Tickets
+  progress.js    Ränge, Serie, Tagesfahrplan, Endbahnhöfe, Abstellgleis und Archiv
+  lootbox.js     Lootboxen
   content.js     liest die Inhalte ein
   generators/    berechnete Aufgaben (Mathe)
 public/        Oberfläche (reines HTML/CSS/JS, kein Build-Schritt)

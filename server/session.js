@@ -1,7 +1,7 @@
 import { db } from './db.js';
 import { subjects, vocabKey, exerciseKey, resolveItem, getGenerator, mediaUrl } from './content.js';
 import { completeSession, activeBoost, boostApplies } from './rewards.js';
-import { lineStatus, lineUnits, blitzTopics } from './progress.js';
+import { lineStatus, lineUnits, blitzTopics, archivedUnits, notArchivedSql } from './progress.js';
 import { normalize, levenshtein, shuffle, pick, randomId, nowIso } from './util.js';
 
 const active = new Map();
@@ -188,6 +188,9 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
   const subject = subjects.get(subjectId);
   if (!subject) throw httpError(404, 'Dieses Fach gibt es nicht.');
   const canSpeak = !!subject.meta.speechLang;
+  // Archivierte Stationen sind für das Kind aus dem Fahrplan genommen – auch im Fehler-Training, Endbahnhof und Blitz.
+  const archived = archivedUnits(childId);
+  const inService = (u) => !archived.has(`${subjectId}/${u.id}`);
 
   let candidates;
   let title;
@@ -196,7 +199,7 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
   if (mode === 'review') {
     const rows = db
       .prepare(
-        `SELECT item_key FROM item_stats WHERE child_id = ? AND subject = ? AND wrong > 0 AND box < 3
+        `SELECT item_key FROM item_stats WHERE child_id = ? AND subject = ? AND wrong > 0 AND box < 3 AND ${notArchivedSql('item_stats')}
          ORDER BY box ASC, last_seen ASC LIMIT ?`
       )
       .all(childId, subjectId, count * 3);
@@ -215,7 +218,7 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     const status = lineStatus(childId)[subjectId]?.[lineId];
     if (!line || !status) throw httpError(404, 'Diesen Endbahnhof gibt es nicht.');
     if (!status.unlocked) throw httpError(400, 'Der Endbahnhof öffnet, wenn alle Stationen der Linie mindestens 2 Sterne haben.');
-    candidates = lineUnits(subjectId, lineId).flatMap((u) => unitCandidates(subjectId, u, count));
+    candidates = lineUnits(subjectId, lineId).filter(inService).flatMap((u) => unitCandidates(subjectId, u, count));
     title = `Endbahnhof ${line.short ?? line.name}`;
     refId = line.id;
     count = Math.max(12, Math.round(count * 1.5));
@@ -223,7 +226,7 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     const topic = blitzTopics(subjectId).find((t) => t.id === topicId);
     if (!topic) throw httpError(404, 'Diese Blitzrunde gibt es nicht.');
     const units = [...subject.units.values()].filter((u) =>
-      topic.units ? topic.units.includes(u.id) : topic.line ? u.line === topic.line : true);
+      inService(u) && (topic.units ? topic.units.includes(u.id) : topic.line ? u.line === topic.line : true));
     candidates = units
       .flatMap((u) => unitCandidates(subjectId, u, 60))
       .filter((c) => c.kind === 'vocab' || !topic.types || topic.types.includes(c.data.type));
@@ -234,6 +237,7 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
   } else {
     unit = subject.units.get(unitId);
     if (!unit) throw httpError(404, 'Diese Station gibt es nicht.');
+    if (!inService(unit)) throw httpError(400, 'Diese Station ist gerade außer Betrieb.');
     candidates = unitCandidates(subjectId, unit, count);
     title = unit.title;
     refId = unit.id;
@@ -392,7 +396,7 @@ export function finishSession(sessionId) {
 
 export function reviewCounts(childId) {
   const rows = db
-    .prepare('SELECT subject, COUNT(*) AS n FROM item_stats WHERE child_id = ? AND wrong > 0 AND box < 3 GROUP BY subject')
+    .prepare(`SELECT subject, COUNT(*) AS n FROM item_stats WHERE child_id = ? AND wrong > 0 AND box < 3 AND ${notArchivedSql('item_stats')} GROUP BY subject`)
     .all(childId);
   return Object.fromEntries(rows.map((r) => [r.subject, r.n]));
 }

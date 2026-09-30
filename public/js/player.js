@@ -1,5 +1,6 @@
-import { h, md, gapText, speak, canSpeak, sfx, escapeHtml, mapFigure, confetti, countUp, rankMeter } from './ui.js';
+import { h, md, gapText, speak, canSpeak, sfx, escapeHtml, mapFigure, confetti, countUp, rankMeter, toast, guardBack } from './ui.js';
 import { api } from './api.js';
+import { lootbox } from './lootbox.js';
 
 const PRAISE = ['Richtig!', 'Super!', 'Klasse!', 'Genau!', 'Stark!', 'Perfekt!'];
 const pick = (a) => a[Math.floor(Math.random() * a.length)];
@@ -15,8 +16,9 @@ const shuffle = (arr) => {
 /**
  * Spielt eine Übung („Fahrt“) ab.
  * Falsch beantwortete Aufgaben kommen am Ende noch einmal – gewertet wird nur der erste Versuch.
+ * onExit: Fahrt abgebrochen · onMap: zum Netzplan · onAgain: nochmal fahren · onNext(next): zur nächsten Station
  */
-export function runRide(root, session, { lineColor, train: trainIcon = '🚆', card = null, onExit, onAgain }) {
+export function runRide(root, session, { childId, subject = null, lineColor, train: trainIcon = '🚆', card = null, onExit, onMap = onExit, onAgain, onNext }) {
   const lang = session.speechLang;
   const total = session.questions.length;
   const queue = session.questions.map((q) => ({ q, retry: false }));
@@ -25,6 +27,7 @@ export function runRide(root, session, { lineColor, train: trainIcon = '🚆', c
   let busy = false;
   let onEnter = null;
   let combo = 0;
+  let ended = false;
   const keys = new AbortController();
 
   const say = (text) => lang && text && speak(text, lang);
@@ -55,13 +58,19 @@ export function runRide(root, session, { lineColor, train: trainIcon = '🚆', c
     }
   }, { signal: keys.signal });
 
+  // Zurück-Wischen am Handy fragt nach, statt die Fahrt still zu verlassen.
+  const release = guardBack(exit);
+  // Führt ein anderer Weg von der Seite weg, räumt die Fahrt trotzdem auf.
+  window.addEventListener('hashchange', () => { cleanup(); release(); }, { signal: keys.signal });
+
   function exit() {
     if (!confirm('Fahrt wirklich abbrechen? Sterne gibt es nur, wenn du am Ziel ankommst.')) return;
     cleanup();
-    onExit();
+    release(onExit);
   }
 
   function cleanup() {
+    ended = true;
     keys.abort();
     document.querySelectorAll('.sheet, .dock').forEach((el) => el.remove());
     window.speechSynthesis?.cancel();
@@ -140,6 +149,7 @@ export function runRide(root, session, { lineColor, train: trainIcon = '🚆', c
       type: 'text',
       autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', spellcheck: 'false',
       inputmode: q.numeric ? 'numeric' : null,
+      enterkeyhint: 'done',
       placeholder: q.placeholder ?? '',
       'aria-label': 'Deine Antwort',
     });
@@ -154,6 +164,8 @@ export function runRide(root, session, { lineColor, train: trainIcon = '🚆', c
       const res = await submit(q, input.value);
       if (!res) { input.readOnly = false; return; }
       input.classList.add(res.correct ? 'right' : 'wrong');
+      // Tastatur einklappen, damit die Lösung unten nicht verdeckt ist.
+      if (!res.correct) input.blur();
     };
     onEnter = check;
     dock(h('button.btn.line.big', { type: 'button', onclick: check }, 'Prüfen'));
@@ -243,7 +255,7 @@ export function runRide(root, session, { lineColor, train: trainIcon = '🚆', c
     } catch (err) {
       busy = false;
       alert(err.message);
-      if (err.status === 404) { cleanup(); onExit(); }
+      if (err.status === 404) { cleanup(); release(onExit); }
       return null;
     }
     if (res.firstTry) status[q.id] = res.correct ? 'ok' : 'miss';
@@ -289,6 +301,22 @@ export function runRide(root, session, { lineColor, train: trainIcon = '🚆', c
 
   function feedback(q, res) {
     document.querySelectorAll('.dock').forEach((el) => el.remove());
+    const next = () => {
+      onEnter = null;
+      pos++;
+      if (pos < queue.length) show();
+      else finish();
+    };
+    // Richtig: kurz loben und von selbst weiter, damit der Fluss nicht abreißt.
+    // Eine Meldung mit „Weiter“ gibt es nur bei Fehlern (auch beim Paare-Finden mit mehreren Fehlgriffen).
+    if (res.correct) {
+      onEnter = null;
+      stage.querySelector('.qcard')?.append(h('span.praise', { 'aria-live': 'polite' },
+        q.type === 'match' && res.mistakes ? 'Fast fehlerfrei!' : pick(PRAISE)));
+      if (res.note) toast(res.note);
+      setTimeout(() => { if (!ended) next(); }, res.note ? 1400 : 900);
+      return;
+    }
     let title;
     let lines = [];
     if (q.type === 'match') {
@@ -305,12 +333,6 @@ export function runRide(root, session, { lineColor, train: trainIcon = '🚆', c
       if (res.explain) lines.push(h('div.explain', { html: `<p>${md(res.explain)}</p>` }));
       if (res.firstTry) lines.push(h('p.explain', 'Diese Aufgabe kommt am Ende nochmal.'));
     }
-    const next = () => {
-      onEnter = null;
-      pos++;
-      if (pos < queue.length) show();
-      else finish();
-    };
     const btn = h('button.btn.big', { type: 'button', class: res.correct ? 'go' : '', onclick: next }, 'Weiter');
     const sheet = h('.sheet', { class: res.correct ? 'ok' : 'bad', role: 'alert' },
       h('.sheet-inner',
@@ -326,7 +348,9 @@ export function runRide(root, session, { lineColor, train: trainIcon = '🚆', c
   // ---------------------------------------------------------------- Ankunft
   async function finish() {
     cleanup();
+    release();
     stage.replaceChildren(h('.loading', 'Einfahrt in den Bahnhof …'));
+    const here = location.hash;
     let result;
     try {
       result = await api(`/sessions/${session.sessionId}/finish`, { method: 'POST' });
@@ -334,6 +358,8 @@ export function runRide(root, session, { lineColor, train: trainIcon = '🚆', c
       stage.replaceChildren(h('.empty', h('p', err.message), h('button.btn', { type: 'button', onclick: onExit }, 'Zurück')));
       return;
     }
+    // Inzwischen woanders hin gewechselt? Dann das Ergebnis nicht über die neue Seite legen.
+    if (location.hash !== here) return;
     const exam = result.exam;
     const headline = exam
       ? exam.passed ? 'Endbahnhof erreicht!' : 'Knapp vor dem Ziel!'
@@ -366,6 +392,22 @@ export function runRide(root, session, { lineColor, train: trainIcon = '🚆', c
       panels.push(h('section.panel',
         h('h2', '🏆 Goldkarte freigeschaltet!'),
         h('.card-reveal', collectCard({ ...card, owned: true, fresh: true, gold: true }))));
+    }
+    const station = result.station;
+    if (station?.justRetired) {
+      panels.push(h('section.panel.parked-up',
+        h('.big-train', { 'aria-hidden': 'true' }, '🅿️'),
+        h('div',
+          h('h2', 'Ab aufs Abstellgleis!'),
+          h('p', `Du hast diese Station ${station.limit}× mit 3 Sternen geschafft – die kannst du! Sie macht jetzt Pause: Ab sofort gibt es hier keine Sterne mehr. Neue Sterne warten auf den anderen Stationen.`))));
+    }
+    if (result.lootboxes?.length) {
+      panels.push(h('section.panel',
+        h('h2', result.lootboxes.length === 1 ? '🎁 Du hast eine Lootbox bekommen!' : `🎁 Du hast ${result.lootboxes.length} Lootboxen bekommen!`),
+        h('p.muted', 'Darin steckt Medienzeit – wie viel, siehst du erst beim Öffnen. Du kannst sie auch später öffnen.'),
+        h('.lootboxes', result.lootboxes.map((b) => lootbox(childId, b, {
+          onOpened: (r) => countUp(balanceEl, Number(balanceEl.textContent) || 0, r.balance),
+        })))));
     }
     if (result.xp.rankUp) {
       const r = result.xp.rankUp;
@@ -400,6 +442,17 @@ export function runRide(root, session, { lineColor, train: trainIcon = '🚆', c
                 h('span.amt', r.given < r.amount
                   ? [r.given ? `+${r.given} ★ ` : '', h('span.capped', `+${r.amount - r.given}`)]
                   : `+${r.given} ★`)))),
+            station?.parked
+              ? h('p.muted', `🅿️ Diese Station steht auf dem Abstellgleis – hier gibt es keine Sterne mehr. Üben darfst du trotzdem! Sterne gibt es auf den anderen Stationen.`)
+              : null,
+            station?.extraRidesLeft != null
+              ? h('p.muted', station.extraRidesLeft > 0
+                  ? `🔄 Diese Station ist noch für ${station.extraRidesLeft} ${station.extraRidesLeft === 1 ? 'Fahrt' : 'Fahrten'} mit Sternen in Betrieb.`
+                  : '🔄 Das war die letzte Fahrt mit Sternen – jetzt geht die Station zurück aufs Abstellgleis.')
+              : null,
+            station && !station.parked && !station.justRetired && station.limit > 0 && station.perfect > 0 && station.perfect < station.limit
+              ? h('p.muted', `🎁 ${station.perfect} von ${station.limit} Fahrten mit 3 Sternen: Bei ${station.limit} kommt die Station aufs Abstellgleis, und du bekommst eine Lootbox.`)
+              : null,
             result.capped > 0 ? h('p.muted', 'Dein Sterne-Limit für heute ist erreicht. Morgen gibt es wieder neue – üben lohnt sich trotzdem!') : null,
             !result.capped && result.runToday >= 2 && ['unit', 'exam'].includes(result.mode)
               ? h('p.muted', result.runToday === 2
@@ -414,10 +467,20 @@ export function runRide(root, session, { lineColor, train: trainIcon = '🚆', c
               h('.badge.pop', { style: { animationDelay: `${0.8 + i * 0.25}s` } },
                 h('.medal', { 'aria-hidden': 'true' }, b.icon), h('.bname', b.name), h('.bdesc', b.desc)))))
         : null,
-      h('.actions',
-        h('button.btn.line.big', { type: 'button', onclick: onAgain }, '🔁 Nochmal fahren'),
-        h('button.btn.ghost.big', { type: 'button', onclick: onExit }, '🗺️ Zum Netzplan'))));
+      arrivalActions(result)));
     window.scrollTo(0, 0);
+  }
+
+  /** Nach einer geschafften Fahrt geht es zum nächsten Halt, nicht nochmal auf dieselbe Station. */
+  function arrivalActions(result) {
+    const done = result.exam ? result.exam.passed : result.rating >= 2 || result.station?.parked || result.station?.justRetired;
+    const next = result.next && onNext
+      ? h('button.btn.big', { type: 'button', class: done ? 'line' : 'ghost', onclick: () => onNext(result.next) },
+          `🚉 Nächster Halt: ${result.next.icon} ${result.next.title}${result.next.subject !== subject && result.next.subjectName ? ` (${result.next.subjectName})` : ''}`)
+      : null;
+    const again = h('button.btn.big', { type: 'button', class: done && next ? 'ghost' : 'line', onclick: onAgain }, '🔁 Nochmal fahren');
+    const map = h('button.btn.ghost.big', { type: 'button', onclick: onMap }, '🗺️ Zum Netzplan');
+    return h('.actions', done ? [next, again, map] : [again, next, map]);
   }
 
   show();

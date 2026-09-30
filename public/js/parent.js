@@ -2,7 +2,7 @@ import { h, toast, starRow, fmtDate, relDay } from './ui.js';
 import { api, parentToken } from './api.js';
 
 const AVATARS = ['🦊', '🐼', '🐯', '🦁', '🐸', '🐙', '🦄', '🐲', '🐧', '🐨', '🦖', '🐱', '🐶', '🚀', '⚽', '🎮'];
-const KIND = { session: 'Übung', bonus: 'Bonus', badge: 'Abzeichen', ticket: 'Ticket', refund: 'Rückgabe', manual: 'Eltern', system: 'Hinweis' };
+const KIND = { session: 'Übung', bonus: 'Bonus', badge: 'Abzeichen', ticket: 'Ticket', refund: 'Rückgabe', manual: 'Eltern', system: 'Hinweis', lootbox: 'Lootbox' };
 
 const papi = (path, opts = {}) => api(`/parent${path}`, { ...opts, parent: true });
 
@@ -146,6 +146,7 @@ async function dashboard(root, render, reloadMeta) {
       f('minutesPerStar', 'Minuten Medienzeit pro Stern', s.minutesPerStar, 'Die erste Fahrt einer Station am Tag bringt bis zu 6 Sterne, die zweite bis zu 3, jede weitere 1. Dazu kommen Boni.', { type: 'number', min: 0.5, max: 60, step: 0.5 }),
       f('dailyStarLimit', 'Maximale Sterne pro Tag', s.dailyStarLimit, '0 = unbegrenzt. Üben geht auch danach, nur ohne Sterne.', { type: 'number', min: 0, max: 2000 }),
       f('questionsPerSession', 'Aufgaben pro Übung', s.questionsPerSession, 'Empfohlen: 8–12.', { type: 'number', min: 5, max: 30 }),
+      f('retireAfter', 'Abstellgleis nach … Fahrten mit 3 Sternen', s.retireAfter, 'Danach bringt die Station keine Sterne mehr, dafür gibt es einmal eine Lootbox. 0 = nie.', { type: 'number', min: 0, max: 50 }),
       f('ticketMinutes', 'Ticket-Größen in Minuten', s.ticketMinutes.join(', '), 'Mit Komma getrennt, z. B. 15, 30, 60.')),
     h('button.btn', { type: 'submit' }, 'Speichern'));
 
@@ -229,7 +230,8 @@ function logTable(entries, { showChild }) {
         h('strong', e.title),
         h('div.muted.small', [e.subject, e.line ? `Linie ${e.line}` : null].filter(Boolean).join(' · ')),
         e.runToday > 1 && !blitz ? h('span.log-tag', `${e.runToday}. Fahrt heute`) : null,
-        e.boosted ? h('span.log-tag.boost', '🎉 ×2') : null),
+        e.boosted ? h('span.log-tag.boost', '🎉 ×2') : null,
+        e.parked ? h('span.log-tag', '🅿️ Abstellgleis') : null),
       h('td', blitz
         ? `⚡ ${e.correct} Treffer`
         : [h(`span.${e.percent >= 90 ? 'pos' : e.percent < 70 ? 'neg' : 'mid'}`, `${e.percent} %`), h('div.muted.small', `${e.correct} von ${e.total}`)]),
@@ -452,18 +454,85 @@ async function childView(root, id, render) {
     if (!bySubject.has(u.subjectName)) bySubject.set(u.subjectName, []);
     bySubject.get(u.subjectName).push(u);
   }
+  const setUnit = async (u, body, msg) => {
+    try {
+      await papi(`/children/${id}/units/${u.subject}/${u.id}`, { method: 'PUT', body });
+      toast(msg);
+      refresh();
+    } catch (err) { toast(err.message); }
+  };
+  const setLine = async (u, archived) => {
+    try {
+      await papi(`/children/${id}/lines/${u.subject}/${u.line}`, { method: 'PUT', body: { archived } });
+      toast(archived ? `${u.lineName} archiviert.` : `${u.lineName} ist wieder im Fahrplan.`);
+      refresh();
+    } catch (err) { toast(err.message); }
+  };
+  const limit = d.retireAfter;
+  const statusCell = (u) => {
+    if (u.archived) {
+      return h('td', h('span.log-tag', '📦 Archiviert'),
+        h('div', h('button.btn.ghost.small', { type: 'button', onclick: () => setUnit(u, { archived: false }, `„${u.title}“ ist wieder im Fahrplan.`) }, 'Zurückholen')));
+    }
+    const archive = h('button.btn.ghost.small', { type: 'button', onclick: () => setUnit(u, { archived: true }, `„${u.title}“ archiviert.`) }, 'Archivieren');
+    if (u.parked) {
+      const rides = h('input.input.tiny', { type: 'number', min: 1, max: 50, value: 3, 'aria-label': `Fahrten mit Sternen für ${u.title}` });
+      return h('td', h('span.log-tag', '🅿️ Abstellgleis'),
+        h('.unit-actions',
+          rides,
+          h('button.btn.small', {
+            type: 'button',
+            onclick: () => setUnit(u, { extraRides: Number(rides.value) }, `„${u.title}“ bringt wieder Sterne für ${rides.value} Fahrten.`),
+          }, 'Reaktivieren'),
+          archive));
+    }
+    if (u.retired) {
+      return h('td', h('span.log-tag', `🔄 noch ${u.extraRides} ${u.extraRides === 1 ? 'Fahrt' : 'Fahrten'} mit Sternen`),
+        h('.unit-actions',
+          h('button.btn.ghost.small', { type: 'button', onclick: () => setUnit(u, { extraRides: 0 }, `„${u.title}“ steht wieder auf dem Abstellgleis.`) }, 'Wieder abstellen'),
+          archive));
+    }
+    return h('td', h('span.muted.small', 'in Betrieb'), h('.unit-actions', archive));
+  };
   const units = h('section.panel',
     h('h2', '🗺️ Stationen'),
+    h('p.muted', `Archivierte Stationen sieht dein Kind nicht mehr: nicht auf dem Netzplan, nicht im Fehler-Training, in der Blitzrunde oder im Endbahnhof. Der Fortschritt bleibt gespeichert. ${limit > 0 ? `Nach ${limit} Fahrten mit 3 Sternen kommt eine Station aufs Abstellgleis und bringt keine Sterne mehr. Mit „Reaktivieren“ bringt sie für ein paar Fahrten wieder Sterne.` : 'Das Abstellgleis ist ausgeschaltet (siehe Regeln in der Übersicht).'}`),
     [...bySubject].map(([name, list]) => h('div',
       bySubject.size > 1 ? h('h3', { style: { margin: '12px 0 4px' } }, name) : null,
-      h('.table-wrap', h('table.data',
-        h('thead', h('tr', h('th', 'Station'), h('th', 'Bestes'), h('th', 'Fahrten'), h('th', 'Ø richtig'), h('th', 'Zuletzt'))),
-        h('tbody', list.map((u) => h('tr',
-          h('td', h('strong', u.title), h('div.muted.small', u.subtitle)),
-          h('td', starRow(u.best)),
-          h('td', u.runs || '–'),
-          h('td', u.avg == null ? '–' : `${u.avg} %`),
-          h('td', u.last ? fmtDate(u.last) : '–')))))))));
+      h('.table-wrap', h('table.data.units',
+        h('thead', h('tr', h('th', 'Station'), h('th', 'Bestes'), h('th', '3 ★'), h('th', 'Fahrten'), h('th', 'Ø richtig'), h('th', 'Zuletzt'), h('th', 'Status'))),
+        h('tbody', list.flatMap((u, i) => {
+          const rows = [];
+          if (u.line !== list[i - 1]?.line) {
+            const lineUnits = list.filter((x) => x.line === u.line);
+            const allArchived = lineUnits.every((x) => x.archived);
+            rows.push(h('tr.log-day', h('th', { colspan: 7, scope: 'rowgroup' },
+              h('.line-row',
+                h('span', u.lineName),
+                h('button.btn.ghost.small', { type: 'button', onclick: () => setLine(u, !allArchived) },
+                  allArchived ? 'Ganze Linie zurückholen' : 'Ganze Linie archivieren')))));
+          }
+          rows.push(h('tr', { class: u.archived ? 'archived' : '' },
+            h('td', h('strong', u.title), h('div.muted.small', u.subtitle)),
+            h('td', starRow(u.best)),
+            h('td', limit > 0 ? `${u.perfect} / ${limit}` : u.perfect || '–'),
+            h('td', u.runs || '–'),
+            h('td', u.avg == null ? '–' : `${u.avg} %`),
+            h('td', u.last ? fmtDate(u.last) : '–'),
+            statusCell(u)));
+          return rows;
+        })))))));
+
+  const loot = d.lootboxes;
+  const lootPanel = loot.closed.length || loot.opened.length
+    ? h('section.panel',
+        h('h2', '🎁 Lootboxen'),
+        h('p.muted', `Noch ungeöffnet: ${loot.closed.length}${loot.closed.length ? ` (${loot.closed.map((b) => b.note).join(', ')})` : ''}. Die Sterne aus einer Box zählen nicht zum Tageslimit.`),
+        loot.opened.length
+          ? h('ul.pending-list', loot.opened.map((b) =>
+              h('li', h('.what', h('strong', `${b.minutes} Minuten · +${b.stars} ★`), h('div.muted.small', `${b.note} · geöffnet ${relDay(b.opened_at)}`)))))
+          : null)
+    : null;
 
   const sessions = h('section.panel',
     h('h2', '📖 Letzte Fahrten'),
@@ -537,6 +606,7 @@ async function childView(root, id, render) {
     chart,
     weak,
     units,
+    lootPanel,
     sessions,
     adjust,
     ledger,

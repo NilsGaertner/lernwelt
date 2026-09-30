@@ -2,7 +2,10 @@ import { db, EARN_KINDS, getPublicSettings, getSetting, setSetting, transaction 
 import { BADGES, BADGE_BONUS } from './badges.js';
 import { subjects } from './content.js';
 import { localDay, nowIso } from './util.js';
-import { streak, dailyPlan, stampCount, examsPassed, xpOf, rankInfo, PASSED_SQL } from './progress.js';
+import {
+  streak, dailyPlan, stampCount, examsPassed, xpOf, rankInfo, PASSED_SQL, stationState, useExtraRide, nextStation,
+} from './progress.js';
+import { grantLootbox } from './lootbox.js';
 
 export { streak, unitProgress } from './progress.js';
 
@@ -125,9 +128,10 @@ export function sessionStars(rating, runToday) {
 }
 
 /**
- * Schließt eine Übung ab: speichert sie, vergibt Sterne (mit Tageslimit), Abzeichen, Fahrplan-Stempel und XP.
+ * Schließt eine Übung ab: speichert sie, vergibt Sterne (mit Tageslimit), Abzeichen, Fahrplan-Stempel, XP und Lootboxen.
  * mode: 'unit' | 'review' | 'exam' (unitId = Linie) | 'blitz' (unitId = Blitz-Thema, keine Sterne für die Runde selbst)
  * boosted: die Fahrt wurde während eines „Doppelte Sterne“-Events gestartet
+ * Eine Station auf dem Abstellgleis bringt keine Sterne; die Fahrt, die sie dorthin bringt, gibt eine Lootbox.
  */
 export function completeSession({ sessionId, childId, subject, unitId, unitTitle, mode, startedAt, total, correct, bestCombo = 0, boosted = false }) {
   return transaction(() => {
@@ -154,7 +158,13 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
         ? db.prepare("SELECT COALESCE(MAX(correct), 0) AS b, COUNT(*) AS n FROM sessions WHERE child_id = ? AND mode = 'blitz' AND subject = ? AND unit_id = ?")
             .get(childId, subject, unitId)
         : null;
-    const firstToday = !db.prepare('SELECT 1 FROM sessions WHERE child_id = ? AND day = ?').get(childId, day);
+    // Abstellgleis: Stand vor dieser Fahrt. Auf einer zurückgeholten Station verbraucht die Fahrt eine Extra-Fahrt.
+    const station = mode === 'unit' ? stationState(childId, subject, unitId) : null;
+    const parked = !!station?.parked;
+    const justRetired = !!station && !station.retired && rating === 3 && station.limit > 0 && station.perfect + 1 >= station.limit;
+    if (station?.retired && !parked) useExtraRide(childId, subject, unitId);
+    // Der Tagesbonus gehört zur ersten Fahrt, die Sterne bringt.
+    const firstToday = !parked && !db.prepare('SELECT 1 FROM sessions WHERE child_id = ? AND day = ? AND parked = 0').get(childId, day);
     const runToday =
       mode === 'unit' || mode === 'exam'
         ? db.prepare('SELECT COUNT(*) AS n FROM sessions WHERE child_id = ? AND day = ? AND mode = ? AND subject = ? AND unit_id = ?')
@@ -163,12 +173,15 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
 
     const duration = Math.max(0, Math.round((Date.now() - new Date(startedAt).getTime()) / 1000));
     db.prepare(
-      `INSERT INTO sessions (id, child_id, subject, unit_id, mode, day, started_at, finished_at, total, correct, rating, stars, duration_sec, best_combo, run_today, boosted)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?)`
-    ).run(sessionId, childId, subject, unitId ?? null, mode, day, startedAt, now, total, correct, rating, duration, bestCombo, runToday, boosted && mode !== 'blitz' ? 1 : 0);
+      `INSERT INTO sessions (id, child_id, subject, unit_id, mode, day, started_at, finished_at, total, correct, rating, stars, duration_sec, best_combo, run_today, boosted, parked)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?)`
+    ).run(
+      sessionId, childId, subject, unitId ?? null, mode, day, startedAt, now, total, correct, rating, duration, bestCombo, runToday,
+      boosted && mode !== 'blitz' && !parked ? 1 : 0, parked ? 1 : 0
+    );
 
     const rewards = [];
-    if (mode !== 'blitz') {
+    if (mode !== 'blitz' && !parked) {
       const repeat = runToday > 1 ? ` (${runToday}. Fahrt heute)` : '';
       const stars = sessionStars(rating, runToday);
       rewards.push({ kind: 'session', amount: stars, note: `${unitTitle}: ${correct} von ${total} richtig${repeat}` });
@@ -181,6 +194,16 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
     const examPassed = mode === 'exam' && correct * 5 >= total * 4;
     if (examPassed && !prevExamPassed) rewards.push({ kind: 'bonus', amount: BONUS.exam, note: `${unitTitle} geschafft` });
     if (firstToday) rewards.push({ kind: 'bonus', amount: BONUS.firstToday, note: 'Erste Übung heute' });
+
+    // Lootboxen (nicht für Erwachsenen-Profile): Station aufs Abstellgleis gebracht, Linie geschafft
+    const newBoxes = [];
+    if (!adult && justRetired) {
+      newBoxes.push(grantLootbox(childId, { source: 'station', subject, ref: unitId, note: `${unitTitle} aufs Abstellgleis gebracht` }));
+    }
+    if (!adult && examPassed && !prevExamPassed) {
+      const line = subjects.get(subject)?.meta.lines?.find((l) => l.id === unitId);
+      newBoxes.push(grantLootbox(childId, { source: 'line', subject, ref: unitId, note: `${line?.name ?? unitTitle} geschafft` }));
+    }
 
     const plan = dailyPlan(childId);
 
@@ -232,7 +255,18 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
       comboRecord: mode !== 'blitz' && bestCombo >= 3 && bestCombo > prevCombo,
       newCard: mode === 'unit' && rating === 3 && prevBest < 3,
       runToday,
-      boosted: boosted && mode !== 'blitz',
+      boosted: boosted && mode !== 'blitz' && !parked,
+      station: station
+        ? {
+            parked,
+            justRetired,
+            perfect: station.perfect + (rating === 3 ? 1 : 0),
+            limit: station.limit,
+            extraRidesLeft: station.retired && !parked ? station.extraRides - 1 : null,
+          }
+        : null,
+      lootboxes: newBoxes.filter(Boolean),
+      next: mode === 'unit' || mode === 'exam' ? nextStation(childId, subject, mode === 'unit' ? unitId : null) : null,
       exam: mode === 'exam' ? { passed: examPassed, first: examPassed && !prevExamPassed, percent: Math.round(ratio * 100) } : null,
       blitz: prevBlitz ? { score: correct, answered: total, prevBest: prevBlitz.b, newRecord: prevBlitz.n > 0 && correct > prevBlitz.b } : null,
       plan,
