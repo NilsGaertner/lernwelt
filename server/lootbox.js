@@ -1,8 +1,8 @@
 // Lootboxen: Überraschungs-Medienzeit für besondere Erfolge – eine Station aufs Abstellgleis gebracht
-// oder eine ganze Linie geschafft (Endbahnhof bestanden). Das Kind sammelt die Boxen und öffnet sie selbst;
+// oder eine ganze Linie geschafft (Endbahnhof bestanden) – oder als Geschenk der Eltern. Das Kind sammelt die Boxen und öffnet sie selbst;
 // was drin ist, wird erst beim Öffnen ausgelost. Die Sterne daraus zählen nicht zum Tageslimit.
 import { db, getPublicSettings, transaction } from './db.js';
-import { localDay, nowIso } from './util.js';
+import { localDay, nowIso, randomId } from './util.js';
 
 /** Möglicher Inhalt in Minuten Medienzeit, mit Wahrscheinlichkeit. */
 export const LOOT = [
@@ -27,6 +27,12 @@ export function grantLootbox(childId, { source, subject, ref, note }) {
     .prepare('INSERT OR IGNORE INTO lootboxes (child_id, source, subject, ref, note, created_at) VALUES (?, ?, ?, ?, ?, ?)')
     .run(childId, source, subject, ref, note, nowIso());
   return r.changes ? { id: Number(r.lastInsertRowid), source, note } : null;
+}
+
+/** Geschenk der Eltern als Ansporn. Davon darf es beliebig viele geben, darum bekommt jede Box eine eigene ref. */
+export function giftLootbox(childId, message) {
+  const note = message ? `Geschenk von deinen Eltern: „${message}“` : 'Geschenk von deinen Eltern';
+  return grantLootbox(childId, { source: 'gift', subject: '', ref: randomId(8), note });
 }
 
 /** Ungeöffnete Boxen und die zuletzt geöffneten. */

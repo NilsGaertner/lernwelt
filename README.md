@@ -6,11 +6,25 @@ Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch, Mathe und Geo
 
 **Englisch (Klasse 5, Grundlagen): 39 Stationen, gut 700 Wörter und Aufgaben**
 
+Jede Linie hat 3 Stationen und danach den Endbahnhof. So ist eine Linie in ein paar Tagen geschafft, und die Lootbox dafür bleibt in Reichweite. Wörter und Grammatik sind nach Themen gemischt, die zusammenpassen.
+
 | Linie | Stationen |
 |---|---|
-| Wörter-Linie (15) | Zahlen bis 20 und bis 100, Farben, Wochentage und Monate, Familie, Schule, Tiere, Essen, Körper, Kleidung, Zuhause, Freizeit, wichtige Verben, Adjektive, Wetter |
-| Grammatik-Linie (20) | I/you/he…, am/is/are, Verneinung und Fragen mit „to be“, a/an, Plural, have got, my/your/his…, Toms Fahrrad (’s), this/that/these/those, there is/are, Präpositionen, can/can’t, Fragewörter, Simple Present (-s), don’t/doesn’t, Do/Does-Fragen, always/often/never, Present Progressive, Simple Present oder Progressive?, me/him/her… |
-| Alltags-Linie (4) | Begrüßen und Vorstellen, Classroom English, Uhrzeit, Datum und Geburtstag |
+| Hallo-Linie | Begrüßen und Vorstellen, Familie, Fragewörter |
+| Ich-bin-Linie | I/you/he…, am/is/are, Verneinung und Fragen mit „to be“ |
+| Zahlen-Linie | Zahlen bis 20, Zahlen bis 100, Uhrzeit |
+| Nomen-Linie | a/an, Plural, this/that/these/those |
+| Kalender-Linie | Wochentage und Monate, Datum und Geburtstag, Wetter und Jahreszeiten |
+| Meins-Linie | have got, my/your/his…, Toms Fahrrad (’s) |
+| Schul-Linie | Classroom English, Schule, wichtige Verben |
+| Zuhause-Linie | Zuhause, Präpositionen, there is/are |
+| Aussehen-Linie | Körper, Kleidung, Farben |
+| Tier-Linie | Tiere, Adjektive, can/can’t |
+| Lieblings-Linie | Essen und Trinken, Freizeit, me/him/her… |
+| Simple-Present-Linie | Simple Present (-s), don’t/doesn’t, Do/Does-Fragen |
+| Jetzt-oder-immer-Linie | always/often/never, Present Progressive, Simple Present oder Progressive? |
+
+Früher gab es nur drei lange Englisch-Linien (Wörter, Grammatik, Alltag). Der Fortschritt der Stationen bleibt bei der neuen Aufteilung erhalten. Wer dort schon einen Endbahnhof bestanden hatte, behält die Goldkarte im Album unter „Frühere Linien“.
 
 Jede Station hat eine **„Merke“-Erklärung** auf Deutsch (kindgerecht, mit Beispielen und Vorlese-Knopf) und danach eine Übung mit 10 Aufgaben.
 
@@ -55,7 +69,7 @@ Die Blitzrunde selbst bringt keine Sterne, nur Rekorde und XP.
 
 Hat dein Kind eine Station **5-mal mit 3 Sternen** geschafft, kommt sie aufs **Abstellgleis**: Sie ist auf dem Netzplan grau markiert und bringt keine Sterne mehr (auch keine doppelten). Üben geht dort weiterhin. Bis dahin zeigt der Netzplan den Stand, z. B. „🎁 3/5“. Die Zahl stellst du im Elternbereich unter den Regeln ein (0 = kein Abstellgleis). Beim Kind unter **Stationen** kannst du eine Station mit „Reaktivieren“ für ein paar Fahrten zurückholen. Danach steht sie wieder auf dem Abstellgleis.
 
-Eine **Lootbox** gibt es einmalig, wenn eine Station aufs Abstellgleis kommt und wenn der Endbahnhof einer Linie zum ersten Mal bestanden ist. Dein Kind sammelt die Boxen (🎁 oben in der Leiste) und öffnet sie, wann es will. Erst beim Öffnen wird ausgelost, was drin ist:
+Eine **Lootbox** gibt es einmalig, wenn eine Station aufs Abstellgleis kommt und wenn der Endbahnhof einer Linie zum ersten Mal bestanden ist. Außerdem kannst du deinem Kind im Elternbereich (beim Kind unter **Lootboxen**) als Ansporn bis zu 5 Boxen auf einmal schenken, mit einer kurzen Nachricht, die es auf der Box liest. Geschenkte Boxen haben eine eigene Farbe, und der Netzplan sagt „Deine Eltern haben dir eine Lootbox geschenkt!“. Dein Kind sammelt die Boxen (🎁 oben in der Leiste) und öffnet sie, wann es will. Erst beim Öffnen wird ausgelost, was drin ist:
 
 | Medienzeit | Wahrscheinlichkeit |
 |---|---|
@@ -64,7 +78,7 @@ Eine **Lootbox** gibt es einmalig, wenn eine Station aufs Abstellgleis kommt und
 | 15 Minuten | 15 % |
 | 20 Minuten | 5 % |
 
-Die Minuten werden als Sterne gutgeschrieben (Minuten ÷ Minuten pro Stern, aufgerundet) und **zählen nicht zum Tageslimit**. Erwachsenen-Profile bekommen keine Boxen.
+Die Minuten werden als Sterne gutgeschrieben (Minuten ÷ Minuten pro Stern, aufgerundet) und **zählen nicht zum Tageslimit**. Das gilt auch für geschenkte Boxen. Erwachsenen-Profile bekommen keine Boxen.
 
 Nach einer geschafften Fahrt (ab 2 Sternen) schlägt die Ankunft den **nächsten Halt** vor: eine Station, die heute noch nicht dran war, am liebsten eine ohne 3 Sterne. „Nochmal fahren“ gibt es weiterhin, aber nur als zweite Wahl. Auch auf einer Station, die heute schon geschafft wurde oder auf dem Abstellgleis steht, zeigt die Seite den Weg zum nächsten Halt.
 
@@ -210,7 +224,7 @@ Alle Lerninhalte liegen als JSON-Dateien in `content/<fach>/`. Nach einer Änder
 ```json
 {
   "id": "colours",
-  "line": "words",
+  "line": "aussehen",
   "order": 3,
   "title": "Colours",
   "subtitle": "Farben",
@@ -237,7 +251,7 @@ Alle Lerninhalte liegen als JSON-Dateien in `content/<fach>/`. Nach einer Änder
 - **Karten**: `"map": "welt", "mark": "afrika"` zeigt in einer Aufgabe die Karte `content/<fach>/media/welt.svg` und hebt das Gebiet mit der id `afrika` hervor. Im „Merke“ zeigt `{ "map": "welt", "legend": [["afrika", "Afrika"], …] }` die Karte mit bunt gefärbten Gebieten und Legende. `npm run check` meldet fehlende Karten und Gebiete.
 - **`"enabled": false`** in einer Stationsdatei blendet diese Station aus.
 - **`"card"`**: eigener Text für die Sammelkarte der Station. Ohne dieses Feld steht der erste Merksatz auf der Karte.
-- **Blitzrunden** stehen in der `subject.json` des Fachs, z. B. `"blitz": [{ "id": "quadrate", "title": "Quadratzahlen-Blitz", "units": ["quadrat-11-15"] }]`. Statt `units` geht auch `"line": "words"` für eine ganze Linie. Mit `"types": ["choice"]` kommen nur Auswahlaufgaben dran.
+- **Blitzrunden** stehen in der `subject.json` des Fachs, z. B. `"blitz": [{ "id": "quadrate", "title": "Quadratzahlen-Blitz", "units": ["quadrat-11-15"] }]`. Statt `units` geht auch `"line": "zahlen"` für eine ganze Linie. Mit `"types": ["choice"]` kommen nur Auswahlaufgaben dran.
 
 ### Ein neues Fach (z. B. Deutsch)
 
@@ -251,6 +265,8 @@ Alle Lerninhalte liegen als JSON-Dateien in `content/<fach>/`. Nach einer Änder
    ```
    Für Fremdsprachen zusätzlich `"speechLang": "fr-FR"` (o. Ä.) angeben, dann wird vorgelesen.
 3. Stationen wie oben als eigene Dateien daneben legen.
+
+Am besten hat jede Linie 3 Stationen: Dann ist der Endbahnhof (mit Lootbox) schnell erreicht. Teilst du die Linien eines Fachs später neu auf, trag die alten unter `"formerLines": [{ "id": "…", "name": "…" }]` ein. Dann behalten schon bestandene Endbahnhöfe ihre Goldkarte, und das Fahrtenbuch zeigt weiter den Namen der Linie.
 
 Sobald es mehr als ein Fach gibt, erscheinen oben auf dem Netzplan Reiter zum Umschalten. Sterne, Abzeichen und Tickets gelten fächerübergreifend.
 

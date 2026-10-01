@@ -226,6 +226,11 @@ export function lineStatus(childId) {
         best: e?.best ?? null,
       };
     }
+    // Frühere Linien (nach einer Neuaufteilung): nur, wenn der Endbahnhof dort schon bestanden war
+    for (const line of meta.formerLines ?? []) {
+      const e = exams.find((x) => x.subject === sid && x.line === line.id);
+      if (e?.passed) out[sid][line.id] = { unlocked: false, passed: true, best: e.best, former: true };
+    }
   }
   return out;
 }

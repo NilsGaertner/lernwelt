@@ -1,7 +1,7 @@
 {
   "id": "weather",
-  "line": "words",
-  "order": 15,
+  "line": "kalender",
+  "order": 3,
   "title": "Weather and seasons",
   "subtitle": "Wetter und Jahreszeiten",
   "icon": "🌦️",

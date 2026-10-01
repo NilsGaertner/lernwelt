@@ -9,7 +9,7 @@ const minutesText = (m) => `${m} ${m === 1 ? 'Minute' : 'Minuten'}`;
  */
 export function lootbox(childId, box, { onOpened } = {}) {
   const wrap = h('.lootbox');
-  const btn = h('button.lb-closed', { type: 'button', 'aria-label': `Lootbox öffnen: ${box.note}`, onclick: open },
+  const btn = h('button.lb-closed', { type: 'button', class: box.source === 'gift' ? 'gift' : '', 'aria-label': `Lootbox öffnen: ${box.note}`, onclick: open },
     h('span.lb-icon', { 'aria-hidden': 'true' }, '🎁'),
     h('span.lb-note', box.note),
     h('span.lb-cta', 'Antippen zum Öffnen'));

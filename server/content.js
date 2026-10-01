@@ -172,6 +172,8 @@ export function publicSubjects() {
       icon: meta.icon,
       speechLang: meta.speechLang ?? null,
       lines: meta.lines ?? [{ id: 'main', name: meta.name, color: '#0072CE' }],
+      // Linien, die es nicht mehr gibt – nur, damit schon bestandene Endbahnhöfe ihre Goldkarte behalten
+      formerLines: meta.formerLines ?? [],
       blitz: (meta.blitz ?? []).map((t) => ({ id: t.id, title: t.title, icon: t.icon ?? '⚡', subtitle: t.subtitle ?? '' })),
       units: [...units.values()].map((u) => ({
         id: u.id,

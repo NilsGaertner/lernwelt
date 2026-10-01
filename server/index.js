@@ -13,7 +13,7 @@ import {
   streakInfo, xpOf, rankInfo, unlockedTrains, RANKS, dailyPlan, stampDays, stampCount, lineStatus, blitzBests, blitzRecords, blitzTopics,
   lineUnits, nextStation, setStationState, notArchivedSql,
 } from './progress.js';
-import { lootboxes, openLootbox } from './lootbox.js';
+import { lootboxes, openLootbox, giftLootbox } from './lootbox.js';
 
 const PORT = Number(process.env.PORT) || 8080;
 const problems = await loadContent();
@@ -366,6 +366,19 @@ parent.post('/children/:id/stars', (req, res) => {
   res.json({ balance: adjustStars(child.id, amount, String(req.body?.note ?? '').trim().slice(0, 80)) });
 });
 
+// Lootbox als Ansporn schenken (mit kurzer Nachricht, die das Kind auf der Box sieht)
+parent.post('/children/:id/lootboxes', (req, res) => {
+  const child = childOr404(req.params.id);
+  if (child.adult) throw fail(400, 'Erwachsenen-Profile bekommen keine Lootboxen.');
+  const count = Math.trunc(Number(req.body?.count ?? 1));
+  if (!Number.isFinite(count) || count < 1 || count > 5) throw fail(400, 'Bitte 1 bis 5 Lootboxen auswählen.');
+  const message = String(req.body?.message ?? '').trim().replace(/\s+/g, ' ').slice(0, 60);
+  transaction(() => {
+    for (let i = 0; i < count; i++) giftLootbox(child.id, message);
+  });
+  res.json({ lootboxes: lootboxes(child.id, 20) });
+});
+
 parent.post('/tickets/:id', (req, res) => {
   const status = req.body?.status;
   if (!['approved', 'rejected'].includes(status)) throw fail(400, 'Unbekannte Entscheidung.');
@@ -461,7 +474,8 @@ function sessionTitle(s) {
   if (s.mode === 'review') return '🔧 Fehler-Training';
   if (s.mode === 'blitz') return `⚡ ${blitzTopics(s.subject).find((t) => t.id === s.unit_id)?.title ?? 'Blitzrunde'}`;
   if (s.mode === 'exam') {
-    const line = subjects.get(s.subject)?.meta.lines?.find((l) => l.id === s.unit_id);
+    const meta = subjects.get(s.subject)?.meta;
+    const line = [...(meta?.lines ?? []), ...(meta?.formerLines ?? [])].find((l) => l.id === s.unit_id);
     return `🏁 Endbahnhof ${line?.name ?? s.unit_id}`;
   }
   return unitTitle(s.subject, s.unit_id);

@@ -1,7 +1,7 @@
 {
   "id": "plural",
-  "line": "grammar",
-  "order": 5,
+  "line": "nomen",
+  "order": 2,
   "title": "one cat – two cats",
   "subtitle": "Die Mehrzahl (Plural)",
   "icon": "🐈",

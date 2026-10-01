@@ -5,12 +5,33 @@
   "order": 1,
   "speechLang": "en-GB",
   "lines": [
-    { "id": "words", "name": "Wörter-Linie", "short": "Wörter", "color": "#1F6FD1" },
-    { "id": "grammar", "name": "Grammatik-Linie", "short": "Grammatik", "color": "#0E8A4B" },
-    { "id": "everyday", "name": "Alltags-Linie", "short": "Alltag", "color": "#8B3FA3" }
+    { "id": "hallo", "name": "Hallo-Linie", "short": "Hallo", "color": "#1F6FD1" },
+    { "id": "ichbin", "name": "Ich-bin-Linie", "short": "Ich bin", "color": "#0B7D44" },
+    { "id": "zahlen", "name": "Zahlen-Linie", "short": "Zahlen", "color": "#C0392B" },
+    { "id": "nomen", "name": "Nomen-Linie", "short": "Nomen", "color": "#8B3FA3" },
+    { "id": "kalender", "name": "Kalender-Linie", "short": "Kalender", "color": "#00838F" },
+    { "id": "meins", "name": "Meins-Linie", "short": "Meins", "color": "#AD1457" },
+    { "id": "schule", "name": "Schul-Linie", "short": "Schule", "color": "#3949AB" },
+    { "id": "zuhause", "name": "Zuhause-Linie", "short": "Zuhause", "color": "#6D4C41" },
+    { "id": "aussehen", "name": "Aussehen-Linie", "short": "Aussehen", "color": "#C2410C" },
+    { "id": "tiere", "name": "Tier-Linie", "short": "Tiere", "color": "#5B7A12" },
+    { "id": "lieblings", "name": "Lieblings-Linie", "short": "Lieblings", "color": "#9C5B00" },
+    { "id": "present", "name": "Simple-Present-Linie", "short": "Simple Present", "color": "#5E35B1" },
+    { "id": "jetzt", "name": "Jetzt-oder-immer-Linie", "short": "Jetzt oder immer", "color": "#455A64" }
+  ],
+  "formerLines": [
+    { "id": "words", "name": "Wörter-Linie", "color": "#1F6FD1" },
+    { "id": "grammar", "name": "Grammatik-Linie", "color": "#0E8A4B" },
+    { "id": "everyday", "name": "Alltags-Linie", "color": "#8B3FA3" }
   ],
   "blitz": [
-    { "id": "woerter", "title": "Wörter-Blitz", "icon": "⚡", "subtitle": "Englische Wörter so schnell du kannst", "line": "words", "types": ["choice"] },
-    { "id": "grammatik", "title": "Grammatik-Blitz", "icon": "🌩️", "subtitle": "Welche Form passt?", "line": "grammar", "types": ["choice"] }
+    {
+      "id": "woerter", "title": "Wörter-Blitz", "icon": "⚡", "subtitle": "Englische Wörter so schnell du kannst", "types": ["choice"],
+      "units": ["numbers", "numbers-100", "colours", "days-months", "family", "school", "animals", "food", "body", "clothes", "home", "free-time", "verbs", "adjectives", "weather"]
+    },
+    {
+      "id": "grammatik", "title": "Grammatik-Blitz", "icon": "🌩️", "subtitle": "Welche Form passt?", "types": ["choice"],
+      "units": ["pronouns", "to-be", "to-be-not", "a-an", "plural", "have-got", "possessives", "genitive", "this-that", "there-is", "prepositions", "can", "question-words", "simple-present", "dont-doesnt", "do-does", "frequency", "present-progressive", "present-vs-progressive", "object-pronouns"]
+    }
   ]
 }

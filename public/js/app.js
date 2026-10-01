@@ -239,8 +239,12 @@ async function homeView(id, subjectId) {
     : null;
   const boostNote = ov.child.adult ? null : boostBanner(id, meta, ov.boost, subject.id);
   const boxes = ov.lootboxes.closed.length;
+  const gifts = ov.lootboxes.closed.filter((b) => b.source === 'gift').length;
   const lootNote = boxes
-    ? h('p.loot-note', `🎁 Du hast ${boxes === 1 ? 'eine ungeöffnete Lootbox' : `${boxes} ungeöffnete Lootboxen`}! `,
+    ? h('p.loot-note', { class: gifts ? 'gift' : '' },
+        gifts
+          ? `💌 Deine Eltern haben dir ${gifts === 1 ? 'eine Lootbox' : `${gifts} Lootboxen`} geschenkt! `
+          : `🎁 Du hast ${boxes === 1 ? 'eine ungeöffnete Lootbox' : `${boxes} ungeöffnete Lootboxen`}! `,
         h('a', { href: `#/kid/${id}/boxen` }, 'Jetzt öffnen →'))
     : null;
   const retireAfter = ov.settings.retireAfter;
@@ -593,7 +597,8 @@ function albumPanel(id, meta, ov) {
         return h('div.album-line', { style: { '--line': line.color } },
           h('h3.line-pill', line.name),
           h('.album', gold, cards));
-      }));
+      }),
+      formerGold(subject, ov.lines[subject.id] ?? {}, () => { owned++; total++; }));
   });
   return [
     h('section.panel',
@@ -602,6 +607,16 @@ function albumPanel(id, meta, ov) {
       h('.meter', h('span', { style: { width: `${total ? (owned / total) * 100 : 0}%` } }))),
     ...sections,
   ];
+}
+
+/** Goldkarten von Linien, die es nach einer Neuaufteilung nicht mehr gibt – einmal verdient, bleiben sie im Album. */
+function formerGold(subject, status, count) {
+  const passed = (subject.formerLines ?? []).filter((l) => status[l.id]?.passed);
+  if (!passed.length) return null;
+  passed.forEach(count);
+  return h('div.album-line', { style: { '--line': '#8A6D1F' } },
+    h('h3.line-pill', 'Frühere Linien'),
+    h('.album', passed.map((line) => albumCard({ ...lineCard(subject, line), owned: true, gold: true }))));
 }
 
 /** Kleine Karte im Album; antippen zeigt sie groß. */
@@ -699,8 +714,8 @@ async function boxesView(id) {
   const { closed, opened } = ov.lootboxes;
   const retireAfter = ov.settings.retireAfter;
   const how = retireAfter > 0
-    ? `Eine Lootbox bekommst du, wenn du eine Station ${retireAfter}× mit 3 Sternen schaffst (dann kommt sie aufs Abstellgleis) und wenn du zum ersten Mal den Endbahnhof einer Linie bestehst.`
-    : 'Eine Lootbox bekommst du, wenn du zum ersten Mal den Endbahnhof einer Linie bestehst.';
+    ? `Eine Lootbox bekommst du, wenn du eine Station ${retireAfter}× mit 3 Sternen schaffst (dann kommt sie aufs Abstellgleis) und wenn du zum ersten Mal den Endbahnhof einer Linie bestehst. Manchmal schenken dir auch deine Eltern eine.`
+    : 'Eine Lootbox bekommst du, wenn du zum ersten Mal den Endbahnhof einer Linie bestehst. Manchmal schenken dir auch deine Eltern eine.';
   render(
     kidBar(ov),
     h('section.panel',

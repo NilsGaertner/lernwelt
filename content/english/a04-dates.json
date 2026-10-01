@@ -1,7 +1,7 @@
 {
   "id": "dates",
-  "line": "everyday",
-  "order": 4,
+  "line": "kalender",
+  "order": 2,
   "title": "When is your birthday?",
   "subtitle": "Ordnungszahlen und Datum",
   "icon": "🎂",

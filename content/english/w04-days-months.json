@@ -1,7 +1,7 @@
 {
   "id": "days-months",
-  "line": "words",
-  "order": 4,
+  "line": "kalender",
+  "order": 1,
   "title": "Days and months",
   "subtitle": "Wochentage und Monate",
   "icon": "📅",

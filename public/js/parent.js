@@ -524,15 +524,33 @@ async function childView(root, id, render) {
         })))))));
 
   const loot = d.lootboxes;
-  const lootPanel = loot.closed.length || loot.opened.length
-    ? h('section.panel',
-        h('h2', '🎁 Lootboxen'),
-        h('p.muted', `Noch ungeöffnet: ${loot.closed.length}${loot.closed.length ? ` (${loot.closed.map((b) => b.note).join(', ')})` : ''}. Die Sterne aus einer Box zählen nicht zum Tageslimit.`),
-        loot.opened.length
-          ? h('ul.pending-list', loot.opened.map((b) =>
-              h('li', h('.what', h('strong', `${b.minutes} Minuten · +${b.stars} ★`), h('div.muted.small', `${b.note} · geöffnet ${relDay(b.opened_at)}`)))))
-          : null)
-    : null;
+  const giftCount = h('input.input.tiny', { type: 'number', id: 'gift-count', min: 1, max: 5, value: 1, required: true });
+  const giftMessage = h('input.input', { id: 'gift-message', maxlength: 60, placeholder: 'z. B. Super geübt diese Woche!' });
+  const gift = h('form.gift-form', {
+    onsubmit: async (e) => {
+      e.preventDefault();
+      const n = Number(giftCount.value);
+      try {
+        await papi(`/children/${id}/lootboxes`, { method: 'POST', body: { count: n, message: giftMessage.value } });
+        toast(n === 1 ? 'Lootbox verschenkt.' : `${n} Lootboxen verschenkt.`);
+        refresh();
+      } catch (err) { toast(err.message); }
+    },
+  },
+    h('h3', 'Lootbox schenken'),
+    h('p.muted.small', 'Als Ansporn oder kleine Belohnung. Dein Kind findet sie oben unter 🎁, mit deiner Nachricht darauf. Was drin ist, wird erst beim Öffnen ausgelost.'),
+    h('.form-grid',
+      h('.field', h('label', { for: 'gift-count' }, 'Anzahl'), giftCount),
+      h('.field', h('label', { for: 'gift-message' }, 'Nachricht (optional, sieht das Kind)'), giftMessage)),
+    h('button.btn', { type: 'submit' }, '🎁 Schenken'));
+  const lootPanel = d.child.adult ? null : h('section.panel',
+    h('h2', '🎁 Lootboxen'),
+    h('p.muted', `Noch ungeöffnet: ${loot.closed.length}${loot.closed.length ? ` (${loot.closed.map((b) => b.note).join(', ')})` : ''}. Die Sterne aus einer Box zählen nicht zum Tageslimit.`),
+    loot.opened.length
+      ? h('ul.pending-list', loot.opened.map((b) =>
+          h('li', h('.what', h('strong', `${b.minutes} Minuten · +${b.stars} ★`), h('div.muted.small', `${b.note} · geöffnet ${relDay(b.opened_at)}`)))))
+      : null,
+    gift);
 
   const sessions = h('section.panel',
     h('h2', '📖 Letzte Fahrten'),

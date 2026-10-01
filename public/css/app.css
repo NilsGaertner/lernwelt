@@ -961,6 +961,11 @@ table.log tbody tr.log-day:first-child th { padding-top: 6px; }
 .lb-list .what { flex: 1; }
 .lb-list .amt { font-family: var(--font-display); color: var(--star-ink); white-space: nowrap; }
 .box-btn .lvl { background: #8b3fa3; color: #fff; }
+/* Geschenk der Eltern: eigene Farbe, damit das Kind es gleich erkennt */
+.lb-closed.gift { background: linear-gradient(150deg, #c2185b, #d7263d 60%, #b45309); }
+.loot-note.gift { background: linear-gradient(120deg, #d7263d, #e0457b); }
+.gift-form { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule); }
+.gift-form h3 { margin: 0 0 4px; }
 
 /* Elternbereich: Stationen verwalten */
 table.data.units tr.archived td { color: var(--muted); }

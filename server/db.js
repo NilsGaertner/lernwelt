@@ -130,7 +130,8 @@ CREATE TABLE IF NOT EXISTS unit_state (
   PRIMARY KEY (child_id, subject, unit_id)
 );
 
--- Lootboxen: source 'station' (Station aufs Abstellgleis gebracht) oder 'line' (Endbahnhof bestanden), ref = Station bzw. Linie.
+-- Lootboxen: source 'station' (Station aufs Abstellgleis gebracht), 'line' (Endbahnhof bestanden) oder 'gift' (Geschenk der Eltern),
+-- ref = Station, Linie bzw. eine Zufalls-ID.
 -- Der Inhalt wird erst beim Öffnen ausgelost.
 CREATE TABLE IF NOT EXISTS lootboxes (
   id INTEGER PRIMARY KEY,
