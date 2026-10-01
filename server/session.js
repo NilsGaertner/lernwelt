@@ -156,6 +156,14 @@ function exerciseQuestion(subjectId, cand, canSpeak) {
   const speakable = ex.type === 'order' || /_{3,}/.test(ex.q ?? '');
   const speak = canSpeak && speakable && ex.speak !== false ? filled : null;
   const base = { explain: ex.explain ?? null, speak, strict: !!ex.strict };
+  if (ex.type === 'column') {
+    return {
+      ...base,
+      speak: null,
+      pub: { type: 'column', prompt: ex.task ?? 'Rechne schriftlich.', op: ex.op ?? 'add', rows: ex.rows, carry: ex.carry !== false },
+      expected: [ex.answer], qtype: 'column',
+    };
+  }
   if (ex.type === 'choice') {
     return {
       ...base,
@@ -221,7 +229,7 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     candidates = lineUnits(subjectId, lineId).filter(inService).flatMap((u) => unitCandidates(subjectId, u, count));
     title = `Endbahnhof ${line.short ?? line.name}`;
     refId = line.id;
-    count = Math.max(12, Math.round(count * 1.5));
+    count = line.examCount ?? Math.max(12, Math.round(count * 1.5));
   } else if (mode === 'blitz') {
     const topic = blitzTopics(subjectId).find((t) => t.id === topicId);
     if (!topic) throw httpError(404, 'Diese Blitzrunde gibt es nicht.');

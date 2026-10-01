@@ -1,0 +1,20 @@
+{
+  "id": "schriftlich-ohne",
+  "line": "schriftlich-plus",
+  "order": 21,
+  "title": "Untereinander rechnen",
+  "subtitle": "Schriftlich plus, ohne Übertrag",
+  "icon": "📝",
+  "card": "Wusstest du? **Summe** kommt vom lateinischen „summa“ – das heißt „die oberste“. Die alten Römer haben von unten nach oben gerechnet und das Ergebnis oben hingeschrieben.",
+  "generator": "schriftlich",
+  "params": { "terms": 2, "digits": [2, 3], "carry": false },
+  "itemCount": 100,
+  "explain": [
+    { "p": "Bei größeren Zahlen hilft das **schriftliche Addieren**. Du schreibst die Zahlen so untereinander, dass **Einer unter Einern**, Zehner unter Zehnern und Hunderter unter Hundertern stehen. Unter die Zahlen kommt ein Strich, darunter das Ergebnis." },
+    { "column": { "rows": ["432", "245"], "caption": "432 + 245 = **677**" } },
+    { "tip": "Du fängst immer **rechts bei den Einern** an: 2 + 5 = 7. Dann die Zehner: 3 + 4 = 7. Dann die Hunderter: 4 + 2 = 6." },
+    { "p": "Ist eine Zahl kürzer, steht sie trotzdem **rechts bündig** – die Einer stehen immer ganz rechts:" },
+    { "column": { "rows": ["563", "34"], "caption": "563 + 34 = **597**" } },
+    { "tip": "So geht es in der Lernwelt: Tippe die Ziffern über die Zahlentasten ein. Das Kästchen springt danach von selbst eine Stelle nach links. Mit ⌫ löschst du." }
+  ]
+}

@@ -1,4 +1,4 @@
-import { h, md, gapText, speak, canSpeak, sfx, escapeHtml, mapFigure, confetti, countUp, rankMeter, toast, guardBack } from './ui.js';
+import { h, md, gapText, speak, canSpeak, sfx, escapeHtml, mapFigure, confetti, countUp, rankMeter, toast, guardBack, columnMath, columnSum, columnSteps } from './ui.js';
 import { api } from './api.js';
 import { lootbox } from './lootbox.js';
 
@@ -26,6 +26,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
   let pos = 0;
   let busy = false;
   let onEnter = null;
+  let onKey = null;
   let combo = 0;
   let ended = false;
   const keys = new AbortController();
@@ -53,6 +54,8 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     if (e.key === 'Enter' && onEnter) {
       e.preventDefault();
       onEnter();
+    } else if (onKey?.(e.key)) {
+      e.preventDefault();
     } else if (/^[1-4]$/.test(e.key) && !e.target.matches('input')) {
       stage.querySelectorAll('.options .opt')[Number(e.key) - 1]?.click();
     }
@@ -90,6 +93,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
   function show() {
     document.querySelectorAll('.sheet, .dock').forEach((el) => el.remove());
     onEnter = null;
+    onKey = null;
     busy = false;
     updateTrack();
     const { q, retry } = queue[pos];
@@ -121,6 +125,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       case 'input': return inputArea(q);
       case 'order': return orderArea(q);
       case 'match': return matchArea(q);
+      case 'column': return columnArea(q);
       default: return h('p', 'Unbekannter Aufgabentyp');
     }
   }
@@ -241,6 +246,142 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     return h('.match', col(shuffle([...pairs.keys()]), 'en'), col(shuffle([...pairs.values()]), 'de'));
   }
 
+  /**
+   * Schriftlich rechnen: Ziffern über das eigene Zahlenfeld eintippen (keine Handy-Tastatur, die alles verdeckt).
+   * Nach jeder Ziffer springt das Kästchen eine Stelle nach links – wie im Heft von den Einern aus.
+   * Überträge sind eine Hilfe zum Merken, gewertet wird nur das Ergebnis.
+   */
+  function columnArea(q) {
+    const maxLen = Math.max(...q.rows.map((r) => r.length));
+    // Beim Plus mit Übertrag bleibt links eine Stelle frei – sonst verrät die Breite, ob vorne noch eine Ziffer kommt.
+    // Beim Minus wird das Ergebnis nie länger als die obere Zahl.
+    const width = q.carry && q.op !== 'sub' ? maxLen + 1 : maxLen;
+    const result = new Array(width).fill('');
+    const carry = new Array(width).fill('');
+    const resCells = [];
+    const carryCells = [];
+    // Reihenfolge wie im Heft: Ergebnis rechts unten, dann der Übertrag der nächsten Spalte, dann deren Ergebnis …
+    const order = [];
+    for (let col = width - 1; col >= 0; col--) {
+      if (q.carry && col < width - 1) order.push({ row: 'carry', col });
+      order.push({ row: 'res', col });
+    }
+    const idx = (row, col) => order.findIndex((o) => o.row === row && o.col === col);
+    let cur = order[0];
+    const vals = (row) => (row === 'res' ? result : carry);
+    const cellOf = (row, col) => (row === 'res' ? resCells : carryCells)[col];
+
+    let carryKey = null;
+    const select = (row, col) => {
+      cur = { row, col };
+      [...resCells, ...carryCells].forEach((c) => c?.classList.remove('cur'));
+      cellOf(row, col)?.classList.add('cur');
+      // Im Übertrags-Kästchen heißt die Taste „Weiter“: kein Übertrag, ab zum Ergebnis.
+      if (carryKey) carryKey.textContent = row === 'carry' ? 'Weiter' : 'Übertrag';
+    };
+    const step = (dir) => {
+      const o = order[idx(cur.row, cur.col) + dir];
+      if (o) select(o.row, o.col);
+      return !!o;
+    };
+    const paint = () => {
+      resCells.forEach((c, i) => { c.textContent = result[i]; });
+      carryCells.forEach((c, i) => { if (c) c.textContent = carry[i]; });
+    };
+    const press = (k) => {
+      if (busy) return;
+      if (/^\d$/.test(k)) {
+        // Übertrag 0 heißt: kein Übertrag – das Kästchen bleibt leer.
+        vals(cur.row)[cur.col] = cur.row === 'carry' && k === '0' ? '' : k;
+        step(1);
+      } else if (k === 'back') {
+        // Wie beim Radiergummi: erst das aktuelle Kästchen, sonst das davor.
+        // Leere Übertrags-Kästchen werden dabei übersprungen.
+        if (vals(cur.row)[cur.col]) vals(cur.row)[cur.col] = '';
+        else if (step(-1)) {
+          while (cur.row === 'carry' && !carry[cur.col] && step(-1));
+          vals(cur.row)[cur.col] = '';
+        }
+      } else if (k === 'carry') {
+        if (cur.row === 'carry') step(1);
+        else if (carryCells[cur.col]) select('carry', cur.col);
+      } else if (k === 'left' || k === 'right') {
+        const col = cur.col + (k === 'left' ? -1 : 1);
+        if (col >= 0 && col < width) select(cellOf(cur.row, col) ? cur.row : 'res', col);
+      }
+      paint();
+    };
+    onKey = (key) => {
+      const k = /^\d$/.test(key) ? key
+        : { Backspace: 'back', Delete: 'back', ArrowLeft: 'left', ArrowRight: 'right', ArrowUp: 'carry', ArrowDown: 'carry', Tab: q.carry ? 'carry' : null }[key];
+      if (!k || (k === 'carry' && !q.carry)) return false;
+      press(k);
+      return true;
+    };
+
+    const grid = columnSum(q.rows, {
+      width,
+      op: q.op,
+      // In die Einer-Spalte kommt nie ein Übertrag.
+      carryCell: q.carry
+        ? (col) => (carryCells[col] = col < width - 1
+            ? h('button.cs-carry.cs-in', { type: 'button', 'aria-label': `Übertrag ${col + 1}. Stelle`, onclick: () => !busy && select('carry', col) })
+            : null) ?? h('span.cs-carry')
+        : null,
+      resultCell: (col) => (resCells[col] = h('button.cs-r.cs-line.cs-in', {
+        type: 'button', 'aria-label': `Ergebnis ${col + 1}. Stelle`, onclick: () => !busy && select('res', col),
+      })),
+    });
+    grid.removeAttribute('role');
+    grid.removeAttribute('aria-label');
+
+    const key = (label, k, cls = '') => h('button', { type: 'button', class: cls, onclick: () => press(k) }, label);
+    if (q.carry) carryKey = key('Übertrag', 'carry', 'k-carry');
+    const pad = h('.keypad',
+      ['1', '2', '3', '4', '5', '6', '7', '8', '9'].map((d) => key(d, d)),
+      carryKey ?? h('span'),
+      key('0', '0'),
+      h('button.k-back', { type: 'button', 'aria-label': 'Löschen', onclick: () => press('back') }, '⌫'));
+    select(cur.row, cur.col);
+
+    const check = async () => {
+      if (busy) return;
+      const typed = result.join('');
+      const first = result.findIndex(Boolean);
+      // Lücken mitten im Ergebnis sind ein Vertipper, kein Fehler.
+      if (!typed || result.slice(first).some((d) => !d)) {
+        grid.classList.add('shake');
+        setTimeout(() => grid.classList.remove('shake'), 350);
+        if (typed) toast('Da fehlt noch eine Ziffer.');
+        return;
+      }
+      [...resCells, ...carryCells].forEach((c) => c?.classList.remove('cur'));
+      const answer = typed.replace(/^0+(?=\d)/, '');
+      const given = answer.padStart(width, ' ');
+      const res = await submit(q, answer);
+      if (!res) return select(cur.row, cur.col);
+      // Unter dem Strich steht jetzt die richtige Rechnung: falsche Ziffern rot, Überträge eingeblendet.
+      const m = columnMath(q.rows, { width, op: q.op });
+      resCells.forEach((c, i) => {
+        const want = m.total[i].trim();
+        const had = given[i].trim();
+        c.textContent = want;
+        if (want || had) c.classList.add(had === want ? 'ok' : 'fix');
+      });
+      if (!res.correct) {
+        carryCells.forEach((c, i) => {
+          if (!c) return;
+          const want = m.carries[i] ? String(m.carries[i]) : '';
+          if (want !== carry[i]) c.classList.add('shown');
+          c.textContent = want;
+        });
+      }
+    };
+    onEnter = check;
+    dock(h('button.btn.line.big', { type: 'button', onclick: check }, 'Prüfen'));
+    return h('.col-work', grid, pad);
+  }
+
   function dock(button) {
     document.body.append(h('.dock', { style: { '--line': lineColor } }, h('.dock-inner', button)));
   }
@@ -329,6 +470,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     } else {
       title = res.almost ? 'Fast! Nur ein Buchstabe falsch.' : 'Nicht ganz.';
       lines.push(h('p.solution', { html: `Richtig ist: ${md(res.solution)}` }));
+      if (q.type === 'column') lines.push(columnSteps(q.rows, { op: q.op }));
       if (res.reveal) lines.push(h('p.explain', { html: `Das Wort war: <strong>${escapeHtml(res.reveal)}</strong>` }));
       if (res.explain) lines.push(h('div.explain', { html: `<p>${md(res.explain)}</p>` }));
       if (res.firstTry) lines.push(h('p.explain', 'Diese Aufgabe kommt am Ende nochmal.'));

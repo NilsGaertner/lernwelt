@@ -1,4 +1,4 @@
-import { h, md, starRow, toast, prefs, speak, canSpeak, mapFigure, rankMeter, sfx } from './ui.js';
+import { h, md, starRow, toast, prefs, speak, canSpeak, mapFigure, rankMeter, sfx, columnSum } from './ui.js';
 import { api } from './api.js';
 import { runRide, collectCard } from './player.js';
 import { runBlitz, runChart, familyBoard } from './blitz.js';
@@ -129,6 +129,7 @@ export function renderExplain(blocks, speechLang) {
         h('li', sayBtn(en.replace(/\*\*/g, '')) ?? h('span'), h('span.en', { html: md(en) }), h('span.de', de))));
     }
     if (b.map) return mapFigure(b.map, { legend: b.legend ?? [] });
+    if (b.column) return h('figure.colsum-figure', columnSum(b.column.rows, { op: b.column.op }), b.column.caption ? h('figcaption', { html: md(b.column.caption) }) : null);
     if (b.table) {
       return h('.table-wrap', h('table',
         b.table.head ? h('thead', h('tr', b.table.head.map((c) => h('th', { html: md(c) })))) : null,

@@ -1,0 +1,20 @@
+{
+  "id": "minus-ohne",
+  "line": "schriftlich-minus",
+  "order": 31,
+  "title": "Minus untereinander",
+  "subtitle": "Schriftlich minus, ohne Übertrag",
+  "icon": "📝",
+  "card": "Wusstest du? Das **Minuszeichen** und das **Pluszeichen** wurden 1489 zum ersten Mal gedruckt – in einem Rechenbuch von Johannes Widmann aus Leipzig.",
+  "generator": "schriftlich",
+  "params": { "op": "sub", "digits": [2, 3], "carry": false },
+  "itemCount": 100,
+  "explain": [
+    { "p": "Auch beim **schriftlichen Subtrahieren** stehen Einer unter Einern, Zehner unter Zehnern und Hunderter unter Hundertern. Oben steht die große Zahl, darunter die Zahl, die du abziehst." },
+    { "column": { "rows": ["786", "352"], "op": "sub", "caption": "786 − 352 = **434**" } },
+    { "tip": "Du rechnest wieder von **rechts nach links**. Dabei **ergänzt** du von der unteren bis zur oberen Ziffer: Wie viel fehlt? 2 + **4** = 6 → schreib 4. 5 + **3** = 8 → schreib 3. 3 + **4** = 7 → schreib 4." },
+    { "p": "Ist die untere Zahl kürzer, steht sie trotzdem **rechts bündig**:" },
+    { "column": { "rows": ["958", "43"], "op": "sub", "caption": "958 − 43 = **915**" } },
+    { "tip": "Probe: Ergebnis plus untere Zahl muss die obere Zahl ergeben. 434 + 352 = 786 – passt!" }
+  ]
+}

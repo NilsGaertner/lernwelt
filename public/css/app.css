@@ -407,6 +407,54 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 .type-in.right { border-color: var(--go); background: var(--go-bg); }
 .type-in.wrong { border-color: var(--signal); background: var(--stop-bg); }
 
+/* Schriftliches Rechnen: Zahlen untereinander auf Karopapier wie im Matheheft */
+.colsum {
+  --cell: min(56px, calc((100vw - 84px) / var(--cols)));
+  display: grid; grid-template-columns: repeat(var(--cols), var(--cell)); grid-auto-rows: var(--cell);
+  width: max-content; margin: 0 auto; padding: 0;
+  font-size: calc(var(--cell) * 0.6); font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(to right, var(--tile-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--tile-line) 1px, transparent 1px);
+  background-size: var(--cell) var(--cell);
+  border-right: 1px solid var(--tile-line); border-bottom: 1px solid var(--tile-line);
+}
+.colsum > * { display: grid; place-items: center; min-width: 0; }
+.colsum .cs-op { color: var(--ink-2); }
+/* Überträge klein und unten im Kästchen – direkt über dem Strich */
+.colsum .cs-carry { font-size: 0.6em; place-items: end center; padding-bottom: 3px; color: var(--line); }
+.colsum .cs-line { box-shadow: inset 0 3px 0 var(--ink); }
+.colsum .cs-r { color: var(--line); }
+.colsum button {
+  font: inherit; color: var(--ink); padding: 0; border: 0; border-radius: 6px;
+  background: color-mix(in srgb, var(--line) 7%, transparent); touch-action: manipulation;
+}
+.colsum button.cs-carry { color: var(--line); background: color-mix(in srgb, var(--line) 4%, transparent); }
+.colsum button.cs-line { box-shadow: inset 0 3px 0 var(--ink); border-radius: 0 0 6px 6px; }
+.colsum button.cur { outline: 3px solid var(--line); outline-offset: -3px; background: color-mix(in srgb, var(--line) 14%, var(--paper)); }
+.colsum button.cur:empty::after { content: ''; width: 2px; height: 55%; background: var(--line); animation: caret 1s steps(1) infinite; }
+.colsum button.ok { color: var(--go); background: var(--go-bg); }
+.colsum button.fix { color: var(--signal); background: var(--stop-bg); }
+.colsum button.shown { color: var(--signal); font-weight: 700; }
+@keyframes caret { 50% { opacity: 0; } }
+
+.col-work { display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: center; }
+.keypad { display: grid; grid-template-columns: repeat(3, 64px); grid-auto-rows: 52px; gap: 8px; }
+.keypad button {
+  border-radius: 14px; font-size: 1.4rem; font-weight: 700; color: var(--ink);
+  background: var(--paper-2); border: 2px solid var(--rule); box-shadow: 0 3px 0 var(--rule);
+  touch-action: manipulation; user-select: none; -webkit-user-select: none;
+}
+.keypad button:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--rule); }
+.keypad .k-carry { font-size: 0.7rem; color: var(--line); padding: 0; letter-spacing: -0.01em; }
+
+.colsum-figure { margin: 4px 0 16px; }
+.colsum-figure figcaption { text-align: center; color: var(--muted); font-size: 0.9rem; margin-top: 8px; }
+.cs-steps { margin: 8px 0 0; padding-left: 0; list-style: none; display: grid; gap: 2px; font-size: 0.95rem; color: var(--ink-2); }
+.cs-steps li { display: grid; grid-template-columns: 2.2em 1fr; }
+.cs-steps b { color: var(--ink); }
+
 .built {
   min-height: 70px; padding: 10px; border-radius: 16px; border: 3px dashed var(--rule);
   display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px;

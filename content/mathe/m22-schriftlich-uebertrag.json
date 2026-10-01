@@ -1,0 +1,27 @@
+{
+  "id": "schriftlich-uebertrag",
+  "line": "schriftlich-plus",
+  "order": 22,
+  "title": "Mit Übertrag",
+  "subtitle": "Wenn eine Spalte 10 oder mehr ergibt",
+  "icon": "➕",
+  "card": "Wusstest du? Mit dem **Abakus**, einem Rechenbrett mit Kugeln, haben Menschen schon vor über 2000 Jahren Überträge gerechnet: 10 Kugeln auf einer Stange werden zu 1 Kugel auf der nächsten.",
+  "generator": "schriftlich",
+  "params": { "terms": 2, "digits": [2, 3], "minCarries": 1 },
+  "itemCount": 100,
+  "explain": [
+    { "p": "Manchmal kommt in einer Spalte **10 oder mehr** heraus. Das passt nicht in ein Kästchen! Dann schreibst du nur die **Einer-Ziffer** unten hin. Die Zehner-Ziffer ist der **Übertrag**: Du schreibst sie klein in die nächste Spalte links über den Strich und rechnest sie dort mit." },
+    { "column": { "rows": ["367", "258"], "caption": "367 + 258 = **625**" } },
+    { "table": {
+      "head": ["", "Rechnung", "Schreib", "Merk dir"],
+      "rows": [
+        ["E", "7 + 8 = 15", "**5**", "1"],
+        ["Z", "6 + 5 + **1** = 12", "**2**", "1"],
+        ["H", "3 + 2 + **1** = 6", "**6**", "–"]
+      ]
+    } },
+    { "tip": "So geht es in der Lernwelt: Nach jeder Ziffer im Ergebnis springt das Kästchen hoch zum **Übertrag** der nächsten Spalte. Gibt es dort keinen Übertrag, tippe **0** oder **Weiter**. Der Übertrag hilft dir beim Merken – gewertet wird nur das Ergebnis." },
+    { "p": "Bleibt ganz links noch ein Übertrag übrig, wird er zur neuen ersten Ziffer:" },
+    { "column": { "rows": ["486", "514"], "caption": "486 + 514 = **1000**" } }
+  ]
+}

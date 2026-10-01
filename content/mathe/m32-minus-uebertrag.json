@@ -1,0 +1,26 @@
+{
+  "id": "minus-uebertrag",
+  "line": "schriftlich-minus",
+  "order": 32,
+  "title": "Minus mit Übertrag",
+  "subtitle": "Wenn die untere Ziffer größer ist",
+  "icon": "➖",
+  "card": "Wusstest du? **Adam Ries** hat vor rund 500 Jahren Rechenbücher auf Deutsch geschrieben, damit alle Menschen rechnen lernen. Daher kommt der Spruch „Das macht nach Adam Riese …“.",
+  "generator": "schriftlich",
+  "params": { "op": "sub", "digits": [2, 3], "minCarries": 1 },
+  "itemCount": 100,
+  "explain": [
+    { "p": "Manchmal ist die untere Ziffer **größer** als die obere – zum Beispiel 8 unter 3. Dann ergänzt du bis **13**: 8 + **5** = 13, also schreibst du 5. Weil du dir dabei einen Zehner dazugeholt hast, schreibst du in der nächsten Spalte eine kleine **1** als **Übertrag** unter die untere Zahl. Den Übertrag rechnest du dort zur unteren Ziffer dazu." },
+    { "column": { "rows": ["643", "218"], "op": "sub", "caption": "643 − 218 = **425**" } },
+    { "table": {
+      "head": ["", "Rechnung", "Schreib", "Merk dir"],
+      "rows": [
+        ["E", "8 + **5** = 13", "**5**", "1"],
+        ["Z", "1 + 1 = 2, 2 + **2** = 4", "**2**", "–"],
+        ["H", "2 + **4** = 6", "**4**", "–"]
+      ]
+    } },
+    { "tip": "So geht es in der Lernwelt: Nach jeder Ziffer im Ergebnis springt das Kästchen hoch zum **Übertrag** der nächsten Spalte. Gibt es dort keinen Übertrag, tippe **0** oder **Weiter**." },
+    { "tip": "Probe mit Plus: 425 + 218 = 643 – stimmt!" }
+  ]
+}

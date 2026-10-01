@@ -32,6 +32,14 @@ Jede Station hat eine **„Merke“-Erklärung** auf Deutsch (kindgerecht, mit B
 
 Die Kopfrechnen-Linie übt 11 · 11 bis 20 · 20: erst 11 bis 15, dann 16 bis 20, dann alle gemischt. Gefragt wird vorwärts (13 · 13 = ?) und rückwärts (? · ? = 169), mit Rechentricks im „Merke“.
 
+**Mathe: Schriftlich plus (3 Stationen + Endbahnhof)**
+
+Die Schriftlich-plus-Linie übt die schriftliche Addition bis 1000: erst ohne Übertrag, dann mit Übertrag, dann drei Zahlen untereinander. Die Zahlen stehen auf Karopapier wie im Heft. Das Kind tippt die Ergebnis-Ziffern über ein eigenes Zahlenfeld von rechts nach links ein und kann Überträge eintragen (die zählen nicht, sie helfen beim Merken). Bei einem Fehler zeigt die App die richtigen Ziffern, die Überträge und den Rechenweg Spalte für Spalte. Die Aufgaben erzeugt `server/generators/schriftlich.js` jedes Mal neu. Der Endbahnhof hat hier 10 statt 15 Aufgaben (`"examCount"` an der Linie in `subject.json`).
+
+**Mathe: Schriftlich minus (3 Stationen + Endbahnhof)**
+
+Die Schriftlich-minus-Linie übt die schriftliche Subtraktion bis 1000 im **Ergänzungsverfahren** („8 + 5 = 13, schreib 5, Übertrag 1“): erst ohne Übertrag, dann mit Übertrag, dann mit Nullen in der oberen Zahl (z. B. 503 − 276 oder 1000 − 347). Die Bedienung ist dieselbe wie beim Plus. Die Stationen nutzen denselben Generator mit `"op": "sub"`.
+
 **Geographie: Kontinente und Meere (4 Stationen)**
 
 Die Welt-Linie hat die Stationen Die Kontinente, Kontinente-Wissen, Die Ozeane und Meere in Europa. Auf einer Welt- bzw. Europakarte wird ein Gebiet farbig markiert, und dein Kind wählt oder schreibt den Namen. Dazu kommen Wissensfragen (größter Kontinent, Sylt liegt in der …). Im „Merke“ ist jeweils eine bunte Karte mit Legende.
@@ -279,6 +287,8 @@ Diese Stationen haben keine festen Aufgaben. Sie werden von `server/generators/r
 { "id": "einmaleins", "line": "kopfrechnen", "title": "Das kleine Einmaleins",
   "generator": "rechnen", "params": { "op": "mul", "min": 2, "max": 10 }, "itemCount": 90 }
 ```
+Genauso funktioniert `server/generators/schriftlich.js` für die schriftliche Addition (Aufgabentyp `column`). Auf der Merke-Seite zeigt ein Block `{ "column": { "rows": ["367", "258"] } }` eine fertig gerechnete Aufgabe mit Überträgen.
+
 Für neue Aufgabenarten (z. B. Brüche, Uhrzeiten) legst du einen weiteren Generator in `server/generators/` an. Wie der aufgebaut ist, steht oben in `rechnen.js`.
 
 ## Aufbau (für Neugierige)

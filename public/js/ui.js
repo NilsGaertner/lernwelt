@@ -51,6 +51,96 @@ export function gapText(s, fill = '') {
   return md(s).replace(/_{3,}/g, `<span class="gap">${escapeHtml(fill) || '&nbsp;'}</span>`);
 }
 
+// ---------------------------------------------------------------- Schriftliches Rechnen
+
+const PLACES = ['E', 'Z', 'H', 'T', 'ZT', 'HT', 'M', 'ZM', 'HM'];
+export const OP_SIGN = { add: '+', sub: '−' };
+
+/**
+ * Rechnet eine schriftliche Rechnung Spalte für Spalte durch. Spalte 0 ist ganz links.
+ * op 'add': alle Zeilen werden addiert. op 'sub': von der ersten Zeile werden die anderen abgezogen –
+ * im Ergänzungsverfahren: Die untere Ziffer (plus Übertrag) wird bis zur oberen ergänzt, nötigenfalls bis 10 mehr.
+ * width: so viele Spalten (Standard: so breit wie die längste Zahl bzw. das Ergebnis).
+ */
+export function columnMath(rows, { width = null, op = 'add' } = {}) {
+  const [top, ...rest] = rows.map(Number);
+  const total = String(op === 'sub' ? top - rest.reduce((a, b) => a + b, 0) : rows.reduce((a, r) => a + Number(r), 0));
+  width ??= Math.max(total.length, ...rows.map((r) => r.length));
+  const digit = (r, col) => r[r.length - width + col] ?? '';
+  const carries = new Array(width).fill(0);
+  const steps = [];
+  let carry = 0;
+  for (let col = width - 1; col >= 0; col--) {
+    carries[col] = carry;
+    const place = PLACES[width - 1 - col] ?? '';
+    if (op === 'sub') {
+      const m = Number(digit(rows[0], col) || 0);
+      const parts = rows.slice(1).map((r) => digit(r, col)).filter(Boolean).map(Number);
+      if (!digit(rows[0], col) && !parts.length && !carry) continue;
+      const lower = parts.reduce((a, b) => a + b, 0) + carry;
+      const k = Math.max(0, Math.ceil((lower - m) / 10));
+      steps.push({ place, parts, carryIn: carry, lower, target: m + 10 * k, write: m + 10 * k - lower, carryOut: k, first: col === 0 });
+      carry = k;
+    } else {
+      const parts = rows.map((r) => digit(r, col)).filter(Boolean).map(Number);
+      if (!parts.length && !carry) continue;
+      const sum = parts.reduce((a, b) => a + b, 0) + carry;
+      steps.push({ place, parts, carryIn: carry, write: sum % 10, carryOut: Math.floor(sum / 10), sum });
+      carry = Math.floor(sum / 10);
+    }
+  }
+  return { width, op, total: total.padStart(width, ' '), carries, steps, digit };
+}
+
+/**
+ * Zahlen stellengerecht untereinander auf Karopapier, Überträge klein über dem Strich.
+ * Ohne Optionen ist alles schon ausgerechnet (Beispiel auf der Merke-Seite).
+ * carryCell(col) / resultCell(col) liefern eigene Kästchen zum Eintippen.
+ */
+export function columnSum(rows, { op = 'add', width = null, carryCell = null, resultCell = null, carries: showCarries = null } = {}) {
+  const m = columnMath(rows, { width, op });
+  const cell = (cls, text = '') => h(`span.${cls}`, text);
+  const cells = [];
+  rows.forEach((r, i) => {
+    cells.push(cell('cs-op', i === rows.length - 1 ? OP_SIGN[op] : ''));
+    for (let col = 0; col < m.width; col++) cells.push(cell('cs-d', m.digit(r, col)));
+  });
+  if (carryCell || (showCarries ?? m.carries.some(Boolean))) {
+    cells.push(cell('cs-op'));
+    for (let col = 0; col < m.width; col++) {
+      cells.push(carryCell ? carryCell(col) : cell('cs-carry', m.carries[col] ? String(m.carries[col]) : ''));
+    }
+  }
+  cells.push(cell('cs-op.cs-line'));
+  for (let col = 0; col < m.width; col++) cells.push(resultCell ? resultCell(col) : cell('cs-r.cs-line', m.total[col].trim()));
+  const word = op === 'sub' ? ' minus ' : ' plus ';
+  return h('.colsum', { style: { '--cols': m.width + 1 }, role: 'img', 'aria-label': `${rows.join(word)} gleich ${m.total.trim()}` }, cells);
+}
+
+/**
+ * Der Rechenweg in Worten, Spalte für Spalte.
+ * Plus: „Z: 6 + 7 + 1 = 14 → schreib 4, Übertrag 1“ · Minus: „Z: 7 + 1 = 8, 8 + 2 = 10 → schreib 2, Übertrag 1“
+ */
+export function columnSteps(rows, { op = 'add', width = null } = {}) {
+  const { steps } = columnMath(rows, { width, op });
+  const carryText = (k) => (k ? `, Übertrag **${k}**` : '');
+  return h('ol.cs-steps', steps.map((st) => {
+    let text;
+    if (op === 'sub') {
+      const below = [...st.parts.map(String), st.carryIn ? String(st.carryIn) : null].filter(Boolean);
+      const add = below.length > 1 ? `${below.join(' + ')} = ${st.lower}, ` : '';
+      text = `${add}${st.lower} + **${st.write}** = ${st.target} → `;
+      text += st.first && st.write === 0 && st.lower > 0
+        ? 'fertig, die 0 vorne schreibst du nicht'
+        : `schreib ${st.write}${carryText(st.carryOut)}`;
+    } else {
+      const terms = [...st.parts.map(String), st.carryIn ? `**${st.carryIn}**` : null].filter(Boolean);
+      text = `${terms.length > 1 ? `${terms.join(' + ')} = ${st.sum}` : `Übertrag ${st.sum}`} → schreib ${st.write}${carryText(st.carryOut)}`;
+    }
+    return h('li', h('b', st.place), h('span', { html: md(text) }));
+  }));
+}
+
 // ---------------------------------------------------------------- Karten
 
 const svgCache = new Map();

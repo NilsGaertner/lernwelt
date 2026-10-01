@@ -1,0 +1,26 @@
+{
+  "id": "schriftlich-drei",
+  "line": "schriftlich-plus",
+  "order": 23,
+  "title": "Drei Zahlen",
+  "subtitle": "Drei Zahlen untereinander addieren",
+  "icon": "🧮",
+  "card": "Wusstest du? Der Mathematiker **Carl Friedrich Gauß** soll als Schüler die Zahlen von 1 bis 100 blitzschnell zusammengezählt haben. Sein Trick: 50 Paare, die jeweils 101 ergeben – also 50 · 101 = **5050**.",
+  "generator": "schriftlich",
+  "params": { "terms": 3, "digits": [2, 3], "minCarries": 1 },
+  "itemCount": 100,
+  "explain": [
+    { "p": "Auch **drei Zahlen** kannst du schriftlich addieren. Du rechnest in jeder Spalte alle Ziffern zusammen – und den Übertrag dazu." },
+    { "column": { "rows": ["247", "368", "179"], "caption": "247 + 368 + 179 = **794**" } },
+    { "table": {
+      "head": ["", "Rechnung", "Schreib", "Merk dir"],
+      "rows": [
+        ["E", "7 + 8 + 9 = 24", "**4**", "2"],
+        ["Z", "4 + 6 + 7 + **2** = 19", "**9**", "1"],
+        ["H", "2 + 3 + 1 + **1** = 7", "**7**", "–"]
+      ]
+    } },
+    { "tip": "Bei drei Zahlen kann der Übertrag auch **2** sein: 7 + 8 + 9 = 24 → schreib 4, merk dir 2." },
+    { "tip": "Kontrolle mit dem **Überschlag**: Runde auf Hunderter: 200 + 400 + 200 = 800. Das Ergebnis 794 liegt nah dran – passt!" }
+  ]
+}
