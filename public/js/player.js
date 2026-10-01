@@ -295,13 +295,10 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
         vals(cur.row)[cur.col] = cur.row === 'carry' && k === '0' ? '' : k;
         step(1);
       } else if (k === 'back') {
-        // Wie beim Radiergummi: erst das aktuelle Kästchen, sonst das davor.
-        // Leere Übertrags-Kästchen werden dabei übersprungen.
+        // Wie beim Radiergummi: erst das aktuelle Kästchen, sonst das davor –
+        // genau rückwärts wie beim Eintippen, also auch durch leere Übertrags-Kästchen.
         if (vals(cur.row)[cur.col]) vals(cur.row)[cur.col] = '';
-        else if (step(-1)) {
-          while (cur.row === 'carry' && !carry[cur.col] && step(-1));
-          vals(cur.row)[cur.col] = '';
-        }
+        else if (step(-1)) vals(cur.row)[cur.col] = '';
       } else if (k === 'carry') {
         if (cur.row === 'carry') step(1);
         else if (carryCells[cur.col]) select('carry', cur.col);
