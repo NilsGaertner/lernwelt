@@ -248,7 +248,7 @@ export function blitzRecords(childId, subjectId, topicId) {
     .get(childId, subjectId, topicId).b;
   const family = db
     .prepare(
-      `SELECT c.id, c.name, c.avatar, c.adult, MAX(s.correct) AS best
+      `SELECT c.id, c.name, c.avatar, c.skin, c.adult, MAX(s.correct) AS best
        FROM sessions s JOIN children c ON c.id = s.child_id
        WHERE s.mode = 'blitz' AND s.subject = ? AND s.unit_id = ?
        GROUP BY c.id ORDER BY best DESC`

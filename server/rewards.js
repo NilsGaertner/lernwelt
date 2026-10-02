@@ -6,6 +6,7 @@ import {
   streak, dailyPlan, stampCount, examsPassed, xpOf, rankInfo, PASSED_SQL, stationState, useExtraRide, nextStation,
 } from './progress.js';
 import { grantLootbox } from './lootbox.js';
+import { grantRandomSkin } from './avatars.js';
 
 export { streak, unitProgress } from './progress.js';
 
@@ -197,12 +198,16 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
 
     // Lootboxen (nicht für Erwachsenen-Profile): Station aufs Abstellgleis gebracht, Linie geschafft
     const newBoxes = [];
+    const newSkins = [];
     if (!adult && justRetired) {
       newBoxes.push(grantLootbox(childId, { source: 'station', subject, ref: unitId, note: `${unitTitle} aufs Abstellgleis gebracht` }));
     }
     if (!adult && examPassed && !prevExamPassed) {
       const line = subjects.get(subject)?.meta.lines?.find((l) => l.id === unitId);
-      newBoxes.push(grantLootbox(childId, { source: 'line', subject, ref: unitId, note: `${line?.name ?? unitTitle} geschafft` }));
+      const box = grantLootbox(childId, { source: 'line', subject, ref: unitId, note: `${line?.name ?? unitTitle} geschafft` });
+      newBoxes.push(box);
+      // Zum ersten Bestehen einer Linie gehört auch ein neuer Avatar-Skin (falls noch einer fehlt)
+      if (box) newSkins.push(grantRandomSkin(childId, 'line', 'line'));
     }
 
     const plan = dailyPlan(childId);
@@ -266,6 +271,7 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
           }
         : null,
       lootboxes: newBoxes.filter(Boolean),
+      skins: newSkins.filter(Boolean),
       next: mode === 'unit' || mode === 'exam' ? nextStation(childId, subject, mode === 'unit' ? unitId : null) : null,
       exam: mode === 'exam' ? { passed: examPassed, first: examPassed && !prevExamPassed, percent: Math.round(ratio * 100) } : null,
       blitz: prevBlitz ? { score: correct, answered: total, prevBest: prevBlitz.b, newRecord: prevBlitz.n > 0 && correct > prevBlitz.b } : null,

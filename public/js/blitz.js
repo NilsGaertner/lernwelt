@@ -1,5 +1,6 @@
 import { h, md, gapText, sfx, mapFigure, confetti, rankMeter, guardBack } from './ui.js';
 import { api } from './api.js';
+import { faceOf } from './avatar.js';
 
 /**
  * Blitzrunde: 60 Sekunden, so viele Aufgaben wie möglich. Keine Wiederholungen,
@@ -231,7 +232,7 @@ export function familyBoard(family, childId) {
     h('ol.family', family.map((f, i) =>
       h('li', { class: f.id === Number(childId) ? 'me' : '' },
         h('span.place', i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `${i + 1}.`),
-        h('span.face', f.avatar),
+        h('span.face', faceOf(f)),
         h('span.who', f.name),
         h('span.best', `⚡ ${f.best}`)))),
     family.length < 2 ? h('p.muted.small', 'Tipp: Mama oder Papa können im Elternbereich ein eigenes Profil anlegen und dich herausfordern!') : null);
