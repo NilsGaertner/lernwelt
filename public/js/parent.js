@@ -1,7 +1,9 @@
 import { h, toast, starRow, fmtDate, relDay } from './ui.js';
 import { api, parentToken } from './api.js';
+import { faceOf } from './avatar.js';
+import { CATS, SKINS, avatarSvg, avatarText } from './avatar-data.js';
 
-const AVATARS = ['🦊', '🐼', '🐯', '🦁', '🐸', '🐙', '🦄', '🐲', '🐧', '🐨', '🦖', '🐱', '🐶', '🚀', '⚽', '🎮'];
+const AVATARS = [...Object.keys(CATS).map((k) => `cat:${k}`), '🦊', '🐼', '🐯', '🦁', '🐸', '🐙', '🦄', '🐲', '🐧', '🐨', '🦖', '🐱', '🐶', '🚀', '⚽', '🎮'];
 const KIND = { session: 'Übung', bonus: 'Bonus', badge: 'Abzeichen', ticket: 'Ticket', refund: 'Rückgabe', manual: 'Eltern', system: 'Hinweis', lootbox: 'Lootbox' };
 
 const papi = (path, opts = {}) => api(`/parent${path}`, { ...opts, parent: true });
@@ -84,7 +86,7 @@ async function dashboard(root, render, reloadMeta) {
         h('h2', `🎟️ Offene Tickets (${data.pending.length})`),
         h('ul.pending-list', data.pending.map((t) =>
           h('li',
-            h('span', { style: { fontSize: '1.6rem' } }, t.avatar),
+            h('span', { style: { fontSize: '1.6rem' } }, avatarText(t.avatar)),
             h('.what', h('strong', `${t.child_name}: ${t.minutes} Minuten Medienzeit`), h('div.muted.small', `${t.stars} Sterne · ${relDay(t.created_at)}`)),
             h('button.btn.go.small', { type: 'button', onclick: () => decide(t.id, 'approved') }, 'Genehmigen'),
             h('button.btn.danger.small', { type: 'button', onclick: () => decide(t.id, 'rejected') }, 'Ablehnen')))))
@@ -93,7 +95,7 @@ async function dashboard(root, render, reloadMeta) {
   const kids = data.children.length
     ? h('.kids', data.children.map((c) =>
         h('section.panel.kid-card',
-          h('.who', h('span.face', c.avatar), h('div', h('h2', c.name), h('span.muted.small', `zuletzt aktiv: ${relDay(c.lastActive)}`))),
+          h('.who', h('span.face', faceOf(c)), h('div', h('h2', c.name), h('span.muted.small', `zuletzt aktiv: ${relDay(c.lastActive)}`))),
           h('.kpis',
             kpi(`${c.balance} ★`, 'Guthaben'),
             kpi(`${c.earnedToday} ★`, `heute verdient${data.todayLimit ? ` (max. ${data.todayLimit})` : ''}`),
@@ -225,7 +227,7 @@ function logTable(entries, { showChild }) {
     const blitz = e.mode === 'blitz';
     rows.push(h('tr',
       h('td', clock(e.finishedAt)),
-      showChild ? h('td', `${e.avatar} ${e.childName}`) : null,
+      showChild ? h('td', `${avatarText(e.avatar)} ${e.childName}`) : null,
       h('td',
         h('strong', e.title),
         h('div.muted.small', [e.subject, e.line ? `Linie ${e.line}` : null].filter(Boolean).join(' · ')),
@@ -269,7 +271,7 @@ async function logView(render, childId) {
         : h('p.muted', 'In diesem Zeitraum gab es keine Fahrten.'));
       if (!childSel.options.length) {
         childSel.append(h('option', { value: '' }, 'Alle Kinder'),
-          ...r.children.map((c) => h('option', { value: c.id, selected: c.id === child }, `${c.avatar} ${c.name}`)));
+          ...r.children.map((c) => h('option', { value: c.id, selected: c.id === child }, `${avatarText(c.avatar)} ${c.name}`)));
       }
     } catch (err) { toast(err.message); }
   }
@@ -408,13 +410,13 @@ function avatarPicker(current, onPick) {
   const wrap = h('.avatar-pick', { role: 'group', 'aria-label': 'Bild wählen' });
   for (const a of AVATARS) {
     const b = h('button', {
-      type: 'button', 'aria-pressed': String(a === current), 'aria-label': a,
+      type: 'button', 'aria-pressed': String(a === current), 'aria-label': a.startsWith('cat:') ? CATS[a.slice(4)].name : a,
       onclick: () => {
         wrap.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', 'false'));
         b.setAttribute('aria-pressed', 'true');
         onPick(a);
       },
-    }, a);
+    }, a.startsWith('cat:') ? h('span.cat', { 'aria-hidden': 'true', html: avatarSvg(a) }) : a);
     wrap.append(b);
   }
   return wrap;
@@ -552,6 +554,30 @@ async function childView(root, id, render) {
       : null,
     gift);
 
+  // Skins schenken
+  const av = d.avatarState;
+  const missing = av.skins.filter((x) => !av.owned.includes(x.id));
+  const skinSelect = h('select.input', { id: 'gift-skin' }, missing.map((x) => h('option', { value: x.id }, x.name)));
+  const skinPanel = d.child.adult ? null : h('section.panel',
+    h('h2', '🐱 Avatar-Skins'),
+    h('p.muted', av.owned.length
+      ? `Gesammelt: ${av.owned.map((x) => SKINS[x].name).join(', ')} (${av.owned.length} von ${av.skins.length}). Getragen: ${d.child.skin ? SKINS[d.child.skin].name : 'keiner'}.`
+      : 'Noch keine Skins gesammelt. Sie fallen beim ersten Bestehen eines Endbahnhofs.'),
+    missing.length
+      ? h('form.gift-form', {
+          onsubmit: async (e) => {
+            e.preventDefault();
+            try {
+              await papi(`/children/${id}/skins`, { method: 'POST', body: { skin: skinSelect.value } });
+              toast('Skin verschenkt.');
+              refresh();
+            } catch (err) { toast(err.message); }
+          },
+        },
+          h('.field', h('label', { for: 'gift-skin' }, 'Skin schenken'), skinSelect),
+          h('button.btn', { type: 'submit' }, '🎩 Schenken'))
+      : h('p.muted.small', 'Dein Kind hat schon alle Skins.'));
+
   const sessions = h('section.panel',
     h('h2', '📖 Letzte Fahrten'),
     d.sessions.length ? logTable(d.sessions, { showChild: false }) : h('p.muted', 'Noch keine Fahrten.'),
@@ -613,7 +639,7 @@ async function childView(root, id, render) {
       }, 'Profil löschen')));
 
   render(
-    head(`${d.child.avatar} ${d.child.name}`, h('a.btn.ghost.small', { href: '#/parent' }, '← Übersicht')),
+    head(`${avatarText(d.child.avatar)} ${d.child.name}`, h('a.btn.ghost.small', { href: '#/parent' }, '← Übersicht')),
     h('section.panel', h('.kpis',
       kpi(`${d.balance} ★`, 'Guthaben'),
       kpi(`${d.streak}`, 'Tage am Stück'),
@@ -625,6 +651,7 @@ async function childView(root, id, render) {
     weak,
     units,
     lootPanel,
+    skinPanel,
     sessions,
     adjust,
     ledger,

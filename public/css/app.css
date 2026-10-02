@@ -204,6 +204,22 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 .profile .name { font-family: var(--font-display); font-size: 1.1rem; }
 .parent-link { text-align: center; }
 
+/* ---------------------------------------------------------------- Katzen-Avatare */
+
+.cat { display: block; width: 100%; height: 100%; }
+.cat svg { display: block; width: 100%; height: 100%; }
+.roundel .ring, .profile .face, .kid-card .who .face { overflow: hidden; }
+.roundel .ring .cat, .profile .face .cat, .kid-card .who .face .cat { width: 92%; height: 92%; margin-top: 8%; }
+.family .face { display: inline-block; width: 1.8rem; height: 1.8rem; }
+.avatar-pick button .cat { width: 100%; height: 100%; }
+.avatar-pick button { padding: 2px; }
+.avatar-stage { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.avatar-big { width: 150px; height: 150px; border-radius: 50%; border: 10px solid var(--signal); background: var(--paper-2); overflow: hidden; flex: none; }
+.avatar-big .cat { width: 92%; height: 92%; margin: 8% 4% 0; }
+.skin-pick .skin-art { display: block; width: 72px; height: 72px; margin: 0 auto 4px; font-size: 2.4rem; line-height: 72px; }
+.skin-pick .skin-art svg { width: 100%; height: 100%; }
+
+
 /* ---------------------------------------------------------------- Heute-Leiste */
 
 .today {

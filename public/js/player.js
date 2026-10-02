@@ -563,6 +563,14 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
           onOpened: (r) => countUp(balanceEl, Number(balanceEl.textContent) || 0, r.balance),
         })))));
     }
+    if (result.skins?.length) {
+      panels.push(h('section.panel.rank-up',
+        h('.big-train', { 'aria-hidden': 'true' }, '🎩'),
+        h('div',
+          h('h2', result.skins.length === 1 ? `Neuer Skin: ${result.skins[0].name}!` : 'Neue Skins!'),
+          h('p', 'Du findest ihn in deiner Sammlung unter „Avatar“ und kannst ihn deiner Katze anziehen.'),
+          h('a.btn.small', { href: `#/kid/${childId}/sammlung/avatar` }, 'Jetzt anziehen →'))));
+    }
     if (result.xp.rankUp) {
       const r = result.xp.rankUp;
       panels.push(h('section.panel.rank-up',

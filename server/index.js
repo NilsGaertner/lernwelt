@@ -14,6 +14,7 @@ import {
   lineUnits, nextStation, setStationState, notArchivedSql,
 } from './progress.js';
 import { lootboxes, openLootbox, giftLootbox } from './lootbox.js';
+import { avatarState, equip, grantSkin, cleanAvatar } from './avatars.js';
 
 const PORT = Number(process.env.PORT) || 8080;
 const problems = await loadContent();
@@ -33,7 +34,7 @@ app.get('/media/:subject/:file', (req, res, next) => {
 const fail = (status, message) => Object.assign(new Error(message), { status });
 
 function childOr404(id) {
-  const child = db.prepare('SELECT id, name, avatar, train, adult FROM children WHERE id = ?').get(Number(id));
+  const child = db.prepare('SELECT id, name, avatar, skin, train, adult FROM children WHERE id = ?').get(Number(id));
   if (!child) throw fail(404, 'Dieses Profil gibt es nicht.');
   return child;
 }
@@ -45,7 +46,7 @@ app.get('/api/meta', (req, res) => {
 });
 
 app.get('/api/children', (req, res) => {
-  res.json(db.prepare('SELECT id, name, avatar, adult FROM children ORDER BY adult, id').all());
+  res.json(db.prepare('SELECT id, name, avatar, skin, adult FROM children ORDER BY adult, id').all());
 });
 
 /** Der gewählte Zug – falls (noch) nicht freigeschaltet, der beste freigeschaltete. */
@@ -81,6 +82,7 @@ app.get('/api/children/:id/overview', (req, res) => {
     badges: earnedBadges(child.id),
     tickets: tickets(child.id, 10),
     lootboxes: child.adult ? { closed: [], opened: [] } : lootboxes(child.id),
+    avatarState: avatarState(child.id),
     settings,
   });
 });
@@ -118,6 +120,12 @@ app.get('/api/children/:id/blitz/:subject/:topic', (req, res) => {
   const topic = blitzTopics(req.params.subject).find((t) => t.id === req.params.topic);
   if (!topic) throw fail(404, 'Diese Blitzrunde gibt es nicht.');
   res.json({ topic: { id: topic.id, title: topic.title, icon: topic.icon ?? '⚡', subtitle: topic.subtitle ?? '' }, ...blitzRecords(child.id, req.params.subject, topic.id) });
+});
+
+// Katze und Skin wechseln (Skins nur, wenn sie dem Kind gehören)
+app.post('/api/children/:id/avatar', (req, res) => {
+  const child = childOr404(req.params.id);
+  res.json(equip(child, { avatar: req.body?.avatar, skin: req.body?.skin }));
 });
 
 app.post('/api/children/:id/train', (req, res) => {
@@ -188,7 +196,7 @@ parent.post('/logout', (req, res) => {
 parent.get('/overview', (req, res) => {
   const today = localDay();
   const weekStart = addDays(today, -6);
-  const children = db.prepare('SELECT id, name, avatar, adult FROM children ORDER BY adult, id').all().map((c) => {
+  const children = db.prepare('SELECT id, name, avatar, skin, adult FROM children ORDER BY adult, id').all().map((c) => {
     const t = db
       .prepare(
         `SELECT COUNT(*) AS sessions, COALESCE(SUM(duration_sec), 0) AS secs, COALESCE(SUM(correct), 0) AS correct, COALESCE(SUM(total), 0) AS total
@@ -213,7 +221,7 @@ parent.get('/overview', (req, res) => {
   });
   const pending = db
     .prepare(
-      `SELECT r.*, c.name AS child_name, c.avatar FROM redemptions r JOIN children c ON c.id = r.child_id
+      `SELECT r.*, c.name AS child_name, c.avatar, c.skin FROM redemptions r JOIN children c ON c.id = r.child_id
        WHERE r.status = 'pending' ORDER BY r.created_at`
     )
     .all();
@@ -303,6 +311,7 @@ parent.get('/children/:id', (req, res) => {
     ledger,
     tickets: tickets(child.id, 20),
     lootboxes: lootboxes(child.id, 20),
+    avatarState: avatarState(child.id),
     retireAfter: getPublicSettings().retireAfter,
   });
 });
@@ -337,7 +346,7 @@ parent.put('/children/:id/lines/:subject/:line', (req, res) => {
 parent.post('/children', (req, res) => {
   const name = String(req.body?.name ?? '').trim().slice(0, 40);
   if (!name) throw fail(400, 'Bitte einen Namen eingeben.');
-  const avatar = String(req.body?.avatar ?? '🦊').slice(0, 8);
+  const avatar = cleanAvatar(req.body?.avatar, '🦊');
   const adult = req.body?.adult ? 1 : 0;
   const { lastInsertRowid } = db
     .prepare('INSERT INTO children (name, avatar, adult, created_at) VALUES (?, ?, ?, ?)')
@@ -348,7 +357,7 @@ parent.post('/children', (req, res) => {
 parent.put('/children/:id', (req, res) => {
   const child = childOr404(req.params.id);
   const name = String(req.body?.name ?? child.name).trim().slice(0, 40) || child.name;
-  const avatar = String(req.body?.avatar ?? child.avatar).slice(0, 8);
+  const avatar = cleanAvatar(req.body?.avatar, child.avatar);
   db.prepare('UPDATE children SET name = ?, avatar = ? WHERE id = ?').run(name, avatar, child.id);
   res.json({ ...child, name, avatar });
 });
@@ -377,6 +386,14 @@ parent.post('/children/:id/lootboxes', (req, res) => {
     for (let i = 0; i < count; i++) giftLootbox(child.id, message);
   });
   res.json({ lootboxes: lootboxes(child.id, 20) });
+});
+
+// Skin schenken (Katalog siehe public/js/avatar-data.js)
+parent.post('/children/:id/skins', (req, res) => {
+  const child = childOr404(req.params.id);
+  if (child.adult) throw fail(400, 'Erwachsenen-Profile sammeln keine Skins.');
+  grantSkin(child.id, String(req.body?.skin ?? ''), 'gift');
+  res.json(avatarState(child.id));
 });
 
 parent.post('/tickets/:id', (req, res) => {
@@ -490,6 +507,7 @@ function logEntry(s) {
     childId: s.child_id,
     childName: s.child_name,
     avatar: s.avatar,
+    skin: s.skin,
     day: s.day,
     finishedAt: s.finished_at,
     mode: s.mode,
@@ -517,7 +535,7 @@ function logEntries({ childId, days, before, limit = 50 }) {
   if (before) { where.push('s.finished_at < ?'); args.push(before); }
   const rows = db
     .prepare(
-      `SELECT s.*, c.name AS child_name, c.avatar FROM sessions s JOIN children c ON c.id = s.child_id
+      `SELECT s.*, c.name AS child_name, c.avatar, c.skin FROM sessions s JOIN children c ON c.id = s.child_id
        ${where.length ? `WHERE ${where.join(' AND ')}` : ''} ORDER BY s.finished_at DESC LIMIT ?`
     )
     .all(...args, limit + 1);
@@ -528,7 +546,7 @@ parent.get('/log', (req, res) => {
   const limit = Math.min(200, Math.max(1, Math.trunc(Number(req.query.limit)) || 50));
   res.json({
     ...logEntries({ childId: Number(req.query.child) || null, days: Number(req.query.days) || 0, before: req.query.before ? String(req.query.before) : null, limit }),
-    children: db.prepare('SELECT id, name, avatar FROM children ORDER BY adult, id').all(),
+    children: db.prepare('SELECT id, name, avatar, skin FROM children ORDER BY adult, id').all(),
   });
 });
 

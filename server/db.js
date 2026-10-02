@@ -146,6 +146,15 @@ CREATE TABLE IF NOT EXISTS lootboxes (
   stars INTEGER,
   UNIQUE (child_id, source, subject, ref)
 );
+
+-- Gesammelte Avatar-Skins (source: 'line' = Endbahnhof bestanden, 'gift' = Geschenk der Eltern)
+CREATE TABLE IF NOT EXISTS avatar_skins (
+  child_id INTEGER NOT NULL REFERENCES children(id) ON DELETE CASCADE,
+  skin_id TEXT NOT NULL,
+  source TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  PRIMARY KEY (child_id, skin_id)
+);
 `);
 
 // Spalten, die nach der ersten Version dazugekommen sind
@@ -159,6 +168,7 @@ addColumn('sessions', 'boosted', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('sessions', 'parked', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('children', 'train', 'TEXT');
 addColumn('children', 'adult', 'INTEGER NOT NULL DEFAULT 0');
+addColumn('children', 'skin', 'TEXT');
 
 /** Sterne-Arten, die als „verdient“ zählen (für Tageslimit und Statistik). */
 export const EARN_KINDS = ['session', 'bonus', 'badge'];

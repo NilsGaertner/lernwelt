@@ -4,6 +4,8 @@ import { runRide, collectCard } from './player.js';
 import { runBlitz, runChart, familyBoard } from './blitz.js';
 import { parentView } from './parent.js';
 import { lootbox, openedBox } from './lootbox.js';
+import { faceOf } from './avatar.js';
+import { avatarSvg } from './avatar-data.js';
 
 const app = document.getElementById('app');
 const state = { meta: null };
@@ -89,7 +91,7 @@ function kidBar(ov) {
   const id = ov.child.id;
   return h('header.topbar',
     h('a.roundel', { href: `#/kid/${id}`, title: 'Zum Netzplan' },
-      h('span.ring', { 'aria-hidden': 'true' }, ov.child.avatar),
+      h('span.ring', { 'aria-hidden': 'true' }, faceOf(ov.child)),
       h('span.bar', ov.child.name)),
     h('.spacer'),
     ov.streak > 0
@@ -213,7 +215,7 @@ async function profilesView() {
       h('p', children.length ? 'Wer fährt heute mit?' : 'Willkommen!')),
     children.length
       ? h('.profiles', children.map((c) =>
-          h('a.profile', { href: `#/kid/${c.id}` }, h('span.face', { 'aria-hidden': 'true' }, c.avatar), h('span.name', c.name))))
+          h('a.profile', { href: `#/kid/${c.id}` }, h('span.face', { 'aria-hidden': 'true' }, faceOf(c)), h('span.name', c.name))))
       : h('.empty',
           h('p', 'Es gibt noch kein Profil. Lege im Elternbereich ein Profil für dein Kind an.'),
           h('a.btn.big', { href: '#/parent' }, 'Elternbereich öffnen')),
@@ -523,6 +525,7 @@ async function stationView(id, subjectId, unitId) {
 const TABS = [
   ['rang', '🚂 Rang & Züge'],
   ['album', '🃏 Album'],
+  ['avatar', '🐱 Avatar'],
   ['stempel', '🔖 Stempel'],
   ['abzeichen', '🏅 Abzeichen'],
 ];
@@ -532,8 +535,52 @@ async function collectionView(id, tab) {
   if (!TABS.some(([t]) => t === tab)) tab = 'rang';
   const nav = h('nav.subject-tabs', { 'aria-label': 'Sammlung' }, TABS.map(([t, label]) =>
     h('a', { href: `#/kid/${id}/sammlung/${t}`, 'aria-current': t === tab ? 'page' : null }, label)));
-  const body = { rang: rankPanel, album: albumPanel, stempel: stampPanel, abzeichen: badgePanel }[tab](id, meta, ov);
+  const body = { rang: rankPanel, album: albumPanel, avatar: avatarPanel, stempel: stampPanel, abzeichen: badgePanel }[tab](id, meta, ov);
   render(kidBar(ov), nav, ...[body].flat());
+}
+
+function avatarPanel(id, meta, ov) {
+  const { owned, skins, cats } = ov.avatarState;
+  const change = async (body) => {
+    try {
+      await api(`/children/${id}/avatar`, { method: 'POST', body });
+      sfx.right();
+      collectionView(id, 'avatar');
+    } catch (err) {
+      toast(err.message);
+    }
+  };
+  const pick = (label, svg, on, current, locked, sub) =>
+    h('button.train-pick.skin-pick', {
+      type: 'button', class: [locked ? 'locked' : '', current ? 'current' : ''].filter(Boolean).join(' '),
+      disabled: locked || current, 'aria-pressed': String(current), onclick: on,
+    }, h('span.skin-art', { 'aria-hidden': 'true', html: locked ? '🔒' : svg }), h('span.t-name', label), h('span.t-sub', sub));
+  const base = ov.child.avatar.startsWith('cat:') ? ov.child.avatar : 'cat:black';
+  return [
+    h('section.panel.avatar-stage',
+      h('.avatar-big', faceOf(ov.child)),
+      h('div',
+        h('h2', ov.child.name),
+        h('p.muted', base === ov.child.avatar ? 'So siehst du in der Lernwelt aus. Such dir eine Katze und einen Skin aus!' : 'Wähle unten eine Katze – dann bekommst du ein neues Profilbild.'))),
+    h('section.panel',
+      h('h2', '🐱 Deine Katze'),
+      h('.trains', cats.map((c) => {
+        const current = ov.child.avatar === c.id;
+        return pick(c.name, avatarSvg(c.id), () => change({ avatar: c.id }), current, false, current ? 'Deine Katze' : 'Auswählen');
+      }))),
+    h('section.panel',
+      h('h2', `🎩 Skins (${owned.length} von ${skins.length})`),
+      h('p.muted', 'Skins findest du, wenn du einen Endbahnhof zum ersten Mal schaffst. Manche gibt es nur als Geschenk.'),
+      h('.trains', [
+        pick('Ohne Skin', avatarSvg(base), () => change({ skin: '' }), !ov.child.skin, false, !ov.child.skin ? 'Getragen' : 'Ausziehen'),
+        ...skins.map((s) => {
+          const has = owned.includes(s.id);
+          const current = ov.child.skin === s.id;
+          return pick(has ? s.name : '???', avatarSvg(base, s.id), () => change({ skin: s.id }), current, !has,
+            current ? 'Getragen' : has ? 'Anziehen' : s.pool === 'line' ? 'Endbahnhof schaffen' : 'Besonderer Anlass');
+        }),
+      ])),
+  ];
 }
 
 function rankPanel(id, meta, ov) {
