@@ -288,9 +288,13 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       resCells.forEach((c, i) => { c.textContent = result[i]; });
       carryCells.forEach((c, i) => { if (c) c.textContent = carry[i]; });
     };
+    // Ein Übertrag ist höchstens 1 (beim Plus mit drei Zahlen 2).
+    const maxCarry = q.op === 'sub' ? 1 : q.rows.length - 1;
     const press = (k) => {
       if (busy) return;
       if (/^\d$/.test(k)) {
+        // Eine größere Ziffer kann kein Übertrag sein: Das Kind wollte das Ergebnis dieser Spalte schreiben.
+        if (cur.row === 'carry' && Number(k) > maxCarry) select('res', cur.col);
         // Übertrag 0 heißt: kein Übertrag – das Kästchen bleibt leer.
         vals(cur.row)[cur.col] = cur.row === 'carry' && k === '0' ? '' : k;
         step(1);
@@ -352,13 +356,22 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
         if (typed) toast('Da fehlt noch eine Ziffer.');
         return;
       }
-      [...resCells, ...carryCells].forEach((c) => c?.classList.remove('cur'));
       const answer = typed.replace(/^0+(?=\d)/, '');
+      const m = columnMath(q.rows, { width, op: q.op });
+      // Vorne vergessen ist auch ein Vertipper – oft steht die Ziffer im Übertrags-Kästchen darüber.
+      if (answer.length < m.total.trim().length) {
+        grid.classList.add('shake');
+        setTimeout(() => grid.classList.remove('shake'), 350);
+        const col = width - answer.length - 1;
+        toast(carry[col] ? 'Vorne fehlt noch eine Ziffer. Steht sie oben im kleinen Übertrags-Kästchen?' : 'Vorne fehlt noch eine Ziffer.');
+        return select('res', col);
+      }
+      [...resCells, ...carryCells].forEach((c) => c?.classList.remove('cur'));
       const given = answer.padStart(width, ' ');
+      q.entered = answer;
       const res = await submit(q, answer);
       if (!res) return select(cur.row, cur.col);
       // Unter dem Strich steht jetzt die richtige Rechnung: falsche Ziffern rot, Überträge eingeblendet.
-      const m = columnMath(q.rows, { width, op: q.op });
       resCells.forEach((c, i) => {
         const want = m.total[i].trim();
         const had = given[i].trim();
@@ -466,6 +479,8 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       if (res.note) lines.push(h('p.explain', res.note));
     } else {
       title = res.almost ? 'Fast! Nur ein Buchstabe falsch.' : 'Nicht ganz.';
+      // Beim schriftlichen Rechnen stehen in den Kästchen jetzt die richtigen Ziffern – die eigene Eingabe soll sichtbar bleiben.
+      if (q.type === 'column' && q.entered) lines.push(h('p.explain', `Du hast ${q.entered} eingetragen.`));
       lines.push(h('p.solution', { html: `Richtig ist: ${md(res.solution)}` }));
       if (q.type === 'column') lines.push(columnSteps(q.rows, { op: q.op }));
       if (res.reveal) lines.push(h('p.explain', { html: `Das Wort war: <strong>${escapeHtml(res.reveal)}</strong>` }));
