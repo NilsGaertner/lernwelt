@@ -525,7 +525,7 @@ async function stationView(id, subjectId, unitId) {
 const TABS = [
   ['rang', '🚂 Rang & Züge'],
   ['album', '🃏 Album'],
-  ['avatar', '🐱 Avatar'],
+  ['avatar', '🐱 Companion'],
   ['stempel', '🔖 Stempel'],
   ['abzeichen', '🏅 Abzeichen'],
 ];
@@ -555,18 +555,18 @@ function avatarPanel(id, meta, ov) {
       type: 'button', class: [locked ? 'locked' : '', current ? 'current' : ''].filter(Boolean).join(' '),
       disabled: locked || current, 'aria-pressed': String(current), onclick: on,
     }, h('span.skin-art', { 'aria-hidden': 'true', html: locked ? '🔒' : svg }), h('span.t-name', label), h('span.t-sub', sub));
-  const base = ov.child.avatar.startsWith('cat:') ? ov.child.avatar : 'cat:black';
+  const base = ov.child.companion;
   return [
     h('section.panel.avatar-stage',
-      h('.avatar-big', faceOf(ov.child)),
+      h('.avatar-big', h('span.cat', { 'aria-hidden': 'true', html: avatarSvg(base, ov.child.skin) })),
       h('div',
-        h('h2', ov.child.name),
-        h('p.muted', base === ov.child.avatar ? 'So siehst du in der Lernwelt aus. Such dir eine Katze und einen Skin aus!' : 'Wähle unten eine Katze – dann bekommst du ein neues Profilbild.'))),
+        h('h2', 'Dein Companion'),
+        h('p.muted', 'Diese Katze begleitet dich bei jeder Fahrt und freut sich mit dir über richtige Antworten. Such dir eine Katze und einen Skin aus!'))),
     h('section.panel',
-      h('h2', '🐱 Deine Katze'),
+      h('h2', '🐱 Dein Companion'),
       h('.trains', cats.map((c) => {
-        const current = ov.child.avatar === c.id;
-        return pick(c.name, avatarSvg(c.id), () => change({ avatar: c.id }), current, false, current ? 'Deine Katze' : 'Auswählen');
+        const current = base === c.id;
+        return pick(c.name, avatarSvg(c.id), () => change({ companion: c.id }), current, false, current ? 'Dein Companion' : 'Auswählen');
       }))),
     h('section.panel',
       h('h2', `🎩 Skins (${owned.length} von ${skins.length})`),
