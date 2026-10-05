@@ -1,0 +1,44 @@
+{
+  "id": "karten-dinge",
+  "line": "karten",
+  "order": 1,
+  "title": "Colours and things",
+  "subtitle": "Bunte Sachen und Tiere",
+  "icon": "🦜",
+  "explain": [
+    { "p": "Die Farbe steht wie im Deutschen **vor** dem Ding: a **red** skateboard (ein rotes Skateboard)." },
+    { "p": "Das englische Adjektiv ändert sich nie. Im Deutschen heißt es rot**es**, rot**e**, rot**er**, im Englischen immer nur **red**. Auch in der Mehrzahl: big house**s**, nicht „bigs houses“." },
+    { "ex": [
+      ["a green budgie", "ein grüner Wellensittich"],
+      ["the blue sky", "der blaue Himmel"],
+      ["a purple house", "ein lila Haus"],
+      ["big houses", "große Häuser"]
+    ] },
+    { "tip": "**fish** bekommt in der Mehrzahl kein -s: one fish – many **fish**." },
+    { "tip": "Lila heißt auf Englisch **purple**, rosa heißt **pink**." }
+  ],
+  "vocab": [
+    { "en": "a green budgie", "de": "ein grüner Wellensittich" },
+    { "en": "the blue sky", "de": "der blaue Himmel" },
+    { "en": "a white palace", "de": "ein weißer Palast" },
+    { "en": "white sand", "de": "weißer Sand" },
+    { "en": "a pink flower", "de": "eine rosa Blume" },
+    { "en": "a purple house", "de": "ein lila Haus" },
+    { "en": "a red skateboard", "de": "ein rotes Skateboard" },
+    { "en": "a black bag", "de": "eine schwarze Tasche" },
+    { "en": "a bad girl", "de": "ein böses Mädchen" },
+    { "en": "big houses", "de": "große Häuser" },
+    { "en": "many fish", "de": "viele Fische" },
+    { "en": "my guinea pig", "de": "mein Meerschweinchen" },
+    { "en": "our cat", "de": "unsere Katze" },
+    { "en": "my room", "de": "mein Zimmer" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "one fish – many ___", "options": ["fish", "fishs", "fishes", "fisch"], "answer": "fish", "explain": "**fish** bleibt in der Mehrzahl gleich: one fish – many fish." },
+    { "type": "choice", "q": "two ___ houses", "de": "zwei große Häuser", "options": ["big", "bigs", "biges", "bigger"], "answer": "big", "explain": "Das Adjektiv bekommt nie ein -s. Nur das Ding: big house**s**." },
+    { "type": "choice", "q": "a ___ house", "de": "ein lila Haus", "options": ["purple", "pink", "lila", "brown"], "answer": "purple", "explain": "Lila heißt **purple**. Pink ist rosa." },
+    { "type": "input", "q": "the ___ sky", "de": "der blaue Himmel", "answer": "blue" },
+    { "type": "input", "q": "my guinea ___", "de": "mein Meerschweinchen", "answer": "pig", "explain": "guinea pig = Meerschweinchen (wörtlich: Guinea-Schwein)." },
+    { "type": "input", "q": "a green ___", "de": "ein grüner Wellensittich", "answer": "budgie" }
+  ]
+}

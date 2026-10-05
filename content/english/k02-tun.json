@@ -1,0 +1,42 @@
+{
+  "id": "karten-tun",
+  "line": "karten",
+  "order": 2,
+  "title": "Things to do",
+  "subtitle": "Lernen, malen, Radio hören",
+  "icon": "🎵",
+  "explain": [
+    { "p": "Auf deinen Karten steht vor dem Verb ein **to**: **to** learn, **to** read. Das ist die Grundform – so wie im Deutschen lern**en**, les**en**." },
+    { "p": "Im Satz fällt das **to** weg: I **learn** words. She **reads** books." },
+    { "ex": [
+      ["to learn words", "Wörter lernen"],
+      ["to sing a song", "ein Lied singen"],
+      ["to listen to the radio", "Radio hören"],
+      ["to live in Halle", "in Halle wohnen"]
+    ] },
+    { "tip": "Bei **listen** kommt immer noch ein **to** dazu: listen **to** the radio, listen **to** music." },
+    { "tip": "**hear** = hören (es kommt einfach an dein Ohr), **listen to** = zuhören (du hörst extra hin)." }
+  ],
+  "vocab": [
+    { "en": "to learn words", "de": "Wörter lernen" },
+    { "en": "to watch films", "de": "Filme schauen" },
+    { "en": "to hear the doorbell", "de": "die Türklingel hören" },
+    { "en": "to write a text", "de": "einen Text schreiben" },
+    { "en": "to draw pictures", "de": "Bilder malen" },
+    { "en": "to sing a song", "de": "ein Lied singen" },
+    { "en": "to spell the words", "de": "die Wörter buchstabieren" },
+    { "en": "to read books", "de": "Bücher lesen" },
+    { "en": "to listen to the radio", "de": "Radio hören" },
+    { "en": "to live in Halle", "de": "in Halle wohnen" }
+  ],
+  "exercises": [
+    { "type": "input", "q": "to ___ words", "de": "Wörter lernen", "answer": "learn" },
+    { "type": "input", "q": "to watch ___", "de": "Filme schauen", "answer": "films", "accept": ["movies"] },
+    { "type": "input", "q": "to hear the ___", "de": "die Türklingel hören", "answer": "doorbell" },
+    { "type": "input", "q": "to ___ pictures", "de": "Bilder malen", "answer": "draw" },
+    { "type": "input", "q": "to ___ the words", "de": "die Wörter buchstabieren", "answer": "spell" },
+    { "type": "input", "q": "to sing a ___", "de": "ein Lied singen", "answer": "song" },
+    { "type": "input", "q": "to ___ in Halle", "de": "in Halle wohnen", "answer": "live" },
+    { "type": "choice", "q": "to listen ___ the radio", "options": ["to", "at", "on", "with"], "answer": "to", "explain": "Nach **listen** kommt immer **to**: listen **to** the radio." }
+  ]
+}

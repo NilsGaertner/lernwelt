@@ -1,0 +1,48 @@
+{
+  "id": "karten-alltag",
+  "line": "karten",
+  "order": 3,
+  "title": "At school and at home",
+  "subtitle": "Kurze Sätze für jeden Tag",
+  "icon": "🏫",
+  "explain": [
+    { "ex": [
+      ["I am new at school.", "Ich bin neu an der Schule."],
+      ["I am in year 5.", "Ich bin in der 5. Klasse."],
+      ["She is at home.", "Sie ist zu Hause."],
+      ["This is their house.", "Das ist ihr Haus."]
+    ] },
+    { "p": "Tageszeiten: **in the** morning (morgens), **in the** afternoon (nachmittags), **in the** evening (abends)." },
+    { "tip": "**their** = ihr (gehört mehreren Leuten). Nicht verwechseln mit **there** = dort. Beides klingt gleich!" },
+    { "tip": "Zu Hause heißt **at home** – ohne „the“." },
+    { "tip": "**homework** hat keine Mehrzahl: my homework = meine Hausaufgaben." }
+  ],
+  "vocab": [
+    { "en": "Who is here?", "de": "Wer ist hier?" },
+    { "en": "Where is she?", "de": "Wo ist sie?" },
+    { "en": "She is at home.", "de": "Sie ist zu Hause." },
+    { "en": "This is their house.", "de": "Das ist ihr Haus." },
+    { "en": "I am in year 5.", "de": "Ich bin in der 5. Klasse." },
+    { "en": "I am new at school.", "de": "Ich bin neu an der Schule." },
+    { "en": "my homework", "de": "meine Hausaufgaben" },
+    { "en": "maybe", "de": "vielleicht" },
+    { "en": "Sorry!", "de": "Entschuldigung! / Tut mir leid!" },
+    { "en": "See you!", "de": "Bis bald! / Tschüss!" },
+    { "en": "morning", "de": "der Morgen" },
+    { "en": "afternoon", "de": "der Nachmittag" },
+    { "en": "evening", "de": "der Abend" },
+    { "en": "in the morning", "de": "morgens, am Morgen" },
+    { "en": "upstairs", "de": "oben, nach oben (im Haus)" },
+    { "en": "downstairs", "de": "unten, nach unten (im Haus)" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "This is ___ house.", "de": "Das ist ihr Haus. (Es gehört Tom und Lisa.)", "options": ["their", "there", "they", "her"], "answer": "their", "explain": "**their** = ihr (von mehreren). **there** = dort." },
+    { "type": "choice", "q": "She is ___ home.", "de": "Sie ist zu Hause.", "options": ["at", "in", "to", "on"], "answer": "at", "explain": "Zu Hause = **at home**." },
+    { "type": "choice", "q": "I am in ___ 5.", "de": "Ich bin in der 5. Klasse.", "options": ["year", "class", "klass", "grade"], "answer": "year", "explain": "In England sagt man **year 5** für die Klassenstufe." },
+    { "type": "choice", "q": "___ the evening", "de": "abends", "options": ["in", "at", "on", "to"], "answer": "in", "explain": "**in** the morning, **in** the afternoon, **in** the evening." },
+    { "type": "choice", "q": "I do my ___.", "de": "Ich mache meine Hausaufgaben.", "options": ["homework", "homeworks", "housework", "homewords"], "answer": "homework", "explain": "**homework** hat kein -s, auch wenn es viele Aufgaben sind." },
+    { "type": "input", "q": "___ is she?", "de": "Wo ist sie?", "answer": "Where" },
+    { "type": "input", "q": "___ is here?", "de": "Wer ist hier?", "answer": "Who" },
+    { "type": "input", "q": "My room is ___.", "de": "Mein Zimmer ist oben.", "answer": "upstairs" }
+  ]
+}

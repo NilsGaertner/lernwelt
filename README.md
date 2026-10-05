@@ -4,12 +4,13 @@ Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch, Mathe und Geo
 
 ## Was drin ist
 
-**Englisch (Klasse 5, Grundlagen): 39 Stationen, gut 700 Wörter und Aufgaben**
+**Englisch (Klasse 5, Grundlagen): 42 Stationen, gut 800 Wörter und Aufgaben**
 
 Jede Linie hat 3 Stationen und danach den Endbahnhof. So ist eine Linie in ein paar Tagen geschafft, und die Lootbox dafür bleibt in Reichweite. Wörter und Grammatik sind nach Themen gemischt, die zusammenpassen.
 
 | Linie | Stationen |
 |---|---|
+| Karteikarten-Linie | Die Vokabelkarten aus der Schule: Farben und Dinge, Verben mit „to“, kurze Sätze für jeden Tag |
 | Hallo-Linie | Begrüßen und Vorstellen, Familie, Fragewörter |
 | Ich-bin-Linie | I/you/he…, am/is/are, Verneinung und Fragen mit „to be“ |
 | Zahlen-Linie | Zahlen bis 20, Zahlen bis 100, Uhrzeit |

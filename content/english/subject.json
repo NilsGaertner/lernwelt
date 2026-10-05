@@ -5,6 +5,7 @@
   "order": 1,
   "speechLang": "en-GB",
   "lines": [
+    { "id": "karten", "name": "Karteikarten-Linie", "short": "Karteikarten", "color": "#00695C" },
     { "id": "hallo", "name": "Hallo-Linie", "short": "Hallo", "color": "#1F6FD1" },
     { "id": "ichbin", "name": "Ich-bin-Linie", "short": "Ich bin", "color": "#0B7D44" },
     { "id": "zahlen", "name": "Zahlen-Linie", "short": "Zahlen", "color": "#C0392B" },
@@ -27,7 +28,7 @@
   "blitz": [
     {
       "id": "woerter", "title": "Wörter-Blitz", "icon": "⚡", "subtitle": "Englische Wörter so schnell du kannst", "types": ["choice"],
-      "units": ["numbers", "numbers-100", "colours", "days-months", "family", "school", "animals", "food", "body", "clothes", "home", "free-time", "verbs", "adjectives", "weather"]
+      "units": ["karten-dinge", "karten-tun", "karten-alltag", "numbers","numbers-100", "colours", "days-months", "family", "school", "animals", "food", "body", "clothes", "home", "free-time", "verbs", "adjectives", "weather"]
     },
     {
       "id": "grammatik", "title": "Grammatik-Blitz", "icon": "🌩️", "subtitle": "Welche Form passt?", "types": ["choice"],
