@@ -169,6 +169,11 @@ addColumn('sessions', 'parked', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('children', 'train', 'TEXT');
 addColumn('children', 'adult', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('children', 'skin', 'TEXT');
+// Companion (Katze + Skin) ist vom Profilbild getrennt; wer bisher eine Katze als Bild hatte, behält sie als Companion
+if (!db.prepare('PRAGMA table_info(children)').all().some((c) => c.name === 'companion')) {
+  db.exec("ALTER TABLE children ADD COLUMN companion TEXT NOT NULL DEFAULT 'cat:black'");
+  db.exec("UPDATE children SET companion = avatar WHERE avatar LIKE 'cat:%'");
+}
 
 /** Sterne-Arten, die als „verdient“ zählen (für Tageslimit und Statistik). */
 export const EARN_KINDS = ['session', 'bonus', 'badge'];

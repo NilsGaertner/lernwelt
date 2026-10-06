@@ -34,7 +34,7 @@ app.get('/media/:subject/:file', (req, res, next) => {
 const fail = (status, message) => Object.assign(new Error(message), { status });
 
 function childOr404(id) {
-  const child = db.prepare('SELECT id, name, avatar, skin, train, adult FROM children WHERE id = ?').get(Number(id));
+  const child = db.prepare('SELECT id, name, avatar, companion, skin, train, adult FROM children WHERE id = ?').get(Number(id));
   if (!child) throw fail(404, 'Dieses Profil gibt es nicht.');
   return child;
 }
@@ -46,7 +46,7 @@ app.get('/api/meta', (req, res) => {
 });
 
 app.get('/api/children', (req, res) => {
-  res.json(db.prepare('SELECT id, name, avatar, skin, adult FROM children ORDER BY adult, id').all());
+  res.json(db.prepare('SELECT id, name, avatar, companion, skin, adult FROM children ORDER BY adult, id').all());
 });
 
 /** Der gewählte Zug – falls (noch) nicht freigeschaltet, der beste freigeschaltete. */
@@ -122,10 +122,10 @@ app.get('/api/children/:id/blitz/:subject/:topic', (req, res) => {
   res.json({ topic: { id: topic.id, title: topic.title, icon: topic.icon ?? '⚡', subtitle: topic.subtitle ?? '' }, ...blitzRecords(child.id, req.params.subject, topic.id) });
 });
 
-// Katze und Skin wechseln (Skins nur, wenn sie dem Kind gehören)
+// Companion (Katze) und Skin wechseln (Skins nur, wenn sie dem Kind gehören)
 app.post('/api/children/:id/avatar', (req, res) => {
   const child = childOr404(req.params.id);
-  res.json(equip(child, { avatar: req.body?.avatar, skin: req.body?.skin }));
+  res.json(equip(child, { companion: req.body?.companion, skin: req.body?.skin }));
 });
 
 app.post('/api/children/:id/train', (req, res) => {

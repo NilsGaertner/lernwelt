@@ -1,5 +1,5 @@
 // Avatar-Skins: Das Kind sammelt sie bei Ereignissen (Linie geschafft) oder bekommt sie von den Eltern geschenkt.
-// Der Avatar selbst (Katze) steht in children.avatar, der getragene Skin in children.skin.
+// Der Companion (Katze) steht in children.companion, der getragene Skin in children.skin; das Profilbild (children.avatar) ist davon unabhängig.
 import { db } from './db.js';
 import { nowIso } from './util.js';
 import { CATS, SKINS, isCat, isSkin } from '../public/js/avatar-data.js';
@@ -37,20 +37,20 @@ export function avatarState(childId) {
 }
 
 /** Katze und/oder Skin wechseln. skin '' = keinen tragen. Skins muss das Kind besitzen. */
-export function equip(child, { avatar, skin }) {
-  let nextAvatar = child.avatar;
+export function equip(child, { companion, skin }) {
+  let nextCompanion = child.companion;
   let nextSkin = child.skin ?? null;
-  if (avatar != null) {
-    if (!isCat(avatar)) throw fail(400, 'Diese Katze gibt es nicht.');
-    nextAvatar = avatar;
+  if (companion != null) {
+    if (!isCat(companion)) throw fail(400, 'Diese Katze gibt es nicht.');
+    nextCompanion = companion;
   }
   if (skin != null) {
     if (skin === '') nextSkin = null;
     else if (!ownedSkins(child.id).includes(skin)) throw fail(400, 'Diesen Skin hast du noch nicht.');
     else nextSkin = skin;
   }
-  db.prepare('UPDATE children SET avatar = ?, skin = ? WHERE id = ?').run(nextAvatar, nextSkin, child.id);
-  return { avatar: nextAvatar, skin: nextSkin };
+  db.prepare('UPDATE children SET companion = ?, skin = ? WHERE id = ?').run(nextCompanion, nextSkin, child.id);
+  return { companion: nextCompanion, skin: nextSkin };
 }
 
 /** Profilbild aus dem Elternbereich: eine Katze oder ein Emoji (höchstens 8 Zeichen). */

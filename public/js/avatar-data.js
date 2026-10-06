@@ -44,7 +44,7 @@ export const SKINS = {
 export const isCat = (value) => typeof value === 'string' && value.startsWith('cat:') && value.slice(4) in CATS;
 export const isSkin = (id) => typeof id === 'string' && id in SKINS;
 
-const catParts = (c) => {
+const catParts = (c, closed = false) => {
   const st = c.stripes;
   const stripes = st
     ? `<g stroke="${st}" stroke-width="6" stroke-linecap="round" fill="none">
@@ -53,7 +53,9 @@ const catParts = (c) => {
       </g>
       <path d="M48 36 L58 56 M152 36 L142 56" stroke="${st}" stroke-width="5" stroke-linecap="round"/>`
     : '';
-  const eye = (x) => `<ellipse cx="${x}" cy="108" rx="13" ry="16" fill="${c.eye}" stroke="${c.line}" stroke-width="2"/>
+  const eye = (x) => closed
+    ? `<path d="M${x - 13} 108 Q${x} 121 ${x + 13} 108" fill="none" stroke="${c.line}" stroke-width="6" stroke-linecap="round"/>`
+    : `<ellipse cx="${x}" cy="108" rx="13" ry="16" fill="${c.eye}" stroke="${c.line}" stroke-width="2"/>
     <ellipse cx="${x}" cy="108" rx="5" ry="12" fill="#111"/><circle cx="${x + 4}" cy="101" r="3.5" fill="#fff"/>`;
   return `<g stroke="${c.line}" stroke-width="4" stroke-linejoin="round">
       <path d="M36 104 L38 26 Q39 20 45 23 L98 54 Z" fill="${c.fur}"/>
@@ -76,6 +78,33 @@ export function avatarSvg(avatar, skin) {
   if (!isCat(avatar)) return null;
   const cat = CATS[avatar.slice(4)];
   return `<svg viewBox="0 0 200 204" role="img" aria-label="${cat.name}${isSkin(skin) ? ` mit ${SKINS[skin].name}` : ''}">${catParts(cat)}${isSkin(skin) ? SKINS[skin].svg : ''}</svg>`;
+}
+
+/**
+ * Zusammengerollt schlafende Katze (mit optionalem Skin) für den Companion bei der Fahrt.
+ * Körper und Kopf tragen die Klassen breath-body/breath-head, die das CSS langsam atmen lässt.
+ */
+export function sleepSvg(avatar, skin) {
+  if (!isCat(avatar)) return null;
+  const c = CATS[avatar.slice(4)];
+  const st = c.stripes;
+  const stripes = st
+    ? `<path d="M112 54 L114 72 M142 52 L144 70 M172 58 L172 76" stroke="${st}" stroke-width="6" stroke-linecap="round" fill="none"/>`
+    : '';
+  const tail = 'M220 104 Q228 150 140 148 Q96 148 78 136';
+  return `<svg viewBox="0 -22 240 194" role="img" aria-label="${c.name}, schlafend${isSkin(skin) ? ` mit ${SKINS[skin].name}` : ''}">
+    <g class="breath-body">
+      <ellipse cx="130" cy="98" rx="96" ry="48" fill="${c.fur}" stroke="${c.line}" stroke-width="4"/>
+      <path d="${tail}" fill="none" stroke="${c.line}" stroke-width="26" stroke-linecap="round"/>
+      <path d="${tail}" fill="none" stroke="${c.fur}" stroke-width="18" stroke-linecap="round"/>
+      ${stripes}
+    </g>
+    <g class="breath-head"><g transform="translate(14 44) scale(.62)">${catParts(c, true)}${isSkin(skin) ? SKINS[skin].svg : ''}</g></g>
+    <ellipse cx="122" cy="146" rx="17" ry="9" fill="${c.fur}" stroke="${c.line}" stroke-width="3"/>
+    <g class="zzz" fill="${c.line === '#16161a' ? '#8a8aa0' : c.line}" font-family="sans-serif" font-weight="700">
+      <text x="104" y="42" font-size="20">z</text><text x="124" y="28" font-size="26">z</text><text x="148" y="12" font-size="32">Z</text>
+    </g>
+  </svg>`;
 }
 
 /** Text für Stellen, an denen kein SVG möglich ist (Auswahllisten). */

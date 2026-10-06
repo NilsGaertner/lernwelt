@@ -1,6 +1,7 @@
 import { h, md, gapText, speak, canSpeak, sfx, escapeHtml, mapFigure, confetti, countUp, rankMeter, toast, guardBack, columnMath, columnSum, columnSteps } from './ui.js';
 import { api } from './api.js';
 import { lootbox } from './lootbox.js';
+import { avatarSvg, sleepSvg } from './avatar-data.js';
 
 const PRAISE = ['Richtig!', 'Super!', 'Klasse!', 'Genau!', 'Stark!', 'Perfekt!'];
 const pick = (a) => a[Math.floor(Math.random() * a.length)];
@@ -40,14 +41,20 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
   const count = h('span.ride-count');
   const comboBadge = h('span.combo', { 'aria-live': 'polite' });
   const stage = h('div');
+  let cat = null;
+  let napTimer = 0;
+  // Companion: die gewählte Katze (mit Skin) begleitet die Fahrt und freut sich über richtige Antworten.
+  const companion = h('.companion', { 'aria-hidden': 'true', hidden: true });
   const wrap = h('section.ride', { style: { '--line': lineColor } },
     h('.ride-top',
       h('button.icon-btn', { type: 'button', title: 'Fahrt abbrechen', 'aria-label': 'Fahrt abbrechen', onclick: exit }, '✕'),
       h('.track', { role: 'progressbar', 'aria-valuemin': 0, 'aria-valuemax': total }, h('.rail'), railDone, trackDots, train),
       count),
     comboBadge,
+    companion,
     stage);
   root.replaceChildren(wrap);
+  loadCompanion();
   window.scrollTo(0, 0);
 
   document.addEventListener('keydown', (e) => {
@@ -77,6 +84,34 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     keys.abort();
     document.querySelectorAll('.sheet, .dock').forEach((el) => el.remove());
     window.speechSynthesis?.cancel();
+  }
+
+  // Fehlt der Companion, läuft die Fahrt trotzdem.
+  async function loadCompanion() {
+    try {
+      const child = (await api('/children')).find((c) => c.id === Number(childId));
+      if (!child || ended) return;
+      cat = { id: child.companion, skin: child.skin };
+      companion.hidden = false;
+      sleep();
+    } catch { /* ohne Companion weiterfahren */ }
+  }
+
+  // Die Katze schläft eingerollt, wacht bei einer richtigen Antwort auf und legt sich danach wieder hin.
+  function sleep() {
+    if (!cat) return;
+    companion.classList.remove('cheer');
+    companion.innerHTML = sleepSvg(cat.id, cat.skin) ?? '';
+  }
+
+  function cheer() {
+    if (!cat) return;
+    clearTimeout(napTimer);
+    companion.classList.remove('cheer');
+    companion.innerHTML = avatarSvg(cat.id, cat.skin) ?? '';
+    void companion.offsetWidth; // Animation neu starten, auch bei schnell aufeinanderfolgenden Treffern
+    companion.classList.add('cheer');
+    napTimer = setTimeout(sleep, 2600);
   }
 
   function updateTrack() {
@@ -420,6 +455,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       }
     }
     updateCombo(res.combo ?? 0);
+    if (res.correct) cheer();
     if (res.correct && combo >= 3) sfx.combo(combo);
     else if (res.correct) sfx.right();
     else sfx.wrong();
@@ -568,7 +604,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
         h('.big-train', { 'aria-hidden': 'true' }, '🎩'),
         h('div',
           h('h2', result.skins.length === 1 ? `Neuer Skin: ${result.skins[0].name}!` : 'Neue Skins!'),
-          h('p', 'Du findest ihn in deiner Sammlung unter „Avatar“ und kannst ihn deiner Katze anziehen.'),
+          h('p', 'Du findest ihn in deiner Sammlung unter „Companion“ und kannst ihn deiner Katze anziehen.'),
           h('a.btn.small', { href: `#/kid/${childId}/sammlung/avatar` }, 'Jetzt anziehen →'))));
     }
     if (result.xp.rankUp) {
