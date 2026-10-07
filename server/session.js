@@ -308,6 +308,10 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
 }
 
 function checkAnswer(q, given) {
+  // Auswahl: die Option kommt wörtlich zurück. Ohne normalize, sonst würde z. B. ":" zu "".
+  if (q.pub.type === 'choice') return { correct: q.expected.includes(String(given)) };
+  // Zahlen dürfen mit Tausenderpunkten oder Leerzeichen getippt werden: 45.000 und 45 000 zählen wie 45000.
+  if (q.pub.numeric) given = String(given ?? '').trim().replace(/(\d)[\s.](?=\d{3}(?!\d))/g, '$1');
   const strictOpt = { expand: !q.strict };
   const g = normalize(given, strictOpt);
   if (!g) return { correct: false };

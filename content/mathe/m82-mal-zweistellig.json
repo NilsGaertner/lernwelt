@@ -1,0 +1,26 @@
+{
+  "id": "mal-zweistellig",
+  "line": "schriftlich-mal",
+  "order": 82,
+  "title": "Mal zwei Ziffern",
+  "subtitle": "Zwei Zeilen und zusammenzählen",
+  "icon": "📝",
+  "card": "Merke: Jede Zeile endet **genau unter ihrer Ziffer**. Darum rutscht die zweite Zeile eine Stelle nach rechts.",
+  "generator": "schriftlich",
+  "params": { "op": "mul", "digits": [2, 3], "factorDigits": [2, 2] },
+  "itemCount": 100,
+  "explain": [
+    { "p": "Hat die zweite Zahl zwei Ziffern, rechnest du **zwei Zeilen**: erst mal die erste Ziffer, dann mal die zweite. Jede Zeile hört **genau unter ihrer Ziffer** auf – die zweite steht also eine Stelle weiter rechts. Zum Schluss zählst du beide Zeilen zusammen." },
+    { "column": { "op": "mul", "rows": ["421", "17"], "caption": "421 · 17 = **7157**" } },
+    { "table": {
+      "head": ["Zeile", "Rechnung", "endet unter der …"],
+      "rows": [
+        ["1.", "421 · 1 = 421", "1"],
+        ["2.", "421 · 7 = 2947", "7"],
+        ["+", "zusammenzählen = **7157**", "7"]
+      ]
+    } },
+    { "tip": "Überschlag: 421 · 17 ≈ 400 · 20 = 8000. Ein Ergebnis wie 42 107 kann also nicht stimmen – da ist eine Zeile verrutscht." },
+    { "tip": "So geht es in der Lernwelt: Ist eine Zeile vorne fertig, tippe **„Nächste Zeile“**. Unter dem Strich zählst du zusammen, mit Übertrags-Kästchen wie beim Plus. Gewertet wird nur das Ergebnis." }
+  ]
+}

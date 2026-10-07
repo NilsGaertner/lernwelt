@@ -7,9 +7,15 @@
   "lines": [
     { "id": "kopfrechnen", "name": "Kopfrechnen-Linie", "short": "Kopfrechnen", "color": "#D9631E" },
     { "id": "schriftlich-plus", "name": "Schriftlich-plus-Linie", "short": "Schriftlich plus", "color": "#1E6FB8", "examCount": 10 },
-    { "id": "schriftlich-minus", "name": "Schriftlich-minus-Linie", "short": "Schriftlich minus", "color": "#7B3FA0", "examCount": 10 }
+    { "id": "schriftlich-minus", "name": "Schriftlich-minus-Linie", "short": "Schriftlich minus", "color": "#7B3FA0", "examCount": 10 },
+    { "id": "schriftlich-mal", "name": "Schriftlich-mal-Linie", "short": "Schriftlich mal", "color": "#AD1457", "examCount": 10 },
+    { "id": "rechenregeln", "name": "Rechenregel-Linie", "short": "Rechenregeln", "color": "#2E7D32" },
+    { "id": "rechengesetze", "name": "Rechengesetz-Linie", "short": "Rechengesetze", "color": "#00838F" },
+    { "id": "grosse-zahlen", "name": "Große-Zahlen-Linie", "short": "Große Zahlen", "color": "#C62828" },
+    { "id": "mal-geteilt", "name": "Mal-und-geteilt-Linie", "short": "Mal und geteilt", "color": "#8D6E00" }
   ],
   "blitz": [
-    { "id": "quadrate", "title": "Quadratzahlen-Blitz", "icon": "⚡", "subtitle": "11 · 11 bis 20 · 20", "units": ["quadrat-11-15", "quadrat-16-20"] }
+    { "id": "quadrate", "title": "Quadratzahlen-Blitz", "icon": "⚡", "subtitle": "11 · 11 bis 20 · 20", "units": ["quadrat-11-15", "quadrat-16-20"] },
+    { "id": "rechenregeln", "title": "Rechenregel-Blitz", "icon": "⚡", "subtitle": "Punkt vor Strich, Nullen, Zerlegen", "units": ["klapopustri", "nullen", "zerlegen"] }
   ]
 }

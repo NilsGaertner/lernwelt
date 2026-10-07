@@ -1,0 +1,52 @@
+{
+  "id": "begriffe-potenzen",
+  "line": "rechenregeln",
+  "order": 41,
+  "title": "Fachbegriffe und Potenzen",
+  "subtitle": "Summe, Produkt, Basis, Exponent",
+  "icon": "📖",
+  "card": "Wusstest du? **Potenz** kommt vom lateinischen „potentia“, das heißt „Kraft“. Potenzen wachsen nämlich mächtig schnell: 2¹⁰ ist schon **1024**.",
+  "explain": [
+    { "p": "Jede Rechenart hat eigene Namen für ihre Zahlen:" },
+    { "table": { "head": ["Rechenart", "Beispiel", "So heißen die Zahlen"], "rows": [
+      ["Addition", "5 + 3 = 8", "Summand + Summand = **Summe**"],
+      ["Subtraktion", "9 − 4 = 5", "Minuend − Subtrahend = **Differenz**"],
+      ["Multiplikation", "6 · 7 = 42", "Faktor · Faktor = **Produkt**"],
+      ["Division", "20 : 4 = 5", "Dividend : Divisor = **Quotient**"]
+    ] } },
+    { "p": "Neu ist die **Potenz**: 2⁴ = 2 · 2 · 2 · 2 = **16**. Die große 2 heißt **Basis**, die kleine 4 oben heißt **Exponent**, und 16 ist der **Potenzwert**. Man sagt „2 hoch 4“." },
+    { "tip": "Der Exponent sagt, **wie oft** die Basis malgenommen wird. 2⁴ ist 2 · 2 · 2 · 2 = 16 und nicht 2 · 4 = 8!" },
+    { "tip": "Hoch 2 heißt auch „zum Quadrat“: 5² = 5 · 5 = **25**." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Fachbegriffe", "q": "Wie heißt das Ergebnis einer Multiplikation?", "options": ["Produkt", "Summe", "Quotient", "Differenz"], "answer": "Produkt" },
+    { "type": "choice", "task": "Fachbegriffe", "q": "Wie heißt das Ergebnis einer Division?", "options": ["Quotient", "Produkt", "Differenz", "Summe"], "answer": "Quotient" },
+    { "type": "choice", "task": "Fachbegriffe", "q": "Wie heißt das Ergebnis einer Subtraktion?", "options": ["Differenz", "Summe", "Produkt", "Quotient"], "answer": "Differenz" },
+    { "type": "choice", "task": "Fachbegriffe", "q": "Wie heißt das Ergebnis einer Addition?", "options": ["Summe", "Differenz", "Produkt", "Quotient"], "answer": "Summe" },
+    { "type": "choice", "task": "Fachbegriffe", "q": "36 : 4 = 9. Die **4** ist der …", "options": ["Divisor", "Dividend", "Quotient", "Faktor"], "answer": "Divisor", "explain": "Dividend : **Divisor** = Quotient. Die Zahl, durch die geteilt wird, ist der Divisor." },
+    { "type": "choice", "task": "Fachbegriffe", "q": "36 : 4 = 9. Die **36** ist der …", "options": ["Dividend", "Divisor", "Quotient", "Summand"], "answer": "Dividend", "explain": "**Dividend** : Divisor = Quotient. Die Zahl, die geteilt wird, ist der Dividend." },
+    { "type": "choice", "task": "Fachbegriffe", "q": "50 − 18 = 32. Die **18** ist der …", "options": ["Subtrahend", "Minuend", "Summand", "Divisor"], "answer": "Subtrahend", "explain": "Minuend − **Subtrahend** = Differenz. Die Zahl, die abgezogen wird, ist der Subtrahend." },
+    { "type": "choice", "task": "Fachbegriffe", "q": "50 − 18 = 32. Die **50** ist der …", "options": ["Minuend", "Subtrahend", "Dividend", "Faktor"], "answer": "Minuend", "explain": "**Minuend** − Subtrahend = Differenz. Von ihm wird etwas weggenommen (lateinisch „minuere“ = vermindern)." },
+    { "type": "choice", "task": "Fachbegriffe", "q": "7 · 8 = 56. Die 7 und die 8 heißen …", "options": ["Faktoren", "Summanden", "Produkte", "Divisoren"], "answer": "Faktoren" },
+    { "type": "input", "task": "Rechne aus.", "q": "Die Summe von 48 und 27 ist ___.", "answer": "75", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne aus.", "q": "Das Produkt von 12 und 5 ist ___.", "answer": "60", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne aus.", "q": "Die Differenz von 100 und 37 ist ___.", "answer": "63", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne aus.", "q": "Der Quotient von 84 und 4 ist ___.", "answer": "21", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "choice", "task": "Potenzen", "q": "In 3⁵ ist die **3** die …", "options": ["Basis", "Exponent", "Potenzwert", "Summe"], "answer": "Basis" },
+    { "type": "choice", "task": "Potenzen", "q": "In 3⁵ ist die **5** der …", "options": ["Exponent", "Basis", "Potenzwert", "Faktor"], "answer": "Exponent" },
+    { "type": "choice", "task": "Potenzen", "q": "Was bedeutet 2⁴?", "options": ["2 · 2 · 2 · 2", "2 · 4", "4 · 4", "2 + 2 + 2 + 2"], "answer": "2 · 2 · 2 · 2", "explain": "Der Exponent 4 sagt: Die 2 wird **viermal** malgenommen." },
+    { "type": "choice", "task": "Welches Ergebnis stimmt?", "q": "4³ = ___", "options": ["64", "12", "7", "48"], "answer": "64", "explain": "4³ = 4 · 4 · 4 = 16 · 4 = **64**. Nicht 4 · 3 = 12!" },
+    { "type": "input", "task": "Berechne den Potenzwert.", "q": "2⁴ = ___", "answer": "16", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Berechne den Potenzwert.", "q": "3⁴ = ___", "answer": "81", "numeric": true, "placeholder": "Ergebnis", "explain": "3 · 3 = 9, 9 · 3 = 27, 27 · 3 = **81**" },
+    { "type": "input", "task": "Berechne den Potenzwert.", "q": "5² = ___", "answer": "25", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Berechne den Potenzwert.", "q": "10³ = ___", "answer": "1000", "numeric": true, "placeholder": "Ergebnis", "explain": "Bei 10 hoch etwas sagt der Exponent, wie viele Nullen es sind: 10³ = **1000**." },
+    { "type": "input", "task": "Berechne den Potenzwert.", "q": "2⁵ = ___", "answer": "32", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Berechne den Potenzwert.", "q": "4³ = ___", "answer": "64", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Berechne den Potenzwert.", "q": "1⁷ = ___", "answer": "1", "numeric": true, "placeholder": "Ergebnis", "hint": "1 · 1 · 1 · … bleibt immer 1." },
+    { "type": "input", "task": "Berechne den Potenzwert.", "q": "10⁶ = ___", "answer": "1000000", "numeric": true, "placeholder": "Ergebnis", "explain": "10⁶ ist eine 1 mit **6 Nullen**: 1 000 000, eine Million." },
+    { "type": "input", "task": "Berechne den Potenzwert.", "q": "3³ = ___", "answer": "27", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Schreib als Potenz.", "q": "7 · 7 · 7 = 7 hoch ___", "answer": "3", "numeric": true, "placeholder": "Exponent" },
+    { "type": "input", "task": "Schreib als Potenz.", "q": "6 · 6 · 6 · 6 · 6 = 6 hoch ___", "answer": "5", "numeric": true, "placeholder": "Exponent" },
+    { "type": "input", "task": "Rückwärts gedacht:", "q": "___² = 49", "answer": "7", "numeric": true, "placeholder": "Basis", "hint": "Welche Zahl mal sich selbst ergibt 49?" }
+  ]
+}

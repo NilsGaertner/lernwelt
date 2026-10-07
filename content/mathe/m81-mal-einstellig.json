@@ -1,0 +1,27 @@
+{
+  "id": "mal-einstellig",
+  "line": "schriftlich-mal",
+  "order": 81,
+  "title": "Mal eine Ziffer",
+  "subtitle": "Schriftlich mal, einstelliger Faktor",
+  "icon": "✖️",
+  "card": "Wusstest du? Den Malpunkt **·** hat der Mathematiker Gottfried Wilhelm Leibniz bekannt gemacht. Das Kreuz **×** fand er zu leicht mit dem Buchstaben x zu verwechseln.",
+  "generator": "schriftlich",
+  "params": { "op": "mul", "digits": [2, 4], "factorDigits": [1, 1] },
+  "itemCount": 100,
+  "explain": [
+    { "p": "Beim **schriftlichen Malnehmen** schreibst du die Aufgabe in eine Zeile und ziehst darunter einen Strich. Du rechnest von **rechts nach links**: Jede Ziffer der ersten Zahl nimmst du mal die zweite Zahl." },
+    { "column": { "op": "mul", "rows": ["165", "8"], "caption": "165 · 8 = **1320**" } },
+    { "table": {
+      "head": ["", "Rechnung", "Schreib", "Merk dir"],
+      "rows": [
+        ["E", "5 · 8 = 40", "**0**", "4"],
+        ["Z", "6 · 8 = 48, + **4** = 52", "**2**", "5"],
+        ["H", "1 · 8 = 8, + **5** = 13", "**13**", "–"]
+      ]
+    } },
+    { "tip": "Die Merkzahl kommt **nach** dem Malnehmen dazu: erst 6 · 8 = 48, dann + 4 = 52. Nicht (6 + 4) · 8!" },
+    { "tip": "Erst überschlagen: 165 · 8 ≈ 200 · 8 = 1600. Das Ergebnis muss in der Nähe liegen." },
+    { "tip": "So geht es in der Lernwelt: Tippe die Ziffern über die Zahlentasten, das Kästchen springt von selbst nach links. Die Merkzahl behältst du im Kopf." }
+  ]
+}

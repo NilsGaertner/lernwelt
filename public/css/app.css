@@ -472,6 +472,8 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 .colsum button.ok { color: var(--go); background: var(--go-bg); }
 .colsum button.fix { color: var(--signal); background: var(--stop-bg); }
 .colsum button.shown { color: var(--signal); font-weight: 700; }
+/* Schriftlich mal: Zeilen, die das Kind im Kopf gerechnet hat, zeigen danach den Rechenweg in Grau */
+.colsum button.hint { color: var(--muted); }
 @keyframes caret { 50% { opacity: 0; } }
 
 .col-work { display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: center; }
@@ -515,6 +517,8 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
   padding: 18px 16px calc(18px + env(safe-area-inset-bottom));
   animation: sheet-up 0.22s ease;
+  /* Lange Rechenwege (schriftlich mal) dürfen auf kleinen Handys nicht oben aus dem Bild ragen */
+  max-height: 85dvh; overflow-y: auto;
 }
 .sheet.ok { background: var(--go-bg); border-top: 4px solid var(--go); }
 .sheet.bad { background: var(--stop-bg); border-top: 4px solid var(--signal); }

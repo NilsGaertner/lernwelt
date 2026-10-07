@@ -95,6 +95,8 @@ function validateUnit(meta, unit, file, problems, subjectDir) {
   for (const b of unit.explain) {
     if (b.column && !(b.column.rows?.length >= 2 && b.column.rows.every((r) => /^\d+$/.test(r))))
       problems.push(`${where}: Rechen-Beispiel braucht "rows" mit mindestens zwei Zahlen: ${JSON.stringify(b.column)}`);
+    else if (b.column?.op === 'mul' && b.column.rows.length !== 2)
+      problems.push(`${where}: Mal-Beispiel braucht genau zwei Zahlen: ${JSON.stringify(b.column)}`);
     else if (b.column?.op === 'sub' && b.column.rows.slice(1).reduce((a, r) => a - Number(r), Number(b.column.rows[0])) < 0)
       problems.push(`${where}: Minus-Beispiel ergibt weniger als 0: ${JSON.stringify(b.column)}`);
   }

@@ -1,0 +1,46 @@
+{
+  "id": "grosse-zahlen",
+  "line": "grosse-zahlen",
+  "order": 61,
+  "title": "Million, Milliarde, Billion",
+  "subtitle": "Große Zahlen lesen und schreiben",
+  "icon": "🌌",
+  "card": "Wusstest du? Eine 1 mit 100 Nullen heißt **Googol**. Davon hat die Suchmaschine Google ihren Namen.",
+  "explain": [
+    { "table": { "head": ["Zahl", "Zahlwort", "Nullen"], "rows": [
+      ["1 000", "Tausend", "3"],
+      ["1 000 000", "Million", "6"],
+      ["1 000 000 000", "Milliarde", "9"],
+      ["1 000 000 000 000", "Billion", "12"],
+      ["1 000 000 000 000 000", "Billiarde", "15"],
+      ["1 000 000 000 000 000 000", "Trillion", "18"]
+    ] } },
+    { "tip": "Von Stufe zu Stufe kommen **3 Nullen** dazu. Darum schreibt man große Zahlen in **Dreierpäckchen** von rechts: 23 652 000." },
+    { "p": "Beim **gemischten Zahlwort** schreibst du jedes Päckchen mit seinem Namen: 1 737 400 = **1 Mio. 737 Tsd. 400**" },
+    { "p": "Abkürzungen: Tsd. = Tausend, Mio. = Million, Mrd. = Milliarde, Bio. = Billion" },
+    { "tip": "Aufpassen bei Lücken: 2 Mio. 30 Tsd. = 2 **030** 000. Jedes Päckchen hat immer drei Ziffern." }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Große Zahlen", "q": "Eine Million hat ___ Nullen.", "answer": "6", "numeric": true, "placeholder": "Anzahl" },
+    { "type": "input", "task": "Große Zahlen", "q": "Eine Milliarde hat ___ Nullen.", "answer": "9", "numeric": true, "placeholder": "Anzahl" },
+    { "type": "input", "task": "Große Zahlen", "q": "Eine Billion hat ___ Nullen.", "answer": "12", "numeric": true, "placeholder": "Anzahl" },
+    { "type": "input", "task": "Große Zahlen", "q": "Zehn Millionen haben ___ Nullen.", "answer": "7", "numeric": true, "placeholder": "Anzahl", "explain": "10 000 000: Eine Million hat 6 Nullen, mal 10 kommt noch eine dazu – also **7**." },
+    { "type": "choice", "task": "Wie heißt die Zahl?", "q": "1 000 000 000", "options": ["eine Milliarde", "eine Million", "eine Billion", "hundert Millionen"], "answer": "eine Milliarde" },
+    { "type": "choice", "task": "Wie heißt die Zahl?", "q": "1 000 000 000 000", "options": ["eine Billion", "eine Milliarde", "eine Billiarde", "eine Trillion"], "answer": "eine Billion" },
+    { "type": "choice", "task": "Wie heißt die Zahl?", "q": "100 000", "options": ["hunderttausend", "eine Million", "zehntausend", "tausend"], "answer": "hunderttausend" },
+    { "type": "choice", "task": "Große Zahlen", "q": "Was kommt nach der Milliarde?", "options": ["Billion", "Billiarde", "Trillion", "Million"], "answer": "Billion" },
+    { "type": "choice", "task": "Gemischtes Zahlwort", "q": "3 400 000 = ___", "options": ["3 Mio. 400 Tsd.", "3 Mrd. 400 Mio.", "34 Mio.", "340 Tsd."], "answer": "3 Mio. 400 Tsd." },
+    { "type": "choice", "task": "Gemischtes Zahlwort", "q": "23 652 000 = ___", "options": ["23 Mio. 652 Tsd.", "2 Mio. 365 Tsd. 200", "236 Mio. 520 Tsd.", "23 Mrd. 652 Mio."], "answer": "23 Mio. 652 Tsd." },
+    { "type": "choice", "task": "Gemischtes Zahlwort", "q": "357 592 = ___", "options": ["357 Tsd. 592", "35 Tsd. 7592", "3 Mio. 57 Tsd. 592", "357 Mio. 592 Tsd."], "answer": "357 Tsd. 592" },
+    { "type": "choice", "task": "Gemischtes Zahlwort", "q": "27 067 485 000 = ___", "options": ["27 Mrd. 67 Mio. 485 Tsd.", "27 Mio. 67 Tsd. 485", "270 Mrd. 674 Mio. 850 Tsd.", "2 Mrd. 706 Mio. 748 Tsd."], "answer": "27 Mrd. 67 Mio. 485 Tsd." },
+    { "type": "choice", "task": "Welche Zahl ist das?", "q": "1 Mio. 737 Tsd. 400 = ___", "options": ["1 737 400", "1 737 004", "17 374 000", "1 073 740"], "answer": "1 737 400" },
+    { "type": "choice", "task": "Welche Zahl ist das?", "q": "5 Mrd. 8 Mio. = ___", "options": ["5 008 000 000", "5 800 000 000", "5 080 000 000", "58 000 000"], "answer": "5 008 000 000", "explain": "5 Mrd. = 5 000 000 000. Die 8 Mio. kommen ins Millionen-Päckchen: 5 **008** 000 000." },
+    { "type": "input", "task": "Schreib als Zahl.", "q": "fünf Millionen = ___", "answer": "5000000", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Schreib als Zahl.", "q": "2 Mio. 30 Tsd. = ___", "answer": "2030000", "numeric": true, "placeholder": "Zahl", "explain": "2 Mio. = 2 000 000, dazu 30 Tsd. = 30 000. Zusammen **2 030 000**." },
+    { "type": "input", "task": "Schreib als Zahl.", "q": "7 Mrd. = ___", "answer": "7000000000", "numeric": true, "placeholder": "Zahl", "explain": "Eine Milliarde hat 9 Nullen: **7 000 000 000**." },
+    { "type": "input", "task": "Schreib als Zahl.", "q": "45 Tsd. 9 = ___", "answer": "45009", "numeric": true, "placeholder": "Zahl", "explain": "Das letzte Päckchen hat drei Ziffern: 45 **009**." },
+    { "type": "input", "task": "Schreib als Zahl.", "q": "12 Mio. 500 Tsd. = ___", "answer": "12500000", "numeric": true, "placeholder": "Zahl" },
+    { "type": "choice", "task": "Stellenwert", "q": "Welchen Wert hat die **7** in 3 712 000?", "options": ["700 000", "7 000", "70 000", "7 000 000"], "answer": "700 000", "explain": "3 | 712 | 000 – die 7 steht bei den Hunderttausendern." },
+    { "type": "choice", "task": "Stellenwert", "q": "Welchen Wert hat die **4** in 1 048 576?", "options": ["40 000", "4 000", "400 000", "400"], "answer": "40 000", "explain": "1 | 048 | 576 – die 4 steht bei den Zehntausendern." }
+  ]
+}

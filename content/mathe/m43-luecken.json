@@ -1,0 +1,50 @@
+{
+  "id": "luecken",
+  "line": "rechenregeln",
+  "order": 43,
+  "title": "Was fehlt?",
+  "subtitle": "Zahlen und Rechenzeichen ergänzen",
+  "icon": "🔍",
+  "card": "Wusstest du? Durch 0 kann man nicht teilen: Es gibt keine Zahl, die mal 0 eine 7 ergibt. Darum ist 7 : 0 **nicht definiert**.",
+  "explain": [
+    { "p": "Manchmal fehlt nicht das Ergebnis, sondern eine Zahl in der Mitte. Dann hilft die **Umkehraufgabe**: Plus und Minus heben sich auf, Mal und Geteilt auch." },
+    { "table": { "head": ["Aufgabe", "Umkehraufgabe"], "rows": [
+      ["8 + 9 = 17", "17 − 9 = 8"],
+      ["5 · 13 = 65", "65 : 13 = 5"]
+    ] } },
+    { "tip": "___ · 5 = 105 → rechne 105 : 5 = **21**. Probe: 21 · 5 = 105 ✓" },
+    { "tip": "Bei längeren Aufgaben rechnest du erst aus, was schon geht. 24 : ___ + 8 = 11 → 24 : ___ muss 3 sein → die Lücke ist **8**." },
+    { "p": "Mit der Null: a · 0 = 0 und 0 : a = 0. Aber **durch 0 teilen geht nicht**: 7 : 0 ist nicht definiert." }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "12 · ___ = 180", "answer": "15", "numeric": true, "placeholder": "Zahl", "explain": "Umkehraufgabe: 180 : 12 = **15**." },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "___ · 5 = 105", "answer": "21", "numeric": true, "placeholder": "Zahl", "explain": "Umkehraufgabe: 105 : 5 = **21**." },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "200 : ___ = 25", "answer": "8", "numeric": true, "placeholder": "Zahl", "explain": "Wie oft passt 25 in 200? 200 : 25 = **8**." },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "___ · 30 = 450", "answer": "15", "numeric": true, "placeholder": "Zahl", "explain": "450 : 30 = 45 : 3 = **15**." },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "110 : ___ = 10", "answer": "11", "numeric": true, "placeholder": "Zahl", "explain": "110 : 10 = **11**. Probe: 110 : 11 = 10 ✓" },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "17 · ___ = 34", "answer": "2", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "100 : ___ = 5", "answer": "20", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "24 : ___ + 8 = 11", "answer": "8", "numeric": true, "placeholder": "Zahl", "explain": "24 : ___ muss 11 − 8 = 3 sein. 24 : 8 = 3, also **8**." },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "___ : 2 − 3 = 17", "answer": "40", "numeric": true, "placeholder": "Zahl", "explain": "___ : 2 muss 17 + 3 = 20 sein. 20 · 2 = **40**." },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "___ − 1 · 2 = 7", "answer": "9", "numeric": true, "placeholder": "Zahl", "explain": "Punkt vor Strich: 1 · 2 = 2. ___ − 2 = 7, also **9**." },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "___ : 5 · 1 = 4", "answer": "20", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "1 + ___ · 45 = 46", "answer": "1", "numeric": true, "placeholder": "Zahl", "explain": "___ · 45 muss 45 sein. Also **1**." },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "45 − ___ : 5 = 42", "answer": "15", "numeric": true, "placeholder": "Zahl", "explain": "___ : 5 muss 45 − 42 = 3 sein. 3 · 5 = **15**." },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "42 : 6 − ___ = 2", "answer": "5", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "4 : ___ + 42 = 44", "answer": "2", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "___ : 2 + 22 = 35", "answer": "26", "numeric": true, "placeholder": "Zahl", "explain": "___ : 2 muss 35 − 22 = 13 sein. 13 · 2 = **26**." },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "42 : ___ − 2 = 12", "answer": "3", "numeric": true, "placeholder": "Zahl", "explain": "42 : ___ muss 14 sein. 42 : 3 = 14, also **3**." },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "10 · 4 − ___ = 6", "answer": "34", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "6 · ___ − 35 = 1", "answer": "6", "numeric": true, "placeholder": "Zahl", "explain": "6 · ___ muss 36 sein. Also **6**." },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "(4 · 5) : 5 − ___ + 3 = 4", "answer": "3", "numeric": true, "placeholder": "Zahl", "explain": "(4 · 5) : 5 = 4. Dann 4 − ___ + 3 = 4, also **3**." },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "(___ − 3) : 1 + (1 · 4) = 20", "answer": "19", "numeric": true, "placeholder": "Zahl", "explain": "(___ − 3) muss 20 − 4 = 16 sein. 16 + 3 = **19**." },
+    { "type": "choice", "task": "Welches Rechenzeichen passt?", "q": "12 ___ 15 = 180", "options": ["+", "−", "·", ":"], "answer": "·" },
+    { "type": "choice", "task": "Welches Rechenzeichen passt?", "q": "100 ___ 20 = 5", "options": ["+", "−", "·", ":"], "answer": ":" },
+    { "type": "choice", "task": "Welche Rechenzeichen passen?", "q": "77 ___ 27 ___ 30 = 20", "options": ["− und −", "+ und −", "− und +", "+ und +"], "answer": "− und −" },
+    { "type": "choice", "task": "Welche Rechenzeichen passen?", "q": "210 ___ 40 ___ 15 = 185", "options": ["− und +", "+ und −", "− und −", "+ und +"], "answer": "− und +" },
+    { "type": "choice", "task": "Welche Rechenzeichen passen?", "q": "6 ___ 4 ___ 5 = 26", "options": ["+ und ·", "· und +", "+ und +", "· und ·"], "answer": "+ und ·", "explain": "6 + 4 · 5: Punkt vor Strich → 6 + 20 = **26**." },
+    { "type": "choice", "task": "Was kommt heraus?", "q": "7 : 0 = ___", "options": ["nicht definiert", "0", "7", "1"], "answer": "nicht definiert", "explain": "Durch 0 teilen geht nicht. Es gibt keine Zahl, die mal 0 eine 7 ergibt." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "0 : 9 = ___", "answer": "0", "numeric": true, "placeholder": "Ergebnis", "explain": "0 : a = 0. Wenn nichts da ist, bekommt jeder nichts." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "13 · 0 = ___", "answer": "0", "numeric": true, "placeholder": "Ergebnis", "explain": "a · 0 = 0. Malnehmen mit 0 ergibt immer 0." }
+  ]
+}

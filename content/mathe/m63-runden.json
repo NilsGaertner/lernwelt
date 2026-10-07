@@ -1,0 +1,46 @@
+{
+  "id": "runden",
+  "line": "grosse-zahlen",
+  "order": 63,
+  "title": "Runden",
+  "subtitle": "Auf Zehner, Hunderter, Tausender …",
+  "icon": "🎯",
+  "card": "Wusstest du? Das Zeichen **≈** heißt „ungefähr gleich“. Zeitungen runden fast immer: „Rund 50 000 Fans waren im Stadion.“",
+  "explain": [
+    { "p": "Beim Runden schaust du auf die Ziffer **rechts neben der Rundungsstelle**:" },
+    { "table": { "head": ["Ziffer danach", "Was passiert?"], "rows": [
+      ["0, 1, 2, 3, 4", "**abrunden**: Die Rundungsstelle bleibt, dahinter kommen Nullen."],
+      ["5, 6, 7, 8, 9", "**aufrunden**: Die Rundungsstelle wird um 1 größer, dahinter kommen Nullen."]
+    ] } },
+    { "table": { "head": ["76 835 runden auf …", "Ziffer danach", "Ergebnis"], "rows": [
+      ["Zehner", "5 → auf", "76 840"],
+      ["Hunderter", "3 → ab", "76 800"],
+      ["Tausender", "8 → auf", "77 000"]
+    ] } },
+    { "tip": "Gerundete Zahlen schreibt man mit **≈**: 357 592 ≈ 360 000" },
+    { "tip": "Achtung, Übertrag: 2 961 auf Hunderter → aus der 9 wird 10, also **3 000**." }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Runde.", "q": "76 835 auf Zehner ≈ ___", "answer": "76840", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Runde.", "q": "76 835 auf Hunderter ≈ ___", "answer": "76800", "numeric": true, "placeholder": "Zahl", "explain": "Rechts neben der 8 steht eine 3 → abrunden: **76 800**." },
+    { "type": "input", "task": "Runde.", "q": "76 835 auf Tausender ≈ ___", "answer": "77000", "numeric": true, "placeholder": "Zahl", "explain": "Rechts neben der 6 steht eine 8 → aufrunden: **77 000**." },
+    { "type": "input", "task": "Runde.", "q": "4 349 auf Hunderter ≈ ___", "answer": "4300", "numeric": true, "placeholder": "Zahl", "explain": "Rechts neben der 3 steht eine 4 → abrunden. Die 9 dahinter zählt nicht! **4 300**" },
+    { "type": "input", "task": "Runde.", "q": "2 961 auf Hunderter ≈ ___", "answer": "3000", "numeric": true, "placeholder": "Zahl", "explain": "Rechts neben der 9 steht eine 6 → aufrunden. 29 Hunderter werden 30 Hunderter: **3 000**." },
+    { "type": "input", "task": "Runde.", "q": "95 auf Zehner ≈ ___", "answer": "100", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Runde.", "q": "8 499 auf Tausender ≈ ___", "answer": "8000", "numeric": true, "placeholder": "Zahl", "explain": "Rechts neben der 8 steht eine 4 → abrunden: **8 000**." },
+    { "type": "input", "task": "Runde.", "q": "8 500 auf Tausender ≈ ___", "answer": "9000", "numeric": true, "placeholder": "Zahl", "explain": "Rechts neben der 8 steht eine 5 → aufrunden: **9 000**." },
+    { "type": "input", "task": "Runde.", "q": "357 592 auf Zehntausender ≈ ___", "answer": "360000", "numeric": true, "placeholder": "Zahl", "explain": "Zehntausender ist die 5. Rechts daneben steht eine 7 → aufrunden: **360 000**." },
+    { "type": "input", "task": "Runde.", "q": "1 737 400 auf Zehntausender ≈ ___", "answer": "1740000", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Runde.", "q": "1 391 400 auf Hunderttausender ≈ ___", "answer": "1400000", "numeric": true, "placeholder": "Zahl", "explain": "Hunderttausender ist die 3. Rechts daneben steht eine 9 → aufrunden: **1 400 000**." },
+    { "type": "input", "task": "Runde.", "q": "23 652 000 auf Millionen ≈ ___", "answer": "24000000", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Runde.", "q": "473 040 000 auf Zehnmillionen ≈ ___", "answer": "470000000", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Runde.", "q": "27 067 485 000 auf Milliarden ≈ ___", "answer": "27000000000", "numeric": true, "placeholder": "Zahl" },
+    { "type": "choice", "task": "Auf welche Stelle wurde gerundet?", "q": "48 372 ≈ 48 400", "options": ["Hunderter", "Zehner", "Tausender", "Zehntausender"], "answer": "Hunderter" },
+    { "type": "choice", "task": "Auf welche Stelle wurde gerundet?", "q": "48 372 ≈ 50 000", "options": ["Zehntausender", "Tausender", "Hunderter", "Zehner"], "answer": "Zehntausender" },
+    { "type": "choice", "task": "Runden", "q": "Welche Zahl ergibt auf Hunderter gerundet **500**?", "options": ["451", "449", "550", "405"], "answer": "451", "explain": "451: Rechts neben der 4 steht eine 5 → aufrunden auf 500. Die anderen ergeben 400, 600 und 400." },
+    { "type": "choice", "task": "Runden", "q": "Welche Zahl ergibt auf Tausender gerundet **7 000**?", "options": ["6 500", "6 499", "7 500", "7 650"], "answer": "6 500", "explain": "6 500: Rechts neben der 6 steht eine 5 → aufrunden auf 7 000." },
+    { "type": "choice", "task": "Runden", "q": "Wann rundest du **auf**? Wenn rechts neben der Rundungsstelle …", "options": ["5, 6, 7, 8 oder 9 steht", "0, 1, 2, 3 oder 4 steht", "eine gerade Zahl steht", "eine 0 steht"], "answer": "5, 6, 7, 8 oder 9 steht" },
+    { "type": "input", "task": "Sachaufgabe", "q": "Ein Stadion hat 45 362 Plätze. Wie viele sind das ungefähr, auf Tausender gerundet? ___", "answer": "45000", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Sachaufgabe", "q": "Ein Auto kostet 28 750 €. Runde auf Tausender: ___ €", "answer": "29000", "numeric": true, "placeholder": "Euro", "explain": "Rechts neben der 8 steht eine 7 → aufrunden: **29 000 €**." }
+  ]
+}

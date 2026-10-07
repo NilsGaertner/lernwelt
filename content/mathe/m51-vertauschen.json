@@ -1,0 +1,43 @@
+{
+  "id": "vertauschen",
+  "line": "rechengesetze",
+  "order": 51,
+  "title": "Vertauschen und verbinden",
+  "subtitle": "Kommutativ- und Assoziativgesetz",
+  "icon": "🔄",
+  "card": "Wusstest du? **Kommutativ** kommt vom lateinischen „commutare“ = vertauschen. **Assoziativ** kommt von „associare“ = verbinden.",
+  "explain": [
+    { "p": "**Kommutativgesetz** (Vertauschungsgesetz): Bei Plus und Mal darfst du die Zahlen **vertauschen**. a + b = b + a und a · b = b · a" },
+    { "p": "**Assoziativgesetz** (Verbindungsgesetz): Steht nur Plus oder nur Mal da, darfst du **Klammern beliebig setzen** oder weglassen. (a + b) + c = a + (b + c)" },
+    { "tip": "So rechnest du geschickt: Such Partner, die glatte Zahlen ergeben! (52 + 117) + 83 = 52 + (117 + 83) = 52 + 200 = **252**" },
+    { "tip": "(17 · 25) · 4 = 17 · (25 · 4) = 17 · 100 = **1700**" },
+    { "table": { "head": ["Gute Mal-Partner", ""], "rows": [["25 · 4", "= 100"], ["50 · 2", "= 100"], ["20 · 5", "= 100"], ["125 · 8", "= 1000"]] } },
+    { "p": "Achtung: Bei **Minus und Geteilt** gelten die beiden Gesetze **nicht**! 10 − 4 = 6, aber 4 − 10 geht mit natürlichen Zahlen gar nicht." }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Rechne geschickt.", "q": "52 + 117 + 83 = ___", "answer": "252", "numeric": true, "placeholder": "Ergebnis", "explain": "117 + 83 = 200, dann 52 + 200 = **252**." },
+    { "type": "input", "task": "Rechne geschickt.", "q": "17 · 25 · 4 = ___", "answer": "1700", "numeric": true, "placeholder": "Ergebnis", "explain": "25 · 4 = 100, dann 17 · 100 = **1700**." },
+    { "type": "input", "task": "Rechne geschickt.", "q": "25 · 13 · 4 = ___", "answer": "1300", "numeric": true, "placeholder": "Ergebnis", "explain": "Vertauschen: 25 · 4 = 100, dann 100 · 13 = **1300**." },
+    { "type": "input", "task": "Rechne geschickt.", "q": "38 + 46 + 62 = ___", "answer": "146", "numeric": true, "placeholder": "Ergebnis", "explain": "38 + 62 = 100, dann 100 + 46 = **146**." },
+    { "type": "input", "task": "Rechne geschickt.", "q": "5 · 37 · 2 = ___", "answer": "370", "numeric": true, "placeholder": "Ergebnis", "explain": "5 · 2 = 10, dann 10 · 37 = **370**." },
+    { "type": "input", "task": "Rechne geschickt.", "q": "125 · 9 · 8 = ___", "answer": "9000", "numeric": true, "placeholder": "Ergebnis", "explain": "125 · 8 = 1000, dann 1000 · 9 = **9000**." },
+    { "type": "input", "task": "Rechne geschickt.", "q": "74 + 59 + 26 + 41 = ___", "answer": "200", "numeric": true, "placeholder": "Ergebnis", "explain": "74 + 26 = 100 und 59 + 41 = 100. Zusammen **200**." },
+    { "type": "input", "task": "Rechne geschickt.", "q": "2 · 19 · 50 = ___", "answer": "1900", "numeric": true, "placeholder": "Ergebnis", "explain": "2 · 50 = 100, dann 100 · 19 = **1900**." },
+    { "type": "input", "task": "Rechne geschickt.", "q": "4 · 7 · 25 · 3 = ___", "answer": "2100", "numeric": true, "placeholder": "Ergebnis", "explain": "4 · 25 = 100 und 7 · 3 = 21. Dann 100 · 21 = **2100**." },
+    { "type": "input", "task": "Rechne geschickt.", "q": "199 + 48 + 1 = ___", "answer": "248", "numeric": true, "placeholder": "Ergebnis", "explain": "199 + 1 = 200, dann 200 + 48 = **248**." },
+    { "type": "input", "task": "Rechne geschickt.", "q": "20 · 23 · 5 = ___", "answer": "2300", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne geschickt.", "q": "36 + 75 + 64 + 25 = ___", "answer": "200", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne geschickt.", "q": "50 · 17 · 2 = ___", "answer": "1700", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne geschickt.", "q": "93 + 288 + 7 + 12 = ___", "answer": "400", "numeric": true, "placeholder": "Ergebnis", "explain": "93 + 7 = 100 und 288 + 12 = 300. Zusammen **400**." },
+    { "type": "choice", "task": "Rechne geschickt.", "q": "Was rechnest du bei 25 · 13 · 4 zuerst?", "options": ["25 · 4", "25 · 13", "13 · 4"], "answer": "25 · 4", "explain": "25 · 4 = 100 – damit wird der Rest ganz leicht." },
+    { "type": "choice", "task": "Welches Gesetz ist das?", "q": "8 + 5 = 5 + 8", "options": ["Kommutativgesetz", "Assoziativgesetz", "Distributivgesetz"], "answer": "Kommutativgesetz", "explain": "Die Zahlen werden **vertauscht** – das ist das Kommutativgesetz (Vertauschungsgesetz)." },
+    { "type": "choice", "task": "Welches Gesetz ist das?", "q": "(3 · 4) · 5 = 3 · (4 · 5)", "options": ["Assoziativgesetz", "Kommutativgesetz", "Distributivgesetz"], "answer": "Assoziativgesetz", "explain": "Die Reihenfolge bleibt, nur die **Klammern** wandern – das ist das Assoziativgesetz (Verbindungsgesetz)." },
+    { "type": "choice", "task": "Welches Gesetz ist das?", "q": "17 · 6 = 6 · 17", "options": ["Kommutativgesetz", "Assoziativgesetz", "Distributivgesetz"], "answer": "Kommutativgesetz" },
+    { "type": "choice", "task": "Welches Gesetz ist das?", "q": "(52 + 117) + 83 = 52 + (117 + 83)", "options": ["Assoziativgesetz", "Kommutativgesetz", "Distributivgesetz"], "answer": "Assoziativgesetz" },
+    { "type": "choice", "task": "Stimmt das?", "q": "20 : 4 = 4 : 20", "options": ["Nein", "Ja"], "answer": "Nein", "explain": "20 : 4 = 5, aber 4 : 20 ergibt keine natürliche Zahl. Beim Teilen darfst du **nicht** vertauschen." },
+    { "type": "choice", "task": "Stimmt das?", "q": "(20 − 8) − 2 = 20 − (8 − 2)", "options": ["Nein", "Ja"], "answer": "Nein", "explain": "Links: 12 − 2 = 10. Rechts: 20 − 6 = 14. Beim Minus darfst du die Klammern **nicht** verschieben." },
+    { "type": "choice", "task": "Stimmt das?", "q": "(48 : 4) : 2 = 48 : (4 : 2)", "options": ["Nein", "Ja"], "answer": "Nein", "explain": "Links: 12 : 2 = 6. Rechts: 48 : 2 = 24. Beim Teilen gilt das Assoziativgesetz **nicht**." },
+    { "type": "choice", "task": "Stimmt das?", "q": "7 · 6 = 6 · 7", "options": ["Ja", "Nein"], "answer": "Ja", "explain": "Beim Malnehmen darfst du vertauschen: beides ist **42**." },
+    { "type": "choice", "task": "Stimmt das?", "q": "15 − 9 = 9 − 15", "options": ["Nein", "Ja"], "answer": "Nein", "explain": "15 − 9 = 6, aber 9 − 15 geht mit natürlichen Zahlen nicht. Beim Minus darfst du **nicht** vertauschen." }
+  ]
+}

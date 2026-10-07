@@ -1,0 +1,45 @@
+{
+  "id": "ueberschlag",
+  "line": "mal-geteilt",
+  "order": 73,
+  "title": "Überschlagen",
+  "subtitle": "Ungefähr rechnen und Fehler finden",
+  "icon": "🔭",
+  "card": "Merke: Erst **überschlagen**, dann rechnen. Liegt dein Ergebnis weit weg vom Überschlag, rechne lieber noch einmal nach.",
+  "explain": [
+    { "p": "Vor dem schriftlichen Malnehmen machst du einen **Überschlag**: Runde die Zahlen so, dass du im Kopf rechnen kannst. Das echte Ergebnis muss dann **ungefähr** passen." },
+    { "table": { "head": ["Aufgabe", "Überschlag", "Ergebnis"], "rows": [
+      ["165 · 8", "200 · 8 = 1 600", "1 320"],
+      ["421 · 17", "400 · 20 = 8 000", "7 157"],
+      ["3597 · 19", "3600 · 20 = 72 000", "68 343"]
+    ] } },
+    { "tip": "421 · 17 kann nicht 42 107 sein – der Überschlag sagt etwa **8 000**. Ist ein Ergebnis etwa 10-mal zu groß oder zu klein, ist beim Untereinanderschreiben etwas verrutscht." },
+    { "tip": "Schnelltest mit der letzten Ziffer: Bei 19 · 72 ist 9 · 2 = 18. Das Ergebnis muss also auf **8** enden." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Welcher Überschlag passt?", "q": "421 · 17", "options": ["400 · 20 = 8 000", "400 · 10 = 4 000", "500 · 20 = 10 000", "40 · 20 = 800"], "answer": "400 · 20 = 8 000", "explain": "421 ist ungefähr 400, 17 ist ungefähr 20." },
+    { "type": "choice", "task": "Welcher Überschlag passt?", "q": "3597 · 19", "options": ["3600 · 20 = 72 000", "3600 · 10 = 36 000", "4000 · 20 = 80 000", "360 · 20 = 7 200"], "answer": "3600 · 20 = 72 000" },
+    { "type": "choice", "task": "Welches Ergebnis kann stimmen?", "q": "19 · 72 = ___", "options": ["1 368", "718", "13 680", "136"], "answer": "1 368", "explain": "Überschlag: 20 · 70 = 1 400. Nur **1 368** liegt in der Nähe." },
+    { "type": "choice", "task": "Welches Ergebnis kann stimmen?", "q": "421 · 17 = ___", "options": ["7 157", "42 107", "715", "71 570"], "answer": "7 157", "explain": "Überschlag: 400 · 20 = 8 000. Nur **7 157** liegt in der Nähe." },
+    { "type": "choice", "task": "Welches Ergebnis kann stimmen?", "q": "8132 · 9 = ___", "options": ["73 188", "80 208", "7 318", "731 880"], "answer": "73 188", "explain": "Überschlag: 8 000 · 9 = 72 000. Und 2 · 9 = 18 → das Ergebnis endet auf 8. Bei 80 208 passt der Überschlag nicht." },
+    { "type": "choice", "task": "Welches Ergebnis kann stimmen?", "q": "23 · 31 = ___", "options": ["713", "7 130", "71", "1 713"], "answer": "713", "explain": "Überschlag: 20 · 30 = 600. **713** liegt in der Nähe." },
+    { "type": "choice", "task": "Welches Ergebnis kann stimmen?", "q": "85 · 94 = ___", "options": ["7 990", "799", "79 900", "790"], "answer": "7 990", "explain": "Überschlag: 90 · 90 = 8 100. **7 990** liegt in der Nähe." },
+    { "type": "choice", "task": "Welches Ergebnis kann stimmen?", "q": "37 · 250 = ___", "options": ["9 250", "925", "92 500", "3 700"], "answer": "9 250", "explain": "Überschlag: 40 · 250 = 10 000. **9 250** liegt in der Nähe." },
+    { "type": "choice", "task": "Welches Ergebnis kann stimmen?", "q": "301 · 8 = ___", "options": ["2 408", "248", "24 080", "3 018"], "answer": "2 408", "explain": "Überschlag: 300 · 8 = 2 400." },
+    { "type": "choice", "task": "Welches Ergebnis kann stimmen?", "q": "3597 · 19 = ___", "options": ["68 343", "6 834", "683 430", "35 970"], "answer": "68 343", "explain": "Überschlag: 3600 · 20 = 72 000. **68 343** liegt in der Nähe." },
+    { "type": "input", "task": "Überschlage im Kopf.", "q": "198 · 5 ≈ 200 · 5 = ___", "answer": "1000", "numeric": true, "placeholder": "Überschlag" },
+    { "type": "input", "task": "Überschlage im Kopf.", "q": "412 · 29 ≈ 400 · 30 = ___", "answer": "12000", "numeric": true, "placeholder": "Überschlag" },
+    { "type": "input", "task": "Überschlage im Kopf.", "q": "3097 · 21 ≈ 3000 · 20 = ___", "answer": "60000", "numeric": true, "placeholder": "Überschlag" },
+    { "type": "input", "task": "Überschlage im Kopf.", "q": "789 · 11 ≈ 800 · 10 = ___", "answer": "8000", "numeric": true, "placeholder": "Überschlag" },
+    { "type": "input", "task": "Überschlage im Kopf.", "q": "61 · 49 ≈ 60 · 50 = ___", "answer": "3000", "numeric": true, "placeholder": "Überschlag" },
+    { "type": "input", "task": "Überschlage im Kopf.", "q": "52 · 703 ≈ 50 · 700 = ___", "answer": "35000", "numeric": true, "placeholder": "Überschlag" },
+    { "type": "choice", "task": "Schnelltest", "q": "Auf welche Ziffer muss das Ergebnis von 27 · 34 enden?", "options": ["8", "4", "7", "1"], "answer": "8", "explain": "Nur die Einer zählen: 7 · 4 = 2**8**. Also endet das Ergebnis auf 8 (27 · 34 = 918)." },
+    { "type": "choice", "task": "Schnelltest", "q": "Auf welche Ziffer muss das Ergebnis von 46 · 57 enden?", "options": ["2", "6", "7", "3"], "answer": "2", "explain": "6 · 7 = 4**2**. Also endet das Ergebnis auf 2 (46 · 57 = 2 622)." },
+    { "type": "choice", "task": "Fehler gefunden?", "q": "Lena rechnet 33 · 4 = 732. Stimmt das?", "options": ["Nein, richtig ist 132", "Ja", "Nein, richtig ist 1 212", "Nein, richtig ist 37"], "answer": "Nein, richtig ist 132", "explain": "30 · 4 + 3 · 4 = 120 + 12 = **132**. Überschlag: 30 · 4 = 120, also kann 732 nicht stimmen." },
+    { "type": "choice", "task": "Fehler gefunden?", "q": "Tim rechnet 4500 · 10 = 450 000. Stimmt das?", "options": ["Nein, richtig ist 45 000", "Ja", "Nein, richtig ist 4 510", "Nein, richtig ist 4 500 000"], "answer": "Nein, richtig ist 45 000", "explain": "· 10 → nur **eine** Null dran: 45 000." },
+    { "type": "choice", "task": "Fehler gefunden?", "q": "Mia rechnet 421 · 17 = 42 107. Stimmt das?", "options": ["Nein, das ist viel zu groß", "Ja", "Nein, das ist viel zu klein"], "answer": "Nein, das ist viel zu groß", "explain": "Überschlag: 400 · 20 = 8 000. 42 107 ist etwa 5-mal so groß. Richtig ist **7 157**." },
+    { "type": "input", "task": "Sachaufgabe", "q": "Für ein Fußballspiel wurden 2520 Karten im Vorverkauf und 4490 Karten im Stadion verkauft. Wie viele Karten sind das zusammen? ___", "answer": "7010", "numeric": true, "placeholder": "Karten" },
+    { "type": "input", "task": "Sachaufgabe", "q": "Eine Karte kostet 9 €. Wie viel Euro bringen 7010 Karten ein? ___ €", "answer": "63090", "numeric": true, "placeholder": "Euro", "explain": "7000 · 9 + 10 · 9 = 63 000 + 90 = **63 090 €**" },
+    { "type": "input", "task": "Sachaufgabe", "q": "Die Klasse 5a fährt auf Klassenfahrt. Übernachtung und Essen kosten 300 €, der Bus 200 €. Wie viel Euro zahlt jedes der 20 Kinder? ___ €", "answer": "25", "numeric": true, "placeholder": "Euro", "explain": "(300 + 200) : 20 = 500 : 20 = **25 €**" }
+  ]
+}

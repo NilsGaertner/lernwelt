@@ -54,7 +54,7 @@ export function gapText(s, fill = '') {
 // ---------------------------------------------------------------- Schriftliches Rechnen
 
 const PLACES = ['E', 'Z', 'H', 'T', 'ZT', 'HT', 'M', 'ZM', 'HM'];
-export const OP_SIGN = { add: '+', sub: '−' };
+export const OP_SIGN = { add: '+', sub: '−', mul: '·' };
 
 /**
  * Rechnet eine schriftliche Rechnung Spalte für Spalte durch. Spalte 0 ist ganz links.
@@ -98,6 +98,7 @@ export function columnMath(rows, { width = null, op = 'add' } = {}) {
  * carryCell(col) / resultCell(col) liefern eigene Kästchen zum Eintippen.
  */
 export function columnSum(rows, { op = 'add', width = null, carryCell = null, resultCell = null, carries: showCarries = null } = {}) {
+  if (op === 'mul') return mulGrid(rows);
   const m = columnMath(rows, { width, op });
   const cell = (cls, text = '') => h(`span.${cls}`, text);
   const cells = [];
@@ -122,6 +123,7 @@ export function columnSum(rows, { op = 'add', width = null, carryCell = null, re
  * Plus: „Z: 6 + 7 + 1 = 14 → schreib 4, Übertrag 1“ · Minus: „Z: 7 + 1 = 8, 8 + 2 = 10 → schreib 2, Übertrag 1“
  */
 export function columnSteps(rows, { op = 'add', width = null } = {}) {
+  if (op === 'mul') return mulSteps(rows);
   const { steps } = columnMath(rows, { width, op });
   const carryText = (k) => (k ? `, Übertrag **${k}**` : '');
   return h('ol.cs-steps', steps.map((st) => {
@@ -139,6 +141,114 @@ export function columnSteps(rows, { op = 'add', width = null } = {}) {
     }
     return h('li', h('b', st.place), h('span', { html: md(text) }));
   }));
+}
+
+/**
+ * Schriftlich mal wie im Heft: Die Aufgabe steht in einer Zeile (3597 · 19). Für jede Ziffer des zweiten Faktors
+ * kommt ein Teilprodukt darunter, das unter dieser Ziffer endet – also jedes eine Stelle weiter rechts.
+ * Die Teilprodukte werden zusammengezählt; das Ergebnis endet unter der letzten Ziffer.
+ * Spalte 0 ist ganz links (die erste Ziffer des ersten Faktors).
+ */
+export function mulMath([a, b]) {
+  const la = a.length;
+  const lb = b.length;
+  const width = la + 1 + lb;
+  const partials = [...b].map((d, i) => ({ digit: Number(d), value: String(Number(a) * Number(d)), end: la + 1 + i, start: i + 1 }));
+  const total = String(Number(a) * Number(b));
+  /** Ziffer einer Zahl, die in Spalte end aufhört, in Spalte col ('' wenn dort keine steht). */
+  const at = (str, end, col) => (col <= end ? str[str.length - 1 - (end - col)] ?? '' : '');
+  // Überträge beim Zusammenzählen der Teilprodukte (gibt es nur bei mehrstelligem zweiten Faktor)
+  const carries = new Array(width).fill(0);
+  if (lb > 1) {
+    let carry = 0;
+    for (let col = width - 1; col >= 0; col--) {
+      carries[col] = carry;
+      carry = Math.floor((partials.reduce((s, p) => s + Number(at(p.value, p.end, col) || 0), 0) + carry) / 10);
+    }
+  }
+  return { la, lb, width, partials, total, carries, at, maxCarry: lb - 1 };
+}
+
+/**
+ * Das Gitter fürs schriftliche Malnehmen. Ohne Optionen ist alles ausgerechnet (Beispiel auf der Merke-Seite).
+ * partialCell(i, col) / carryCell(col) / resultCell(col) liefern eigene Kästchen zum Eintippen.
+ * Jedes Teilprodukt bekommt eine Stelle mehr Platz als der erste Faktor, das Ergebnis so viele Stellen wie beide
+ * Faktoren zusammen – so verrät die Breite nicht, ob vorne noch eine Ziffer kommt.
+ */
+export function mulGrid(rows, { partialCell = null, carryCell = null, resultCell = null } = {}) {
+  const m = mulMath(rows);
+  const [a, b] = rows;
+  const multi = m.lb > 1;
+  const cell = (cls, text = '') => h(`span.${cls}`, text);
+  const cells = [];
+  for (let col = 0; col < m.width; col++) {
+    if (col < m.la) cells.push(cell('cs-d', a[col]));
+    else if (col === m.la) cells.push(cell('cs-op', '·'));
+    else cells.push(cell('cs-d', b[col - m.la - 1]));
+  }
+  if (multi) {
+    m.partials.forEach((p, i) => {
+      for (let col = 0; col < m.width; col++) {
+        // Der Strich unter der Aufgabe läuft über die erste Zeile.
+        const line = i === 0 ? '.cs-line' : '';
+        if (col >= p.start && col <= p.end) {
+          cells.push(partialCell ? partialCell(i, col) : cell(`cs-d${line}`, m.at(p.value, p.end, col)));
+        } else {
+          cells.push(cell(`cs-op${line}`, i === m.lb - 1 && col === p.start - 1 ? '+' : ''));
+        }
+      }
+    });
+    if (carryCell || m.carries.some(Boolean)) {
+      for (let col = 0; col < m.width; col++) {
+        const own = col >= 1 && col < m.width - 1;
+        cells.push(own && carryCell ? carryCell(col) : cell('cs-carry', own && m.carries[col] ? String(m.carries[col]) : ''));
+      }
+    }
+  }
+  for (let col = 0; col < m.width; col++) {
+    if (col === 0) cells.push(cell('cs-op.cs-line'));
+    else cells.push(resultCell ? resultCell(col) : cell('cs-r.cs-line', m.at(m.total, m.width - 1, col)));
+  }
+  return h('.colsum.mul', { style: { '--cols': m.width }, role: 'img', 'aria-label': `${a} mal ${b} gleich ${m.total}` }, cells);
+}
+
+/** Große Zahlen in Dreierpäckchen: 68343 → 68 343 (vierstellige bleiben zusammen). */
+const groupDigits = (n) => (String(n).length > 4 ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') : String(n));
+
+/** Überschlag: jeden Faktor auf seine erste Stelle runden (421 → 400, 17 → 20). */
+function roughly(n) {
+  const p = 10 ** (String(n).length - 1);
+  return Math.round(n / p) * p;
+}
+
+/**
+ * Der Rechenweg beim Malnehmen: Überschlag, jede Zeile Ziffer für Ziffer mit „merke“, dann zusammenzählen.
+ * „· 9: 7 · 9 = 63 → schreib 3, merke 6 / 9 · 9 = 81, + 6 = 87 → schreib 7, merke 8 / … / Zeile: 32 373“ (je Schritt eine Zeile)
+ */
+export function mulSteps(rows) {
+  const m = mulMath(rows);
+  const [a, b] = rows;
+  const ra = roughly(Number(a));
+  const rb = roughly(Number(b));
+  const items = [h('li', h('b', '≈'), h('span', { html: md(`Überschlag: ${groupDigits(ra)} · ${groupDigits(rb)} = ${groupDigits(ra * rb)}`) }))];
+  for (const p of m.partials) {
+    let carry = 0;
+    const parts = [];
+    [...a].reverse().forEach((x, k) => {
+      const prod = Number(x) * p.digit;
+      const sum = prod + carry;
+      let text = `${x} · ${p.digit} = ${prod}${carry ? `, + ${carry} = ${sum}` : ''}`;
+      if (k === a.length - 1) text += ` → schreib ${sum}`;
+      else text += ` → schreib ${sum % 10}${sum >= 10 ? `, merke ${Math.floor(sum / 10)}` : ''}`;
+      parts.push(text);
+      carry = Math.floor(sum / 10);
+    });
+    items.push(h('li', h('b', `· ${p.digit}`), h('span', { html: [...parts, `Zeile: **${groupDigits(p.value)}**`].map(md).join('<br>') })));
+  }
+  if (m.lb > 1) {
+    items.push(h('li', h('b', '+'), h('span', { html: md(`Die Zeilen untereinander zusammenzählen (jede eine Stelle weiter rechts): **${groupDigits(m.total)}**`) })));
+  }
+  return h('ol.cs-steps', items);
 }
 
 // ---------------------------------------------------------------- Karten

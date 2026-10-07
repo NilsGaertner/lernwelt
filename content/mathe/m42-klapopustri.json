@@ -1,0 +1,53 @@
+{
+  "id": "klapopustri",
+  "line": "rechenregeln",
+  "order": 42,
+  "title": "Klammer, Potenz, Punkt, Strich",
+  "subtitle": "KlaPoPuStri",
+  "icon": "🧮",
+  "card": "Merke: **KlaPoPuStri** – erst Klammer, dann Potenz, dann Punkt, dann Strich. Bei gleicher Stufe rechnest du von links nach rechts.",
+  "explain": [
+    { "p": "Stehen mehrere Rechenarten in einer Aufgabe, gilt diese Reihenfolge. Die Merkhilfe heißt **KlaPoPuStri**:" },
+    { "table": { "head": ["", "Was zuerst?", "Beispiel"], "rows": [
+      ["1.", "**Kla**mmern – bei mehreren von innen nach außen", "( )"],
+      ["2.", "**Po**tenzen", "3², 2⁴"],
+      ["3.", "**Pu**nktrechnung", "· und :"],
+      ["4.", "**Stri**chrechnung", "+ und −"]
+    ] } },
+    { "p": "4³ : 8 + 3 · 9 = 64 : 8 + 27 = 8 + 27 = **35**" },
+    { "tip": "Gleiche Stufe (nur Punkt oder nur Strich)? Dann **von links nach rechts**: 14 : 2 · 6 = 7 · 6 = **42**" },
+    { "tip": "Achtung bei (3 + 4)²: erst die Klammer! 3 + 4 = 7, und 7² = 7 · 7 = **49**. Ohne Klammer wäre 3 + 4² = 3 + 16 = 19." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Was rechnest du zuerst?", "q": "6 + 4 · 5", "options": ["4 · 5", "6 + 4"], "answer": "4 · 5", "explain": "Punkt vor Strich: erst 4 · 5 = 20, dann 6 + 20 = **26**." },
+    { "type": "choice", "task": "Welches Ergebnis stimmt?", "q": "6 + 4 · 5 = ___", "options": ["26", "50", "30", "15"], "answer": "26", "explain": "Punkt vor Strich: erst 4 · 5 = 20, dann 6 + 20 = **26**." },
+    { "type": "choice", "task": "Welches Ergebnis stimmt?", "q": "(3 + 4)² = ___", "options": ["49", "19", "14", "25"], "answer": "49", "explain": "Erst die Klammer: 3 + 4 = 7. Dann 7² = 7 · 7 = **49**." },
+    { "type": "input", "task": "Rechne. Denk an Punkt vor Strich.", "q": "5 · 5 − 7 = ___", "answer": "18", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne. Denk an Punkt vor Strich.", "q": "5 + 5 · 7 = ___", "answer": "40", "numeric": true, "placeholder": "Ergebnis", "explain": "Erst 5 · 7 = 35, dann 5 + 35 = **40**." },
+    { "type": "input", "task": "Rechne. Denk an Punkt vor Strich.", "q": "18 : 3 + 7 = ___", "answer": "13", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne. Denk an Punkt vor Strich.", "q": "12 − 25 : 5 = ___", "answer": "7", "numeric": true, "placeholder": "Ergebnis", "explain": "Erst 25 : 5 = 5, dann 12 − 5 = **7**." },
+    { "type": "input", "task": "Rechne. Denk an Punkt vor Strich.", "q": "5 · 2 + 3 · 12 = ___", "answer": "46", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne. Denk an Punkt vor Strich.", "q": "27 : 3 − 18 : 6 = ___", "answer": "6", "numeric": true, "placeholder": "Ergebnis", "explain": "Erst beide Punktaufgaben: 27 : 3 = 9 und 18 : 6 = 3. Dann 9 − 3 = **6**." },
+    { "type": "input", "task": "Rechne. Denk an Punkt vor Strich.", "q": "3 · 4 − 5 · 2 = ___", "answer": "2", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne. Denk an Punkt vor Strich.", "q": "54 : 6 + 2 · 9 = ___", "answer": "27", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne von links nach rechts.", "q": "14 : 2 · 6 = ___", "answer": "42", "numeric": true, "placeholder": "Ergebnis", "explain": "Nur Punktrechnung, also von links nach rechts: 14 : 2 = 7, dann 7 · 6 = **42**." },
+    { "type": "input", "task": "Rechne von links nach rechts.", "q": "25 : 5 · 2 = ___", "answer": "10", "numeric": true, "placeholder": "Ergebnis", "explain": "Von links nach rechts: 25 : 5 = 5, dann 5 · 2 = **10**." },
+    { "type": "input", "task": "Rechne von links nach rechts.", "q": "39 − 29 + 4 = ___", "answer": "14", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne. Denk an Punkt vor Strich.", "q": "15 + 35 : 7 = ___", "answer": "20", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "(3 + 4)² = ___", "answer": "49", "numeric": true, "placeholder": "Ergebnis", "explain": "Erst die Klammer: 3 + 4 = 7. Dann 7² = **49**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "3 + 4² = ___", "answer": "19", "numeric": true, "placeholder": "Ergebnis", "explain": "Potenz vor Strich: 4² = 16, dann 3 + 16 = **19**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "(3 · 4)² = ___", "answer": "144", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "3 · 4² = ___", "answer": "48", "numeric": true, "placeholder": "Ergebnis", "explain": "Potenz vor Punkt: 4² = 16, dann 3 · 16 = **48**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "8 · (12 − 9)² = ___", "answer": "72", "numeric": true, "placeholder": "Ergebnis", "explain": "Klammer: 12 − 9 = 3. Potenz: 3² = 9. Punkt: 8 · 9 = **72**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "(20 − 4 · 3)² = ___", "answer": "64", "numeric": true, "placeholder": "Ergebnis", "explain": "In der Klammer gilt auch Punkt vor Strich: 20 − 12 = 8. Dann 8² = **64**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "4³ : 8 + 3 · 9 = ___", "answer": "35", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "(56 : 8) · (15 : 3) + 6 = ___", "answer": "41", "numeric": true, "placeholder": "Ergebnis", "explain": "Klammern: 7 und 5. Punkt: 7 · 5 = 35. Strich: 35 + 6 = **41**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "7 + (9 − 7) · 3³ = ___", "answer": "61", "numeric": true, "placeholder": "Ergebnis", "explain": "Klammer: 2. Potenz: 3³ = 27. Punkt: 2 · 27 = 54. Strich: 7 + 54 = **61**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "2 · ((6 + 8) : 7 + (5 + 3) · 5) = ___", "answer": "84", "numeric": true, "placeholder": "Ergebnis", "explain": "Von innen nach außen: (6 + 8) : 7 = 2 und (5 + 3) · 5 = 40. Große Klammer: 2 + 40 = 42. Dann 2 · 42 = **84**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "100 − (12 + 3 · 6) = ___", "answer": "70", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "2³ · (2 · 3) = ___", "answer": "48", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "5² · 3 − 5 · 4 = ___", "answer": "55", "numeric": true, "placeholder": "Ergebnis", "explain": "Potenz: 5² = 25. Punkt: 25 · 3 = 75 und 5 · 4 = 20. Strich: 75 − 20 = **55**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "18 − 3² · 2 = ___", "answer": "0", "numeric": true, "placeholder": "Ergebnis", "explain": "Potenz: 3² = 9. Punkt: 9 · 2 = 18. Strich: 18 − 18 = **0**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "(17 + 1) − (1 · 9) : 3 = ___", "answer": "15", "numeric": true, "placeholder": "Ergebnis" }
+  ]
+}
