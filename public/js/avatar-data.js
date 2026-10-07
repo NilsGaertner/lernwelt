@@ -10,6 +10,29 @@ export const CATS = {
 };
 
 /**
+ * Jede Katze hat ihre eigene Art: wie sie sich freut (cheer, mit diesen Teilchen), was sie im Schlaf macht
+ * und was sie nach einem Fehler zeigt (encourage). Die Bewegungen selbst stehen im CSS unter [data-cat=…].
+ */
+export const PERSONAS = {
+  black: {
+    trait: 'Geheimnisvoll', particles: ['✨', '⭐', '🌙'], encourage: '👀',
+    about: 'Bei richtigen Antworten dreht sie eine Pirouette. Im Schlaf zuckt ihre Schwanzspitze.',
+  },
+  white: {
+    trait: 'Verträumt', particles: ['💕', '💖', '🫧'], encourage: '💭',
+    about: 'Bei richtigen Antworten schwebt sie vor Freude. Im Schlaf zucken ihre Ohren.',
+  },
+  brown: {
+    trait: 'Gemütlich', particles: ['🎵', '🎶', '💛'], encourage: '🤗',
+    about: 'Bei richtigen Antworten hüpft sie und schnurrt. Im Schlaf streckt sie sich genüsslich.',
+  },
+  tabby: {
+    trait: 'Wild', particles: ['🐾', '⚡', '🐾'], encourage: '💪',
+    about: 'Bei richtigen Antworten springt sie wie auf Mäusejagd. Im Schlaf macht sie Schnarchblasen.',
+  },
+};
+
+/**
  * Skins. pool: wo er herkommt – 'line' fällt beim ersten Bestehen eines Endbahnhofs (zufällig, was noch fehlt),
  * 'special' gibt es nur als Geschenk der Eltern oder bei besonderen Anlässen.
  */
@@ -55,14 +78,14 @@ const catParts = (c, closed = false) => {
     : '';
   const eye = (x) => closed
     ? `<path d="M${x - 13} 108 Q${x} 121 ${x + 13} 108" fill="none" stroke="${c.line}" stroke-width="6" stroke-linecap="round"/>`
-    : `<ellipse cx="${x}" cy="108" rx="13" ry="16" fill="${c.eye}" stroke="${c.line}" stroke-width="2"/>
-    <ellipse cx="${x}" cy="108" rx="5" ry="12" fill="#111"/><circle cx="${x + 4}" cy="101" r="3.5" fill="#fff"/>`;
+    : `<g class="eye"><ellipse cx="${x}" cy="108" rx="13" ry="16" fill="${c.eye}" stroke="${c.line}" stroke-width="2"/>
+    <ellipse cx="${x}" cy="108" rx="5" ry="12" fill="#111"/><circle cx="${x + 4}" cy="101" r="3.5" fill="#fff"/></g>`;
   return `<g stroke="${c.line}" stroke-width="4" stroke-linejoin="round">
-      <path d="M36 104 L38 26 Q39 20 45 23 L98 54 Z" fill="${c.fur}"/>
-      <path d="M164 104 L162 26 Q161 20 155 23 L102 54 Z" fill="${c.fur}"/>
+      <path class="ear-l" d="M36 104 L38 26 Q39 20 45 23 L98 54 Z" fill="${c.fur}"/>
+      <path class="ear-r" d="M164 104 L162 26 Q161 20 155 23 L102 54 Z" fill="${c.fur}"/>
       <ellipse cx="100" cy="112" rx="70" ry="62" fill="${c.fur}"/>
     </g>
-    <path d="M50 86 L51 44 L82 62 Z" fill="${c.earIn}"/><path d="M150 86 L149 44 L118 62 Z" fill="${c.earIn}"/>
+    <path class="ear-l ear-in" d="M50 86 L51 44 L82 62 Z" fill="${c.earIn}"/><path class="ear-r ear-in" d="M150 86 L149 44 L118 62 Z" fill="${c.earIn}"/>
     ${stripes}
     <ellipse cx="100" cy="140" rx="26" ry="17" fill="${c.muzzle}"/>
     ${eye(70)}${eye(130)}
@@ -91,15 +114,22 @@ export function sleepSvg(avatar, skin) {
   const stripes = st
     ? `<path d="M112 54 L114 72 M142 52 L144 70 M172 58 L172 76" stroke="${st}" stroke-width="6" stroke-linecap="round" fill="none"/>`
     : '';
-  const tail = 'M220 104 Q228 150 140 148 Q96 148 78 136';
+  // Der Schwanz in zwei Stücken, damit die Spitze für sich zucken kann
+  const tail = 'M220 104 Q228 150 140 148';
+  const tip = 'M141 148 Q96 148 78 136';
   return `<svg viewBox="0 -22 240 194" role="img" aria-label="${c.name}, schlafend${isSkin(skin) ? ` mit ${SKINS[skin].name}` : ''}">
     <g class="breath-body">
       <ellipse cx="130" cy="98" rx="96" ry="48" fill="${c.fur}" stroke="${c.line}" stroke-width="4"/>
       <path d="${tail}" fill="none" stroke="${c.line}" stroke-width="26" stroke-linecap="round"/>
       <path d="${tail}" fill="none" stroke="${c.fur}" stroke-width="18" stroke-linecap="round"/>
       ${stripes}
+      <g class="tail-tip">
+        <path d="${tip}" fill="none" stroke="${c.line}" stroke-width="26" stroke-linecap="round"/>
+        <path d="${tip}" fill="none" stroke="${c.fur}" stroke-width="18" stroke-linecap="round"/>
+      </g>
     </g>
     <g class="breath-head"><g transform="translate(14 44) scale(.62)">${catParts(c, true)}${isSkin(skin) ? SKINS[skin].svg : ''}</g></g>
+    <circle class="bubble" cx="70" cy="134" r="10" fill="#bfe6ff" fill-opacity=".55" stroke="#7cc4f0" stroke-width="2"/>
     <ellipse cx="122" cy="146" rx="17" ry="9" fill="${c.fur}" stroke="${c.line}" stroke-width="3"/>
     <g class="zzz" fill="${c.line === '#16161a' ? '#8a8aa0' : c.line}" font-family="sans-serif" font-weight="700">
       <text x="104" y="42" font-size="20">z</text><text x="124" y="28" font-size="26">z</text><text x="148" y="12" font-size="32">Z</text>

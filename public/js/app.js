@@ -5,7 +5,8 @@ import { runBlitz, runChart, familyBoard } from './blitz.js';
 import { parentView } from './parent.js';
 import { lootbox, openedBox } from './lootbox.js';
 import { faceOf } from './avatar.js';
-import { avatarSvg } from './avatar-data.js';
+import { avatarSvg, PERSONAS } from './avatar-data.js';
+import { companion } from './companion.js';
 
 const app = document.getElementById('app');
 const state = { meta: null };
@@ -551,17 +552,25 @@ function avatarPanel(id, meta, ov) {
       disabled: locked || current, 'aria-pressed': String(current), onclick: on,
     }, h('span.skin-art', { 'aria-hidden': 'true', html: locked ? '🔒' : svg }), h('span.t-name', label), h('span.t-sub', sub));
   const base = ov.child.companion;
+  const persona = PERSONAS[base?.slice(4)];
+  // Wach und zum Antippen: Die Katze zeigt, wie sie sich freut.
+  const hero = companion(ov.child, { awake: true, className: 'hero' });
+  if (hero) setTimeout(() => hero.cheer(), 500);
   return [
     h('section.panel.avatar-stage',
-      h('.avatar-big', h('span.cat', { 'aria-hidden': 'true', html: avatarSvg(base, ov.child.skin) })),
+      hero?.el,
       h('div',
-        h('h2', 'Dein Companion'),
-        h('p.muted', 'Diese Katze begleitet dich bei jeder Fahrt und freut sich mit dir über richtige Antworten. Such dir eine Katze und einen Skin aus!'))),
+        h('h2', persona ? `Dein Companion: ${persona.trait}` : 'Dein Companion'),
+        h('p.muted', 'Diese Katze begleitet dich bei jeder Fahrt und freut sich mit dir über richtige Antworten.'),
+        persona ? h('p', persona.about) : null,
+        h('p.muted.small', 'Tipp sie an! Such dir eine Katze und einen Skin aus.'))),
     h('section.panel',
       h('h2', '🐱 Dein Companion'),
       h('.trains', cats.map((c) => {
         const current = base === c.id;
-        return pick(c.name, avatarSvg(c.id), () => change({ companion: c.id }), current, false, current ? 'Dein Companion' : 'Auswählen');
+        const trait = PERSONAS[c.id.slice(4)]?.trait;
+        return pick(c.name, avatarSvg(c.id), () => change({ companion: c.id }), current, false,
+          current ? `${trait} · dein Companion` : `${trait} · auswählen`);
       }))),
     h('section.panel',
       h('h2', `🎩 Skins (${owned.length} von ${skins.length})`),

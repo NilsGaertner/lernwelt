@@ -4,7 +4,7 @@ import {
 } from './ui.js';
 import { api } from './api.js';
 import { lootbox } from './lootbox.js';
-import { avatarSvg, sleepSvg } from './avatar-data.js';
+import { companion } from './companion.js';
 
 const PRAISE = ['Richtig!', 'Super!', 'Klasse!', 'Genau!', 'Stark!', 'Perfekt!'];
 const pick = (a) => a[Math.floor(Math.random() * a.length)];
@@ -50,17 +50,17 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
   const count = h('span.ride-count');
   const comboBadge = h('span.combo', { 'aria-live': 'polite' });
   const stage = h('div');
+  // Companion: die gewählte Katze (mit Skin) begleitet die Fahrt – jede auf ihre eigene Art (companion.js).
   let cat = null;
-  let napTimer = 0;
-  // Companion: die gewählte Katze (mit Skin) begleitet die Fahrt und freut sich über richtige Antworten.
-  const companion = h('.companion', { 'aria-hidden': 'true', hidden: true });
+  let child = null;
+  const catSlot = h('span', { hidden: true });
   const wrap = h('section.ride', { style: { '--line': lineColor } },
     h('.ride-top',
       h('button.icon-btn', { type: 'button', title: 'Fahrt abbrechen', 'aria-label': 'Fahrt abbrechen', onclick: exit }, '✕'),
       h('.track', { role: 'progressbar', 'aria-valuemin': 0, 'aria-valuemax': total }, h('.rail'), railDone, trackDots, train),
       count),
     comboBadge,
-    companion,
+    catSlot,
     stage);
   root.replaceChildren(wrap);
   loadCompanion();
@@ -95,34 +95,18 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     keys.abort();
     document.querySelectorAll('.sheet, .dock').forEach((el) => el.remove());
     window.speechSynthesis?.cancel();
+    cat?.stop();
   }
 
   // Fehlt der Companion, läuft die Fahrt trotzdem.
   async function loadCompanion() {
     try {
-      const child = (await api('/children')).find((c) => c.id === Number(childId));
+      child = (await api('/children')).find((c) => c.id === Number(childId)) ?? null;
       if (!child || ended) return;
-      cat = { id: child.companion, skin: child.skin };
-      companion.hidden = false;
-      sleep();
+      // Die Katze schläft eingerollt, wacht bei richtigen Antworten auf und legt sich danach wieder hin.
+      cat = companion(child);
+      if (cat) catSlot.replaceWith(cat.el);
     } catch { /* ohne Companion weiterfahren */ }
-  }
-
-  // Die Katze schläft eingerollt, wacht bei einer richtigen Antwort auf und legt sich danach wieder hin.
-  function sleep() {
-    if (!cat) return;
-    companion.classList.remove('cheer');
-    companion.innerHTML = sleepSvg(cat.id, cat.skin) ?? '';
-  }
-
-  function cheer() {
-    if (!cat) return;
-    clearTimeout(napTimer);
-    companion.classList.remove('cheer');
-    companion.innerHTML = avatarSvg(cat.id, cat.skin) ?? '';
-    void companion.offsetWidth; // Animation neu starten, auch bei schnell aufeinanderfolgenden Treffern
-    companion.classList.add('cheer');
-    napTimer = setTimeout(sleep, 2600);
   }
 
   function updateTrack() {
@@ -484,6 +468,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       busy = false;
       updateCombo(0);
       sfx.wrong();
+      cat?.encourage();
       return res;
     }
     if (res.firstTry) status[q.id] = res.half ? 'half' : res.correct ? 'ok' : 'miss';
@@ -498,7 +483,8 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       }
     }
     updateCombo(res.combo ?? 0);
-    if (res.correct) cheer();
+    if (res.correct) cat?.cheer();
+    else cat?.encourage();
     if (res.correct && combo >= 3) sfx.combo(combo);
     else if (res.correct) sfx.right();
     else sfx.wrong();
@@ -512,6 +498,8 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
   function updateCombo(n) {
     const prev = combo;
     combo = n;
+    // Ab 5 in Folge (ICE) bleibt die Katze wach und fiebert mit
+    cat?.hype(n >= 5);
     train.classList.toggle('express', n >= 3 && n < 5);
     train.classList.toggle('ice', n >= 5);
     comboBadge.replaceChildren();
@@ -712,8 +700,12 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       ? h('p.score', `🔥 Längste Serie: ${result.bestCombo} in Folge${result.comboRecord ? ' – neuer Rekord!' : ''}`)
       : null;
 
+    // Am Ziel ist die Katze wach und feiert mit – bei 3 Sternen oder bestandenem Endbahnhof richtig.
+    const arrivalCat = child ? companion(child, { awake: true, className: 'at-arrival' }) : null;
+    if (arrivalCat) setTimeout(() => (celebrate ? arrivalCat.celebrate() : result.rating >= 2 ? arrivalCat.cheer() : arrivalCat.encourage()), 900);
     root.replaceChildren(h('section.arrival', { style: { '--line': lineColor } },
       h('.board',
+        arrivalCat?.el,
         h('.eyebrow', `Endstation · ${session.title}`),
         h('h1', headline),
         h('.big-stars', { role: 'img', 'aria-label': `${result.rating} von 3 Sternen` },

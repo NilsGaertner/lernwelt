@@ -122,6 +122,7 @@ Diese Elemente sollen die Aufmerksamkeit halten, ohne zusätzliche Medienzeit zu
 - **Sammelalbum:** Jede Station mit 3 Sternen bringt eine Sammelkarte mit einem „Wusstest du?“-Text oder dem Merksatz der Station.
 - **Ränge und Züge:** XP gibt es für richtige Antworten (10), Stempel (50) und Endbahnhöfe (100). Der Weg führt über 9 Ränge vom Fahrgast bis zur Streckenlegende, und jeder Rang schaltet einen Zug frei, mit dem das Kind fährt.
 - **Serienschutz:** Einmal pro Woche darf ein Tag ausfallen, ohne dass die Tage-Serie reißt.
+- **Companion:** Eine Katze begleitet jede Fahrt. Jede der vier Katzen hat ihre eigene Art: Die schwarze („Geheimnisvoll“) dreht bei richtigen Antworten eine Pirouette mit Sternen, die weiße („Verträumt“) schwebt mit Herzen, die braune („Gemütlich“) hüpft schnurrend mit Noten, die getigerte („Wild“) springt wie auf Mäusejagd. Auch im Schlaf unterscheiden sie sich (Schwanzspitze, Ohrenzucken, Strecken, Schnarchblase). Nach einem Fehler schauen sie kurz auf und machen Mut, ab 5 richtigen Antworten in Folge bleiben sie wach und fiebern mit, und am Ziel feiern sie mit. Antippen geht auch. Katze und Skins wählt das Kind in der Sammlung unter „Companion“.
 - **Effekte:** Konfetti, Fanfare und hochzählende Sterne bei besonderen Momenten. Bei „Bewegung reduzieren“ in den Geräteeinstellungen fallen die Animationen weg.
 
 Im Elternbereich siehst du pro Kind: Übungszeit der letzten 14 Tage, was noch schwerfällt (konkrete Wörter und Sätze), den Stand jeder Station, die Lootboxen, die letzten Fahrten und das komplette Sterne-Konto.
