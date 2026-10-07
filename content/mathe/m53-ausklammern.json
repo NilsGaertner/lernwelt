@@ -1,0 +1,43 @@
+{
+  "id": "ausklammern",
+  "line": "rechengesetze",
+  "order": 53,
+  "title": "Ausklammern",
+  "subtitle": "Distributivgesetz rückwärts",
+  "icon": "🧲",
+  "card": "Merke: a · b + a · c = a · (b + c). Den gemeinsamen Faktor nach vorn, den Rest in die Klammer.",
+  "explain": [
+    { "p": "Kommt in zwei Malaufgaben **derselbe Faktor** vor, kannst du ihn **ausklammern**: a · b + a · c = a · (b + c)" },
+    { "p": "8 · 17 + 2 · 17 = (8 + 2) · 17 = 10 · 17 = **170**" },
+    { "tip": "Das lohnt sich, wenn in der Klammer eine glatte Zahl entsteht: 23 · 64 + 23 · 36 = 23 · (64 + 36) = 23 · 100 = **2300**" },
+    { "tip": "Beim Teilen geht es genauso, wenn der **Divisor** gleich ist: 225 : 15 − 75 : 15 = (225 − 75) : 15 = 150 : 15 = **10**" },
+    { "p": "Achtung: 8 · 17 + 2 · 17 ist **nicht** 8 + 2 + 17. Die 17 bleibt ein Faktor: (8 + 2) · 17." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Wie klammerst du aus?", "q": "8 · 17 + 2 · 17 = ___", "options": ["(8 + 2) · 17", "8 + 2 · 17", "(8 + 17) · 2", "8 · (2 + 17)"], "answer": "(8 + 2) · 17", "explain": "Die 17 kommt in beiden Malaufgaben vor. Sie bleibt draußen, 8 + 2 kommt in die Klammer." },
+    { "type": "choice", "task": "Welcher Faktor ist in beiden Malaufgaben gleich?", "q": "7 · 23 + 7 · 77", "options": ["7", "23", "77", "100"], "answer": "7", "explain": "7 · (23 + 77) = 7 · 100 = **700**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "8 · 17 + 2 · 17 = ___", "answer": "170", "numeric": true, "placeholder": "Ergebnis", "explain": "(8 + 2) · 17 = 10 · 17 = **170**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "4 · 19 + 4 · 6 = ___", "answer": "100", "numeric": true, "placeholder": "Ergebnis", "explain": "4 · (19 + 6) = 4 · 25 = **100**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "23 · 64 + 23 · 36 = ___", "answer": "2300", "numeric": true, "placeholder": "Ergebnis", "explain": "23 · (64 + 36) = 23 · 100 = **2300**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "48 · 67 + 52 · 67 = ___", "answer": "6700", "numeric": true, "placeholder": "Ergebnis", "explain": "(48 + 52) · 67 = 100 · 67 = **6700**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "85 · 14 + 15 · 14 = ___", "answer": "1400", "numeric": true, "placeholder": "Ergebnis", "explain": "(85 + 15) · 14 = 100 · 14 = **1400**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "7 · 23 + 7 · 77 = ___", "answer": "700", "numeric": true, "placeholder": "Ergebnis", "explain": "7 · (23 + 77) = 7 · 100 = **700**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "17 · 81 − 7 · 81 = ___", "answer": "810", "numeric": true, "placeholder": "Ergebnis", "explain": "(17 − 7) · 81 = 10 · 81 = **810**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "36 · 39 − 16 · 39 = ___", "answer": "780", "numeric": true, "placeholder": "Ergebnis", "explain": "(36 − 16) · 39 = 20 · 39 = **780**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "39 · 24 − 29 · 24 = ___", "answer": "240", "numeric": true, "placeholder": "Ergebnis", "explain": "(39 − 29) · 24 = 10 · 24 = **240**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "54 · 36 − 44 · 36 = ___", "answer": "360", "numeric": true, "placeholder": "Ergebnis", "explain": "(54 − 44) · 36 = 10 · 36 = **360**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "13 · 19 + 7 · 19 = ___", "answer": "380", "numeric": true, "placeholder": "Ergebnis", "explain": "(13 + 7) · 19 = 20 · 19 = **380**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "13 · 19 − 13 · 9 = ___", "answer": "130", "numeric": true, "placeholder": "Ergebnis", "explain": "13 · (19 − 9) = 13 · 10 = **130**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "108 : 18 + 72 : 18 = ___", "answer": "10", "numeric": true, "placeholder": "Ergebnis", "explain": "(108 + 72) : 18 = 180 : 18 = **10**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "102 : 17 + 68 : 17 = ___", "answer": "10", "numeric": true, "placeholder": "Ergebnis", "explain": "(102 + 68) : 17 = 170 : 17 = **10**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "351 : 9 + 549 : 9 = ___", "answer": "100", "numeric": true, "placeholder": "Ergebnis", "explain": "(351 + 549) : 9 = 900 : 9 = **100**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "215 : 5 − 15 : 5 = ___", "answer": "40", "numeric": true, "placeholder": "Ergebnis", "explain": "(215 − 15) : 5 = 200 : 5 = **40**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "496 : 16 − 96 : 16 = ___", "answer": "25", "numeric": true, "placeholder": "Ergebnis", "explain": "(496 − 96) : 16 = 400 : 16 = **25**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "336 : 28 − 56 : 28 = ___", "answer": "10", "numeric": true, "placeholder": "Ergebnis", "explain": "(336 − 56) : 28 = 280 : 28 = **10**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "102 : 6 + 78 : 6 = ___", "answer": "30", "numeric": true, "placeholder": "Ergebnis", "explain": "(102 + 78) : 6 = 180 : 6 = **30**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "545 : 5 − 145 : 5 = ___", "answer": "80", "numeric": true, "placeholder": "Ergebnis", "explain": "(545 − 145) : 5 = 400 : 5 = **80**" },
+    { "type": "input", "task": "Klammere aus und rechne im Kopf.", "q": "306 : 17 − 136 : 17 = ___", "answer": "10", "numeric": true, "placeholder": "Ergebnis", "explain": "(306 − 136) : 17 = 170 : 17 = **10**" },
+    { "type": "input", "task": "Sachaufgabe", "q": "Ein Heft kostet 3 €. Lisa kauft 17 Hefte, Tom kauft 13 Hefte. Wie viel Euro zahlen beide zusammen? ___ €", "answer": "90", "numeric": true, "placeholder": "Euro", "explain": "3 · 17 + 3 · 13 = 3 · (17 + 13) = 3 · 30 = **90 €**" },
+    { "type": "input", "task": "Sachaufgabe", "q": "Kai bekommt jeden Monat 35 € Taschengeld, seine Schwester Tina 25 €. Wie viel Euro zahlen die Eltern in einem Jahr? ___ €", "answer": "720", "numeric": true, "placeholder": "Euro", "explain": "12 · 35 + 12 · 25 = 12 · (35 + 25) = 12 · 60 = **720 €**" }
+  ]
+}

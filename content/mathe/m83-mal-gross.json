@@ -1,0 +1,19 @@
+{
+  "id": "mal-gross",
+  "line": "schriftlich-mal",
+  "order": 83,
+  "title": "Große Malaufgaben",
+  "subtitle": "Bis zu drei Zeilen",
+  "icon": "🏗️",
+  "card": "Merke: Erst überschlagen, dann rechnen. 3597 · 19 ≈ 4000 · 20 = 80 000 – das Ergebnis 68 343 liegt in der Nähe.",
+  "generator": "schriftlich",
+  "params": { "op": "mul", "digits": [3, 4], "factorDigits": [2, 3] },
+  "itemCount": 100,
+  "explain": [
+    { "p": "Je mehr Ziffern die zweite Zahl hat, desto mehr Zeilen gibt es. Jede Zeile rutscht eine Stelle nach rechts, und am Ende zählst du alle zusammen." },
+    { "column": { "op": "mul", "rows": ["3597", "19"], "caption": "3597 · 19 = **68 343**" } },
+    { "column": { "op": "mul", "rows": ["213", "132"], "caption": "213 · 132 = **28 116**" } },
+    { "tip": "Bei drei Zeilen kann der Übertrag beim Zusammenzählen auch **2** sein." },
+    { "tip": "Überschlag: 213 · 132 ≈ 200 · 100 = 20 000. Das passt zu 28 116 – beide Ergebnisse haben fünf Stellen." }
+  ]
+}

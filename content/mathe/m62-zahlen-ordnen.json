@@ -1,0 +1,41 @@
+{
+  "id": "zahlen-ordnen",
+  "line": "grosse-zahlen",
+  "order": 62,
+  "title": "Zahlen ordnen",
+  "subtitle": "Vorgänger, Nachfolger, Zahlenfolgen",
+  "icon": "📏",
+  "card": "Wusstest du? Die Folge 1, 1, 2, 3, 5, 8, 13 … heißt **Fibonacci-Folge**. Man findet sie in Sonnenblumen und Tannenzapfen.",
+  "explain": [
+    { "p": "Die Zahlen, mit denen wir zählen, heißen **natürliche Zahlen**: 0, 1, 2, 3, … Ihr Zeichen ist **ℕ**." },
+    { "p": "Jede natürliche Zahl hat einen **Nachfolger** (+ 1). Jede außer der 0 hat einen **Vorgänger** (− 1)." },
+    { "table": { "head": ["Vorgänger", "Zahl", "Nachfolger"], "rows": [["2023", "2024", "2025"], ["1998", "1999", "2000"], ["3999", "4000", "4001"]] } },
+    { "tip": "Vergleichen: Die Zahl mit **mehr Stellen** ist größer. Bei gleich vielen Stellen vergleichst du **von links** Stelle für Stelle: 12**3**4 < 12**4**3, weil 3 < 4." },
+    { "tip": "Zahlenfolgen: Schau, was von Zahl zu Zahl passiert. 1; 4; 7; 10 → immer **+ 3**, also kommt 13." }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Vorgänger und Nachfolger", "q": "Der Nachfolger von 999 ist ___.", "answer": "1000", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Vorgänger und Nachfolger", "q": "Der Vorgänger von 4000 ist ___.", "answer": "3999", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Vorgänger und Nachfolger", "q": "Der Nachfolger von 109 999 ist ___.", "answer": "110000", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Vorgänger und Nachfolger", "q": "Der Vorgänger von 1 000 000 ist ___.", "answer": "999999", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Vorgänger und Nachfolger", "q": "Der Vorgänger von 20 100 ist ___.", "answer": "20099", "numeric": true, "placeholder": "Zahl" },
+    { "type": "choice", "task": "Vorgänger und Nachfolger", "q": "Welche natürliche Zahl hat **keinen** Vorgänger?", "options": ["0", "1", "10", "100"], "answer": "0", "explain": "Die 0 ist die kleinste natürliche Zahl. Vor ihr gibt es keine." },
+    { "type": "choice", "task": "Vergleiche.", "q": "1234 ___ 1243", "options": ["<", ">", "="], "answer": "<", "explain": "Von links: 1 = 1, 2 = 2, dann 3 < 4. Also 1234 **<** 1243." },
+    { "type": "choice", "task": "Vergleiche.", "q": "5 000 001 ___ 4 999 999", "options": [">", "<", "="], "answer": ">" },
+    { "type": "choice", "task": "Vergleiche.", "q": "98 765 ___ 102 345", "options": ["<", ">", "="], "answer": "<", "explain": "102 345 hat sechs Stellen, 98 765 nur fünf. Mehr Stellen = größer." },
+    { "type": "choice", "task": "Vergleiche.", "q": "12 343 ___ 12 334", "options": [">", "<", "="], "answer": ">", "explain": "Von links: 1, 2, 3 sind gleich, dann 4 > 3." },
+    { "type": "choice", "task": "Welche Zahl ist am größten?", "q": "Welche Zahl ist am größten?", "options": ["102 345", "98 765", "99 999", "100 999"], "answer": "102 345" },
+    { "type": "choice", "task": "Größte und kleinste", "q": "Die größte sechsstellige Zahl ist …", "options": ["999 999", "100 000", "1 000 000", "987 654"], "answer": "999 999" },
+    { "type": "input", "task": "Größte und kleinste", "q": "Die kleinste siebenstellige Zahl ist ___.", "answer": "1000000", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Ziffernrätsel", "q": "Bilde aus den Ziffern 3, 0, 6, 1, 5, 2, 4 die **größte** Zahl. Jede Ziffer genau einmal.", "answer": "6543210", "numeric": true, "placeholder": "Zahl", "explain": "Die größte Ziffer nach vorn, die kleinste nach hinten: **6 543 210**." },
+    { "type": "input", "task": "Ziffernrätsel", "q": "Bilde aus den Ziffern 3, 0, 6, 1, 5, 2, 4 die **kleinste** siebenstellige Zahl. Jede Ziffer genau einmal.", "answer": "1023456", "numeric": true, "placeholder": "Zahl", "explain": "Vorne darf keine 0 stehen. Also kommt die 1 nach vorn, danach die 0: **1 023 456**." },
+    { "type": "input", "task": "Wie geht die Zahlenfolge weiter?", "q": "1; 3; 5; 7; 9; ___", "answer": "11", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Wie geht die Zahlenfolge weiter?", "q": "1; 4; 7; 10; 13; ___", "answer": "16", "numeric": true, "placeholder": "Zahl", "explain": "Immer + 3: 13 + 3 = **16**." },
+    { "type": "input", "task": "Wie geht die Zahlenfolge weiter?", "q": "1; 2; 4; 7; 11; 16; ___", "answer": "22", "numeric": true, "placeholder": "Zahl", "explain": "+ 1, + 2, + 3, + 4, + 5, dann + 6: 16 + 6 = **22**." },
+    { "type": "input", "task": "Wie geht die Zahlenfolge weiter?", "q": "0; 1; 4; 9; 16; 25; ___", "answer": "36", "numeric": true, "placeholder": "Zahl", "explain": "Das sind Quadratzahlen: 0², 1², 2², … und 6² = **36**." },
+    { "type": "input", "task": "Wie geht die Zahlenfolge weiter?", "q": "2; 4; 8; 16; 32; ___", "answer": "64", "numeric": true, "placeholder": "Zahl", "explain": "Immer · 2: 32 · 2 = **64**." },
+    { "type": "input", "task": "Wie geht die Zahlenfolge weiter?", "q": "100; 90; 81; 73; ___", "answer": "66", "numeric": true, "placeholder": "Zahl", "explain": "− 10, − 9, − 8, dann − 7: 73 − 7 = **66**." },
+    { "type": "input", "task": "Wie geht die Zahlenfolge weiter?", "q": "3; 6; 12; 24; ___", "answer": "48", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Wie geht die Zahlenfolge weiter?", "q": "1; 1; 2; 3; 5; 8; ___", "answer": "13", "numeric": true, "placeholder": "Zahl", "explain": "Jede Zahl ist die Summe der beiden davor: 5 + 8 = **13**." }
+  ]
+}

@@ -1,4 +1,4 @@
-import { h, md, gapText, speak, canSpeak, sfx, escapeHtml, mapFigure, confetti, countUp, rankMeter, toast, guardBack, columnMath, columnSum, columnSteps } from './ui.js';
+import { h, md, gapText, speak, canSpeak, sfx, escapeHtml, mapFigure, confetti, countUp, rankMeter, toast, guardBack, columnMath, columnSum, columnSteps, mulMath, mulGrid } from './ui.js';
 import { api } from './api.js';
 import { lootbox } from './lootbox.js';
 import { avatarSvg, sleepSvg } from './avatar-data.js';
@@ -287,6 +287,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
    * Überträge sind eine Hilfe zum Merken, gewertet wird nur das Ergebnis.
    */
   function columnArea(q) {
+    if (q.op === 'mul') return mulArea(q);
     const maxLen = Math.max(...q.rows.map((r) => r.length));
     // Beim Plus mit Übertrag bleibt links eine Stelle frei – sonst verrät die Breite, ob vorne noch eine Ziffer kommt.
     // Beim Minus wird das Ergebnis nie länger als die obere Zahl.
@@ -418,6 +419,160 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
           if (!c) return;
           const want = m.carries[i] ? String(m.carries[i]) : '';
           if (want !== carry[i]) c.classList.add('shown');
+          c.textContent = want;
+        });
+      }
+    };
+    onEnter = check;
+    dock(h('button.btn.line.big', { type: 'button', onclick: check }, 'Prüfen'));
+    return h('.col-work', grid, pad);
+  }
+
+  /**
+   * Schriftlich mal: erst die Teilprodukte Zeile für Zeile (jede von rechts nach links), dann das Ergebnis
+   * mit Überträgen wie beim Plus. Ist ein Teilprodukt kürzer als sein Platz, springt „Nächste Zeile“ weiter.
+   * Gewertet wird nur das Ergebnis; die Zeilen darüber sind der Rechenweg und werden danach mit angezeigt.
+   * Bei einstelligem zweiten Faktor gibt es nur die Ergebnis-Zeile.
+   */
+  function mulArea(q) {
+    const m = mulMath(q.rows);
+    const { width } = m;
+    const multi = m.lb > 1;
+    const withCarry = multi && q.carry;
+    // Zeilen von oben nach unten: p0, p1, … (Teilprodukte), carry, res
+    const rowIds = [...(multi ? m.partials.map((_, i) => `p${i}`) : []), ...(withCarry ? ['carry'] : []), 'res'];
+    const vals = Object.fromEntries(rowIds.map((r) => [r, new Array(width).fill('')]));
+    const cells = Object.fromEntries(rowIds.map((r) => [r, []]));
+    const order = [];
+    if (multi) m.partials.forEach((p, i) => { for (let col = p.end; col >= p.start; col--) order.push({ row: `p${i}`, col }); });
+    for (let col = width - 1; col >= 1; col--) {
+      if (withCarry && col < width - 1) order.push({ row: 'carry', col });
+      order.push({ row: 'res', col });
+    }
+    const idx = (row, col) => order.findIndex((o) => o.row === row && o.col === col);
+    let cur = order[0];
+
+    let specialKey = null;
+    const select = (row, col) => {
+      cur = { row, col };
+      Object.values(cells).flat().forEach((c) => c?.classList.remove('cur'));
+      cells[row][col]?.classList.add('cur');
+      if (specialKey) specialKey.textContent = row === 'carry' ? 'Weiter' : row === 'res' ? 'Übertrag' : 'Nächste Zeile';
+    };
+    const step = (dir) => {
+      const o = order[idx(cur.row, cur.col) + dir];
+      if (o) select(o.row, o.col);
+      return !!o;
+    };
+    // „Nächste Zeile“: zur rechten Ziffer der nächsten Zeile – dort fängt man im Heft an.
+    const nextRow = () => {
+      const o = order.slice(idx(cur.row, cur.col)).find((e) => e.row !== cur.row && e.row !== 'carry');
+      if (o) select(o.row, o.col);
+    };
+    // Pfeil hoch/runter: in die Zeile darüber/darunter, möglichst in derselben Spalte.
+    const moveVert = (dir) => {
+      const row = rowIds[rowIds.indexOf(cur.row) + dir];
+      if (!row) return;
+      const cols = cells[row].map((c, col) => (c ? col : null)).filter((c) => c != null);
+      const col = cols.includes(cur.col) ? cur.col : cols.reduce((best, c) => (Math.abs(c - cur.col) < Math.abs(best - cur.col) ? c : best));
+      select(row, col);
+    };
+    const paint = () => rowIds.forEach((r) => cells[r].forEach((c, col) => { if (c) c.textContent = vals[r][col]; }));
+    const press = (k) => {
+      if (busy) return;
+      if (/^\d$/.test(k)) {
+        // Eine größere Ziffer kann kein Übertrag sein: Das Kind wollte das Ergebnis dieser Spalte schreiben.
+        if (cur.row === 'carry' && Number(k) > m.maxCarry) select('res', cur.col);
+        vals[cur.row][cur.col] = cur.row === 'carry' && k === '0' ? '' : k;
+        step(1);
+      } else if (k === 'back') {
+        if (vals[cur.row][cur.col]) vals[cur.row][cur.col] = '';
+        else if (step(-1)) vals[cur.row][cur.col] = '';
+      } else if (k === 'special') {
+        if (cur.row === 'carry') step(1);
+        else if (cur.row === 'res') { if (cells.carry?.[cur.col]) select('carry', cur.col); }
+        else nextRow();
+      } else if (k === 'left' || k === 'right') {
+        const col = cur.col + (k === 'left' ? -1 : 1);
+        if (cells[cur.row][col]) select(cur.row, col);
+      } else if (k === 'up' || k === 'down') {
+        moveVert(k === 'up' ? -1 : 1);
+      }
+      paint();
+    };
+    onKey = (key) => {
+      const k = /^\d$/.test(key) ? key
+        : { Backspace: 'back', Delete: 'back', ArrowLeft: 'left', ArrowRight: 'right', ArrowUp: 'up', ArrowDown: 'down', Tab: multi ? 'special' : null }[key];
+      if (!k) return false;
+      press(k);
+      return true;
+    };
+
+    const cls = (row) => ({ carry: '.cs-carry', res: '.cs-r.cs-line', p0: '.cs-line' }[row] ?? '');
+    const btn = (row, col, label) => (cells[row][col] = h(`button.cs-in${cls(row)}`, {
+      type: 'button', 'aria-label': label, onclick: () => !busy && select(row, col),
+    }));
+    const grid = mulGrid(q.rows, {
+      partialCell: (i, col) => btn(`p${i}`, col, `Zeile ${i + 1}, ${col + 1}. Stelle`),
+      carryCell: withCarry ? (col) => btn('carry', col, `Übertrag ${col + 1}. Stelle`) : null,
+      resultCell: (col) => btn('res', col, `Ergebnis ${col + 1}. Stelle`),
+    });
+    grid.removeAttribute('role');
+    grid.removeAttribute('aria-label');
+
+    const key = (label, k, cls = '') => h('button', { type: 'button', class: cls, onclick: () => press(k) }, label);
+    if (multi) specialKey = key('Nächste Zeile', 'special', 'k-carry');
+    const pad = h('.keypad',
+      ['1', '2', '3', '4', '5', '6', '7', '8', '9'].map((d) => key(d, d)),
+      specialKey ?? h('span'),
+      key('0', '0'),
+      h('button.k-back', { type: 'button', 'aria-label': 'Löschen', onclick: () => press('back') }, '⌫'));
+    select(cur.row, cur.col);
+
+    const shake = (msg, focus) => {
+      grid.classList.add('shake');
+      setTimeout(() => grid.classList.remove('shake'), 350);
+      if (msg) toast(msg);
+      if (focus) select(...focus);
+    };
+    const check = async () => {
+      if (busy) return;
+      const result = vals.res;
+      const typed = result.join('');
+      const first = result.findIndex(Boolean);
+      if (!typed) {
+        // Teilprodukte stehen schon da, aber unten fehlt noch die Summe.
+        const started = rowIds.some((r) => r !== 'res' && vals[r].some(Boolean));
+        return shake(started ? 'Jetzt noch die Zeilen zusammenzählen: Das Ergebnis kommt unter den Strich.' : null, ['res', width - 1]);
+      }
+      if (result.slice(first).some((d) => !d)) return shake('Da fehlt noch eine Ziffer.');
+      const answer = typed.replace(/^0+(?=\d)/, '');
+      if (answer.length < m.total.length) {
+        const col = width - answer.length - 1;
+        return shake(vals.carry?.[col] ? 'Vorne fehlt noch eine Ziffer. Steht sie oben im kleinen Übertrags-Kästchen?' : 'Vorne fehlt noch eine Ziffer.', ['res', col]);
+      }
+      Object.values(cells).flat().forEach((c) => c?.classList.remove('cur'));
+      q.entered = answer;
+      const res = await submit(q, answer);
+      if (!res) return select(cur.row, cur.col);
+      // Jetzt steht die richtige Rechnung da: falsche Ziffern rot. Zeilen, die das Kind im Kopf gerechnet hat, grau.
+      const mark = (row, want) => {
+        const typedRow = vals[row].some(Boolean);
+        cells[row].forEach((c, col) => {
+          if (!c) return;
+          const w = want(col);
+          const had = vals[row][col];
+          c.textContent = w;
+          if (!typedRow) { if (w) c.classList.add('hint'); } else if (w || had) c.classList.add(had === w ? 'ok' : 'fix');
+        });
+      };
+      m.partials.forEach((p, i) => { if (multi) mark(`p${i}`, (col) => m.at(p.value, p.end, col)); });
+      mark('res', (col) => m.at(m.total, width - 1, col));
+      if (!res.correct && withCarry) {
+        cells.carry.forEach((c, col) => {
+          if (!c) return;
+          const want = m.carries[col] ? String(m.carries[col]) : '';
+          if (want !== vals.carry[col]) c.classList.add('shown');
           c.textContent = want;
         });
       }

@@ -41,6 +41,23 @@ Die Schriftlich-plus-Linie übt die schriftliche Addition bis 1000: erst ohne Ü
 
 Die Schriftlich-minus-Linie übt die schriftliche Subtraktion bis 1000 im **Ergänzungsverfahren** („8 + 5 = 13, schreib 5, Übertrag 1“): erst ohne Übertrag, dann mit Übertrag, dann mit Nullen in der oberen Zahl (z. B. 503 − 276 oder 1000 − 347). Die Bedienung ist dieselbe wie beim Plus. Die Stationen nutzen denselben Generator mit `"op": "sub"`.
 
+**Mathe: Schriftlich mal (3 Stationen + Endbahnhof)**
+
+Die Schriftlich-mal-Linie übt das schriftliche Multiplizieren wie im Schulheft: Die Aufgabe steht in einer Zeile (3597 · 19), darunter kommt für jede Ziffer des zweiten Faktors ein Teilprodukt, jedes eine Stelle weiter rechts, und darunter die Summe mit Übertrags-Kästchen. Die Stationen: mal eine Ziffer (165 · 8), mal zwei Ziffern (421 · 17) und große Aufgaben mit bis zu drei Zeilen. Ist eine Zeile vorne fertig, springt „Nächste Zeile“ weiter. Gewertet wird nur das Ergebnis. Bei einem Fehler zeigt die App alle Zeilen richtig an (selbst eingetragene Ziffern grün oder rot, im Kopf gerechnete Zeilen grau) und den Rechenweg mit Überschlag und „merke“ für jede Ziffer. Die Aufgaben kommen aus demselben Generator wie Plus und Minus (`"op": "mul"`, `"factorDigits"` für die Stellen des zweiten Faktors).
+
+**Mathe: Stoff aus der 5. Klasse, Kapitel „Rechnen mit natürlichen Zahlen“ (4 Linien, 12 Stationen)**
+
+Nach den Heften und Arbeitsblättern aus der Schule. Bei einem Fehler zeigen viele Aufgaben den Rechenweg.
+
+| Linie | Stationen |
+|---|---|
+| Rechenregel-Linie | Fachbegriffe und Potenzen (Summe … Quotient, Basis, Exponent), Klammer vor Potenz vor Punkt vor Strich (KlaPoPuStri), Lücken und Rechenzeichen ergänzen (Umkehraufgabe, Rechnen mit 0) |
+| Rechengesetz-Linie | Kommutativ- und Assoziativgesetz (geschickt rechnen), Klammer aufteilen (ausmultiplizieren), Ausklammern |
+| Große-Zahlen-Linie | Million bis Billion, gemischtes Zahlwort; Vorgänger, Nachfolger, Vergleichen, Zahlenfolgen; Runden |
+| Mal-und-geteilt-Linie | Mit Nullen rechnen (· 10, : 1000 …), im Kopf zerlegen (4 · 72, 228 : 12), Überschlagen und Ergebnisse prüfen |
+
+Dazu gibt es den „Rechenregel-Blitz“. Zahlen dürfen mit Tausenderpunkt oder Leerzeichen eingetippt werden: 45.000 und 45 000 zählen wie 45000.
+
 **Geographie: Kontinente und Meere (4 Stationen)**
 
 Die Welt-Linie hat die Stationen Die Kontinente, Kontinente-Wissen, Die Ozeane und Meere in Europa. Auf einer Welt- bzw. Europakarte wird ein Gebiet farbig markiert, und dein Kind wählt oder schreibt den Namen. Dazu kommen Wissensfragen (größter Kontinent, Sylt liegt in der …). Im „Merke“ ist jeweils eine bunte Karte mit Legende.

@@ -1,0 +1,48 @@
+{
+  "id": "nullen",
+  "line": "mal-geteilt",
+  "order": 71,
+  "title": "Mit Nullen rechnen",
+  "subtitle": "Mal und geteilt durch 10, 100, 1000",
+  "icon": "🔟",
+  "card": "Merke: Mal 10, 100, 1000 → 1, 2, 3 Nullen **dran**. Geteilt durch 10, 100, 1000 → 1, 2, 3 Nullen **weg**.",
+  "explain": [
+    { "table": { "head": ["Rechnung", "Nullen", "Beispiel"], "rows": [
+      ["· 10", "1 Null dran", "4500 · 10 = 45 000"],
+      ["· 100", "2 Nullen dran", "56 · 100 = 5 600"],
+      ["· 1000", "3 Nullen dran", "340 · 1000 = 340 000"],
+      [": 10", "1 Null weg", "340 : 10 = 34"],
+      [": 1000", "3 Nullen weg", "750 000 : 1000 = 750"]
+    ] } },
+    { "tip": "4500 · 10: Hänge **genau eine** Null an: 4500 → 45 000. Nicht mehr!" },
+    { "tip": "Stehen Nullen an beiden Zahlen, rechne erst ohne Nullen und hänge dann **alle** Nullen an: 120 · 500 → 12 · 5 = 60, dazu 1 + 2 = 3 Nullen → **60 000**." },
+    { "tip": "Beim Teilen darfst du bei beiden Zahlen **gleich viele** Nullen wegnehmen: 44 000 : 2000 = 44 : 2 = **22**." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Welches Ergebnis stimmt?", "q": "4500 · 10 = ___", "options": ["45 000", "450 000", "4 510", "45 100"], "answer": "45 000", "explain": "· 10 → **eine** Null dran: 4500 → 45 000." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "33 · 10 = ___", "answer": "330", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "56 · 100 = ___", "answer": "5600", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "4500 · 10 = ___", "answer": "45000", "numeric": true, "placeholder": "Ergebnis", "explain": "· 10 → **eine** Null dran: 4500 → **45 000**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "340 · 1000 = ___", "answer": "340000", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "340 : 10 = ___", "answer": "34", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "500 : 100 = ___", "answer": "5", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "750 000 : 1000 = ___", "answer": "750", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "44 000 : 2000 = ___", "answer": "22", "numeric": true, "placeholder": "Ergebnis", "explain": "Bei beiden drei Nullen weg: 44 : 2 = **22**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "23 · 30 = ___", "answer": "690", "numeric": true, "placeholder": "Ergebnis", "explain": "23 · 3 = 69, dazu eine Null: **690**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "21 · 20 = ___", "answer": "420", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "15 · 30 = ___", "answer": "450", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "80 · 900 = ___", "answer": "72000", "numeric": true, "placeholder": "Ergebnis", "explain": "8 · 9 = 72, dazu 1 + 2 = 3 Nullen: **72 000**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "120 · 500 = ___", "answer": "60000", "numeric": true, "placeholder": "Ergebnis", "explain": "12 · 5 = 60, dazu 1 + 2 = 3 Nullen: **60 000**. Die Null von der 60 zählt extra!" },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "630 : 70 = ___", "answer": "9", "numeric": true, "placeholder": "Ergebnis", "explain": "Bei beiden eine Null weg: 63 : 7 = **9**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "420 : 20 = ___", "answer": "21", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "4000 : 5 = ___", "answer": "800", "numeric": true, "placeholder": "Ergebnis", "explain": "40 : 5 = 8, dazu die zwei übrigen Nullen: **800**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "36 000 : 400 = ___", "answer": "90", "numeric": true, "placeholder": "Ergebnis", "explain": "Bei beiden zwei Nullen weg: 360 : 4 = **90**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "1 000 000 : 1000 = ___", "answer": "1000", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "24 · ___ = 24 000", "answer": "1000", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "560 · ___ = 560 000", "answer": "1000", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "2400 · ___ = 24 000", "answer": "10", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "48 000 : ___ = 48", "answer": "1000", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "7200 : ___ = 72", "answer": "100", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Welche Zahl fehlt?", "q": "___ : 10 = 48", "answer": "480", "numeric": true, "placeholder": "Zahl", "explain": "Umkehraufgabe: 48 · 10 = **480**." }
+  ]
+}

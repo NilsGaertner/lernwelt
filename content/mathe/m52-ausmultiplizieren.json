@@ -1,0 +1,46 @@
+{
+  "id": "ausmultiplizieren",
+  "line": "rechengesetze",
+  "order": 52,
+  "title": "Klammer aufteilen",
+  "subtitle": "Distributivgesetz: ausmultiplizieren",
+  "icon": "✂️",
+  "card": "Wusstest du? **Distributiv** kommt vom lateinischen „distribuere“ = verteilen. Der Faktor vor der Klammer wird auf **alle** Zahlen darin verteilt.",
+  "explain": [
+    { "p": "**Distributivgesetz** (Verteilungsgesetz): Steht ein Faktor vor einer Klammer mit + oder −, wird er auf **jede** Zahl in der Klammer verteilt." },
+    { "p": "a · (b + c) = a · b + a · c   und   a · (b − c) = a · b − a · c" },
+    { "table": { "head": ["", "10 · (67 + 60)"], "rows": [
+      ["1. Weg: erst die Klammer", "10 · 127 = **1270**"],
+      ["2. Weg: aufteilen", "10 · 67 + 10 · 60 = 670 + 600 = **1270**"]
+    ] } },
+    { "tip": "Damit rechnest du im Kopf: (100 + 4) · 14 = 100 · 14 + 4 · 14 = 1400 + 56 = **1456**" },
+    { "tip": "Auch beim Teilen: (1400 − 28) : 14 = 1400 : 14 − 28 : 14 = 100 − 2 = **98**. Der Divisor steht dabei immer **hinter** der Klammer." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Was ist richtig?", "q": "6 · (10 + 3) = ___", "options": ["6 · 10 + 6 · 3", "6 · 10 + 3", "6 + 10 · 3", "6 · 10 · 3"], "answer": "6 · 10 + 6 · 3", "explain": "Die 6 muss mit **jeder** Zahl in der Klammer malgenommen werden." },
+    { "type": "choice", "task": "Was ist richtig?", "q": "(80 − 4) : 4 = ___", "options": ["80 : 4 − 4 : 4", "80 : 4 − 4", "80 − 4 : 4", "80 : 4 + 4 : 4"], "answer": "80 : 4 − 4 : 4", "explain": "Jede Zahl in der Klammer wird durch 4 geteilt: 20 − 1 = **19**." },
+    { "type": "choice", "task": "Welche Rechnung passt?", "q": "17 · 19 = ___", "options": ["17 · 20 − 17 · 1", "17 · 20 − 1", "17 · 19 − 1", "17 · 10 + 9"], "answer": "17 · 20 − 17 · 1", "explain": "17 · 19 = 17 · (20 − 1) = 340 − 17 = **323**." },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(100 + 4) · 14 = ___", "answer": "1456", "numeric": true, "placeholder": "Ergebnis", "explain": "100 · 14 + 4 · 14 = 1400 + 56 = **1456**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(10 + 3) · 17 = ___", "answer": "221", "numeric": true, "placeholder": "Ergebnis", "explain": "10 · 17 + 3 · 17 = 170 + 51 = **221**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "9 · (40 + 3) = ___", "answer": "387", "numeric": true, "placeholder": "Ergebnis", "explain": "9 · 40 + 9 · 3 = 360 + 27 = **387**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(20 + 1) · 8 = ___", "answer": "168", "numeric": true, "placeholder": "Ergebnis", "explain": "20 · 8 + 1 · 8 = 160 + 8 = **168**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "12 · (20 + 3) = ___", "answer": "276", "numeric": true, "placeholder": "Ergebnis", "explain": "12 · 20 + 12 · 3 = 240 + 36 = **276**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(40 − 7) · 8 = ___", "answer": "264", "numeric": true, "placeholder": "Ergebnis", "explain": "40 · 8 − 7 · 8 = 320 − 56 = **264**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "7 · (20 − 3) = ___", "answer": "119", "numeric": true, "placeholder": "Ergebnis", "explain": "7 · 20 − 7 · 3 = 140 − 21 = **119**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(100 − 1) · 18 = ___", "answer": "1782", "numeric": true, "placeholder": "Ergebnis", "explain": "100 · 18 − 1 · 18 = 1800 − 18 = **1782**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "9 · (30 − 1) = ___", "answer": "261", "numeric": true, "placeholder": "Ergebnis", "explain": "9 · 30 − 9 · 1 = 270 − 9 = **261**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "9 · (400 + 30 + 4) = ___", "answer": "3906", "numeric": true, "placeholder": "Ergebnis", "explain": "9 · 400 + 9 · 30 + 9 · 4 = 3600 + 270 + 36 = **3906**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(200 + 40 + 3) · 5 = ___", "answer": "1215", "numeric": true, "placeholder": "Ergebnis", "explain": "200 · 5 + 40 · 5 + 3 · 5 = 1000 + 200 + 15 = **1215**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(1400 − 28) : 14 = ___", "answer": "98", "numeric": true, "placeholder": "Ergebnis", "explain": "1400 : 14 − 28 : 14 = 100 − 2 = **98**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(70 + 14) : 7 = ___", "answer": "12", "numeric": true, "placeholder": "Ergebnis", "explain": "70 : 7 + 14 : 7 = 10 + 2 = **12**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(230 + 23) : 23 = ___", "answer": "11", "numeric": true, "placeholder": "Ergebnis", "explain": "230 : 23 + 23 : 23 = 10 + 1 = **11**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(360 + 24) : 12 = ___", "answer": "32", "numeric": true, "placeholder": "Ergebnis", "explain": "360 : 12 + 24 : 12 = 30 + 2 = **32**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(700 + 49) : 7 = ___", "answer": "107", "numeric": true, "placeholder": "Ergebnis", "explain": "700 : 7 + 49 : 7 = 100 + 7 = **107**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(800 − 64) : 8 = ___", "answer": "92", "numeric": true, "placeholder": "Ergebnis", "explain": "800 : 8 − 64 : 8 = 100 − 8 = **92**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(999 − 81) : 9 = ___", "answer": "102", "numeric": true, "placeholder": "Ergebnis", "explain": "999 : 9 − 81 : 9 = 111 − 9 = **102**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(300 + 60 + 9) : 3 = ___", "answer": "123", "numeric": true, "placeholder": "Ergebnis", "explain": "300 : 3 + 60 : 3 + 9 : 3 = 100 + 20 + 3 = **123**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(500 − 50 − 5) : 5 = ___", "answer": "89", "numeric": true, "placeholder": "Ergebnis", "explain": "500 : 5 − 50 : 5 − 5 : 5 = 100 − 10 − 1 = **89**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(150 + 45 + 75) : 15 = ___", "answer": "18", "numeric": true, "placeholder": "Ergebnis", "explain": "150 : 15 + 45 : 15 + 75 : 15 = 10 + 3 + 5 = **18**" },
+    { "type": "input", "task": "Teile die Klammer auf und rechne im Kopf.", "q": "(360 − 36) : 12 = ___", "answer": "27", "numeric": true, "placeholder": "Ergebnis", "explain": "360 : 12 − 36 : 12 = 30 − 3 = **27**" }
+  ]
+}

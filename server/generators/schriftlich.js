@@ -1,8 +1,10 @@
-// Schriftliches Addieren und Subtrahieren: Die Zahlen stehen stellengerecht untereinander, das Kind rechnet
+// Schriftliches Addieren, Subtrahieren und Multiplizieren: Die Zahlen stehen stellengerecht untereinander, das Kind rechnet
 // Spalte für Spalte von rechts nach links und trägt Ziffern (und Überträge) ein.
 // Subtrahiert wird im Ergänzungsverfahren: untere Ziffer (plus Übertrag) bis zur oberen ergänzen.
+// Beim Malnehmen steht die Aufgabe in einer Zeile (3597 · 19), darunter für jede Ziffer des zweiten Faktors
+// ein Teilprodukt, jedes eine Stelle weiter rechts, und darunter die Summe.
 // Eine Einheit nutzt ihn mit  "generator": "schriftlich", "params": { ... }
-//   op:        "add" (Standard) oder "sub"
+//   op:        "add" (Standard), "sub" oder "mul"
 //   terms:     wie viele Zahlen addiert werden (Standard 2, nur beim Plus)
 //   digits:    [min, max] Stellen je Zahl (Standard [2, 3]); beim Minus gilt das für die untere Zahl,
 //              die obere ist immer dreistellig (oder 1000)
@@ -10,10 +12,13 @@
 //   carry:     false = Aufgaben ganz ohne Übertrag (dann gibt es auch keine Übertrags-Kästchen)
 //   minCarries: so viele Spalten müssen mindestens einen Übertrag haben (Standard 0)
 //   zeros:     true = oben steht eine 0, bei der bis 10 ergänzt werden muss (z. B. 503 − 276, 1000 − 347; nur beim Minus)
+//   factorDigits: [min, max] Stellen des zweiten Faktors (Standard [1, 1], nur beim Mal). Er enthält keine 0,
+//              einstellig ist er mindestens 2. digits gilt dann für den ersten Faktor.
 
 const rand = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
-const SEP = { add: '+', sub: '-' };
-const SIGN = { add: '+', sub: '−' };
+const SEP = { add: '+', sub: '-', mul: '*' };
+const SIGN = { add: '+', sub: '−', mul: '·' };
+const TASK = { add: 'Rechne schriftlich.', sub: 'Rechne schriftlich minus.', mul: 'Rechne schriftlich mal.' };
 
 function randomNumber(digits) {
   let s = String(rand(1, 9));
@@ -47,12 +52,13 @@ function analyze(rows, op) {
 
 function build(rows, p, op = p.op ?? 'add') {
   const [top, ...rest] = rows.map(Number);
-  const value = op === 'sub' ? top - rest.reduce((a, b) => a + b, 0) : top + rest.reduce((a, b) => a + b, 0);
+  const value = op === 'mul' ? top * rest[0]
+    : op === 'sub' ? top - rest.reduce((a, b) => a + b, 0) : top + rest.reduce((a, b) => a + b, 0);
   return {
     id: rows.join(SEP[op]),
     type: 'column',
     op,
-    task: op === 'sub' ? 'Rechne schriftlich minus.' : 'Rechne schriftlich.',
+    task: TASK[op],
     q: rows.join(` ${SIGN[op]} `),
     rows,
     carry: p.carry !== false,
@@ -71,10 +77,22 @@ function topWithZero() {
   return d.join('');
 }
 
+/** Zweiter Faktor beim Mal: ohne 0 (sonst entsteht eine Zeile nur aus Nullen), einstellig nicht 1. */
+function factor(digits) {
+  if (digits === 1) return String(rand(2, 9));
+  return Array.from({ length: digits }, () => rand(1, 9)).join('');
+}
+
 function candidate(p) {
   const op = p.op ?? 'add';
   const [min, max] = p.digits ?? [2, 3];
   let rows;
+  if (op === 'mul') {
+    const [fmin, fmax] = p.factorDigits ?? [1, 1];
+    rows = [randomNumber(rand(min, max)), factor(rand(fmin, fmax))];
+    if (rows[0] === rows[1]) return null;
+    return rows;
+  }
   if (op === 'sub') {
     const top = p.zeros ? topWithZero() : randomNumber(3);
     const lower = randomNumber(Math.min(rand(min, max), top.length));
@@ -107,8 +125,9 @@ export function generate(count, unit) {
 }
 
 export function byId(id, unit) {
-  const op = id.includes('-') ? 'sub' : 'add';
+  const op = id.includes('*') ? 'mul' : id.includes('-') ? 'sub' : 'add';
   const rows = id.split(SEP[op]);
   if (rows.length < 2 || !rows.every((r) => /^\d{1,9}$/.test(r))) return null;
+  if (op === 'mul' && rows.length !== 2) return null;
   return build(rows, unit?.params ?? {}, op);
 }
