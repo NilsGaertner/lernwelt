@@ -19,20 +19,20 @@
     { "tip": "Anders als im Deutschen! Nicht „I play often football“, sondern: I **often play** football." }
   ],
   "exercises": [
-    { "type": "choice", "task": "Welcher Satz ist richtig?", "q": "Ich esse immer Frühstück.", "options": ["I always eat breakfast.", "I eat always breakfast.", "Always I eat breakfast.", "I eat breakfast always."], "answer": "I always eat breakfast.", "speak": false },
+    { "type": "choice", "task": "Welcher Satz ist richtig?", "q": "Ich esse immer Frühstück.", "options": ["I always eat breakfast.", "I eat always breakfast.", "Always I eat breakfast.", "I eat breakfast always."], "answer": "I always eat breakfast.", "speak": false, "explain": "always steht **vor** dem Verb: I **always eat** breakfast." },
     { "type": "choice", "task": "Welcher Satz ist richtig?", "q": "Er ist oft müde.", "options": ["He is often tired.", "He often is tired.", "Often he tired is.", "He is tired often."], "answer": "He is often tired.", "speak": false, "explain": "Bei am/is/are steht das Häufigkeitswort **danach**." },
-    { "type": "choice", "task": "Welcher Satz ist richtig?", "q": "Wir spielen manchmal Tennis.", "options": ["We sometimes play tennis.", "We play sometimes tennis.", "We sometimes plays tennis.", "Sometimes play we tennis."], "answer": "We sometimes play tennis.", "speak": false },
-    { "type": "choice", "q": "I ___ go to bed at 8 o'clock. (normalerweise)", "options": ["usually", "never", "often", "always"], "answer": "usually", "speak": false },
-    { "type": "choice", "q": "My cat ___ drinks milk. It only drinks water. (nie)", "options": ["never", "always", "often", "usually"], "answer": "never", "speak": false },
-    { "type": "choice", "q": "Was heißt „manchmal“?", "options": ["sometimes", "sometime", "some times", "often"], "answer": "sometimes", "speak": false },
-    { "type": "choice", "q": "Was heißt „immer“?", "options": ["always", "all ways", "usually", "ever"], "answer": "always", "speak": false },
-    { "type": "input", "q": "She ___ helps her mum. (oft)", "answer": "often", "hint": "oft", "speak": false },
-    { "type": "input", "q": "I ___ watch horror films. (nie)", "answer": "never", "hint": "nie", "speak": false },
-    { "type": "input", "q": "Tom is ___ happy. (immer)", "answer": "always", "hint": "immer", "speak": false },
-    { "type": "input", "q": "We ___ go swimming on Fridays. (normalerweise)", "answer": "usually", "hint": "normalerweise", "speak": false },
-    { "type": "order", "de": "Ich spiele oft Fußball.", "answer": "I often play football." },
-    { "type": "order", "de": "Sie isst nie Fleisch.", "answer": "She never eats meat." },
-    { "type": "order", "de": "Er ist immer zu spät.", "answer": "He is always late." },
-    { "type": "order", "de": "Wir fahren manchmal mit dem Bus.", "answer": "We sometimes go by bus." }
+    { "type": "choice", "task": "Welcher Satz ist richtig?", "q": "Wir spielen manchmal Tennis.", "options": ["We sometimes play tennis.", "We play sometimes tennis.", "We sometimes plays tennis.", "Sometimes play we tennis."], "answer": "We sometimes play tennis.", "speak": false, "explain": "sometimes steht **vor** dem Verb, und bei we kein -s: We **sometimes play** tennis." },
+    { "type": "choice", "q": "I ___ go to bed at 8 o'clock. (normalerweise)", "options": ["usually", "never", "often", "always"], "answer": "usually", "speak": false, "explain": "normalerweise = **usually**." },
+    { "type": "choice", "q": "My cat ___ drinks milk. It only drinks water. (nie)", "options": ["never", "always", "often", "usually"], "answer": "never", "speak": false, "explain": "nie = **never**. Die Katze trinkt nur Wasser, also nie Milch." },
+    { "type": "choice", "q": "Was heißt „manchmal“?", "options": ["sometimes", "sometime", "some times", "often"], "answer": "sometimes", "speak": false, "explain": "manchmal = **sometimes** – ein Wort." },
+    { "type": "choice", "q": "Was heißt „immer“?", "options": ["always", "all ways", "usually", "ever"], "answer": "always", "speak": false, "explain": "immer = **always** – ein Wort mit nur einem l." },
+    { "type": "input", "q": "She ___ helps her mum. (oft)", "answer": "often", "hint": "oft", "speak": false, "explain": "oft = **often**. Es steht vor dem Verb (helps)." },
+    { "type": "input", "q": "I ___ watch horror films. (nie)", "answer": "never", "hint": "nie", "speak": false, "explain": "nie = **never**. Es steht vor dem Verb (watch)." },
+    { "type": "input", "q": "Tom is ___ happy. (immer)", "answer": "always", "hint": "immer", "speak": false, "explain": "immer = **always**. Bei is/am/are steht es **danach**: is always." },
+    { "type": "input", "q": "We ___ go swimming on Fridays. (normalerweise)", "answer": "usually", "hint": "normalerweise", "speak": false, "explain": "normalerweise = **usually**. Es steht vor dem Verb (go)." },
+    { "type": "order", "de": "Ich spiele oft Fußball.", "answer": "I often play football.", "explain": "often steht vor dem Verb: I **often play** football." },
+    { "type": "order", "de": "Sie isst nie Fleisch.", "answer": "She never eats meat.", "explain": "never steht vor dem Verb, und bei she: eat**s** – She **never eats** meat." },
+    { "type": "order", "de": "Er ist immer zu spät.", "answer": "He is always late.", "explain": "Bei is/am/are steht always **danach**: He **is always** late." },
+    { "type": "order", "de": "Wir fahren manchmal mit dem Bus.", "answer": "We sometimes go by bus.", "explain": "sometimes steht vor dem Verb: We **sometimes go** by bus." }
   ]
 }

@@ -3,7 +3,8 @@ import path from 'node:path';
 import { db, getSetting, setSetting, getPublicSettings, transaction } from './db.js';
 import { loadContent, publicSubjects, publicUnit, subjects, itemLabel, CONTENT_DIR } from './content.js';
 import { publicBadges } from './badges.js';
-import { startSession, answerQuestion, finishSession, reviewCounts } from './session.js';
+import { startSession, answerQuestion, finishSession } from './session.js';
+import { practiceCounts, migrateSpacing } from './srs.js';
 import {
   balance, earnedOn, streak, unitProgress, earnedBadges, requestTicket, decideTicket, tickets, adjustStars,
   starLimitFor, upcomingDayLimits, activeBoost, startBoost, stopBoost,
@@ -19,6 +20,7 @@ import { avatarState, equip, grantSkin, cleanAvatar } from './avatars.js';
 const PORT = Number(process.env.PORT) || 8080;
 const problems = await loadContent();
 for (const p of problems) console.warn(`[Inhalt] ${p}`);
+migrateSpacing();
 
 const app = express();
 app.use(express.json({ limit: '100kb' }));
@@ -78,7 +80,8 @@ app.get('/api/children/:id/overview', (req, res) => {
     train: trainOf(child, xp),
     trains: unlockedTrains(xp),
     stampDays: stampDays(child.id),
-    review: reviewCounts(child.id),
+    review: practiceCounts(child.id, 'review'),
+    due: practiceCounts(child.id, 'due'),
     badges: earnedBadges(child.id),
     tickets: tickets(child.id, 10),
     lootboxes: child.adult ? { closed: [], opened: [] } : lootboxes(child.id),
@@ -111,7 +114,7 @@ app.post('/api/sessions', (req, res) => {
   const count = getPublicSettings().questionsPerSession;
   res.json(startSession({
     childId: child.id, subjectId: subject, unitId: unit, line, topic,
-    mode: ['review', 'exam', 'blitz'].includes(mode) ? mode : 'unit', count,
+    mode: ['review', 'due', 'exam', 'blitz'].includes(mode) ? mode : 'unit', count,
   }));
 });
 
@@ -489,6 +492,7 @@ const unitTitle = (sid, uid) => subjects.get(sid)?.units.get(uid)?.title ?? uid 
 
 function sessionTitle(s) {
   if (s.mode === 'review') return '🔧 Fehler-Training';
+  if (s.mode === 'due') return '🔁 Wiederholung';
   if (s.mode === 'blitz') return `⚡ ${blitzTopics(s.subject).find((t) => t.id === s.unit_id)?.title ?? 'Blitzrunde'}`;
   if (s.mode === 'exam') {
     const meta = subjects.get(s.subject)?.meta;

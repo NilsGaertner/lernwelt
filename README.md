@@ -49,9 +49,15 @@ Die Welt-Linie hat die Stationen Die Kontinente, Kontinente-Wissen, Die Ozeane u
 
 **So lernt es mit:**
 - Wörter, die gut sitzen, kommen seltener dran. Neue und wacklige kommen öfter und werden nach und nach schwieriger (erst Auswahl, dann selbst schreiben, dann nach Gehör schreiben).
-- Falsch beantwortete Aufgaben kommen am Ende der Übung noch einmal. Gewertet wird aber nur der erste Versuch.
+- **Wiederholen mit Abständen:** Jede Aufgabe liegt in einer von 6 Boxen. Eine richtige Antwort hebt sie nur eine Box höher, wenn sie wieder fällig war, also nicht mehrmals am selben Tag. Fällig wird sie nach 1, 3, 7, 14 und 30 Tagen. Was fällig ist, zeigt der Netzplan als **„Wiederholen“**, über alle Stationen hinweg, auch über die auf dem Abstellgleis. Ist etwas fällig, steht die Wiederholung im Tagesfahrplan. Die Blitzrunde kann eine Box nur senken, nicht heben, weil dort nur angetippt wird.
+- Falsch beantwortete Aufgaben kommen am Ende der Übung noch einmal, mit neu gemischten Antworten. Gewertet wird aber nur der erste Versuch.
+- **Fast richtig:** Ist bei einer Vokabel nur ein Buchstabe falsch, darf dein Kind sie einmal selbst verbessern, bevor die Lösung kommt. Klappt das, gibt es einen **halben Punkt** (z. B. „8½ von 10“).
+- **Abschreiben:** Ist eine Vokabel falsch geschrieben, tippt dein Kind die Lösung einmal richtig ab, bevor es weitergeht.
+- Nach einem Fehler gibt es eine kurze Erklärung (bei allen Englisch-Grammatikaufgaben) und den Knopf **„📌 Merke ansehen“** mit der Erklärung der Station. Am Ziel listet **„Das übst du noch“** alle Fehler der Fahrt mit Lösung und Vorlese-Knopf auf.
+- Die Vokabelkarten aus der Schule (Karteikarten-Linie, `"typePhrases": true`) werden auch als ganze Wendung abgefragt, so wie im Vokabeltest. Das „to“ vorne darf fehlen.
 - Das **Fehler-Training** sammelt alles, was noch nicht sitzt, über alle Stationen hinweg.
 - Typische Fehler deutscher Kinder werden freundlich angesprochen, zum Beispiel großgeschriebene Nomen („Dog“) oder kleingeschriebene Wochentage. Bei einem einzelnen falschen Buchstaben kommt „Fast!“.
+- Neben jedem 🔊 gibt es einen 🐢-Knopf, der deutlich langsamer vorliest.
 
 ## Sterne, Abzeichen und Medienzeit
 
@@ -63,7 +69,7 @@ Jede Fahrt wird mit 1 bis 3 Sternen bewertet (unter 70 % richtig: 1 Stern, ab 70
 | 2. Fahrt | Bewertung × 1 (1, 2 oder 3) |
 | ab der 3. Fahrt | 1 |
 
-So lohnt sich Wiederholen weiterhin, aber eine leichte Station immer wieder abzufahren bringt kaum etwas. Die Endbahnhof-Prüfung ist genauso gestaffelt (pro Linie). Das Fehler-Training bringt immer Bewertung × 2, weil es nur Aufgaben enthält, die noch nicht sitzen.
+So lohnt sich Wiederholen weiterhin, aber eine leichte Station immer wieder abzufahren bringt kaum etwas. Die Endbahnhof-Prüfung ist genauso gestaffelt (pro Linie). Das Fehler-Training und die Wiederholung bringen immer Bewertung × 2: Sie enthalten nur Aufgaben, die noch nicht sitzen oder gerade fällig sind.
 
 | Bonus | Sterne |
 |---|---|
@@ -82,10 +88,11 @@ Eine **Lootbox** gibt es einmalig, wenn eine Station aufs Abstellgleis kommt und
 
 | Medienzeit | Wahrscheinlichkeit |
 |---|---|
-| 5 Minuten | 50 % |
+| 5 Minuten | 49 % |
 | 10 Minuten | 30 % |
 | 15 Minuten | 15 % |
 | 20 Minuten | 5 % |
+| 30 Minuten (Hauptgewinn) | 1 % |
 
 Die Minuten werden als Sterne gutgeschrieben (Minuten ÷ Minuten pro Stern, aufgerundet) und **zählen nicht zum Tageslimit**. Das gilt auch für geschenkte Boxen. Erwachsenen-Profile bekommen keine Boxen.
 
@@ -109,7 +116,7 @@ Löst dein Kind ein Ticket, werden die Sterne sofort abgezogen und das Ticket wa
 Diese Elemente sollen die Aufmerksamkeit halten, ohne zusätzliche Medienzeit zu verteilen:
 
 - **Serie in der Fahrt:** Ab 3 richtigen Antworten hintereinander wird der Zug zum Schnellzug, ab 5 zum ICE. Am Ziel steht die längste Serie, mit Hinweis auf einen neuen Rekord.
-- **Tagesfahrplan:** Jeden Tag gibt es 3 kleine Aufgaben, z. B. „Fahr eine Station in Mathe“, „Mach ein Fehler-Training“ oder „Mach eine Blitzrunde“. Sind alle erledigt, gibt es einen Stempel im Stempelheft.
+- **Tagesfahrplan:** Jeden Tag gibt es 3 kleine Aufgaben, z. B. „Fahr eine Station in Mathe“, „Mach deine Wiederholung von heute“, „Mach ein Fehler-Training“ oder „Mach eine Blitzrunde“. Sind alle erledigt, gibt es einen Stempel im Stempelheft.
 - **Blitzrunde:** 60 Sekunden, so viele Aufgaben wie möglich. Es gibt einen persönlichen Rekord, eine Kurve der letzten Runden und **Familien-Rekorde**. Wenn du mitspielen willst, lege im Elternbereich ein **Erwachsenen-Profil** an. Das sammelt keine Sterne und kann keine Tickets lösen.
 - **Endbahnhof:** Haben alle Stationen einer Linie mindestens 2 Sterne, öffnet sich eine gemischte Prüfung über die ganze Linie. Ab 80 % ist sie bestanden, und es gibt eine Goldkarte.
 - **Sammelalbum:** Jede Station mit 3 Sternen bringt eine Sammelkarte mit einem „Wusstest du?“-Text oder dem Merksatz der Station.

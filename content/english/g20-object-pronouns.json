@@ -20,19 +20,19 @@
     { "tip": "Nach Wörtern wie **with**, **for**, **to** kommt auch diese Form: with **me**, for **them**." }
   ],
   "exercises": [
-    { "type": "choice", "q": "Can you help ___, please?", "de": "Kannst du mir bitte helfen?", "options": ["me", "I", "my", "mine"], "answer": "me" },
-    { "type": "choice", "q": "I like Tom. I play with ___ every day.", "options": ["him", "he", "his", "her"], "answer": "him" },
-    { "type": "choice", "q": "Where is Anna? I can't see ___.", "options": ["her", "she", "him", "them"], "answer": "her" },
-    { "type": "choice", "q": "My grandparents are nice. I often visit ___.", "options": ["them", "they", "their", "us"], "answer": "them" },
-    { "type": "choice", "q": "Come with ___! We're going to the park.", "options": ["us", "we", "our", "them"], "answer": "us" },
-    { "type": "choice", "q": "This is my new game. Do you like ___?", "options": ["it", "him", "them", "its"], "answer": "it" },
-    { "type": "choice", "q": "Listen to ___, children!", "de": "Hört mir zu, Kinder!", "options": ["me", "I", "my", "us"], "answer": "me" },
-    { "type": "input", "q": "Mr Brown is our teacher. We like ___.", "answer": "him", "hint": "ihn" },
-    { "type": "input", "q": "Where are my shoes? I can't find ___.", "answer": "them", "hint": "sie (mehrere)" },
-    { "type": "input", "q": "My sister is ill. I'm making tea for ___.", "answer": "her", "hint": "sie / ihr" },
-    { "type": "input", "q": "Can you give ___ the ball, please?", "de": "Kannst du mir bitte den Ball geben?", "answer": "me", "hint": "mir" },
-    { "type": "input", "q": "We're late. Please wait for ___!", "answer": "us", "hint": "uns" },
-    { "type": "order", "de": "Ich mag ihn.", "answer": "I like him." },
-    { "type": "order", "de": "Sie ruft uns an.", "answer": "She is calling us." }
+    { "type": "choice", "q": "Can you help ___, please?", "de": "Kannst du mir bitte helfen?", "options": ["me", "I", "my", "mine"], "answer": "me", "explain": "mir/mich = **me**." },
+    { "type": "choice", "q": "I like Tom. I play with ___ every day.", "options": ["him", "he", "his", "her"], "answer": "him", "explain": "Tom → ihn/ihm = **him**." },
+    { "type": "choice", "q": "Where is Anna? I can't see ___.", "options": ["her", "she", "him", "them"], "answer": "her", "explain": "Anna → sie/ihr = **her**." },
+    { "type": "choice", "q": "My grandparents are nice. I often visit ___.", "options": ["them", "they", "their", "us"], "answer": "them", "explain": "meine Großeltern → sie/ihnen = **them**." },
+    { "type": "choice", "q": "Come with ___! We're going to the park.", "options": ["us", "we", "our", "them"], "answer": "us", "explain": "uns = **us**." },
+    { "type": "choice", "q": "This is my new game. Do you like ___?", "options": ["it", "him", "them", "its"], "answer": "it", "explain": "my new game = ein Ding → es = **it**." },
+    { "type": "choice", "q": "Listen to ___, children!", "de": "Hört mir zu, Kinder!", "options": ["me", "I", "my", "us"], "answer": "me", "explain": "mir/mich = **me**." },
+    { "type": "input", "q": "Mr Brown is our teacher. We like ___.", "answer": "him", "hint": "ihn", "explain": "Mr Brown → ihn = **him**." },
+    { "type": "input", "q": "Where are my shoes? I can't find ___.", "answer": "them", "hint": "sie (mehrere)", "explain": "my shoes = mehrere → sie = **them**." },
+    { "type": "input", "q": "My sister is ill. I'm making tea for ___.", "answer": "her", "hint": "sie / ihr", "explain": "my sister → sie/ihr = **her**." },
+    { "type": "input", "q": "Can you give ___ the ball, please?", "de": "Kannst du mir bitte den Ball geben?", "answer": "me", "hint": "mir", "explain": "mir = **me**." },
+    { "type": "input", "q": "We're late. Please wait for ___!", "answer": "us", "hint": "uns", "explain": "uns = **us**." },
+    { "type": "order", "de": "Ich mag ihn.", "answer": "I like him.", "explain": "ihn = **him**: I like **him**." },
+    { "type": "order", "de": "Sie ruft uns an.", "answer": "She is calling us.", "explain": "uns = **us**, und „ruft gerade an“ = is calling: She is calling **us**." }
   ]
 }

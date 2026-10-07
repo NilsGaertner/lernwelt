@@ -15,21 +15,21 @@
     { "p": "Und **the** (der, die, das) bleibt immer gleich: the dog, the apple, the dogs." }
   ],
   "exercises": [
-    { "type": "choice", "q": "I've got ___ dog.", "options": ["a", "an"], "answer": "a" },
+    { "type": "choice", "q": "I've got ___ dog.", "options": ["a", "an"], "answer": "a", "explain": "dog beginnt mit einem Konsonanten (d) → **a** dog." },
     { "type": "choice", "q": "Can I have ___ apple, please?", "options": ["an", "a"], "answer": "an", "explain": "apple beginnt mit einem Vokal (a) → **an** apple." },
-    { "type": "choice", "q": "She has got ___ egg for breakfast.", "options": ["an", "a"], "answer": "an" },
+    { "type": "choice", "q": "She has got ___ egg for breakfast.", "options": ["an", "a"], "answer": "an", "explain": "egg beginnt mit einem Vokal (e) → **an** egg." },
     { "type": "choice", "q": "It's ___ orange cat.", "options": ["an", "a"], "answer": "an", "explain": "Das Wort direkt dahinter ist **o**range → an." },
     { "type": "choice", "q": "It's ___ big elephant.", "options": ["a", "an"], "answer": "a", "explain": "Das Wort direkt dahinter ist **b**ig → a. Auch wenn elephant mit e beginnt!" },
-    { "type": "choice", "q": "My dad is ___ teacher.", "options": ["a", "an"], "answer": "a" },
-    { "type": "choice", "q": "There is ___ umbrella in the car.", "options": ["an", "a"], "answer": "an" },
-    { "type": "choice", "q": "I read ___ interesting book.", "options": ["an", "a"], "answer": "an" },
-    { "type": "choice", "q": "He's got ___ new bike.", "options": ["a", "an"], "answer": "a" },
-    { "type": "choice", "q": "We need ___ ice cream!", "options": ["an", "a"], "answer": "an" },
-    { "type": "input", "q": "___ elephant is very big.", "answer": "An", "hint": "a / an" },
-    { "type": "input", "q": "I want ___ banana.", "answer": "a", "hint": "a / an" },
-    { "type": "input", "q": "Is that ___ owl?", "answer": "an", "hint": "a / an · owl = Eule" },
-    { "type": "input", "q": "She has got ___ rabbit.", "answer": "a", "hint": "a / an" },
-    { "type": "input", "q": "I've got ___ idea!", "answer": "an", "hint": "a / an · idea = Idee" },
-    { "type": "input", "q": "He is ___ good friend.", "answer": "a", "hint": "a / an" }
+    { "type": "choice", "q": "My dad is ___ teacher.", "options": ["a", "an"], "answer": "a", "explain": "teacher beginnt mit t → **a** teacher. Bei Berufen steht im Englischen immer a/an!" },
+    { "type": "choice", "q": "There is ___ umbrella in the car.", "options": ["an", "a"], "answer": "an", "explain": "umbrella beginnt mit einem Vokal (u) → **an** umbrella." },
+    { "type": "choice", "q": "I read ___ interesting book.", "options": ["an", "a"], "answer": "an", "explain": "Es zählt das Wort direkt dahinter: **i**nteresting beginnt mit i → **an**." },
+    { "type": "choice", "q": "He's got ___ new bike.", "options": ["a", "an"], "answer": "a", "explain": "Es zählt das Wort direkt dahinter: **n**ew beginnt mit n → **a**." },
+    { "type": "choice", "q": "We need ___ ice cream!", "options": ["an", "a"], "answer": "an", "explain": "ice cream beginnt mit einem Vokal (i) → **an** ice cream." },
+    { "type": "input", "q": "___ elephant is very big.", "answer": "An", "hint": "a / an", "explain": "elephant beginnt mit e → **an**. Am Satzanfang groß: **An**." },
+    { "type": "input", "q": "I want ___ banana.", "answer": "a", "hint": "a / an", "explain": "banana beginnt mit b → **a** banana." },
+    { "type": "input", "q": "Is that ___ owl?", "answer": "an", "hint": "a / an · owl = Eule", "explain": "owl beginnt mit o → **an** owl." },
+    { "type": "input", "q": "She has got ___ rabbit.", "answer": "a", "hint": "a / an", "explain": "rabbit beginnt mit r → **a** rabbit." },
+    { "type": "input", "q": "I've got ___ idea!", "answer": "an", "hint": "a / an · idea = Idee", "explain": "idea beginnt mit i → **an** idea." },
+    { "type": "input", "q": "He is ___ good friend.", "answer": "a", "hint": "a / an", "explain": "Es zählt das Wort direkt dahinter: **g**ood beginnt mit g → **a**." }
   ]
 }

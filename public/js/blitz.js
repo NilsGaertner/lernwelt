@@ -1,4 +1,4 @@
-import { h, md, gapText, sfx, mapFigure, confetti, rankMeter, guardBack } from './ui.js';
+import { h, md, gapText, sfx, mapFigure, confetti, rankMeter, guardBack, ask, dialogOpen, closeDialogs } from './ui.js';
 import { api } from './api.js';
 import { faceOf } from './avatar.js';
 
@@ -26,11 +26,11 @@ export function runBlitz(root, { childId, subject, topic, lineColor, onExit, onA
     clearInterval(cd);
     clearInterval(timerId);
   };
-  const exit = () => {
-    if (timeUp || confirm('Blitzrunde abbrechen?')) {
-      cleanup();
-      release(onExit);
-    }
+  const exit = async () => {
+    if (!timeUp && !(await ask('Blitzrunde abbrechen?', { ok: 'Ja, aufhören', cancel: 'Weiterspielen', danger: true }))) return;
+    if (stopped && !timeUp) return;
+    cleanup();
+    release(onExit);
   };
 
   const exitBtn = h('button.icon-btn', { type: 'button', title: 'Abbrechen', 'aria-label': 'Abbrechen', onclick: exit }, '✕');
@@ -45,6 +45,7 @@ export function runBlitz(root, { childId, subject, topic, lineColor, onExit, onA
   window.scrollTo(0, 0);
 
   document.addEventListener('keydown', (e) => {
+    if (dialogOpen()) return;
     if (e.key === 'Enter' && onEnter) {
       e.preventDefault();
       onEnter();
@@ -160,6 +161,8 @@ export function runBlitz(root, { childId, subject, topic, lineColor, onExit, onA
   async function finish() {
     if (timeUp || stopped) return;
     timeUp = true;
+    // Die Zeit läuft auch während der Frage „Abbrechen?“ weiter – ist sie um, ist die Frage erledigt.
+    closeDialogs();
     cleanup();
     release();
     bar.firstChild.style.width = '0%';

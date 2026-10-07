@@ -24,23 +24,23 @@
     ] } }
   ],
   "exercises": [
-    { "type": "choice", "q": "one dog – two ___", "options": ["dogs", "doges", "dog", "dogies"], "answer": "dogs" },
+    { "type": "choice", "q": "one dog – two ___", "options": ["dogs", "doges", "dog", "dogies"], "answer": "dogs", "explain": "Normalerweise hängst du nur **-s** an: dog → dog**s**." },
     { "type": "choice", "q": "one box – two ___", "options": ["boxes", "boxs", "boxies", "box"], "answer": "boxes", "explain": "Wörter auf **-x** bekommen **-es**." },
     { "type": "choice", "q": "one baby – two ___", "options": ["babies", "babys", "babyes", "baby"], "answer": "babies", "explain": "Konsonant (b) + y → **-ies**." },
     { "type": "choice", "q": "one boy – two ___", "options": ["boys", "boies", "boyes", "boy"], "answer": "boys", "explain": "Vokal (o) + y → nur **-s**." },
     { "type": "choice", "q": "one child – three ___", "options": ["children", "childs", "childes", "childrens"], "answer": "children", "explain": "child → **children** ist unregelmäßig." },
-    { "type": "choice", "q": "one mouse – two ___", "options": ["mice", "mouses", "mices", "mouse"], "answer": "mice" },
-    { "type": "choice", "q": "one man – two ___", "options": ["men", "mans", "mens", "manes"], "answer": "men" },
+    { "type": "choice", "q": "one mouse – two ___", "options": ["mice", "mouses", "mices", "mouse"], "answer": "mice", "explain": "mouse ist eine Ausnahme: two **mice**. Die musst du auswendig lernen." },
+    { "type": "choice", "q": "one man – two ___", "options": ["men", "mans", "mens", "manes"], "answer": "men", "explain": "man ist eine Ausnahme: two **men** (a wird zu e)." },
     { "type": "choice", "q": "one sheep – five ___", "options": ["sheep", "sheeps", "shoop", "sheepes"], "answer": "sheep", "explain": "sheep bleibt gleich: one sheep, five **sheep**." },
-    { "type": "choice", "q": "one watch – two ___", "options": ["watches", "watchs", "watchies", "watch"], "answer": "watches" },
-    { "type": "input", "q": "one bus – two ___", "answer": "buses", "hint": "Plural" },
-    { "type": "input", "q": "one book – four ___", "answer": "books", "hint": "Plural" },
-    { "type": "input", "q": "one city – two ___", "answer": "cities", "hint": "Plural" },
-    { "type": "input", "q": "one day – seven ___", "answer": "days", "hint": "Plural" },
-    { "type": "input", "q": "one woman – two ___", "answer": "women", "hint": "unregelmäßig!" },
-    { "type": "input", "q": "one foot – two ___", "answer": "feet", "hint": "unregelmäßig!" },
-    { "type": "input", "q": "one tooth – many ___", "answer": "teeth", "hint": "unregelmäßig!" },
-    { "type": "input", "q": "one dish – two ___", "answer": "dishes", "hint": "Plural · dish = Schüssel" },
-    { "type": "input", "q": "one family – two ___", "answer": "families", "hint": "Plural" }
+    { "type": "choice", "q": "one watch – two ___", "options": ["watches", "watchs", "watchies", "watch"], "answer": "watches", "explain": "watch endet auf **-ch** → **-es**: watch**es**." },
+    { "type": "input", "q": "one bus – two ___", "answer": "buses", "hint": "Plural", "explain": "bus endet auf **-s** → **-es**: bus**es**." },
+    { "type": "input", "q": "one book – four ___", "answer": "books", "hint": "Plural", "explain": "Normal: einfach **-s** anhängen → book**s**." },
+    { "type": "input", "q": "one city – two ___", "answer": "cities", "hint": "Plural", "explain": "Konsonant + y (t**y**) → **-ies**: cit**ies**." },
+    { "type": "input", "q": "one day – seven ___", "answer": "days", "hint": "Plural", "explain": "Vokal + y (a**y**) → nur **-s**: day**s**." },
+    { "type": "input", "q": "one woman – two ___", "answer": "women", "hint": "unregelmäßig!", "explain": "woman ist eine Ausnahme: wom**e**n (wie man → men)." },
+    { "type": "input", "q": "one foot – two ___", "answer": "feet", "hint": "unregelmäßig!", "explain": "foot ist eine Ausnahme: **feet** (oo wird zu ee)." },
+    { "type": "input", "q": "one tooth – many ___", "answer": "teeth", "hint": "unregelmäßig!", "explain": "tooth ist eine Ausnahme: **teeth** (oo wird zu ee)." },
+    { "type": "input", "q": "one dish – two ___", "answer": "dishes", "hint": "Plural · dish = Schüssel", "explain": "dish endet auf **-sh** → **-es**: dish**es**." },
+    { "type": "input", "q": "one family – two ___", "answer": "families", "hint": "Plural", "explain": "Konsonant + y (l**y**) → **-ies**: famil**ies**." }
   ]
 }

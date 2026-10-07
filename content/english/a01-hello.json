@@ -41,8 +41,8 @@
   ],
   "exercises": [
     { "type": "choice", "q": "How old are you? – ___", "options": ["I'm eleven.", "I have eleven.", "I'm eleven years.", "I'm fine."], "answer": "I'm eleven.", "speak": false, "explain": "Beim Alter: **I'm** eleven (years old). Nie „I have“!" },
-    { "type": "choice", "q": "How are you? – ___", "options": ["I'm fine, thanks.", "I'm Tom.", "I'm ten.", "I'm from Berlin."], "answer": "I'm fine, thanks.", "speak": false },
-    { "type": "choice", "q": "Thank you! – ___", "options": ["You're welcome.", "Sorry.", "Please.", "Goodbye."], "answer": "You're welcome.", "speak": false },
-    { "type": "choice", "q": "Where are you from? – ___", "options": ["I'm from Germany.", "I'm Germany.", "I come Germany.", "I live Germany."], "answer": "I'm from Germany.", "speak": false }
+    { "type": "choice", "q": "How are you? – ___", "options": ["I'm fine, thanks.", "I'm Tom.", "I'm ten.", "I'm from Berlin."], "answer": "I'm fine, thanks.", "speak": false, "explain": "How are you? fragt, wie es dir geht → **I'm fine, thanks.**" },
+    { "type": "choice", "q": "Thank you! – ___", "options": ["You're welcome.", "Sorry.", "Please.", "Goodbye."], "answer": "You're welcome.", "speak": false, "explain": "Auf Thank you! antwortet man **You're welcome.** (= Gern geschehen.)" },
+    { "type": "choice", "q": "Where are you from? – ___", "options": ["I'm from Germany.", "I'm Germany.", "I come Germany.", "I live Germany."], "answer": "I'm from Germany.", "speak": false, "explain": "Woher? → **I'm from** + Land. Das **from** darf nicht fehlen." }
   ]
 }

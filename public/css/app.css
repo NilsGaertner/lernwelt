@@ -528,7 +528,7 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 .sheet .solution { font-size: 1.15rem; font-weight: 700; margin: 2px 0 0; }
 .sheet .explain { margin: 4px 0 0; color: var(--ink-2); }
 .sheet .explain p { margin: 0; }
-.sheet .btn { grid-row: 1 / span 3; grid-column: 2; min-width: 140px; }
+.sheet .sheet-go { grid-row: 1 / span 3; grid-column: 2; min-width: 140px; }
 
 @keyframes slide-in { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
 @keyframes sheet-up { from { transform: translateY(100%); } to { transform: none; } }
@@ -929,7 +929,7 @@ label.check input { width: 20px; height: 20px; }
   .fare .num { font-size: 1.1rem; }
   .today { grid-template-columns: 1fr; }
   .sheet-inner { grid-template-columns: 1fr; }
-  .sheet .btn { grid-row: auto; grid-column: auto; width: 100%; }
+  .sheet .sheet-go { grid-row: auto; grid-column: auto; width: 100%; }
   .match .opt { font-size: 0.95rem; padding: 10px; }
 }
 
@@ -1041,6 +1041,9 @@ table.log tbody tr.log-day:first-child th { padding-top: 6px; }
 .lb-open { background: linear-gradient(150deg, var(--star), #ff7a3d); color: #3b2a00; animation: star-pop 0.5s cubic-bezier(0.3, 1.6, 0.5, 1); }
 .lb-open.lb-big { background: linear-gradient(135deg, #fff3c4, #f5c542 45%, #fff7d6 55%, #e0a800); }
 .lb-min { font-family: var(--font-display); font-size: 1.7rem; line-height: 1.1; }
+.lb-open.lb-jackpot { background: linear-gradient(135deg, #ffe27a, #ff9ad5 35%, #9ad0ff 65%, #ffe27a); box-shadow: 0 0 0 4px #ffd23f, 0 12px 32px -8px #ff9ad5; }
+.lb-jackpot .lb-min { font-size: 2.1rem; }
+.lb-jackpot-title { font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 0.04em; text-transform: uppercase; }
 .lb-stars { font-weight: 700; }
 .lb-list { list-style: none; margin: 0; padding: 0; }
 .lb-list li { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
@@ -1067,3 +1070,51 @@ table.data.units td:last-child { min-width: 190px; }
   background: var(--go); color: #fff; font-family: var(--font-display); font-size: 1.1rem;
   box-shadow: var(--shadow); animation: star-pop 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
 }
+
+/* Eigene Dialoge statt der grauen Browser-Fenster */
+.dlg {
+  width: min(440px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 22px 20px 18px;
+  border: 0; border-radius: 20px; background: var(--paper); color: var(--ink); box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.dlg:not([open]) { display: none; }
+.dlg.wide { width: min(680px, calc(100vw - 24px)); }
+.dlg::backdrop { background: rgb(10 16 30 / 0.55); backdrop-filter: blur(2px); }
+.dlg h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.35rem; margin: 0; }
+.dlg-body { overflow-y: auto; min-height: 0; }
+.dlg-body > p { margin: 0; color: var(--ink-2); font-size: 1.05rem; }
+.dlg-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; margin-top: 6px; }
+.dlg-actions .btn { min-height: 52px; flex: 1 1 140px; }
+
+/* Anhören: 🔊 normal und 🐢 langsam */
+.listen-pair { display: inline-flex; align-items: center; gap: 8px; }
+.qcard > .listen-pair { display: flex; justify-content: center; gap: 14px; }
+.qcard > .listen-pair .listen-btn:not(.small) { margin: 18px 0 6px; }
+.listen-btn.slow { background: color-mix(in srgb, var(--line) 15%, var(--paper)); color: var(--ink); }
+.say-row { display: flex; gap: 6px; flex-wrap: wrap; margin: 0; }
+
+/* Fast richtig: einmal selbst verbessern */
+.type-in.almost { border-color: var(--star); background: var(--star-bg); }
+.try-again { margin: 10px 0 0; padding: 10px 14px; border-radius: 12px; background: var(--star-bg); color: var(--ink); font-weight: 600; }
+.try-again[hidden] { display: none; }
+.track .dot.half { border-color: var(--star); background: linear-gradient(90deg, var(--star) 50%, var(--paper) 50%); }
+
+/* Nach einem Fehler: Lösung einmal abschreiben, Merke ansehen */
+.sheet { max-height: 100dvh; overflow-y: auto; }
+.copy { display: grid; gap: 6px; margin: 6px 0 0; font-weight: 600; color: var(--ink-2); }
+.copy .type-in { min-height: 54px; font-size: 1.25rem; background: var(--paper); }
+.merke-row { margin: 0; }
+.merke-row .say { font-size: 1rem; padding: 6px 10px; border: 2px solid var(--rule); background: var(--paper); }
+
+/* Ankunft: Rückblick auf die Fehler */
+.miss-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.miss-list li { display: grid; grid-template-columns: 36px 1fr auto; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--rule); }
+.miss-list li:last-child { border-bottom: 0; }
+.half-tag { padding: 2px 8px; border-radius: 999px; background: var(--star-bg); color: var(--star-ink); font-weight: 700; font-size: 0.85rem; }
+
+/* Netzplan: fällige Wiederholung */
+.review-card.due-card {
+  background: color-mix(in srgb, #0B7A75 10%, var(--paper));
+  border-color: color-mix(in srgb, #0B7A75 55%, transparent);
+}
+.due-card .btn { background: #0B7A75; color: #fff; }

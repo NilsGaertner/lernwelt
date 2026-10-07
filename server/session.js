@@ -1,8 +1,9 @@
 import { db } from './db.js';
-import { subjects, vocabKey, exerciseKey, resolveItem, getGenerator, mediaUrl } from './content.js';
+import { subjects, vocabKey, exerciseKey, getGenerator, mediaUrl, publicUnit } from './content.js';
 import { completeSession, activeBoost, boostApplies } from './rewards.js';
-import { lineStatus, lineUnits, blitzTopics, archivedUnits, notArchivedSql } from './progress.js';
-import { normalize, levenshtein, shuffle, pick, randomId, nowIso } from './util.js';
+import { lineStatus, lineUnits, blitzTopics, archivedUnits } from './progress.js';
+import { practiceItems, recordAnswer } from './srs.js';
+import { normalize, levenshtein, shuffle, pick, randomId, nowIso, localDay } from './util.js';
 
 const active = new Map();
 const SESSION_TTL_MS = 3 * 60 * 60 * 1000;
@@ -25,15 +26,17 @@ function statsFor(childId, keys) {
   return new Map(rows.map((r) => [r.item_key, r]));
 }
 
-/** Neue und wacklige Aufgaben kommen öfter dran, sichere seltener – mit etwas Zufall. */
-function priority(stat) {
+/** Neue, wacklige und heute fällige Aufgaben kommen öfter dran, sichere seltener – mit etwas Zufall. */
+function priority(stat, today) {
   if (!stat) return 3 + Math.random() * 1.5;
-  return (5 - Math.min(stat.box, 5)) * 0.6 + Math.min(stat.wrong, 5) * 0.2 + Math.random() * 1.5;
+  const due = !stat.due || stat.due <= today;
+  return (5 - Math.min(stat.box, 5)) * 0.6 + Math.min(stat.wrong, 5) * 0.2 + (due ? 1.5 : 0) + Math.random() * 1.5;
 }
 
 function choose(candidates, stats, n) {
+  const today = localDay();
   const ranked = candidates
-    .map((c) => ({ c, p: priority(stats.get(c.key)) }))
+    .map((c) => ({ c, p: priority(stats.get(c.key), today) }))
     .sort((a, b) => b.p - a.p)
     .map((x) => x.c);
   const out = ranked.slice(0, n);
@@ -100,7 +103,9 @@ function vocabQuestion(subject, cand, stat, canSpeak, onlyChoice = false) {
   const unit = cand.unit;
   const box = stat?.box ?? 0;
   const wordCount = tokens(v.en).length;
-  const canType = unit.typing !== false && wordCount <= 2;
+  // Längere Wendungen werden sonst nur zusammengesetzt. Die Vokabelkarten aus der Schule (typePhrases)
+  // kommen aber im Vokabeltest dran – da muss das Kind die ganze Wendung schreiben können.
+  const canType = unit.typing !== false && (wordCount <= 2 || !!unit.typePhrases);
   const canOrder = wordCount >= 3;
 
   let variants;
@@ -113,6 +118,8 @@ function vocabQuestion(subject, cand, stat, canSpeak, onlyChoice = false) {
   const variant = pick(variants);
 
   const accept = [v.en, ...(v.alt ?? [])];
+  // „to learn words“ – das „to“ vorne darf beim Schreiben fehlen.
+  if (/^to\s/i.test(v.en)) accept.push(v.en.replace(/^to\s+/i, ''));
   switch (variant) {
     case 'en2de':
       return {
@@ -204,22 +211,13 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
   let title;
   let unit = null;
   let refId = null;
-  if (mode === 'review') {
-    const rows = db
-      .prepare(
-        `SELECT item_key FROM item_stats WHERE child_id = ? AND subject = ? AND wrong > 0 AND box < 3 AND ${notArchivedSql('item_stats')}
-         ORDER BY box ASC, last_seen ASC LIMIT ?`
-      )
-      .all(childId, subjectId, count * 3);
-    candidates = rows
-      .map((r) => {
-        const item = resolveItem(r.item_key);
-        const u = item && subject.units.get(item.unitId);
-        return u ? { key: r.item_key, kind: item.kind, data: item.data, unit: u } : null;
-      })
-      .filter(Boolean);
-    if (!candidates.length) throw httpError(400, 'Gerade gibt es nichts zu wiederholen. Super!');
-    title = 'Fehler-Training';
+  if (mode === 'review' || mode === 'due') {
+    // Fehler-Training: was noch wackelt · Wiederholung: was heute nach ein paar Tagen Pause wieder dran ist
+    candidates = practiceItems(childId, mode, subjectId, count * 3);
+    if (!candidates.length) {
+      throw httpError(400, mode === 'due' ? 'Heute ist nichts mehr zu wiederholen. Super!' : 'Gerade gibt es nichts zu wiederholen. Super!');
+    }
+    title = mode === 'due' ? 'Wiederholung' : 'Fehler-Training';
     count = Math.min(count, candidates.length);
   } else if (mode === 'exam') {
     const line = (subject.meta.lines ?? []).find((l) => l.id === lineId);
@@ -262,9 +260,18 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     const q = c.kind === 'vocab'
       ? vocabQuestion(subject, c, stats.get(c.key), canSpeak && mode !== 'blitz', mode === 'blitz')
       : exerciseQuestion(subjectId, c, canSpeak && mode !== 'blitz');
-    return { ...q, key: c.key, unitId: c.unit.id };
+    return { ...q, key: c.key, kind: c.kind, unitId: c.unit.id };
   });
   if (withMatch) questions.splice(Math.floor(questions.length / 2), 0, { ...matchQuestion(unit), unitId: unit.id });
+
+  // Die Merke-Seiten der beteiligten Stationen: Nach einem Fehler kann das Kind dort nachschauen.
+  const units = {};
+  if (mode !== 'blitz') {
+    for (const uid of new Set(questions.map((q) => q.unitId))) {
+      const pu = publicUnit(subjectId, uid);
+      if (pu?.explain.length) units[uid] = { title: pu.title, explain: pu.explain };
+    }
+  }
 
   const id = randomId();
   const startedAt = nowIso();
@@ -280,7 +287,8 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     deadline: mode === 'blitz' ? Date.now() + (BLITZ_SECONDS + 3) * 1000 : null,
     combo: 0,
     bestCombo: 0,
-    questions: questions.map((q) => ({ ...q, answered: false, firstCorrect: false })),
+    // credit: Punkte für den ersten Versuch – 1, ½ (selbst verbessert) oder 0
+    questions: questions.map((q) => ({ ...q, answered: false, credit: 0 })),
   };
   active.set(id, session);
 
@@ -291,7 +299,11 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     seconds: mode === 'blitz' ? BLITZ_SECONDS : null,
     boosted: session.boosted,
     speechLang: mode === 'blitz' ? null : subject.meta.speechLang ?? null,
-    questions: session.questions.map((q, i) => ({ id: i, ...q.pub })),
+    // copy: nach einem Fehler die Lösung einmal abschreiben – bei Vokabeln und Schulkarten, wo es um die Schreibweise geht
+    questions: session.questions.map((q, i) => ({
+      id: i, unit: q.unitId, copy: q.kind === 'vocab' || !!subject.units.get(q.unitId)?.typePhrases, ...q.pub,
+    })),
+    units,
   };
 }
 
@@ -304,7 +316,6 @@ function checkAnswer(q, given) {
   if (q.pub.type !== 'input') return result;
 
   const raw = String(given).trim();
-  const main = q.expected[0];
   if (correct) {
     // Groß-/Kleinschreibung wird nicht als Fehler gezählt, aber freundlich angemerkt.
     const exact = q.expected.find((e) => normalize(e, strictOpt) === g);
@@ -315,10 +326,18 @@ function checkAnswer(q, given) {
     }
     return result;
   }
-  const target = normalize(main, strictOpt);
-  if (target.length >= 4 && levenshtein(g, target) === 1) result.almost = true;
+  // „Fast!“: nur ein Buchstabe anders als die Lösung (oder eine erlaubte Variante davon)
+  result.almost = q.expected.some((e) => {
+    const target = normalize(e, strictOpt);
+    return target.length >= 4 && levenshtein(g, target) === 1;
+  });
   return result;
 }
+
+const logAnswer = db.prepare(
+  `INSERT INTO answers (session_id, child_id, subject, unit_id, item_key, qtype, correct, first_try, given, expected, created_at)
+   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+);
 
 export function answerQuestion(sessionId, qid, given) {
   const s = active.get(sessionId);
@@ -337,34 +356,41 @@ export function answerQuestion(sessionId, qid, given) {
     givenText = Array.isArray(given) ? given.join(' ') : String(given ?? '');
     result = checkAnswer(q, givenText);
   }
+  const now = nowIso();
+  const log = (correct, firstTry) =>
+    logAnswer.run(s.id, s.childId, s.subject, q.unitId, q.key, q.qtype, correct ? 1 : 0, firstTry ? 1 : 0, givenText.slice(0, 200), q.expected[0] ?? '', now);
+
+  // Ein Wort mit nur einem falschen Buchstaben darf das Kind einmal selbst verbessern, bevor es die Lösung sieht.
+  // Klappt das, gibt es einen halben Punkt. (Nur bei Vokabeln: In Grammatik-Lücken ist der eine Buchstabe oft
+  // genau das, was geübt wird – he like → likes.)
+  if (!q.answered && !q.secondChance && result.almost && q.kind === 'vocab' && s.mode !== 'blitz') {
+    q.secondChance = true;
+    s.combo = 0;
+    log(false, true);
+    return { correct: false, almost: true, tryAgain: true, firstTry: true, combo: 0 };
+  }
 
   const firstTry = !q.answered;
+  const second = firstTry && !!q.secondChance;
+  const credit = result.correct ? (second ? 0.5 : 1) : 0;
   if (firstTry) {
     q.answered = true;
-    q.firstCorrect = result.correct;
+    q.credit = credit;
   }
-  s.combo = result.correct ? s.combo + 1 : 0;
+  s.combo = result.correct && !second ? s.combo + 1 : 0;
   s.bestCombo = Math.max(s.bestCombo, s.combo);
 
-  const now = nowIso();
-  db.prepare(
-    `INSERT INTO answers (session_id, child_id, subject, unit_id, item_key, qtype, correct, first_try, given, expected, created_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
-  ).run(s.id, s.childId, s.subject, q.unitId, q.key, q.qtype, result.correct ? 1 : 0, firstTry ? 1 : 0, givenText.slice(0, 200), q.expected[0] ?? '', now);
-
+  log(result.correct, firstTry && !second);
   if (q.key && firstTry) {
-    const prev = db.prepare('SELECT box FROM item_stats WHERE child_id = ? AND item_key = ?').get(s.childId, q.key);
-    const box = result.correct ? Math.min((prev?.box ?? 0) + 1, 5) : Math.max((prev?.box ?? 0) - 2, 0);
-    db.prepare(
-      `INSERT INTO item_stats (child_id, item_key, subject, unit_id, box, correct, wrong, last_seen)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-       ON CONFLICT (child_id, item_key) DO UPDATE SET
-         box = excluded.box, correct = correct + excluded.correct, wrong = wrong + excluded.wrong, last_seen = excluded.last_seen`
-    ).run(s.childId, q.key, s.subject, q.unitId, box, result.correct ? 1 : 0, result.correct ? 0 : 1, now);
+    recordAnswer({
+      childId: s.childId, key: q.key, subject: s.subject, unitId: q.unitId, at: now, blitz: s.mode === 'blitz',
+      outcome: credit === 1 ? 'right' : credit ? 'half' : 'wrong',
+    });
   }
 
   return {
     ...result,
+    half: firstTry && credit === 0.5,
     firstTry,
     combo: s.combo,
     solution: q.pub.type === 'match' ? null : q.expected[0],
@@ -397,14 +423,8 @@ export function finishSession(sessionId) {
     startedAt: s.startedAt,
     boosted: s.boosted,
     total: answered.length,
-    correct: answered.filter((q) => q.firstCorrect).length,
+    // halbe Punkte fürs Verbessern zählen mit (z. B. 8½ von 10)
+    correct: answered.reduce((sum, q) => sum + q.credit, 0),
     bestCombo: s.bestCombo,
   });
-}
-
-export function reviewCounts(childId) {
-  const rows = db
-    .prepare(`SELECT subject, COUNT(*) AS n FROM item_stats WHERE child_id = ? AND wrong > 0 AND box < 3 AND ${notArchivedSql('item_stats')} GROUP BY subject`)
-    .all(childId);
-  return Object.fromEntries(rows.map((r) => [r.subject, r.n]));
 }

@@ -33,8 +33,8 @@
     { "en": "thunderstorm", "de": "Gewitter" }
   ],
   "exercises": [
-    { "type": "order", "de": "Wie ist das Wetter heute?", "answer": "What's the weather like today?" },
-    { "type": "order", "de": "Es ist kalt und windig.", "answer": "It's cold and windy." },
+    { "type": "order", "de": "Wie ist das Wetter heute?", "answer": "What's the weather like today?", "explain": "Wie ist das Wetter? = **What's the weather like** …?" },
+    { "type": "order", "de": "Es ist kalt und windig.", "answer": "It's cold and windy.", "explain": "Beim Wetter sagt man **It's** …: It's cold and windy." },
     { "type": "choice", "q": "It's ___ today. Take your umbrella!", "options": ["rainy", "sunny", "hot", "warm"], "answer": "rainy", "explain": "umbrella = Regenschirm. Den braucht man, wenn es **rainy** ist." }
   ]
 }

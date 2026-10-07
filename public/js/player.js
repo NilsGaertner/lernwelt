@@ -1,4 +1,7 @@
-import { h, md, gapText, speak, canSpeak, sfx, escapeHtml, mapFigure, confetti, countUp, rankMeter, toast, guardBack, columnMath, columnSum, columnSteps } from './ui.js';
+import {
+  h, md, gapText, speak, canSpeak, sfx, escapeHtml, mapFigure, confetti, countUp, rankMeter, toast, guardBack,
+  columnMath, columnSum, columnSteps, OP_SIGN, ask, notify, showPanel, dialogOpen, renderExplain, fmtScore,
+} from './ui.js';
 import { api } from './api.js';
 import { lootbox } from './lootbox.js';
 import { avatarSvg, sleepSvg } from './avatar-data.js';
@@ -30,9 +33,15 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
   let onKey = null;
   let combo = 0;
   let ended = false;
+  // Was beim ersten Versuch nicht (ganz) geklappt hat – für den Rückblick am Ziel
+  const misses = [];
   const keys = new AbortController();
 
-  const say = (text) => lang && text && speak(text, lang);
+  const say = (text, slow = false) => lang && text && speak(text, lang, { slow });
+  // 🔊 und daneben 🐢 zum langsamen Anhören
+  const listenBtns = (text, big = false) => h('span.listen-pair',
+    h('button.listen-btn', { type: 'button', class: big ? '' : 'small', 'aria-label': 'Anhören', onclick: () => say(text) }, '🔊'),
+    h('button.listen-btn.small.slow', { type: 'button', 'aria-label': 'Langsam anhören', title: 'Langsam anhören', onclick: () => say(text, true) }, '🐢'));
 
   // ---------------------------------------------------------------- Gerüst
   const trackDots = h('.dots', status.map(() => h('span.dot')));
@@ -58,6 +67,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
   window.scrollTo(0, 0);
 
   document.addEventListener('keydown', (e) => {
+    if (dialogOpen()) return;
     if (e.key === 'Enter' && onEnter) {
       e.preventDefault();
       onEnter();
@@ -73,8 +83,9 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
   // Führt ein anderer Weg von der Seite weg, räumt die Fahrt trotzdem auf.
   window.addEventListener('hashchange', () => { cleanup(); release(); }, { signal: keys.signal });
 
-  function exit() {
-    if (!confirm('Fahrt wirklich abbrechen? Sterne gibt es nur, wenn du am Ziel ankommst.')) return;
+  async function exit() {
+    const sure = await ask('Fahrt abbrechen?', { text: 'Sterne gibt es nur, wenn du am Ziel ankommst.', ok: 'Ja, aussteigen', cancel: 'Weiterfahren', danger: true });
+    if (!sure || ended) return;
     cleanup();
     release(onExit);
   }
@@ -132,16 +143,18 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     busy = false;
     updateTrack();
     const { q, retry } = queue[pos];
+    // Beim zweiten Mal stehen die Antworten woanders – sonst merkt man sich nur den Platz.
+    if (retry) reshuffle(q);
 
     const listenOnly = q.audio && !q.text;
     const card = h('article.qcard',
       h('.prompt',
         h('span', q.prompt),
         retry ? h('span.retry-tag', 'Nochmal') : null,
-        q.audio && !listenOnly && canSpeak() ? h('button.listen-btn.small', { type: 'button', 'aria-label': 'Anhören', onclick: () => say(q.audio) }, '🔊') : null),
+        q.audio && !listenOnly && canSpeak() ? listenBtns(q.audio) : null),
       listenOnly
         ? canSpeak()
-          ? h('button.listen-btn', { type: 'button', 'aria-label': 'Anhören', onclick: () => say(q.audio) }, '🔊')
+          ? listenBtns(q.audio, true)
           : h('.qtext', q.audio)
         : q.text ? h('.qtext', { html: gapText(q.text) }) : null,
       q.map ? mapFigure(q.map.src, { mark: q.map.mark }) : null,
@@ -152,6 +165,17 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     stage.replaceChildren(card);
     if (q.autoplay) setTimeout(() => say(q.audio), 250);
     card.querySelector('input')?.focus();
+  }
+
+  function reshuffle(q) {
+    for (const k of ['options', 'words']) {
+      if (!(q[k]?.length > 1)) continue;
+      const before = q[k].join('|');
+      for (let i = 0; i < 8; i++) {
+        q[k] = shuffle(q[k]);
+        if (q[k].join('|') !== before) break;
+      }
+    }
   }
 
   function answerArea(q) {
@@ -203,13 +227,24 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       input.readOnly = true;
       const res = await submit(q, input.value);
       if (!res) { input.readOnly = false; return; }
+      if (res.tryAgain) {
+        // Fast richtig: selbst verbessern, die Lösung gibt es noch nicht
+        input.readOnly = false;
+        input.classList.add('almost', 'shake');
+        setTimeout(() => input.classList.remove('shake'), 350);
+        tryHint.hidden = false;
+        return input.focus();
+      }
+      input.classList.remove('almost');
       input.classList.add(res.correct ? 'right' : 'wrong');
       // Tastatur einklappen, damit die Lösung unten nicht verdeckt ist.
       if (!res.correct) input.blur();
     };
+    const tryHint = h('p.try-again', { hidden: true, role: 'status' },
+      '🤏 Fast! Ein Buchstabe stimmt noch nicht. Schau genau hin und verbessere es – dann gibt es noch einen halben Punkt.');
     onEnter = check;
     dock(h('button.btn.line.big', { type: 'button', onclick: check }, 'Prüfen'));
-    return input;
+    return [input, tryHint];
   }
 
   function orderArea(q) {
@@ -427,8 +462,8 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     return h('.col-work', grid, pad);
   }
 
-  function dock(button) {
-    document.body.append(h('.dock', { style: { '--line': lineColor } }, h('.dock-inner', button)));
+  function dock(...buttons) {
+    document.body.append(h('.dock', { style: { '--line': lineColor } }, h('.dock-inner', buttons)));
   }
 
   // ---------------------------------------------------------------- Antwort prüfen
@@ -440,11 +475,19 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       res = await api(`/sessions/${session.sessionId}/answer`, { method: 'POST', body: { qid: q.id, answer } });
     } catch (err) {
       busy = false;
-      alert(err.message);
-      if (err.status === 404) { cleanup(); release(onExit); }
+      notify('Das hat nicht geklappt', { text: err.message }).then(() => {
+        if (err.status === 404) { cleanup(); release(onExit); }
+      });
       return null;
     }
-    if (res.firstTry) status[q.id] = res.correct ? 'ok' : 'miss';
+    if (res.tryAgain) {
+      busy = false;
+      updateCombo(0);
+      sfx.wrong();
+      return res;
+    }
+    if (res.firstTry) status[q.id] = res.half ? 'half' : res.correct ? 'ok' : 'miss';
+    if (res.firstTry && (!res.correct || res.half) && q.type !== 'match') misses.push({ q, res });
     if (!res.correct && res.firstTry && q.type !== 'match') queue.push({ q, retry: true });
     updateTrack();
     // Mehrere Lücken (z. B. ___ · ___ = 144) bekommen alle dieselbe Lösung.
@@ -499,7 +542,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     if (res.correct) {
       onEnter = null;
       stage.querySelector('.qcard')?.append(h('span.praise', { 'aria-live': 'polite' },
-        q.type === 'match' && res.mistakes ? 'Fast fehlerfrei!' : pick(PRAISE)));
+        res.half ? 'Gut verbessert! ½ Punkt' : q.type === 'match' && res.mistakes ? 'Fast fehlerfrei!' : pick(PRAISE)));
       if (res.note) toast(res.note);
       setTimeout(() => { if (!ended) next(); }, res.note ? 1400 : 900);
       return;
@@ -521,18 +564,69 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       if (q.type === 'column') lines.push(columnSteps(q.rows, { op: q.op }));
       if (res.reveal) lines.push(h('p.explain', { html: `Das Wort war: <strong>${escapeHtml(res.reveal)}</strong>` }));
       if (res.explain) lines.push(h('div.explain', { html: `<p>${md(res.explain)}</p>` }));
+      // Zum Nachlesen: die Merke-Seite der Station
+      const unit = session.units?.[q.unit];
+      if (unit) {
+        lines.push(h('p.merke-row', h('button.say', {
+          type: 'button',
+          onclick: () => showPanel(`📌 Merke: ${unit.title}`, h('.merke', renderExplain(unit.explain, lang))),
+        }, '📌 Merke ansehen')));
+      }
       if (res.firstTry) lines.push(h('p.explain', 'Diese Aufgabe kommt am Ende nochmal.'));
     }
-    const btn = h('button.btn.big', { type: 'button', class: res.correct ? 'go' : '', onclick: next }, 'Weiter');
+    // Ein falsch geschriebenes Wort einmal richtig abschreiben – das prägt die Schreibweise ein.
+    const copy = !res.correct && q.type === 'input' && q.copy && /[a-z]/i.test(res.solution ?? '') ? copyField(res.solution) : null;
+    const btn = h('button.btn.big.sheet-go', { type: 'button', class: res.correct ? 'go' : '', disabled: !!copy, onclick: next }, 'Weiter');
+    if (copy) {
+      copy.input.addEventListener('input', () => {
+        btn.disabled = !copy.matches();
+        copy.input.classList.toggle('right', copy.matches());
+      });
+      lines.push(copy.el);
+    }
     const sheet = h('.sheet', { class: res.correct ? 'ok' : 'bad', role: 'alert' },
       h('.sheet-inner',
         h('h3', title),
         ...lines,
-        res.speak && canSpeak() ? h('p', h('button.say', { type: 'button', onclick: () => say(res.speak) }, '🔊 Nochmal anhören')) : null,
+        res.speak && canSpeak()
+          ? h('p.say-row',
+              h('button.say', { type: 'button', onclick: () => say(res.speak) }, '🔊 Nochmal anhören'),
+              h('button.say', { type: 'button', onclick: () => say(res.speak, true) }, '🐢 Langsam'))
+          : null,
         btn));
     document.body.append(sheet);
     // Kurz warten, damit ein Doppel-Enter nicht gleich weiterspringt.
-    setTimeout(() => { onEnter = next; btn.focus({ preventScroll: true }); }, 250);
+    setTimeout(() => {
+      onEnter = () => {
+        if (!btn.disabled) return next();
+        copy.input.classList.add('shake');
+        setTimeout(() => copy.input.classList.remove('shake'), 350);
+      };
+      (copy ? copy.input : btn).focus({ preventScroll: true });
+    }, 250);
+  }
+
+  /** Eingabefeld zum Abschreiben der Lösung (Groß/klein und Satzzeichen sind egal). */
+  function copyField(solution) {
+    const plain = (t) => String(t).toLowerCase().replace(/\*\*/g, '').replace(/[’‘`´]/g, "'").replace(/[.!?,;:]+/g, ' ').replace(/\s+/g, ' ').trim();
+    const input = h('input.type-in.copy-in', {
+      type: 'text', autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', spellcheck: 'false',
+      enterkeyhint: 'done', placeholder: 'Hier abschreiben …', 'aria-label': 'Die Lösung einmal richtig abschreiben',
+    });
+    return {
+      input,
+      matches: () => plain(input.value) === plain(solution),
+      el: h('label.copy', h('span', '✍️ Schreib es einmal richtig ab, dann geht es weiter:'), input),
+    };
+  }
+
+  /** Eine Zeile für den Fehler-Rückblick: Aufgabe und Lösung (Lösung fett). */
+  function missLabel(q, res) {
+    const sol = `**${res.solution}**`;
+    if (q.type === 'column') return `${q.rows.join(` ${OP_SIGN[q.op]} `)} = ${sol}`;
+    if (q.text && /_{3,}/.test(q.text)) return q.text.replace(/_{3,}/g, sol);
+    const from = q.text ?? res.reveal ?? q.hint ?? q.prompt;
+    return `${from} → ${sol}`;
   }
 
   // ---------------------------------------------------------------- Ankunft
@@ -624,8 +718,9 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
         h('h1', headline),
         h('.big-stars', { role: 'img', 'aria-label': `${result.rating} von 3 Sternen` },
           [1, 2, 3].map((i) => h('span', { class: i <= result.rating ? 'on' : 'off' }, '★'))),
-        h('p.score', `${result.correct} von ${result.total} beim ersten Versuch richtig. ${sub}`),
+        h('p.score', `${fmtScore(result.correct)} von ${result.total} beim ersten Versuch richtig${result.correct % 1 ? ' (½ = selbst verbessert)' : ''}. ${sub}`),
         comboLine),
+      missPanel(),
       ...panels,
       h('section.panel', { style: { textAlign: 'left' } },
         h('h2', `✨ +${result.xp.gained} XP`),
@@ -666,7 +761,34 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
                 h('.medal', { 'aria-hidden': 'true' }, b.icon), h('.bname', b.name), h('.bdesc', b.desc)))))
         : null,
       arrivalActions(result)));
+    // Der wichtigste Knopf steht unten fest – sonst müsste man erst an allen Kästen vorbei scrollen.
+    dock(arrivalMain(result), h('button.btn.ghost.big', { type: 'button', 'aria-label': 'Zum Netzplan', title: 'Zum Netzplan', onclick: onMap }, '🗺️'));
     window.scrollTo(0, 0);
+  }
+
+  /** Rückblick: Was beim ersten Versuch noch nicht saß – zum Nochmal-Lesen und -Anhören. */
+  function missPanel() {
+    if (!misses.length) return null;
+    return h('section.panel.misses', { style: { textAlign: 'left' } },
+      h('h2', '📝 Das übst du noch'),
+      h('p.muted.small', 'Das hat beim ersten Versuch noch nicht ganz geklappt. Lies es dir nochmal durch – es kommt bald wieder dran.'),
+      h('ul.miss-list', misses.map(({ q, res }) => {
+        const audio = res.speak ?? res.reveal ?? q.audio ?? null;
+        return h('li',
+          audio && lang && canSpeak()
+            ? h('button.say', { type: 'button', 'aria-label': `Vorlesen: ${audio}`, onclick: () => say(audio) }, '🔊')
+            : h('span'),
+          h('span', { html: md(missLabel(q, res)) }),
+          res.half ? h('span.half-tag', { title: 'selbst verbessert' }, '½') : null);
+      })));
+  }
+
+  /** Der Hauptknopf am Ziel: nach einer geschafften Fahrt zum nächsten Halt, sonst nochmal fahren. */
+  function arrivalMain(result) {
+    const done = result.exam ? result.exam.passed : result.rating >= 2 || result.station?.parked || result.station?.justRetired;
+    return done && result.next && onNext
+      ? h('button.btn.line.big', { type: 'button', onclick: () => onNext(result.next) }, `🚉 Nächster Halt: ${result.next.icon} ${result.next.title}`)
+      : h('button.btn.line.big', { type: 'button', onclick: onAgain }, '🔁 Nochmal fahren');
   }
 
   /** Nach einer geschafften Fahrt geht es zum nächsten Halt, nicht nochmal auf dieselbe Station. */

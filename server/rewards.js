@@ -1,7 +1,7 @@
 import { db, EARN_KINDS, getPublicSettings, getSetting, setSetting, transaction } from './db.js';
 import { BADGES, BADGE_BONUS } from './badges.js';
 import { subjects } from './content.js';
-import { localDay, nowIso } from './util.js';
+import { localDay, nowIso, fmtScore } from './util.js';
 import {
   streak, dailyPlan, stampCount, examsPassed, xpOf, rankInfo, PASSED_SQL, stationState, useExtraRide, nextStation,
 } from './progress.js';
@@ -130,7 +130,7 @@ export function sessionStars(rating, runToday) {
 
 /**
  * Schließt eine Übung ab: speichert sie, vergibt Sterne (mit Tageslimit), Abzeichen, Fahrplan-Stempel, XP und Lootboxen.
- * mode: 'unit' | 'review' | 'exam' (unitId = Linie) | 'blitz' (unitId = Blitz-Thema, keine Sterne für die Runde selbst)
+ * mode: 'unit' | 'review' | 'due' | 'exam' (unitId = Linie) | 'blitz' (unitId = Blitz-Thema, keine Sterne für die Runde selbst)
  * boosted: die Fahrt wurde während eines „Doppelte Sterne“-Events gestartet
  * Eine Station auf dem Abstellgleis bringt keine Sterne; die Fahrt, die sie dorthin bringt, gibt eine Lootbox.
  */
@@ -185,7 +185,7 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
     if (mode !== 'blitz' && !parked) {
       const repeat = runToday > 1 ? ` (${runToday}. Fahrt heute)` : '';
       const stars = sessionStars(rating, runToday);
-      rewards.push({ kind: 'session', amount: stars, note: `${unitTitle}: ${correct} von ${total} richtig${repeat}` });
+      rewards.push({ kind: 'session', amount: stars, note: `${unitTitle}: ${fmtScore(correct)} von ${total} richtig${repeat}` });
       if (boosted) {
         rewards.push({ kind: 'bonus', amount: stars, note: '🎉 Doppelte Sterne' });
         if (activeBoost()?.once) stopBoost();

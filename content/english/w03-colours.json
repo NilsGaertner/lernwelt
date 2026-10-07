@@ -27,9 +27,9 @@
     { "en": "colour", "de": "Farbe", "alt": ["color"] }
   ],
   "exercises": [
-    { "type": "choice", "q": "The sky is ___.", "options": ["blue", "black", "brown", "pink"], "answer": "blue" },
-    { "type": "choice", "q": "Snow is ___.", "options": ["white", "yellow", "green", "red"], "answer": "white" },
-    { "type": "choice", "q": "Bananas are ___.", "options": ["yellow", "purple", "grey", "blue"], "answer": "yellow" },
-    { "type": "order", "de": "Welche Farbe hat dein Fahrrad?", "answer": "What colour is your bike?", "accept": ["What color is your bike?"] }
+    { "type": "choice", "q": "The sky is ___.", "options": ["blue", "black", "brown", "pink"], "answer": "blue", "explain": "Der Himmel ist blau = **blue**." },
+    { "type": "choice", "q": "Snow is ___.", "options": ["white", "yellow", "green", "red"], "answer": "white", "explain": "Schnee ist weiß = **white**." },
+    { "type": "choice", "q": "Bananas are ___.", "options": ["yellow", "purple", "grey", "blue"], "answer": "yellow", "explain": "Bananen sind gelb = **yellow**." },
+    { "type": "order", "de": "Welche Farbe hat dein Fahrrad?", "answer": "What colour is your bike?", "accept": ["What color is your bike?"], "explain": "Welche Farbe? = **What colour** + is + your bike?" }
   ]
 }

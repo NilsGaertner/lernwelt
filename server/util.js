@@ -33,6 +33,12 @@ export function shuffle(arr) {
   return a;
 }
 
+/** Punkte mit halben Punkten fürs Verbessern: 8.5 → „8½“. */
+export function fmtScore(n) {
+  const whole = Math.floor(n);
+  return n % 1 ? `${whole || ''}½` : String(n);
+}
+
 export function pick(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
@@ -53,6 +59,9 @@ const CONTRACTIONS = [
   [/\bcannot\b/g, 'can not'],
   [/\bwon't\b/g, 'will not'],
   [/\b(i|you|we|they)'ve\b/g, '$1 have'],
+  // he's, what's … (nur bei Pronomen und Fragewörtern – Tom's ist der Genitiv); he's got = he has got
+  [/\b(it|he|she|who|what)'s got\b/g, '$1 has got'],
+  [/\b(it|he|she|that|what|where|who|there|here)'s\b/g, '$1 is'],
 ];
 
 /** Vereinheitlicht eine Antwort für den Vergleich. */

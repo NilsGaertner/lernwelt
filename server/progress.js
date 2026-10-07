@@ -4,6 +4,7 @@
 import { db, getPublicSettings } from './db.js';
 import { subjects } from './content.js';
 import { localDay, addDays, nowIso } from './util.js';
+import { practiceItems } from './srs.js';
 
 // ---------------------------------------------------------------- Ränge
 
@@ -291,6 +292,10 @@ function createMissions(childId, day) {
   const hasReview = !!db
     .prepare(`SELECT 1 FROM item_stats WHERE child_id = ? AND wrong > 0 AND box < 3 AND ${notArchivedSql('item_stats')} LIMIT 1`)
     .get(childId);
+  // Fällige Wiederholung: im Fach mit den meisten fälligen Aufgaben
+  const dueBy = {};
+  for (const it of practiceItems(childId, 'due')) dueBy[it.subject] = (dueBy[it.subject] ?? 0) + 1;
+  const dueSubject = Object.entries(dueBy).sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
   const hasBlitz = list.some((m) => m.blitz?.length);
 
   const pool = [{ type: 'perfect' }, { type: 'combo' }];
@@ -302,7 +307,9 @@ function createMissions(childId, day) {
     const j = Math.floor(rnd() * (i + 1));
     [pool[i], pool[j]] = [pool[j], pool[i]];
   }
-  return [{ type: 'subject', subject: first.id }, ...pool.slice(0, 2)];
+  // Wiederholen hält das Gelernte frisch – ist etwas fällig, steht es immer im Fahrplan.
+  const due = dueSubject ? [{ type: 'due', subject: dueSubject }] : [];
+  return [{ type: 'subject', subject: first.id }, ...due, ...pool].slice(0, 3);
 }
 
 function describe(m) {
@@ -312,6 +319,7 @@ function describe(m) {
       return { icon: meta?.icon ?? '🚉', label: `Fahr eine Station in ${meta?.name ?? m.subject}` };
     }
     case 'review': return { icon: '🔧', label: 'Mach ein Fehler-Training' };
+    case 'due': return { icon: '🔁', label: 'Mach deine Wiederholung von heute' };
     case 'new': return { icon: '🆕', label: 'Probier eine Station aus, bei der du noch nie warst' };
     case 'perfect': return { icon: '⭐', label: 'Hol 3 Sterne bei einer Fahrt' };
     case 'blitz': return { icon: '⚡', label: 'Mach eine Blitzrunde' };
@@ -325,7 +333,9 @@ function missionDone(childId, day, m) {
   switch (m.type) {
     case 'subject': return has("subject = ? AND mode IN ('unit', 'exam')", m.subject);
     case 'review': return has("mode = 'review'");
-    case 'perfect': return has("mode IN ('unit', 'review', 'exam') AND rating = 3");
+    // Auch erledigt, wenn heute nichts mehr fällig ist (z. B. weil die Aufgaben schon auf den Stationen dran waren)
+    case 'due': return has("mode = 'due'") || !practiceItems(childId, 'due', null, 20).length;
+    case 'perfect': return has("mode IN ('unit', 'review', 'due', 'exam') AND rating = 3");
     case 'blitz': return has("mode = 'blitz'");
     case 'combo': return has('best_combo >= 5');
     case 'new':

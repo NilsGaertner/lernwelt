@@ -169,6 +169,8 @@ addColumn('sessions', 'parked', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('children', 'train', 'TEXT');
 addColumn('children', 'adult', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('children', 'skin', 'TEXT');
+// Wiederholen mit Abständen: an diesem Tag (YYYY-MM-DD) ist die Aufgabe wieder dran (siehe srs.js)
+addColumn('item_stats', 'due', 'TEXT');
 // Companion (Katze + Skin) ist vom Profilbild getrennt; wer bisher eine Katze als Bild hatte, behält sie als Companion
 if (!db.prepare('PRAGMA table_info(children)').all().some((c) => c.name === 'companion')) {
   db.exec("ALTER TABLE children ADD COLUMN companion TEXT NOT NULL DEFAULT 'cat:black'");

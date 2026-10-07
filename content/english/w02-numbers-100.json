@@ -36,12 +36,12 @@
     { "en": "ninety-nine", "de": "99", "alt": ["ninety nine"] }
   ],
   "exercises": [
-    { "type": "choice", "q": "Which number is **forty-three**?", "options": ["43", "34", "403", "14"], "answer": "43", "speak": false },
-    { "type": "choice", "q": "Which number is **fifteen**?", "options": ["15", "50", "51", "5"], "answer": "15", "speak": false },
+    { "type": "choice", "q": "Which number is **forty-three**?", "options": ["43", "34", "403", "14"], "answer": "43", "speak": false, "explain": "forty-**three** = 40 + 3 = **43**. Die Zehner stehen vorn – andersherum als im Deutschen (dreiundvierzig)." },
+    { "type": "choice", "q": "Which number is **fifteen**?", "options": ["15", "50", "51", "5"], "answer": "15", "speak": false, "explain": "fif**teen** = 15. Achtung: fif**ty** = 50. -teen = 13 bis 19, -ty = Zehner." },
     { "type": "choice", "q": "How do you write 40?", "options": ["forty", "fourty", "fourteen", "fortee"], "answer": "forty", "explain": "40 = **forty** – ohne u. Nur four und fourteen haben ein u." },
     { "type": "choice", "q": "How do you write 50?", "options": ["fifty", "fivety", "fiveteen", "fifteen"], "answer": "fifty", "explain": "Aus five wird **fif-**: fifteen (15), fifty (50)." },
-    { "type": "input", "q": "10 + 10 = ___", "answer": "twenty", "task": "Schreib die Zahl auf Englisch.", "speak": false },
-    { "type": "input", "q": "30 + 30 = ___", "answer": "sixty", "task": "Schreib die Zahl auf Englisch.", "speak": false },
-    { "type": "input", "q": "50 + 50 = ___", "answer": "a hundred", "accept": ["one hundred", "hundred"], "task": "Schreib die Zahl auf Englisch.", "speak": false }
+    { "type": "input", "q": "10 + 10 = ___", "answer": "twenty", "task": "Schreib die Zahl auf Englisch.", "speak": false, "explain": "20 = **twenty**." },
+    { "type": "input", "q": "30 + 30 = ___", "answer": "sixty", "task": "Schreib die Zahl auf Englisch.", "speak": false, "explain": "60 = **sixty**." },
+    { "type": "input", "q": "50 + 50 = ___", "answer": "a hundred", "accept": ["one hundred", "hundred"], "task": "Schreib die Zahl auf Englisch.", "speak": false, "explain": "100 = **a hundred** (oder one hundred)." }
   ]
 }

@@ -21,20 +21,20 @@
     { "tip": "„vor“ (Ort) heißt **in front of** – drei Wörter!" }
   ],
   "exercises": [
-    { "type": "choice", "q": "The book is ___ the table.", "de": "Das Buch ist auf dem Tisch.", "options": ["on", "in", "under", "behind"], "answer": "on" },
-    { "type": "choice", "q": "The cat is ___ the box.", "de": "Die Katze ist in der Kiste.", "options": ["in", "on", "next to", "behind"], "answer": "in" },
-    { "type": "choice", "q": "The shoes are ___ the bed.", "de": "Die Schuhe sind unter dem Bett.", "options": ["under", "on", "in", "between"], "answer": "under" },
-    { "type": "choice", "q": "Sit ___ me!", "de": "Setz dich neben mich!", "options": ["next to", "behind", "under", "in"], "answer": "next to" },
-    { "type": "choice", "q": "The garden is ___ the house.", "de": "Der Garten ist hinter dem Haus.", "options": ["behind", "in front of", "on", "between"], "answer": "behind" },
-    { "type": "choice", "q": "The bus stop is ___ the school.", "de": "Die Bushaltestelle ist vor der Schule.", "options": ["in front of", "behind", "under", "in"], "answer": "in front of" },
-    { "type": "choice", "q": "The lamp is ___ the bed and the desk.", "de": "Die Lampe ist zwischen dem Bett und dem Schreibtisch.", "options": ["between", "next to", "under", "on"], "answer": "between" },
-    { "type": "choice", "q": "We live ___ the park.", "de": "Wir wohnen in der Nähe des Parks.", "options": ["near", "under", "on", "between"], "answer": "near" },
-    { "type": "input", "q": "The dog is ___ the table.", "de": "Der Hund ist unter dem Tisch.", "answer": "under", "hint": "unter" },
-    { "type": "input", "q": "My phone is ___ my bag.", "de": "Mein Handy ist in meiner Tasche.", "answer": "in", "hint": "in" },
+    { "type": "choice", "q": "The book is ___ the table.", "de": "Das Buch ist auf dem Tisch.", "options": ["on", "in", "under", "behind"], "answer": "on", "explain": "auf = **on**." },
+    { "type": "choice", "q": "The cat is ___ the box.", "de": "Die Katze ist in der Kiste.", "options": ["in", "on", "next to", "behind"], "answer": "in", "explain": "in = **in**." },
+    { "type": "choice", "q": "The shoes are ___ the bed.", "de": "Die Schuhe sind unter dem Bett.", "options": ["under", "on", "in", "between"], "answer": "under", "explain": "unter = **under**." },
+    { "type": "choice", "q": "Sit ___ me!", "de": "Setz dich neben mich!", "options": ["next to", "behind", "under", "in"], "answer": "next to", "explain": "neben = **next to** (zwei Wörter)." },
+    { "type": "choice", "q": "The garden is ___ the house.", "de": "Der Garten ist hinter dem Haus.", "options": ["behind", "in front of", "on", "between"], "answer": "behind", "explain": "hinter = **behind**." },
+    { "type": "choice", "q": "The bus stop is ___ the school.", "de": "Die Bushaltestelle ist vor der Schule.", "options": ["in front of", "behind", "under", "in"], "answer": "in front of", "explain": "vor = **in front of** (drei Wörter)." },
+    { "type": "choice", "q": "The lamp is ___ the bed and the desk.", "de": "Die Lampe ist zwischen dem Bett und dem Schreibtisch.", "options": ["between", "next to", "under", "on"], "answer": "between", "explain": "zwischen = **between**: between the bed **and** the desk." },
+    { "type": "choice", "q": "We live ___ the park.", "de": "Wir wohnen in der Nähe des Parks.", "options": ["near", "under", "on", "between"], "answer": "near", "explain": "in der Nähe von = **near**." },
+    { "type": "input", "q": "The dog is ___ the table.", "de": "Der Hund ist unter dem Tisch.", "answer": "under", "hint": "unter", "explain": "unter = **under**." },
+    { "type": "input", "q": "My phone is ___ my bag.", "de": "Mein Handy ist in meiner Tasche.", "answer": "in", "hint": "in", "explain": "in = **in**." },
     { "type": "input", "q": "The picture is ___ the wall.", "de": "Das Bild ist an der Wand.", "answer": "on", "hint": "an (der Wand) = auf", "explain": "An der Wand = **on** the wall (das Bild ist auf der Wandfläche)." },
-    { "type": "input", "q": "Tom is ___ Anna.", "de": "Tom ist hinter Anna.", "answer": "behind", "hint": "hinter" },
-    { "type": "input", "q": "The car is ___ the house.", "de": "Das Auto ist vor dem Haus.", "answer": "in front of", "hint": "vor (3 Wörter)" },
-    { "type": "order", "de": "Die Katze ist unter dem Tisch.", "answer": "The cat is under the table." },
-    { "type": "order", "de": "Meine Tasche ist neben der Tür.", "answer": "My bag is next to the door." }
+    { "type": "input", "q": "Tom is ___ Anna.", "de": "Tom ist hinter Anna.", "answer": "behind", "hint": "hinter", "explain": "hinter = **behind**." },
+    { "type": "input", "q": "The car is ___ the house.", "de": "Das Auto ist vor dem Haus.", "answer": "in front of", "hint": "vor (3 Wörter)", "explain": "vor = **in front of**." },
+    { "type": "order", "de": "Die Katze ist unter dem Tisch.", "answer": "The cat is under the table.", "explain": "The cat is + **under** (unter) + the table." },
+    { "type": "order", "de": "Meine Tasche ist neben der Tür.", "answer": "My bag is next to the door.", "explain": "My bag is + **next to** (neben) + the door." }
   ]
 }

@@ -1,4 +1,4 @@
-import { h, toast, starRow, fmtDate, relDay } from './ui.js';
+import { h, toast, starRow, fmtDate, relDay, ask, fmtScore } from './ui.js';
 import { api, parentToken } from './api.js';
 import { faceOf } from './avatar.js';
 import { CATS, SKINS, avatarSvg, avatarText } from './avatar-data.js';
@@ -236,7 +236,7 @@ function logTable(entries, { showChild }) {
         e.parked ? h('span.log-tag', '🅿️ Abstellgleis') : null),
       h('td', blitz
         ? `⚡ ${e.correct} Treffer`
-        : [h(`span.${e.percent >= 90 ? 'pos' : e.percent < 70 ? 'neg' : 'mid'}`, `${e.percent} %`), h('div.muted.small', `${e.correct} von ${e.total}`)]),
+        : [h(`span.${e.percent >= 90 ? 'pos' : e.percent < 70 ? 'neg' : 'mid'}`, `${e.percent} %`), h('div.muted.small', `${fmtScore(e.correct)} von ${e.total}`)]),
       h('td', blitz ? '–' : starRow(e.rating)),
       h('td', e.stars ? `+${e.stars} ★` : '–'),
       h('td', `${e.minutes} Min.`)));
@@ -631,7 +631,10 @@ async function childView(root, id, render) {
       h('button.btn.danger', {
         type: 'button',
         onclick: async () => {
-          if (!confirm(`Profil „${d.child.name}“ mit allen Sternen und dem gesamten Lernfortschritt endgültig löschen?`)) return;
+          const sure = await ask(`Profil „${d.child.name}“ löschen?`, {
+            text: 'Alle Sterne und der gesamte Lernfortschritt gehen endgültig verloren.', ok: 'Endgültig löschen', cancel: 'Behalten', danger: true,
+          });
+          if (!sure) return;
           await papi(`/children/${id}`, { method: 'DELETE' });
           toast('Profil gelöscht.');
           location.hash = '#/parent';

@@ -1,4 +1,4 @@
-import { h, md, starRow, toast, prefs, speak, canSpeak, mapFigure, rankMeter, sfx, columnSum } from './ui.js';
+import { h, starRow, toast, prefs, speak, canSpeak, rankMeter, sfx, renderExplain, ask, closeDialogs } from './ui.js';
 import { api } from './api.js';
 import { runRide, collectCard } from './player.js';
 import { runBlitz, runChart, familyBoard } from './blitz.js';
@@ -48,6 +48,7 @@ const routes = [
 
 async function route() {
   window.speechSynthesis?.cancel();
+  closeDialogs();
   document.querySelectorAll('.sheet, .dock, .card-view').forEach((el) => el.remove());
   const path = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
   for (const [re, fn] of routes) {
@@ -118,29 +119,6 @@ function lineOf(subject, lineId) {
   return subject.lines.find((l) => l.id === lineId) ?? subject.lines[0];
 }
 
-export function renderExplain(blocks, speechLang) {
-  const sayBtn = (text) =>
-    speechLang && canSpeak()
-      ? h('button.say', { type: 'button', title: 'Vorlesen', 'aria-label': `Vorlesen: ${text}`, onclick: () => speak(text.replace(/\s*\/.*$/, ''), speechLang) }, '🔊')
-      : null;
-  return blocks.map((b) => {
-    if (b.p) return h('p', { html: md(b.p) });
-    if (b.tip) return h('p.tip', { html: md(b.tip) });
-    if (b.ex) {
-      return h('ul.examples', b.ex.map(([en, de]) =>
-        h('li', sayBtn(en.replace(/\*\*/g, '')) ?? h('span'), h('span.en', { html: md(en) }), h('span.de', de))));
-    }
-    if (b.map) return mapFigure(b.map, { legend: b.legend ?? [] });
-    if (b.column) return h('figure.colsum-figure', columnSum(b.column.rows, { op: b.column.op }), b.column.caption ? h('figcaption', { html: md(b.column.caption) }) : null);
-    if (b.table) {
-      return h('.table-wrap', h('table',
-        b.table.head ? h('thead', h('tr', b.table.head.map((c) => h('th', { html: md(c) })))) : null,
-        h('tbody', b.table.rows.map((r) => h('tr', r.map((c) => h('td', { html: md(c) })))))));
-    }
-    return null;
-  });
-}
-
 /** backHash: hierhin nach einem Abbruch · mapHash: der Netzplan des Fachs */
 async function startRide(opts) {
   const { childId, subject, unit, line, mode = 'unit', lineColor, backHash, mapHash = backHash, train, card } = opts;
@@ -180,7 +158,7 @@ const lineCard = (subject, line) => ({
 });
 
 function missionHref(id, m, meta) {
-  if (m.type === 'subject') return `#/kid/${id}/s/${m.subject}`;
+  if (m.type === 'subject' || m.type === 'due') return `#/kid/${id}/s/${m.subject}`;
   if (m.type === 'blitz') {
     const s = meta.subjects.find((x) => x.blitz?.length);
     return s ? `#/kid/${id}/blitz/${s.id}/${s.blitz[0].id}` : null;
@@ -258,6 +236,23 @@ async function homeView(id, subjectId) {
       limit > 0 ? h('.meter', { role: 'img', 'aria-label': `${ov.earnedToday} von ${limit}` },
         h('span', { style: { width: `${Math.min(100, (ov.earnedToday / limit) * 100)}%` } })) : null),
     h('a.btn.ghost', { href: `#/kid/${id}/tickets` }, '🎟️ Sterne eintauschen'));
+
+  // Wiederholung: Gelerntes, das nach ein paar Tagen Pause wieder dran ist – damit es nicht vergessen wird.
+  const dueN = ov.due?.[subject.id] ?? 0;
+  const due = dueN > 0
+    ? h('section.review-card.due-card',
+        h('span', { style: { fontSize: '1.8rem' }, 'aria-hidden': 'true' }, '🔁'),
+        h('p', h('strong', 'Wiederholen: '),
+          dueN === 1 ? 'Eine Aufgabe ist heute wieder dran' : `${dueN} Aufgaben sind heute wieder dran`,
+          ' – damit du nichts vergisst.'),
+        h('button.btn', {
+          type: 'button',
+          onclick: (e) => {
+            e.currentTarget.disabled = true;
+            startRide({ childId: Number(id), subject: subject.id, mode: 'due', lineColor: '#0B7A75', backHash: hash, train: ov.train });
+          },
+        }, 'Wiederholen'))
+    : null;
 
   const reviewN = ov.review[subject.id] ?? 0;
   const review = reviewN > 0
@@ -353,7 +348,7 @@ async function homeView(id, subjectId) {
       list);
   }));
 
-  render(kidBar(ov), shieldNote, boostNote, lootNote, continueCard(id, subject, progress), planCard(id, ov.plan, meta), tabs, today, review, blitz, map);
+  render(kidBar(ov), shieldNote, boostNote, lootNote, continueCard(id, subject, progress), planCard(id, ov.plan, meta), tabs, today, due, review, blitz, map);
 }
 
 /** Klappt die geschafften Stationen einer Linie ein und aus. */
@@ -786,7 +781,7 @@ async function ticketsView(id) {
   const { minutesPerStar, ticketMinutes } = ov.settings;
 
   const buy = async (minutes, stars) => {
-    if (!confirm(`${minutes} Minuten Medienzeit für ${stars} Sterne eintauschen?`)) return;
+    if (!(await ask(`${minutes} Minuten Medienzeit eintauschen?`, { text: `Das kostet ${stars} Sterne. Danach müssen deine Eltern das Ticket noch bestätigen.`, ok: 'Eintauschen', cancel: 'Lieber nicht' }))) return;
     try {
       await api(`/children/${id}/tickets`, { method: 'POST', body: { minutes } });
       toast('Ticket gelöst! Jetzt müssen deine Eltern es noch bestätigen.');

@@ -5,6 +5,7 @@
   "title": "Colours and things",
   "subtitle": "Bunte Sachen und Tiere",
   "icon": "🦜",
+  "typePhrases": true,
   "explain": [
     { "p": "Die Farbe steht wie im Deutschen **vor** dem Ding: a **red** skateboard (ein rotes Skateboard)." },
     { "p": "Das englische Adjektiv ändert sich nie. Im Deutschen heißt es rot**es**, rot**e**, rot**er**, im Englischen immer nur **red**. Auch in der Mehrzahl: big house**s**, nicht „bigs houses“." },

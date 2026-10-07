@@ -5,6 +5,7 @@
   "title": "Things to do",
   "subtitle": "Lernen, malen, Radio hören",
   "icon": "🎵",
+  "typePhrases": true,
   "explain": [
     { "p": "Auf deinen Karten steht vor dem Verb ein **to**: **to** learn, **to** read. Das ist die Grundform – so wie im Deutschen lern**en**, les**en**." },
     { "p": "Im Satz fällt das **to** weg: I **learn** words. She **reads** books." },

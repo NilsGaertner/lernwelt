@@ -33,9 +33,13 @@ export function lootbox(childId, box, { onOpened } = {}) {
       return;
     }
     sfx.fanfare();
+    // Hauptgewinn (30 Minuten, 1 %): doppeltes Konfetti und eine eigene Überschrift
+    const jackpot = res.minutes >= 30;
     if (res.minutes >= 15) setTimeout(() => confetti(), 200);
-    wrap.replaceChildren(h('.lb-open', { class: res.minutes >= 15 ? 'lb-big' : '', role: 'status' },
-      h('span.lb-icon', { 'aria-hidden': 'true' }, res.minutes >= 20 ? '💎' : res.minutes >= 15 ? '🌟' : '✨'),
+    if (jackpot) setTimeout(() => { sfx.fanfare(); confetti({ count: 200 }); }, 1300);
+    wrap.replaceChildren(h('.lb-open', { class: [res.minutes >= 15 ? 'lb-big' : '', jackpot ? 'lb-jackpot' : ''].filter(Boolean).join(' '), role: 'status' },
+      h('span.lb-icon', { 'aria-hidden': 'true' }, jackpot ? '👑' : res.minutes >= 20 ? '💎' : res.minutes >= 15 ? '🌟' : '✨'),
+      jackpot ? h('span.lb-jackpot-title', 'Hauptgewinn!') : null,
       h('span.lb-min', minutesText(res.minutes)),
       h('span.lb-stars', `+${res.stars} ★ für Medienzeit`),
       h('span.lb-note', box.note)));

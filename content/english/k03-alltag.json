@@ -5,6 +5,7 @@
   "title": "At school and at home",
   "subtitle": "Kurze Sätze für jeden Tag",
   "icon": "🏫",
+  "typePhrases": true,
   "explain": [
     { "ex": [
       ["I am new at school.", "Ich bin neu an der Schule."],
@@ -41,8 +42,8 @@
     { "type": "choice", "q": "I am in ___ 5.", "de": "Ich bin in der 5. Klasse.", "options": ["year", "class", "klass", "grade"], "answer": "year", "explain": "In England sagt man **year 5** für die Klassenstufe." },
     { "type": "choice", "q": "___ the evening", "de": "abends", "options": ["in", "at", "on", "to"], "answer": "in", "explain": "**in** the morning, **in** the afternoon, **in** the evening." },
     { "type": "choice", "q": "I do my ___.", "de": "Ich mache meine Hausaufgaben.", "options": ["homework", "homeworks", "housework", "homewords"], "answer": "homework", "explain": "**homework** hat kein -s, auch wenn es viele Aufgaben sind." },
-    { "type": "input", "q": "___ is she?", "de": "Wo ist sie?", "answer": "Where" },
-    { "type": "input", "q": "___ is here?", "de": "Wer ist hier?", "answer": "Who" },
+    { "type": "input", "q": "___ is she?", "de": "Wo ist sie?", "answer": "Where", "explain": "Wo? = **Where**." },
+    { "type": "input", "q": "___ is here?", "de": "Wer ist hier?", "answer": "Who", "explain": "Wer? = **Who**." },
     { "type": "input", "q": "My room is ___.", "de": "Mein Zimmer ist oben.", "answer": "upstairs" }
   ]
 }

@@ -174,6 +174,30 @@ export function mapFigure(src, { mark = null, legend = null } = {}) {
   return fig;
 }
 
+/** Die „Merke“-Erklärung einer Station (Absätze, Tipps, Beispiele, Tabellen, Karten, Rechenbeispiele). */
+export function renderExplain(blocks, speechLang) {
+  const sayBtn = (text) =>
+    speechLang && canSpeak()
+      ? h('button.say', { type: 'button', title: 'Vorlesen', 'aria-label': `Vorlesen: ${text}`, onclick: () => speak(text.replace(/\s*\/.*$/, ''), speechLang) }, '🔊')
+      : null;
+  return blocks.map((b) => {
+    if (b.p) return h('p', { html: md(b.p) });
+    if (b.tip) return h('p.tip', { html: md(b.tip) });
+    if (b.ex) {
+      return h('ul.examples', b.ex.map(([en, de]) =>
+        h('li', sayBtn(en.replace(/\*\*/g, '')) ?? h('span'), h('span.en', { html: md(en) }), h('span.de', de))));
+    }
+    if (b.map) return mapFigure(b.map, { legend: b.legend ?? [] });
+    if (b.column) return h('figure.colsum-figure', columnSum(b.column.rows, { op: b.column.op }), b.column.caption ? h('figcaption', { html: md(b.column.caption) }) : null);
+    if (b.table) {
+      return h('.table-wrap', h('table',
+        b.table.head ? h('thead', h('tr', b.table.head.map((c) => h('th', { html: md(c) })))) : null,
+        h('tbody', b.table.rows.map((r) => h('tr', r.map((c) => h('td', { html: md(c) })))))));
+    }
+    return null;
+  });
+}
+
 export function starRow(n, max = 3) {
   return h('span.stars', { 'aria-label': `${n} von ${max} Sternen` },
     Array.from({ length: max }, (_, i) => h(`span.${i < n ? 'on' : 'off'}`, { 'aria-hidden': 'true' }, '★')));
@@ -211,6 +235,69 @@ export function guardBack(onBack) {
       then();
     }
   };
+}
+
+// ---------------------------------------------------------------- Dialoge (statt confirm/alert)
+
+let openDialog = null;
+
+/**
+ * Ein eigenes Fenster im Stil der Lernwelt. buttons: [{ label, value, cls }].
+ * Ist schon eins offen (z. B. zweimal Zurück gewischt), kommt dessen Antwort zurück statt eines zweiten Fensters.
+ */
+function dialog(title, body, buttons, { cancelValue = false, wide = false } = {}) {
+  if (openDialog) return openDialog.promise;
+  let resolve;
+  const promise = new Promise((r) => (resolve = r));
+  const close = (value) => {
+    if (openDialog?.dlg !== dlg) return;
+    openDialog = null;
+    if (dlg.open) dlg.close();
+    dlg.remove();
+    resolve(value);
+  };
+  const dlg = h('dialog.dlg', { class: wide ? 'wide' : '', 'aria-labelledby': 'dlg-title' },
+    h('h2#dlg-title', title),
+    body ? h('.dlg-body', body) : null,
+    h('.dlg-actions', buttons.map((b) =>
+      h('button.btn', { type: 'button', class: b.cls ?? '', autofocus: b.focus || null, onclick: () => close(b.value) }, b.label))));
+  // Esc bzw. Zurück-Taste schließt wie „Abbrechen“
+  dlg.addEventListener('cancel', (e) => { e.preventDefault(); close(cancelValue); });
+  document.body.append(dlg);
+  openDialog = { dlg, promise, close };
+  dlg.showModal();
+  return promise;
+}
+
+/** Ja/Nein-Frage. Die sichere Antwort (cancel) hat den Fokus. → Promise<boolean> */
+export function ask(title, { text = null, ok = 'Ja', cancel = 'Nein', danger = false } = {}) {
+  return dialog(title, text ? h('p', text) : null, [
+    { label: cancel, value: false, cls: 'ghost', focus: true },
+    { label: ok, value: true, cls: danger ? 'danger' : 'line' },
+  ]);
+}
+
+/** Eine Meldung mit OK. */
+export function notify(title, { text = null, ok = 'OK' } = {}) {
+  return dialog(title, text ? h('p', text) : null, [{ label: ok, value: true, cls: 'line', focus: true }], { cancelValue: true });
+}
+
+/** Ein Fenster mit beliebigem Inhalt (z. B. die Merke-Seite während der Fahrt). */
+export function showPanel(title, content) {
+  return dialog(title, content, [{ label: 'Schließen', value: true, cls: 'line', focus: true }], { cancelValue: true, wide: true });
+}
+
+export const dialogOpen = () => !!openDialog;
+
+/** Schließt ein offenes Fenster (z. B. wenn die Blitzrunde abläuft oder die Seite wechselt). */
+export function closeDialogs() {
+  openDialog?.close(false);
+}
+
+/** Punkte mit halben Punkten fürs Verbessern: 8.5 → „8½“. */
+export function fmtScore(n) {
+  const whole = Math.floor(n);
+  return n % 1 ? `${whole || ''}½` : String(n);
 }
 
 let toastTimer;
@@ -267,13 +354,14 @@ if ('speechSynthesis' in window) {
 
 export const canSpeak = () => 'speechSynthesis' in window;
 
-export function speak(text, lang = 'en-GB') {
+/** slow: deutlich langsamer (🐢), z. B. beim Diktat. */
+export function speak(text, lang = 'en-GB', { slow = false } = {}) {
   if (!canSpeak() || !text) return;
   const synth = window.speechSynthesis;
   synth.cancel();
   const u = new SpeechSynthesisUtterance(String(text).replace(/\*\*/g, ''));
   u.lang = lang;
-  u.rate = 0.88;
+  u.rate = slow ? 0.55 : 0.88;
   const base = lang.slice(0, 2);
   u.voice =
     voices.find((v) => v.lang === lang && /natural|online|google/i.test(v.name)) ||

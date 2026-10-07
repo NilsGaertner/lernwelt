@@ -19,18 +19,18 @@
   "exercises": [
     { "type": "choice", "q": "She ___ play the piano.", "options": ["can", "cans", "can to", "is can"], "answer": "can", "explain": "can bleibt immer gleich: she **can**." },
     { "type": "choice", "q": "My brother can ___ very fast.", "options": ["run", "runs", "to run", "running"], "answer": "run", "explain": "Nach can: Verb ohne -s und ohne to." },
-    { "type": "choice", "q": "I ___ swim. I'm scared of water.", "options": ["can't", "can", "don't can", "not can"], "answer": "can't" },
-    { "type": "choice", "q": "___ you ride a bike?", "options": ["Can", "Do", "Are", "Is"], "answer": "Can" },
-    { "type": "choice", "q": "Can your dad cook? – Yes, he ___.", "options": ["can", "does", "is", "cans"], "answer": "can" },
-    { "type": "choice", "q": "Can you dance? – No, I ___.", "options": ["can't", "don't", "am not", "not"], "answer": "can't" },
-    { "type": "choice", "q": "Penguins ___ fly.", "de": "Pinguine können nicht fliegen.", "options": ["can't", "can", "don't can", "aren't"], "answer": "can't" },
-    { "type": "choice", "q": "___ I open the window, please?", "de": "Darf ich bitte das Fenster öffnen?", "options": ["Can", "Do", "Am", "Have"], "answer": "Can" },
-    { "type": "input", "q": "Birds ___ fly.", "answer": "can", "hint": "können" },
-    { "type": "input", "q": "Fish ___ walk.", "answer": "can't", "hint": "können nicht (Kurzform)" },
-    { "type": "input", "q": "My sister can ___ three languages.", "answer": "speak", "hint": "sprechen" },
-    { "type": "input", "q": "___ you help me, please?", "answer": "Can", "hint": "Kannst …?" },
-    { "type": "order", "de": "Kannst du schwimmen?", "answer": "Can you swim?" },
-    { "type": "order", "de": "Er kann nicht singen.", "answer": "He can't sing.", "accept": ["He cannot sing."] },
-    { "type": "order", "de": "Darf ich mitkommen?", "answer": "Can I come with you?" }
+    { "type": "choice", "q": "I ___ swim. I'm scared of water.", "options": ["can't", "can", "don't can", "not can"], "answer": "can't", "explain": "nicht können = **can't** (= cannot). „don't can“ gibt es nicht!" },
+    { "type": "choice", "q": "___ you ride a bike?", "options": ["Can", "Do", "Are", "Is"], "answer": "Can", "explain": "Frage: **Can** kommt nach vorn – Can you …?" },
+    { "type": "choice", "q": "Can your dad cook? – Yes, he ___.", "options": ["can", "does", "is", "cans"], "answer": "can", "explain": "Kurze Antwort mit can: Can your dad cook? – Yes, he **can**. (can bekommt nie ein -s)" },
+    { "type": "choice", "q": "Can you dance? – No, I ___.", "options": ["can't", "don't", "am not", "not"], "answer": "can't", "explain": "Kurze Antwort: Can you …? – No, I **can't**." },
+    { "type": "choice", "q": "Penguins ___ fly.", "de": "Pinguine können nicht fliegen.", "options": ["can't", "can", "don't can", "aren't"], "answer": "can't", "explain": "Pinguine können nicht fliegen → **can't**." },
+    { "type": "choice", "q": "___ I open the window, please?", "de": "Darf ich bitte das Fenster öffnen?", "options": ["Can", "Do", "Am", "Have"], "answer": "Can", "explain": "Darf ich …? heißt auf Englisch auch **Can** I …?" },
+    { "type": "input", "q": "Birds ___ fly.", "answer": "can", "hint": "können", "explain": "Vögel können fliegen → **can**." },
+    { "type": "input", "q": "Fish ___ walk.", "answer": "can't", "hint": "können nicht (Kurzform)", "explain": "Fische können nicht laufen → **can't**." },
+    { "type": "input", "q": "My sister can ___ three languages.", "answer": "speak", "hint": "sprechen", "explain": "Nach can kommt die Grundform ohne to und ohne -s: can **speak**." },
+    { "type": "input", "q": "___ you help me, please?", "answer": "Can", "hint": "Kannst …?", "explain": "Frage: **Can** kommt nach vorn – Can you help me?" },
+    { "type": "order", "de": "Kannst du schwimmen?", "answer": "Can you swim?", "explain": "Frage: **Can** + you + swim?" },
+    { "type": "order", "de": "Er kann nicht singen.", "answer": "He can't sing.", "accept": ["He cannot sing."], "explain": "He + **can't** + sing. Das Verb bleibt ohne -s." },
+    { "type": "order", "de": "Darf ich mitkommen?", "answer": "Can I come with you?", "explain": "Darf ich …? = **Can I** …? – Can I come with you?" }
   ]
 }

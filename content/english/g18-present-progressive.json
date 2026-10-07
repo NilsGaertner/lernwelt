@@ -21,23 +21,23 @@
     { "tip": "Signalwörter: **now**, **at the moment**, **Look!**, **Listen!**" }
   ],
   "exercises": [
-    { "type": "choice", "q": "Look! The dog ___ in the garden.", "options": ["is running", "runs", "are running", "running"], "answer": "is running" },
-    { "type": "choice", "q": "I ___ my homework at the moment.", "options": ["am doing", "is doing", "doing", "do"], "answer": "am doing" },
-    { "type": "choice", "q": "The children ___ football now.", "options": ["are playing", "is playing", "plays", "playing"], "answer": "are playing" },
-    { "type": "choice", "q": "Listen! Mum ___.", "options": ["is singing", "sings", "are singing", "sing"], "answer": "is singing" },
+    { "type": "choice", "q": "Look! The dog ___ in the garden.", "options": ["is running", "runs", "are running", "running"], "answer": "is running", "explain": "Look! = es passiert gerade → **is** + Verb mit **-ing**: is running." },
+    { "type": "choice", "q": "I ___ my homework at the moment.", "options": ["am doing", "is doing", "doing", "do"], "answer": "am doing", "explain": "at the moment = gerade, I → **am doing**." },
+    { "type": "choice", "q": "The children ___ football now.", "options": ["are playing", "is playing", "plays", "playing"], "answer": "are playing", "explain": "now = gerade, the children = they → **are playing**." },
+    { "type": "choice", "q": "Listen! Mum ___.", "options": ["is singing", "sings", "are singing", "sing"], "answer": "is singing", "explain": "Listen! = es passiert gerade, Mum = she → **is singing**." },
     { "type": "choice", "q": "Which -ing form is correct? (swim)", "options": ["swimming", "swiming", "swimeing", "swimmming"], "answer": "swimming", "speak": false, "explain": "Kurzer Vokal + ein Konsonant → verdoppeln: swi**mm**ing." },
     { "type": "choice", "q": "Which -ing form is correct? (write)", "options": ["writing", "writeing", "writting", "writes"], "answer": "writing", "speak": false, "explain": "Stummes -e fällt weg: writ**ing**." },
-    { "type": "choice", "q": "Which -ing form is correct? (play)", "options": ["playing", "plaing", "playying", "plaiing"], "answer": "playing", "speak": false },
+    { "type": "choice", "q": "Which -ing form is correct? (play)", "options": ["playing", "plaing", "playying", "plaiing"], "answer": "playing", "speak": false, "explain": "Einfach **-ing** anhängen: play → play**ing**. (Das y bleibt.)" },
     { "type": "choice", "q": "Are you watching TV? – No, ___.", "options": ["I'm not", "I don't", "I amn't", "I isn't"], "answer": "I'm not", "explain": "Kurzantwort: No, I**'m not**." },
-    { "type": "input", "q": "She is ___ a book. (read)", "answer": "reading", "hint": "read" },
-    { "type": "input", "q": "We are ___ a cake. (make)", "answer": "making", "hint": "make" },
-    { "type": "input", "q": "He is ___ on the chair. (sit)", "answer": "sitting", "hint": "sit" },
-    { "type": "input", "q": "I ___ listening to music.", "answer": "am", "hint": "am / is / are" },
-    { "type": "input", "q": "They ___ eating lunch.", "answer": "are", "hint": "am / is / are" },
-    { "type": "input", "q": "The baby ___ sleeping.", "answer": "is", "hint": "am / is / are" },
-    { "type": "input", "q": "My dad is ___ the car. (wash)", "answer": "washing", "hint": "wash" },
-    { "type": "order", "de": "Ich lese gerade ein Buch.", "answer": "I am reading a book.", "accept": ["I'm reading a book."] },
-    { "type": "order", "de": "Was machst du gerade?", "answer": "What are you doing?" },
-    { "type": "order", "de": "Die Kinder spielen im Park.", "answer": "The children are playing in the park." }
+    { "type": "input", "q": "She is ___ a book. (read)", "answer": "reading", "hint": "read", "explain": "Einfach **-ing** anhängen: read → read**ing**." },
+    { "type": "input", "q": "We are ___ a cake. (make)", "answer": "making", "hint": "make", "explain": "Stummes e am Ende fällt weg: make → mak**ing**." },
+    { "type": "input", "q": "He is ___ on the chair. (sit)", "answer": "sitting", "hint": "sit", "explain": "Kurzer Vokal + ein Konsonant am Ende → der Konsonant wird verdoppelt: sit → si**tt**ing." },
+    { "type": "input", "q": "I ___ listening to music.", "answer": "am", "hint": "am / is / are", "explain": "I → **am** + -ing." },
+    { "type": "input", "q": "They ___ eating lunch.", "answer": "are", "hint": "am / is / are", "explain": "they → **are** + -ing." },
+    { "type": "input", "q": "The baby ___ sleeping.", "answer": "is", "hint": "am / is / are", "explain": "The baby = it → **is** + -ing." },
+    { "type": "input", "q": "My dad is ___ the car. (wash)", "answer": "washing", "hint": "wash", "explain": "Einfach **-ing** anhängen: wash → wash**ing**." },
+    { "type": "order", "de": "Ich lese gerade ein Buch.", "answer": "I am reading a book.", "accept": ["I'm reading a book."], "explain": "Gerade = **am/is/are + -ing**: I **am reading** a book." },
+    { "type": "order", "de": "Was machst du gerade?", "answer": "What are you doing?", "explain": "Frage: Fragewort + **are** + you + do**ing**?" },
+    { "type": "order", "de": "Die Kinder spielen im Park.", "answer": "The children are playing in the park.", "explain": "The children = they → **are playing**." }
   ]
 }

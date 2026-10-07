@@ -16,23 +16,23 @@
     { "p": "Bei **am/is/are**, **can** und **have got** brauchst du kein do: Are you …? Can you …? Have you got …?" }
   ],
   "exercises": [
-    { "type": "choice", "q": "___ you like chocolate?", "options": ["Do", "Does", "Are", "Is"], "answer": "Do" },
+    { "type": "choice", "q": "___ you like chocolate?", "options": ["Do", "Does", "Are", "Is"], "answer": "Do", "explain": "Frage mit you → **Do** you …?" },
     { "type": "choice", "q": "___ your brother play football?", "options": ["Does", "Do", "Is", "Has"], "answer": "Does", "explain": "your brother = he → **Does**." },
-    { "type": "choice", "q": "___ they live in a house?", "options": ["Do", "Does", "Are", "Is"], "answer": "Do" },
+    { "type": "choice", "q": "___ they live in a house?", "options": ["Do", "Does", "Are", "Is"], "answer": "Do", "explain": "Frage mit they → **Do** they …?" },
     { "type": "choice", "q": "Does she ___ to school by bike?", "options": ["go", "goes", "going", "went"], "answer": "go", "explain": "Nach Does: Verb **ohne -s**." },
-    { "type": "choice", "q": "Do you like dogs? – Yes, I ___.", "options": ["do", "does", "am", "like"], "answer": "do" },
-    { "type": "choice", "q": "Does Tom play the guitar? – No, he ___.", "options": ["doesn't", "don't", "isn't", "not"], "answer": "doesn't" },
-    { "type": "choice", "q": "Where ___ you live?", "options": ["do", "does", "are", "is"], "answer": "do" },
-    { "type": "choice", "q": "What ___ your sister like?", "options": ["does", "do", "is", "has"], "answer": "does" },
+    { "type": "choice", "q": "Do you like dogs? – Yes, I ___.", "options": ["do", "does", "am", "like"], "answer": "do", "explain": "Kurze Antwort: Do you …? – Yes, I **do**." },
+    { "type": "choice", "q": "Does Tom play the guitar? – No, he ___.", "options": ["doesn't", "don't", "isn't", "not"], "answer": "doesn't", "explain": "Kurze Antwort: Does Tom …? – No, he **doesn't**." },
+    { "type": "choice", "q": "Where ___ you live?", "options": ["do", "does", "are", "is"], "answer": "do", "explain": "Fragewort + **do** + you: Where **do** you live?" },
+    { "type": "choice", "q": "What ___ your sister like?", "options": ["does", "do", "is", "has"], "answer": "does", "explain": "your sister = she → **does**: What does your sister like?" },
     { "type": "choice", "q": "___ you ten years old?", "options": ["Are", "Do", "Does", "Have"], "answer": "Are", "explain": "Bei am/is/are brauchst du **kein** do: Are you ten?" },
-    { "type": "choice", "q": "Welche Frage ist richtig?", "options": ["Does he like apples?", "Does he likes apples?", "Do he like apples?", "Likes he apples?"], "answer": "Does he like apples?", "speak": false },
-    { "type": "input", "q": "___ your parents work at the weekend?", "answer": "Do", "hint": "Do / Does" },
-    { "type": "input", "q": "___ Lisa have a brother?", "answer": "Does", "hint": "Do / Does" },
-    { "type": "input", "q": "Does your cat ___ fish? (like)", "answer": "like", "hint": "like" },
-    { "type": "input", "q": "Do you play tennis? – No, I ___.", "answer": "don't", "hint": "Kurzantwort" },
-    { "type": "input", "q": "Does he speak English? – Yes, he ___.", "answer": "does", "hint": "Kurzantwort" },
-    { "type": "order", "de": "Magst du Katzen?", "answer": "Do you like cats?" },
-    { "type": "order", "de": "Spielt sie Klavier?", "answer": "Does she play the piano?" },
-    { "type": "order", "de": "Wo wohnst du?", "answer": "Where do you live?" }
+    { "type": "choice", "q": "Welche Frage ist richtig?", "options": ["Does he like apples?", "Does he likes apples?", "Do he like apples?", "Likes he apples?"], "answer": "Does he like apples?", "speak": false, "explain": "he → **Does**, und danach die Grundform ohne -s: Does he **like** …?" },
+    { "type": "input", "q": "___ your parents work at the weekend?", "answer": "Do", "hint": "Do / Does", "explain": "your parents = they → **Do**." },
+    { "type": "input", "q": "___ Lisa have a brother?", "answer": "Does", "hint": "Do / Does", "explain": "Lisa = she → **Does**." },
+    { "type": "input", "q": "Does your cat ___ fish? (like)", "answer": "like", "hint": "like", "explain": "Nach does kommt die Grundform ohne -s: **like**." },
+    { "type": "input", "q": "Do you play tennis? – No, I ___.", "answer": "don't", "hint": "Kurzantwort", "explain": "Kurze Antwort: Do you …? – No, I **don't**." },
+    { "type": "input", "q": "Does he speak English? – Yes, he ___.", "answer": "does", "hint": "Kurzantwort", "explain": "Kurze Antwort: Does he …? – Yes, he **does**." },
+    { "type": "order", "de": "Magst du Katzen?", "answer": "Do you like cats?", "explain": "**Do** + you + like + cats?" },
+    { "type": "order", "de": "Spielt sie Klavier?", "answer": "Does she play the piano?", "explain": "she → **Does** + she + play (ohne -s) + the piano?" },
+    { "type": "order", "de": "Wo wohnst du?", "answer": "Where do you live?", "explain": "Fragewort zuerst: **Where** + do + you + live?" }
   ]
 }

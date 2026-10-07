@@ -41,9 +41,9 @@
   ],
   "exercises": [
     { "type": "choice", "q": "My birthday is ___ the 5th of June.", "options": ["on", "in", "at"], "answer": "on", "explain": "Vor einem Datum steht **on**." },
-    { "type": "choice", "q": "How do you write 3rd?", "options": ["third", "threeth", "thirdth", "thrid"], "answer": "third", "speak": false },
-    { "type": "choice", "q": "How do you write 2nd?", "options": ["second", "twoth", "twond", "secont"], "answer": "second", "speak": false },
-    { "type": "order", "de": "Wann hast du Geburtstag?", "answer": "When is your birthday?" },
-    { "type": "order", "de": "Mein Geburtstag ist am ersten April.", "answer": "My birthday is on the first of April." }
+    { "type": "choice", "q": "How do you write 3rd?", "options": ["third", "threeth", "thirdth", "thrid"], "answer": "third", "speak": false, "explain": "3rd = **third** (wie three, aber das th kommt nach vorn: th-ir-d)." },
+    { "type": "choice", "q": "How do you write 2nd?", "options": ["second", "twoth", "twond", "secont"], "answer": "second", "speak": false, "explain": "2nd = **second**. Die ersten drei sind besonders: first, second, third." },
+    { "type": "order", "de": "Wann hast du Geburtstag?", "answer": "When is your birthday?", "explain": "Wann? = **When** + is + your birthday?" },
+    { "type": "order", "de": "Mein Geburtstag ist am ersten April.", "answer": "My birthday is on the first of April.", "explain": "Datum: **on the first of** April." }
   ]
 }

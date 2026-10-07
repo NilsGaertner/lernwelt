@@ -6,10 +6,11 @@ import { localDay, nowIso, randomId } from './util.js';
 
 /** Möglicher Inhalt in Minuten Medienzeit, mit Wahrscheinlichkeit. */
 export const LOOT = [
-  { minutes: 5, chance: 0.5 },
+  { minutes: 5, chance: 0.49 },
   { minutes: 10, chance: 0.3 },
   { minutes: 15, chance: 0.15 },
   { minutes: 20, chance: 0.05 },
+  { minutes: 30, chance: 0.01 }, // der Hauptgewinn
 ];
 
 function roll() {

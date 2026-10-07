@@ -20,21 +20,21 @@
     { "p": "Uhrzeit fragen: **What time is it?** — Um … Uhr: **at** seven o'clock." }
   ],
   "exercises": [
-    { "type": "choice", "q": "5:00", "options": ["It's five o'clock.", "It's half past five.", "It's quarter past five.", "It's five past."], "answer": "It's five o'clock.", "task": "Wie spät ist es?", "speak": false },
+    { "type": "choice", "q": "5:00", "options": ["It's five o'clock.", "It's half past five.", "It's quarter past five.", "It's five past."], "answer": "It's five o'clock.", "task": "Wie spät ist es?", "speak": false, "explain": "Volle Stunde = **o'clock**: 5:00 → It's five o'clock." },
     { "type": "choice", "q": "7:30", "options": ["It's half past seven.", "It's half past eight.", "It's half seven o'clock.", "It's quarter to eight."], "answer": "It's half past seven.", "task": "Wie spät ist es?", "speak": false, "explain": "7:30 = halb acht auf Deutsch – aber **half past seven** auf Englisch!" },
-    { "type": "choice", "q": "2:15", "options": ["It's quarter past two.", "It's quarter to two.", "It's half past two.", "It's fifteen to two."], "answer": "It's quarter past two.", "task": "Wie spät ist es?", "speak": false },
+    { "type": "choice", "q": "2:15", "options": ["It's quarter past two.", "It's quarter to two.", "It's half past two.", "It's fifteen to two."], "answer": "It's quarter past two.", "task": "Wie spät ist es?", "speak": false, "explain": ":15 = **quarter past** (Viertel nach) die Stunde: quarter past two." },
     { "type": "choice", "q": "9:45", "options": ["It's quarter to ten.", "It's quarter past nine.", "It's quarter to nine.", "It's half past nine."], "answer": "It's quarter to ten.", "task": "Wie spät ist es?", "speak": false, "explain": "9:45 → 15 Minuten **vor** zehn → quarter **to** ten." },
-    { "type": "choice", "q": "4:10", "options": ["It's ten past four.", "It's ten to four.", "It's four past ten.", "It's ten past five."], "answer": "It's ten past four.", "task": "Wie spät ist es?", "speak": false },
-    { "type": "choice", "q": "11:55", "options": ["It's five to twelve.", "It's five past eleven.", "It's five to eleven.", "It's half past eleven."], "answer": "It's five to twelve.", "task": "Wie spät ist es?", "speak": false },
-    { "type": "choice", "q": "It's half past four.", "options": ["4:30", "3:30", "4:15", "4:45"], "answer": "4:30", "task": "Welche Uhrzeit ist gemeint?", "speak": false },
-    { "type": "choice", "q": "It's quarter to six.", "options": ["5:45", "6:45", "6:15", "5:15"], "answer": "5:45", "task": "Welche Uhrzeit ist gemeint?", "speak": false },
-    { "type": "choice", "q": "It's twenty past eight.", "options": ["8:20", "7:40", "8:40", "20:08"], "answer": "8:20", "task": "Welche Uhrzeit ist gemeint?", "speak": false },
-    { "type": "choice", "q": "halb neun", "options": ["half past eight", "half past nine", "half to nine", "half nine past"], "answer": "half past eight", "task": "Was heißt das auf Englisch?", "speak": false },
-    { "type": "input", "q": "6:00 → It's six ___.", "answer": "o'clock", "accept": ["oclock", "o clock"], "hint": "volle Stunde", "speak": false },
-    { "type": "input", "q": "10:30 → It's ___ past ten.", "answer": "half", "hint": "halb", "speak": false },
-    { "type": "input", "q": "1:15 → It's quarter ___ one.", "answer": "past", "hint": "past / to", "speak": false },
-    { "type": "input", "q": "3:45 → It's quarter ___ four.", "answer": "to", "hint": "past / to", "speak": false },
-    { "type": "order", "de": "Wie spät ist es?", "answer": "What time is it?" },
-    { "type": "order", "de": "Ich stehe um sieben Uhr auf.", "answer": "I get up at seven o'clock." }
+    { "type": "choice", "q": "4:10", "options": ["It's ten past four.", "It's ten to four.", "It's four past ten.", "It's ten past five."], "answer": "It's ten past four.", "task": "Wie spät ist es?", "speak": false, "explain": "Bis :30 sagt man **past** (nach): 10 Minuten nach 4 = ten past four." },
+    { "type": "choice", "q": "11:55", "options": ["It's five to twelve.", "It's five past eleven.", "It's five to eleven.", "It's half past eleven."], "answer": "It's five to twelve.", "task": "Wie spät ist es?", "speak": false, "explain": "Ab :31 sagt man **to** (vor) die **nächste** Stunde: 5 Minuten vor 12 = five to twelve." },
+    { "type": "choice", "q": "It's half past four.", "options": ["4:30", "3:30", "4:15", "4:45"], "answer": "4:30", "task": "Welche Uhrzeit ist gemeint?", "speak": false, "explain": "half past four = halb **nach** vier = **4:30**. Achtung: Im Deutschen sagt man „halb fünf“!" },
+    { "type": "choice", "q": "It's quarter to six.", "options": ["5:45", "6:45", "6:15", "5:15"], "answer": "5:45", "task": "Welche Uhrzeit ist gemeint?", "speak": false, "explain": "quarter to six = Viertel **vor** sechs = **5:45**." },
+    { "type": "choice", "q": "It's twenty past eight.", "options": ["8:20", "7:40", "8:40", "20:08"], "answer": "8:20", "task": "Welche Uhrzeit ist gemeint?", "speak": false, "explain": "twenty past eight = 20 Minuten **nach** acht = **8:20**." },
+    { "type": "choice", "q": "halb neun", "options": ["half past eight", "half past nine", "half to nine", "half nine past"], "answer": "half past eight", "task": "Was heißt das auf Englisch?", "speak": false, "explain": "„halb neun“ ist eine halbe Stunde **nach acht** → **half past eight**." },
+    { "type": "input", "q": "6:00 → It's six ___.", "answer": "o'clock", "accept": ["oclock", "o clock"], "hint": "volle Stunde", "speak": false, "explain": "Volle Stunde = **o'clock** (mit Apostroph)." },
+    { "type": "input", "q": "10:30 → It's ___ past ten.", "answer": "half", "hint": "halb", "speak": false, "explain": ":30 = **half** past." },
+    { "type": "input", "q": "1:15 → It's quarter ___ one.", "answer": "past", "hint": "past / to", "speak": false, "explain": ":15 = quarter **past** (nach)." },
+    { "type": "input", "q": "3:45 → It's quarter ___ four.", "answer": "to", "hint": "past / to", "speak": false, "explain": ":45 = quarter **to** (vor) der nächsten Stunde." },
+    { "type": "order", "de": "Wie spät ist es?", "answer": "What time is it?", "explain": "Wie spät ist es? = **What time** is it?" },
+    { "type": "order", "de": "Ich stehe um sieben Uhr auf.", "answer": "I get up at seven o'clock.", "explain": "Uhrzeit mit **at**: I get up **at** seven o'clock." }
   ]
 }

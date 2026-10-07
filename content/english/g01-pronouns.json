@@ -30,14 +30,14 @@
     { "type": "choice", "q": "Mr Smith is our teacher. ___ is from London.", "options": ["He", "She", "It", "They"], "answer": "He", "explain": "Mr = Herr → **he**." },
     { "type": "choice", "q": "Mrs Brown is nice. ___ has got a cat.", "options": ["She", "He", "It", "They"], "answer": "She", "explain": "Mrs = Frau → **she**." },
     { "type": "choice", "q": "The books are on the desk. ___ are old.", "options": ["They", "It", "We", "She"], "answer": "They", "explain": "Mehrere Bücher → **they**." },
-    { "type": "choice", "task": "Was heißt das auf Englisch?", "q": "ich", "options": ["I", "me", "my", "it"], "answer": "I", "speak": false },
-    { "type": "choice", "task": "Was heißt das auf Englisch?", "q": "wir", "options": ["we", "you", "they", "us"], "answer": "we", "speak": false },
-    { "type": "choice", "task": "Was heißt das auf Englisch?", "q": "sie (mehrere Personen)", "options": ["they", "she", "we", "it"], "answer": "they", "speak": false },
-    { "type": "input", "q": "Anna is twelve. ___ is in my class.", "answer": "She", "hint": "Anna → ?" },
-    { "type": "input", "q": "My bike is blue. ___ is fast.", "answer": "It", "hint": "Fahrrad → ?" },
-    { "type": "input", "q": "Paul and Max are my brothers. ___ like pizza.", "answer": "They", "hint": "Paul und Max → ?" },
-    { "type": "input", "q": "My name is Leon. ___ am ten years old.", "answer": "I", "hint": "ich", "strict": true },
-    { "type": "order", "de": "Er ist mein Freund.", "answer": "He is my friend." },
-    { "type": "order", "de": "Wir sind in Klasse 5.", "answer": "We are in class 5." }
+    { "type": "choice", "task": "Was heißt das auf Englisch?", "q": "ich", "options": ["I", "me", "my", "it"], "answer": "I", "speak": false, "explain": "ich = **I** – und das schreibt man im Englischen **immer groß**, auch mitten im Satz." },
+    { "type": "choice", "task": "Was heißt das auf Englisch?", "q": "wir", "options": ["we", "you", "they", "us"], "answer": "we", "speak": false, "explain": "wir = **we**. (us heißt „uns“.)" },
+    { "type": "choice", "task": "Was heißt das auf Englisch?", "q": "sie (mehrere Personen)", "options": ["they", "she", "we", "it"], "answer": "they", "speak": false, "explain": "Mehrere Personen oder Dinge = **they**. „she“ ist nur eine Frau oder ein Mädchen." },
+    { "type": "input", "q": "Anna is twelve. ___ is in my class.", "answer": "She", "hint": "Anna → ?", "explain": "Anna ist ein Mädchen → **she**. Am Satzanfang groß: **She**." },
+    { "type": "input", "q": "My bike is blue. ___ is fast.", "answer": "It", "hint": "Fahrrad → ?", "explain": "Das Fahrrad ist ein Ding → **it**. Am Satzanfang groß: **It**." },
+    { "type": "input", "q": "Paul and Max are my brothers. ___ like pizza.", "answer": "They", "hint": "Paul und Max → ?", "explain": "Paul und Max = mehrere Personen → **they**. Am Satzanfang groß: **They**." },
+    { "type": "input", "q": "My name is Leon. ___ am ten years old.", "answer": "I", "hint": "ich", "strict": true, "explain": "Leon spricht über sich selbst → **I** (und dazu passt **am**)." },
+    { "type": "order", "de": "Er ist mein Freund.", "answer": "He is my friend.", "explain": "Wie im Deutschen: **He** (er) + **is** (ist) + my friend." },
+    { "type": "order", "de": "Wir sind in Klasse 5.", "answer": "We are in class 5.", "explain": "**We** (wir) + **are** (sind) + in class 5." }
   ]
 }

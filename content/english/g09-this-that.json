@@ -15,19 +15,19 @@
     { "tip": "Nach **these** und **those** kommt **are**: These **are** my friends." }
   ],
   "exercises": [
-    { "type": "choice", "q": "___ is my book. (hier, eins)", "options": ["This", "These", "That", "Those"], "answer": "This", "speak": false },
-    { "type": "choice", "q": "___ are my sisters. (hier, mehrere)", "options": ["These", "This", "Those", "That"], "answer": "These", "speak": false },
+    { "type": "choice", "q": "___ is my book. (hier, eins)", "options": ["This", "These", "That", "Those"], "answer": "This", "speak": false, "explain": "hier + eins = **This**." },
+    { "type": "choice", "q": "___ are my sisters. (hier, mehrere)", "options": ["These", "This", "Those", "That"], "answer": "These", "speak": false, "explain": "hier + mehrere = **These**." },
     { "type": "choice", "q": "Look at ___ house over there!", "options": ["that", "this", "these", "those"], "answer": "that", "explain": "over there = dort drüben, eins → **that**." },
     { "type": "choice", "q": "Can you see ___ birds over there?", "options": ["those", "these", "that", "this"], "answer": "those", "explain": "dort drüben, mehrere → **those**." },
-    { "type": "choice", "q": "___ apples here are very good.", "options": ["These", "This", "That", "Those"], "answer": "These" },
-    { "type": "choice", "q": "Is ___ your phone here in my hand?", "options": ["this", "these", "those", "that"], "answer": "this" },
+    { "type": "choice", "q": "___ apples here are very good.", "options": ["These", "This", "That", "Those"], "answer": "These", "explain": "here (hier) + apples (mehrere) = **These**." },
+    { "type": "choice", "q": "Is ___ your phone here in my hand?", "options": ["this", "these", "those", "that"], "answer": "this", "explain": "in meiner Hand = hier, ein Handy → **this**." },
     { "type": "choice", "q": "These ___ my new shoes.", "options": ["are", "is", "am"], "answer": "are", "explain": "Nach these kommt **are**." },
-    { "type": "choice", "q": "That ___ my teacher over there.", "options": ["is", "are", "am"], "answer": "is" },
-    { "type": "input", "q": "___ is my cat. (hier, eins)", "answer": "This", "hint": "this / that / these / those", "speak": false },
-    { "type": "input", "q": "___ are my friends. (hier, mehrere)", "answer": "These", "hint": "this / that / these / those", "speak": false },
-    { "type": "input", "q": "What's ___ over there? (dort, eins)", "answer": "that", "hint": "this / that / these / those", "speak": false },
-    { "type": "input", "q": "Are ___ your trainers over there? (dort, mehrere)", "answer": "those", "hint": "this / that / these / those", "speak": false },
-    { "type": "order", "de": "Das hier sind meine Bücher.", "answer": "These are my books." },
-    { "type": "order", "de": "Ist das dort dein Hund?", "answer": "Is that your dog?" }
+    { "type": "choice", "q": "That ___ my teacher over there.", "options": ["is", "are", "am"], "answer": "is", "explain": "That = ein Ding/eine Person → **is**." },
+    { "type": "input", "q": "___ is my cat. (hier, eins)", "answer": "This", "hint": "this / that / these / those", "speak": false, "explain": "hier + eins = **This**." },
+    { "type": "input", "q": "___ are my friends. (hier, mehrere)", "answer": "These", "hint": "this / that / these / those", "speak": false, "explain": "hier + mehrere = **These**." },
+    { "type": "input", "q": "What's ___ over there? (dort, eins)", "answer": "that", "hint": "this / that / these / those", "speak": false, "explain": "dort + eins = **that**." },
+    { "type": "input", "q": "Are ___ your trainers over there? (dort, mehrere)", "answer": "those", "hint": "this / that / these / those", "speak": false, "explain": "dort + mehrere = **those**." },
+    { "type": "order", "de": "Das hier sind meine Bücher.", "answer": "These are my books.", "explain": "hier + mehrere Bücher → **These are** my books." },
+    { "type": "order", "de": "Ist das dort dein Hund?", "answer": "Is that your dog?", "explain": "dort + ein Hund → **that**. Frage: **Is that** your dog?" }
   ]
 }
