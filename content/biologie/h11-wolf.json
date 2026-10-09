@@ -1,0 +1,41 @@
+{
+  "id": "vom-wolf",
+  "line": "wolf",
+  "order": 1,
+  "title": "Vom Wolf zum Hund",
+  "subtitle": "Rudel und Körpersprache",
+  "icon": "🐺",
+  "card": "Wusstest du? Der Hund ist das älteste Haustier. Menschen leben schon seit vielen tausend Jahren mit Hunden zusammen.",
+  "explain": [
+    { "p": "Der **Wolf** ist der **Stammvater** aller Hunde. Vor vielen tausend Jahren haben Menschen Wölfe gezähmt. Aus ihnen wurden unsere Hunde. Der Hund ist das **älteste Haustier** des Menschen." },
+    { "p": "Wölfe leben in einer Gruppe, dem **Rudel**. Im Rudel gibt es eine **Rangordnung**: Jeder Wolf weiß, wer über ihm steht und wer unter ihm." },
+    { "p": "Mit seiner **Körpersprache** zeigt ein Wolf – und genauso ein Hund –, in welcher Stimmung er gerade ist:" },
+    { "table": { "head": ["Stimmung", "So sieht es aus"], "rows": [
+      ["**Drohen**", "Zähne fletschen, Nackenfell sträuben, knurren"],
+      ["**Imponieren**", "sich groß machen, steif und aufrecht stehen, Schwanz hoch"],
+      ["**Überlegenheit**", "der ranghöhere Wolf steht aufrecht über dem anderen, Kopf und Schwanz oben"],
+      ["**Demutsverhalten**", "sich klein machen und ducken, Ohren anlegen, Schwanz einziehen, die Schnauze des Ranghöheren lecken, sich auf den Rücken legen"]
+    ] } },
+    { "tip": "Für Wölfe in freier Wildbahn ist die Körpersprache sehr wichtig: So klären sie die **Rangordnung im Rudel**, ohne zu kämpfen. Zeigt ein Wolf Demut, greift der andere nicht an. Keiner wird verletzt, und das Rudel kann gemeinsam jagen." },
+    { "p": "Ein Hund ist wie der Wolf ein **Rudeltier**. Wächst er in einer Familie auf, ist die **Familie sein Rudel**. Darum sucht er immer die Nähe seiner Menschen." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wer ist der Stammvater unserer Hunde?", "options": ["der Wolf", "der Fuchs", "der Bär", "der Luchs"], "answer": "der Wolf" },
+    { "type": "choice", "q": "Welches ist das älteste Haustier des Menschen?", "options": ["der Hund", "die Katze", "das Pferd", "das Huhn"], "answer": "der Hund" },
+    { "type": "choice", "q": "Wie nennt man eine Gruppe von Wölfen?", "options": ["Rudel", "Herde", "Schwarm", "Kolonie"], "answer": "Rudel" },
+    { "type": "choice", "q": "Wodurch weiß im Rudel jeder Wolf, wer über ihm steht?", "options": ["durch die Rangordnung", "durch das Alter allein", "durch die Fellfarbe", "durch das Futter"], "answer": "durch die Rangordnung" },
+    { "type": "choice", "q": "Ein Wolf fletscht die Zähne, sträubt das Nackenfell und knurrt. Was zeigt er?", "options": ["Drohen", "Demutsverhalten", "Freude", "Müdigkeit"], "answer": "Drohen" },
+    { "type": "choice", "q": "Ein Wolf duckt sich, legt die Ohren an und zieht den Schwanz ein. Was zeigt er?", "options": ["Demutsverhalten", "Drohen", "Imponieren", "Überlegenheit"], "answer": "Demutsverhalten" },
+    { "type": "choice", "q": "Ein Wolf legt sich vor einem ranghöheren Wolf auf den Rücken. Was zeigt er?", "options": ["Demutsverhalten", "Drohen", "Imponieren", "Überlegenheit"], "answer": "Demutsverhalten", "explain": "Wer sich auf den Rücken legt, zeigt: „Du bist stärker, ich will nicht kämpfen.“" },
+    { "type": "choice", "q": "Ein junger Wolf leckt einem ranghöheren Wolf die Schnauze. Was zeigt er?", "options": ["Demutsverhalten", "Drohen", "Imponieren", "Angriff"], "answer": "Demutsverhalten" },
+    { "type": "choice", "q": "Ein Wolf macht sich groß, steht steif da und hält den Schwanz hoch. Was zeigt er?", "options": ["Imponieren", "Demutsverhalten", "Angst", "Müdigkeit"], "answer": "Imponieren" },
+    { "type": "choice", "q": "Was passiert meistens, wenn ein Wolf einem ranghöheren Wolf Demut zeigt?", "options": ["Der ranghöhere Wolf greift nicht an.", "Die beiden kämpfen.", "Er muss das Rudel verlassen.", "Er wird der neue Anführer."], "answer": "Der ranghöhere Wolf greift nicht an." },
+    { "type": "choice", "q": "Warum ist die Körpersprache für Wölfe in freier Wildbahn so wichtig?", "options": ["Sie klären die Rangordnung, ohne zu kämpfen und sich zu verletzen.", "Damit sie Beute anlocken können.", "Damit Menschen sie verstehen.", "Damit sie besser riechen können."], "answer": "Sie klären die Rangordnung, ohne zu kämpfen und sich zu verletzen.", "explain": "Verletzte Wölfe könnten nicht mehr gut jagen. Darum ist es wichtig, dass das Rudel ohne Kampf auskommt." },
+    { "type": "choice", "q": "Warum sucht ein Hund, der in einer Familie aufwächst, immer die Nähe seiner Menschen?", "options": ["Die Familie ist sein Rudel, denn Hunde sind Rudeltiere.", "Er hat Angst vor anderen Hunden.", "Er will nur gefüttert werden.", "Er kann nicht allein laufen."], "answer": "Die Familie ist sein Rudel, denn Hunde sind Rudeltiere." },
+    { "type": "choice", "q": "Ein Hund zieht den Schwanz ein und legt die Ohren an. Wie fühlt er sich vermutlich?", "options": ["ängstlich und unterlegen", "mutig und stark", "wütend", "überlegen"], "answer": "ängstlich und unterlegen", "explain": "Das ist Demutsverhalten – wie beim Wolf." },
+    { "type": "input", "q": "Wölfe leben in einer Gruppe, dem ___.", "answer": "Rudel" },
+    { "type": "input", "q": "Der ___ ist der Stammvater unserer Hunde.", "answer": "Wolf" },
+    { "type": "input", "q": "Im Rudel gibt es eine ___: Jeder weiß, wer über ihm steht.", "answer": "Rangordnung" },
+    { "type": "input", "q": "Hunde und Wölfe leben in Gruppen. Sie sind ___.", "answer": "Rudeltiere", "accept": ["Rudeltier"] }
+  ]
+}

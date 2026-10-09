@@ -1,0 +1,13 @@
+{
+  "id": "biologie",
+  "name": "Biologie",
+  "icon": "🐾",
+  "order": 4,
+  "lines": [
+    { "id": "hund", "name": "Hund-Linie", "short": "Hund", "color": "#9A5B1E" },
+    { "id": "wolf", "name": "Wolf-Linie", "short": "Wolf", "color": "#546E7A" }
+  ],
+  "blitz": [
+    { "id": "hunde", "title": "Hunde-Blitz", "icon": "⚡", "subtitle": "Körper, Gebiss, Wolf und Welpen", "types": ["choice"] }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "hunde-helfen",
+  "line": "hund",
+  "order": 1,
+  "title": "Hunde helfen dem Menschen",
+  "subtitle": "Aufgaben und Sinne",
+  "icon": "🦮",
+  "card": "Wusstest du? Die Riechschleimhaut eines Hundes ist etwa 20-mal so groß wie die eines Menschen.",
+  "explain": [
+    { "p": "Hunde sind treue **Begleiter des Menschen**. Viele Hunde haben auch eine wichtige Aufgabe:" },
+    { "table": { "head": ["Hund", "Aufgabe"], "rows": [
+      ["**Blindenhund**", "führt blinde Menschen sicher und warnt vor Hindernissen"],
+      ["**Spürhund**", "sucht mit der Nase nach Menschen oder Gegenständen, z. B. für die Polizei"],
+      ["**Hütehund**", "hilft dem Hirten, die Schafe zu hüten"],
+      ["**Wachhund**", "bewacht Haus und Grundstück und meldet Fremde durch Bellen"]
+    ] } },
+    { "p": "Gerüche, Geräusche und Licht sind **Reize** aus der Umwelt. Sie werden von den **Sinnesorganen** aufgenommen: Die **Nase** riecht, das **Ohr** hört, das **Auge** sieht." },
+    { "tip": "Der Hund riecht viel besser als der Mensch. Darum ist er ein **Nasentier**. Er hört auch sehr gut, sogar sehr hohe Töne, die wir nicht mehr hören. Darum ist er auch ein **Ohrentier**." },
+    { "p": "Gerochen wird mit der **Riechschleimhaut** in der Nase. Je größer sie ist, desto besser riecht ein Tier:" },
+    { "table": { "head": ["Tier", "Riechschleimhaut"], "rows": [["Hund", "85 cm²"], ["Katze", "20 cm²"], ["Kaninchen", "9 cm²"], ["Mensch", "4 cm²"]] } },
+    { "p": "**Sehen** kann der Hund dagegen schlechter als der Mensch: Er sieht nicht so scharf und erkennt Farben schlechter." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Ein Hund führt einen blinden Menschen sicher über die Straße. Wie nennt man ihn?", "options": ["Blindenhund", "Spürhund", "Hütehund", "Wachhund"], "answer": "Blindenhund" },
+    { "type": "choice", "q": "Die Polizei sucht mit einem Hund nach einem vermissten Kind. Wie nennt man so einen Hund?", "options": ["Spürhund", "Blindenhund", "Hütehund", "Wachhund"], "answer": "Spürhund", "explain": "Ein Spürhund findet Menschen und Gegenstände mit seiner feinen Nase." },
+    { "type": "choice", "q": "Ein Hund hilft einem Hirten, die Schafe zusammenzuhalten. Wie nennt man ihn?", "options": ["Hütehund", "Wachhund", "Spürhund", "Blindenhund"], "answer": "Hütehund" },
+    { "type": "choice", "q": "Ein Hund bewacht ein Grundstück und bellt, wenn Fremde kommen. Wie nennt man ihn?", "options": ["Wachhund", "Hütehund", "Blindenhund", "Spürhund"], "answer": "Wachhund" },
+    { "type": "choice", "q": "Mit welchem Sinnesorgan nimmt der Hund Gerüche auf?", "options": ["mit der Nase", "mit dem Ohr", "mit dem Auge", "mit der Zunge"], "answer": "mit der Nase" },
+    { "type": "choice", "q": "Warum nennt man den Hund ein Nasentier?", "options": ["Er kann sehr gut riechen.", "Er hat eine lange Nase.", "Seine Nase ist immer nass.", "Er schnüffelt gern."], "answer": "Er kann sehr gut riechen.", "explain": "Nasentier heißt: Der wichtigste Sinn des Hundes ist der Geruchssinn." },
+    { "type": "choice", "q": "Warum nennt man den Hund auch ein Ohrentier?", "options": ["Er hört sehr gut, sogar sehr hohe Töne.", "Er hat große Ohren.", "Er kann die Ohren bewegen.", "Er hört nur tiefe Töne."], "answer": "Er hört sehr gut, sogar sehr hohe Töne." },
+    { "type": "choice", "q": "Welcher Sinn ist beim Hund schlechter als beim Menschen?", "options": ["das Sehen", "das Riechen", "das Hören"], "answer": "das Sehen", "explain": "Hunde sehen nicht so scharf wie wir und erkennen Farben schlechter. Riechen und Hören können sie viel besser." },
+    { "type": "choice", "q": "Wie groß ist die Riechschleimhaut eines Hundes etwa?", "options": ["85 cm²", "4 cm²", "20 cm²", "9 cm²"], "answer": "85 cm²" },
+    { "type": "choice", "q": "Wie groß ist die Riechschleimhaut eines Menschen etwa?", "options": ["4 cm²", "85 cm²", "20 cm²", "40 cm²"], "answer": "4 cm²", "explain": "Der Mensch hat nur etwa 4 cm², der Hund etwa 85 cm² – mehr als 20-mal so viel." },
+    { "type": "choice", "q": "Welches Tier hat die größte Riechschleimhaut?", "options": ["der Hund", "die Katze", "das Kaninchen", "der Mensch"], "answer": "der Hund", "explain": "Hund 85 cm², Katze 20 cm², Kaninchen 9 cm², Mensch 4 cm²." },
+    { "type": "choice", "q": "Was sind Gerüche, Geräusche und Licht für den Körper?", "options": ["Reize aus der Umwelt", "Sinnesorgane", "Nahrung", "Knochen"], "answer": "Reize aus der Umwelt" },
+    { "type": "choice", "q": "Was sind Nase, Ohr und Auge?", "options": ["Sinnesorgane", "Reize", "Gelenke", "Zähne"], "answer": "Sinnesorgane" },
+    { "type": "choice", "q": "Lange bevor jemand an der Tür klingelt, bellt der Hund schon. Warum?", "options": ["Er hört die Schritte schon von Weitem.", "Er sieht durch die Tür.", "Er weiß, wann Besuch kommt.", "Er bellt einfach immer."], "answer": "Er hört die Schritte schon von Weitem." },
+    { "type": "input", "q": "Der Hund riecht sehr gut. Er ist ein ___.", "answer": "Nasentier" },
+    { "type": "input", "q": "Der Hund hört sehr gut. Er ist auch ein ___.", "answer": "Ohrentier" },
+    { "type": "input", "q": "Ein Hund, der Schafe hütet, heißt ___.", "answer": "Hütehund", "accept": ["Huetehund"] },
+    { "type": "input", "q": "Gerochen wird mit der ___ in der Nase.", "answer": "Riechschleimhaut" }
+  ]
+}

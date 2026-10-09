@@ -1,0 +1,42 @@
+{
+  "id": "welpen",
+  "line": "wolf",
+  "order": 3,
+  "title": "Welpen und Hundehaltung",
+  "subtitle": "Säugetier, Nesthocker, Pflege",
+  "icon": "🐶",
+  "card": "Wusstest du? Welpen kommen blind und taub zur Welt. Erst nach etwa 2 Wochen können sie sehen und hören.",
+  "explain": [
+    { "p": "Mit **6 bis 18 Monaten** ist eine **Hündin** zum ersten Mal bereit, sich mit einem Männchen, dem **Rüden**, zu paaren. Man sagt: Sie ist **läufig**." },
+    { "p": "Nach der **Paarung** wachsen im Bauch der Hündin **4 bis 10 Junge** heran. Das dauert etwa **63 Tage**, das ist die **Tragzeit**. In dieser Zeit ist die Hündin **trächtig**." },
+    { "p": "Die neugeborenen Hunde heißen **Welpen**. Sie sind von einer durchsichtigen Hülle umgeben, der **Fruchtblase**. Die Hündin zerreißt sie, frisst sie auf und leckt die Welpen trocken." },
+    { "tip": "Welpen sind bis etwa **2 Wochen** nach der Geburt **blind und taub** und völlig hilflos. Die Mutter muss sie versorgen. Solche Tiere heißen **Nesthocker**." },
+    { "p": "Die Welpen suchen die **Zitzen** der Mutter und trinken Milch. Dabei treten sie mit den Pfoten gegen ihren Bauch. So geben die **Milchdrüsen** Milch ab." },
+    { "tip": "Der Hund bringt **lebende Junge** zur Welt, und die Mutter **säugt** sie mit Milch. Darum gehört der Hund zu den **Säugetieren**." },
+    { "p": "**Hundehaltung:** Ein Hund ist von Natur aus ein ausdauernder Läufer. Er braucht viel **Bewegung**, Platz und Auslauf. Als Rudeltier braucht er jeden Tag **Beschäftigung** mit seiner Familie und eine gute **Erziehung**. Dazu kommen Futter, ein fester Schlafplatz und die Pflege von Fell, Pfoten, Augen und Ohren. Hundekot muss man wegräumen." },
+    { "p": "Ein Hund kostet auch Geld: Futter, Tierarzt, eine **Versicherung** und die **Hundesteuer**. Die Steuer zahlt man an die **Gemeinde**, oft 100 bis 200 € im Jahr." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wie lange dauert die Tragzeit beim Hund ungefähr?", "options": ["63 Tage", "9 Monate", "21 Tage", "1 Jahr"], "answer": "63 Tage", "explain": "Rund 2 Monate. Beim Menschen sind es etwa 9 Monate." },
+    { "type": "choice", "q": "Wie viele Junge können im Bauch einer Hündin heranwachsen?", "options": ["4 bis 10", "nur 1", "20 bis 30", "immer genau 2"], "answer": "4 bis 10" },
+    { "type": "choice", "q": "Wie nennt man das männliche Tier beim Hund?", "options": ["Rüde", "Hündin", "Welpe", "Hengst"], "answer": "Rüde" },
+    { "type": "choice", "q": "Wie nennt man neugeborene Hunde?", "options": ["Welpen", "Kälber", "Fohlen", "Küken"], "answer": "Welpen" },
+    { "type": "choice", "q": "Wie heißt die durchsichtige Hülle um einen neugeborenen Welpen?", "options": ["Fruchtblase", "Eierschale", "Milchdrüse", "Fellhülle"], "answer": "Fruchtblase" },
+    { "type": "choice", "q": "Was macht die Hündin mit der Fruchtblase?", "options": ["Sie zerreißt sie und frisst sie auf.", "Sie lässt sie liegen.", "Sie vergräbt sie.", "Sie trägt sie aus dem Nest."], "answer": "Sie zerreißt sie und frisst sie auf.", "explain": "Danach leckt sie die Welpen trocken." },
+    { "type": "choice", "q": "Warum nennt man Welpen Nesthocker?", "options": ["Sie sind nach der Geburt blind, taub und hilflos.", "Sie sitzen gern in Vogelnestern.", "Sie können gleich nach der Geburt laufen.", "Sie verlassen das Nest nach einem Tag."], "answer": "Sie sind nach der Geburt blind, taub und hilflos." },
+    { "type": "choice", "q": "Wie lange sind Welpen nach der Geburt blind und taub?", "options": ["etwa 2 Wochen", "etwa 2 Tage", "etwa 2 Monate", "ein ganzes Jahr"], "answer": "etwa 2 Wochen" },
+    { "type": "choice", "q": "Ein Fohlen kann schon kurz nach der Geburt sehen und laufen. Wie nennt man solche Tiere?", "options": ["Nestflüchter", "Nesthocker", "Rudeltiere", "Zehengänger"], "answer": "Nestflüchter", "explain": "Nestflüchter sind das Gegenteil von Nesthockern." },
+    { "type": "choice", "q": "Warum gehört der Hund zu den Säugetieren?", "options": ["Er bringt lebende Junge zur Welt, die von der Mutter Milch bekommen.", "Er hat vier Beine.", "Er hat einen Schwanz.", "Er legt Eier."], "answer": "Er bringt lebende Junge zur Welt, die von der Mutter Milch bekommen." },
+    { "type": "choice", "q": "Wie bringen die Welpen die Milchdrüsen dazu, Milch abzugeben?", "options": ["Sie treten mit den Pfoten gegen den Bauch der Mutter.", "Sie bellen laut.", "Sie schlafen viel.", "Sie lecken die Mutter ab."], "answer": "Sie treten mit den Pfoten gegen den Bauch der Mutter." },
+    { "type": "choice", "q": "Mit wie vielen Monaten ist eine Hündin zum ersten Mal läufig?", "options": ["mit 6 bis 18 Monaten", "mit 2 Monaten", "mit 5 Jahren", "gleich nach der Geburt"], "answer": "mit 6 bis 18 Monaten" },
+    { "type": "choice", "q": "Was braucht ein Hund jeden Tag, weil er ein Rudeltier ist?", "options": ["Beschäftigung mit seiner Familie", "einen großen Käfig", "viel Zeit allein", "nur Futter"], "answer": "Beschäftigung mit seiner Familie" },
+    { "type": "choice", "q": "Warum braucht ein Hund viel Auslauf?", "options": ["Er ist von Natur aus ein ausdauernder Läufer.", "Damit er nicht friert.", "Weil er sonst nicht frisst.", "Damit er abends nicht bellt."], "answer": "Er ist von Natur aus ein ausdauernder Läufer." },
+    { "type": "choice", "q": "An wen zahlt man die Hundesteuer?", "options": ["an die Gemeinde", "an den Tierarzt", "an den Züchter", "an die Schule"], "answer": "an die Gemeinde" },
+    { "type": "choice", "q": "Was gehört NICHT zur guten Haltung eines Hundes?", "options": ["ihn den ganzen Tag allein lassen", "das Fell bürsten", "Ohren und Augen sauber halten", "jeden Tag mit ihm spazieren gehen"], "answer": "ihn den ganzen Tag allein lassen", "explain": "Ein Hund ist ein Rudeltier und braucht seine Familie." },
+    { "type": "input", "q": "Die Zeit, in der die Welpen im Bauch der Mutter heranwachsen, heißt ___.", "answer": "Tragzeit" },
+    { "type": "input", "q": "Das männliche Tier beim Hund heißt ___.", "answer": "Rüde", "accept": ["Ruede"] },
+    { "type": "input", "q": "Welpen sind blind, taub und hilflos. Sie sind ___.", "answer": "Nesthocker" },
+    { "type": "input", "q": "Der Hund säugt seine Jungen mit Milch. Er ist ein ___.", "answer": "Säugetier", "accept": ["Saeugetier"] },
+    { "type": "input", "q": "Die Tragzeit beim Hund dauert etwa ___ Tage.", "answer": "63", "numeric": true }
+  ]
+}

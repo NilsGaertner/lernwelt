@@ -51,6 +51,10 @@
   --map-land: #e2dac8;
   --map-home: #c7b99c;
   --map-edge: #ffffff;
+  --bone: #ddcca5;
+  --bone-body: #dde5ee;
+  --tooth: #fffdf6;
+  --tooth-edge: #8a7f66;
   --font-display: 'Bungee', 'Arial Black', system-ui, sans-serif;
   --font-body: 'Lexend', system-ui, -apple-system, 'Segoe UI', sans-serif;
   color-scheme: light;
@@ -80,6 +84,10 @@
     --map-land: #4a5470;
     --map-home: #6b7596;
     --map-edge: #18223a;
+    --bone: #b9ad92;
+    --bone-body: #2a3654;
+    --tooth: #ece6d6;
+    --tooth-edge: #18223a;
     color-scheme: dark;
   }
 }
@@ -88,6 +96,7 @@
   --muted: #8795af; --rule: #2c3957; --go: #3ccf8a; --go-bg: #123526; --signal: #ff5a6e; --stop-bg: #3b1821;
   --star: #ffc23d; --star-ink: #ffdd94; --star-bg: #3a2c0c; --star-off: #5f6e96; --focus: #6aa8ff; color-scheme: dark;
   --map-water: #1b3552; --map-land: #4a5470; --map-home: #6b7596; --map-edge: #18223a;
+  --bone: #b9ad92; --bone-body: #2a3654; --tooth: #ece6d6; --tooth-edge: #18223a;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -409,6 +418,18 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 .geo-map .home { fill: var(--map-home); }
 .geo-map.colored .area.show { fill: var(--c); }
 .geo-map .area.mark { fill: var(--line); animation: map-pulse 1.4s ease-in-out infinite alternate; }
+/* Biologie-Bilder (z. B. Skelett): Knochen und Zähne statt Länder, Nummern nur im „Merke“ */
+.geo-map .bg { fill: var(--paper-2); }
+.geo-map .body { fill: var(--bone-body); }
+.geo-map .bone { fill: var(--bone); }
+.geo-map .tooth { fill: var(--tooth); stroke: var(--tooth-edge); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.geo-map.colored .area.show :is(.bone, .tooth) { fill: inherit; }
+.geo-map .area.mark :is(.bone, .tooth) { fill: var(--focus); } /* Linienfarbe wäre auf Beige oft zu blass */
+.geo-map .labels { display: none; }
+.geo-map.colored .labels { display: inline; }
+.geo-map .leader { stroke: var(--ink-2); stroke-width: 2; }
+.geo-map .badge { fill: var(--paper); stroke: var(--ink-2); stroke-width: 2.5; }
+.geo-map .labels text { font: 700 26px var(--font-body); text-anchor: middle; fill: var(--ink); }
 @keyframes map-pulse { from { opacity: 1; } to { opacity: 0.6; } }
 @media (prefers-reduced-motion: reduce) { .geo-map .area.mark { animation: none; } }
 .legend { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 16px; line-height: 1.4; }

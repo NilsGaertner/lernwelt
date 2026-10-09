@@ -1,0 +1,44 @@
+{
+  "id": "hunderassen",
+  "line": "wolf",
+  "order": 2,
+  "title": "Hunderassen",
+  "subtitle": "Hund ist nicht gleich Hund · Züchtung",
+  "icon": "🐕",
+  "card": "Wusstest du? Der Dackel heißt auch Dachshund, weil er Dachse aus ihrem Bau treiben sollte.",
+  "explain": [
+    { "p": "Es gibt heute mehrere hundert **Hunderassen**. Alle stammen vom Wolf ab. Trotzdem sehen sie sehr verschieden aus, weil der Mensch sie für bestimmte Aufgaben **gezüchtet** hat." },
+    { "table": { "head": ["Rasse", "Das ist typisch"], "rows": [
+      ["**Schäferhund**", "Hütehund, arbeitet auch als Polizei-, Spür- oder Blindenhund"],
+      ["**Collie**", "Hütehund aus Schottland mit langem Fell"],
+      ["**Dackel**", "kurze Beine, langer Körper: Jagdhund für Fuchs- und Dachsbaue"],
+      ["**Bernhardiner**", "groß und kräftig, war früher Rettungshund in den Schweizer Alpen"],
+      ["**Dogge**", "einer der größten Hunde der Welt"],
+      ["**Dalmatiner**", "weißes Fell mit schwarzen Punkten"],
+      ["**Mops**", "klein, mit kurzer Schnauze und faltigem Gesicht"]
+    ] } },
+    { "p": "**Züchtung** heißt: Der Mensch sucht Tiere mit erwünschten Merkmalen aus und lässt nur diese Junge bekommen. Die Jungen haben die Merkmale dann oft auch. Das macht man über viele Generationen immer wieder." },
+    { "tip": "Beispiel **Dackel**: Er sollte Füchse und Dachse aus ihren Bauen unter der Erde heraustreiben. Darum wählten die Züchter immer wieder Hunde mit **kurzen Beinen** und einem **langen, schmalen Körper** aus. So passt der Dackel in den Bau. Wichtig waren auch Mut und eine gute Nase." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Welche Rasse hat weißes Fell mit schwarzen Punkten?", "options": ["Dalmatiner", "Dackel", "Mops", "Collie"], "answer": "Dalmatiner" },
+    { "type": "choice", "q": "Welche Rasse wurde für die Jagd auf Füchse und Dachse in ihren Bauen gezüchtet?", "options": ["Dackel", "Dogge", "Bernhardiner", "Dalmatiner"], "answer": "Dackel" },
+    { "type": "choice", "q": "Welche Rasse war früher Rettungshund in den Schweizer Alpen?", "options": ["Bernhardiner", "Mops", "Dackel", "Dalmatiner"], "answer": "Bernhardiner" },
+    { "type": "choice", "q": "Welcher Hund ist klein und hat eine kurze Schnauze und ein faltiges Gesicht?", "options": ["Mops", "Dogge", "Collie", "Schäferhund"], "answer": "Mops" },
+    { "type": "choice", "q": "Welche Rasse gehört zu den größten Hunden der Welt?", "options": ["Dogge", "Mops", "Dackel", "Dalmatiner"], "answer": "Dogge" },
+    { "type": "choice", "q": "Welche beiden Rassen sind Hütehunde?", "options": ["Schäferhund und Collie", "Mops und Dackel", "Dalmatiner und Mops", "Dogge und Dackel"], "answer": "Schäferhund und Collie" },
+    { "type": "choice", "q": "Von welchem Tier stammen alle Hunderassen ab?", "options": ["vom Wolf", "vom Fuchs", "vom Schakal", "vom Bären"], "answer": "vom Wolf" },
+    { "type": "choice", "q": "Was bedeutet Züchtung?", "options": ["Der Mensch wählt Tiere mit erwünschten Merkmalen aus und lässt nur diese Junge bekommen.", "Ein Hund lernt Kunststücke.", "Tiere werden im Zoo gehalten.", "Ein Hund bekommt so viel Futter, bis er groß ist."], "answer": "Der Mensch wählt Tiere mit erwünschten Merkmalen aus und lässt nur diese Junge bekommen." },
+    { "type": "choice", "q": "Warum hat der Dackel so kurze Beine?", "options": ["Damit er in die Baue von Fuchs und Dachs passt.", "Damit er langsamer läuft.", "Weil er zu wenig frisst.", "Damit er nicht weglaufen kann."], "answer": "Damit er in die Baue von Fuchs und Dachs passt.", "explain": "Züchter haben immer wieder Hunde mit kurzen Beinen und langem Körper ausgewählt." },
+    { "type": "choice", "q": "Wie heißt der Dackel noch?", "options": ["Dachshund", "Fuchshund", "Baumhund", "Jagdmops"], "answer": "Dachshund" },
+    { "type": "choice", "q": "Warum sehen Hunderassen so verschieden aus, obwohl alle vom Wolf abstammen?", "options": ["Der Mensch hat sie für verschiedene Aufgaben gezüchtet.", "Sie leben in verschiedenen Ländern.", "Sie fressen verschiedenes Futter.", "Das ist reiner Zufall."], "answer": "Der Mensch hat sie für verschiedene Aufgaben gezüchtet." },
+    { "type": "choice", "q": "Was muss ein Züchter tun, damit ein Merkmal bei vielen Hunden auftritt?", "options": ["über viele Generationen immer wieder passende Tiere auswählen", "den Hund viel trainieren", "dem Hund besonderes Futter geben", "nur einmal zwei Hunde Junge bekommen lassen"], "answer": "über viele Generationen immer wieder passende Tiere auswählen", "explain": "Training und Futter verändern nur den einen Hund. Seine Welpen erben das nicht." },
+    { "type": "input", "q": "Weißes Fell mit schwarzen Punkten hat der ___.", "answer": "Dalmatiner" },
+    { "type": "input", "q": "Der ___ jagt Füchse und Dachse in ihrem Bau.", "answer": "Dackel" },
+    { "type": "input", "q": "Der ___ war früher Rettungshund in den Alpen.", "answer": "Bernhardiner" },
+    { "type": "input", "q": "Ein Hütehund aus Schottland mit langem Fell ist der ___.", "answer": "Collie" },
+    { "type": "input", "q": "Der ___ hütet Schafe und arbeitet auch bei der Polizei.", "answer": "Schäferhund", "accept": ["Schaeferhund"] },
+    { "type": "input", "q": "Der ___ ist klein und hat ein faltiges Gesicht.", "answer": "Mops" },
+    { "type": "input", "q": "Die ___ ist einer der größten Hunde der Welt.", "answer": "Dogge" }
+  ]
+}
