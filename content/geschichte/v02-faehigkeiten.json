@@ -1,0 +1,38 @@
+{
+  "id": "faehigkeiten",
+  "line": "vorfahren",
+  "order": 2,
+  "title": "Fähigkeiten und Ernährung",
+  "subtitle": "Was konnten die frühen Menschen?",
+  "icon": "🔥",
+  "card": "Wusstest du? Mit Feuer gegartes Essen ist leichter zu kauen und zu verdauen.",
+  "explain": [
+    { "table": { "head": ["Menschenart", "Fähigkeiten und Besonderheiten", "Ernährung"], "rows": [
+      ["**Vormensch**", "aufrechter Gang; einfache Werkzeuge; kannte **kein Feuer**", "Pflanzen und **wahrscheinlich auch** Fleisch"],
+      ["**Urmensch**", "Herstellung einfacher Werkzeuge; **wahrscheinlich** einfache sprachliche Laute; kannte **vermutlich kein** Feuer", "Pflanzen und Tiere"],
+      ["**Frühmensch**", "aufrechter Gang; einfache Steinwerkzeuge; **Nutzung des Feuers**; **vermutlich** einfache Sprache", "Pflanzen und Tiere"],
+      ["**Neandertaler**", "verschiedene Steinwerkzeuge und Waffen; Jagd; konnte **denken und sprechen**", "Fleisch von Jagdtieren"],
+      ["**Jetztzeitmensch**", "Werkzeuge und Waffen; Überquerung von **Meerengen**; Besiedlung der **ganzen Erde**; weiterentwickeltes Gehirn; Glaube an **übersinnliche Mächte**", "Fleisch und Pflanzen"]
+    ] } },
+    { "p": "Das **Feuer** nutzte als Erster der **Frühmensch**. Der Vormensch kannte kein Feuer, der Urmensch vermutlich auch nicht." },
+    { "tip": "Achte auf **vermutlich**, **wahrscheinlich** und **etwa**: Die Forscher wissen es nicht ganz sicher. Aus dieser Zeit gibt es keine schriftlichen Quellen – nur Funde wie Knochen und Werkzeuge." },
+    { "tip": "Eine **Meerenge** ist eine schmale Stelle im Meer zwischen zwei Küsten. **Übersinnliche Mächte** sind Kräfte, die man nicht sehen kann – zum Beispiel Geister oder Götter." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Welche Menschenart nutzte als erste das Feuer?", "options": ["Frühmensch", "Vormensch", "Urmensch", "Jetztzeitmensch"], "answer": "Frühmensch", "explain": "Der Frühmensch (Homo erectus) nutzte das Feuer. Vormensch und Urmensch kannten es (vermutlich) noch nicht." },
+    { "type": "choice", "q": "Kannte der Vormensch das Feuer?", "options": ["Nein, er kannte kein Feuer.", "Ja, er kochte damit.", "Ja, er hat es erfunden.", "Nur im Winter."], "answer": "Nein, er kannte kein Feuer." },
+    { "type": "choice", "q": "Was konnte der Urmensch wahrscheinlich?", "options": ["einfache sprachliche Laute machen", "schreiben", "Meerengen überqueren", "Feuer machen"], "answer": "einfache sprachliche Laute machen" },
+    { "type": "choice", "q": "Welche Menschenart konnte laut Tabelle denken und sprechen?", "options": ["Neandertaler", "Vormensch", "Urmensch", "Australopithecus"], "answer": "Neandertaler" },
+    { "type": "choice", "q": "Was aß der Neandertaler?", "options": ["Fleisch von Jagdtieren", "nur Pflanzen", "nur Fisch", "Brot"], "answer": "Fleisch von Jagdtieren", "explain": "Der Neandertaler ging auf die **Jagd**. Darum weiß man: Er aß Fleisch von Jagdtieren." },
+    { "type": "choice", "q": "Was aß der Vormensch?", "options": ["Pflanzen und wahrscheinlich auch Fleisch", "nur Fleisch", "gebratenes Fleisch", "Brot und Milch"], "answer": "Pflanzen und wahrscheinlich auch Fleisch", "explain": "Gebraten hat er nichts – er kannte ja kein Feuer." },
+    { "type": "choice", "q": "Welche Menschenart überquerte Meerengen und besiedelte die ganze Erde?", "options": ["Jetztzeitmensch", "Neandertaler", "Frühmensch", "Vormensch"], "answer": "Jetztzeitmensch" },
+    { "type": "choice", "q": "Welche Menschenart glaubte an übersinnliche Mächte?", "options": ["Jetztzeitmensch", "Vormensch", "Urmensch", "Frühmensch"], "answer": "Jetztzeitmensch", "explain": "Übersinnliche Mächte sind Kräfte, die man nicht sehen kann – zum Beispiel Geister oder Götter." },
+    { "type": "choice", "q": "Was hatte der Jetztzeitmensch, das ihn besonders machte?", "options": ["ein weiterentwickeltes Gehirn", "ein dichtes Fell", "besonders lange Arme", "gar keine Werkzeuge"], "answer": "ein weiterentwickeltes Gehirn" },
+    { "type": "choice", "q": "Was hatten Vormensch und Frühmensch gemeinsam?", "options": ["den aufrechten Gang", "die Nutzung des Feuers", "den Glauben an übersinnliche Mächte", "die Besiedlung der ganzen Erde"], "answer": "den aufrechten Gang" },
+    { "type": "choice", "q": "Was ist eine Meerenge?", "options": ["eine schmale Stelle im Meer zwischen zwei Küsten", "ein sehr tiefes Meer", "ein kleiner See", "ein enges Boot"], "answer": "eine schmale Stelle im Meer zwischen zwei Küsten" },
+    { "type": "choice", "q": "Was bedeutet „vermutlich“?", "options": ["Man ist sich nicht ganz sicher.", "Es ist ganz sicher so.", "Es ist bestimmt falsch.", "Es ist schon lange her."], "answer": "Man ist sich nicht ganz sicher." },
+    { "type": "input", "q": "Der Frühmensch nutzte als Erster das ___.", "answer": "Feuer" },
+    { "type": "input", "q": "Der Urmensch kannte ___ kein Feuer.", "hint": "ein Wort für „nicht ganz sicher“", "answer": "vermutlich", "accept": ["wahrscheinlich"] },
+    { "type": "input", "q": "Auf zwei Beinen gehen nennt man den aufrechten ___.", "answer": "Gang" }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "menschenarten",
+  "line": "vorfahren",
+  "order": 1,
+  "title": "Die Menschenarten",
+  "subtitle": "Vom Vormensch zum Homo sapiens",
+  "icon": "🦴",
+  "card": "Wusstest du? In vielen heutigen Menschen steckt ein kleines bisschen Neandertaler – ein paar Prozent ihres Erbguts.",
+  "explain": [
+    { "p": "Der Mensch hat sich über **Millionen Jahre** entwickelt. Forscher unterscheiden mehrere **Menschenarten**. Jede hat auch einen **lateinischen Namen**." },
+    { "table": { "head": ["Menschenart", "Lateinischer Name", "Lebenszeit"], "rows": [
+      ["**Vormensch**", "Australopithecus", "vor etwa **4,5 bis 1 Million** Jahren"],
+      ["**Urmensch**", "Homo habilis", "vor etwa **2,1 bis 1,5 Millionen** Jahren"],
+      ["**Frühmensch**", "Homo erectus", "vor etwa **1,8 Millionen bis 40.000** Jahren"],
+      ["**Neandertaler**", "–", "vor circa **400.000 bis 39.000** Jahren"],
+      ["**Jetztzeitmensch**", "Homo sapiens (im Buch: Homo sapiens sapiens)", "seit rund **300.000** Jahren bis **heute**"]
+    ] } },
+    { "tip": "**Homo** heißt auf Lateinisch **Mensch**. **habilis** = geschickt, **erectus** = aufgerichtet, **sapiens** = weise, klug. **Australopithecus** heißt „Südaffe“." },
+    { "tip": "Der **Neandertaler** heißt so nach dem **Neandertal** bei Düsseldorf. Dort hat man 1856 seine Knochen gefunden." },
+    { "p": "Die Lebenszeiten überschneiden sich: Neandertaler und Jetztzeitmenschen lebten eine Zeit lang **gleichzeitig** auf der Erde." }
+  ],
+  "exercises": [
+    { "type": "order", "task": "Bring die Menschenarten in die richtige Reihenfolge – die älteste zuerst.", "de": "Die Menschenarten", "answer": "Vormensch Urmensch Frühmensch Neandertaler Jetztzeitmensch" },
+    { "type": "choice", "q": "Welche Menschenart ist die älteste?", "options": ["Vormensch", "Urmensch", "Frühmensch", "Neandertaler"], "answer": "Vormensch" },
+    { "type": "choice", "q": "Welche Menschenart lebt heute noch?", "options": ["Homo sapiens", "Neandertaler", "Homo erectus", "Homo habilis"], "answer": "Homo sapiens" },
+    { "type": "choice", "q": "Wie heißt der Vormensch auf Lateinisch?", "options": ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"], "answer": "Australopithecus" },
+    { "type": "choice", "q": "Wie heißt der Urmensch auf Lateinisch?", "options": ["Homo habilis", "Australopithecus", "Homo erectus", "Homo sapiens"], "answer": "Homo habilis" },
+    { "type": "choice", "q": "Wie heißt der Frühmensch auf Lateinisch?", "options": ["Homo erectus", "Homo habilis", "Australopithecus", "Homo sapiens"], "answer": "Homo erectus" },
+    { "type": "choice", "q": "Wie heißt der Jetztzeitmensch auf Lateinisch?", "options": ["Homo sapiens", "Homo erectus", "Homo habilis", "Australopithecus"], "answer": "Homo sapiens" },
+    { "type": "choice", "q": "Wie schreibt man den lateinischen Namen des Vormenschen richtig?", "options": ["Australopithecus", "Australopitecus", "Austrolopithekus", "Atripitikus"], "answer": "Australopithecus", "explain": "Merk dir: **Austral** (südlich) + **o** + **pithecus** (Affe)." },
+    { "type": "choice", "q": "Was bedeutet das lateinische Wort „Homo“?", "options": ["Mensch", "Affe", "Haus", "Feuer"], "answer": "Mensch" },
+    { "type": "choice", "q": "Wann lebte der Vormensch?", "options": ["vor etwa 4,5 bis 1 Million Jahren", "vor etwa 2,1 bis 1,5 Millionen Jahren", "vor circa 400.000 bis 39.000 Jahren", "seit rund 300.000 Jahren"], "answer": "vor etwa 4,5 bis 1 Million Jahren" },
+    { "type": "choice", "q": "Wann lebte der Urmensch?", "options": ["vor etwa 2,1 bis 1,5 Millionen Jahren", "vor etwa 4,5 bis 1 Million Jahren", "vor circa 400.000 bis 39.000 Jahren", "seit rund 300.000 Jahren"], "answer": "vor etwa 2,1 bis 1,5 Millionen Jahren" },
+    { "type": "choice", "q": "Wann lebte der Frühmensch?", "options": ["vor etwa 1,8 Millionen bis 40.000 Jahren", "vor etwa 4,5 bis 1 Million Jahren", "vor etwa 2,1 bis 1,5 Millionen Jahren", "seit rund 300.000 Jahren"], "answer": "vor etwa 1,8 Millionen bis 40.000 Jahren" },
+    { "type": "choice", "q": "Wann lebte der Neandertaler?", "options": ["vor circa 400.000 bis 39.000 Jahren", "vor etwa 4,5 bis 1 Million Jahren", "vor etwa 2,1 bis 1,5 Millionen Jahren", "seit rund 300.000 Jahren"], "answer": "vor circa 400.000 bis 39.000 Jahren" },
+    { "type": "choice", "q": "Seit wann gibt es den Jetztzeitmenschen?", "options": ["seit rund 300.000 Jahren", "seit rund 3000 Jahren", "seit etwa 4,5 Millionen Jahren", "seit rund 39.000 Jahren"], "answer": "seit rund 300.000 Jahren" },
+    { "type": "choice", "q": "Woher hat der Neandertaler seinen Namen?", "options": ["vom Neandertal bei Düsseldorf", "von einem Forscher namens Neander", "von einem Fluss in Afrika", "von einer Höhle in Frankreich"], "answer": "vom Neandertal bei Düsseldorf", "explain": "Im **Neandertal** bei Düsseldorf hat man 1856 seine Knochen gefunden." },
+    { "type": "choice", "q": "Lebten Neandertaler und Jetztzeitmenschen zur gleichen Zeit?", "options": ["Ja, eine Zeit lang.", "Nein, nie.", "Nur im Mittelalter.", "Ja, sie leben heute noch zusammen."], "answer": "Ja, eine Zeit lang.", "explain": "Den Jetztzeitmenschen gibt es seit rund 300.000 Jahren. Den Neandertaler gab es bis vor etwa 39.000 Jahren. Dazwischen lebten beide." },
+    { "type": "input", "q": "Homo ___", "de": "der Urmensch („geschickter Mensch“)", "answer": "habilis" },
+    { "type": "input", "q": "Homo ___", "de": "der Frühmensch („aufgerichteter Mensch“)", "answer": "erectus" },
+    { "type": "input", "q": "Homo ___", "de": "der Jetztzeitmensch („weiser Mensch“)", "answer": "sapiens", "accept": ["sapiens sapiens"] }
+  ]
+}

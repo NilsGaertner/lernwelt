@@ -1,0 +1,40 @@
+{
+  "id": "ueberleben",
+  "line": "vorfahren",
+  "order": 3,
+  "title": "Überleben in der Steinzeit",
+  "subtitle": "Wie halfen die Fähigkeiten?",
+  "icon": "🦣",
+  "card": "Wusstest du? Die berühmten Höhlenmalereien von Lascaux in Frankreich sind etwa 17.000 Jahre alt.",
+  "explain": [
+    { "p": "Wie halfen die Fähigkeiten den frühen Menschen beim **Überleben**?" },
+    { "table": { "head": ["Fähigkeit", "Was wurde dadurch möglich?", "Warum half das beim Überleben?"], "rows": [
+      ["**aufrechter Gang**", "Die **Hände** waren frei. Man konnte Werkzeuge, Nahrung und Kinder tragen und über hohes Gras schauen.", "Man sah Gefahren früher und konnte Essen mitnehmen."],
+      ["**Werkzeuge**", "Fleisch schneiden, Tiere zerlegen, Knochen aufschlagen, Wurzeln ausgraben", "Man kam an mehr Nahrung."],
+      ["**Feuer**", "Wärme, Licht, gebratenes Essen, Schutz vor wilden Tieren", "Man überstand die Kälte, und wilde Tiere blieben weg."],
+      ["**Jagd in Gruppen**", "große Tiere wie Mammuts erlegen", "Viel Fleisch für die ganze Gruppe."],
+      ["**Sprache**", "sich absprechen, Wissen weitergeben", "Gemeinsam jagen klappt viel besser."]
+    ] } },
+    { "p": "In den **Kaltzeiten** (Eiszeiten) war es sehr kalt. Es wuchsen weniger Pflanzen, und das **Essen wurde knapp**. Darum waren Jagd, Feuer und Kleidung aus Fellen besonders wichtig." },
+    { "p": "Gedanken verbindest du mit **weil**, **dadurch** und **deshalb**:" },
+    { "p": "Der Frühmensch nutzte das Feuer. **Dadurch** konnte er sich wärmen." },
+    { "p": "Das Feuer war hilfreich, **weil** es wilde Tiere fernhielt." },
+    { "p": "Im Winter war es sehr kalt. **Deshalb** brauchten die Menschen Feuer und Felle." },
+    { "tip": "Woher wissen wir das alles? Aus **gegenständlichen Quellen** wie Knochen, Werkzeugen und alten Feuerstellen – und aus **Höhlenmalereien** (bildliche Quellen). Schriftliche Quellen gibt es aus dieser Zeit nicht." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Welchen Vorteil hatte der aufrechte Gang?", "options": ["Die Hände waren frei zum Tragen und für Werkzeuge.", "Man konnte besser klettern.", "Man brauchte weniger Essen.", "Man konnte schneller schwimmen."], "answer": "Die Hände waren frei zum Tragen und für Werkzeuge." },
+    { "type": "choice", "q": "Wozu nutzten die frühen Menschen das Feuer?", "options": ["für Wärme, Licht und Schutz vor wilden Tieren", "um Eisen zu schmelzen", "um Briefe zu verbrennen", "um Pflanzen zu gießen"], "answer": "für Wärme, Licht und Schutz vor wilden Tieren" },
+    { "type": "choice", "q": "Warum war die Jagd in Gruppen hilfreich?", "options": ["Gemeinsam konnte man große Tiere wie Mammuts erlegen.", "Allein durfte man nicht jagen.", "Die Tiere hatten Angst vor Gruppen und kamen von selbst.", "Dann brauchte man keine Waffen."], "answer": "Gemeinsam konnte man große Tiere wie Mammuts erlegen." },
+    { "type": "choice", "q": "Wie half die Sprache bei der Jagd?", "options": ["Man konnte sich absprechen.", "Man konnte die Tiere anlocken.", "Man konnte die Tiere erschrecken.", "Gar nicht."], "answer": "Man konnte sich absprechen." },
+    { "type": "choice", "q": "Was passierte in den Kaltzeiten?", "options": ["Es wuchsen weniger Pflanzen, das Essen wurde knapp.", "Es gab besonders viel Obst.", "Die Menschen brauchten kein Feuer.", "Alle Tiere schliefen."], "answer": "Es wuchsen weniger Pflanzen, das Essen wurde knapp." },
+    { "type": "choice", "q": "Wozu benutzten die Menschen einen Faustkeil wahrscheinlich?", "options": ["zum Schneiden, Schaben und Hacken", "zum Schreiben", "zum Feuermachen auf Knopfdruck", "als Spielzeug"], "answer": "zum Schneiden, Schaben und Hacken" },
+    { "type": "choice", "q": "Woher wissen wir etwas über die frühen Menschen?", "options": ["aus Funden wie Knochen, Werkzeugen und Höhlenmalereien", "aus ihren Briefen", "aus alten Zeitungen", "aus Fotos"], "answer": "aus Funden wie Knochen, Werkzeugen und Höhlenmalereien" },
+    { "type": "choice", "q": "Der Frühmensch nutzte das Feuer. ___ konnte er sich wärmen.", "options": ["Dadurch", "Weil", "Aber", "Oder"], "answer": "Dadurch", "explain": "**Dadurch** zeigt, was durch das Feuer möglich wurde." },
+    { "type": "choice", "q": "Das Feuer war hilfreich, ___ es wilde Tiere fernhielt.", "options": ["weil", "deshalb", "dadurch", "aber"], "answer": "weil", "explain": "**weil** nennt den Grund. Danach steht das Verb am Ende: …, weil es wilde Tiere fern**hielt**." },
+    { "type": "choice", "q": "Im Winter war es sehr kalt. ___ brauchten die Menschen Feuer und Felle.", "options": ["Deshalb", "Weil", "Obwohl", "Wenn"], "answer": "Deshalb", "explain": "**Deshalb** zeigt die Folge: Es war kalt – darum brauchten sie Feuer." },
+    { "type": "input", "q": "Durch den aufrechten Gang waren die ___ frei.", "answer": "Hände" },
+    { "type": "input", "q": "In den ___ war es sehr kalt, und das Essen wurde knapp.", "answer": "Kaltzeiten", "accept": ["Kaltzeit", "Eiszeiten", "Eiszeit"] },
+    { "type": "order", "de": "Wozu war das Feuer gut?", "answer": "Das Feuer schützte vor wilden Tieren." }
+  ]
+}

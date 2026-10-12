@@ -1,0 +1,41 @@
+{
+  "id": "epochen",
+  "line": "zeitstrahl",
+  "order": 2,
+  "title": "Die Epochen",
+  "subtitle": "Frühgeschichte bis Neuzeit",
+  "icon": "🏰",
+  "card": "Wusstest du? Die Frühgeschichte ist viel länger als alle anderen Epochen zusammen – sie dauerte Millionen Jahre.",
+  "explain": [
+    { "p": "Die Vergangenheit teilt man in große Zeitabschnitte ein. So ein Zeitabschnitt heißt **Epoche**. Es gibt vier Epochen:" },
+    { "map": "zeitstrahl", "legend": [["fruehgeschichte", "Frühgeschichte"], ["antike", "Antike"], ["mittelalter", "Mittelalter"], ["neuzeit", "Neuzeit"]] },
+    { "table": { "head": ["Epoche", "Zeit", "Beispiele"], "rows": [
+      ["**Frühgeschichte**", "von den ersten Menschen bis etwa **3000 v. Chr.**", "Steinzeit-Menschen, Faustkeil, Höhlenmalerei"],
+      ["**Antike**", "etwa **3000 v. Chr.** bis **500 n. Chr.**", "Pyramiden in Ägypten, alte Griechen, Römer"],
+      ["**Mittelalter**", "etwa **500** bis **1500 n. Chr.**", "Ritter, Burgen, Klöster"],
+      ["**Neuzeit**", "ab etwa **1500 n. Chr.** bis **heute**", "Eisenbahn, Auto, Computer"]
+    ] } },
+    { "tip": "Um 3000 v. Chr. wurde die **Schrift** erfunden. Ab da gibt es schriftliche Quellen – damit endet die Frühgeschichte und die Antike beginnt." },
+    { "tip": "Die Frühgeschichte dauerte **Millionen Jahre**. Darum ist sie auf dem Zeitstrahl abgekürzt (gestrichelt). Sonst wäre der Zeitstrahl viel zu lang." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Welche Epoche ist markiert?", "map": "zeitstrahl", "mark": "fruehgeschichte", "options": ["Frühgeschichte", "Antike", "Mittelalter", "Neuzeit"], "answer": "Frühgeschichte" },
+    { "type": "choice", "task": "Welche Epoche ist markiert?", "map": "zeitstrahl", "mark": "antike", "options": ["Antike", "Frühgeschichte", "Mittelalter", "Neuzeit"], "answer": "Antike" },
+    { "type": "choice", "task": "Welche Epoche ist markiert?", "map": "zeitstrahl", "mark": "mittelalter", "options": ["Mittelalter", "Antike", "Frühgeschichte", "Neuzeit"], "answer": "Mittelalter" },
+    { "type": "choice", "task": "Welche Epoche ist markiert?", "map": "zeitstrahl", "mark": "neuzeit", "options": ["Neuzeit", "Mittelalter", "Antike", "Frühgeschichte"], "answer": "Neuzeit" },
+    { "type": "order", "task": "Bring die Epochen in die richtige Reihenfolge – die früheste zuerst.", "de": "Die vier Epochen", "answer": "Frühgeschichte Antike Mittelalter Neuzeit" },
+    { "type": "choice", "q": "In welcher Epoche leben wir heute?", "options": ["Neuzeit", "Mittelalter", "Antike", "Frühgeschichte"], "answer": "Neuzeit" },
+    { "type": "choice", "q": "Wann begann die Antike ungefähr?", "options": ["um 3000 v. Chr.", "um 500 n. Chr.", "um 1500 n. Chr.", "bei Christi Geburt"], "answer": "um 3000 v. Chr." },
+    { "type": "choice", "q": "Wann begann das Mittelalter ungefähr?", "options": ["um 500 n. Chr.", "um 3000 v. Chr.", "um 1500 n. Chr.", "bei Christi Geburt"], "answer": "um 500 n. Chr." },
+    { "type": "choice", "q": "Wann begann die Neuzeit ungefähr?", "options": ["um 1500 n. Chr.", "um 500 n. Chr.", "um 3000 v. Chr.", "um 2000 n. Chr."], "answer": "um 1500 n. Chr." },
+    { "type": "choice", "q": "Ritter und Burgen gehören zu welcher Epoche?", "options": ["Mittelalter", "Antike", "Frühgeschichte", "Neuzeit"], "answer": "Mittelalter" },
+    { "type": "choice", "q": "Die großen Pyramiden in Ägypten wurden um 2500 v. Chr. gebaut. In welcher Epoche war das?", "options": ["Antike", "Frühgeschichte", "Mittelalter", "Neuzeit"], "answer": "Antike", "explain": "Die Antike dauerte von etwa 3000 v. Chr. bis 500 n. Chr. – 2500 v. Chr. liegt mittendrin." },
+    { "type": "choice", "q": "Ein Faustkeil aus der Steinzeit gehört zu welcher Epoche?", "options": ["Frühgeschichte", "Antike", "Mittelalter", "Neuzeit"], "answer": "Frühgeschichte" },
+    { "type": "choice", "q": "Das Jahr 1750 gehört zu welcher Epoche?", "options": ["Neuzeit", "Mittelalter", "Antike", "Frühgeschichte"], "answer": "Neuzeit", "explain": "Die Neuzeit beginnt um 1500. 1750 liegt danach." },
+    { "type": "choice", "q": "Welche Erfindung beendete die Frühgeschichte?", "options": ["die Schrift", "das Rad", "das Feuer", "das Auto"], "answer": "die Schrift", "explain": "Um 3000 v. Chr. wurde die Schrift erfunden. Ab da gibt es schriftliche Quellen." },
+    { "type": "choice", "q": "Welche Epoche dauerte am längsten?", "options": ["Frühgeschichte", "Antike", "Mittelalter", "Neuzeit"], "answer": "Frühgeschichte", "explain": "Die Frühgeschichte dauerte Millionen Jahre – seit es die ersten Menschen gibt." },
+    { "type": "input", "q": "Ein großer Zeitabschnitt der Geschichte heißt ___.", "answer": "Epoche", "accept": ["Epochen"] },
+    { "type": "input", "q": "Die Epoche zwischen Antike und Neuzeit heißt ___.", "answer": "Mittelalter" },
+    { "type": "input", "q": "Die Epoche vor dem Mittelalter heißt ___.", "answer": "Antike" }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "zeitstrahl",
+  "line": "zeitstrahl",
+  "order": 1,
+  "title": "Der Zeitstrahl",
+  "subtitle": "Vor und nach Christus",
+  "icon": "📏",
+  "card": "Wusstest du? Die Zählung der Jahre ab Christi Geburt hat sich ein Mönch vor ungefähr 1500 Jahren ausgedacht.",
+  "explain": [
+    { "p": "Auf dem **Zeitstrahl** ordnen wir Ereignisse nach der Zeit. **Links** ist früher, **rechts** ist später. Ganz rechts ist **heute**." },
+    { "p": "Wir zählen die Jahre ab **Christi Geburt**. Auf dem Zeitstrahl steht dort die **0**. Alles davor ist **v. Chr.** (vor Christus), alles danach ist **n. Chr.** (nach Christus)." },
+    { "tip": "Vor Christus zählt man **rückwärts**: 3000 v. Chr. war **früher** als 500 v. Chr. Je größer die Zahl vor Christus, desto länger ist es her." },
+    { "p": "So rechnest du aus, wie viele Jahre zwischen zwei Jahreszahlen liegen:" },
+    { "table": { "head": ["Die Jahre liegen …", "So rechnest du", "Beispiel"], "rows": [
+      ["beide **v. Chr.**", "**minus**", "3000 v. Chr. bis 1000 v. Chr.: 3000 − 1000 = **2000 Jahre**"],
+      ["beide **n. Chr.**", "**minus**", "500 n. Chr. bis 1500 n. Chr.: 1500 − 500 = **1000 Jahre**"],
+      ["eins **v. Chr.**, eins **n. Chr.**", "**plus**", "500 v. Chr. bis 500 n. Chr.: 500 + 500 = **1000 Jahre**"]
+    ] } },
+    { "tip": "Liegt die 0 dazwischen, musst du **plus** rechnen: erst bis zur 0, dann weiter." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Was bedeutet „v. Chr.“?", "options": ["vor Christus", "von Christus", "vor Chronik", "viel früher"], "answer": "vor Christus" },
+    { "type": "choice", "q": "Was bedeutet „n. Chr.“?", "options": ["nach Christus", "neben Christus", "neue Chronik", "nicht Christus"], "answer": "nach Christus" },
+    { "type": "choice", "q": "Was steht auf dem Zeitstrahl bei Christi Geburt?", "options": ["0", "1000", "2026", "3000"], "answer": "0" },
+    { "type": "choice", "q": "Wo stehen auf dem Zeitstrahl die frühen Zeiten?", "options": ["links", "rechts", "in der Mitte", "ganz oben"], "answer": "links", "explain": "Links ist früher, rechts ist später. Ganz rechts ist heute." },
+    { "type": "choice", "q": "Was war am frühesten?", "options": ["3000 v. Chr.", "500 v. Chr.", "500 n. Chr.", "1500 n. Chr."], "answer": "3000 v. Chr.", "explain": "Vor Christus zählt man rückwärts. Je größer die Zahl v. Chr., desto länger ist es her." },
+    { "type": "choice", "q": "Was war früher: 800 v. Chr. oder 200 v. Chr.?", "options": ["800 v. Chr.", "200 v. Chr.", "beide gleich", "kann man nicht sagen"], "answer": "800 v. Chr.", "explain": "Vor Christus gilt: die größere Zahl ist **früher**. 800 v. Chr. ist länger her." },
+    { "type": "choice", "q": "Was war früher: 800 n. Chr. oder 200 n. Chr.?", "options": ["200 n. Chr.", "800 n. Chr.", "beide gleich", "kann man nicht sagen"], "answer": "200 n. Chr.", "explain": "Nach Christus zählt man ganz normal vorwärts: 200 kommt vor 800." },
+    { "type": "choice", "q": "Welches Jahr steht am weitesten rechts auf dem Zeitstrahl?", "options": ["2026", "1500 n. Chr.", "500 v. Chr.", "3000 v. Chr."], "answer": "2026", "explain": "Rechts ist später. 2026 ist das späteste Jahr." },
+    { "type": "choice", "q": "Wie viele Jahre liegen zwischen 500 v. Chr. und 500 n. Chr.?", "options": ["1000", "0", "500", "2000"], "answer": "1000", "explain": "Eins v. Chr., eins n. Chr. – also **plus**: 500 + 500 = 1000." },
+    { "type": "choice", "q": "Ein Topf ist heute (2026) etwa 2500 Jahre alt. Wann wurde er ungefähr gemacht?", "options": ["um 500 v. Chr.", "um 500 n. Chr.", "um 2500 v. Chr.", "um 2500 n. Chr."], "answer": "um 500 v. Chr.", "explain": "Bis Christi Geburt sind es etwa 2000 Jahre zurück. Dann noch etwa 500 Jahre weiter zurück: um 500 v. Chr." },
+    { "type": "input", "q": "Von 3000 v. Chr. bis 1000 v. Chr. sind es ___ Jahre.", "answer": "2000", "accept": ["2.000"], "numeric": true, "explain": "Beide v. Chr. – also **minus**: 3000 − 1000 = 2000." },
+    { "type": "input", "q": "Von 500 n. Chr. bis 1500 n. Chr. sind es ___ Jahre.", "answer": "1000", "accept": ["1.000"], "numeric": true, "explain": "Beide n. Chr. – also **minus**: 1500 − 500 = 1000." },
+    { "type": "input", "q": "Von 200 v. Chr. bis 300 n. Chr. sind es ___ Jahre.", "answer": "500", "numeric": true, "explain": "Eins v. Chr., eins n. Chr. – also **plus**: 200 + 300 = 500." },
+    { "type": "input", "q": "Von 800 v. Chr. bis 300 v. Chr. sind es ___ Jahre.", "answer": "500", "numeric": true, "explain": "Beide v. Chr. – also **minus**: 800 − 300 = 500." }
+  ]
+}

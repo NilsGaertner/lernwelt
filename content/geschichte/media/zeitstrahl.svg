@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 250" role="img" aria-label="Zeitstrahl mit den vier Epochen">
+<!-- zeitstrahl: Epochen fruehgeschichte, antike, mittelalter, neuzeit. Nicht maßstabsgetreu – die Frühgeschichte dauerte Millionen Jahre. -->
+<rect class="bg" x="0" y="0" width="700" height="250"/>
+<path class="leader" d="M8 135H38" stroke-dasharray="7 6"/>
+<rect id="fruehgeschichte" class="area land" style="--c:#8D6E63" x="40" y="110" width="140" height="50"/>
+<rect id="antike" class="area land" style="--c:#F0A30A" x="180" y="110" width="240" height="50"/>
+<rect id="mittelalter" class="area land" style="--c:#2E86DE" x="420" y="110" width="130" height="50"/>
+<path id="neuzeit" class="area land" style="--c:#2EAD6B" d="M550 110H662L692 135L662 160H550Z"/>
+<path class="leader" d="M180 102V176M420 102V176M340 102V210M550 102V210M665 160V176"/>
+<text class="tick" x="180" y="198">3000 v. Chr.</text>
+<text class="tick" x="420" y="198">500 n. Chr.</text>
+<text class="tick" x="660" y="198">heute</text>
+<text class="tick" x="340" y="234">Christi Geburt (0)</text>
+<text class="tick" x="550" y="234">1500 n. Chr.</text>
+<g class="labels">
+<text x="110" y="94" style="font-size:22px">Frühgeschichte</text>
+<text x="300" y="94" style="font-size:22px">Antike</text>
+<text x="485" y="94" style="font-size:22px">Mittelalter</text>
+<text x="612" y="94" style="font-size:22px">Neuzeit</text>
+</g>
+</svg>

@@ -1,0 +1,13 @@
+{
+  "id": "geschichte",
+  "name": "Geschichte",
+  "icon": "🏺",
+  "order": 5,
+  "lines": [
+    { "id": "zeitstrahl", "name": "Zeitstrahl-Linie", "short": "Zeitstrahl", "color": "#B23A48" },
+    { "id": "vorfahren", "name": "Vorfahren-Linie", "short": "Vorfahren", "color": "#7A5C3E" }
+  ],
+  "blitz": [
+    { "id": "geschichte", "title": "Geschichts-Blitz", "icon": "⚡", "subtitle": "Zeitstrahl, Quellen und frühe Menschen", "types": ["choice"] }
+  ]
+}

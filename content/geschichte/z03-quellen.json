@@ -1,0 +1,44 @@
+{
+  "id": "quellen",
+  "line": "zeitstrahl",
+  "order": 3,
+  "title": "Quellen und Darstellungen",
+  "subtitle": "Woher wissen wir das?",
+  "icon": "📜",
+  "card": "Wusstest du? Forscher können das Alter von alten Knochen und Holz messen – mit der Radiokarbon-Methode.",
+  "explain": [
+    { "p": "Woher wissen wir etwas über die Vergangenheit? Aus **Quellen**. Historische Quellen sind **Überlieferungen aus der Vergangenheit** – also alles, was aus der damaligen Zeit übrig geblieben ist." },
+    { "table": { "head": ["Quellen", "Beispiele"], "rows": [
+      ["**gegenständliche** Quellen", "Faustkeil, Knochen, Münzen, Werkzeuge, Gebäude"],
+      ["**schriftliche** Quellen", "Briefe, Urkunden, Tagebücher, Inschriften"],
+      ["**mündliche** Quellen", "Erzählungen von Zeitzeugen, Lieder, Sagen"],
+      ["**bildliche** Quellen", "Höhlenmalereien, Gemälde, Fotos"]
+    ] } },
+    { "tip": "Quellen geben meist eine bestimmte **Sichtweise (Perspektive)** wieder. Ein König erzählt von einem Krieg anders als ein Bauer." },
+    { "p": "**Darstellungen** sind etwas anderes: Das sind zum Beispiel Texte, in denen **Historiker** (Geschichtsforscher) ihre **Erkenntnisse und Vermutungen** festhalten – wie dein Schulbuchtext oder ein Sachbuch. Darstellungen entstehen **später**, mithilfe der Quellen." },
+    { "p": "**Gegenständliche Quellen interpretieren** heißt: Man stellt dem Gegenstand Fragen." },
+    { "table": { "head": ["Schritt", "Fragen"], "rows": [
+      ["① **Gegenstand beschreiben**", "Äußere Merkmale: Wie groß und wie schwer ist er? Aus welchem Material ist er? Wie alt ist er?"],
+      ["② **Funktion und Bedeutung**", "Wie funktioniert der Gegenstand? Wozu wurde er benutzt?"]
+    ] } }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Was sind historische Quellen?", "options": ["Überlieferungen aus der Vergangenheit", "Texte, die Historiker heute schreiben", "erfundene Geschichten", "alte Flüsse"], "answer": "Überlieferungen aus der Vergangenheit" },
+    { "type": "choice", "q": "Ein Faustkeil aus der Steinzeit ist eine …", "options": ["gegenständliche Quelle", "schriftliche Quelle", "mündliche Quelle", "bildliche Quelle"], "answer": "gegenständliche Quelle" },
+    { "type": "choice", "q": "Eine Münze aus der Römerzeit ist eine …", "options": ["gegenständliche Quelle", "schriftliche Quelle", "mündliche Quelle", "Darstellung"], "answer": "gegenständliche Quelle" },
+    { "type": "choice", "q": "Ein Brief aus dem Jahr 1850 ist eine …", "options": ["schriftliche Quelle", "gegenständliche Quelle", "mündliche Quelle", "bildliche Quelle"], "answer": "schriftliche Quelle" },
+    { "type": "choice", "q": "Eine Urkunde von einem König aus dem Mittelalter ist eine …", "options": ["schriftliche Quelle", "mündliche Quelle", "bildliche Quelle", "Darstellung"], "answer": "schriftliche Quelle" },
+    { "type": "choice", "q": "Deine Oma erzählt, wie sie als Kind gelebt hat. Das ist eine …", "options": ["mündliche Quelle", "schriftliche Quelle", "gegenständliche Quelle", "bildliche Quelle"], "answer": "mündliche Quelle", "explain": "Sie **erzählt** es – also mündlich. Deine Oma ist eine **Zeitzeugin**: Sie hat es selbst erlebt." },
+    { "type": "choice", "q": "Eine Höhlenmalerei aus der Steinzeit ist eine …", "options": ["bildliche Quelle", "schriftliche Quelle", "mündliche Quelle", "Darstellung"], "answer": "bildliche Quelle" },
+    { "type": "choice", "q": "Ein altes Foto von deiner Schule ist eine …", "options": ["bildliche Quelle", "gegenständliche Quelle", "mündliche Quelle", "Darstellung"], "answer": "bildliche Quelle" },
+    { "type": "choice", "q": "Der Text in deinem Schulbuch über die Steinzeit ist …", "options": ["eine Darstellung", "eine Quelle"], "answer": "eine Darstellung", "explain": "Den Text haben Historiker **heute** geschrieben, mithilfe von Quellen. Also ist er eine Darstellung." },
+    { "type": "choice", "q": "Ein Maler zeichnet heute, wie Neandertaler gelebt haben könnten. Das Bild ist …", "options": ["eine Darstellung", "eine Quelle"], "answer": "eine Darstellung", "explain": "Das Bild ist nicht aus der Steinzeit, sondern von heute. Es zeigt, was Forscher **vermuten**." },
+    { "type": "choice", "q": "Wer hält in Darstellungen Erkenntnisse und Vermutungen über die Vergangenheit fest?", "options": ["Historiker", "Zeitzeugen", "Könige", "Steinzeitmenschen"], "answer": "Historiker", "explain": "Historiker sind Geschichtsforscher." },
+    { "type": "choice", "q": "Welche Frage gehört zu den äußeren Merkmalen eines Gegenstands?", "options": ["Aus welchem Material ist er?", "Wozu wurde er benutzt?", "Wie funktioniert er?", "Wem gehört er heute?"], "answer": "Aus welchem Material ist er?", "explain": "Äußere Merkmale: Größe, Gewicht, Material, Alter." },
+    { "type": "choice", "q": "Welche Frage gehört zu Funktion und Bedeutung eines Gegenstands?", "options": ["Wozu wurde er benutzt?", "Wie schwer ist er?", "Wie groß ist er?", "Aus welchem Material ist er?"], "answer": "Wozu wurde er benutzt?" },
+    { "type": "choice", "q": "Warum gibt es aus der Frühgeschichte keine schriftlichen Quellen?", "options": ["Die Schrift war noch nicht erfunden.", "Alle Briefe sind verbrannt.", "Die Menschen durften nicht schreiben.", "Die Forscher haben sie noch nicht gelesen."], "answer": "Die Schrift war noch nicht erfunden." },
+    { "type": "choice", "q": "Ein König und ein Bauer schreiben über denselben Krieg. Warum klingen ihre Texte verschieden?", "options": ["Quellen zeigen meist eine bestimmte Sichtweise.", "Einer von beiden lügt immer.", "Bauern schreiben immer kürzer.", "Kriege waren immer gleich."], "answer": "Quellen zeigen meist eine bestimmte Sichtweise.", "explain": "Jeder erlebt ein Ereignis anders. Darum geben Quellen meist eine bestimmte **Sichtweise (Perspektive)** wieder." },
+    { "type": "input", "q": "Überlieferungen aus der Vergangenheit nennt man historische ___.", "answer": "Quellen" },
+    { "type": "input", "q": "Quellen geben meist eine bestimmte ___ wieder.", "answer": "Sichtweise", "accept": ["Perspektive"] }
+  ]
+}
