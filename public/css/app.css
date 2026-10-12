@@ -1116,6 +1116,8 @@ table.data.units td:last-child { min-width: 190px; }
 .qcard > .listen-pair .listen-btn:not(.small) { margin: 18px 0 6px; }
 .listen-btn.slow { background: color-mix(in srgb, var(--line) 15%, var(--paper)); color: var(--ink); }
 .say-row { display: flex; gap: 6px; flex-wrap: wrap; margin: 0; }
+/* Musik: Hörbeispiel im Merke */
+.sound-demo { display: flex; align-items: center; gap: 12px; }
 
 /* Fast richtig: einmal selbst verbessern */
 .type-in.almost { border-color: var(--star); background: var(--star-bg); }

@@ -1,6 +1,7 @@
 import {
   h, md, gapText, speak, canSpeak, sfx, escapeHtml, mapFigure, confetti, countUp, rankMeter, toast, guardBack,
   columnMath, columnSum, columnSteps, mulMath, mulGrid, OP_SIGN, ask, notify, showPanel, dialogOpen, renderExplain, fmtScore,
+  playMusic,
 } from './ui.js';
 import { api } from './api.js';
 import { lootbox } from './lootbox.js';
@@ -141,6 +142,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
           ? listenBtns(q.audio, true)
           : h('.qtext', q.audio)
         : q.text ? h('.qtext', { html: gapText(q.text) }) : null,
+      q.sound ? h('button.listen-btn', { type: 'button', 'aria-label': 'Anhören', onclick: () => playMusic(q.sound) }, '🎵') : null,
       q.map ? mapFigure(q.map.src, { mark: q.map.mark }) : null,
       q.textDe ? h('p.qde', `🇩🇪 ${q.textDe}`) : null,
       q.hint ? h('span.qhint', { html: `Hilfe: ${md(q.hint)}` }) : null,
@@ -148,6 +150,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
 
     stage.replaceChildren(card);
     if (q.autoplay) setTimeout(() => say(q.audio), 250);
+    if (q.sound) setTimeout(() => playMusic(q.sound), 350);
     card.querySelector('input')?.focus();
   }
 

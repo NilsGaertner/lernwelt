@@ -91,6 +91,16 @@ function validateUnit(meta, unit, file, problems, subjectDir) {
     if (svg == null) return problems.push(`${where}: Karte "media/${name}.svg" nicht gefunden`);
     for (const m of marks) if (!svg.includes(`id="${m}"`)) problems.push(`${where}: Karte "${name}" hat kein Gebiet "${m}"`);
   };
+  // Noten wie "C4", "F#5", "Bb3" oder "-" (Pause), siehe playMusic in public/js/ui.js
+  const checkSound = (spec) => {
+    const notes = typeof spec?.notes === 'string' ? spec.notes.trim().split(/\s+/) : spec?.notes;
+    if (!Array.isArray(notes) || !notes.length) return problems.push(`${where}: Klang ohne "notes": ${JSON.stringify(spec)}`);
+    for (const it of notes) {
+      const n = typeof it === 'string' ? it : it?.n;
+      if (n !== '-' && !/^[A-G](#|b)?\d$/.test(n ?? '')) problems.push(`${where}: unbekannte Note "${n}"`);
+    }
+  };
+  for (const b of unit.explain) if (b.sound) checkSound(b.sound);
   for (const b of unit.explain) if (b.map) checkMap(b.map, (b.legend ?? []).map(([id]) => id));
   for (const b of unit.explain) {
     if (b.column && !(b.column.rows?.length >= 2 && b.column.rows.every((r) => /^\d+$/.test(r))))
@@ -127,6 +137,8 @@ function validateUnit(meta, unit, file, problems, subjectDir) {
       problems.push(`${where}: Antwort "${ex.answer}" steht nicht in options: ${JSON.stringify(ex)}`);
     if (ex.type === 'order' && !ex.de && !ex.q) problems.push(`${where}: order-Aufgabe braucht "de" oder "q"`);
     if (ex.map) checkMap(ex.map, ex.mark ? [ex.mark] : []);
+    if (ex.sound) checkSound(ex.sound);
+    if (ex.sound && ex.type !== 'choice') problems.push(`${where}: Hör-Aufgaben gibt es nur als choice: ${JSON.stringify(ex)}`);
   }
 }
 

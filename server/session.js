@@ -174,7 +174,7 @@ function exerciseQuestion(subjectId, cand, canSpeak) {
   if (ex.type === 'choice') {
     return {
       ...base,
-      pub: { type: 'choice', prompt: ex.task ?? 'Was passt?', text: ex.q, textDe: ex.de ?? null, map, options: shuffle(ex.options) },
+      pub: { type: 'choice', prompt: ex.task ?? 'Was passt?', text: ex.q, textDe: ex.de ?? null, map, options: shuffle(ex.options), sound: ex.sound ?? null },
       expected: [ex.answer], qtype: 'choice',
     };
   }
@@ -235,7 +235,8 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
       inService(u) && (topic.units ? topic.units.includes(u.id) : topic.line ? u.line === topic.line : true));
     candidates = units
       .flatMap((u) => unitCandidates(subjectId, u, 60))
-      .filter((c) => c.kind === 'vocab' || !topic.types || topic.types.includes(c.data.type));
+      // Hör-Aufgaben (Musik) brauchen Zeit zum Zuhören – nichts für die Blitzrunde.
+      .filter((c) => c.kind === 'vocab' || ((!topic.types || topic.types.includes(c.data.type)) && !c.data.sound));
     if (!candidates.length) throw httpError(400, 'Für diese Blitzrunde gibt es noch keine Aufgaben.');
     title = topic.title;
     refId = topic.id;

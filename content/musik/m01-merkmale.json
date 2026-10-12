@@ -1,0 +1,44 @@
+{
+  "id": "merkmale",
+  "line": "klang",
+  "order": 1,
+  "title": "Merkmale der Musik",
+  "subtitle": "hoch, laut, schnell, hell",
+  "icon": "🎼",
+  "card": "Wusstest du? Ein Ton ist eine Schwingung. Je schneller etwas schwingt, desto höher klingt der Ton.",
+  "explain": [
+    { "p": "Die wichtigsten **Merkmale** in der Musik heißen auch **Parameter**. Jedes Merkmal hat zwei Gegensätze:" },
+    { "table": { "head": ["Merkmal", "Gegensätze"], "rows": [
+      ["**Tonhöhe** und ihr Verlauf", "hoch – tief"],
+      ["**Lautstärke**", "laut – leise"],
+      ["**Tempo**", "langsam – schnell"],
+      ["**Klangfarbe**", "hell – dunkel"]
+    ] } },
+    { "p": "Drück auf 🎵 und hör es dir an:" },
+    { "sound": { "notes": [{ "n": "C6", "d": 0.7 }, { "n": "-", "d": 0.3 }, { "n": "C3", "d": 0.7 }] }, "label": "**Tonhöhe:** hoch – tief" },
+    { "sound": { "notes": [{ "n": "A4", "d": 0.7, "v": 1 }, { "n": "-", "d": 0.3 }, { "n": "A4", "d": 0.7, "v": 0.12 }] }, "label": "**Lautstärke:** laut – leise" },
+    { "sound": { "notes": [{ "n": "C4", "d": 0.5 }, { "n": "E4", "d": 0.5 }, { "n": "G4", "d": 0.5 }, { "n": "-", "d": 0.4 }, { "n": "C4", "d": 0.15 }, { "n": "E4", "d": 0.15 }, { "n": "G4", "d": 0.15 }] }, "label": "**Tempo:** langsam – schnell" },
+    { "sound": { "notes": [{ "n": "A3", "d": 0.8, "w": "sawtooth", "v": 0.45 }, { "n": "-", "d": 0.3 }, { "n": "A3", "d": 0.8, "lp": 350 }] }, "label": "**Klangfarbe:** hell – dunkel" },
+    { "p": "**Tonhöhenverlauf:** Eine Melodie kann **steigen** (höher werden), **fallen** (tiefer werden) oder **gleich bleiben**." },
+    { "tip": "Die **Klangfarbe** ist der Grund, warum eine Geige anders klingt als eine Trompete – auch wenn beide genau denselben Ton spielen. Eine Querflöte klingt hell, eine Tuba dunkel." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Welches Merkmal beschreibt **hoch – tief**?", "options": ["Tonhöhe", "Lautstärke", "Tempo", "Klangfarbe"], "answer": "Tonhöhe" },
+    { "type": "choice", "q": "Welches Merkmal beschreibt **laut – leise**?", "options": ["Lautstärke", "Tonhöhe", "Tempo", "Klangfarbe"], "answer": "Lautstärke" },
+    { "type": "choice", "q": "Welches Merkmal beschreibt **langsam – schnell**?", "options": ["Tempo", "Tonhöhe", "Lautstärke", "Klangfarbe"], "answer": "Tempo" },
+    { "type": "choice", "q": "Welches Merkmal beschreibt **hell – dunkel**?", "options": ["Klangfarbe", "Tonhöhe", "Lautstärke", "Tempo"], "answer": "Klangfarbe", "explain": "In der Musik ist **hell – dunkel** die Klangfarbe. Mit Licht hat das nichts zu tun – es geht darum, wie ein Ton klingt." },
+    { "type": "choice", "q": "Ein anderes Wort für die Merkmale der Musik ist …", "options": ["Parameter", "Paragraf", "Partitur", "Pedal"], "answer": "Parameter" },
+    { "type": "choice", "q": "Ein Kind singt ein Lied erst ganz hoch, dann ganz tief. Was ändert sich?", "options": ["Tonhöhe", "Tempo", "Lautstärke", "Klangfarbe"], "answer": "Tonhöhe" },
+    { "type": "choice", "q": "Die Musik wird immer schneller. Was ändert sich?", "options": ["Tempo", "Tonhöhe", "Lautstärke", "Klangfarbe"], "answer": "Tempo" },
+    { "type": "choice", "q": "Die Band spielt erst ganz leise, dann ganz laut. Was ändert sich?", "options": ["Lautstärke", "Tempo", "Tonhöhe", "Klangfarbe"], "answer": "Lautstärke" },
+    { "type": "choice", "q": "Eine Geige und eine Trompete spielen genau denselben Ton. Woran hörst du den Unterschied?", "options": ["an der Klangfarbe", "an der Tonhöhe", "am Tempo", "gar nicht"], "answer": "an der Klangfarbe", "explain": "Jedes Instrument hat seine eigene **Klangfarbe** – auch beim gleichen Ton." },
+    { "type": "choice", "q": "Die Töne einer Melodie werden immer höher. Man sagt: Die Melodie …", "options": ["steigt", "fällt", "bleibt gleich", "wird leiser"], "answer": "steigt" },
+    { "type": "choice", "q": "Die Töne einer Melodie werden immer tiefer. Man sagt: Die Melodie …", "options": ["fällt", "steigt", "bleibt gleich", "wird schneller"], "answer": "fällt" },
+    { "type": "choice", "q": "Wie klingt ein Schlaflied meistens?", "options": ["langsam und leise", "schnell und laut", "schnell und leise", "langsam und sehr laut"], "answer": "langsam und leise" },
+    { "type": "choice", "q": "Welches Instrument klingt eher **dunkel**?", "options": ["Tuba", "Querflöte", "Triangel", "Glockenspiel"], "answer": "Tuba" },
+    { "type": "input", "q": "Tonhöhe: hoch – ___", "answer": "tief" },
+    { "type": "input", "q": "Lautstärke: laut – ___", "answer": "leise" },
+    { "type": "input", "q": "Tempo: langsam – ___", "answer": "schnell" },
+    { "type": "input", "q": "Klangfarbe: hell – ___", "answer": "dunkel" }
+  ]
+}

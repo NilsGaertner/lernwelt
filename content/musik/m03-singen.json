@@ -1,0 +1,41 @@
+{
+  "id": "singen",
+  "line": "klang",
+  "order": 3,
+  "title": "Singen",
+  "subtitle": "Wie entsteht die Stimme?",
+  "icon": "🎤",
+  "card": "Wusstest du? Bei Männern sind die Stimmlippen länger als bei Frauen und Kindern – darum klingen Männerstimmen tiefer.",
+  "explain": [
+    { "p": "Am Vorgang des Singens sind **mehrere Teile des Körpers** beteiligt:" },
+    { "table": { "head": ["Teil", "Was gehört dazu?", "Aufgabe"], "rows": [
+      ["① **Atemorgan**", "Zwerchfell, Lunge, Luftröhre", "liefert die **Luft**, die zur Tonerzeugung nötig ist"],
+      ["② **Stimmlippen**", "im Inneren des **Kehlkopfes**", "erzeugen den **Ton**"],
+      ["③ **Resonanzrohr**", "Zunge, Rachen, Mund, Nasenhöhle", "verändert den **Klang** des Tones"]
+    ] } },
+    { "p": "So läuft es ab: Die Luft strömt aus der **Lunge** durch die **Luftröhre** nach oben. Im **Kehlkopf** bringt sie die **Stimmlippen** zum Schwingen – so entsteht der Ton. Im **Resonanzrohr** bekommt der Ton seinen Klang." },
+    { "tip": "Leg die Hand vorne an den Hals und summe: Du spürst, wie es **vibriert**. Dort sitzt der Kehlkopf mit den Stimmlippen." },
+    { "tip": "Das **Zwerchfell** ist ein großer Muskel unter der Lunge. Beim Einatmen zieht es sich nach unten – so strömt Luft in die Lunge." },
+    { "tip": "Je **schneller** die Stimmlippen schwingen, desto **höher** ist der Ton. Die Stimmlippen heißen auch **Stimmbänder**." },
+    { "tip": "Hast du Schnupfen, klingt deine Stimme anders: Die **Nasenhöhle** ist verstopft, und das Resonanzrohr verändert den Klang." }
+  ],
+  "exercises": [
+    { "type": "order", "task": "In welcher Reihenfolge entsteht die Stimme? Bring die Teile in die richtige Reihenfolge.", "de": "Luft → Ton → Klang", "answer": "Atemorgan Stimmlippen Resonanzrohr" },
+    { "type": "choice", "q": "Welcher Teil liefert die Luft, die zur Tonerzeugung nötig ist?", "options": ["das Atemorgan", "die Stimmlippen", "das Resonanzrohr", "die Zunge"], "answer": "das Atemorgan" },
+    { "type": "choice", "q": "Was erzeugt den Ton?", "options": ["die Stimmlippen", "die Lunge", "die Nasenhöhle", "das Zwerchfell"], "answer": "die Stimmlippen" },
+    { "type": "choice", "q": "Wo liegen die Stimmlippen?", "options": ["im Inneren des Kehlkopfes", "in der Lunge", "in der Nasenhöhle", "unter der Zunge"], "answer": "im Inneren des Kehlkopfes" },
+    { "type": "choice", "q": "Was verändert den Klang des Tones?", "options": ["das Resonanzrohr", "das Atemorgan", "das Zwerchfell", "die Luftröhre"], "answer": "das Resonanzrohr" },
+    { "type": "choice", "q": "Was gehört zum Atemorgan?", "options": ["Zwerchfell, Lunge, Luftröhre", "Zunge, Rachen, Mund", "Mund und Nasenhöhle", "Stimmlippen und Kehlkopf"], "answer": "Zwerchfell, Lunge, Luftröhre" },
+    { "type": "choice", "q": "Was gehört zum Resonanzrohr?", "options": ["Zunge, Rachen, Mund, Nasenhöhle", "Zwerchfell, Lunge, Luftröhre", "nur die Lunge", "Stimmlippen und Kehlkopf"], "answer": "Zunge, Rachen, Mund, Nasenhöhle" },
+    { "type": "choice", "q": "Zu welchem Teil gehört das Zwerchfell?", "options": ["Atemorgan", "Resonanzrohr", "Kehlkopf"], "answer": "Atemorgan" },
+    { "type": "choice", "q": "Zu welchem Teil gehört die Nasenhöhle?", "options": ["Resonanzrohr", "Atemorgan", "Kehlkopf"], "answer": "Resonanzrohr" },
+    { "type": "choice", "q": "Zu welchem Teil gehört die Zunge?", "options": ["Resonanzrohr", "Atemorgan", "Kehlkopf"], "answer": "Resonanzrohr" },
+    { "type": "choice", "q": "Was passiert mit den Stimmlippen, wenn du einen Ton singst?", "options": ["Sie schwingen.", "Sie stehen still.", "Sie füllen sich mit Luft.", "Sie werden kürzer."], "answer": "Sie schwingen.", "explain": "Die Luft aus der Lunge bringt die Stimmlippen zum **Schwingen**. So entsteht der Ton." },
+    { "type": "choice", "q": "Du singst einen hohen Ton. Wie schwingen deine Stimmlippen?", "options": ["schneller", "langsamer", "gar nicht"], "answer": "schneller", "explain": "Je schneller die Stimmlippen schwingen, desto höher ist der Ton." },
+    { "type": "choice", "q": "Mit Schnupfen klingt deine Stimme anders. Welcher Teil ist dann gestört?", "options": ["das Resonanzrohr", "die Stimmlippen", "das Zwerchfell", "die Lunge"], "answer": "das Resonanzrohr", "explain": "Die **Nasenhöhle** ist verstopft. Sie gehört zum Resonanzrohr, das den Klang verändert." },
+    { "type": "input", "q": "Die Stimmlippen liegen im Inneren des ___.", "answer": "Kehlkopfes", "accept": ["Kehlkopfs", "Kehlkopf"] },
+    { "type": "input", "q": "Der große Muskel unter der Lunge heißt ___.", "answer": "Zwerchfell" },
+    { "type": "input", "q": "Das Atemorgan liefert die ___, die zur Tonerzeugung nötig ist.", "answer": "Luft" },
+    { "type": "input", "q": "Die Stimmlippen erzeugen den ___.", "answer": "Ton" }
+  ]
+}

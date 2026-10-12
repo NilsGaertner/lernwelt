@@ -1,0 +1,12 @@
+{
+  "id": "musik",
+  "name": "Musik",
+  "icon": "🎵",
+  "order": 6,
+  "lines": [
+    { "id": "klang", "name": "Klang-Linie", "short": "Klang", "color": "#6A1B9A" }
+  ],
+  "blitz": [
+    { "id": "musik", "title": "Musik-Blitz", "icon": "⚡", "subtitle": "Merkmale der Musik und Singen", "types": ["choice"] }
+  ]
+}

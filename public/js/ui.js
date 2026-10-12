@@ -298,6 +298,11 @@ export function renderExplain(blocks, speechLang) {
         h('li', sayBtn(en.replace(/\*\*/g, '')) ?? h('span'), h('span.en', { html: md(en) }), h('span.de', de))));
     }
     if (b.map) return mapFigure(b.map, { legend: b.legend ?? [] });
+    if (b.sound) {
+      return h('p.sound-demo',
+        h('button.listen-btn.small', { type: 'button', 'aria-label': 'Anhören', onclick: () => playMusic(b.sound) }, '🎵'),
+        h('span', { html: md(b.label ?? '') }));
+    }
     if (b.column) return h('figure.colsum-figure', columnSum(b.column.rows, { op: b.column.op }), b.column.caption ? h('figcaption', { html: md(b.column.caption) }) : null);
     if (b.table) {
       return h('.table-wrap', h('table',
@@ -506,6 +511,62 @@ function tone(freqs, { dur = 0.12, type = 'sine', gap = 0.09, vol = 0.18 } = {})
     /* Audio nicht verfügbar */
   }
 }
+/**
+ * Hör-Aufgaben (Musik): spielt Noten ab – unabhängig vom Ton-Schalter, denn ohne Ton geht die Aufgabe nicht.
+ * spec: { wave, dur, notes: "C4 E4 - G4" | [ "C4", "-", { n: "G4", d: 0.8, v: 0.3, w: "sawtooth", lp: 600 } ] }
+ * "-" ist eine Pause. d = Dauer (s), v = Lautstärke 0–1, w = Wellenform, lp = Tiefpass (Hz) für dunklen Klang.
+ */
+let musicOut = null;
+export function playMusic(spec) {
+  try {
+    ctx ??= new (window.AudioContext || window.webkitAudioContext)();
+    ctx.resume?.();
+    musicOut?.disconnect(); // Nochmal drücken: das Alte verstummt sofort
+    const out = (musicOut = ctx.createGain());
+    out.connect(ctx.destination);
+    const notes = typeof spec.notes === 'string' ? spec.notes.trim().split(/\s+/) : spec.notes;
+    let t = ctx.currentTime + 0.05;
+    for (const item of notes) {
+      const n = typeof item === 'string' ? { n: item } : item;
+      const d = n.d ?? spec.dur ?? 0.45;
+      const freq = noteFreq(n.n);
+      if (freq) {
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = n.w ?? spec.wave ?? 'triangle';
+        o.frequency.value = freq;
+        const vol = 0.35 * (n.v ?? spec.vol ?? 0.7);
+        g.gain.setValueAtTime(0, t);
+        g.gain.linearRampToValueAtTime(vol, t + 0.02);
+        g.gain.setValueAtTime(vol, t + d * 0.75);
+        g.gain.linearRampToValueAtTime(0, t + d);
+        let node = o.connect(g);
+        const lp = n.lp ?? spec.lp;
+        if (lp) {
+          const f = ctx.createBiquadFilter();
+          f.type = 'lowpass';
+          f.frequency.value = lp;
+          node = node.connect(f);
+        }
+        node.connect(out);
+        o.start(t);
+        o.stop(t + d + 0.02);
+      }
+      t += d + 0.04;
+    }
+  } catch {
+    /* Audio nicht verfügbar */
+  }
+}
+
+/** "A4" → 440 Hz, "C#5", "Bb3" … ; "-" (Pause) → null */
+export function noteFreq(name) {
+  const m = /^([A-G])(#|b)?(\d)$/.exec(name ?? '');
+  if (!m) return null;
+  const semi = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 }[m[1]] + (m[2] === '#' ? 1 : m[2] === 'b' ? -1 : 0);
+  return 440 * 2 ** ((12 * (Number(m[3]) + 1) + semi - 69) / 12);
+}
+
 export const sfx = {
   right: () => tone([660, 880], { type: 'triangle' }),
   wrong: () => tone([220, 180], { type: 'sawtooth', vol: 0.07, dur: 0.16 }),
