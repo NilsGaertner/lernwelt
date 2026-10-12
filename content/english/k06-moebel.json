@@ -1,0 +1,46 @@
+{
+  "id": "karten-moebel",
+  "line": "zimmer",
+  "order": 3,
+  "title": "Furniture",
+  "subtitle": "Bett, Sessel, Schreibtisch",
+  "icon": "🛏️",
+  "typePhrases": true,
+  "explain": [
+    { "p": "Im **children's room**: bed, poster, computer, TV, wardrobe, shelf, desk. Im **living room**: armchair, sofa, table. Im **dining room**: a table with chairs. Im **bedroom**: a lamp." },
+    { "p": "**shelf** (Regal) hat eine besondere Mehrzahl: aus **f** wird **ves**. one shel**f** – two shel**ves**. Genauso: wol**f** – wol**ves**." },
+    { "ex": [
+      ["I do my homework at my desk.", "Ich mache meine Hausaufgaben an meinem Schreibtisch."],
+      ["My clothes are in the wardrobe.", "Meine Kleider sind im Kleiderschrank."],
+      ["I watch TV in the living room.", "Ich sehe im Wohnzimmer fern."]
+    ] },
+    { "tip": "Fernsehen heißt **watch TV** – ohne „the“." },
+    { "tip": "**armchair** = arm (Arm) + chair (Stuhl): ein Stuhl mit Armlehnen, also ein Sessel." }
+  ],
+  "vocab": [
+    { "en": "bed", "de": "Bett" },
+    { "en": "poster", "de": "Poster" },
+    { "en": "computer", "de": "Computer" },
+    { "en": "TV", "de": "Fernseher", "alt": ["television"] },
+    { "en": "wardrobe", "de": "Kleiderschrank" },
+    { "en": "shelf", "de": "Regal" },
+    { "en": "shelves", "de": "Regale" },
+    { "en": "desk", "de": "Schreibtisch" },
+    { "en": "armchair", "de": "Sessel" },
+    { "en": "sofa", "de": "Sofa" },
+    { "en": "table", "de": "Tisch" },
+    { "en": "table with chairs", "de": "Tisch mit Stühlen", "alt": ["a table with chairs"] },
+    { "en": "lamp", "de": "Lampe" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "two ___", "de": "zwei Regale", "options": ["shelves", "shelfs", "shelfes", "shelf"], "answer": "shelves", "explain": "Aus **f** wird **ves**: one shelf – two shel**ves**." },
+    { "type": "choice", "q": "My clothes are in the ___.", "de": "Meine Kleider sind im Kleiderschrank.", "options": ["wardrobe", "desk", "fridge", "sink"], "answer": "wardrobe", "explain": "Kleiderschrank = **wardrobe**." },
+    { "type": "choice", "q": "Grandpa sits in the ___.", "de": "Opa sitzt im Sessel.", "options": ["armchair", "wardrobe", "lamp", "shelf"], "answer": "armchair", "explain": "Sessel = **armchair**, ein Stuhl (chair) mit Armlehnen (arm)." },
+    { "type": "choice", "q": "I watch ___ in the living room.", "de": "Ich sehe im Wohnzimmer fern.", "options": ["TV", "the TV", "a TV", "TVs"], "answer": "TV", "explain": "Fernsehen = **watch TV**, ohne „the“." },
+    { "type": "choice", "q": "Where is the bed? It's in the ___.", "options": ["bedroom", "bathroom", "kitchen", "hall"], "answer": "bedroom", "explain": "Das Bett (bed) steht im Schlafzimmer (**bed**room)." },
+    { "type": "input", "q": "I do my homework at my ___.", "de": "Ich mache meine Hausaufgaben an meinem Schreibtisch.", "answer": "desk" },
+    { "type": "input", "q": "a table with ___", "de": "ein Tisch mit Stühlen", "answer": "chairs", "explain": "Stuhl = **chair**, Stühle = **chairs**." },
+    { "type": "input", "q": "The ___ is on my desk.", "de": "Die Lampe steht auf meinem Schreibtisch.", "answer": "lamp" },
+    { "type": "order", "de": "Mein Computer steht auf dem Schreibtisch.", "answer": "My computer is on the desk.", "accept": ["My computer is on my desk."] }
+  ]
+}

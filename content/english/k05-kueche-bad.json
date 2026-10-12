@@ -1,0 +1,42 @@
+{
+  "id": "karten-kueche-bad",
+  "line": "zimmer",
+  "order": 2,
+  "title": "Kitchen and bathroom",
+  "subtitle": "Kühlschrank, Dusche, Spiegel",
+  "icon": "🚿",
+  "typePhrases": true,
+  "explain": [
+    { "p": "In der **kitchen**: cupboard, fridge, dishwasher, sink, microwave." },
+    { "p": "Im **bathroom**: shower, washing machine, toilet. Im **hall** hängt ein **mirror**." },
+    { "ex": [
+      ["The milk is in the fridge.", "Die Milch ist im Kühlschrank."],
+      ["The cups are in the cupboard.", "Die Tassen sind im Schrank."],
+      ["Where is the shower? It's in the bathroom.", "Wo ist die Dusche? Sie ist im Badezimmer."]
+    ] },
+    { "tip": "**cupboard** spricht man „kabbert“ – das **p** hört man nicht!" },
+    { "tip": "**dishwasher** = dish (Geschirr) + washer (Wäscher). **washing machine** schreibt man in zwei Wörtern." },
+    { "tip": "In England steht die Waschmaschine meistens in der **Küche**, nicht im Bad." }
+  ],
+  "vocab": [
+    { "en": "cupboard", "de": "Schrank (in der Küche)" },
+    { "en": "fridge", "de": "Kühlschrank" },
+    { "en": "dishwasher", "de": "Spülmaschine" },
+    { "en": "sink", "de": "Spüle, Spülbecken" },
+    { "en": "microwave", "de": "Mikrowelle" },
+    { "en": "shower", "de": "Dusche" },
+    { "en": "washing machine", "de": "Waschmaschine" },
+    { "en": "toilet", "de": "Toilette" },
+    { "en": "mirror", "de": "Spiegel" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "The milk is in the ___.", "de": "Die Milch ist im Kühlschrank.", "options": ["fridge", "sink", "microwave", "shower"], "answer": "fridge", "explain": "Kühlschrank = **fridge**." },
+    { "type": "choice", "q": "Where is the fridge? It's in the ___.", "options": ["kitchen", "bathroom", "hall", "garden"], "answer": "kitchen", "explain": "Der Kühlschrank (fridge) steht in der Küche (**kitchen**)." },
+    { "type": "choice", "q": "Where is the shower? It's in the ___.", "options": ["bathroom", "kitchen", "living room", "bedroom"], "answer": "bathroom", "explain": "Die Dusche (shower) ist im Badezimmer (**bathroom**)." },
+    { "type": "choice", "q": "Wie schreibt man „Mikrowelle“?", "options": ["microwave", "mikrowave", "microwelle", "micro wave"], "answer": "microwave", "explain": "Auf Englisch mit **c** und **wave** (Welle): **microwave**." },
+    { "type": "input", "q": "The plates are in the ___.", "de": "Die Teller sind in der Spülmaschine.", "answer": "dishwasher" },
+    { "type": "input", "q": "washing ___", "de": "Waschmaschine", "answer": "machine" },
+    { "type": "input", "q": "Look in the ___!", "de": "Schau in den Spiegel!", "answer": "mirror" },
+    { "type": "order", "de": "Die Tassen sind im Schrank.", "answer": "The cups are in the cupboard.", "explain": "Schrank in der Küche = **cupboard**." }
+  ]
+}

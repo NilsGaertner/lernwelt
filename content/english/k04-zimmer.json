@@ -1,0 +1,40 @@
+{
+  "id": "karten-zimmer",
+  "line": "zimmer",
+  "order": 1,
+  "title": "Rooms",
+  "subtitle": "Die Zimmer im Haus",
+  "icon": "🚪",
+  "typePhrases": true,
+  "explain": [
+    { "p": "Manche Zimmer schreibt man **zusammen**: **bedroom**, **bathroom**. Andere **getrennt**: **living room**, **dining room**, **children's room**." },
+    { "p": "**children's room** = das Zimmer **der Kinder**. **children** ist die Mehrzahl von **child** (Kind), das **'s** zeigt, wem es gehört." },
+    { "ex": [
+      ["We eat in the dining room.", "Wir essen im Esszimmer."],
+      ["I sleep in my bedroom.", "Ich schlafe in meinem Schlafzimmer."],
+      ["My coat is in the hall.", "Meine Jacke ist im Flur."]
+    ] },
+    { "tip": "**hall** = Flur, Diele. Nicht verwechseln mit **wall** (Wand)!" },
+    { "tip": "**dining** kommt von **to dine** = speisen, essen. **living** kommt von **to live** = wohnen." }
+  ],
+  "vocab": [
+    { "en": "children's room", "de": "Kinderzimmer", "alt": ["childrens room", "the children's room"] },
+    { "en": "hall", "de": "Flur, Diele" },
+    { "en": "living room", "de": "Wohnzimmer" },
+    { "en": "dining room", "de": "Esszimmer" },
+    { "en": "bathroom", "de": "Badezimmer" },
+    { "en": "bedroom", "de": "Schlafzimmer" },
+    { "en": "kitchen", "de": "Küche" },
+    { "en": "garden", "de": "Garten" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "the ___ room", "de": "das Kinderzimmer", "options": ["children's", "childs", "child", "childrens'"], "answer": "children's", "explain": "**children's room**: children = Kinder, **'s** = von den Kindern." },
+    { "type": "choice", "q": "We eat in the ___ room.", "de": "Wir essen im Esszimmer.", "options": ["dining", "living", "eating", "bed"], "answer": "dining", "explain": "Esszimmer = **dining room**. living room ist das Wohnzimmer." },
+    { "type": "choice", "q": "Wie schreibt man „Schlafzimmer“?", "options": ["bedroom", "bed room", "bettroom", "bedrom"], "answer": "bedroom", "explain": "**bedroom** schreibt man zusammen, wie **bathroom**." },
+    { "type": "choice", "q": "My coat is in the ___.", "de": "Meine Jacke ist im Flur.", "options": ["hall", "wall", "floor", "hill"], "answer": "hall", "explain": "Flur = **hall**. wall ist die Wand, floor der Fußboden." },
+    { "type": "input", "q": "the living ___", "de": "das Wohnzimmer", "answer": "room" },
+    { "type": "input", "q": "I sleep in my ___.", "de": "Ich schlafe in meinem Schlafzimmer.", "answer": "bedroom" },
+    { "type": "input", "q": "The flowers are in the ___.", "de": "Die Blumen sind im Garten.", "answer": "garden" },
+    { "type": "order", "de": "Die Küche ist unten.", "answer": "The kitchen is downstairs.", "explain": "unten (im Haus) = **downstairs**, oben = **upstairs**." }
+  ]
+}
