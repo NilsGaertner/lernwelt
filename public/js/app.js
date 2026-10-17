@@ -36,8 +36,8 @@ function showError(err) {
 
 const routes = [
   [/^$/, profilesView],
-  [/^kid\/(\d+)$/, (id) => homeView(id)],
-  [/^kid\/(\d+)\/s\/([\w-]+)$/, (id, subject) => homeView(id, subject)],
+  [/^kid\/(\d+)$/, (id) => dashboardView(id)],
+  [/^kid\/(\d+)\/s\/([\w-]+)$/, (id, subject) => subjectView(id, subject)],
   [/^kid\/(\d+)\/station\/([\w-]+)\/([\w-]+)$/, stationView],
   [/^kid\/(\d+)\/badges$/, (id) => collectionView(id, 'abzeichen')],
   [/^kid\/(\d+)\/sammlung(?:\/(\w+))?$/, (id, tab) => collectionView(id, tab ?? 'rang')],
@@ -92,7 +92,7 @@ function soundToggle() {
 function kidBar(ov) {
   const id = ov.child.id;
   return h('header.topbar',
-    h('a.roundel', { href: `#/kid/${id}`, title: 'Zum Netzplan' },
+    h('a.roundel', { href: `#/kid/${id}`, title: 'Zur Übersicht' },
       h('span.ring', { 'aria-hidden': 'true' }, faceOf(ov.child)),
       h('span.bar', ov.child.name)),
     h('.spacer'),
@@ -202,86 +202,192 @@ async function profilesView() {
   );
 }
 
-// ================================================================ Netzplan
+// ================================================================ Übersicht (Startseite)
 
-async function homeView(id, subjectId) {
+async function dashboardView(id) {
   const [meta, ov] = await Promise.all([loadMeta(), api(`/children/${id}/overview`)]);
   prefs.lastChild = Number(id);
-  const subject = meta.subjects.find((s) => s.id === subjectId) ?? meta.subjects[0];
-  if (!subject) {
+  if (!meta.subjects.length) {
     render(kidBar(ov), h('.empty', 'Es sind noch keine Fächer eingerichtet.'));
     return;
   }
-  const progress = ov.progress[subject.id] ?? {};
-  const hash = `#/kid/${id}${subjectId ? `/s/${subject.id}` : ''}`;
+  const stats = meta.subjects.map((s) => subjectStats(s, ov));
+  // Weiter geht’s im zuletzt geübten Fach – ist dort heute schon alles gefahren, im nächsten
+  const recentFirst = [...stats].sort((a, b) => (b.last ?? '').localeCompare(a.last ?? ''));
+  const cont = recentFirst.map((st) => continueCard(id, st.subject, ov.progress[st.subject.id] ?? {})).find(Boolean);
 
-  const limit = ov.dailyLimit;
-  const shieldNote = ov.streakInfo.shieldUsedOn && ov.streakInfo.shieldUsedOn >= addDaysIso(-2)
+  render(
+    kidBar(ov),
+    shieldNote(ov),
+    ov.child.adult ? null : boostBanner(id, meta, ov.boost, null),
+    lootNote(id, ov),
+    helloCard(id, ov),
+    cont,
+    planCard(id, ov.plan, meta),
+    h('h2.section-title', '📚 Deine Fächer'),
+    h('section.subject-grid', stats.map((st) => subjectCard(id, st, ov))),
+    recentRides(id, meta, ov));
+}
+
+function shieldNote(ov) {
+  return ov.streakInfo.shieldUsedOn && ov.streakInfo.shieldUsedOn >= addDaysIso(-2)
     ? h('p.shield-note', `🛡️ Dein Serienschutz hat deine Serie gerettet! Du bist jetzt ${ov.streak} Tage dabei. Der nächste Schutz ist in einer Woche wieder bereit.`)
     : null;
-  const boostNote = ov.child.adult ? null : boostBanner(id, meta, ov.boost, subject.id);
+}
+
+function lootNote(id, ov) {
   const boxes = ov.lootboxes.closed.length;
+  if (!boxes) return null;
   const gifts = ov.lootboxes.closed.filter((b) => b.source === 'gift').length;
-  const lootNote = boxes
-    ? h('p.loot-note', { class: gifts ? 'gift' : '' },
-        gifts
-          ? `💌 Deine Eltern haben dir ${gifts === 1 ? 'eine Lootbox' : `${gifts} Lootboxen`} geschenkt! `
-          : `🎁 Du hast ${boxes === 1 ? 'eine ungeöffnete Lootbox' : `${boxes} ungeöffnete Lootboxen`}! `,
-        h('a', { href: `#/kid/${id}/boxen` }, 'Jetzt öffnen →'))
-    : null;
-  const retireAfter = ov.settings.retireAfter;
-  const today = ov.child.adult ? null : h('section.today',
-    h('div',
-      h('h2', limit > 0 ? `Heute verdient: ${ov.earnedToday} von ${limit} Sternen` : `Heute verdient: ${ov.earnedToday} Sterne`),
+  return h('p.loot-note', { class: gifts ? 'gift' : '' },
+    gifts
+      ? `💌 Deine Eltern haben dir ${gifts === 1 ? 'eine Lootbox' : `${gifts} Lootboxen`} geschenkt! `
+      : `🎁 Du hast ${boxes === 1 ? 'eine ungeöffnete Lootbox' : `${boxes} ungeöffnete Lootboxen`}! `,
+    h('a', { href: `#/kid/${id}/boxen` }, 'Jetzt öffnen →'));
+}
+
+/** Begrüßung mit Companion und den Sternen von heute. */
+function helloCard(id, ov) {
+  const { child } = ov;
+  const hour = new Date().getHours();
+  const hi = hour < 11 ? 'Guten Morgen' : hour < 18 ? 'Hallo' : 'Guten Abend';
+  const limit = ov.dailyLimit;
+  const cat = companion(child, { awake: true, className: 'greet' });
+  const stars = child.adult ? null : h('.hello-stars',
+    h('.hs-text',
+      h('p', limit > 0 ? `Heute verdient: ${ov.earnedToday} von ${limit} ★` : `Heute verdient: ${ov.earnedToday} ★`),
       ov.limitRaised ? h('p.muted.small', '🎁 Heute gibt es ein Extra-Limit von deinen Eltern!') : null,
       limit > 0 ? h('.meter', { role: 'img', 'aria-label': `${ov.earnedToday} von ${limit}` },
         h('span', { style: { width: `${Math.min(100, (ov.earnedToday / limit) * 100)}%` } })) : null),
-    h('a.btn.ghost', { href: `#/kid/${id}/tickets` }, '🎟️ Sterne eintauschen'));
+    h('a.btn.ghost.small', { href: `#/kid/${id}/tickets` }, '🎟️ Eintauschen'));
+  return h('section.hello',
+    h('.hello-text',
+      h('h1', `${hi}, ${child.name}!`),
+      h('p.muted', ov.plan.done
+        ? 'Dein Fahrplan für heute ist geschafft – stark! 🎉'
+        : ov.streak > 1 ? `🔥 Schon ${ov.streak} Tage am Stück – mach weiter so!` : 'Schön, dass du da bist. Wohin fährst du heute?'),
+      stars),
+    cat?.el);
+}
 
-  // Wiederholung: Gelerntes, das nach ein paar Tagen Pause wieder dran ist – damit es nicht vergessen wird.
-  const dueN = ov.due?.[subject.id] ?? 0;
-  const due = dueN > 0
-    ? h('section.review-card.due-card',
-        h('span', { style: { fontSize: '1.8rem' }, 'aria-hidden': 'true' }, '🔁'),
-        h('p', h('strong', 'Wiederholen: '),
-          dueN === 1 ? 'Eine Aufgabe ist heute wieder dran' : `${dueN} Aufgaben sind heute wieder dran`,
-          ' – damit du nichts vergisst.'),
-        h('button.btn', {
-          type: 'button',
-          onclick: (e) => {
-            e.currentTarget.disabled = true;
-            startRide({ childId: Number(id), subject: subject.id, mode: 'due', lineColor: '#0B7A75', backHash: hash, train: ov.train });
-          },
-        }, 'Wiederholen'))
-    : null;
+/** Stand eines Fachs: Sterne, gemeisterte Stationen, nächster Halt, letzte Fahrt, offene Übungen. */
+function subjectStats(subject, ov) {
+  const progress = ov.progress[subject.id] ?? {};
+  const units = subject.units.filter((u) => !progress[u.id]?.archived);
+  const best = (u) => progress[u.id]?.best ?? 0;
+  return {
+    subject,
+    units: units.length,
+    stars: units.reduce((n, u) => n + best(u), 0),
+    mastered: units.filter((u) => best(u) === 3).length,
+    next: nextUnit(subject, progress),
+    last: units.map((u) => progress[u.id]?.last).filter(Boolean).sort().at(-1) ?? null,
+    due: ov.due?.[subject.id] ?? 0,
+    review: ov.review[subject.id] ?? 0,
+  };
+}
 
-  const reviewN = ov.review[subject.id] ?? 0;
-  const review = reviewN > 0
-    ? h('section.review-card',
-        h('span', { style: { fontSize: '1.8rem' }, 'aria-hidden': 'true' }, '🔧'),
-        h('p', h('strong', 'Fehler-Training: '),
-          reviewN === 1 ? 'Eine Aufgabe will nochmal geübt werden.' : `${reviewN} Aufgaben wollen nochmal geübt werden.`),
-        h('button.btn', {
-          type: 'button',
-          onclick: () => startRide({ childId: Number(id), subject: subject.id, mode: 'review', lineColor: '#D7263D', backHash: hash, train: ov.train }),
-        }, 'Jetzt üben'))
-    : null;
+/** Kachel eines Fachs auf der Übersicht – antippen öffnet den Netzplan. */
+function subjectCard(id, st, ov) {
+  const { subject } = st;
+  const max = st.units * 3;
+  const chip = (cls, text, sr) => h(`span.chip.${cls}`, text, h('span.sr-only', sr));
+  return h('a.subject-card', { href: `#/kid/${id}/s/${subject.id}`, style: { '--line': subject.lines[0]?.color ?? 'var(--focus)' } },
+    h('span.sc-icon', { 'aria-hidden': 'true' }, subject.icon),
+    h('span.sc-body',
+      h('span.sc-head',
+        h('strong.sc-name', subject.name),
+        st.due ? chip('due', `🔁 ${st.due}`, ' zum Wiederholen') : null,
+        st.review ? chip('review', `🔧 ${st.review}`, ' im Fehler-Training') : null,
+        !ov.child.adult && ov.boost?.subject === subject.id ? chip('boost', '🎉 ×2', ' Sterne') : null),
+      h('span.meter', { role: 'img', 'aria-label': `${st.stars} von ${max} Sternen` },
+        h('span', { style: { width: `${max ? (st.stars / max) * 100 : 0}%` } })),
+      h('span.sc-meta', `★ ${st.stars} von ${max}`, st.last ? ` · zuletzt ${ago(st.last)}` : ' · noch nicht gefahren'),
+      h('span.sc-next', st.next
+        ? ['Nächster Halt: ', h('strong', `${st.next.icon} ${st.next.title}`)]
+        : st.mastered === st.units ? '🏆 Alles gemeistert!' : '✔ Für heute alles gefahren')),
+    h('span.sc-go', { 'aria-hidden': 'true' }, '›'));
+}
 
-  const tabs = meta.subjects.length > 1
-    ? h('nav.subject-tabs', { 'aria-label': 'Fächer' }, meta.subjects.map((s) =>
-        h('a', { href: `#/kid/${id}/s/${s.id}`, 'aria-current': s.id === subject.id ? 'page' : null },
-          `${s.icon} ${s.name}${ov.boost?.subject === s.id ? ' 🎉' : ''}`)))
-    : null;
+/** Die letzten Stationen über alle Fächer – zum schnellen Wiederfinden. */
+function recentRides(id, meta, ov) {
+  const rides = meta.subjects
+    .flatMap((s) => s.units.map((u) => ({ s, u, p: ov.progress[s.id]?.[u.id] })))
+    .filter(({ p }) => p?.last && !p.archived)
+    .sort((a, b) => b.p.last.localeCompare(a.p.last))
+    .slice(0, 4);
+  if (!rides.length) return null;
+  return h('section.panel.recent',
+    h('h2', '🕘 Zuletzt gefahren'),
+    h('ul.recent-list', rides.map(({ s, u, p }) =>
+      h('li', h('a', { href: `#/kid/${id}/station/${s.id}/${u.id}`, style: { '--line': lineOf(s, u.line).color } },
+        h('span.r-icon', { 'aria-hidden': 'true' }, u.icon),
+        h('span.r-text', h('strong', u.title), h('span.muted.small', `${s.icon} ${s.name} · ${ago(p.last)}`)),
+        starRow(p.best))))));
+}
 
-  const blitz = subject.blitz?.length
-    ? h('section.blitz-row', subject.blitz.map((t) => {
-        const best = ov.blitz[`${subject.id}/${t.id}`];
-        return h('a.blitz-tile', { href: `#/kid/${id}/blitz/${subject.id}/${t.id}` },
-          h('span.b-icon', { 'aria-hidden': 'true' }, t.icon),
-          h('span.b-text', h('strong', t.title), h('span.muted.small', best ? `Dein Rekord: ⚡ ${best}` : '60 Sekunden – wie viele schaffst du?')),
-          h('span.b-go', { 'aria-hidden': 'true' }, '▶'));
-      }))
-    : null;
+/** „heute“, „gestern“, „vor 3 Tagen“ … */
+function ago(iso) {
+  const day = (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const days = Math.round((day(new Date()) - day(new Date(iso))) / 864e5);
+  if (days <= 0) return 'heute';
+  if (days === 1) return 'gestern';
+  if (days < 14) return `vor ${days} Tagen`;
+  if (days < 60) return `vor ${Math.round(days / 7)} Wochen`;
+  return `am ${new Date(iso).toLocaleDateString('de-DE')}`;
+}
+
+// ================================================================ Fach: Übungen und Netzplan
+
+async function subjectView(id, subjectId) {
+  const [meta, ov] = await Promise.all([loadMeta(), api(`/children/${id}/overview`)]);
+  prefs.lastChild = Number(id);
+  const subject = meta.subjects.find((s) => s.id === subjectId);
+  if (!subject) {
+    location.hash = `#/kid/${id}`;
+    return;
+  }
+  const progress = ov.progress[subject.id] ?? {};
+  const hash = `#/kid/${id}/s/${subject.id}`;
+  const st = subjectStats(subject, ov);
+  const retireAfter = ov.settings.retireAfter;
+
+  const head = h('div', { style: { '--line': subject.lines[0]?.color ?? 'var(--focus)' } },
+    h('a.back', { href: `#/kid/${id}` }, '← Alle Fächer'),
+    h('header.sign.subject-sign',
+      h('span.icon', { 'aria-hidden': 'true' }, subject.icon),
+      h('div',
+        h('h1', subject.name),
+        h('p', `${st.mastered} von ${st.units} Stationen gemeistert · ★ ${st.stars} von ${st.units * 3}`))));
+
+  // Extra-Training als Kacheln nebeneinander: Wiederholen (Gelerntes, das nach ein paar Tagen Pause wieder dran ist),
+  // Fehler-Training und die Blitzrunden.
+  const ride = (mode, lineColor) => (e) => {
+    e.currentTarget.disabled = true;
+    startRide({ childId: Number(id), subject: subject.id, mode, lineColor, backHash: hash, train: ov.train });
+  };
+  const tile = (tag, icon, title, sub, attrs) => h(tag, attrs,
+    h('span.b-icon', { 'aria-hidden': 'true' }, icon),
+    h('span.b-text', h('strong', title), h('span.muted.small', sub)),
+    h('span.b-go', { 'aria-hidden': 'true' }, '▶'));
+  const tiles = [
+    st.due
+      ? tile('button.blitz-tile.due', '🔁', 'Wiederholen',
+          st.due === 1 ? 'Eine Aufgabe ist heute wieder dran' : `${st.due} Aufgaben sind heute wieder dran`,
+          { type: 'button', onclick: ride('due', '#0B7A75') })
+      : null,
+    st.review
+      ? tile('button.blitz-tile.review', '🔧', 'Fehler-Training',
+          st.review === 1 ? 'Eine Aufgabe will nochmal geübt werden' : `${st.review} Aufgaben wollen nochmal geübt werden`,
+          { type: 'button', onclick: ride('review', '#D7263D') })
+      : null,
+    ...(subject.blitz ?? []).map((t) => {
+      const best = ov.blitz[`${subject.id}/${t.id}`];
+      return tile('a.blitz-tile', t.icon, t.title, best ? `Dein Rekord: ⚡ ${best}` : '60 Sekunden – wie viele schaffst du?',
+        { href: `#/kid/${id}/blitz/${subject.id}/${t.id}` });
+    }),
+  ].filter(Boolean);
+  const training = tiles.length ? h('section.blitz-row', tiles) : null;
 
   const map = h('section.map', subject.lines.map((line) => {
     // Archivierte Stationen haben die Eltern aus dem Fahrplan genommen.
@@ -349,7 +455,14 @@ async function homeView(id, subjectId) {
       list);
   }));
 
-  render(kidBar(ov), shieldNote, boostNote, lootNote, continueCard(id, subject, progress), planCard(id, ov.plan, meta), tabs, today, due, review, blitz, map);
+  render(
+    kidBar(ov),
+    head,
+    ov.child.adult ? null : boostBanner(id, meta, ov.boost, subject.id),
+    continueCard(id, subject, progress),
+    training,
+    h('h2.section-title', '🗺️ Netzplan'),
+    map);
 }
 
 /** Klappt die geschafften Stationen einer Linie ein und aus. */
@@ -370,17 +483,22 @@ function foldToggle(list, key, n) {
 }
 
 /**
- * Großer „Weiter geht’s“-Knopf oben im Netzplan: die erste Station dieses Fachs,
- * auf der es heute noch volle Sterne gibt – am liebsten eine, die noch nicht sitzt.
+ * Die erste Station eines Fachs, auf der es heute noch volle Sterne gibt –
+ * am liebsten eine, die noch nicht sitzt.
  */
-function continueCard(id, subject, progress) {
+function nextUnit(subject, progress) {
   const units = subject.lines.flatMap((l) => subject.units.filter((u) => u.line === l.id));
   const open = units.filter((u) => {
     const p = progress[u.id];
     return !p?.archived && !p?.parked && !p?.today;
   });
   const best = (u) => progress[u.id]?.best ?? 0;
-  const u = open.find((x) => best(x) < 2) ?? open.find((x) => best(x) < 3) ?? open[0];
+  return open.find((x) => best(x) < 2) ?? open.find((x) => best(x) < 3) ?? open[0] ?? null;
+}
+
+/** Großer „Weiter geht’s“-Knopf auf der Übersicht und über dem Netzplan. */
+function continueCard(id, subject, progress) {
+  const u = nextUnit(subject, progress);
   if (!u) return null;
   const line = lineOf(subject, u.line);
   return h('a.continue', { href: `#/kid/${id}/station/${subject.id}/${u.id}`, style: { '--line': line.color } },
@@ -437,7 +555,7 @@ async function stationView(id, subjectId, unitId) {
   const subject = meta.subjects.find((s) => s.id === subjectId);
   const line = lineOf(subject, unit.line);
   const p = ov.progress[subjectId]?.[unitId];
-  const mapHash = `#/kid/${id}${meta.subjects[0]?.id === subjectId ? '' : `/s/${subjectId}`}`;
+  const mapHash = `#/kid/${id}/s/${subjectId}`;
   const n = ov.settings.questionsPerSession;
   const retireAfter = ov.settings.retireAfter;
   const sign = h('header.sign',
