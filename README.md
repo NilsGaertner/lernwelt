@@ -4,7 +4,7 @@ Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch, Mathe, Geogra
 
 ## Was drin ist
 
-**Englisch (Klasse 5, Grundlagen): 51 Stationen, knapp 1000 Wörter und Aufgaben**
+**Englisch (Klasse 5, Grundlagen): 52 Stationen, knapp 1000 Wörter und Aufgaben**
 
 Jede Linie hat 3 Stationen und danach den Endbahnhof. So ist eine Linie in ein paar Tagen geschafft, und die Lootbox dafür bleibt in Reichweite. Wörter und Grammatik sind nach Themen gemischt, die zusammenpassen.
 
@@ -13,7 +13,7 @@ Jede Linie hat 3 Stationen und danach den Endbahnhof. So ist eine Linie in ein p
 | Karteikarten-Linie | Die Vokabelkarten aus der Schule: Farben und Dinge, Verben mit „to“, kurze Sätze für jeden Tag |
 | Zimmer-Linie | Weitere Vokabelkarten: Rooms, Kitchen and bathroom, Furniture |
 | Glücks-Linie | Neue Vokabelblätter: You are lucky, Be quiet please, und Wörter aus dem Heft, die schwer zu schreiben sind (seagull, purple, eight …) |
-| Test-Linie | Test No 2 nachgeübt: Schultasche, Farben und Wortgruppen übersetzen; Personal pronouns und to be (Emma, Sheree); my/his/her/our/your/their |
+| Test-Linie | Test No 2 nachgeübt: Schultasche, Farben und Wortgruppen übersetzen; I am – he has (to be und to have für jede Person); Personal pronouns und to be (Emma, Sheree); my/his/her/our/your/their |
 | Hallo-Linie | Begrüßen und Vorstellen, Familie, Fragewörter |
 | Ich-bin-Linie | I/you/he…, am/is/are, Verneinung und Fragen mit „to be“ |
 | Zahlen-Linie | Zahlen bis 20, Zahlen bis 100, Uhrzeit |
