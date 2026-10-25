@@ -1,0 +1,63 @@
+{
+  "id": "test-schoolbag",
+  "line": "test",
+  "order": 1,
+  "title": "In my schoolbag",
+  "subtitle": "Test No 2: Wörter, Farben, Übersetzen",
+  "icon": "🎒",
+  "typePhrases": true,
+  "card": "Merke: **in Halle wohnen** = to **live** in Halle. „I'm from Halle“ heißt „Ich komme aus Halle“.",
+  "explain": [
+    { "p": "So sah Test No 2 aus: Wörter aus der Schultasche entwirren, Sätze mit Farben beenden und Wortgruppen übersetzen. Hier übst du alle drei Teile." },
+    { "ex": [
+      ["a pencil", "ein Bleistift"],
+      ["a sharpener", "ein Anspitzer"],
+      ["a rubber", "ein Radiergummi"],
+      ["a folder", "ein Ordner, eine Mappe"],
+      ["a ruler", "ein Lineal"]
+    ] },
+    { "tip": "**sharp** heißt scharf, **to sharpen** heißt spitzen. Ein **sharpener** macht den Stift spitz: sh-a-r-p-e-n-e-r." },
+    { "p": "Beim **Übersetzen** schreibst du die ganze Wortgruppe auf Englisch. Kein deutsches Wort darf stehen bleiben, also nicht „a Lied singen“, sondern **to sing a song**." },
+    { "ex": [
+      ["to listen to the radio", "Radio hören"],
+      ["to read books", "Bücher lesen"],
+      ["to paint a picture", "ein Bild malen"],
+      ["to sing a song", "ein Lied singen"],
+      ["to live in Halle", "in Halle wohnen"]
+    ] },
+    { "tip": "Bei Wortgruppen mit einem Verb steht vorne **to**: **to** read books. Im Test zählt das mit!" },
+    { "tip": "**wohnen** = **to live**. „I'm from Halle“ heißt „Ich komme aus Halle“. Das ist etwas anderes." }
+  ],
+  "vocab": [
+    { "en": "pencil", "de": "Bleistift" },
+    { "en": "sharpener", "de": "Anspitzer" },
+    { "en": "rubber", "de": "Radiergummi", "alt": ["eraser"] },
+    { "en": "folder", "de": "Ordner, Mappe" },
+    { "en": "ruler", "de": "Lineal" },
+    { "en": "to listen to the radio", "de": "Radio hören", "alt": ["to listen to radio"] },
+    { "en": "to read books", "de": "Bücher lesen" },
+    { "en": "to paint a picture", "de": "ein Bild malen", "alt": ["to draw a picture"] },
+    { "en": "to sing a song", "de": "ein Lied singen" },
+    { "en": "to live in Halle", "de": "in Halle wohnen" }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Unscramble the word. Du findest es in deiner Schultasche.", "q": "e n c p i l", "answer": "pencil", "speak": false, "placeholder": "Wort" },
+    { "type": "input", "task": "Unscramble the word. Du findest es in deiner Schultasche.", "q": "h a p n e r s r e", "answer": "sharpener", "speak": false, "placeholder": "Wort", "explain": "sharp (scharf) + en + er: **sharpener**." },
+    { "type": "input", "task": "Unscramble the word. Du findest es in deiner Schultasche.", "q": "e o f l d r", "answer": "folder", "speak": false, "placeholder": "Wort" },
+    { "type": "input", "task": "Unscramble the word. Du findest es in deiner Schultasche.", "q": "e b u r b r", "answer": "rubber", "speak": false, "placeholder": "Wort" },
+    { "type": "input", "task": "Unscramble the word. Du findest es in deiner Schultasche.", "q": "r e l u r", "answer": "ruler", "speak": false, "placeholder": "Wort" },
+    { "type": "input", "task": "Unscramble the word. Du findest es in deiner Schultasche.", "q": "l a c h s o o g b", "answer": "schoolbag", "accept": ["school bag"], "speak": false, "placeholder": "Wort" },
+    { "type": "input", "task": "Finish the sentence. Use colours.", "q": "A banana is ___.", "answer": "yellow", "hint": "Farbe" },
+    { "type": "input", "task": "Finish the sentence. Use colours.", "q": "An elephant is ___.", "answer": "grey", "accept": ["gray"], "hint": "Farbe" },
+    { "type": "input", "task": "Finish the sentence. Use colours.", "q": "A tree is ___.", "answer": "green", "hint": "Farbe" },
+    { "type": "input", "task": "Finish the sentence. Use colours.", "q": "A bear is ___.", "answer": "brown", "hint": "Farbe" },
+    { "type": "input", "task": "Finish the sentence. Use colours.", "q": "A tomato is ___.", "answer": "red", "hint": "Farbe" },
+    { "type": "input", "task": "Finish the sentence. Use colours.", "q": "Snow is ___.", "answer": "white", "hint": "Farbe" },
+    { "type": "input", "task": "Finish the sentence. Use colours.", "q": "The sky is ___.", "answer": "blue", "hint": "Farbe" },
+    { "type": "choice", "task": "Was heißt „in Halle wohnen“?", "q": "in Halle wohnen", "options": ["to live in Halle", "I'm from Halle", "to love in Halle", "to life in Halle"], "answer": "to live in Halle", "speak": false, "explain": "wohnen = **to live**. „life“ ist das Nomen (das Leben), „I'm from Halle“ heißt „Ich komme aus Halle“." },
+    { "type": "choice", "task": "Was heißt „Radio hören“?", "q": "Radio hören", "options": ["to listen to the radio", "to hear radio", "radio listen", "to listen the radio"], "answer": "to listen to the radio", "speak": false, "explain": "Nach **listen** kommt immer **to**: to listen **to** the radio." },
+    { "type": "choice", "task": "Was heißt „ein Lied singen“?", "q": "ein Lied singen", "options": ["to sing a song", "a Lied singen", "to song a sing", "to sing a lied"], "answer": "to sing a song", "speak": false, "explain": "Lied = **song**, singen = **to sing**. Alles muss Englisch sein." },
+    { "type": "input", "task": "Translate.", "q": "Bücher lesen = to ___ books", "answer": "read", "speak": false, "explain": "lesen = **to read**." },
+    { "type": "input", "task": "Translate.", "q": "ein Bild malen = to ___ a picture", "answer": "paint", "accept": ["draw"], "speak": false, "explain": "malen = **to paint** (mit Farbe) oder **to draw** (zeichnen)." }
+  ]
+}

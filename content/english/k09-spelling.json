@@ -1,0 +1,50 @@
+{
+  "id": "karten-spelling",
+  "line": "glueck",
+  "order": 3,
+  "title": "A little seagull",
+  "subtitle": "Richtig schreiben: Farben, Dinge, Zahlen",
+  "icon": "✏️",
+  "typePhrases": true,
+  "explain": [
+    { "p": "Diese Wörter aus deinem Heft waren knifflig zu schreiben. Schau genau hin:" },
+    { "table": { "head": ["richtig", "nicht", "Trick"], "rows": [
+      ["**purple** house", "purpel, hous", "pur-**ple** wie apple, und house mit **e**"],
+      ["little **seagull**", "seagal", "**sea** (Meer) + **gull** (Möwe)"],
+      ["grey **sky**", "skay", "nur drei Buchstaben: s-k-y"],
+      ["yellow **bag**", "back", "**bag** = Tasche, **back** = Rücken, zurück"],
+      ["green **palace**", "grin palas", "gr**ee**n mit zwei e, pal-**ace**"],
+      ["**eight**", "ehte", "e-**i-g-h**-t, das gh hört man nicht"],
+      ["**seven**", "ehgthe", "s-e-v-e-n"]
+    ] } },
+    { "tip": "Englische Nomen schreibt man **klein**: a red bike, a grey sky. Groß nur am Satzanfang und bei Namen." }
+  ],
+  "vocab": [
+    { "en": "a nice beach", "de": "ein schöner Strand" },
+    { "en": "a purple house", "de": "ein lila Haus" },
+    { "en": "a little seagull", "de": "eine kleine Möwe" },
+    { "en": "a red bike", "de": "ein rotes Fahrrad" },
+    { "en": "a grey sky", "de": "ein grauer Himmel", "alt": ["a gray sky"] },
+    { "en": "a brown tree", "de": "ein brauner Baum" },
+    { "en": "a yellow bag", "de": "eine gelbe Tasche" },
+    { "en": "a white flower", "de": "eine weiße Blume" },
+    { "en": "a black dog", "de": "ein schwarzer Hund" },
+    { "en": "a green palace", "de": "ein grüner Palast" }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Wie schreibt man das richtig?", "q": "eine kleine Möwe", "options": ["a little seagull", "a little seagal", "a litle seegull", "a little sea gal"], "answer": "a little seagull", "speak": false, "explain": "**sea** (Meer) + **gull** (Möwe) = seagull." },
+    { "type": "choice", "task": "Wie schreibt man das richtig?", "q": "ein lila Haus", "options": ["a purple house", "a purpel hous", "a purple hous", "a pörpel house"], "answer": "a purple house", "speak": false },
+    { "type": "choice", "task": "Wie schreibt man das richtig?", "q": "ein grauer Himmel", "options": ["a grey sky", "a grey skay", "a grey Sky", "a grey skai"], "answer": "a grey sky", "speak": false, "explain": "**sky** hat nur drei Buchstaben und wird kleingeschrieben." },
+    { "type": "choice", "task": "Wie schreibt man das richtig?", "q": "eine gelbe Tasche", "options": ["a yellow bag", "a yellow back", "a yelow bag", "a yellow beg"], "answer": "a yellow bag", "speak": false, "explain": "Tasche = **bag**. back heißt Rücken oder zurück." },
+    { "type": "choice", "task": "Wie schreibt man das richtig?", "q": "ein grüner Palast", "options": ["a green palace", "a grin palace", "a green palas", "a grean pallace"], "answer": "a green palace", "speak": false },
+    { "type": "choice", "task": "Wie schreibt man die Zahl?", "q": "8", "options": ["eight", "ehte", "eigth", "aight"], "answer": "eight", "speak": false, "explain": "e-i-g-h-t. Das **gh** spricht man nicht." },
+    { "type": "choice", "task": "Wie schreibt man die Zahl?", "q": "7", "options": ["seven", "sefen", "seben", "sevn"], "answer": "seven", "speak": false },
+    { "type": "input", "task": "Schreib die Zahl als Wort.", "q": "15", "answer": "fifteen", "speak": false, "explain": "five → **fif**teen (nicht fiveteen)." },
+    { "type": "input", "task": "Schreib die Zahl als Wort.", "q": "16", "answer": "sixteen", "speak": false },
+    { "type": "input", "task": "Schreib die Zahl als Wort.", "q": "12", "answer": "twelve", "speak": false },
+    { "type": "input", "task": "Schreib die Zahl als Wort.", "q": "20", "answer": "twenty", "speak": false },
+    { "type": "input", "task": "Schreib die Zahl als Wort.", "q": "9", "answer": "nine", "speak": false },
+    { "type": "input", "task": "Schreib die Zahl als Wort.", "q": "11", "answer": "eleven", "speak": false },
+    { "type": "input", "task": "Schreib die Zahl als Wort.", "q": "8", "answer": "eight", "speak": false }
+  ]
+}

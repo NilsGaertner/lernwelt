@@ -1,0 +1,42 @@
+{
+  "id": "test-possessives",
+  "line": "test",
+  "order": 3,
+  "title": "my, his, her, our …",
+  "subtitle": "Test No 2: Possessive pronouns",
+  "icon": "🔐",
+  "card": "Merke: Nicht immer **my**! Frag: **Wem** gehört es? Dan → **his** family. Wir → **our** teacher. Du, Mike → **your** book.",
+  "explain": [
+    { "p": "Diese Wörter zeigen, **wem** etwas gehört. Nimm nicht automatisch **my**. Frag dich: **Wem gehört es?**" },
+    { "table": { "head": ["Wer?", "Wem gehört es?", "Beispiel"], "rows": [
+      ["I", "**my**", "I'm new at school. **My** name is Lewis."],
+      ["you", "**your**", "Is this **your** book, Mike?"],
+      ["he (Dan)", "**his**", "Dan is at home with **his** family."],
+      ["she (Anna)", "**her**", "This is Anna and this is **her** brother."],
+      ["it", "**its**", "The dog is in **its** basket."],
+      ["we", "**our**", "We are in class. This is **our** English teacher."],
+      ["they", "**their**", "The McBrides are nice. **Their** house is next to our house."]
+    ] } },
+    { "tip": "Sprichst du jemanden an („…, Mike?“), dann gehört es der Person, mit der du sprichst → **your** (dein)." },
+    { "tip": "Nicht verwechseln: **He** is an Arsenal fan (er). **His** name is Jack (sein Name)." }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Fill in the correct possessive pronoun.", "q": "Dan is at home with ___ family.", "answer": "his", "hint": "Dan → ?", "explain": "Dan ist ein Junge: sein = **his**." },
+    { "type": "input", "task": "Fill in the correct possessive pronoun.", "q": "We are in class. This is ___ English teacher, Mrs Fruehauf.", "answer": "our", "hint": "we → ?", "explain": "Wir sind in der Klasse: unsere Lehrerin = **our** teacher." },
+    { "type": "input", "task": "Fill in the correct possessive pronoun.", "q": "This is Anna and this is ___ brother.", "answer": "her", "hint": "Anna → ?", "explain": "Anna ist ein Mädchen: ihr Bruder = **her** brother." },
+    { "type": "input", "task": "Fill in the correct possessive pronoun.", "q": "Is this ___ book, Mike?", "answer": "your", "hint": "Du sprichst Mike an.", "explain": "Du fragst Mike: Ist das **dein** Buch? → **your**." },
+    { "type": "input", "task": "Fill in the correct possessive pronoun.", "q": "I'm new at school. ___ name is Lewis.", "answer": "My", "hint": "I → ?", "explain": "Lewis spricht über sich: **My** name is Lewis." },
+    { "type": "choice", "task": "Fill in the correct possessive pronoun.", "q": "Sam and Lily are with ___ dog.", "options": ["their", "my", "his", "they"], "answer": "their", "explain": "Sam und Lily = they → **their** dog." },
+    { "type": "choice", "task": "Fill in the correct possessive pronoun.", "q": "Mrs Smith is in ___ garden.", "options": ["her", "his", "my", "she"], "answer": "her", "explain": "Mrs = Frau → **her** garden." },
+    { "type": "choice", "task": "Pronoun oder possessive?", "q": "My brother is 16. ___ name is Jack.", "options": ["His", "He", "Your", "My"], "answer": "His", "explain": "**Sein** Name → **His**. (He = er)" },
+    { "type": "choice", "task": "Pronoun oder possessive?", "q": "His name is Jack. ___ is an Arsenal fan.", "options": ["He", "His", "It", "She"], "answer": "He", "explain": "**Er** ist ein Fan → **He**." },
+    { "type": "input", "task": "Complete Emma's text.", "q": "Hello! My name is Emma Butler. ___ am eleven.", "answer": "I", "hint": "ich", "strict": true, "explain": "ich = **I**, immer groß." },
+    { "type": "input", "task": "Complete Emma's text.", "q": "___ house is in Camden. It is in a nice street.", "answer": "Our", "hint": "Emmas Familie → unser Haus", "explain": "Das Haus gehört Emmas ganzer Familie: unser Haus = **Our** house." },
+    { "type": "input", "task": "Complete Emma's text.", "q": "There is a new family in ___ street, the McBrides.", "answer": "our", "hint": "unsere Straße", "explain": "Die Straße, in der Emmas Familie wohnt: **our** street." },
+    { "type": "input", "task": "Complete Emma's text.", "q": "The McBrides are very nice. ___ house is next to our house.", "answer": "Their", "hint": "the McBrides → ?", "explain": "Das Haus der McBrides (they) → **Their** house." },
+    { "type": "input", "task": "Complete Emma's text.", "q": "Caroline McBride is eleven. ___ is in my class.", "answer": "She", "hint": "Caroline → ?", "explain": "**Sie** (Caroline) ist in meiner Klasse → **She**." },
+    { "type": "input", "task": "Complete Emma's text.", "q": "Caroline and I are friends. ___ can go to school together!", "answer": "We", "hint": "Caroline and I → ?", "explain": "Caroline und ich = **We**." },
+    { "type": "order", "de": "Ist das dein Buch, Mike?", "answer": "Is this your book, Mike?", "explain": "dein = **your**." },
+    { "type": "order", "de": "Das ist unsere Englischlehrerin.", "answer": "This is our English teacher.", "explain": "unsere = **our**." }
+  ]
+}
