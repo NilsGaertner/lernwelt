@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-label="Kompassrose">
+<!-- kompass: Kompassrose mit 8 Himmelsrichtungen; N steht immer da, die anderen Buchstaben nur im „Merke“ (labels) -->
+<rect class="bg" x="0" y="0" width="500" height="500"/>
+<path class="ray" d="M250 250L384 116M250 250L384 384M250 250L116 384M250 250L116 116"/>
+<polygon class="star2" points="342,158 270,250 342,342 250,270 158,342 230,250 158,158 250,230"/>
+<polygon class="star" points="250,70 272,228 430,250 272,272 250,430 228,272 70,250 228,228"/>
+<circle class="hub" cx="250" cy="250" r="9"/>
+<circle id="n" class="area dir" style="--c:#7FB8E8" cx="250" cy="35" r="28"/>
+<circle id="no" class="area dir" style="--c:#9AD3A8" cx="384" cy="116" r="28"/>
+<circle id="o" class="area dir" style="--c:#F7D07A" cx="465" cy="250" r="28"/>
+<circle id="so" class="area dir" style="--c:#F5A97F" cx="384" cy="384" r="28"/>
+<circle id="s" class="area dir" style="--c:#F28B95" cx="250" cy="465" r="28"/>
+<circle id="sw" class="area dir" style="--c:#D7A6E8" cx="116" cy="384" r="28"/>
+<circle id="w" class="area dir" style="--c:#B3B8F2" cx="35" cy="250" r="28"/>
+<circle id="nw" class="area dir" style="--c:#8FD9D3" cx="116" cy="116" r="28"/>
+<text class="tick on-c" x="250" y="43">N</text>
+<g class="labels">
+<text class="on-c" x="384" y="125" style="font-size:22px">NO</text>
+<text class="on-c" x="465" y="259">O</text>
+<text class="on-c" x="384" y="393" style="font-size:22px">SO</text>
+<text class="on-c" x="250" y="474">S</text>
+<text class="on-c" x="116" y="393" style="font-size:22px">SW</text>
+<text class="on-c" x="35" y="259">W</text>
+<text class="on-c" x="116" y="125" style="font-size:22px">NW</text>
+</g>
+</svg>

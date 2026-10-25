@@ -1,0 +1,41 @@
+{
+  "id": "planeten",
+  "line": "erde",
+  "order": 2,
+  "title": "Der Planet Erde",
+  "subtitle": "Die acht Planeten im Sonnensystem",
+  "icon": "🪐",
+  "card": "Merksatz für die Planeten: **M**ein **V**ater **e**rklärt **m**ir **j**eden **S**onntag **u**nseren **N**achthimmel.",
+  "explain": [
+    { "p": "Die Erde ist einer von **acht Planeten**, die um die **Sonne** kreisen. Von der Sonne aus gezählt:" },
+    { "table": { "head": ["", "Planet", "Besonderheit"], "rows": [
+      ["1", "**Merkur**", "am nächsten an der Sonne, der kleinste"],
+      ["2", "**Venus**", "der heißeste Planet"],
+      ["3", "**Erde**", "unser Planet, mit Wasser und Leben"],
+      ["4", "**Mars**", "der rote Planet"],
+      ["5", "**Jupiter**", "der größte Planet"],
+      ["6", "**Saturn**", "hat große, helle Ringe"],
+      ["7", "**Uranus**", "ein Eisriese"],
+      ["8", "**Neptun**", "am weitesten weg von der Sonne"]
+    ] } },
+    { "tip": "**M**ein **V**ater **e**rklärt **m**ir **j**eden **S**onntag **u**nseren **N**achthimmel. Die Anfangsbuchstaben sind die Planeten der Reihe nach." },
+    { "p": "Die **Erde ist der dritte Planet** im Sonnensystem." }
+  ],
+  "exercises": [
+    { "id": "erde-platz", "type": "choice", "q": "Der wievielte Planet von der Sonne aus ist die Erde?", "options": ["der dritte", "der erste", "der vierte", "der achte"], "answer": "der dritte", "explain": "Merkur, Venus, **Erde**: die Erde ist der dritte Planet." },
+    { "id": "anzahl", "type": "choice", "q": "Wie viele Planeten kreisen um die Sonne?", "options": ["8", "7", "9", "12"], "answer": "8" },
+    { "id": "naechster", "type": "choice", "q": "Welcher Planet ist der Sonne am nächsten?", "options": ["Merkur", "Venus", "Mars", "Neptun"], "answer": "Merkur" },
+    { "id": "weitester", "type": "choice", "q": "Welcher Planet ist am weitesten von der Sonne entfernt?", "options": ["Neptun", "Uranus", "Saturn", "Jupiter"], "answer": "Neptun" },
+    { "id": "groesster", "type": "choice", "q": "Welcher Planet ist der größte?", "options": ["Jupiter", "Saturn", "Erde", "Neptun"], "answer": "Jupiter" },
+    { "id": "ringe", "type": "choice", "q": "Welcher Planet hat große, helle Ringe?", "options": ["Saturn", "Mars", "Venus", "Merkur"], "answer": "Saturn" },
+    { "id": "rot", "type": "choice", "q": "Welcher Planet heißt „der rote Planet“?", "options": ["Mars", "Jupiter", "Venus", "Uranus"], "answer": "Mars" },
+    { "id": "nach-erde", "type": "choice", "q": "Welcher Planet kommt direkt nach der Erde?", "options": ["Mars", "Venus", "Jupiter", "Merkur"], "answer": "Mars", "explain": "… Erde, **Mars**, Jupiter … (… erklärt **mir** jeden …)" },
+    { "id": "vor-erde", "type": "choice", "q": "Welcher Planet kommt direkt vor der Erde?", "options": ["Venus", "Mars", "Merkur", "Saturn"], "answer": "Venus", "explain": "Merkur, **Venus**, Erde (Mein **Vater** erklärt …)" },
+    { "id": "nach-saturn", "type": "choice", "q": "Welcher Planet kommt nach Saturn?", "options": ["Uranus", "Neptun", "Jupiter", "Mars"], "answer": "Uranus", "explain": "… Saturn, **Uranus**, Neptun (… Sonntag **unseren** Nachthimmel)." },
+    { "id": "mitte", "type": "choice", "q": "Um welchen Stern kreisen die Planeten?", "options": ["die Sonne", "der Mond", "der Polarstern", "die Erde"], "answer": "die Sonne" },
+    { "id": "schreib-dritter", "type": "input", "task": "Schreib den Namen des Planeten.", "q": "Merkur, Venus, ___, Mars", "answer": "Erde", "placeholder": "Planet" },
+    { "id": "schreib-fuenfter", "type": "input", "task": "Schreib den Namen des Planeten.", "q": "Erde, Mars, ___, Saturn", "answer": "Jupiter", "placeholder": "Planet" },
+    { "id": "schreib-achter", "type": "input", "task": "Schreib den Namen des Planeten.", "q": "Saturn, Uranus, ___", "answer": "Neptun", "accept": ["Neptune"], "placeholder": "Planet" },
+    { "id": "schreib-erster", "type": "input", "task": "Schreib den Namen des Planeten.", "q": "___, Venus, Erde", "answer": "Merkur", "accept": ["Mercury"], "placeholder": "Planet" }
+  ]
+}

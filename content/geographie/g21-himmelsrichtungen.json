@@ -1,0 +1,36 @@
+{
+  "id": "himmelsrichtungen",
+  "line": "atlas",
+  "order": 1,
+  "title": "Die Himmelsrichtungen",
+  "subtitle": "Die Kompassrose mit acht Richtungen",
+  "icon": "🧭",
+  "card": "Merksatz im Uhrzeigersinn: **N**ie **O**hne **S**eife **W**aschen – Norden, Osten, Süden, Westen.",
+  "explain": [
+    { "p": "Es gibt **vier Haupthimmelsrichtungen**: Norden (N), Osten (O), Süden (S) und Westen (W). Dazwischen liegen vier **Nebenhimmelsrichtungen**: Nordosten (NO), Südosten (SO), Südwesten (SW) und Nordwesten (NW)." },
+    { "map": "kompass", "legend": [["n", "Norden (N)"], ["no", "Nordosten (NO)"], ["o", "Osten (O)"], ["so", "Südosten (SO)"], ["s", "Süden (S)"], ["sw", "Südwesten (SW)"], ["w", "Westen (W)"], ["nw", "Nordwesten (NW)"]] },
+    { "tip": "Im Uhrzeigersinn: **N**ie **O**hne **S**eife **W**aschen." },
+    { "tip": "Bei den Nebenrichtungen steht **Nord oder Süd immer vorne**: Nord-Ost, Süd-West. Auf Deutsch kürzt man Osten mit **O** ab (auf Englisch heißt es E für East)." },
+    { "p": "Auf fast jeder Karte ist **Norden oben**. Die Sonne geht im **Osten** auf, steht mittags im **Süden** und geht im **Westen** unter." }
+  ],
+  "exercises": [
+    { "id": "karte-no", "type": "choice", "task": "Welche Himmelsrichtung ist markiert?", "map": "kompass", "mark": "no", "options": ["Nordosten", "Nordwesten", "Südosten", "Osten"], "answer": "Nordosten" },
+    { "id": "karte-o", "type": "choice", "task": "Welche Himmelsrichtung ist markiert?", "map": "kompass", "mark": "o", "options": ["Osten", "Westen", "Süden", "Nordosten"], "answer": "Osten" },
+    { "id": "karte-so", "type": "choice", "task": "Welche Himmelsrichtung ist markiert?", "map": "kompass", "mark": "so", "options": ["Südosten", "Südwesten", "Nordosten", "Osten"], "answer": "Südosten" },
+    { "id": "karte-s", "type": "choice", "task": "Welche Himmelsrichtung ist markiert?", "map": "kompass", "mark": "s", "options": ["Süden", "Norden", "Südwesten", "Westen"], "answer": "Süden" },
+    { "id": "karte-sw", "type": "choice", "task": "Welche Himmelsrichtung ist markiert?", "map": "kompass", "mark": "sw", "options": ["Südwesten", "Südosten", "Nordwesten", "Westen"], "answer": "Südwesten" },
+    { "id": "karte-w", "type": "choice", "task": "Welche Himmelsrichtung ist markiert?", "map": "kompass", "mark": "w", "options": ["Westen", "Osten", "Nordwesten", "Süden"], "answer": "Westen", "explain": "Gegenüber von Osten liegt **Westen**. Merksatz: Nie Ohne Seife **W**aschen." },
+    { "id": "karte-nw", "type": "choice", "task": "Welche Himmelsrichtung ist markiert?", "map": "kompass", "mark": "nw", "options": ["Nordwesten", "Nordosten", "Südwesten", "Westen"], "answer": "Nordwesten" },
+    { "id": "kurz-no", "type": "input", "task": "Schreib die Abkürzung der markierten Richtung.", "map": "kompass", "mark": "no", "answer": "NO", "accept": ["no"], "placeholder": "z. B. N" },
+    { "id": "kurz-sw", "type": "input", "task": "Schreib die Abkürzung der markierten Richtung.", "map": "kompass", "mark": "sw", "answer": "SW", "accept": ["sw"], "placeholder": "z. B. N" },
+    { "id": "kurz-so", "type": "input", "task": "Schreib die Abkürzung der markierten Richtung.", "map": "kompass", "mark": "so", "answer": "SO", "accept": ["so"], "placeholder": "z. B. N" },
+    { "id": "kurz-w", "type": "input", "task": "Schreib die Abkürzung der markierten Richtung.", "map": "kompass", "mark": "w", "answer": "W", "accept": ["w"], "placeholder": "z. B. N" },
+    { "id": "gegenueber-no", "type": "choice", "q": "Welche Richtung liegt genau gegenüber von Nordosten?", "options": ["Südwesten", "Südosten", "Nordwesten", "Süden"], "answer": "Südwesten", "explain": "Gegenüber heißt: Nord wird zu Süd und Ost wird zu West → **Südwesten**." },
+    { "id": "gegenueber-nw", "type": "choice", "q": "Welche Richtung liegt genau gegenüber von Nordwesten?", "options": ["Südosten", "Südwesten", "Nordosten", "Osten"], "answer": "Südosten" },
+    { "id": "zwischen-s-w", "type": "choice", "q": "Welche Richtung liegt zwischen Süden und Westen?", "options": ["Südwesten", "Südosten", "Nordwesten", "Westsüden"], "answer": "Südwesten", "explain": "Nord oder Süd steht immer vorne: **Süd**westen." },
+    { "id": "karte-oben", "type": "choice", "q": "Welche Himmelsrichtung ist auf einer Karte meistens oben?", "options": ["Norden", "Süden", "Osten", "Westen"], "answer": "Norden" },
+    { "id": "mittagssonne", "type": "choice", "q": "In welcher Himmelsrichtung steht die Sonne bei uns mittags?", "options": ["im Süden", "im Norden", "im Osten", "im Westen"], "answer": "im Süden" },
+    { "id": "uhrzeiger", "type": "choice", "q": "Du gehst im Uhrzeigersinn von Osten weiter. Welche Richtung kommt als Nächstes?", "options": ["Südosten", "Nordosten", "Süden", "Westen"], "answer": "Südosten", "explain": "N – NO – O – **SO** – S – SW – W – NW" },
+    { "id": "osten-abk", "type": "choice", "q": "Wie kürzt man „Osten“ auf Deutsch ab?", "options": ["O", "E", "Os", "OS"], "answer": "O", "explain": "Auf Deutsch **O**. E (East) steht auf englischen Karten." }
+  ]
+}

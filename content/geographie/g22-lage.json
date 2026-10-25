@@ -1,0 +1,42 @@
+{
+  "id": "lage",
+  "line": "atlas",
+  "order": 2,
+  "title": "Lagebeschreibung",
+  "subtitle": "nördlich von oder im Norden von?",
+  "icon": "📍",
+  "card": "Merke: **nördlich von** = außerhalb (daneben). **im Norden von** = innerhalb (mittendrin).",
+  "explain": [
+    { "p": "Mit Himmelsrichtungen beschreibst du, **wo etwas liegt**. Dabei gibt es zwei Arten:" },
+    { "table": { "head": ["", "Bedeutung", "Beispiel"], "rows": [
+      ["**nördlich von**", "außerhalb, daneben", "Dänemark liegt **nördlich von** Deutschland."],
+      ["**im Norden von**", "innerhalb, mittendrin", "Hamburg liegt **im Norden von** Deutschland."]
+    ] } },
+    { "map": "welt", "legend": [["nordamerika", "Nordamerika"], ["suedamerika", "Südamerika"], ["europa", "Europa"], ["afrika", "Afrika"], ["asien", "Asien"], ["australien", "Australien"], ["antarktis", "Antarktika (Antarktis)"]] },
+    { "p": "Beispiele: **Europa** liegt nördlich von Afrika. **Afrika** liegt südlich von Europa. Der **Atlantik** liegt westlich von Europa. **Afrika** liegt sowohl auf der Nord- als auch auf der Südhalbkugel, denn der Äquator geht mitten durch." },
+    { "tip": "Aufpassen bei Amerika: **Nordamerika** und **Südamerika** liegen **westlich** vom Atlantik und **östlich** vom Pazifik. Schau auf der Karte nach, bevor du schreibst!" }
+  ],
+  "exercises": [
+    { "id": "europa-afrika", "type": "choice", "task": "Ergänze die Lagebeschreibung.", "q": "Europa liegt ___ von Afrika.", "options": ["nördlich", "südlich", "östlich", "westlich"], "answer": "nördlich" },
+    { "id": "afrika-europa", "type": "choice", "task": "Ergänze die Lagebeschreibung.", "q": "Afrika liegt ___ von Europa.", "options": ["südlich", "nördlich", "östlich", "westlich"], "answer": "südlich" },
+    { "id": "atlantik-europa", "type": "choice", "task": "Ergänze die Lagebeschreibung.", "q": "Der Atlantik liegt ___ von Europa.", "options": ["westlich", "östlich", "nördlich", "südlich"], "answer": "westlich" },
+    { "id": "asien-europa", "type": "choice", "task": "Ergänze die Lagebeschreibung.", "q": "Asien liegt ___ von Europa.", "options": ["östlich", "westlich", "südlich", "nördlich"], "answer": "östlich" },
+    { "id": "suedamerika-atlantik", "type": "choice", "task": "Ergänze die Lagebeschreibung.", "q": "Südamerika liegt ___ vom Atlantik.", "options": ["westlich", "östlich", "nördlich", "südlich"], "answer": "westlich" },
+    { "id": "nordamerika-atlantik", "type": "choice", "task": "Ergänze die Lagebeschreibung.", "q": "Nordamerika liegt ___ vom Atlantik.", "options": ["westlich", "östlich", "südlich", "nördlich"], "answer": "westlich", "explain": "Schau auf die Weltkarte: Nordamerika ist **links** vom Atlantik, also **westlich**. Östlich vom Atlantik liegen Europa und Afrika." },
+    { "id": "nordamerika-pazifik", "type": "choice", "task": "Ergänze die Lagebeschreibung.", "q": "Nordamerika grenzt im ___ an den Pazifik.", "options": ["Westen", "Osten", "Norden", "Süden"], "answer": "Westen" },
+    { "id": "suedamerika-nordamerika", "type": "choice", "task": "Ergänze die Lagebeschreibung.", "q": "Südamerika liegt ___ von Nordamerika.", "options": ["südlich", "nördlich", "östlich", "westlich"], "answer": "südlich" },
+    { "id": "indik", "type": "choice", "q": "Der Indik (Indische Ozean) liegt zwischen …", "options": ["Afrika im Westen und Australien im Osten", "Amerika im Westen und Europa im Osten", "Europa im Norden und Asien im Süden", "Nordamerika und Südamerika"], "answer": "Afrika im Westen und Australien im Osten" },
+    { "id": "atlantik-zwischen", "type": "choice", "q": "Der Atlantik liegt zwischen …", "options": ["Amerika im Westen und Europa und Afrika im Osten", "Pazifik und Indik", "Asien und Australien", "Afrika und Australien"], "answer": "Amerika im Westen und Europa und Afrika im Osten", "explain": "Ozeane liegen zwischen **Kontinenten**. Der Atlantik trennt Amerika von Europa und Afrika." },
+    { "id": "afrika-halbkugeln", "type": "choice", "q": "Auf welcher Halbkugel liegt Afrika?", "options": ["auf der Nord- und auf der Südhalbkugel", "nur auf der Nordhalbkugel", "nur auf der Südhalbkugel", "auf keiner"], "answer": "auf der Nord- und auf der Südhalbkugel", "explain": "Der **Äquator** geht mitten durch Afrika." },
+    { "id": "nordamerika-halbkugel", "type": "choice", "q": "Auf welcher Halbkugel liegt Nordamerika?", "options": ["auf der Nordhalbkugel", "auf der Südhalbkugel", "auf beiden"], "answer": "auf der Nordhalbkugel" },
+    { "id": "antarktika", "type": "choice", "q": "Welcher Kontinent liegt südlich von allen anderen?", "options": ["Antarktika", "Australien", "Südamerika", "Afrika"], "answer": "Antarktika" },
+    { "id": "hamburg", "type": "choice", "task": "nördlich von oder im Norden von?", "q": "Hamburg liegt ___ Deutschland.", "options": ["im Norden von", "nördlich von"], "answer": "im Norden von", "explain": "Hamburg ist **in** Deutschland → **im Norden von** Deutschland." },
+    { "id": "daenemark", "type": "choice", "task": "nördlich von oder im Norden von?", "q": "Dänemark liegt ___ Deutschland.", "options": ["nördlich von", "im Norden von"], "answer": "nördlich von", "explain": "Dänemark ist ein eigenes Land, **außerhalb** von Deutschland → **nördlich von** Deutschland." },
+    { "id": "muenchen", "type": "choice", "task": "südlich von oder im Süden von?", "q": "München liegt ___ Deutschland.", "options": ["im Süden von", "südlich von"], "answer": "im Süden von", "explain": "München ist **in** Deutschland → **im Süden von** Deutschland." },
+    { "id": "oesterreich", "type": "choice", "task": "südlich von oder im Süden von?", "q": "Österreich liegt ___ Deutschland.", "options": ["südlich von", "im Süden von"], "answer": "südlich von", "explain": "Österreich liegt **außerhalb** → **südlich von** Deutschland." },
+    { "id": "ostsee", "type": "choice", "task": "nördlich von oder im Norden von?", "q": "Die Ostsee liegt ___ Deutschland.", "options": ["nördlich von", "im Norden von"], "answer": "nördlich von", "explain": "Die Ostsee ist ein Meer **außerhalb** von Deutschland." },
+    { "id": "halle-leipzig", "type": "choice", "q": "Halle liegt ___ von Leipzig.", "options": ["nordwestlich", "südöstlich", "südlich", "östlich"], "answer": "nordwestlich", "explain": "Halle liegt etwas weiter nördlich und weiter westlich als Leipzig → **nordwestlich**." },
+    { "id": "karte-noerdlich-afrika", "type": "choice", "task": "Welcher Kontinent ist markiert? Er liegt nördlich von Afrika.", "map": "welt", "mark": "europa", "options": ["Europa", "Asien", "Nordamerika", "Antarktika"], "answer": "Europa" },
+    { "id": "karte-westlich-atlantik", "type": "choice", "task": "Welcher Kontinent ist markiert? Er liegt westlich vom Atlantik und südlich von Nordamerika.", "map": "welt", "mark": "suedamerika", "options": ["Südamerika", "Afrika", "Australien", "Nordamerika"], "answer": "Südamerika" }
+  ]
+}

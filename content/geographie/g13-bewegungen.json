@@ -1,0 +1,41 @@
+{
+  "id": "bewegungen",
+  "line": "erde",
+  "order": 3,
+  "title": "Tag und Nacht, Sommer und Winter",
+  "subtitle": "Die zwei Bewegungen der Erde",
+  "icon": "🌗",
+  "card": "Merke: Die Erde dreht sich in **24 Stunden** um sich selbst (Tag und Nacht) und in **einem Jahr** um die Sonne (Jahreszeiten).",
+  "explain": [
+    { "p": "Die Erde macht **zwei Bewegungen** gleichzeitig. Beide gehören in die Antwort, wenn danach gefragt wird!" },
+    { "table": { "head": ["", "1. Drehung um die eigene Achse", "2. Bewegung um die Sonne"], "rows": [
+      ["Fachwort", "**Rotation**", "**Revolution**"],
+      ["Dauer", "**24 Stunden** (ein Tag)", "**365 Tage** (ein Jahr)"],
+      ["Folge", "**Tag und Nacht**", "**Jahreszeiten**"]
+    ] } },
+    { "p": "**Rotation:** Die Erde dreht sich von **Westen nach Osten**. Deshalb geht die Sonne im **Osten** auf und im **Westen** unter. Die Seite, die zur Sonne zeigt, hat Tag, die andere Nacht." },
+    { "p": "**Revolution:** Die Erdachse ist um **23,5°** geneigt. Ist die **Nordhalbkugel** zur Sonne geneigt, bekommt sie viel Sonne: Bei uns ist **Sommer**, auf der Südhalbkugel Winter. Ein halbes Jahr später ist es umgekehrt." },
+    { "tip": "Weil sich die Erde dreht, ist nicht überall gleichzeitig Tag. Länder im **Osten** sind uns voraus: Ist bei uns 10 Uhr vormittags, ist es in **Japan** schon 17 oder 18 Uhr, also Abend." },
+    { "p": "**So schreibst du es in der Kontrolle:** Die Erde dreht sich in 24 Stunden einmal um ihre eigene Achse. Dadurch entstehen **Tag und Nacht**. Außerdem bewegt sich die Erde in einem Jahr einmal um die Sonne. Weil die Erdachse schräg steht, entstehen dadurch die **Jahreszeiten**." }
+  ],
+  "exercises": [
+    { "id": "rotation-dauer", "type": "choice", "q": "Wie lange braucht die Erde für eine Drehung um ihre eigene Achse?", "options": ["24 Stunden", "eine Woche", "ein Jahr", "12 Stunden"], "answer": "24 Stunden" },
+    { "id": "revolution-dauer", "type": "choice", "q": "Wie lange braucht die Erde für eine Runde um die Sonne?", "options": ["ein Jahr (365 Tage)", "einen Tag", "einen Monat", "zehn Jahre"], "answer": "ein Jahr (365 Tage)" },
+    { "id": "rotation-folge", "type": "choice", "q": "Was entsteht durch die Drehung der Erde um ihre eigene Achse?", "options": ["Tag und Nacht", "die Jahreszeiten", "Ebbe und Flut", "der Wind"], "answer": "Tag und Nacht" },
+    { "id": "revolution-folge", "type": "choice", "q": "Was entsteht durch die Bewegung der Erde um die Sonne (mit der schrägen Erdachse)?", "options": ["die Jahreszeiten", "Tag und Nacht", "die Gezeiten", "der Regen"], "answer": "die Jahreszeiten", "explain": "Die Erde läuft in einem Jahr um die Sonne. Weil die Achse schräg steht, entstehen **Sommer und Winter**." },
+    { "id": "zwei-bewegungen", "type": "choice", "q": "Welche zwei Bewegungen macht die Erde?", "options": ["Drehung um die eigene Achse und Bewegung um die Sonne", "nur Drehung um die eigene Achse", "Bewegung um den Mond und um die Sonne", "auf und ab"], "answer": "Drehung um die eigene Achse und Bewegung um die Sonne", "explain": "In der Kurzkontrolle fehlte die **Bewegung um die Sonne**. Beide gehören in die Antwort!" },
+    { "id": "fachwort-rotation", "type": "choice", "q": "Wie heißt die Drehung der Erde um ihre eigene Achse?", "options": ["Rotation", "Revolution", "Äquator", "Neigung"], "answer": "Rotation" },
+    { "id": "fachwort-revolution", "type": "choice", "q": "Wie heißt die Bewegung der Erde um die Sonne?", "options": ["Revolution", "Rotation", "Erdachse", "Umdrehung"], "answer": "Revolution" },
+    { "id": "drehrichtung", "type": "choice", "q": "In welche Richtung dreht sich die Erde?", "options": ["von Westen nach Osten", "von Osten nach Westen", "von Norden nach Süden", "von Süden nach Norden"], "answer": "von Westen nach Osten" },
+    { "id": "sonnenaufgang", "type": "choice", "q": "Wo geht die Sonne auf?", "options": ["im Osten", "im Westen", "im Norden", "im Süden"], "answer": "im Osten", "explain": "Die Erde dreht sich nach Osten, darum sehen wir die Sonne zuerst im **Osten**." },
+    { "id": "sonnenuntergang", "type": "choice", "q": "Wo geht die Sonne unter?", "options": ["im Westen", "im Osten", "im Süden", "im Norden"], "answer": "im Westen" },
+    { "id": "neigung", "type": "choice", "q": "Um wie viel Grad ist die Erdachse geneigt?", "options": ["23,5°", "45°", "90°", "10°"], "answer": "23,5°" },
+    { "id": "sommer-nhk", "type": "choice", "q": "Die Nordhalbkugel ist zur Sonne geneigt. Welche Jahreszeit ist bei uns in Deutschland?", "options": ["Sommer", "Winter", "Frühling", "Herbst"], "answer": "Sommer" },
+    { "id": "sommer-shk", "type": "choice", "q": "In Deutschland ist Sommer. Was ist dann in Australien (Südhalbkugel)?", "options": ["Winter", "auch Sommer", "Frühling", "immer Nacht"], "answer": "Winter", "explain": "Nord- und Südhalbkugel haben **entgegengesetzte** Jahreszeiten." },
+    { "id": "rf-japan", "type": "choice", "task": "Richtig oder falsch?", "q": "Wenn du am Vormittag in der Schule lernst, ist es in Japan bereits Abend.", "options": ["richtig", "falsch"], "answer": "richtig", "explain": "Japan liegt weit im **Osten**. Dort geht die Sonne viel früher auf und unter. Ist bei uns 10 Uhr, ist es in Japan schon 17 oder 18 Uhr." },
+    { "id": "rf-tag-nacht-sonne", "type": "choice", "task": "Richtig oder falsch?", "q": "Tag und Nacht entstehen, weil die Erde um die Sonne läuft.", "options": ["richtig", "falsch"], "answer": "falsch", "explain": "Tag und Nacht entstehen durch die **Drehung um die eigene Achse** in 24 Stunden." },
+    { "id": "rf-gleichzeitig", "type": "choice", "task": "Richtig oder falsch?", "q": "Auf der ganzen Erde ist es gleichzeitig Tag.", "options": ["richtig", "falsch"], "answer": "falsch", "explain": "Immer nur die Seite, die zur Sonne zeigt, hat Tag. Die andere Seite hat Nacht." },
+    { "id": "schreib-stunden", "type": "input", "task": "Ergänze.", "q": "Die Erde dreht sich in ___ Stunden einmal um ihre eigene Achse.", "answer": "24", "numeric": true, "placeholder": "Zahl" },
+    { "id": "schreib-tage", "type": "input", "task": "Ergänze.", "q": "Für eine Runde um die Sonne braucht die Erde ___ Tage.", "answer": "365", "accept": ["365,25", "366"], "numeric": true, "placeholder": "Zahl" }
+  ]
+}

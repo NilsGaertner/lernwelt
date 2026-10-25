@@ -1,0 +1,44 @@
+{
+  "id": "atlas",
+  "line": "atlas",
+  "order": 3,
+  "title": "Der Atlas",
+  "subtitle": "Physische und thematische Karten, Register",
+  "icon": "📘",
+  "card": "Wusstest du? Der Atlas ist nach einem Riesen aus einer griechischen Sage benannt. Atlas musste das Himmelsgewölbe auf seinen Schultern tragen.",
+  "explain": [
+    { "p": "Im **Atlas** sind viele einzelne **Karten** zu einem Buch zusammengefasst. Damit Bundesländer, Deutschland, Europa und die ganze Welt auf gleich große Seiten passen, haben die Karten ganz unterschiedliche **Maßstäbe**." },
+    { "table": { "head": ["Kartenart", "Was zeigt sie?"], "rows": [
+      ["**physische Karte**", "Lage von Städten und Gebirgen, Verlauf von Flüssen und die **Höhe**: grün = tief, gelb und hellbraun = höher, dunkelbraun = Hochgebirge, blau = Wasser"],
+      ["**thematische Karte**", "ein bestimmtes **Thema**, z. B. Wirtschaft, Bevölkerung, Klima, Verkehr, Niederschlag oder Landwirtschaft"]
+    ] } },
+    { "table": { "head": ["thematische Karte", "So sieht sie aus"], "rows": [
+      ["Wirtschaftskarte", "**Symbole und Zeichen** zeigen Bodenschätze, Industrie und Dienstleistungen"],
+      ["Bevölkerungskarte", "**Flächen in verschiedenen Farben** zeigen, wie viele Menschen dort wohnen"]
+    ] } },
+    { "p": "Das **Register** steht hinten im Atlas. Dort findest du alle Orte nach dem **ABC**. Hinter dem Namen stehen die **Seitenzahl** und das **Gradnetzfeld** (Planquadrat), zum Beispiel: **Nürnberg 22 C3** → Seite 22, Feld C3." },
+    { "tip": "Das Feld findest du wie beim Schiffe-versenken: **Buchstabe** am Rand oben oder unten, **Zahl** am Rand links oder rechts." }
+  ],
+  "exercises": [
+    { "id": "atlas-was", "type": "choice", "q": "Was ist ein Atlas?", "options": ["viele Karten zu einem Buch zusammengefasst", "eine einzelne Wandkarte", "ein Globus aus Papier", "ein Lexikon über Tiere"], "answer": "viele Karten zu einem Buch zusammengefasst" },
+    { "id": "massstab", "type": "choice", "q": "Warum haben die Karten im Atlas unterschiedliche Maßstäbe?", "options": ["Damit große und kleine Gebiete auf gleich große Seiten passen", "Weil die Zeichner sich verrechnet haben", "Damit die Karten bunt aussehen", "Weil jede Karte ein anderes Thema hat"], "answer": "Damit große und kleine Gebiete auf gleich große Seiten passen" },
+    { "id": "physisch", "type": "choice", "q": "Welche Karte zeigt die Lage von Städten, Gebirgen, Flüssen und die Höhe?", "options": ["physische Karte", "thematische Karte", "Wirtschaftskarte", "Bevölkerungskarte"], "answer": "physische Karte" },
+    { "id": "thematisch", "type": "choice", "q": "Eine Karte zeigt nur das Thema „Niederschlag“. Was für eine Karte ist das?", "options": ["thematische Karte", "physische Karte", "Register", "Globus"], "answer": "thematische Karte" },
+    { "id": "beispiel-thematisch", "type": "choice", "q": "Was ist ein Beispiel für eine thematische Karte?", "options": ["Klima", "Deutschland", "Europa", "Türkei"], "answer": "Klima", "explain": "Klima ist ein **Thema**. Deutschland, Europa oder die Türkei sind Gebiete, die man als physische Karte zeigen kann." },
+    { "id": "beispiel-physisch", "type": "choice", "q": "Was ist ein Beispiel für eine physische Karte?", "options": ["Deutschland", "Wirtschaft", "Bevölkerung", "Verkehr"], "answer": "Deutschland" },
+    { "id": "farbe-gruen", "type": "choice", "task": "Physische Karte", "q": "Was bedeutet grüne Farbe auf einer physischen Karte?", "options": ["tiefes, flaches Land", "Wald", "Hochgebirge", "Wasser"], "answer": "tiefes, flaches Land", "explain": "Grün heißt **tief gelegen**, nicht Wald! Je höher, desto brauner." },
+    { "id": "farbe-braun", "type": "choice", "task": "Physische Karte", "q": "Was bedeutet dunkelbraune Farbe auf einer physischen Karte?", "options": ["Hochgebirge", "Wüste", "Ackerland", "Tiefland"], "answer": "Hochgebirge" },
+    { "id": "wirtschaftskarte", "type": "choice", "q": "Woran erkennst du eine Wirtschaftskarte?", "options": ["Symbole und Zeichen für Bodenschätze, Industrie und Dienstleistungen", "Flächen in Farben für die Einwohnerzahl", "Farben von grün bis dunkelbraun für die Höhe", "nur blaue Flächen"], "answer": "Symbole und Zeichen für Bodenschätze, Industrie und Dienstleistungen" },
+    { "id": "bevoelkerungskarte", "type": "choice", "q": "Woran erkennst du eine Bevölkerungskarte?", "options": ["Flächen in Farben zeigen, wie viele Menschen dort wohnen", "Symbole für Fabriken", "Farben für die Höhe", "Pfeile für den Wind"], "answer": "Flächen in Farben zeigen, wie viele Menschen dort wohnen" },
+    { "id": "register-wo", "type": "choice", "q": "Wo findest du im Atlas alle Orte nach dem ABC?", "options": ["im Register", "im Inhaltsverzeichnis", "auf der ersten Karte", "in der Legende"], "answer": "im Register" },
+    { "id": "register-seite", "type": "choice", "task": "Im Register steht: Nürnberg 22 C3", "q": "Was bedeutet die 22?", "options": ["die Seitenzahl", "das Gradnetzfeld", "die Einwohnerzahl", "die Höhe"], "answer": "die Seitenzahl" },
+    { "id": "register-feld", "type": "choice", "task": "Im Register steht: Nürnberg 22 C3", "q": "Was bedeutet C3?", "options": ["das Gradnetzfeld auf der Karte", "die Seitenzahl", "die Postleitzahl", "der Maßstab"], "answer": "das Gradnetzfeld auf der Karte" },
+    { "id": "nuernberg", "type": "choice", "q": "Nürnberg ist eine …", "options": ["Stadt in Europa", "Land in Europa", "Stadt in Asien", "Fluss in Europa"], "answer": "Stadt in Europa" },
+    { "id": "irland", "type": "choice", "q": "Irland ist ein …", "options": ["Land in Europa", "Stadt in Europa", "Land in Nordamerika", "Meer"], "answer": "Land in Europa" },
+    { "id": "sydney", "type": "choice", "q": "Sydney ist eine Stadt in …", "options": ["Australien", "Nordamerika", "Afrika", "Europa"], "answer": "Australien" },
+    { "id": "yokohama", "type": "choice", "q": "Yokohama (Japan) ist eine Stadt in …", "options": ["Asien", "Afrika", "Australien", "Südamerika"], "answer": "Asien" },
+    { "id": "schreib-karten", "type": "input", "task": "Ergänze.", "q": "Im Atlas sind viele einzelne ___ zu einem Buch zusammengefasst.", "answer": "Karten", "placeholder": "Wort" },
+    { "id": "schreib-themen", "type": "input", "task": "Ergänze.", "q": "Karten zu einem bestimmten Thema heißen ___ Karten.", "answer": "thematische", "accept": ["thematischen"], "placeholder": "Wort" },
+    { "id": "schreib-physisch", "type": "input", "task": "Ergänze.", "q": "Karten mit Gebirgen, Flüssen und der Höhenlage heißen ___ Karten.", "answer": "physische", "accept": ["physischen", "physikalische"], "placeholder": "Wort" }
+  ]
+}

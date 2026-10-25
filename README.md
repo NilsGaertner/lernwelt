@@ -4,13 +4,16 @@ Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch, Mathe, Geogra
 
 ## Was drin ist
 
-**Englisch (Klasse 5, Grundlagen): 42 Stationen, gut 800 Wörter und Aufgaben**
+**Englisch (Klasse 5, Grundlagen): 51 Stationen, knapp 1000 Wörter und Aufgaben**
 
 Jede Linie hat 3 Stationen und danach den Endbahnhof. So ist eine Linie in ein paar Tagen geschafft, und die Lootbox dafür bleibt in Reichweite. Wörter und Grammatik sind nach Themen gemischt, die zusammenpassen.
 
 | Linie | Stationen |
 |---|---|
 | Karteikarten-Linie | Die Vokabelkarten aus der Schule: Farben und Dinge, Verben mit „to“, kurze Sätze für jeden Tag |
+| Zimmer-Linie | Weitere Vokabelkarten: Rooms, Kitchen and bathroom, Furniture |
+| Glücks-Linie | Neue Vokabelblätter: You are lucky, Be quiet please, und Wörter aus dem Heft, die schwer zu schreiben sind (seagull, purple, eight …) |
+| Test-Linie | Test No 2 nachgeübt: Schultasche, Farben und Wortgruppen übersetzen; Personal pronouns und to be (Emma, Sheree); my/his/her/our/your/their |
 | Hallo-Linie | Begrüßen und Vorstellen, Familie, Fragewörter |
 | Ich-bin-Linie | I/you/he…, am/is/are, Verneinung und Fragen mit „to be“ |
 | Zahlen-Linie | Zahlen bis 20, Zahlen bis 100, Uhrzeit |
@@ -45,12 +48,13 @@ Die Schriftlich-minus-Linie übt die schriftliche Subtraktion bis 1000 im **Erg�
 
 Die Schriftlich-mal-Linie übt das schriftliche Multiplizieren wie im Schulheft: Die Aufgabe steht in einer Zeile (3597 · 19), darunter kommt für jede Ziffer des zweiten Faktors ein Teilprodukt, jedes eine Stelle weiter rechts, und darunter die Summe mit Übertrags-Kästchen. Die Stationen: mal eine Ziffer (165 · 8), mal zwei Ziffern (421 · 17) und große Aufgaben mit bis zu drei Zeilen. Ist eine Zeile vorne fertig, springt „Nächste Zeile“ weiter. Gewertet wird nur das Ergebnis. Bei einem Fehler zeigt die App alle Zeilen richtig an (selbst eingetragene Ziffern grün oder rot, im Kopf gerechnete Zeilen grau) und den Rechenweg mit Überschlag und „merke“ für jede Ziffer. Die Aufgaben kommen aus demselben Generator wie Plus und Minus (`"op": "mul"`, `"factorDigits"` für die Stellen des zweiten Faktors).
 
-**Mathe: Stoff aus der 5. Klasse, Kapitel „Rechnen mit natürlichen Zahlen“ (4 Linien, 12 Stationen)**
+**Mathe: Stoff aus der 5. Klasse, Kapitel „Rechnen mit natürlichen Zahlen“ (5 Linien, 15 Stationen)**
 
 Nach den Heften und Arbeitsblättern aus der Schule. Bei einem Fehler zeigen viele Aufgaben den Rechenweg.
 
 | Linie | Stationen |
 |---|---|
+| Klassenarbeits-Linie | Die Arbeit vom 2. Oktober nachgeübt: Kopfrechnen gemischt, Geteilt mit Klammern und Potenzen (22 : 2 + 99 : 11), geschickt rechnen mit Zwischenschritt (760 · 25 · 4, 53 · 17 + 47 · 17) |
 | Rechenregel-Linie | Fachbegriffe und Potenzen (Summe … Quotient, Basis, Exponent), Klammer vor Potenz vor Punkt vor Strich (KlaPoPuStri), Lücken und Rechenzeichen ergänzen (Umkehraufgabe, Rechnen mit 0) |
 | Rechengesetz-Linie | Kommutativ- und Assoziativgesetz (geschickt rechnen), Klammer aufteilen (ausmultiplizieren), Ausklammern |
 | Große-Zahlen-Linie | Million bis Billion, gemischtes Zahlwort; Vorgänger, Nachfolger, Vergleichen, Zahlenfolgen; Runden |
@@ -58,9 +62,17 @@ Nach den Heften und Arbeitsblättern aus der Schule. Bei einem Fehler zeigen vie
 
 Dazu gibt es den „Rechenregel-Blitz“. Zahlen dürfen mit Tausenderpunkt oder Leerzeichen eingetippt werden: 45.000 und 45 000 zählen wie 45000.
 
-**Geographie: Kontinente und Meere (4 Stationen)**
+**Geographie: Die Erde, der Atlas, Kontinente und Meere (3 Linien, 10 Stationen)**
 
 Die Welt-Linie hat die Stationen Die Kontinente, Kontinente-Wissen, Die Ozeane und Meere in Europa. Auf einer Welt- bzw. Europakarte wird ein Gebiet farbig markiert, und dein Kind wählt oder schreibt den Namen. Dazu kommen Wissensfragen (größter Kontinent, Sylt liegt in der …). Im „Merke“ ist jeweils eine bunte Karte mit Legende.
+
+| Linie | Stationen |
+|---|---|
+| Erde-Linie | Der Globus (Pole, Erdachse, Äquator, Halbkugeln an einer Globus-Zeichnung; was Geographie ist), Die Planeten, Tag und Nacht, Sommer und Winter (Rotation und Revolution) |
+| Atlas-Linie | Himmelsrichtungen an der Kompassrose, Lagebeschreibung („nördlich von“ oder „im Norden von“), Der Atlas (physische und thematische Karten, Register) |
+| Welt-Linie | Die Kontinente, Kontinente-Wissen, Die Ozeane, Meere in Europa |
+
+Dazu gibt es den „Welt-Blitz“ und den „Erde-und-Atlas-Blitz“.
 
 **Biologie: Der Hund (2 Linien mit je 3 Stationen + Endbahnhof)**
 

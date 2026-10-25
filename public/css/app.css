@@ -476,6 +476,22 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 .geo-map .labels text { font: 700 26px var(--font-body); text-anchor: middle; fill: var(--ink); }
 /* Geschichte-Zeitstrahl: Jahreszahlen bleiben auch in Aufgaben sichtbar, nur die Epochennamen sind „labels“ */
 .geo-map .tick { font: 600 21px var(--font-body); text-anchor: middle; fill: var(--ink-2); }
+/* Geographie-Zeichnungen: Globus (Halbkugeln, Äquator, Erdachse, Pole) und Kompassrose */
+.geo-map .half { fill: var(--map-water); stroke: var(--ink-2); stroke-width: 2; }
+.geo-map .globe-land { fill: var(--map-land); opacity: 0.85; }
+.geo-map .stand { fill: none; stroke: var(--ink-2); stroke-width: 7; stroke-linecap: round; }
+.geo-map .foot { fill: var(--ink-2); }
+.geo-map .pole { fill: var(--ink-2); }
+.geo-map .area.line-part { fill: none; stroke: var(--ink-2); stroke-width: 4; }
+.geo-map .axis { stroke-dasharray: 12 8; }
+.geo-map .area.line-part.mark { stroke: var(--focus); stroke-width: 10; }
+.geo-map.colored .area.line-part.show { fill: none; stroke: var(--c); stroke-width: 7; }
+.geo-map .star { fill: var(--map-land); stroke: var(--ink-2); stroke-width: 2; stroke-linejoin: round; }
+.geo-map .star2 { fill: var(--paper); stroke: var(--ink-2); stroke-width: 2; stroke-linejoin: round; }
+.geo-map .ray { stroke: var(--ink-2); stroke-width: 1.5; }
+.geo-map .hub { fill: var(--ink-2); }
+.geo-map .dir { fill: var(--paper); stroke: var(--ink-2); stroke-width: 3; }
+.geo-map.colored text.on-c { fill: #1d2433; } /* Buchstaben auf den hellen Legendenfarben, auch im Dunkelmodus */
 @keyframes map-pulse { from { opacity: 1; } to { opacity: 0.6; } }
 @media (prefers-reduced-motion: reduce) { .geo-map .area.mark { animation: none; } }
 .legend { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 16px; line-height: 1.4; }
