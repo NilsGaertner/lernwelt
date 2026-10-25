@@ -1,0 +1,45 @@
+{
+  "id": "ka-kopfrechnen",
+  "line": "klassenarbeit",
+  "order": 91,
+  "title": "Kopfrechnen gemischt",
+  "subtitle": "Plus, minus, mal, geteilt",
+  "icon": "🧠",
+  "card": "Merke: Schreib in der Arbeit immer dazu, welche Teilaufgabe du rechnest: **1a)**, **2b)** …",
+  "explain": [
+    { "p": "In der Arbeit vom 2. Oktober kamen in Aufgabe 1 alle vier Rechenarten durcheinander. Diese Tricks helfen beim Kopfrechnen:" },
+    { "table": { "head": ["Aufgabe", "Trick"], "rows": [
+      ["366 + 108", "erst + 100 = 466, dann + 8 = **474**"],
+      ["1250 − 460", "erst − 400 = 850, dann − 60 = **790**"],
+      ["25 · 6", "25 · 4 = 100, dazu 25 · 2 = 50, zusammen **150**"],
+      ["93 : 3", "90 : 3 = 30 und 3 : 3 = 1, zusammen **31**"],
+      ["133 : 7", "140 : 7 = 20, das ist 7 zu viel, also 20 − 1 = **19**"]
+    ] } },
+    { "tip": "Prüf geteilt mit der **Umkehraufgabe**: 133 : 7 = 19, denn 19 · 7 = 133." },
+    { "tip": "Die Lehrkraft wünscht sich: Schreib vor jede Rechnung die Teilaufgabe, also **1a)**, **2a)**, **2b)** und so weiter." }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Rechne im Kopf.", "q": "366 + 108 = ___", "answer": "474", "numeric": true, "placeholder": "Ergebnis", "explain": "366 + 100 = 466, dann + 8 = **474**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "289 − 103 = ___", "answer": "186", "numeric": true, "placeholder": "Ergebnis", "explain": "289 − 100 = 189, dann − 3 = **186**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "1250 − 460 = ___", "answer": "790", "numeric": true, "placeholder": "Ergebnis", "explain": "1250 − 400 = 850, dann − 60 = **790**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "3201 + 324 = ___", "answer": "3525", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "15 · 4 = ___", "answer": "60", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "93 : 3 = ___", "answer": "31", "numeric": true, "placeholder": "Ergebnis", "explain": "90 : 3 = 30 und 3 : 3 = 1, zusammen **31**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "25 · 6 = ___", "answer": "150", "numeric": true, "placeholder": "Ergebnis", "explain": "25 · 4 = 100 und 25 · 2 = 50, zusammen **150**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "133 : 7 = ___", "answer": "19", "numeric": true, "placeholder": "Ergebnis", "explain": "140 : 7 = 20. 133 ist 7 weniger, also 20 − 1 = **19**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "478 + 215 = ___", "answer": "693", "numeric": true, "placeholder": "Ergebnis", "explain": "478 + 200 = 678, dann + 15 = **693**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "1340 − 570 = ___", "answer": "770", "numeric": true, "placeholder": "Ergebnis", "explain": "1340 − 500 = 840, dann − 70 = **770**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "702 − 298 = ___", "answer": "404", "numeric": true, "placeholder": "Ergebnis", "explain": "702 − 300 = 402. Du hast 2 zu viel abgezogen, also + 2 = **404**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "4205 + 386 = ___", "answer": "4591", "numeric": true, "placeholder": "Ergebnis" },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "2400 − 750 = ___", "answer": "1650", "numeric": true, "placeholder": "Ergebnis", "explain": "2400 − 700 = 1700, dann − 50 = **1650**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "18 · 5 = ___", "answer": "90", "numeric": true, "placeholder": "Ergebnis", "explain": "18 · 10 = 180, die Hälfte davon: **90**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "35 · 4 = ___", "answer": "140", "numeric": true, "placeholder": "Ergebnis", "explain": "35 · 2 = 70, nochmal verdoppeln: **140**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "16 · 6 = ___", "answer": "96", "numeric": true, "placeholder": "Ergebnis", "explain": "10 · 6 = 60 und 6 · 6 = 36, zusammen **96**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "24 · 25 = ___", "answer": "600", "numeric": true, "placeholder": "Ergebnis", "explain": "4 · 25 = 100, und 24 = 6 · 4. Also 6 · 100 = **600**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "84 : 4 = ___", "answer": "21", "numeric": true, "placeholder": "Ergebnis", "explain": "80 : 4 = 20 und 4 : 4 = 1, zusammen **21**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "126 : 6 = ___", "answer": "21", "numeric": true, "placeholder": "Ergebnis", "explain": "120 : 6 = 20 und 6 : 6 = 1, zusammen **21**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "171 : 9 = ___", "answer": "19", "numeric": true, "placeholder": "Ergebnis", "explain": "180 : 9 = 20. 171 ist 9 weniger, also 20 − 1 = **19**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "156 : 12 = ___", "answer": "13", "numeric": true, "placeholder": "Ergebnis", "explain": "120 : 12 = 10 und 36 : 12 = 3, zusammen **13**." },
+    { "type": "input", "task": "Rechne im Kopf.", "q": "112 : 8 = ___", "answer": "14", "numeric": true, "placeholder": "Ergebnis", "explain": "80 : 8 = 10 und 32 : 8 = 4, zusammen **14**." }
+  ]
+}

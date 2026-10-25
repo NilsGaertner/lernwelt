@@ -1,0 +1,37 @@
+{
+  "id": "globus",
+  "line": "erde",
+  "order": 1,
+  "title": "Der Globus",
+  "subtitle": "Pole, Erdachse, Äquator, Halbkugeln",
+  "icon": "🌐",
+  "card": "Wusstest du? **Geographie** kommt aus dem Griechischen und heißt „Erdbeschreibung“. **Terra** ist Lateinisch und heißt „die Erde“.",
+  "explain": [
+    { "p": "Die Erde hat eine **Kugelform**. Der **Globus** ist ein verkleinertes **Modell der Erde**." },
+    { "map": "globus", "legend": [["nordpol", "Nordpol: der nördlichste Punkt der Erde"], ["erdachse", "Erdachse: gedachte Linie durch Nord- und Südpol. Um sie dreht sich die Erde."], ["nordhalbkugel", "Nordhalbkugel: die Hälfte nördlich vom Äquator"], ["aequator", "Äquator: teilt die Erde in Nord- und Südhalbkugel"], ["suedhalbkugel", "Südhalbkugel: die Hälfte südlich vom Äquator"], ["suedpol", "Südpol: der südlichste Punkt der Erde"]] },
+    { "tip": "Achtung, Falle aus der Kurzkontrolle: Der **Äquator** teilt die Erde in Nord- und Südhalbkugel, **nicht die Erdachse**. Die Erdachse geht von Pol zu Pol, der Äquator einmal rund um die Mitte." },
+    { "p": "**Geographie** (griechisch) = erklärende Beschreibung der Erdoberfläche. **Terra** (lateinisch) = die Erde. In Geographie geht es darum, wie **Menschen und Umwelt** sich gegenseitig beeinflussen." },
+    { "p": "Teilgebiete sind zum Beispiel Oberflächenformen, Gewässer, Klima, Bevölkerung, Siedlungen, Verkehr, Vegetation (Pflanzenwelt) und Industrie." }
+  ],
+  "exercises": [
+    { "id": "karte-nordpol", "type": "choice", "task": "Was ist auf dem Globus markiert?", "map": "globus", "mark": "nordpol", "options": ["Nordpol", "Südpol", "Äquator", "Erdachse"], "answer": "Nordpol" },
+    { "id": "karte-suedpol", "type": "choice", "task": "Was ist auf dem Globus markiert?", "map": "globus", "mark": "suedpol", "options": ["Südpol", "Nordpol", "Südhalbkugel", "Erdachse"], "answer": "Südpol" },
+    { "id": "karte-erdachse", "type": "choice", "task": "Was ist auf dem Globus markiert?", "map": "globus", "mark": "erdachse", "options": ["Erdachse", "Äquator", "Nordpol", "Nordhalbkugel"], "answer": "Erdachse", "explain": "Die **Erdachse** ist eine gedachte Linie von Pol zu Pol. Auf dem Globus ist sie schräg." },
+    { "id": "karte-aequator", "type": "choice", "task": "Was ist auf dem Globus markiert?", "map": "globus", "mark": "aequator", "options": ["Äquator", "Erdachse", "Südhalbkugel", "Nordpol"], "answer": "Äquator", "explain": "Der **Äquator** läuft einmal rund um die Mitte der Erde." },
+    { "id": "karte-nordhalbkugel", "type": "choice", "task": "Was ist auf dem Globus markiert?", "map": "globus", "mark": "nordhalbkugel", "options": ["Nordhalbkugel", "Südhalbkugel", "Nordpol", "Äquator"], "answer": "Nordhalbkugel" },
+    { "id": "karte-suedhalbkugel", "type": "choice", "task": "Was ist auf dem Globus markiert?", "map": "globus", "mark": "suedhalbkugel", "options": ["Südhalbkugel", "Nordhalbkugel", "Südpol", "Äquator"], "answer": "Südhalbkugel" },
+    { "id": "schreib-aequator", "type": "input", "task": "Schreib den Namen.", "map": "globus", "mark": "aequator", "answer": "Äquator", "accept": ["Aequator", "Equator"], "placeholder": "Name" },
+    { "id": "schreib-erdachse", "type": "input", "task": "Schreib den Namen.", "map": "globus", "mark": "erdachse", "answer": "Erdachse", "accept": ["Achse", "Erd-Achse"], "placeholder": "Name" },
+    { "id": "schreib-nordhalbkugel", "type": "input", "task": "Schreib den Namen.", "map": "globus", "mark": "nordhalbkugel", "answer": "Nordhalbkugel", "accept": ["Nord-Halbkugel", "nördliche Halbkugel"], "placeholder": "Name" },
+    { "id": "schreib-suedpol", "type": "input", "task": "Schreib den Namen.", "map": "globus", "mark": "suedpol", "answer": "Südpol", "accept": ["Suedpol"], "placeholder": "Name" },
+    { "id": "rf-achse-teilt", "type": "choice", "task": "Richtig oder falsch?", "q": "Die Erdachse teilt die Erde in eine Nord- und eine Südhalbkugel.", "options": ["richtig", "falsch"], "answer": "falsch", "explain": "Das macht der **Äquator**. Die Erdachse geht von Pol zu Pol." },
+    { "id": "rf-aequator-teilt", "type": "choice", "task": "Richtig oder falsch?", "q": "Der Äquator teilt die Erde in eine Nord- und eine Südhalbkugel.", "options": ["richtig", "falsch"], "answer": "richtig" },
+    { "id": "rf-kugel", "type": "choice", "task": "Richtig oder falsch?", "q": "Die Erde hat eine kugelähnliche Gestalt.", "options": ["richtig", "falsch"], "answer": "richtig" },
+    { "id": "rf-modell", "type": "choice", "task": "Richtig oder falsch?", "q": "Der Globus ist ein Modell der Erde.", "options": ["richtig", "falsch"], "answer": "richtig", "explain": "Der Globus ist ein **verkleinertes Modell** der Erde." },
+    { "id": "rf-achse-pole", "type": "choice", "task": "Richtig oder falsch?", "q": "Die Erdachse verläuft vom Nordpol zum Südpol.", "options": ["richtig", "falsch"], "answer": "richtig" },
+    { "id": "geographie-wort", "type": "choice", "q": "Was bedeutet „Geographie“?", "options": ["erklärende Beschreibung der Erdoberfläche", "Lehre von den Sternen", "Rechnen mit Flächen", "Geschichte der Erde"], "answer": "erklärende Beschreibung der Erdoberfläche", "explain": "Geographie kommt aus dem **Griechischen**: Erd-Beschreibung." },
+    { "id": "terra", "type": "choice", "q": "Was heißt „Terra“ (lateinisch)?", "options": ["die Erde", "das Wasser", "der Himmel", "die Karte"], "answer": "die Erde" },
+    { "id": "teilgebiet", "type": "choice", "q": "Was ist KEIN Teilgebiet der Geographie?", "options": ["Bruchrechnung", "Klima", "Gewässer", "Bevölkerung"], "answer": "Bruchrechnung", "explain": "Bruchrechnung gehört zu Mathe. Klima, Gewässer und Bevölkerung sind Teilgebiete der Geographie." },
+    { "id": "mensch-umwelt", "type": "choice", "q": "Womit beschäftigt sich die Geographie?", "options": ["mit Mensch und Umwelt und wie sie sich beeinflussen", "nur mit Steinen", "mit Zahlen und Formen", "mit Tieren im Zoo"], "answer": "mit Mensch und Umwelt und wie sie sich beeinflussen", "explain": "In Geographie geht es um die **Wechselbeziehungen zwischen Mensch und Umwelt**." }
+  ]
+}

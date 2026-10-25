@@ -1,0 +1,57 @@
+{
+  "id": "test-pronouns",
+  "line": "test",
+  "order": 3,
+  "title": "She is – they are",
+  "subtitle": "Test No 2: Personal pronouns und to be",
+  "icon": "🙋",
+  "card": "Merke: Erst fragen **Wer?** Ein Mädchen → **she**, ein Junge → **he**, mehrere → **they**, ich und noch jemand → **we**.",
+  "explain": [
+    { "p": "Ein **personal pronoun** ersetzt einen Namen. Frag dich zuerst: **Wer** ist gemeint?" },
+    { "table": { "head": ["Wer ist gemeint?", "Pronoun", "Beispiel"], "rows": [
+      ["Susan (ein Mädchen)", "**she**", "**She** is eleven."],
+      ["Tom (ein Junge)", "**he**", "**He** is my brother."],
+      ["Dan and Paula (mehrere)", "**they**", "**They** are in my class."],
+      ["my pencils (mehrere Dinge)", "**they**", "**They** are new."],
+      ["Mary and I (ich und noch jemand)", "**we**", "**We** are from Halle."]
+    ] } },
+    { "tip": "**I'm** heißt **I am** (ich bin). Das passt nur, wenn du über dich allein sprichst. Für „Mary and I“ brauchst du **we**." },
+    { "p": "Zu jedem Pronoun gehört die richtige Verbform. Bei **he, she, it** kommt ein **-s** dazu:" },
+    { "table": { "head": ["", "listen", "play", "do", "have"], "rows": [
+      ["I / you / we / they", "listen", "play", "do", "have"],
+      ["he / she / it", "listen**s**", "play**s**", "do**es**", "**has**"]
+    ] } },
+    { "table": { "head": ["", "to be"], "rows": [
+      ["I", "**am**"],
+      ["he / she / it", "**is**"],
+      ["you / we / they", "**are**"]
+    ] } },
+    { "tip": "Was **gerade jetzt** passiert, sagst du mit am/is/are + **-ing**: I **am playing** football. We **are eating** right now." }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Fill in the correct personal pronoun.", "q": "Susan is my best friend. ___ is eleven.", "answer": "She", "hint": "Susan → ?", "explain": "Susan ist ein Mädchen → **She**." },
+    { "type": "input", "task": "Fill in the correct personal pronoun.", "q": "Dan and Paula are my friends. ___ are in my class.", "answer": "They", "hint": "Dan and Paula → ?", "explain": "Dan und Paula sind zwei Personen → **They**." },
+    { "type": "input", "task": "Fill in the correct personal pronoun.", "q": "This is Tom. ___ is my brother.", "answer": "He", "hint": "Tom → ?", "explain": "Tom ist ein Junge → **He**." },
+    { "type": "input", "task": "Fill in the correct personal pronoun.", "q": "These are my pencils. ___ are new.", "answer": "They", "hint": "my pencils → ?", "explain": "Mehrere Bleistifte → **They**. Auch für mehrere Dinge nimmst du they." },
+    { "type": "input", "task": "Fill in the correct personal pronoun.", "q": "Mary and I are from Germany. ___ are from Halle.", "answer": "We", "hint": "Mary and I → ?", "explain": "Mary und ich = wir → **We**. „I'm“ wäre „ich bin“." },
+    { "type": "choice", "task": "Fill in the correct personal pronoun.", "q": "My mum and I are at home. ___ are happy.", "options": ["We", "I'm", "They", "She"], "answer": "We", "explain": "Mama und ich = wir → **We**." },
+    { "type": "choice", "task": "Fill in the correct personal pronoun.", "q": "Mr Fruehauf is new. ___ is nice.", "options": ["He", "She", "It", "They"], "answer": "He", "explain": "Mr = Herr → **He**." },
+    { "type": "choice", "task": "Fill in the correct personal pronoun.", "q": "My bike is old. ___ is red.", "options": ["It", "He", "She", "They"], "answer": "It", "explain": "Ein Ding → **It**." },
+    { "type": "choice", "task": "Fill in the correct personal pronoun.", "q": "Lisa and Ben are my cousins. ___ live in Berlin.", "options": ["They", "We", "He", "I'm"], "answer": "They", "explain": "Lisa und Ben = mehrere, ohne dich → **They**." },
+    { "type": "choice", "q": "She ___ to music.", "options": ["listens", "listen", "listenes", "is listen"], "answer": "listens", "explain": "she → Verb + **s**: she **listens**." },
+    { "type": "choice", "q": "He ___ his homework.", "options": ["does", "do", "dos", "doing"], "answer": "does", "explain": "do → **does** bei he, she, it." },
+    { "type": "choice", "q": "It ___ a long tail.", "options": ["has", "have", "haves", "is"], "answer": "has", "explain": "have → **has** bei he, she, it." },
+    { "type": "choice", "q": "They ___ football after school.", "options": ["play", "plays", "playes", "is play"], "answer": "play", "explain": "they → kein -s: they **play**." },
+    { "type": "choice", "q": "We ___ a dog.", "options": ["have", "has", "haves", "are"], "answer": "have", "explain": "we → **have**. Nur he, she, it → has." },
+    { "type": "input", "q": "My sister ___ tennis.", "answer": "plays", "hint": "play", "explain": "My sister = she → **plays**." },
+    { "type": "input", "q": "I ___ playing football.", "answer": "am", "hint": "Was passiert gerade?", "explain": "Gerade jetzt: I **am** playing." },
+    { "type": "input", "q": "We are ___ right now.", "answer": "eating", "hint": "eat", "explain": "am/is/are + **-ing**: we are **eating**." },
+    { "type": "input", "task": "Fill in the correct form of to be.", "q": "There ___ four people in our family.", "answer": "are", "hint": "am / is / are", "explain": "four people = mehrere → **are**." },
+    { "type": "input", "task": "Fill in the correct form of to be.", "q": "My sister Sheree ___ 18.", "answer": "is", "hint": "am / is / are", "explain": "Sheree = she → **is**." },
+    { "type": "input", "task": "Fill in the correct form of to be.", "q": "My parents ___ from Camden.", "answer": "are", "hint": "am / is / are", "explain": "my parents = they → **are**." },
+    { "type": "input", "task": "Fill in the correct form of to be.", "q": "My mum and dad ___ always in the shop.", "answer": "are", "hint": "am / is / are", "explain": "Mama und Papa = they → **are**." },
+    { "type": "input", "task": "Fill in the correct form of to be.", "q": "We live in the flat upstairs. It ___ very nice.", "answer": "is", "hint": "am / is / are", "explain": "it → **is**." },
+    { "type": "input", "task": "Fill in the correct form of to be.", "q": "___ you in a sports team?", "answer": "Are", "hint": "am / is / are", "explain": "Frage mit you: **Are** you …?" },
+    { "type": "input", "task": "Fill in the correct form of to be.", "q": "What ___ your hobbies?", "answer": "are", "hint": "am / is / are", "explain": "your hobbies = mehrere → **are**." }
+  ]
+}
