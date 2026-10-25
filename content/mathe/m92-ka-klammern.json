@@ -1,0 +1,48 @@
+{
+  "id": "ka-klammern",
+  "line": "klassenarbeit",
+  "order": 92,
+  "title": "Geteilt, Klammer, Potenz",
+  "subtitle": "Rechenregeln wie in Aufgabe 2",
+  "icon": "🧩",
+  "card": "Merke: 22 : 2 + 99 : 11 – erst **beide** Geteilt-Aufgaben, dann plus: 11 + 9 = **20**.",
+  "explain": [
+    { "p": "Auch **geteilt** ist Punktrechnung. Es kommt also **vor** plus und minus dran, genau wie mal." },
+    { "p": "22 : 2 + 99 : 11 = 11 + 9 = **20**" },
+    { "tip": "Ein Fehler aus der Arbeit: 22 : 2 + 99 : 11 ist **nicht** 110. Rechne jede Geteilt-Aufgabe für sich, erst dann plus." },
+    { "p": "Stehen **zwei Klammern** da, rechnest du erst beide Klammern aus und dann das Zeichen dazwischen:" },
+    { "p": "(27 − 9) : (54 : 9) = 18 : 6 = **3**" },
+    { "tip": "Schreib jeden Schritt in eine neue Zeile. Unterstreiche, was du gerade rechnest. So verrutscht nichts." },
+    { "table": { "head": ["", "Reihenfolge"], "rows": [
+      ["1.", "**Kla**mmern"],
+      ["2.", "**Po**tenzen (2⁴ = 2 · 2 · 2 · 2 = 16)"],
+      ["3.", "**Pu**nkt: · und :"],
+      ["4.", "**Stri**ch: + und −"]
+    ] } }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Was rechnest du zuerst?", "q": "22 : 2 + 99 : 11", "options": ["22 : 2 und 99 : 11", "2 + 99", "von links nach rechts"], "answer": "22 : 2 und 99 : 11", "explain": "Geteilt ist Punktrechnung, also zuerst 22 : 2 = 11 und 99 : 11 = 9. Dann 11 + 9 = **20**." },
+    { "type": "choice", "task": "Was rechnest du zuerst?", "q": "(27 − 9) : (54 : 9)", "options": ["beide Klammern: 18 und 6", "9 : 54", "27 − 9 : 54"], "answer": "beide Klammern: 18 und 6", "explain": "Erst beide Klammern: 27 − 9 = 18 und 54 : 9 = 6. Dann 18 : 6 = **3**." },
+    { "type": "choice", "task": "Welches Ergebnis stimmt?", "q": "22 : 2 + 99 : 11 = ___", "options": ["20", "110", "19", "11"], "answer": "20", "explain": "11 + 9 = **20**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "100 + 40 : 5 = ___", "answer": "108", "numeric": true, "placeholder": "Ergebnis", "explain": "Erst 40 : 5 = 8, dann 100 + 8 = **108**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "22 : 2 + 99 : 11 = ___", "answer": "20", "numeric": true, "placeholder": "Ergebnis", "explain": "22 : 2 = 11 und 99 : 11 = 9. Dann 11 + 9 = **20**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "(27 − 9) : (54 : 9) = ___", "answer": "3", "numeric": true, "placeholder": "Ergebnis", "explain": "Klammern: 18 und 6. Dann 18 : 6 = **3**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "9 − 24 : 6 = ___", "answer": "5", "numeric": true, "placeholder": "Ergebnis", "explain": "Erst 24 : 6 = 4, dann 9 − 4 = **5**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "8 · (14 − 6) = ___", "answer": "64", "numeric": true, "placeholder": "Ergebnis", "explain": "Klammer: 14 − 6 = 8. Dann 8 · 8 = **64**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "12 + 2⁴ : 8 = ___", "answer": "14", "numeric": true, "placeholder": "Ergebnis", "explain": "Potenz: 2⁴ = 16. Punkt: 16 : 8 = 2. Strich: 12 + 2 = **14**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "(9² − 8² + 3) · 4 = ___", "answer": "80", "numeric": true, "placeholder": "Ergebnis", "explain": "In der Klammer: 81 − 64 + 3 = 20. Dann 20 · 4 = **80**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "36 : 4 + 72 : 8 = ___", "answer": "18", "numeric": true, "placeholder": "Ergebnis", "explain": "36 : 4 = 9 und 72 : 8 = 9. Dann 9 + 9 = **18**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "48 : 6 + 56 : 7 = ___", "answer": "16", "numeric": true, "placeholder": "Ergebnis", "explain": "48 : 6 = 8 und 56 : 7 = 8. Dann 8 + 8 = **16**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "81 : 9 − 63 : 9 = ___", "answer": "2", "numeric": true, "placeholder": "Ergebnis", "explain": "81 : 9 = 9 und 63 : 9 = 7. Dann 9 − 7 = **2**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "(35 − 7) : (28 : 7) = ___", "answer": "7", "numeric": true, "placeholder": "Ergebnis", "explain": "Klammern: 28 und 4. Dann 28 : 4 = **7**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "(40 + 8) : (36 : 3) = ___", "answer": "4", "numeric": true, "placeholder": "Ergebnis", "explain": "Klammern: 48 und 12. Dann 48 : 12 = **4**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "(64 : 8) · (42 : 6) = ___", "answer": "56", "numeric": true, "placeholder": "Ergebnis", "explain": "Klammern: 8 und 7. Dann 8 · 7 = **56**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "50 − 36 : 4 = ___", "answer": "41", "numeric": true, "placeholder": "Ergebnis", "explain": "Erst 36 : 4 = 9, dann 50 − 9 = **41**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "6 · (15 − 7) = ___", "answer": "48", "numeric": true, "placeholder": "Ergebnis", "explain": "Klammer: 8. Dann 6 · 8 = **48**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "7 + 2³ : 4 = ___", "answer": "9", "numeric": true, "placeholder": "Ergebnis", "explain": "Potenz: 2³ = 8. Punkt: 8 : 4 = 2. Strich: 7 + 2 = **9**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "(6² − 5² + 4) · 3 = ___", "answer": "45", "numeric": true, "placeholder": "Ergebnis", "explain": "In der Klammer: 36 − 25 + 4 = 15. Dann 15 · 3 = **45**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "100 − (45 : 5 + 11) = ___", "answer": "80", "numeric": true, "placeholder": "Ergebnis", "explain": "In der Klammer: 9 + 11 = 20. Dann 100 − 20 = **80**." },
+    { "type": "input", "task": "Rechne. Denk an KlaPoPuStri.", "q": "120 : (4 · 5) = ___", "answer": "6", "numeric": true, "placeholder": "Ergebnis", "explain": "Klammer: 4 · 5 = 20. Dann 120 : 20 = **6**." },
+    { "type": "input", "task": "Rechne von links nach rechts.", "q": "120 : 4 · 5 = ___", "answer": "150", "numeric": true, "placeholder": "Ergebnis", "explain": "Ohne Klammer, nur Punktrechnung: von links nach rechts. 120 : 4 = 30, dann 30 · 5 = **150**." }
+  ]
+}
