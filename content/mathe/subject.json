@@ -6,6 +6,7 @@
   "enabled": true,
   "lines": [
     { "id": "klassenarbeit", "name": "Klassenarbeits-Linie", "short": "Klassenarbeit", "color": "#5D4037" },
+    { "id": "textaufgaben", "name": "Textaufgaben-Linie", "short": "Textaufgaben", "color": "#3949AB" },
     { "id": "kopfrechnen", "name": "Kopfrechnen-Linie", "short": "Kopfrechnen", "color": "#D9631E" },
     { "id": "schriftlich-plus", "name": "Schriftlich-plus-Linie", "short": "Schriftlich plus", "color": "#1E6FB8", "examCount": 10 },
     { "id": "schriftlich-minus", "name": "Schriftlich-minus-Linie", "short": "Schriftlich minus", "color": "#7B3FA0", "examCount": 10 },

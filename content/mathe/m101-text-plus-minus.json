@@ -1,0 +1,47 @@
+{
+  "id": "text-plus-minus",
+  "line": "textaufgaben",
+  "order": 101,
+  "title": "Plus und minus im Text",
+  "subtitle": "Stadion, Mount Everest, Sparen",
+  "icon": "🏟️",
+  "card": "Merke: Erst die **Frage** finden, dann rechnen, und am Ende immer ein **Antwortsatz**.",
+  "explain": [
+    { "p": "Bei einer Textaufgabe steckt die Rechnung in einer Geschichte. So gehst du vor:" },
+    { "table": { "head": ["Schritt", "Was du machst"], "rows": [
+      ["1. Lesen", "Lies die Aufgabe zweimal. Unterstreiche die **Frage**."],
+      ["2. Zahlen", "Welche Zahlen brauchst du? Schreib sie heraus."],
+      ["3. Rechenart", "Kommt etwas dazu (plus) oder geht etwas weg (minus)?"],
+      ["4. Überschlag", "Rechne mit runden Zahlen im Kopf, was ungefähr herauskommt."],
+      ["5. Rechnen", "Rechne schriftlich und vergleiche mit dem Überschlag."],
+      ["6. Antwort", "Schreib einen **Antwortsatz** mit Einheit (Plätze, m, €)."]
+    ] } },
+    { "table": { "head": ["Im Text steht …", "Rechenart"], "rows": [
+      ["insgesamt, zusammen, dazu, noch weitere", "**plus**"],
+      ["noch frei, übrig, fehlen noch, fehlerhaft, ausgegeben", "**minus**"],
+      ["wie viel mehr, wie viel höher, Unterschied", "**minus** (große Zahl − kleine Zahl)"]
+    ] } },
+    { "p": "Beispiel: Ein Fußballstadion hat 69 250 Plätze. 52 154 Tickets sind verkauft. Wie viele Plätze sind frei?" },
+    { "column": { "rows": ["69250", "52154"], "op": "sub" } },
+    { "p": "Überschlag: 69 000 − 52 000 = 17 000. Das passt zu **17 096**. Antwort: Im Stadion sind noch 17 096 Plätze frei." },
+    { "tip": "Bei der Tabelle von Frau Gensler: **Ersparnis pro Jahr** = neue gesamte Ersparnis **minus** die vom Jahr davor. **Gesamte Ersparnis** = die vom Jahr davor **plus** die Ersparnis in diesem Jahr." }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Textaufgabe", "q": "Ein Fußballstadion hat 69 250 Plätze. 52 154 Tickets wurden bereits verkauft. Wie viele Plätze sind noch frei?", "answer": "17096", "numeric": true, "placeholder": "Plätze", "explain": "„Noch frei“ heißt minus: 69 250 − 52 154 = **17 096**. Überschlag: 69 000 − 52 000 = 17 000." },
+    { "type": "input", "task": "Textaufgabe", "q": "Ein Bergsteiger hat auf dem Mount Everest bereits 3 455 m erklommen. Er hat noch weitere 5 393 m vor sich. Wie hoch ist der Mount Everest?", "answer": "8848", "numeric": true, "placeholder": "Meter", "explain": "Geschafft und noch vor ihm ergibt zusammen den ganzen Berg: 3 455 + 5 393 = **8 848 m**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Eine Firma hat 16 235 Microchips hergestellt. 2 611 davon sind fehlerhaft. Wie viele Microchips sind fehlerfrei?", "answer": "13624", "numeric": true, "placeholder": "Microchips", "explain": "Die fehlerhaften kommen weg: 16 235 − 2 611 = **13 624**." },
+    { "type": "input", "task": "Tabelle von Frau Gensler", "q": "Ende 2019 hatte Frau Gensler insgesamt 5 528 € gespart, Ende 2020 insgesamt 6 684 €. Wie viel hat sie im Jahr 2020 gespart?", "answer": "1156", "numeric": true, "placeholder": "Euro", "explain": "Ersparnis 2020 = gesamt 2020 − gesamt 2019: 6 684 − 5 528 = **1 156 €**. Probe: 5 528 + 1 156 = 6 684." },
+    { "type": "input", "task": "Tabelle von Frau Gensler", "q": "2018 hat Frau Gensler 2 282 € gespart, 2019 noch einmal 3 246 €. Wie viel hat sie Ende 2019 insgesamt gespart?", "answer": "5528", "numeric": true, "placeholder": "Euro", "explain": "Gesamt = vorher + dazu: 2 282 + 3 246 = **5 528 €**." },
+    { "type": "input", "task": "Tabelle von Frau Gensler", "q": "Ende 2020 hatte Frau Gensler insgesamt 6 684 € gespart. 2021 spart sie 5 066 € dazu. Wie viel hat sie Ende 2021 insgesamt?", "answer": "11750", "numeric": true, "placeholder": "Euro", "explain": "6 684 + 5 066 = **11 750 €**." },
+    { "type": "input", "task": "Tabelle von Frau Gensler", "q": "Ende 2021 hatte Frau Gensler insgesamt 11 750 € gespart, Ende 2022 insgesamt 15 398 €. Wie viel hat sie im Jahr 2022 gespart?", "answer": "3648", "numeric": true, "placeholder": "Euro", "explain": "15 398 − 11 750 = **3 648 €**." },
+    { "type": "choice", "task": "Tabelle von Frau Gensler", "q": "Frau Gensler hat gespart: 2018: 2 282 €, 2019: 3 246 €, 2020: 1 156 €, 2021: 5 066 €, 2022: 3 648 €. In welchem Jahr sind ihre Ersparnisse am stärksten gewachsen?", "options": ["2021", "2019", "2022", "2018"], "answer": "2021", "explain": "Am stärksten gewachsen heißt: in diesem Jahr kam am meisten dazu. Das war 2021 mit **5 066 €**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Auf dem Klassenkonto sind 2 578 €. Die Klasse bezahlt 1 211 € für den Bus und 86 € für den Eintritt. Wie viel Geld ist noch auf dem Konto?", "answer": "1281", "numeric": true, "placeholder": "Euro", "explain": "Beides geht weg: 2 578 − 1 211 − 86 = **1 281 €**. Probe: 1 281 + 86 + 1 211 = 2 578." },
+    { "type": "input", "task": "Textaufgabe", "q": "Eine Konzerthalle hat 12 500 Plätze. Am Montag werden 8 736 Karten verkauft, am Dienstag 2 918. Wie viele Plätze sind noch frei?", "answer": "846", "numeric": true, "placeholder": "Plätze", "explain": "12 500 − 8 736 = 3 764, dann 3 764 − 2 918 = **846**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Die Zugspitze ist 2 962 m hoch, der Watzmann 2 713 m. Wie viel Meter ist die Zugspitze höher?", "answer": "249", "numeric": true, "placeholder": "Meter", "explain": "„Wie viel höher“ ist der Unterschied: 2 962 − 2 713 = **249 m**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Eine Bücherei hat 24 380 Bücher. Sie kauft 1 265 neue Bücher dazu und sortiert 870 alte aus. Wie viele Bücher hat sie jetzt?", "answer": "24775", "numeric": true, "placeholder": "Bücher", "explain": "24 380 + 1 265 = 25 645, dann 25 645 − 870 = **24 775**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Eine Bergsteigerin ist auf 6 120 m Höhe. Der Gipfel des Mount Everest liegt auf 8 848 m. Wie viele Meter fehlen ihr noch?", "answer": "2728", "numeric": true, "placeholder": "Meter", "explain": "„Fehlen noch“ heißt minus: 8 848 − 6 120 = **2 728 m**." },
+    { "type": "choice", "task": "Welche Rechnung passt?", "q": "Ein Stadion hat 69 250 Plätze. 52 154 sind verkauft. Wie viele Plätze sind frei?", "options": ["69 250 − 52 154", "69 250 + 52 154", "52 154 − 69 250", "69 250 · 52 154"], "answer": "69 250 − 52 154", "explain": "Die verkauften Plätze gehen von allen Plätzen weg. Die große Zahl steht vorn." },
+    { "type": "choice", "task": "Überschlag", "q": "Ein Stadion hat 69 250 Plätze. 52 154 sind verkauft. Ungefähr wie viele Plätze sind frei?", "options": ["etwa 17 000", "etwa 7 000", "etwa 27 000", "etwa 120 000"], "answer": "etwa 17 000", "explain": "Runden: 69 000 − 52 000 = **17 000**." },
+    { "type": "choice", "task": "Welche Rechnung passt?", "q": "Ein Bergsteiger hat 3 455 m geschafft. Er hat noch 5 393 m vor sich. Wie hoch ist der Berg?", "options": ["3 455 + 5 393", "5 393 − 3 455", "3 455 · 5 393", "5 393 : 3 455"], "answer": "3 455 + 5 393", "explain": "Der geschaffte Weg und der Rest ergeben **zusammen** den ganzen Berg." }
+  ]
+}
