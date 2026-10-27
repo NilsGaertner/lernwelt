@@ -1,0 +1,59 @@
+{
+  "id": "klasseninstrumente",
+  "line": "instrumente",
+  "order": 21,
+  "title": "Klasseninstrumente",
+  "subtitle": "Von Cabasa bis Xylophon",
+  "icon": "🪇",
+  "card": "Wusstest du? Xylophon darf man auch **Xylofon** schreiben, Metallophon auch **Metallofon**.",
+  "explain": [
+    { "p": "Diese zehn **Klasseninstrumente** sind im Arbeitsheft auf S. 14 (Aufgabe 4). Viele davon stehen bei euch im Instrumentenschrank." },
+    { "map": "klasseninstrumente", "legend": [
+      ["cabasa", "Cabasa"],
+      ["guiro", "Guiro"],
+      ["holzblock", "Holzblock"],
+      ["glocke", "Glocke (Kuhglocke)"],
+      ["metallophon", "Metallophon"],
+      ["handtrommel", "Handtrommel"],
+      ["maracas", "Maracas"],
+      ["triangel", "Triangel"],
+      ["xylophon", "Xylophon"],
+      ["schuettelei", "Schüttel-Ei"]
+    ] },
+    { "table": { "head": ["Instrument", "Woran du es erkennst"], "rows": [
+      ["**Cabasa**", "Walze mit vielen kleinen Metallkugeln an einem Holzgriff"],
+      ["**Guiro**", "länglicher Körper mit **Rillen**, dazu ein Stab zum Darüberstreichen"],
+      ["**Holzblock**", "Holzklotz mit einem **Schlitz**"],
+      ["**Glocke**", "Metallglocke ohne Klöppel, man schlägt sie von außen an"],
+      ["**Metallophon**", "Klangstäbe aus **Metall** auf einem Holzkasten"],
+      ["**Xylophon**", "Klangstäbe aus **Holz** auf einem Holzkasten"],
+      ["**Handtrommel**", "flache Trommel: ein **Fell** auf einem runden Rahmen"],
+      ["**Maracas**", "zwei bunte **Rasseln** mit Stiel"],
+      ["**Schüttel-Ei**", "kleine **Eier** aus Kunststoff mit Körnern darin"],
+      ["**Triangel**", "Metallstab, zu einem **Dreieck** gebogen"]
+    ] } },
+    { "tip": "**Xylophon** oder **Metallophon**? Schau auf die Stäbe: **Holz** (griechisch „xylon“) = Xylophon, **Metall** = Metallophon. Beide Wörter darf man auch mit **f** schreiben: Xylofon, Metallofon." }
+  ],
+  "exercises": [
+    { "id": "bild-cabasa", "type": "choice", "task": "Wie heißt das markierte Instrument?", "map": "klasseninstrumente", "mark": "cabasa", "options": ["Cabasa", "Guiro", "Maracas", "Schüttel-Ei"], "answer": "Cabasa" },
+    { "id": "bild-guiro", "type": "choice", "task": "Wie heißt das markierte Instrument?", "map": "klasseninstrumente", "mark": "guiro", "options": ["Guiro", "Cabasa", "Holzblock", "Maracas"], "answer": "Guiro" },
+    { "id": "bild-holzblock", "type": "choice", "task": "Wie heißt das markierte Instrument?", "map": "klasseninstrumente", "mark": "holzblock", "options": ["Holzblock", "Xylophon", "Handtrommel", "Guiro"], "answer": "Holzblock" },
+    { "id": "bild-glocke", "type": "choice", "task": "Wie heißt das markierte Instrument?", "map": "klasseninstrumente", "mark": "glocke", "options": ["Glocke", "Triangel", "Metallophon", "Holzblock"], "answer": "Glocke" },
+    { "id": "bild-metallophon", "type": "choice", "task": "Wie heißt das markierte Instrument?", "map": "klasseninstrumente", "mark": "metallophon", "options": ["Metallophon", "Xylophon", "Handtrommel", "Triangel"], "answer": "Metallophon", "explain": "Die Stäbe sind aus **Metall** (grau): Metallophon. Beim Xylophon sind sie aus Holz." },
+    { "id": "bild-xylophon", "type": "choice", "task": "Wie heißt das markierte Instrument?", "map": "klasseninstrumente", "mark": "xylophon", "options": ["Xylophon", "Metallophon", "Holzblock", "Guiro"], "answer": "Xylophon", "explain": "Die Stäbe sind aus **Holz** (braun): Xylophon. Beim Metallophon sind sie aus Metall." },
+    { "id": "bild-handtrommel", "type": "choice", "task": "Wie heißt das markierte Instrument?", "map": "klasseninstrumente", "mark": "handtrommel", "options": ["Handtrommel", "Holzblock", "Glocke", "Cabasa"], "answer": "Handtrommel" },
+    { "id": "bild-maracas", "type": "choice", "task": "Wie heißt das markierte Instrument?", "map": "klasseninstrumente", "mark": "maracas", "options": ["Maracas", "Schüttel-Ei", "Cabasa", "Guiro"], "answer": "Maracas" },
+    { "id": "bild-triangel", "type": "choice", "task": "Wie heißt das markierte Instrument?", "map": "klasseninstrumente", "mark": "triangel", "options": ["Triangel", "Glocke", "Metallophon", "Guiro"], "answer": "Triangel" },
+    { "id": "bild-schuettelei", "type": "choice", "task": "Wie heißt das markierte Instrument?", "map": "klasseninstrumente", "mark": "schuettelei", "options": ["Schüttel-Ei", "Maracas", "Cabasa", "Handtrommel"], "answer": "Schüttel-Ei" },
+    { "id": "schreib-guiro", "type": "input", "task": "Schreib den Namen des markierten Instruments.", "map": "klasseninstrumente", "mark": "guiro", "answer": "Guiro", "accept": ["Güiro"], "placeholder": "Instrument" },
+    { "id": "schreib-cabasa", "type": "input", "task": "Schreib den Namen des markierten Instruments.", "map": "klasseninstrumente", "mark": "cabasa", "answer": "Cabasa", "accept": ["Kabasa"], "placeholder": "Instrument" },
+    { "id": "schreib-xylophon", "type": "input", "task": "Schreib den Namen des markierten Instruments.", "map": "klasseninstrumente", "mark": "xylophon", "answer": "Xylophon", "accept": ["Xylofon"], "placeholder": "Instrument", "explain": "**Xylophon** oder **Xylofon**, beides ist richtig. Wichtig: vorne **X** und dann **y**." },
+    { "id": "schreib-metallophon", "type": "input", "task": "Schreib den Namen des markierten Instruments.", "map": "klasseninstrumente", "mark": "metallophon", "answer": "Metallophon", "accept": ["Metallofon"], "placeholder": "Instrument", "explain": "**Metallophon** oder **Metallofon**: Me-**tall** mit zwei **l**, wie Metall." },
+    { "id": "schreib-triangel", "type": "input", "task": "Schreib den Namen des markierten Instruments.", "map": "klasseninstrumente", "mark": "triangel", "answer": "Triangel", "placeholder": "Instrument" },
+    { "id": "schreib-handtrommel", "type": "input", "task": "Schreib den Namen des markierten Instruments.", "map": "klasseninstrumente", "mark": "handtrommel", "answer": "Handtrommel", "accept": ["Hand-Trommel", "Rahmentrommel"], "placeholder": "Instrument" },
+    { "id": "schreib-maracas", "type": "input", "task": "Schreib den Namen des markierten Instruments.", "map": "klasseninstrumente", "mark": "maracas", "answer": "Maracas", "accept": ["Maraca", "Rasseln", "Rassel"], "placeholder": "Instrument" },
+    { "id": "schreib-schuettelei", "type": "input", "task": "Schreib den Namen des markierten Instruments.", "map": "klasseninstrumente", "mark": "schuettelei", "answer": "Schüttel-Ei", "accept": ["Schüttelei", "Schuettelei", "Schüttel Ei", "Schüttel-Eier", "Schütteleier", "Shaker", "Egg Shaker"], "placeholder": "Instrument" },
+    { "type": "choice", "q": "Woran erkennst du den **Unterschied** zwischen Xylophon und Metallophon?", "options": ["an den Klangstäben: Holz oder Metall", "an der Farbe des Kastens", "an der Zahl der Schlägel", "gar nicht, es ist dasselbe"], "answer": "an den Klangstäben: Holz oder Metall" },
+    { "type": "choice", "q": "Welches Instrument ist zu einem **Dreieck** gebogen?", "options": ["Triangel", "Glocke", "Guiro", "Cabasa"], "answer": "Triangel", "explain": "„Tri“ heißt drei: Der **Triangel** hat drei Ecken." }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "koerperteile-singen",
+  "line": "stimme",
+  "order": 12,
+  "title": "Körperteile beim Singen",
+  "subtitle": "Wie unsere Stimme entsteht",
+  "icon": "🫁",
+  "card": "Merke: Nasen**h**öhle mit h (von „hohl“), Ke**hl**kopf mit h und l (von „Kehle“).",
+  "explain": [
+    { "p": "Beim Singen arbeiten viele Teile des Körpers zusammen (Arbeitsheft S. 12, Aufgabe 2). Die Nummern im Bild gehören zu den Namen darunter." },
+    { "map": "stimme", "legend": [
+      ["nasenhoehle", "1 Nasenhöhle"],
+      ["mundhoehle", "2 Mundhöhle"],
+      ["zunge", "3 Zunge"],
+      ["rachen", "4 Rachen"],
+      ["kehlkopf", "5 Kehlkopf"],
+      ["stimmlippen", "6 Stimmlippen (im Kehlkopf)"],
+      ["luftroehre", "7 Luftröhre"],
+      ["lunge", "8 Lunge"],
+      ["zwerchfell", "9 Zwerchfell"]
+    ] },
+    { "table": { "head": ["Bereich", "Dazu gehören", "Aufgabe"], "rows": [
+      ["**Resonanzrohr**", "Nasenhöhle, Mundhöhle, Zunge, Rachen", "verändert den **Klang**"],
+      ["**Kehlkopf**", "mit den Stimmlippen", "erzeugt den **Ton**"],
+      ["**Atemorgan**", "Lunge, Luftröhre, Zwerchfell", "liefert die **Luft**"]
+    ] } },
+    { "tip": "Schwierige Wörter: Nasen**h**öhle (hohl, mit h), Mund**h**öhle, Ke**hl**kopf (Kehle), Sti**mm**lippen (zwei m), Zwerch**f**ell, Luftr**ö**hre." },
+    { "p": "Das **Zwerchfell** ist ein großer, flacher Muskel unter der Lunge. Es hilft beim Atmen und drückt beim Singen die Luft gleichmäßig aus der Lunge." }
+  ],
+  "exercises": [
+    { "id": "bild-nasenhoehle", "type": "choice", "task": "Wie heißt der markierte Teil?", "map": "stimme", "mark": "nasenhoehle", "options": ["Nasenhöhle", "Mundhöhle", "Rachen", "Zunge"], "answer": "Nasenhöhle" },
+    { "id": "bild-mundhoehle", "type": "choice", "task": "Wie heißt der markierte Teil?", "map": "stimme", "mark": "mundhoehle", "options": ["Mundhöhle", "Nasenhöhle", "Zunge", "Rachen"], "answer": "Mundhöhle" },
+    { "id": "bild-zunge", "type": "choice", "task": "Wie heißt der markierte Teil?", "map": "stimme", "mark": "zunge", "options": ["Zunge", "Mundhöhle", "Stimmlippen", "Rachen"], "answer": "Zunge" },
+    { "id": "bild-rachen", "type": "choice", "task": "Wie heißt der markierte Teil?", "map": "stimme", "mark": "rachen", "options": ["Rachen", "Luftröhre", "Nasenhöhle", "Kehlkopf"], "answer": "Rachen", "explain": "Der **Rachen** liegt hinter Mund und Nase. Die **Luftröhre** liegt tiefer, im Hals unter dem Kehlkopf." },
+    { "id": "bild-kehlkopf", "type": "choice", "task": "Wie heißt der markierte Teil?", "map": "stimme", "mark": "kehlkopf", "options": ["Kehlkopf", "Rachen", "Luftröhre", "Zunge"], "answer": "Kehlkopf" },
+    { "id": "bild-stimmlippen", "type": "choice", "task": "Wie heißt der markierte Teil im Kehlkopf?", "map": "stimme", "mark": "stimmlippen", "options": ["Stimmlippen", "Zunge", "Zwerchfell", "Luftröhre"], "answer": "Stimmlippen", "explain": "Die **Stimmlippen** liegen im Inneren des Kehlkopfes. Sie schwingen und erzeugen den Ton." },
+    { "id": "bild-luftroehre", "type": "choice", "task": "Wie heißt der markierte Teil?", "map": "stimme", "mark": "luftroehre", "options": ["Luftröhre", "Rachen", "Lunge", "Kehlkopf"], "answer": "Luftröhre" },
+    { "id": "bild-lunge", "type": "choice", "task": "Wie heißt der markierte Teil?", "map": "stimme", "mark": "lunge", "options": ["Lunge", "Zwerchfell", "Luftröhre", "Rachen"], "answer": "Lunge" },
+    { "id": "bild-zwerchfell", "type": "choice", "task": "Wie heißt der markierte Teil?", "map": "stimme", "mark": "zwerchfell", "options": ["Zwerchfell", "Lunge", "Luftröhre", "Zunge"], "answer": "Zwerchfell", "explain": "Das **Zwerchfell** ist der große Muskel **unter** der Lunge." },
+    { "id": "bild-resonanzrohr", "type": "choice", "task": "Wie heißt der ganze markierte Bereich?", "map": "stimme", "mark": "resonanzrohr", "options": ["Resonanzrohr", "Atemorgan", "Kehlkopf", "Resonanzboden"], "answer": "Resonanzrohr", "explain": "Nasenhöhle, Mundhöhle, Zunge und Rachen bilden zusammen das **Resonanzrohr**. Es verändert den Klang." },
+    { "id": "bild-atemorgan", "type": "choice", "task": "Wie heißt der ganze markierte Bereich?", "map": "stimme", "mark": "atemorgan", "options": ["Atemorgan", "Resonanzrohr", "Kehlkopf", "Blasinstrument"], "answer": "Atemorgan", "explain": "Lunge, Luftröhre und Zwerchfell gehören zum **Atemorgan**. Es liefert die Luft." },
+    { "id": "schreib-nasenhoehle", "type": "input", "task": "Schreib den Namen des markierten Teils.", "map": "stimme", "mark": "nasenhoehle", "answer": "Nasenhöhle", "accept": ["Nasenhoehle"], "placeholder": "Körperteil", "explain": "Nasen**h**öhle schreibt man mit **h**, wie „hohl“." },
+    { "id": "schreib-kehlkopf", "type": "input", "task": "Schreib den Namen des markierten Teils.", "map": "stimme", "mark": "kehlkopf", "answer": "Kehlkopf", "placeholder": "Körperteil", "explain": "Ke**hl**kopf kommt von „Kehle“: mit **h** und **l**." },
+    { "id": "schreib-stimmlippen", "type": "input", "task": "Schreib den Namen des markierten Teils.", "map": "stimme", "mark": "stimmlippen", "answer": "Stimmlippen", "accept": ["Stimmlippe", "Stimmbänder", "Stimmbaender"], "placeholder": "Körperteil", "explain": "Sti**mm**lippen mit zwei **m**, wie „Stimme“." },
+    { "id": "schreib-zwerchfell", "type": "input", "task": "Schreib den Namen des markierten Teils.", "map": "stimme", "mark": "zwerchfell", "answer": "Zwerchfell", "placeholder": "Körperteil" },
+    { "id": "schreib-luftroehre", "type": "input", "task": "Schreib den Namen des markierten Teils.", "map": "stimme", "mark": "luftroehre", "answer": "Luftröhre", "accept": ["Luftroehre"], "placeholder": "Körperteil" },
+    { "id": "schreib-rachen", "type": "input", "task": "Schreib den Namen des markierten Teils.", "map": "stimme", "mark": "rachen", "answer": "Rachen", "placeholder": "Körperteil" },
+    { "id": "schreib-resonanzrohr", "type": "input", "task": "Schreib den Namen des ganzen markierten Bereichs.", "map": "stimme", "mark": "resonanzrohr", "answer": "Resonanzrohr", "placeholder": "Bereich" },
+    { "type": "choice", "q": "Welcher Teil liegt direkt **unter** der Lunge?", "options": ["das Zwerchfell", "der Kehlkopf", "der Rachen", "die Zunge"], "answer": "das Zwerchfell" },
+    { "type": "choice", "q": "Was gehört **nicht** zum Resonanzrohr?", "options": ["Lunge", "Zunge", "Rachen", "Nasenhöhle"], "answer": "Lunge", "explain": "Die Lunge gehört zum **Atemorgan**. Zum Resonanzrohr gehören Nasenhöhle, Mundhöhle, Zunge und Rachen." }
+  ]
+}

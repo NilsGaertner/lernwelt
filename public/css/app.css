@@ -55,6 +55,8 @@
   --bone-body: #dde5ee;
   --tooth: #fffdf6;
   --tooth-edge: #8a7f66;
+  --organ: #f2b8bd;
+  --organ-edge: #b5606b;
   --font-display: 'Bungee', 'Arial Black', system-ui, sans-serif;
   --font-body: 'Lexend', system-ui, -apple-system, 'Segoe UI', sans-serif;
   color-scheme: light;
@@ -88,6 +90,8 @@
     --bone-body: #2a3654;
     --tooth: #ece6d6;
     --tooth-edge: #18223a;
+    --organ: #a8707a;
+    --organ-edge: #e2a3ad;
     color-scheme: dark;
   }
 }
@@ -96,7 +100,7 @@
   --muted: #8795af; --rule: #2c3957; --go: #3ccf8a; --go-bg: #123526; --signal: #ff5a6e; --stop-bg: #3b1821;
   --star: #ffc23d; --star-ink: #ffdd94; --star-bg: #3a2c0c; --star-off: #5f6e96; --focus: #6aa8ff; color-scheme: dark;
   --map-water: #1b3552; --map-land: #4a5470; --map-home: #6b7596; --map-edge: #18223a;
-  --bone: #b9ad92; --bone-body: #2a3654; --tooth: #ece6d6; --tooth-edge: #18223a;
+  --bone: #b9ad92; --bone-body: #2a3654; --tooth: #ece6d6; --tooth-edge: #18223a; --organ: #a8707a; --organ-edge: #e2a3ad;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -492,6 +496,14 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 .geo-map .hub { fill: var(--ink-2); }
 .geo-map .dir { fill: var(--paper); stroke: var(--ink-2); stroke-width: 3; }
 .geo-map.colored text.on-c { fill: #1d2433; } /* Buchstaben auf den hellen Legendenfarben, auch im Dunkelmodus */
+/* Musik-Zeichnungen: Organe beim Singen und Klasseninstrumente (markiert wird das Feld hinter dem Instrument) */
+.geo-map .organ { fill: var(--organ); stroke: var(--organ-edge); stroke-width: 2; }
+.geo-map .airway { fill: none; stroke: var(--organ-edge); stroke-width: 3; stroke-linecap: round; }
+.geo-map .eye { fill: var(--ink-2); }
+.geo-map .area.mark.organ, .geo-map .area.mark .organ { fill: var(--focus); }
+.geo-map .slot { fill: transparent; stroke: none; }
+.geo-map .area.mark .slot { fill: var(--focus); fill-opacity: 0.22; stroke: var(--focus); stroke-width: 5; }
+.geo-map.colored .area.show .slot { fill: var(--c); fill-opacity: 0.3; }
 @keyframes map-pulse { from { opacity: 1; } to { opacity: 0.6; } }
 @media (prefers-reduced-motion: reduce) { .geo-map .area.mark { animation: none; } }
 .legend { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 16px; line-height: 1.4; }

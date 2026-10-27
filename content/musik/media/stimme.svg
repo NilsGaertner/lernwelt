@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700" role="img" aria-label="Am Singen beteiligte Körperteile">
+<!-- stimme: Kopf im Profil, Hals und Oberkörper wie im MusiX-Arbeitsheft S. 12; Resonanzrohr = Nasenhöhle, Mundhöhle, Zunge, Rachen; Atemorgan = Lunge, Luftröhre, Zwerchfell -->
+<rect class="bg" x="0" y="0" width="600" height="700"/>
+<path class="body" d="M300 30C360 30 400 60 408 105L410 120C412 128 418 138 432 160C436 168 430 172 418 172L414 182C420 186 420 192 414 196C420 200 418 208 410 212C412 228 408 246 392 252C372 258 352 262 345 272L345 330C380 340 470 350 520 380C545 395 552 430 552 470L552 700L48 700L48 470C48 430 55 395 80 380C130 350 220 340 255 330L255 262C215 245 192 200 195 150C198 80 240 30 300 30Z"/>
+<circle class="eye" cx="382" cy="104" r="7"/>
+<g id="resonanzrohr" class="area" style="--c:#F2A93B">
+<path id="nasenhoehle" class="area organ" style="--c:#4FA3E0" d="M320 124C352 114 394 120 414 150C404 160 374 160 322 154C314 148 314 132 320 124Z"/>
+<path id="mundhoehle" class="area organ" style="--c:#2FA36B" d="M322 164C356 160 396 166 412 190L404 195C380 181 346 180 323 192Z"/>
+<path id="zunge" class="area organ" style="--c:#E0475B" d="M323 199C342 185 380 185 403 199C397 212 370 219 341 217C329 215 321 208 323 199Z"/>
+<path id="rachen" class="area organ" style="--c:#F2A93B" d="M294 128C299 125 312 125 316 129L317 262C313 267 301 267 297 262C292 220 292 170 294 128Z"/>
+</g>
+<path id="kehlkopf" class="area organ" style="--c:#7B3FA0" d="M286 270H338C338 292 332 312 312 320C292 312 286 292 286 270Z"/>
+<path id="stimmlippen" class="area organ" style="--c:#C2185B" d="M296 284L312 297L328 284L329 292L312 306L295 292Z"/>
+<g id="atemorgan" class="area" style="--c:#00838F">
+<path id="lunge" class="area organ" style="--c:#EC7A9A" d="M288 455C287 430 270 405 247 405C207 405 172 450 160 510C152 550 152 585 162 600C202 588 252 584 290 592ZM336 455C337 430 354 405 377 405C417 405 452 450 464 510C472 550 472 585 462 600C422 588 372 584 334 592Z"/>
+<path id="luftroehre" class="area organ" style="--c:#00838F" d="M302 320H322V444H302Z"/>
+<path class="airway" d="M304 330H320M304 344H320M304 358H320M304 372H320M304 386H320M304 400H320M304 414H320M304 428H320M312 444L282 474L262 520M282 474L240 490M312 444L342 474L362 520M342 474L384 490M262 520L250 560M262 520L284 556M362 520L374 560M362 520L340 556"/>
+<path id="zwerchfell" class="area organ" style="--c:#8D6E63" d="M140 618C200 588 270 602 312 600C354 602 424 588 484 618V634C424 606 354 616 312 614C270 616 200 606 140 634Z"/>
+</g>
+<g class="labels"><path class="leader" d="M500 92L396 140"/><circle class="badge" cx="500" cy="92" r="21"/><text x="500" y="101">1</text><path class="leader" d="M524 160L404 184"/><circle class="badge" cx="524" cy="160" r="21"/><text x="524" y="169">2</text><path class="leader" d="M500 236L372 206"/><circle class="badge" cx="500" cy="236" r="21"/><text x="500" y="245">3</text><path class="leader" d="M110 150L296 196"/><circle class="badge" cx="110" cy="150" r="21"/><text x="110" y="159">4</text><path class="leader" d="M110 262L288 290"/><circle class="badge" cx="110" cy="262" r="21"/><text x="110" y="271">5</text><path class="leader" d="M470 300L326 292"/><circle class="badge" cx="470" cy="300" r="21"/><text x="470" y="309">6</text><path class="leader" d="M450 378L322 378"/><circle class="badge" cx="450" cy="378" r="21"/><text x="450" y="387">7</text><path class="leader" d="M96 470L182 500"/><circle class="badge" cx="96" cy="470" r="21"/><text x="96" y="479">8</text><path class="leader" d="M96 660L160 620"/><circle class="badge" cx="96" cy="660" r="21"/><text x="96" y="669">9</text></g>
+</svg>

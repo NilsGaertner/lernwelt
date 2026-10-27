@@ -48,13 +48,14 @@ Die Schriftlich-minus-Linie übt die schriftliche Subtraktion bis 1000 im **Erg�
 
 Die Schriftlich-mal-Linie übt das schriftliche Multiplizieren wie im Schulheft: Die Aufgabe steht in einer Zeile (3597 · 19), darunter kommt für jede Ziffer des zweiten Faktors ein Teilprodukt, jedes eine Stelle weiter rechts, und darunter die Summe mit Übertrags-Kästchen. Die Stationen: mal eine Ziffer (165 · 8), mal zwei Ziffern (421 · 17) und große Aufgaben mit bis zu drei Zeilen. Ist eine Zeile vorne fertig, springt „Nächste Zeile“ weiter. Gewertet wird nur das Ergebnis. Bei einem Fehler zeigt die App alle Zeilen richtig an (selbst eingetragene Ziffern grün oder rot, im Kopf gerechnete Zeilen grau) und den Rechenweg mit Überschlag und „merke“ für jede Ziffer. Die Aufgaben kommen aus demselben Generator wie Plus und Minus (`"op": "mul"`, `"factorDigits"` für die Stellen des zweiten Faktors).
 
-**Mathe: Stoff aus der 5. Klasse, Kapitel „Rechnen mit natürlichen Zahlen“ (5 Linien, 15 Stationen)**
+**Mathe: Stoff aus der 5. Klasse, Kapitel „Rechnen mit natürlichen Zahlen“ (6 Linien, 18 Stationen)**
 
 Nach den Heften und Arbeitsblättern aus der Schule. Bei einem Fehler zeigen viele Aufgaben den Rechenweg.
 
 | Linie | Stationen |
 |---|---|
 | Klassenarbeits-Linie | Die Arbeit vom 2. Oktober nachgeübt: Kopfrechnen gemischt, Geteilt mit Klammern und Potenzen (22 : 2 + 99 : 11), geschickt rechnen mit Zwischenschritt (760 · 25 · 4, 53 · 17 + 47 · 17) |
+| Textaufgaben-Linie | Textaufgaben aus dem Heft und ähnliche: Plus und minus im Text (Stadion, Mount Everest, Tabelle von Frau Gensler), Mal und geteilt im Text (Pralinen-Maschine in mehreren Schritten), Rest und mehrere Schritte (Pacific Crest Trail: Rest heißt ein Wandertag mehr; volle Kartons: Rest fällt weg) |
 | Rechenregel-Linie | Fachbegriffe und Potenzen (Summe … Quotient, Basis, Exponent), Klammer vor Potenz vor Punkt vor Strich (KlaPoPuStri), Lücken und Rechenzeichen ergänzen (Umkehraufgabe, Rechnen mit 0) |
 | Rechengesetz-Linie | Kommutativ- und Assoziativgesetz (geschickt rechnen), Klammer aufteilen (ausmultiplizieren), Ausklammern |
 | Große-Zahlen-Linie | Million bis Billion, gemischtes Zahlwort; Vorgänger, Nachfolger, Vergleichen, Zahlenfolgen; Runden |
@@ -84,6 +85,18 @@ Passend zum Kapitel „Haustiere“ im Biologiebuch und zu den Arbeitsblättern 
 | Wolf-Linie | Vom Wolf zum Hund (Rudel, Rangordnung, Körpersprache), Hunderassen und Züchtung, Welpen und Hundehaltung (Säugetier, Nesthocker) |
 
 Beim Skelett und beim Gebiss ist ein Knochen bzw. eine Zahnart auf einer Zeichnung markiert, und dein Kind wählt oder schreibt den Namen. Im „Merke“ sind die Zeichnungen bunt und nummeriert wie im Buch.
+
+**Musik: Klang, Stimme und Klasseninstrumente (3 Linien, 9 Stationen)**
+
+Nach dem MusiX-Arbeitsheft 1 A, Kapitel 2 „Rund um die Stimme“:
+
+| Linie | Stationen |
+|---|---|
+| Klang-Linie | Merkmale der Musik, Hör genau hin! (Merkmale mit den Ohren erkennen), Singen (wie die Stimme entsteht) |
+| Stimm-Linie | Meine Stimme (die drei Versuche: Kehlkopf abtasten, Hände auf Brust und Kopf, Klangschale), Körperteile beim Singen (an einer Zeichnung: Nasenhöhle bis Zwerchfell, Resonanzrohr und Atemorgan), Der Vorgang des Singens (der Lückentext mit den Auswahlwörtern) |
+| Instrumenten-Linie | Klasseninstrumente (zehn Instrumente an einer Zeichnung benennen und schreiben), Instrumente erforschen (Material, Spielweise, Klang, Tonhöhe erkennbar?), Grundbeat und kleine Schläge (Hör-Aufgaben wie im Trainingsraum 2: 🔴 = Grundbeat, • = kleiner Schlag) |
+
+Dazu gibt es den „Musik-Blitz“.
 
 **Aufgabentypen:** Auswahl, Eintippen, Sätze aus Wortkärtchen bauen, Paare finden und Hörverstehen (die englischen Wörter werden vorgelesen).
 
@@ -305,7 +318,7 @@ Alle Lerninhalte liegen als JSON-Dateien in `content/<fach>/`. Nach einer Änder
 
 - **`vocab`**: Aus Wortlisten werden die Aufgaben automatisch gebaut (Auswahl, Eintippen, Hören, Paare finden). `alt` sind weitere richtige Schreibweisen. Mit `"typing": false` auf Stationsebene muss nichts eingetippt werden, bei Sätzen wird dann aus Wortkärtchen gebaut.
 - **`exercises`**: `choice` (Auswahl), `input` (Eintippen, `___` markiert die Lücke) und `order` (Satz bauen). Weitere Felder: `accept` für weitere richtige Antworten, `task` für einen eigenen Aufgabentext, `de` für eine deutsche Übersetzung als Hilfe, `"numeric": true` für eine Zahlentastatur, `"speak": false`, wenn der Satz nicht vorgelesen werden soll, und `"strict": true`, wenn Kurz- und Langform (don't / do not) nicht beide gelten sollen.
-- **Karten und Bilder**: `"map": "welt", "mark": "afrika"` zeigt in einer Aufgabe die Karte `content/<fach>/media/welt.svg` und hebt das Gebiet mit der id `afrika` hervor. Im „Merke“ zeigt `{ "map": "welt", "legend": [["afrika", "Afrika"], …] }` die Karte mit bunt gefärbten Gebieten und Legende. `npm run check` meldet fehlende Karten und Gebiete. Das geht genauso mit Zeichnungen, z. B. `content/biologie/media/hund-skelett.svg`: Dort sind Knochen (`class="bone"`) in Gruppen mit id zusammengefasst, und Nummern in `<g class="labels">` erscheinen nur im „Merke“.
+- **Karten und Bilder**: `"map": "welt", "mark": "afrika"` zeigt in einer Aufgabe die Karte `content/<fach>/media/welt.svg` und hebt das Gebiet mit der id `afrika` hervor. Im „Merke“ zeigt `{ "map": "welt", "legend": [["afrika", "Afrika"], …] }` die Karte mit bunt gefärbten Gebieten und Legende. `npm run check` meldet fehlende Karten und Gebiete. Das geht genauso mit Zeichnungen, z. B. `content/biologie/media/hund-skelett.svg`: Dort sind Knochen (`class="bone"`) in Gruppen mit id zusammengefasst, und Nummern in `<g class="labels">` erscheinen nur im „Merke“. In `content/musik/media/klasseninstrumente.svg` hat jedes Instrument ein Feld (`class="slot"`), das markiert bzw. eingefärbt wird, damit das Instrument selbst seine Farben behält.
 - **`"enabled": false`** in einer Stationsdatei blendet diese Station aus.
 - **`"card"`**: eigener Text für die Sammelkarte der Station. Ohne dieses Feld steht der erste Merksatz auf der Karte.
 - **Blitzrunden** stehen in der `subject.json` des Fachs, z. B. `"blitz": [{ "id": "quadrate", "title": "Quadratzahlen-Blitz", "units": ["quadrat-11-15"] }]`. Statt `units` geht auch `"line": "zahlen"` für eine ganze Linie. Mit `"types": ["choice"]` kommen nur Auswahlaufgaben dran.

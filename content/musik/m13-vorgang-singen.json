@@ -1,0 +1,39 @@
+{
+  "id": "vorgang-singen",
+  "line": "stimme",
+  "order": 13,
+  "title": "Der Vorgang des Singens",
+  "subtitle": "Lückentext mit Auswahlwörtern",
+  "icon": "📝",
+  "card": "Merke: **Luft** aus der Lunge → **Ton** an den Stimmlippen → **Klang** im Resonanzrohr.",
+  "explain": [
+    { "p": "So steht der Lückentext richtig ausgefüllt im Arbeitsheft (S. 13, Grundwissen aktiv):" },
+    { "tip": "Am Vorgang des Singens sind mehrere Teile des Körpers beteiligt: Die nötige **Luft** liefert das **Atemorgan**: Mithilfe des Zwerchfells strömt Luft aus der **Lunge** durch die Luftröhre zum **Kehlkopf**. Die **Stimmlippen** (im Inneren des Kehlkopfes) geraten in Schwingung und erzeugen einen Ton. Mit dem **Resonanzrohr** (Zunge, Rachen, Mund, Nasenhöhle) können wir den **Klang** des Tones verändern." },
+    { "table": { "head": ["Schritt", "Was passiert?"], "rows": [
+      ["1. Atemorgan", "Das Zwerchfell drückt die **Luft** aus der **Lunge** durch die Luftröhre nach oben."],
+      ["2. Kehlkopf", "Die **Stimmlippen** schwingen und erzeugen den **Ton**."],
+      ["3. Resonanzrohr", "Zunge, Rachen, Mund und Nasenhöhle verändern den **Klang**."]
+    ] } },
+    { "p": "**Achtung:** Nicht alle Auswahlwörter passen. Diese bleiben übrig: Akkorde, Blasinstrument, Luftröhre (steht schon im Text), rappen, Resonanzboden, singen, Stimme, Töne." },
+    { "tip": "Verwechslungsgefahr: Der **Resonanzboden** gehört zu Instrumenten wie Gitarre oder Klavier. Beim Singen heißt es **Resonanzrohr**." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Lückentext: Welches Wort passt?", "q": "Die nötige ___ liefert das Atemorgan.", "options": ["Luft", "Stimme", "Töne", "Akkorde"], "answer": "Luft" },
+    { "type": "choice", "task": "Lückentext: Welches Wort passt?", "q": "Die nötige Luft liefert das ___.", "options": ["Atemorgan", "Blasinstrument", "Resonanzrohr", "Kehlkopf"], "answer": "Atemorgan", "explain": "Lunge, Luftröhre und Zwerchfell bilden das **Atemorgan**. Ein Blasinstrument ist zum Beispiel eine Flöte." },
+    { "type": "choice", "task": "Lückentext: Welches Wort passt?", "q": "Mithilfe des Zwerchfells strömt Luft aus der ___ durch die Luftröhre zum Kehlkopf.", "options": ["Lunge", "Luftröhre", "Stimme", "Resonanzboden"], "answer": "Lunge", "explain": "Die Luftröhre kommt danach und steht schon im Satz. Die Luft kommt aus der **Lunge**." },
+    { "type": "choice", "task": "Lückentext: Welches Wort passt?", "q": "Mithilfe des Zwerchfells strömt Luft aus der Lunge durch die Luftröhre zum ___.", "options": ["Kehlkopf", "Resonanzrohr", "Atemorgan", "Blasinstrument"], "answer": "Kehlkopf" },
+    { "type": "choice", "task": "Lückentext: Welches Wort passt?", "q": "Die ___ (im Inneren des Kehlkopfes) geraten in Schwingung und erzeugen einen Ton.", "options": ["Stimmlippen", "Akkorde", "Töne", "Lungen"], "answer": "Stimmlippen" },
+    { "type": "choice", "task": "Lückentext: Welches Wort passt?", "q": "Mit dem ___ (Zunge, Rachen, Mund, Nasenhöhle) können wir den Klang des Tones verändern.", "options": ["Resonanzrohr", "Resonanzboden", "Atemorgan", "Blasinstrument"], "answer": "Resonanzrohr", "explain": "Der Resonanzboden gehört zu Gitarre und Klavier. Beim Singen ist es das **Resonanzrohr**." },
+    { "type": "choice", "task": "Lückentext: Welches Wort passt?", "q": "Mit dem Resonanzrohr können wir den ___ des Tones verändern.", "options": ["Klang", "Akkorde", "Stimme", "Luft"], "answer": "Klang" },
+    { "type": "input", "task": "Füll die Lücke aus.", "q": "Die nötige Luft liefert das ___.", "answer": "Atemorgan", "hint": "Atem…" },
+    { "type": "input", "task": "Füll die Lücke aus.", "q": "Luft strömt aus der ___ durch die Luftröhre zum Kehlkopf.", "answer": "Lunge" },
+    { "type": "input", "task": "Füll die Lücke aus.", "q": "Luft strömt aus der Lunge durch die Luftröhre zum ___.", "answer": "Kehlkopf" },
+    { "type": "input", "task": "Füll die Lücke aus.", "q": "Die ___ im Inneren des Kehlkopfes geraten in Schwingung und erzeugen einen Ton.", "answer": "Stimmlippen", "accept": ["Stimmbänder", "Stimmbaender"] },
+    { "type": "input", "task": "Füll die Lücke aus.", "q": "Mit dem ___ (Zunge, Rachen, Mund, Nasenhöhle) verändern wir den Klang.", "answer": "Resonanzrohr", "hint": "Resonanz…" },
+    { "type": "input", "task": "Füll die Lücke aus.", "q": "Mit dem Resonanzrohr können wir den ___ des Tones verändern.", "answer": "Klang" },
+    { "type": "choice", "task": "Achtung, Falle!", "q": "Welches Auswahlwort passt an **keine** Stelle im Lückentext?", "options": ["rappen", "Lunge", "Kehlkopf", "Klang"], "answer": "rappen" },
+    { "type": "choice", "task": "Achtung, Falle!", "q": "Welches Auswahlwort passt an **keine** Stelle im Lückentext?", "options": ["Resonanzboden", "Resonanzrohr", "Stimmlippen", "Atemorgan"], "answer": "Resonanzboden" },
+    { "type": "order", "task": "Welchen Weg nimmt die Luft beim Singen? Bring die Körperteile in die richtige Reihenfolge.", "de": "von unten nach oben", "answer": "Lunge Luftröhre Kehlkopf Rachen Mund" },
+    { "type": "order", "task": "Bring in die richtige Reihenfolge.", "de": "Was entsteht wo?", "answer": "Luft Ton Klang", "explain": "Das Atemorgan liefert die **Luft**, die Stimmlippen erzeugen den **Ton**, das Resonanzrohr verändert den **Klang**." }
+  ]
+}
