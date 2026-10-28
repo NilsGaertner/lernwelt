@@ -151,13 +151,15 @@ Hat dein Kind eine Station **5-mal mit 3 Sternen** geschafft, kommt sie aufs **A
 
 Eine **Lootbox** gibt es einmalig, wenn eine Station aufs Abstellgleis kommt und wenn der Endbahnhof einer Linie zum ersten Mal bestanden ist, und am 7. Tag jeder Serien-Woche. Außerdem kannst du deinem Kind im Elternbereich (beim Kind unter **Lootboxen**) als Ansporn bis zu 5 Boxen auf einmal schenken, mit einer kurzen Nachricht, die es auf der Box liest. Geschenkte Boxen haben eine eigene Farbe, und der Netzplan sagt „Deine Eltern haben dir eine Lootbox geschenkt!“. Dein Kind sammelt die Boxen (🎁 oben in der Leiste) und öffnet sie, wann es will. Erst beim Öffnen wird ausgelost, was drin ist:
 
-| Medienzeit | Wahrscheinlichkeit |
-|---|---|
-| 5 Minuten | 49 % |
-| 10 Minuten | 30 % |
-| 15 Minuten | 15 % |
-| 20 Minuten | 5 % |
-| 30 Minuten (Hauptgewinn) | 1 % |
+| Seltenheit | Medienzeit | Wahrscheinlichkeit |
+|---|---|---|
+| Normal (grau) | 5 Minuten | 49 % |
+| Selten (blau) | 10 Minuten | 30 % |
+| Episch (lila) | 15 Minuten | 15 % |
+| Legendär (gold) | 20 Minuten | 5 % |
+| Mythisch (Regenbogen, Hauptgewinn) | 30 Minuten | 1 % |
+
+Beim Öffnen wackelt die Box und dreht dann Stufe für Stufe durch die Farben hoch, bis sie bei ihrer Seltenheit ankommt. Jede Stufe blitzt auf, und die Box leuchtet stärker, wackelt schneller und tickt schneller. Je seltener die Box, desto länger dauert also die Spannung. Ab Episch gibt es Konfetti, ab Legendär Strahlen. Bei „Bewegung reduzieren“ zeigt die Box gleich das Ergebnis.
 
 Die Minuten werden als Sterne gutgeschrieben (Minuten ÷ Minuten pro Stern, aufgerundet) und **zählen nicht zum Tageslimit**. Das gilt auch für geschenkte Boxen. Erwachsenen-Profile bekommen keine Boxen.
 

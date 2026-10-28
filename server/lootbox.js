@@ -4,14 +4,17 @@
 import { db, getPublicSettings, transaction } from './db.js';
 import { localDay, nowIso, randomId } from './util.js';
 
-/** Möglicher Inhalt in Minuten Medienzeit, mit Wahrscheinlichkeit. */
+/** Möglicher Inhalt in Minuten Medienzeit, mit Wahrscheinlichkeit und Seltenheit (bestimmt Farbe und Öffnen-Animation). */
 export const LOOT = [
-  { minutes: 5, chance: 0.49 },
-  { minutes: 10, chance: 0.3 },
-  { minutes: 15, chance: 0.15 },
-  { minutes: 20, chance: 0.05 },
-  { minutes: 30, chance: 0.01 }, // der Hauptgewinn
+  { minutes: 5, chance: 0.49, rarity: 'normal' },
+  { minutes: 10, chance: 0.3, rarity: 'selten' },
+  { minutes: 15, chance: 0.15, rarity: 'episch' },
+  { minutes: 20, chance: 0.05, rarity: 'legendaer' },
+  { minutes: 30, chance: 0.01, rarity: 'mythisch' }, // der Hauptgewinn
 ];
+
+/** Seltenheit zu einem Gewinn: die höchste Stufe, deren Minuten erreicht sind. */
+export const rarityOf = (minutes) => LOOT.findLast((l) => minutes >= l.minutes)?.rarity ?? LOOT[0].rarity;
 
 function roll() {
   let r = Math.random();
@@ -42,7 +45,8 @@ export function lootboxes(childId, openedLimit = 10) {
     closed: db.prepare('SELECT id, source, note, created_at FROM lootboxes WHERE child_id = ? AND opened_at IS NULL ORDER BY id').all(childId),
     opened: db
       .prepare('SELECT id, source, note, minutes, stars, opened_at FROM lootboxes WHERE child_id = ? AND opened_at IS NOT NULL ORDER BY opened_at DESC LIMIT ?')
-      .all(childId, openedLimit),
+      .all(childId, openedLimit)
+      .map((b) => ({ ...b, rarity: rarityOf(b.minutes) })),
   };
 }
 
@@ -60,6 +64,6 @@ export function openLootbox(childId, boxId) {
     db.prepare('INSERT INTO star_ledger (child_id, amount, kind, note, day, created_at) VALUES (?, ?, ?, ?, ?, ?)').run(
       childId, stars, 'lootbox', `🎁 Lootbox (${box.note}): ${minutes} Minuten`, localDay(), now
     );
-    return { id: box.id, note: box.note, minutes, stars };
+    return { id: box.id, note: box.note, minutes, stars, rarity: rarityOf(minutes) };
   });
 }

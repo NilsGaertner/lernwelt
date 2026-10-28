@@ -388,6 +388,17 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
   background: var(--paper); border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow); margin-bottom: 16px;
 }
 .panel > h2, .panel-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+/* Elternbereich: klappbare Kästen – die ganze Überschrift ist der Knopf */
+.fold-toggle {
+  flex: 1; display: flex; align-items: center; gap: 8px; padding: 0; border: 0; background: none;
+  font: inherit; color: inherit; text-align: left; cursor: pointer; border-radius: 6px;
+}
+.fold-toggle .muted { font-weight: 400; margin-left: 4px; }
+.fold-toggle::after { content: '▾'; margin-left: auto; color: var(--muted); font-size: 1.5rem; line-height: 1; transition: transform 0.2s; }
+.fold-toggle:focus-visible { outline: 3px solid var(--star); outline-offset: 4px; }
+.panel.folded > h2 { margin-bottom: 0; }
+.panel.folded > :not(h2) { display: none; }
+.panel.folded .fold-toggle::after { transform: rotate(-90deg); }
 
 .merke p { margin: 0 0 12px; }
 .merke table, table.data { width: 100%; border-collapse: collapse; margin: 4px 0 16px; font-size: 0.97rem; }
@@ -1133,19 +1144,17 @@ table.log tbody tr.log-day:first-child th { padding-top: 6px; }
 .lb-icon { font-size: 3rem; line-height: 1.1; }
 .lb-note { font-size: 0.85rem; opacity: 0.9; }
 .lb-cta { margin-top: 6px; padding: 4px 12px; border-radius: 999px; background: rgb(255 255 255 / 0.2); font-weight: 700; font-size: 0.85rem; }
-.lb-closed.opening .lb-icon { animation: lb-shake 0.35s ease-in-out infinite; }
-.lb-closed.opening .lb-cta { visibility: hidden; }
+.lb-closed.opening .lb-icon { animation: lb-shake var(--shake, 0.35s) ease-in-out infinite; }
+.lb-closed.opening:not([data-rarity]) .lb-cta { visibility: hidden; }
 @keyframes lb-shake {
   0%, 100% { transform: rotate(0) scale(1); }
   25% { transform: rotate(-12deg) scale(1.08); }
   75% { transform: rotate(12deg) scale(1.08); }
 }
-.lb-open { background: linear-gradient(150deg, var(--star), #ff7a3d); color: #3b2a00; animation: star-pop 0.5s cubic-bezier(0.3, 1.6, 0.5, 1); }
-.lb-open.lb-big { background: linear-gradient(135deg, #fff3c4, #f5c542 45%, #fff7d6 55%, #e0a800); }
+.lb-open { animation: star-pop 0.5s cubic-bezier(0.3, 1.6, 0.5, 1); }
 .lb-min { font-family: var(--font-display); font-size: 1.7rem; line-height: 1.1; }
-.lb-open.lb-jackpot { background: linear-gradient(135deg, #ffe27a, #ff9ad5 35%, #9ad0ff 65%, #ffe27a); box-shadow: 0 0 0 4px #ffd23f, 0 12px 32px -8px #ff9ad5; }
-.lb-jackpot .lb-min { font-size: 2.1rem; }
-.lb-jackpot-title { font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.lb-rarity { font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.lb-open[data-rarity="mythisch"] .lb-min { font-size: 2.1rem; }
 .lb-stars { font-weight: 700; }
 .lb-list { list-style: none; margin: 0; padding: 0; }
 .lb-list li { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--rule); }
@@ -1154,6 +1163,56 @@ table.log tbody tr.log-day:first-child th { padding-top: 6px; }
 .box-btn .lvl { background: #8b3fa3; color: #fff; }
 /* Geschenk der Eltern: eigene Farbe, damit das Kind es gleich erkennt */
 .lb-closed.gift { background: linear-gradient(150deg, #c2185b, #d7263d 60%, #b45309); }
+
+/* Seltenheit: Farben von Normal bis Mythisch. Beim Öffnen dreht die Box Stufe für Stufe hoch (siehe lootbox.js):
+   jede Stufe blitzt auf, leuchtet stärker und wackelt schneller; Legendär und Mythisch bekommen Strahlen. */
+[data-rarity="normal"] { --r1: #7b8a9b; --r2: #4f5d6e; --r-ink: #fff; --r-glow: #94a3b8; --r-size: 0px; --shake: 0.35s; }
+[data-rarity="selten"] { --r1: #3b8ef0; --r2: #0b4fa0; --r-ink: #fff; --r-glow: #3b8ef0; --r-size: 12px; --shake: 0.3s; }
+[data-rarity="episch"] { --r1: #b04fd0; --r2: #5b3fd6; --r-ink: #fff; --r-glow: #b04fd0; --r-size: 20px; --shake: 0.24s; }
+[data-rarity="legendaer"] { --r1: #ffd23f; --r2: #e8730c; --r-ink: #3b2000; --r-glow: #ffb020; --r-size: 28px; --shake: 0.18s; }
+[data-rarity="mythisch"] { --r1: #ff6fb5; --r2: #6f8bff; --r-ink: #2a1240; --r-glow: #ff8fd0; --r-size: 38px; --shake: 0.13s; }
+.lb-closed[data-rarity], .lb-open[data-rarity] {
+  position: relative; overflow: hidden; color: var(--r-ink);
+  background: linear-gradient(150deg, var(--r1), var(--r2));
+  box-shadow: 0 0 0 3px var(--r-glow), 0 0 var(--r-size) calc(var(--r-size) / 3) var(--r-glow);
+  transition: box-shadow 0.3s;
+}
+.lb-closed[data-rarity="mythisch"], .lb-open[data-rarity="mythisch"] {
+  background: linear-gradient(120deg, #ff6fb5, #ffd23f, #6fe3ff, #b98bff, #ff6fb5) 0 0 / 300% 100%;
+  animation: lb-rainbow 2.4s linear infinite;
+}
+.lb-open[data-rarity="mythisch"] { animation: star-pop 0.5s cubic-bezier(0.3, 1.6, 0.5, 1), lb-rainbow 2.4s linear infinite; }
+.lb-closed[data-rarity] .lb-cta { background: rgb(255 255 255 / 0.3); font-family: var(--font-display); letter-spacing: 0.06em; text-transform: uppercase; }
+.lb-closed[data-rarity] > *, .lb-open[data-rarity] > * { position: relative; z-index: 1; }
+/* Aufblitzen beim Erreichen einer Stufe */
+.lb-closed.lb-up { animation: lb-up 0.45s cubic-bezier(0.3, 1.6, 0.5, 1); }
+.lb-closed.lb-up[data-rarity="mythisch"] { animation: lb-up 0.45s cubic-bezier(0.3, 1.6, 0.5, 1), lb-rainbow 2.4s linear infinite; }
+.lb-closed.lb-up::after {
+  content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: #fff; animation: lb-flash 0.45s ease-out forwards;
+}
+/* Strahlen hinter dem Geschenk */
+.lb-closed[data-rarity="legendaer"]::before, .lb-closed[data-rarity="mythisch"]::before,
+.lb-open[data-rarity="legendaer"]::before, .lb-open[data-rarity="mythisch"]::before {
+  content: ''; position: absolute; left: 50%; top: 50%; width: 260%; aspect-ratio: 1; z-index: 0; pointer-events: none;
+  background: repeating-conic-gradient(rgb(255 255 255 / 0.35) 0 10deg, transparent 10deg 30deg);
+  animation: lb-rays 6s linear infinite;
+}
+@keyframes lb-up { 0% { transform: scale(1); } 40% { transform: scale(1.07); } 100% { transform: scale(1); } }
+@keyframes lb-flash { from { opacity: 0.85; } to { opacity: 0; } }
+@keyframes lb-rays { from { transform: translate(-50%, -50%) rotate(0); } to { transform: translate(-50%, -50%) rotate(360deg); } }
+@keyframes lb-rainbow { to { background-position: 300% 0; } }
+/* Farbleiste mit allen Stufen, geöffnete Boxen in der Liste */
+.lb-legend { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; padding: 0; }
+.lb-legend li, .lb-tag {
+  padding: 3px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 700;
+  color: var(--r-ink); background: linear-gradient(150deg, var(--r1), var(--r2));
+}
+.lb-tag { margin-left: 4px; padding: 1px 8px; font-size: 0.7rem; vertical-align: 2px; }
+.lb-dot {
+  display: inline-grid; place-items: center; width: 34px; height: 34px; flex: none; border-radius: 50%;
+  background: linear-gradient(150deg, var(--r1), var(--r2));
+}
 .loot-note.gift { background: linear-gradient(120deg, #d7263d, #e0457b); }
 .gift-form { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule); }
 .gift-form h3 { margin: 0 0 4px; }

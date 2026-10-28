@@ -454,6 +454,9 @@ export const prefs = {
     else open[key] = true;
     save('lw.unfolded', open);
   },
+  /** Elternbereich: aufgeklappte bzw. zugeklappte Kästen (gemerkt pro Gerät), sonst der Startwert. */
+  panelOpen(key, fallback) { return store('lw.panels', {})[key] ?? fallback; },
+  setPanelOpen(key, open) { save('lw.panels', { ...store('lw.panels', {}), [key]: open }); },
 };
 
 // ---------------------------------------------------------------- Sprache (Vorlesen)
@@ -577,9 +580,11 @@ export const sfx = {
   go: () => tone([1175], { type: 'square', vol: 0.08, dur: 0.25 }),
   fanfare: () => tone([523, 659, 784, 1047, 784, 1047], { type: 'triangle', gap: 0.1, dur: 0.22 }),
   stamp: () => tone([196, 147], { type: 'square', vol: 0.1, gap: 0.05, dur: 0.12 }),
+  /** Lootbox steigt eine Seltenheitsstufe auf: je höher, desto höher der Ton */
+  rarity: (n) => tone([523, 659, 784].map((f) => f * 2 ** ((n * 3) / 12)), { type: 'triangle', gap: 0.06, dur: 0.2, vol: 0.14 }),
 };
 
-const reducedMotion = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+export const reducedMotion = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
 /** Konfetti-Regen über der ganzen Seite (ohne Bibliothek). */
 export function confetti({ count = 120, duration = 2600 } = {}) {

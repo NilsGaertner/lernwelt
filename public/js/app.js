@@ -3,7 +3,7 @@ import { api } from './api.js';
 import { runRide, collectCard } from './player.js';
 import { runBlitz, runChart, familyBoard } from './blitz.js';
 import { parentView } from './parent.js';
-import { lootbox, openedBox } from './lootbox.js';
+import { lootbox, openedBox, rarityLegend } from './lootbox.js';
 import { faceOf } from './avatar.js';
 import { avatarSvg, PERSONAS } from './avatar-data.js';
 import { companion } from './companion.js';
@@ -901,13 +901,14 @@ async function boxesView(id) {
   const { closed, opened } = ov.lootboxes;
   const retireAfter = ov.settings.retireAfter;
   const how = retireAfter > 0
-    ? `Eine Lootbox bekommst du, wenn du eine Station ${retireAfter}× mit 3 Sternen schaffst (dann kommt sie aufs Abstellgleis) und wenn du zum ersten Mal den Endbahnhof einer Linie bestehst. Manchmal schenken dir auch deine Eltern eine.`
-    : 'Eine Lootbox bekommst du, wenn du zum ersten Mal den Endbahnhof einer Linie bestehst. Manchmal schenken dir auch deine Eltern eine.';
+    ? `Eine Lootbox bekommst du, wenn du eine Station ${retireAfter}× mit 3 Sternen schaffst (dann kommt sie aufs Abstellgleis), wenn du zum ersten Mal den Endbahnhof einer Linie bestehst und am 7. Tag deiner Serie. Manchmal schenken dir auch deine Eltern eine.`
+    : 'Eine Lootbox bekommst du, wenn du zum ersten Mal den Endbahnhof einer Linie bestehst und am 7. Tag deiner Serie. Manchmal schenken dir auch deine Eltern eine.';
   render(
     kidBar(ov),
     h('section.panel',
       h('h2', '🎁 Deine Lootboxen'),
-      h('p', 'In jeder Lootbox steckt Medienzeit, als Sterne auf dein Konto. Wie viel? Das verrät sie erst beim Öffnen!'),
+      h('p', 'In jeder Lootbox steckt Medienzeit, als Sterne auf dein Konto. Wie viel? Das verrät sie erst beim Öffnen: Sie dreht durch die Farben hoch – je weiter, desto seltener und desto mehr Minuten!'),
+      rarityLegend(),
       h('p.muted.small', how)),
     closed.length
       ? h('.lootboxes', closed.map((b) => lootbox(id, b)))
