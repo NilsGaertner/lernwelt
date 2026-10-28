@@ -4,6 +4,7 @@ import { subjects } from './content.js';
 import { localDay, nowIso, fmtScore } from './util.js';
 import {
   streak, dailyPlan, stampCount, examsPassed, xpOf, rankInfo, PASSED_SQL, stationState, useExtraRide, nextStation,
+  rideStarsOn, streakBonus, STREAK_MIN_STARS,
 } from './progress.js';
 import { grantLootbox } from './lootbox.js';
 import { grantRandomSkin } from './avatars.js';
@@ -129,7 +130,7 @@ export function sessionStars(rating, runToday) {
 }
 
 /**
- * Schließt eine Übung ab: speichert sie, vergibt Sterne (mit Tageslimit), Abzeichen, Fahrplan-Stempel, XP und Lootboxen.
+ * Schließt eine Übung ab: speichert sie, vergibt Sterne (mit Tageslimit), Abzeichen, Fahrplan-Stempel, XP, Lootboxen und den Serienbonus.
  * mode: 'unit' | 'review' | 'due' | 'exam' (unitId = Linie) | 'blitz' (unitId = Blitz-Thema, keine Sterne für die Runde selbst)
  * boosted: die Fahrt wurde während eines „Doppelte Sterne“-Events gestartet
  * Eine Station auf dem Abstellgleis bringt keine Sterne; die Fahrt, die sie dorthin bringt, gibt eine Lootbox.
@@ -238,6 +239,26 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
     }
     db.prepare('UPDATE sessions SET stars = ? WHERE id = ?').run(awarded, sessionId);
 
+    // Serie: Bringt diese Fahrt den Tag über die Schwelle, zählt er, und es gibt den Bonus des Serientags –
+    // am Tageslimit vorbei, wie bei den Lootboxen.
+    const rideStars = mode !== 'blitz' && !parked ? sessionStars(rating, runToday) : 0;
+    const rideStarsToday = rideStarsOn(childId, day);
+    let streakDay = null;
+    if (!adult && rideStarsToday >= STREAK_MIN_STARS && rideStarsToday - rideStars < STREAK_MIN_STARS) {
+      const bonus = streakBonus(stats.streak);
+      const stars = Math.ceil(bonus.minutes / getPublicSettings().minutesPerStar);
+      if (stars > 0) {
+        const note = `🔥 ${stats.streak}. Tag am Stück: ${bonus.minutes} Minuten Bonus`;
+        insert.run(childId, stars, 'streak', note, day, now);
+        rewards.push({ kind: 'streak', amount: stars, given: stars, note });
+        awarded += stars;
+      }
+      if (bonus.lootbox) {
+        newBoxes.push(grantLootbox(childId, { source: 'streak', subject: '', ref: day, note: `${stats.streak} Tage am Stück geübt` }));
+      }
+      streakDay = { days: stats.streak, ...bonus, stars };
+    }
+
     const xpAfter = xpOf(childId);
     const rankBefore = rankInfo(xpBefore);
     const rank = rankInfo(xpAfter);
@@ -256,6 +277,8 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
       earnedToday: earnedOn(childId, day),
       dailyLimit: dailyStarLimit,
       streak: stats.streak,
+      streakDay,
+      streakProgress: { starsToday: rideStarsToday, minStars: STREAK_MIN_STARS, next: streakBonus(stats.streak + 1) },
       bestCombo,
       comboRecord: mode !== 'blitz' && bestCombo >= 3 && bestCombo > prevCombo,
       newCard: mode === 'unit' && rating === 3 && prevBest < 3,

@@ -41,13 +41,34 @@ export const unlockedTrains = (xp) => RANKS.filter((r) => xp >= r.min).map((r) =
 
 const dayGap = (a, b) => Math.round((new Date(`${a}T12:00:00`) - new Date(`${b}T12:00:00`)) / 86400000);
 
+/** Ein Tag zählt für die Serie, wenn an ihm so viele Sterne aus Fahrten verdient wurden (ohne Boni, Tageslimit egal). */
+export const STREAK_MIN_STARS = 3;
+
+/** Sterne einer Fahrt ohne Boni – wie sessionStars() in rewards.js; Blitzrunden und das Abstellgleis bringen keine. */
+const RIDE_STARS_SQL = "CASE WHEN mode = 'blitz' OR parked = 1 THEN 0 WHEN run_today <= 1 THEN rating * 2 WHEN run_today = 2 THEN rating ELSE 1 END";
+
+/** Sterne aus Fahrten an einem Tag (für die Serie). */
+export function rideStarsOn(childId, day = localDay()) {
+  return db.prepare(`SELECT COALESCE(SUM(${RIDE_STARS_SQL}), 0) AS n FROM sessions WHERE child_id = ? AND day = ?`).get(childId, day).n;
+}
+
 /**
- * Tage am Stück geübt. Einmal pro Woche darf ein einzelner Tag fehlen, ohne dass die Serie reißt
- * (der Tag zählt dann nicht mit, rettet aber die Serie).
+ * Bonus für den n-ten Tag einer Serie. Die Serie läuft in Wochen, jede Woche fängt wieder klein an:
+ * Tag 1 nichts, Tag 2–4 je 5 Minuten, Tag 5–7 je 10 Minuten und am 7. Tag dazu eine Lootbox.
+ */
+export function streakBonus(n) {
+  const day = ((n - 1) % 7) + 1;
+  return { day, minutes: day >= 5 ? 10 : day >= 2 ? 5 : 0, lootbox: day === 7 };
+}
+
+/**
+ * Tage am Stück mit mindestens STREAK_MIN_STARS Sternen aus Fahrten. Einmal pro Woche darf ein einzelner Tag fehlen,
+ * ohne dass die Serie reißt (der Tag zählt dann nicht mit, rettet aber die Serie).
  */
 export function streakInfo(childId) {
   const days = new Set(
-    db.prepare('SELECT DISTINCT day FROM sessions WHERE child_id = ? ORDER BY day DESC LIMIT 400').all(childId).map((r) => r.day)
+    db.prepare(`SELECT day FROM sessions WHERE child_id = ? GROUP BY day HAVING SUM(${RIDE_STARS_SQL}) >= ? ORDER BY day DESC LIMIT 400`)
+      .all(childId, STREAK_MIN_STARS).map((r) => r.day)
   );
   const today = localDay();
   let expected = days.has(today) ? today : addDays(today, -1);
@@ -74,6 +95,10 @@ export function streakInfo(childId) {
     shieldUsedOn: lastShield,
     shieldReady: !lastShield || dayGap(today, lastShield) >= 7,
     practicedToday: days.has(today),
+    starsToday: rideStarsOn(childId, today),
+    minStars: STREAK_MIN_STARS,
+    // Der nächste Serientag: heute, falls er noch nicht zählt, sonst morgen
+    next: streakBonus(n + 1),
   };
 }
 
