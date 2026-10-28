@@ -2,6 +2,7 @@ import { h, toast, starRow, fmtDate, relDay, ask, fmtScore } from './ui.js';
 import { api, parentToken } from './api.js';
 import { faceOf } from './avatar.js';
 import { CATS, SKINS, avatarSvg, avatarText } from './avatar-data.js';
+import { RARITIES, rarityLevel } from './lootbox.js';
 
 const AVATARS = [...Object.keys(CATS).map((k) => `cat:${k}`), '🦊', '🐼', '🐯', '🦁', '🐸', '🐙', '🦄', '🐲', '🐧', '🐨', '🦖', '🐱', '🐶', '🚀', '⚽', '🎮'];
 const KIND = { session: 'Übung', bonus: 'Bonus', badge: 'Abzeichen', ticket: 'Ticket', refund: 'Rückgabe', manual: 'Eltern', system: 'Hinweis', lootbox: 'Lootbox', streak: 'Serie' };
@@ -550,7 +551,7 @@ async function childView(root, id, render) {
     h('p.muted', `Noch ungeöffnet: ${loot.closed.length}${loot.closed.length ? ` (${loot.closed.map((b) => b.note).join(', ')})` : ''}. Die Sterne aus einer Box zählen nicht zum Tageslimit.`),
     loot.opened.length
       ? h('ul.pending-list', loot.opened.map((b) =>
-          h('li', h('.what', h('strong', `${b.minutes} Minuten · +${b.stars} ★`), h('div.muted.small', `${b.note} · geöffnet ${relDay(b.opened_at)}`)))))
+          h('li', h('.what', h('strong', `${b.minutes} Minuten · ${RARITIES[rarityLevel(b.rarity)].name} · +${b.stars} ★`), h('div.muted.small', `${b.note} · geöffnet ${relDay(b.opened_at)}`)))))
       : null,
     gift);
 
