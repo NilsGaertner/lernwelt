@@ -1,4 +1,4 @@
-import { h, toast, starRow, fmtDate, relDay, ask, fmtScore } from './ui.js';
+import { h, toast, starRow, fmtDate, relDay, ask, fmtScore, prefs } from './ui.js';
 import { api, parentToken } from './api.js';
 import { faceOf } from './avatar.js';
 import { CATS, SKINS, avatarSvg, avatarText } from './avatar-data.js';
@@ -23,6 +23,29 @@ export async function parentView(root, rest, { reloadMeta }) {
     throw err;
   }
   window.scrollTo(0, 0);
+}
+
+/**
+ * Macht einen Kasten klappbar: Die Überschrift wird zum Knopf, beim Zuklappen bleibt nur sie stehen.
+ * Der Zustand gilt pro Gerät für alle Kinder gleich; `open` ist der Startwert, solange nichts gemerkt ist.
+ */
+function foldable(panel, key, { open = true } = {}) {
+  const title = panel?.querySelector(':scope > h2');
+  if (!title) return panel;
+  const isOpen = prefs.panelOpen(key, open);
+  const btn = h('button.fold-toggle', {
+    type: 'button',
+    'aria-expanded': String(isOpen),
+    onclick: () => {
+      const nowOpen = panel.classList.toggle('folded') === false;
+      btn.setAttribute('aria-expanded', String(nowOpen));
+      prefs.setPanelOpen(key, nowOpen);
+    },
+  }, [...title.childNodes]);
+  title.replaceChildren(btn);
+  panel.classList.add('foldable');
+  panel.classList.toggle('folded', !isOpen);
+  return panel;
 }
 
 function head(title, ...extra) {
@@ -189,16 +212,17 @@ async function dashboard(root, render, reloadMeta) {
     data.pinIsDefault ? h('p.alert', '⚠️ Die Eltern-PIN ist noch „1234“. Bitte unten eine eigene PIN festlegen.') : null,
     pending,
     kids,
-    h('section.panel',
+    foldable(h('section.panel',
       h('h2', '📖 Letzte Fahrten'),
       data.recent.length ? logTable(data.recent, { showChild: true }) : h('p.muted', 'Noch keine Fahrten.'),
-      h('a.btn.ghost.small', { href: '#/parent/log' }, 'Ganzes Fahrtenbuch →')),
-    boostPanel(data, refresh),
-    dayLimitPanel(data, refresh),
-    settingsForm,
-    addForm,
-    pinForm,
-    contentPanel
+      h('a.btn.ghost.small', { href: '#/parent/log' }, 'Ganzes Fahrtenbuch →')), 'dash.recent'),
+    foldable(boostPanel(data, refresh), 'dash.boost'),
+    foldable(dayLimitPanel(data, refresh), 'dash.dayLimits'),
+    foldable(settingsForm, 'dash.settings', { open: false }),
+    foldable(addForm, 'dash.add', { open: false }),
+    // Solange die PIN noch 1234 ist, bleibt der Kasten offen – der Hinweis oben verweist darauf.
+    data.pinIsDefault ? pinForm : foldable(pinForm, 'dash.pin', { open: false }),
+    foldable(contentPanel, 'dash.content', { open: false })
   );
 }
 
@@ -498,7 +522,7 @@ async function childView(root, id, render) {
     return h('td', h('span.muted.small', 'in Betrieb'), h('.unit-actions', archive));
   };
   const units = h('section.panel',
-    h('h2', '🗺️ Stationen'),
+    h('h2', '🗺️ Stationen', h('span.muted.small', `${d.units.filter((u) => !u.archived).length} in Betrieb · ${d.units.filter((u) => u.archived).length} archiviert`)),
     h('p.muted', `Archivierte Stationen sieht dein Kind nicht mehr: nicht auf dem Netzplan, nicht im Fehler-Training, in der Blitzrunde oder im Endbahnhof. Der Fortschritt bleibt gespeichert. ${limit > 0 ? `Nach ${limit} Fahrten mit 3 Sternen kommt eine Station aufs Abstellgleis und bringt keine Sterne mehr. Mit „Reaktivieren“ bringt sie für ein paar Fahrten wieder Sterne.` : 'Das Abstellgleis ist ausgeschaltet (siehe Regeln in der Übersicht).'}`),
     [...bySubject].map(([name, list]) => h('div',
       bySubject.size > 1 ? h('h3', { style: { margin: '12px 0 4px' } }, name) : null,
@@ -651,14 +675,14 @@ async function childView(root, id, render) {
       kpi(`${d.stamps}`, 'Fahrplan-Stempel'),
       kpi(`${d.mastered}`, 'sicher gelernt'),
       kpi(`${d.badges.length}`, 'Abzeichen'))),
-    chart,
-    weak,
-    units,
-    lootPanel,
-    skinPanel,
-    sessions,
-    adjust,
-    ledger,
-    edit
+    foldable(chart, 'child.chart'),
+    foldable(weak, 'child.weak'),
+    foldable(units, 'child.units', { open: false }),
+    foldable(lootPanel, 'child.loot'),
+    foldable(skinPanel, 'child.skins', { open: false }),
+    foldable(sessions, 'child.sessions'),
+    foldable(adjust, 'child.adjust'),
+    foldable(ledger, 'child.ledger', { open: false }),
+    foldable(edit, 'child.edit', { open: false })
   );
 }

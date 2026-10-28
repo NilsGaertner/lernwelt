@@ -388,6 +388,17 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
   background: var(--paper); border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow); margin-bottom: 16px;
 }
 .panel > h2, .panel-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+/* Elternbereich: klappbare Kästen – die ganze Überschrift ist der Knopf */
+.fold-toggle {
+  flex: 1; display: flex; align-items: center; gap: 8px; padding: 0; border: 0; background: none;
+  font: inherit; color: inherit; text-align: left; cursor: pointer; border-radius: 6px;
+}
+.fold-toggle .muted { font-weight: 400; margin-left: 4px; }
+.fold-toggle::after { content: '▾'; margin-left: auto; color: var(--muted); font-size: 1.5rem; line-height: 1; transition: transform 0.2s; }
+.fold-toggle:focus-visible { outline: 3px solid var(--star); outline-offset: 4px; }
+.panel.folded > h2 { margin-bottom: 0; }
+.panel.folded > :not(h2) { display: none; }
+.panel.folded .fold-toggle::after { transform: rotate(-90deg); }
 
 .merke p { margin: 0 0 12px; }
 .merke table, table.data { width: 100%; border-collapse: collapse; margin: 4px 0 16px; font-size: 0.97rem; }

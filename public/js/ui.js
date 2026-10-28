@@ -454,6 +454,9 @@ export const prefs = {
     else open[key] = true;
     save('lw.unfolded', open);
   },
+  /** Elternbereich: aufgeklappte bzw. zugeklappte Kästen (gemerkt pro Gerät), sonst der Startwert. */
+  panelOpen(key, fallback) { return store('lw.panels', {})[key] ?? fallback; },
+  setPanelOpen(key, open) { save('lw.panels', { ...store('lw.panels', {}), [key]: open }); },
 };
 
 // ---------------------------------------------------------------- Sprache (Vorlesen)
