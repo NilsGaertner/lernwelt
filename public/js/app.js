@@ -98,7 +98,7 @@ function kidBar(ov) {
     h('.spacer'),
     ov.streak > 0
       ? h('span.streak', {
-          title: `${ov.streak} Tage am Stück geübt.${ov.streakInfo.shieldReady ? ' Serienschutz bereit: Einmal pro Woche darf ein Tag ausfallen.' : ' Serienschutz diese Woche schon benutzt.'}`,
+          title: `${ov.streak} Tage am Stück mit mindestens ${ov.streakInfo.minStars} Sternen.${ov.streakInfo.shieldReady ? ' Serienschutz bereit: Einmal pro Woche darf ein Tag ausfallen.' : ' Serienschutz diese Woche schon benutzt.'}`,
         }, '🔥 ', ov.streak, ov.streakInfo.shieldReady ? h('span.shield', { 'aria-label': 'Serienschutz bereit' }, '🛡️') : null)
       : null,
     ov.child.adult
@@ -246,6 +246,15 @@ function lootNote(id, ov) {
     h('a', { href: `#/kid/${id}/boxen` }, 'Jetzt öffnen →'));
 }
 
+/** Wie weit der Tag für die Serie ist, und was der nächste Serientag bringt. */
+function streakHint(s) {
+  const prize = (b) => `${b.minutes} Minuten Bonus${b.lootbox ? ' und eine Lootbox' : ''}`;
+  if (s.practicedToday) {
+    return h('p.muted.small', `🔥 Heute zählt für deine Serie!${s.next.minutes ? ` Morgen gibt es ${prize(s.next)}.` : ''}`);
+  }
+  return h('p.muted.small', `🔥 Noch ${s.minStars - s.starsToday} ★ aus Fahrten, dann zählt heute für deine Serie${s.next.minutes ? ` – das bringt ${prize(s.next)}` : ''}.`);
+}
+
 /** Begrüßung mit Companion und den Sternen von heute. */
 function helloCard(id, ov) {
   const { child } = ov;
@@ -257,6 +266,7 @@ function helloCard(id, ov) {
     h('.hs-text',
       h('p', limit > 0 ? `Heute verdient: ${ov.earnedToday} von ${limit} ★` : `Heute verdient: ${ov.earnedToday} ★`),
       ov.limitRaised ? h('p.muted.small', '🎁 Heute gibt es ein Extra-Limit von deinen Eltern!') : null,
+      streakHint(ov.streakInfo),
       limit > 0 ? h('.meter', { role: 'img', 'aria-label': `${ov.earnedToday} von ${limit}` },
         h('span', { style: { width: `${Math.min(100, (ov.earnedToday / limit) * 100)}%` } })) : null),
     h('a.btn.ghost.small', { href: `#/kid/${id}/tickets` }, '🎟️ Eintauschen'));
@@ -823,7 +833,14 @@ function stampPanel(id, meta, ov) {
           stamped.has(d.iso) ? h('span.sg-stamp', { 'aria-label': `${d.day}.: Stempel` }, '✔') : h('span', d.day))))),
     planCard(id, ov.plan, meta),
     h('section.panel',
-      h('h2', '🛡️ Serienschutz'),
+      h('h2', `🔥 Deine Serie – ${ov.streak} ${ov.streak === 1 ? 'Tag' : 'Tage'}`),
+      h('p', `Ein Tag zählt für deine Serie, wenn du an ihm mindestens ${ov.streakInfo.minStars} ★ mit Fahrten verdienst (Boni zählen nicht mit). Für jeden Tag am Stück gibt es Bonuszeit:`),
+      h('ul',
+        h('li', 'Tag 1: der Start'),
+        h('li', 'Tag 2 bis 4: je 5 Minuten'),
+        h('li', 'Tag 5 bis 7: je 10 Minuten – und am 7. Tag eine Lootbox 🎁')),
+      h('p.muted', 'Nach 7 Tagen beginnt eine neue Serien-Woche. Die Bonuszeit zählt nicht zum Tageslimit.'),
+      h('h3', '🛡️ Serienschutz'),
       h('p', ov.streakInfo.shieldReady
         ? 'Dein Serienschutz ist bereit: Wenn du mal einen Tag nicht übst, bleibt deine Serie trotzdem erhalten. Das geht einmal pro Woche.'
         : 'Dein Serienschutz wurde in den letzten 7 Tagen schon benutzt. Also heute lieber üben, damit deine Serie weiterläuft!')),

@@ -4,7 +4,7 @@ import { faceOf } from './avatar.js';
 import { CATS, SKINS, avatarSvg, avatarText } from './avatar-data.js';
 
 const AVATARS = [...Object.keys(CATS).map((k) => `cat:${k}`), '🦊', '🐼', '🐯', '🦁', '🐸', '🐙', '🦄', '🐲', '🐧', '🐨', '🦖', '🐱', '🐶', '🚀', '⚽', '🎮'];
-const KIND = { session: 'Übung', bonus: 'Bonus', badge: 'Abzeichen', ticket: 'Ticket', refund: 'Rückgabe', manual: 'Eltern', system: 'Hinweis', lootbox: 'Lootbox' };
+const KIND = { session: 'Übung', bonus: 'Bonus', badge: 'Abzeichen', ticket: 'Ticket', refund: 'Rückgabe', manual: 'Eltern', system: 'Hinweis', lootbox: 'Lootbox', streak: 'Serie' };
 
 const papi = (path, opts = {}) => api(`/parent${path}`, { ...opts, parent: true });
 

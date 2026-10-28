@@ -831,6 +831,20 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
           h('h2', 'Ab aufs Abstellgleis!'),
           h('p', `Du hast diese Station ${station.limit}× mit 3 Sternen geschafft – die kannst du! Sie macht jetzt Pause: Ab sofort gibt es hier keine Sterne mehr. Neue Sterne warten auf den anderen Stationen.`))));
     }
+    if (result.streakDay) {
+      const s = result.streakDay;
+      const next = result.streakProgress.next;
+      panels.push(h('section.panel.rank-up',
+        h('.big-train', { 'aria-hidden': 'true' }, '🔥'),
+        h('div',
+          h('h2', s.days === 1 ? 'Heute zählt für deine Serie!' : `${s.days} Tage am Stück!`),
+          h('p', s.minutes
+            ? `Dafür gibt es ${s.minutes} Minuten Bonus${s.lootbox ? ' und eine Lootbox' : ''}. `
+            : 'Du hast heute genug Sterne gesammelt. ',
+            next.day === 1
+              ? 'Morgen beginnt deine nächste Serien-Woche.'
+              : `Übe morgen wieder, dann gibt es ${next.minutes} Minuten${next.lootbox ? ' und eine Lootbox' : ''}!`))));
+    }
     if (result.lootboxes?.length) {
       panels.push(h('section.panel',
         h('h2', result.lootboxes.length === 1 ? '🎁 Du hast eine Lootbox bekommen!' : `🎁 Du hast ${result.lootboxes.length} Lootboxen bekommen!`),
@@ -895,6 +909,9 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
               : null,
             station && !station.parked && !station.justRetired && station.limit > 0 && station.perfect > 0 && station.perfect < station.limit
               ? h('p.muted', `🎁 ${station.perfect} von ${station.limit} Fahrten mit 3 Sternen: Bei ${station.limit} kommt die Station aufs Abstellgleis, und du bekommst eine Lootbox.`)
+              : null,
+            !result.streakDay && result.streakProgress.starsToday < result.streakProgress.minStars
+              ? h('p.muted', `🔥 Noch ${result.streakProgress.minStars - result.streakProgress.starsToday} ★ aus Fahrten heute, dann zählt der Tag für deine Serie${result.streakProgress.next.minutes ? ` – das bringt ${result.streakProgress.next.minutes} Minuten Bonus` : ''}.`)
               : null,
             result.capped > 0 ? h('p.muted', 'Dein Sterne-Limit für heute ist erreicht. Morgen gibt es wieder neue – üben lohnt sich trotzdem!') : null,
             !result.capped && result.runToday >= 2 && ['unit', 'exam'].includes(result.mode)

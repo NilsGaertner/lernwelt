@@ -133,11 +133,23 @@ So lohnt sich Wiederholen weiterhin, aber eine leichte Station immer wieder abzu
 
 Die Blitzrunde selbst bringt keine Sterne, nur Rekorde und XP.
 
+### Tage-Serie und Serienbonus
+
+Ein Tag zählt für die **Serie** (🔥 oben in der Leiste), wenn dein Kind an ihm mindestens **3 Sterne mit Fahrten** verdient, also eine Fahrt mit mindestens 70 % oder zwei Fahrten. Boni, Abzeichen und doppelte Sterne zählen dafür nicht mit, das Tageslimit spielt keine Rolle. Für jeden Tag am Stück gibt es Bonuszeit, sobald der Tag zählt:
+
+| Serientag | Bonus |
+|---|---|
+| Tag 1 | – |
+| Tag 2 bis 4 | je 5 Minuten |
+| Tag 5 bis 7 | je 10 Minuten, am 7. Tag dazu eine Lootbox |
+
+Nach 7 Tagen beginnt eine neue Serien-Woche: Tag 8 zählt wieder wie Tag 1, Tag 9 bis 11 bringen je 5 Minuten usw. Die Minuten werden als Sterne gutgeschrieben (Minuten ÷ Minuten pro Stern, aufgerundet) und **zählen nicht zum Tageslimit**. Ein Tag, den der Serienschutz rettet, hält die Serie am Leben, bringt aber keinen Bonus. Auch die Serien-Abzeichen (3, 7 und 21 Tage) zählen nach dieser Regel. Erwachsenen-Profile bekommen keinen Serienbonus.
+
 ### Abstellgleis und Lootboxen
 
 Hat dein Kind eine Station **5-mal mit 3 Sternen** geschafft, kommt sie aufs **Abstellgleis**: Sie ist auf dem Netzplan grau markiert und bringt keine Sterne mehr (auch keine doppelten). Üben geht dort weiterhin. Bis dahin zeigt der Netzplan den Stand, z. B. „🎁 3/5“. Die Zahl stellst du im Elternbereich unter den Regeln ein (0 = kein Abstellgleis). Beim Kind unter **Stationen** kannst du eine Station mit „Reaktivieren“ für ein paar Fahrten zurückholen. Danach steht sie wieder auf dem Abstellgleis.
 
-Eine **Lootbox** gibt es einmalig, wenn eine Station aufs Abstellgleis kommt und wenn der Endbahnhof einer Linie zum ersten Mal bestanden ist. Außerdem kannst du deinem Kind im Elternbereich (beim Kind unter **Lootboxen**) als Ansporn bis zu 5 Boxen auf einmal schenken, mit einer kurzen Nachricht, die es auf der Box liest. Geschenkte Boxen haben eine eigene Farbe, und der Netzplan sagt „Deine Eltern haben dir eine Lootbox geschenkt!“. Dein Kind sammelt die Boxen (🎁 oben in der Leiste) und öffnet sie, wann es will. Erst beim Öffnen wird ausgelost, was drin ist:
+Eine **Lootbox** gibt es einmalig, wenn eine Station aufs Abstellgleis kommt und wenn der Endbahnhof einer Linie zum ersten Mal bestanden ist, und am 7. Tag jeder Serien-Woche. Außerdem kannst du deinem Kind im Elternbereich (beim Kind unter **Lootboxen**) als Ansporn bis zu 5 Boxen auf einmal schenken, mit einer kurzen Nachricht, die es auf der Box liest. Geschenkte Boxen haben eine eigene Farbe, und der Netzplan sagt „Deine Eltern haben dir eine Lootbox geschenkt!“. Dein Kind sammelt die Boxen (🎁 oben in der Leiste) und öffnet sie, wann es will. Erst beim Öffnen wird ausgelost, was drin ist:
 
 | Medienzeit | Wahrscheinlichkeit |
 |---|---|
@@ -174,7 +186,7 @@ Diese Elemente sollen die Aufmerksamkeit halten, ohne zusätzliche Medienzeit zu
 - **Endbahnhof:** Haben alle Stationen einer Linie mindestens 2 Sterne, öffnet sich eine gemischte Prüfung über die ganze Linie. Ab 80 % ist sie bestanden, und es gibt eine Goldkarte.
 - **Sammelalbum:** Jede Station mit 3 Sternen bringt eine Sammelkarte mit einem „Wusstest du?“-Text oder dem Merksatz der Station.
 - **Ränge und Züge:** XP gibt es für richtige Antworten (10), Stempel (50) und Endbahnhöfe (100). Der Weg führt über 9 Ränge vom Fahrgast bis zur Streckenlegende, und jeder Rang schaltet einen Zug frei, mit dem das Kind fährt.
-- **Serienschutz:** Einmal pro Woche darf ein Tag ausfallen, ohne dass die Tage-Serie reißt.
+- **Serienschutz:** Einmal pro Woche darf ein Tag ausfallen, ohne dass die Tage-Serie reißt (siehe [Tage-Serie und Serienbonus](#tage-serie-und-serienbonus)).
 - **Companion:** Eine Katze begleitet jede Fahrt. Jede der vier Katzen hat ihre eigene Art: Die schwarze („Geheimnisvoll“) dreht bei richtigen Antworten eine Pirouette mit Sternen, die weiße („Verträumt“) schwebt mit Herzen, die braune („Gemütlich“) hüpft schnurrend mit Noten, die getigerte („Wild“) springt wie auf Mäusejagd. Auch im Schlaf unterscheiden sie sich (Schwanzspitze, Ohrenzucken, Strecken, Schnarchblase). Nach einem Fehler schauen sie kurz auf und machen Mut, ab 5 richtigen Antworten in Folge bleiben sie wach und fiebern mit, und am Ziel feiern sie mit. Antippen geht auch. Katze und Skins wählt das Kind in der Sammlung unter „Companion“.
 - **Effekte:** Konfetti, Fanfare und hochzählende Sterne bei besonderen Momenten. Bei „Bewegung reduzieren“ in den Geräteeinstellungen fallen die Animationen weg.
 
