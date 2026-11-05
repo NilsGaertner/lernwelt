@@ -1,0 +1,54 @@
+{
+  "id": "instrumente-erforschen",
+  "line": "instrumente",
+  "order": 22,
+  "title": "Instrumente erforschen",
+  "subtitle": "Material, Spielweise, Klang, Tonhöhe",
+  "icon": "🔍",
+  "card": "Merke: Nur bei **Xylophon** und **Metallophon** kann man eine Tonhöhe erkennen und eine Melodie spielen.",
+  "explain": [
+    { "p": "Im Arbeitsheft (S. 13, Aufgabe 3) erforscht ihr ein Instrument und tragt in eine Tabelle ein: **Material**, **Klangeigenschaften** und ob man eine **Tonhöhe erkennen** kann. So sieht das für den Guiro aus:" },
+    { "table": { "head": ["Instrument", "Material", "Klangeigenschaften", "Tonhöhe erkennbar?"], "rows": [
+      ["Guiro", "Holz", "ratschender, durchdringender Klang; kann schnell oder langsam erklingen; der Klang wird beim Hin- und Herspielen heller bzw. dunkler", "nein"]
+    ] } },
+    { "p": "Man kann Klasseninstrumente danach ordnen, **wie man sie spielt**:" },
+    { "table": { "head": ["Spielweise", "Instrumente"], "rows": [
+      ["**schlagen** (mit Schlägel, Stab oder Hand)", "Xylophon, Metallophon, Holzblock, Glocke, Triangel, Handtrommel"],
+      ["**schütteln**", "Maracas, Schüttel-Ei, Cabasa"],
+      ["**schaben** (über Rillen oder Kugeln reiben)", "Guiro, Cabasa (Kugeln drehen)"]
+    ] } },
+    { "table": { "head": ["Instrument", "Material", "Klang", "Tonhöhe?"], "rows": [
+      ["Xylophon", "Holzstäbe, Holzkasten", "warm, kurz", "**ja**"],
+      ["Metallophon", "Metallstäbe, Holzkasten", "hell, klingt lange nach", "**ja**"],
+      ["Triangel", "Metall", "hell, klingt lange nach", "nein"],
+      ["Glocke", "Metall", "hell, scheppernd", "nein"],
+      ["Holzblock", "Holz", "kurz, trocken, klopfend", "nein"],
+      ["Handtrommel", "Fell auf einem Holzrahmen", "dumpf", "nein"],
+      ["Maracas, Schüttel-Ei", "Kunststoff oder Holz, innen Körner", "rauschend, rasselnd", "nein"],
+      ["Cabasa", "Holz und Metallkugeln", "rasselnd, raschelnd", "nein"]
+    ] } },
+    { "tip": "Bei Xylophon und Metallophon gilt: **lange** Stäbe klingen **tief**, **kurze** Stäbe klingen **hoch**." },
+    { "tip": "Den Triangel hält man an der Schnur. Fasst man ihn mit der Hand an, klingt er nicht mehr nach: Die Hand **dämpft** die Schwingung." }
+  ],
+  "exercises": [
+    { "id": "spiel-guiro", "type": "choice", "task": "Wie spielt man das markierte Instrument?", "map": "klasseninstrumente", "mark": "guiro", "options": ["schaben: mit dem Stab über die Rillen streichen", "schütteln", "mit der Hand auf das Fell schlagen", "hineinblasen"], "answer": "schaben: mit dem Stab über die Rillen streichen" },
+    { "id": "spiel-maracas", "type": "choice", "task": "Wie spielt man das markierte Instrument?", "map": "klasseninstrumente", "mark": "maracas", "options": ["schütteln", "schaben", "mit dem Schlägel auf Stäbe schlagen", "hineinblasen"], "answer": "schütteln" },
+    { "id": "spiel-schuettelei", "type": "choice", "task": "Wie spielt man das markierte Instrument?", "map": "klasseninstrumente", "mark": "schuettelei", "options": ["schütteln", "mit dem Stab anschlagen", "über Rillen streichen", "zupfen"], "answer": "schütteln" },
+    { "id": "spiel-triangel", "type": "choice", "task": "Wie spielt man das markierte Instrument?", "map": "klasseninstrumente", "mark": "triangel", "options": ["mit einem Metallstab anschlagen", "schütteln", "über Rillen streichen", "hineinblasen"], "answer": "mit einem Metallstab anschlagen" },
+    { "id": "spiel-handtrommel", "type": "choice", "task": "Wie spielt man das markierte Instrument?", "map": "klasseninstrumente", "mark": "handtrommel", "options": ["mit der Hand oder einem Schlägel auf das Fell schlagen", "schütteln", "über Rillen streichen", "zupfen"], "answer": "mit der Hand oder einem Schlägel auf das Fell schlagen" },
+    { "id": "spiel-holzblock", "type": "choice", "task": "Wie spielt man das markierte Instrument?", "map": "klasseninstrumente", "mark": "holzblock", "options": ["mit einem Schlägel anschlagen", "schütteln", "hineinblasen", "über Kugeln drehen"], "answer": "mit einem Schlägel anschlagen" },
+    { "type": "choice", "q": "Aus welchem Material ist der Guiro in der Tabelle im Heft?", "options": ["Holz", "Metall", "Fell", "Glas"], "answer": "Holz" },
+    { "type": "choice", "q": "Kann man beim Guiro eine Tonhöhe erkennen?", "options": ["nein", "ja"], "answer": "nein", "explain": "Der Guiro ratscht. Eine Melodie mit verschiedenen Tonhöhen kann man darauf nicht spielen." },
+    { "type": "choice", "q": "Wie klingt der Guiro?", "options": ["ratschend und durchdringend", "weich und summend", "hell und lange nachklingend", "dumpf wie eine Trommel"], "answer": "ratschend und durchdringend" },
+    { "type": "choice", "q": "Was passiert mit dem Klang, wenn man den Guiro hin und her spielt?", "options": ["Er wird heller bzw. dunkler.", "Er wird immer lauter.", "Er hört sofort auf.", "Er wird zu einer Melodie."], "answer": "Er wird heller bzw. dunkler." },
+    { "type": "choice", "q": "Bei welchem Instrument kann man eine **Tonhöhe erkennen** und eine Melodie spielen?", "options": ["Xylophon", "Maracas", "Holzblock", "Handtrommel"], "answer": "Xylophon", "explain": "Jeder Klangstab hat seinen eigenen Ton. Das gilt für **Xylophon** und **Metallophon**." },
+    { "type": "choice", "q": "Bei welchem Instrument kann man **keine** Tonhöhe erkennen?", "options": ["Schüttel-Ei", "Xylophon", "Metallophon"], "answer": "Schüttel-Ei" },
+    { "type": "choice", "q": "Auf dem Xylophon: Welcher Stab klingt am **tiefsten**?", "options": ["der längste", "der kürzeste", "der mittlere", "alle gleich"], "answer": "der längste", "explain": "Lange Stäbe schwingen langsamer, darum klingen sie **tiefer**." },
+    { "type": "choice", "q": "Welche Instrumente spielt man durch **Schütteln**?", "options": ["Maracas und Schüttel-Ei", "Triangel und Glocke", "Xylophon und Metallophon", "Holzblock und Handtrommel"], "answer": "Maracas und Schüttel-Ei" },
+    { "type": "choice", "q": "Aus welchem Material sind die Klangstäbe beim Metallophon?", "options": ["Metall", "Holz", "Kunststoff", "Fell"], "answer": "Metall" },
+    { "type": "choice", "q": "Welches Instrument klingt **lange nach**?", "options": ["Triangel", "Holzblock", "Schüttel-Ei", "Guiro"], "answer": "Triangel", "explain": "Metall schwingt lange weiter. Darum klingen **Triangel** und **Metallophon** lange nach. Der Holzblock klingt kurz und trocken." },
+    { "type": "choice", "q": "Du fasst den Triangel beim Spielen mit der ganzen Hand an. Was passiert?", "options": ["Er klingt kaum noch nach.", "Er wird lauter.", "Er klingt höher.", "Nichts."], "answer": "Er klingt kaum noch nach.", "explain": "Die Hand **dämpft** die Schwingung. Darum hält man den Triangel an der Schnur." },
+    { "type": "choice", "q": "Woraus besteht eine Handtrommel?", "options": ["aus einem Fell auf einem Rahmen", "aus Metallstäben", "aus einem Holzklotz mit Schlitz", "aus Kugeln an einer Walze"], "answer": "aus einem Fell auf einem Rahmen" },
+    { "type": "choice", "q": "Wie klingt der Holzblock?", "options": ["kurz, trocken und klopfend", "lange nachklingend", "rauschend", "wie eine Melodie"], "answer": "kurz, trocken und klopfend" }
+  ]
+}

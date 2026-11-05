@@ -1,0 +1,46 @@
+{
+  "id": "karten-quiet",
+  "line": "glueck",
+  "order": 2,
+  "title": "Be quiet, please!",
+  "subtitle": "Spaß, Fragen und ein schmutziger Mülleimer",
+  "icon": "🤫",
+  "typePhrases": true,
+  "explain": [
+    { "ex": [
+      ["Reading is fun.", "Lesen macht Spaß."],
+      ["I have fun with my dog.", "Ich habe Spaß mit meinem Hund."],
+      ["Be quiet, please.", "Sei bitte leise."],
+      ["to answer the question", "die Frage beantworten"]
+    ] },
+    { "tip": "**fun** = Spaß. Englisch sagt „Lesen **ist** Spaß“: Reading **is** fun." },
+    { "tip": "**quiet** (leise) und **quite** (ziemlich) sehen fast gleich aus. Bei **quiet** kommt das **e** zuletzt: qui-**e**-t." },
+    { "tip": "**tidy** = ordentlich, aufgeräumt. **clean** = sauber. Das Gegenteil von clean ist **dirty** (schmutzig)." },
+    { "tip": "Ein **bin** ist ein Mülleimer. Achtung: „I **am**“ heißt ich bin." }
+  ],
+  "vocab": [
+    { "en": "to use the phone", "de": "das Handy benutzen", "alt": ["to use the mobile phone"] },
+    { "en": "to answer the question", "de": "die Frage beantworten" },
+    { "en": "to get the book", "de": "das Buch holen" },
+    { "en": "to drink a cold drink", "de": "ein kaltes Getränk trinken" },
+    { "en": "Reading is fun.", "de": "Lesen macht Spaß." },
+    { "en": "I have fun with my dog.", "de": "Ich habe Spaß mit meinem Hund." },
+    { "en": "Be quiet, please.", "de": "Sei bitte leise.", "alt": ["Be quiet please.", "Please be quiet."] },
+    { "en": "tidy clothes", "de": "ordentliche Kleidung" },
+    { "en": "a dirty bin", "de": "ein schmutziger Mülleimer" },
+    { "en": "to sit on the bed", "de": "auf dem Bett sitzen" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Be ___, please.", "de": "Sei bitte leise.", "options": ["quiet", "quite", "quit", "quick"], "answer": "quiet", "explain": "leise = **quiet**. quite heißt ziemlich, quick heißt schnell." },
+    { "type": "choice", "q": "to sit ___ the bed", "de": "auf dem Bett sitzen", "options": ["on", "in", "at", "of"], "answer": "on", "explain": "auf = **on**: on the bed." },
+    { "type": "choice", "q": "___ clothes", "de": "ordentliche Kleidung", "options": ["tidy", "clean", "dirty", "nice"], "answer": "tidy", "explain": "ordentlich = **tidy**. clean heißt sauber." },
+    { "type": "input", "q": "Reading is ___.", "de": "Lesen macht Spaß.", "answer": "fun" },
+    { "type": "input", "q": "I have ___ with my dog.", "de": "Ich habe Spaß mit meinem Hund.", "answer": "fun" },
+    { "type": "input", "q": "to ___ the question", "de": "die Frage beantworten", "answer": "answer" },
+    { "type": "input", "q": "a ___ bin", "de": "ein schmutziger Mülleimer", "answer": "dirty" },
+    { "type": "input", "q": "to drink a ___ drink", "de": "ein kaltes Getränk trinken", "answer": "cold" },
+    { "type": "input", "q": "to ___ the phone", "de": "das Handy benutzen", "answer": "use" },
+    { "type": "input", "q": "to ___ the book", "de": "das Buch holen", "answer": "get", "explain": "holen, bekommen = **to get**." },
+    { "type": "order", "de": "Lesen macht Spaß.", "answer": "Reading is fun." }
+  ]
+}

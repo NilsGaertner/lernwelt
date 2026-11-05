@@ -1,0 +1,42 @@
+{
+  "id": "text-rest",
+  "line": "textaufgaben",
+  "order": 103,
+  "title": "Rest und mehrere Schritte",
+  "subtitle": "Wandern, Busse, Taschengeld",
+  "icon": "🥾",
+  "card": "Merke: Bleibt beim Teilen ein **Rest**, überleg, was er im Text bedeutet: noch ein Tag mehr oder einfach übrig?",
+  "explain": [
+    { "p": "Geht eine Division nicht auf, bleibt ein **Rest**. In einer Textaufgabe musst du überlegen, was der Rest bedeutet." },
+    { "p": "Beispiel: Der Pacific Crest Trail ist 4 265 km lang. Anka schafft pro Tag 18 km. Jeden Tag braucht sie 50 g Haferflocken. Wie viele Haferflocken braucht sie für die ganze Wanderung?" },
+    { "table": { "head": ["Schritt", "Rechnung"], "rows": [
+      ["Wandertage", "4 265 : 18 = 236 **Rest 17**"],
+      ["Rest deuten", "17 km bleiben übrig. Dafür braucht Anka **noch einen Tag**: 236 + 1 = **237 Tage**"],
+      ["Haferflocken", "237 · 50 = **11 850 g**, das sind knapp 12 kg"]
+    ] } },
+    { "table": { "head": ["Die Frage …", "Was passiert mit dem Rest?"], "rows": [
+      ["Wie viele Tage, Busse, Tische braucht man?", "**aufrunden**: Für den Rest braucht man noch einen mehr."],
+      ["Wie viele **volle** Kartons, Säckchen …?", "**weglassen**: Der Rest füllt keinen ganzen Karton."],
+      ["Wie viele bleiben übrig?", "Die Antwort **ist** der Rest."]
+    ] } },
+    { "tip": "Prüf eine Division mit Rest so: 236 · 18 = 4 248, dazu der Rest 17 ergibt **4 265**." }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Pacific Crest Trail", "q": "Der Pacific Crest Trail ist 4 265 km lang. Anka schafft pro Tag 18 km. Restliche Kilometer bedeuten einen zusätzlichen Wandertag. Wie viele Tage wandert Anka?", "answer": "237", "numeric": true, "placeholder": "Tage", "explain": "4 265 : 18 = 236 Rest 17. Für die letzten 17 km braucht sie noch einen Tag: **237 Tage**." },
+    { "type": "input", "task": "Pacific Crest Trail", "q": "Anka wandert 237 Tage. Jeden Tag isst sie 50 g Haferflocken. Wie viel Gramm Haferflocken braucht sie für die ganze Wanderung?", "answer": "11850", "numeric": true, "placeholder": "Gramm", "explain": "237 · 50 = **11 850 g**. Trick: 237 · 100 = 23 700, die Hälfte davon ist 11 850." },
+    { "type": "choice", "task": "Pacific Crest Trail", "q": "4 265 : 18 = 236 Rest 17. Was bedeutet der Rest 17 für Anka?", "options": ["Es bleiben 17 km übrig, dafür braucht sie noch einen Tag.", "Sie wandert 17 Tage länger.", "Sie braucht 17 g Haferflocken mehr.", "Der Rest ist egal, sie wandert 236 Tage."], "answer": "Es bleiben 17 km übrig, dafür braucht sie noch einen Tag.", "explain": "Die 17 km muss sie auch noch laufen. Das ist ein zusätzlicher Wandertag: **237 Tage**." },
+    { "type": "choice", "task": "Pacific Crest Trail", "q": "Anka braucht 11 850 g Haferflocken. Wie viel ist das ungefähr?", "options": ["knapp 12 kg", "etwa 1 kg", "etwa 118 kg", "etwa 1 200 kg"], "answer": "knapp 12 kg", "explain": "1 000 g sind 1 kg. 11 850 g sind also 11 kg und 850 g, das ist **knapp 12 kg**." },
+    { "type": "input", "task": "Textaufgabe", "q": "125 Kinder fahren ins Theater. In einen Bus passen 40 Kinder. Wie viele Busse braucht man?", "answer": "4", "numeric": true, "placeholder": "Busse", "explain": "125 : 40 = 3 Rest 5. Die 5 Kinder brauchen auch einen Platz, also **4 Busse**." },
+    { "type": "input", "task": "Textaufgabe", "q": "100 Eier werden in Kartons zu je 6 Eiern verpackt. Wie viele Kartons werden voll?", "answer": "16", "numeric": true, "placeholder": "Kartons", "explain": "100 : 6 = 16 Rest 4. Gefragt sind **volle** Kartons, die 4 Eier füllen keinen: **16**." },
+    { "type": "input", "task": "Textaufgabe", "q": "5 897 Murmeln werden in Säckchen zu je 25 Stück gepackt. Wie viele Säckchen werden voll?", "answer": "235", "numeric": true, "placeholder": "Säckchen", "explain": "5 897 : 25 = 235 Rest 22. Volle Säckchen: **235**. Probe: 235 · 25 = 5 875, plus 22 = 5 897." },
+    { "type": "input", "task": "Textaufgabe", "q": "5 897 Murmeln werden in Säckchen zu je 25 Stück gepackt. Wie viele Murmeln bleiben übrig?", "answer": "22", "numeric": true, "placeholder": "Murmeln", "explain": "5 897 : 25 = 235 **Rest 22**. Übrig bleiben also 22 Murmeln." },
+    { "type": "input", "task": "Textaufgabe", "q": "Beim Sportfest sitzen 1 706 Gäste an Tischen. An jeden Tisch passen 9 Gäste. Wie viele Tische braucht man?", "answer": "190", "numeric": true, "placeholder": "Tische", "explain": "1 706 : 9 = 189 Rest 5. Die 5 Gäste brauchen noch einen Tisch: **190**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Lea bekommt jede Woche 7 € Taschengeld. Sie möchte ein Skateboard für 89 € kaufen. Wie viele Wochen muss sie sparen?", "answer": "13", "numeric": true, "placeholder": "Wochen", "explain": "89 : 7 = 12 Rest 5. Nach 12 Wochen hat sie 84 €, das reicht noch nicht. Sie braucht **13 Wochen**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Tim wandert einen 150 km langen Weg. Er schafft 20 km am Tag. Wie viele Tage braucht er?", "answer": "8", "numeric": true, "placeholder": "Tage", "explain": "150 : 20 = 7 Rest 10. Für die letzten 10 km braucht er noch einen Tag: **8 Tage**." },
+    { "type": "input", "task": "Mehrere Schritte", "q": "Der Bus für die Klassenfahrt kostet 864 €, die Jugendherberge 1 512 €. 27 Kinder teilen sich die Kosten. Wie viel zahlt jedes Kind?", "answer": "88", "numeric": true, "placeholder": "Euro", "explain": "Erst zusammenzählen: 864 + 1 512 = 2 376 €. Dann teilen: 2 376 : 27 = **88 €**." },
+    { "type": "input", "task": "Mehrere Schritte", "q": "Ein Kino verkauft 238 Karten zu je 9 € und 145 Kinderkarten zu je 6 €. Wie viel Geld nimmt es ein?", "answer": "3012", "numeric": true, "placeholder": "Euro", "explain": "238 · 9 = 2 142 € und 145 · 6 = 870 €. Zusammen: 2 142 + 870 = **3 012 €**." },
+    { "type": "input", "task": "Mehrere Schritte", "q": "Eine Maschine füllt 15 Dosen pro Minute. Je 20 Dosen kommen in einen Karton. Wie viele Kartons werden in 8 Stunden voll?", "answer": "360", "numeric": true, "placeholder": "Kartons", "explain": "8 Stunden sind 480 Minuten. 15 · 480 = 7 200 Dosen, 7 200 : 20 = **360 Kartons**." },
+    { "type": "choice", "task": "Rest deuten", "q": "Gefragt ist: „Wie viele **volle** Kisten gibt es?“ Die Rechnung ergibt 46 Rest 3. Was ist die Antwort?", "options": ["46 Kisten", "47 Kisten", "3 Kisten", "49 Kisten"], "answer": "46 Kisten", "explain": "Die 3 übrigen Sachen füllen keine ganze Kiste. Der Rest fällt weg: **46**." },
+    { "type": "choice", "task": "Rest deuten", "q": "Gefragt ist: „Wie viele Boote braucht man, damit **alle** mitfahren?“ Die Rechnung ergibt 12 Rest 2. Was ist die Antwort?", "options": ["13 Boote", "12 Boote", "2 Boote", "14 Boote"], "answer": "13 Boote", "explain": "Die 2 übrigen Personen müssen auch mit. Dafür braucht man noch ein Boot: **13**." }
+  ]
+}

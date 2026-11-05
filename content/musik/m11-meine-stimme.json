@@ -1,0 +1,37 @@
+{
+  "id": "meine-stimme",
+  "line": "stimme",
+  "order": 11,
+  "title": "Meine Stimme",
+  "subtitle": "Ein vielfältiges Instrument",
+  "icon": "🗣️",
+  "card": "Wusstest du? Deine Stimme ist das einzige Instrument, das du immer dabeihast.",
+  "explain": [
+    { "p": "Deine Stimme ist ein **vielfältiges Instrument**. Mit drei kleinen Versuchen kannst du sie erforschen (Arbeitsheft S. 12, Aufgabe 1). Probier sie ruhig selbst aus!" },
+    { "table": { "head": ["Versuch", "Was du beobachten kannst"], "rows": [
+      ["Sing das englische Wort „you“ und wechsle zwischen einem **hohen** und einem **tiefen** Ton. Taste dabei mit den Fingerspitzen den **Kehlkopf** ab.", "Es **kribbelt**, weil im Kehlkopf etwas **schwingt**. Beim **hohen** Ton geht der Kehlkopf ein Stück **nach oben**, beim **tiefen** Ton **nach unten**."],
+      ["Summ „mmm“. Leg eine Hand flach auf die **Brust** und die andere auf die **Schädeldecke**.", "Bei **tiefen** Tönen vibriert vor allem die **Brust**, bei **hohen** Tönen eher der **Kopf**."],
+      ["Sing „Heja“. Bilde mit den Händen eine **Klangschale** vor dem Mund und beweg sie hin und her.", "Der **Klang** verändert sich: Er wird **heller oder dunkler**, offener oder gedämpfter. Die Hände verändern den Raum, in dem der Ton klingt."]
+    ] } },
+    { "tip": "Ein Ton entsteht durch **Schwingung**. Bei deiner Stimme schwingen die **Stimmlippen** im Kehlkopf. Das spürst du als Kribbeln an den Fingerspitzen." },
+    { "p": "Deine Beobachtungen notierst du in **Stichpunkten**: kurz, ohne ganzen Satz. Zum Beispiel: „Kehlkopf vibriert“, „hoher Ton: Kehlkopf geht hoch“, „tiefe Töne: Brust vibriert“." },
+    { "tip": "Vor dem Singen wärmt man die Stimme auf, so wie beim Sport die Muskeln: Körper **lockern**, ruhig **atmen**, **summen** und dann leise **einsingen**. So wird die Stimme nicht überanstrengt." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Versuch 1: Kehlkopf abtasten", "q": "Du singst und tastest mit den Fingerspitzen den Kehlkopf ab. Was spürst du?", "options": ["ein Kribbeln, weil etwas schwingt", "gar nichts", "dass der Hals kalt wird", "dass der Kehlkopf hart wird"], "answer": "ein Kribbeln, weil etwas schwingt", "explain": "Im Kehlkopf **schwingen die Stimmlippen**. Das spürst du als Kribbeln." },
+    { "type": "choice", "task": "Versuch 1: Kehlkopf abtasten", "q": "Du singst einen **hohen** Ton. Wohin bewegt sich dein Kehlkopf?", "options": ["nach oben", "nach unten", "er bleibt genau gleich", "nach hinten"], "answer": "nach oben", "explain": "Beim hohen Ton geht der Kehlkopf ein Stück **nach oben**, beim tiefen nach unten." },
+    { "type": "choice", "task": "Versuch 1: Kehlkopf abtasten", "q": "Du singst einen **tiefen** Ton. Wohin bewegt sich dein Kehlkopf?", "options": ["nach unten", "nach oben", "er bleibt genau gleich", "nach vorn"], "answer": "nach unten" },
+    { "type": "choice", "task": "Versuch 2: Hände auf Brust und Kopf", "q": "Du summst „mmm“ ganz **tief**. Wo spürst du das Vibrieren am stärksten?", "options": ["in der Brust", "auf der Schädeldecke", "in den Füßen", "nirgends"], "answer": "in der Brust", "explain": "Tiefe Töne spürt man vor allem in der **Brust**, hohe eher im **Kopf**." },
+    { "type": "choice", "task": "Versuch 2: Hände auf Brust und Kopf", "q": "Du summst „mmm“ ganz **hoch**. Wo spürst du das Vibrieren eher?", "options": ["im Kopf", "in der Brust", "im Bauch", "nirgends"], "answer": "im Kopf" },
+    { "type": "choice", "task": "Versuch 3: Klangschale aus Händen", "q": "Du singst „Heja“ und bewegst deine Hände als Klangschale vor dem Mund hin und her. Was verändert sich?", "options": ["der Klang: heller oder dunkler", "der Text", "das Tempo", "gar nichts"], "answer": "der Klang: heller oder dunkler", "explain": "Die Hände verändern den Raum vor dem Mund. Darum klingt der Ton mal **heller**, mal **dunkler**." },
+    { "type": "choice", "q": "Was schwingt beim Singen im Kehlkopf?", "options": ["die Stimmlippen", "die Zunge", "die Lunge", "das Zwerchfell"], "answer": "die Stimmlippen" },
+    { "type": "input", "q": "Ein Ton entsteht durch ___.", "answer": "Schwingung", "accept": ["Schwingungen", "schwingen", "Vibration"] },
+    { "type": "input", "q": "Beim Singen tastest du mit den Fingerspitzen den ___ ab.", "answer": "Kehlkopf", "accept": ["Kehlkopf ab"] },
+    { "type": "choice", "task": "Richtig oder falsch?", "q": "Beim tiefen Ton geht der Kehlkopf nach oben.", "options": ["richtig", "falsch"], "answer": "falsch", "explain": "Beim **tiefen** Ton geht er **nach unten**, beim hohen nach oben." },
+    { "type": "choice", "task": "Richtig oder falsch?", "q": "Mit den Händen vor dem Mund kann man den Klang der Stimme verändern.", "options": ["richtig", "falsch"], "answer": "richtig" },
+    { "type": "choice", "task": "Richtig oder falsch?", "q": "Die Stimme ist ein Instrument, das viele verschiedene Klänge machen kann.", "options": ["richtig", "falsch"], "answer": "richtig", "explain": "Darum heißt es im Heft: „Meine Stimme – ein **vielfältiges Instrument**“." },
+    { "type": "choice", "q": "Welche Notiz ist ein **Stichpunkt**?", "options": ["Kehlkopf vibriert", "Als ich gesungen habe, habe ich gemerkt, dass mein Kehlkopf vibriert.", "Ich habe ganz viel gesungen und es hat Spaß gemacht und dann …", "Ja."], "answer": "Kehlkopf vibriert", "explain": "Ein Stichpunkt ist **kurz**, ohne ganzen Satz, und sagt trotzdem das Wichtige." },
+    { "type": "choice", "q": "Warum wärmt man die Stimme vor dem Singen auf?", "options": ["damit sie nicht überanstrengt wird", "damit man lauter schreien kann", "damit der Hals warm bleibt", "damit man nicht atmen muss"], "answer": "damit sie nicht überanstrengt wird", "explain": "Wie beim Sport: Erst lockern, atmen, summen, dann einsingen." },
+    { "type": "choice", "q": "Was gehört **nicht** zum Aufwärmen der Stimme?", "options": ["laut schreien", "summen", "ruhig atmen", "den Körper lockern"], "answer": "laut schreien", "explain": "Lautes Schreien strengt die Stimme an. Zum Aufwärmen gehören lockern, atmen, summen und leises Einsingen." }
+  ]
+}

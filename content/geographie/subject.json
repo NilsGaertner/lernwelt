@@ -4,9 +4,12 @@
   "icon": "🌍",
   "order": 3,
   "lines": [
+    { "id": "erde", "name": "Erde-Linie", "short": "Erde", "color": "#1565C0" },
+    { "id": "atlas", "name": "Atlas-Linie", "short": "Atlas", "color": "#8E5A1E" },
     { "id": "welt", "name": "Welt-Linie", "short": "Welt", "color": "#0B7A75" }
   ],
   "blitz": [
-    { "id": "welt", "title": "Welt-Blitz", "icon": "⚡", "subtitle": "Kontinente, Ozeane und Meere", "types": ["choice"] }
+    { "id": "welt", "title": "Welt-Blitz", "icon": "⚡", "subtitle": "Kontinente, Ozeane und Meere", "types": ["choice"], "line": "welt" },
+    { "id": "erde-atlas", "title": "Erde-und-Atlas-Blitz", "icon": "⚡", "subtitle": "Globus, Planeten, Himmelsrichtungen, Atlas", "types": ["choice"], "units": ["globus", "planeten", "bewegungen", "himmelsrichtungen", "lage", "atlas"] }
   ]
 }

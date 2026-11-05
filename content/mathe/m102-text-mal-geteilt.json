@@ -1,0 +1,42 @@
+{
+  "id": "text-mal-geteilt",
+  "line": "textaufgaben",
+  "order": 102,
+  "title": "Mal und geteilt im Text",
+  "subtitle": "Pralinen, Busse, Kisten",
+  "icon": "🍫",
+  "card": "Merke: **je** und **pro** heißt meistens mal. **Verteilen** und **passen in** heißt geteilt.",
+  "explain": [
+    { "table": { "head": ["Im Text steht …", "Rechenart"], "rows": [
+      ["je, pro, jeden Tag, jede Minute, 18 Bleche mit 24 Brötchen", "**mal**"],
+      ["verteilen, aufteilen, passen in, gleiche Raten, für jedes Kind", "**geteilt**"]
+    ] } },
+    { "p": "Viele Aufgaben brauchen **mehrere Schritte**. Beispiel: Eine Maschine füllt pro Minute 26 Pralinenschachteln. Je 12 Schachteln passen in eine Kiste. Wie viele Kisten werden in 24 Stunden voll?" },
+    { "table": { "head": ["Schritt", "Rechnung"], "rows": [
+      ["Schachteln in 1 Stunde (60 Minuten)", "26 · 60 = **1 560**"],
+      ["Schachteln in 24 Stunden", "1 560 · 24 = **37 440**"],
+      ["Kisten (je 12 Schachteln)", "37 440 : 12 = **3 120**"]
+    ] } },
+    { "p": "Antwort: Die Maschine füllt an einem Tag **3 120 Kisten** mit Pralinenschachteln." },
+    { "tip": "Schreib bei jedem Schritt dazu, **was** du ausrechnest (Schachteln pro Stunde, Kisten …). Und schreib die Zahl im Antwortsatz genau so ab wie in der Rechnung, damit aus 3 120 nicht 3 720 wird." },
+    { "tip": "Prüf geteilt mit der **Umkehraufgabe**: 37 440 : 12 = 3 120, denn 3 120 · 12 = 37 440." }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Pralinen-Maschine", "q": "Eine Maschine füllt pro Minute 26 Pralinenschachteln. Wie viele Schachteln schafft sie in einer Stunde?", "answer": "1560", "numeric": true, "placeholder": "Schachteln", "explain": "1 Stunde hat 60 Minuten: 26 · 60 = **1 560**." },
+    { "type": "input", "task": "Pralinen-Maschine", "q": "Die Maschine füllt pro Stunde 1 560 Pralinenschachteln. Wie viele sind es in 24 Stunden?", "answer": "37440", "numeric": true, "placeholder": "Schachteln", "explain": "1 560 · 24 = **37 440**. Zerlegt: 1 560 · 20 = 31 200 und 1 560 · 4 = 6 240." },
+    { "type": "input", "task": "Pralinen-Maschine", "q": "An einem Tag werden 37 440 Pralinenschachteln gefüllt. Je 12 Schachteln passen in eine Kiste. Wie viele Kisten werden voll?", "answer": "3120", "numeric": true, "placeholder": "Kisten", "explain": "„Passen in“ heißt geteilt: 37 440 : 12 = **3 120**. Probe: 3 120 · 12 = 37 440." },
+    { "type": "input", "task": "Pralinen-Maschine", "q": "Eine Maschine füllt pro Minute 26 Pralinenschachteln. Je 12 Schachteln passen in eine Kiste. Wie viele Kisten mit Pralinenschachteln werden in 24 Stunden voll?", "answer": "3120", "numeric": true, "placeholder": "Kisten", "explain": "26 · 60 = 1 560 Schachteln pro Stunde, 1 560 · 24 = 37 440 pro Tag, 37 440 : 12 = **3 120 Kisten**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Eine Maschine füllt 35 Flaschen pro Minute. Wie viele Flaschen füllt sie in 8 Stunden?", "answer": "16800", "numeric": true, "placeholder": "Flaschen", "explain": "35 · 60 = 2 100 Flaschen pro Stunde, 2 100 · 8 = **16 800**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Ein Bäcker backt 18 Bleche mit je 24 Brötchen. Wie viele Brötchen sind das?", "answer": "432", "numeric": true, "placeholder": "Brötchen", "explain": "„Je“ heißt mal: 18 · 24 = **432**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Ein Kino hat 14 Reihen mit je 23 Sitzen. Wie viele Sitze hat das Kino?", "answer": "322", "numeric": true, "placeholder": "Sitze", "explain": "14 · 23 = **322**." },
+    { "type": "input", "task": "Textaufgabe", "q": "27 Kinder fahren auf Klassenfahrt. Jedes Kind zahlt 145 €. Wie viel Geld kommt zusammen?", "answer": "3915", "numeric": true, "placeholder": "Euro", "explain": "27 · 145 = **3 915 €**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Ein Herz schlägt 72-mal pro Minute. Wie oft schlägt es in einer Stunde?", "answer": "4320", "numeric": true, "placeholder": "Schläge", "explain": "72 · 60 = **4 320**." },
+    { "type": "input", "task": "Textaufgabe", "q": "576 Kinder fahren mit Bussen ins Schwimmbad. In jeden Bus passen 48 Kinder. Wie viele Busse braucht man?", "answer": "12", "numeric": true, "placeholder": "Busse", "explain": "576 : 48 = **12**. Probe: 12 · 48 = 576." },
+    { "type": "input", "task": "Textaufgabe", "q": "In einen Getränkekasten passen 12 Flaschen. Wie viele Kästen braucht man für 936 Flaschen?", "answer": "78", "numeric": true, "placeholder": "Kästen", "explain": "936 : 12 = **78**. Probe: 78 · 12 = 936." },
+    { "type": "input", "task": "Textaufgabe", "q": "Ein Fahrrad kostet 456 €. Es wird in 6 gleichen Raten bezahlt. Wie viel Euro ist eine Rate?", "answer": "76", "numeric": true, "placeholder": "Euro", "explain": "456 : 6 = **76 €**. Probe: 76 · 6 = 456." },
+    { "type": "input", "task": "Textaufgabe", "q": "4 743 Stifte werden in Packungen zu je 9 Stück verpackt. Wie viele Packungen werden voll?", "answer": "527", "numeric": true, "placeholder": "Packungen", "explain": "4 743 : 9 = **527**. Probe: 527 · 9 = 4 743." },
+    { "type": "choice", "task": "Welche Rechnung passt?", "q": "Je 12 Schachteln passen in eine Kiste. Wie viele Kisten braucht man für 37 440 Schachteln?", "options": ["37 440 : 12", "37 440 · 12", "37 440 − 12", "12 : 37 440"], "answer": "37 440 : 12", "explain": "Die Schachteln werden auf Kisten **verteilt**, also geteilt." },
+    { "type": "choice", "task": "Welche Rechnung passt?", "q": "Eine Maschine füllt pro Minute 26 Schachteln. Wie viele sind es in einer Stunde?", "options": ["26 · 60", "26 + 60", "60 : 26", "26 · 24"], "answer": "26 · 60", "explain": "Eine Stunde hat **60 Minuten**, und jede Minute kommen 26 Schachteln dazu." },
+    { "type": "choice", "task": "Welche Rechnung passt?", "q": "Ein Tag hat 24 Stunden. Jede Stunde hat 60 Minuten. Wie viele Minuten hat ein Tag?", "options": ["24 · 60 = 1 440", "24 + 60 = 84", "60 : 24", "24 · 100 = 2 400"], "answer": "24 · 60 = 1 440", "explain": "24 · 60 = **1 440 Minuten**. Damit geht die Pralinen-Aufgabe auch so: 26 · 1 440 = 37 440." }
+  ]
+}

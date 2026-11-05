@@ -9,6 +9,8 @@
     { "id": "basketball", "name": "Basketball-Linie", "short": "Basketball", "color": "#F57C00" },
     { "id": "katze", "name": "Katzen-Linie", "short": "Katzen-Check", "color": "#EC407A" },
     { "id": "probearbeit", "name": "Probearbeit-Linie", "short": "Probearbeit", "color": "#8D6E63", "examCount": 12 },
+    { "id": "klassenarbeit", "name": "Klassenarbeits-Linie", "short": "Klassenarbeit", "color": "#A1887F" },
+    { "id": "textaufgaben", "name": "Textaufgaben-Linie", "short": "Textaufgaben", "color": "#3949AB" },
     { "id": "kopfrechnen", "name": "Kopfrechnen-Linie", "short": "Kopfrechnen", "color": "#D9631E" },
     { "id": "schriftlich-plus", "name": "Schriftlich-plus-Linie", "short": "Schriftlich plus", "color": "#1E6FB8", "examCount": 10 },
     { "id": "schriftlich-minus", "name": "Schriftlich-minus-Linie", "short": "Schriftlich minus", "color": "#7B3FA0", "examCount": 10 },

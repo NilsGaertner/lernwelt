@@ -4,13 +4,16 @@ Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch, Mathe, Geogra
 
 ## Was drin ist
 
-**Englisch (Klasse 5, Grundlagen): 42 Stationen, gut 800 Wörter und Aufgaben**
+**Englisch (Klasse 5, Grundlagen): 52 Stationen, knapp 1000 Wörter und Aufgaben**
 
 Jede Linie hat 3 Stationen und danach den Endbahnhof. So ist eine Linie in ein paar Tagen geschafft, und die Lootbox dafür bleibt in Reichweite. Wörter und Grammatik sind nach Themen gemischt, die zusammenpassen.
 
 | Linie | Stationen |
 |---|---|
 | Karteikarten-Linie | Die Vokabelkarten aus der Schule: Farben und Dinge, Verben mit „to“, kurze Sätze für jeden Tag |
+| Zimmer-Linie | Weitere Vokabelkarten: Rooms, Kitchen and bathroom, Furniture |
+| Glücks-Linie | Neue Vokabelblätter: You are lucky, Be quiet please, und Wörter aus dem Heft, die schwer zu schreiben sind (seagull, purple, eight …) |
+| Test-Linie | Test No 2 nachgeübt: Schultasche, Farben und Wortgruppen übersetzen; I am – he has (to be und to have für jede Person); Personal pronouns und to be (Emma, Sheree); my/his/her/our/your/their |
 | Hallo-Linie | Begrüßen und Vorstellen, Familie, Fragewörter |
 | Ich-bin-Linie | I/you/he…, am/is/are, Verneinung und Fragen mit „to be“ |
 | Zahlen-Linie | Zahlen bis 20, Zahlen bis 100, Uhrzeit |
@@ -55,14 +58,16 @@ Die Schriftlich-geteilt-Linie übt das schriftliche Dividieren wie im Heft: Oben
 
 **Mathe: Probearbeit (3 Stationen + Endbahnhof)**
 
-Nach dem „Übungsteil für die Klassenarbeit“ aus der Schule, mit neuen Zahlen. Die Linie steht ganz oben im Mathe-Netzplan. Die Stationen: große Zahlen schriftlich plus und minus (bis 7 Stellen, vier Zahlen untereinander oder zwei Zahlen abziehen, Generator mit `"mix"`), „Alles gemischt“ (Runden mit Z/H/T/ZT/HT/Mio., Ordnen, Lücken, Vorrangregel mit verschachtelten Klammern, vorteilhaft rechnen, Distributivgesetz, schriftlich teilen auf dem Zettel) und Textaufgaben (Eintritt, Einnahmen, Gewinn, Durchschnitt). Der Endbahnhof hat 12 Aufgaben.
+Nach dem „Übungsteil für die Klassenarbeit“ aus der Schule, mit neuen Zahlen. Die Linie steht direkt unter den drei Themen-Linien. Die Stationen: große Zahlen schriftlich plus und minus (bis 7 Stellen, vier Zahlen untereinander oder zwei Zahlen abziehen, Generator mit `"mix"`), „Alles gemischt“ (Runden mit Z/H/T/ZT/HT/Mio., Ordnen, Lücken, Vorrangregel mit verschachtelten Klammern, vorteilhaft rechnen, Distributivgesetz, schriftlich teilen auf dem Zettel) und Textaufgaben (Eintritt, Einnahmen, Gewinn, Durchschnitt). Der Endbahnhof hat 12 Aufgaben.
 
-**Mathe: Stoff aus der 5. Klasse, Kapitel „Rechnen mit natürlichen Zahlen“ (4 Linien, 12 Stationen)**
+**Mathe: Stoff aus der 5. Klasse, Kapitel „Rechnen mit natürlichen Zahlen“ (6 Linien, 18 Stationen)**
 
 Nach den Heften und Arbeitsblättern aus der Schule. Bei einem Fehler zeigen viele Aufgaben den Rechenweg.
 
 | Linie | Stationen |
 |---|---|
+| Klassenarbeits-Linie | Die Arbeit vom 2. Oktober nachgeübt: Kopfrechnen gemischt, Geteilt mit Klammern und Potenzen (22 : 2 + 99 : 11), geschickt rechnen mit Zwischenschritt (760 · 25 · 4, 53 · 17 + 47 · 17) |
+| Textaufgaben-Linie | Textaufgaben aus dem Heft und ähnliche: Plus und minus im Text (Stadion, Mount Everest, Tabelle von Frau Gensler), Mal und geteilt im Text (Pralinen-Maschine in mehreren Schritten), Rest und mehrere Schritte (Pacific Crest Trail: Rest heißt ein Wandertag mehr; volle Kartons: Rest fällt weg) |
 | Rechenregel-Linie | Fachbegriffe und Potenzen (Summe … Quotient, Basis, Exponent), Klammer vor Potenz vor Punkt vor Strich (KlaPoPuStri), Lücken und Rechenzeichen ergänzen (Umkehraufgabe, Rechnen mit 0) |
 | Rechengesetz-Linie | Kommutativ- und Assoziativgesetz (geschickt rechnen), Klammer aufteilen (ausmultiplizieren), Ausklammern |
 | Große-Zahlen-Linie | Million bis Billion, gemischtes Zahlwort; Vorgänger, Nachfolger, Vergleichen, Zahlenfolgen; Runden |
@@ -70,9 +75,17 @@ Nach den Heften und Arbeitsblättern aus der Schule. Bei einem Fehler zeigen vie
 
 Dazu gibt es den „Rechenregel-Blitz“. Zahlen dürfen mit Tausenderpunkt oder Leerzeichen eingetippt werden: 45.000 und 45 000 zählen wie 45000.
 
-**Geographie: Kontinente und Meere (4 Stationen)**
+**Geographie: Die Erde, der Atlas, Kontinente und Meere (3 Linien, 10 Stationen)**
 
 Die Welt-Linie hat die Stationen Die Kontinente, Kontinente-Wissen, Die Ozeane und Meere in Europa. Auf einer Welt- bzw. Europakarte wird ein Gebiet farbig markiert, und dein Kind wählt oder schreibt den Namen. Dazu kommen Wissensfragen (größter Kontinent, Sylt liegt in der …). Im „Merke“ ist jeweils eine bunte Karte mit Legende.
+
+| Linie | Stationen |
+|---|---|
+| Erde-Linie | Der Globus (Pole, Erdachse, Äquator, Halbkugeln an einer Globus-Zeichnung; was Geographie ist), Die Planeten, Tag und Nacht, Sommer und Winter (Rotation und Revolution) |
+| Atlas-Linie | Himmelsrichtungen an der Kompassrose, Lagebeschreibung („nördlich von“ oder „im Norden von“), Der Atlas (physische und thematische Karten, Register) |
+| Welt-Linie | Die Kontinente, Kontinente-Wissen, Die Ozeane, Meere in Europa |
+
+Dazu gibt es den „Welt-Blitz“ und den „Erde-und-Atlas-Blitz“.
 
 **Biologie: Der Hund (2 Linien mit je 3 Stationen + Endbahnhof)**
 
@@ -88,6 +101,18 @@ Beim Skelett und beim Gebiss ist ein Knochen bzw. eine Zahnart auf einer Zeichnu
 **Weniger Druck, mehr Selbstbestimmung:** Die Lernwelt fordert nicht, sie lädt ein. Die Aufgaben-Überschriften sind Fragen statt Befehle („Was kommt heraus?“ statt „Rechne aus.“). Das Kind wählt die Länge einer Fahrt selbst (3, 5 oder 10 Aufgaben). Kurze Fahrten bringen anteilig weniger Sterne und höchstens 2 als Bewertung, gemeistert und Abstellgleis gibt es nur auf ganzen Fahrten. Aussteigen geht jederzeit: Ab 3 beantworteten Aufgaben zählt das als kurze Fahrt, sonst verfällt die Fahrt ohne Strafe. Abschreiben nach einem Fehler ist ein Angebot, kein Muss. Der Tagesfahrplan heißt „Ideen für heute“.
 
 **Aufgaben-Werkstatt:** Hier stellt das Kind selbst Aufgaben (Text und Lösung), und die anderen Profile, z. B. die Erwachsenen-Profile der Eltern, lösen sie. Jeder hat einen Versuch. Das Kind sieht, wer was geantwortet hat und ob es stimmt. Zahlen werden großzügig verglichen: 135, „135 Diamanten“ und 1.728 bzw. 1728 zählen gleich. Für die Werkstatt gibt es keine Sterne.
+
+**Musik: Klang, Stimme und Klasseninstrumente (3 Linien, 9 Stationen)**
+
+Nach dem MusiX-Arbeitsheft 1 A, Kapitel 2 „Rund um die Stimme“:
+
+| Linie | Stationen |
+|---|---|
+| Klang-Linie | Merkmale der Musik, Hör genau hin! (Merkmale mit den Ohren erkennen), Singen (wie die Stimme entsteht) |
+| Stimm-Linie | Meine Stimme (die drei Versuche: Kehlkopf abtasten, Hände auf Brust und Kopf, Klangschale), Körperteile beim Singen (an einer Zeichnung: Nasenhöhle bis Zwerchfell, Resonanzrohr und Atemorgan), Der Vorgang des Singens (der Lückentext mit den Auswahlwörtern) |
+| Instrumenten-Linie | Klasseninstrumente (zehn Instrumente an einer Zeichnung benennen und schreiben), Instrumente erforschen (Material, Spielweise, Klang, Tonhöhe erkennbar?), Grundbeat und kleine Schläge (Hör-Aufgaben wie im Trainingsraum 2: 🔴 = Grundbeat, • = kleiner Schlag) |
+
+Dazu gibt es den „Musik-Blitz“.
 
 **Aufgabentypen:** Auswahl, Eintippen, Sätze aus Wortkärtchen bauen, Paare finden und Hörverstehen (die englischen Wörter werden vorgelesen).
 
@@ -124,19 +149,33 @@ So lohnt sich Wiederholen weiterhin, aber eine leichte Station immer wieder abzu
 
 Die Blitzrunde selbst bringt keine Sterne, nur Rekorde und XP.
 
+### Tage-Serie und Serienbonus
+
+Ein Tag zählt für die **Serie** (🔥 oben in der Leiste), wenn dein Kind an ihm mindestens **3 Sterne mit Fahrten** verdient, also eine Fahrt mit mindestens 70 % oder zwei Fahrten. Boni, Abzeichen und doppelte Sterne zählen dafür nicht mit, das Tageslimit spielt keine Rolle. Für jeden Tag am Stück gibt es Bonuszeit, sobald der Tag zählt:
+
+| Serientag | Bonus |
+|---|---|
+| Tag 1 | – |
+| Tag 2 bis 4 | je 5 Minuten |
+| Tag 5 bis 7 | je 10 Minuten, am 7. Tag dazu eine Lootbox |
+
+Nach 7 Tagen beginnt eine neue Serien-Woche: Tag 8 zählt wieder wie Tag 1, Tag 9 bis 11 bringen je 5 Minuten usw. Die Minuten werden als Sterne gutgeschrieben (Minuten ÷ Minuten pro Stern, aufgerundet) und **zählen nicht zum Tageslimit**. Ein Tag, den der Serienschutz rettet, hält die Serie am Leben, bringt aber keinen Bonus. Auch die Serien-Abzeichen (3, 7 und 21 Tage) zählen nach dieser Regel. Erwachsenen-Profile bekommen keinen Serienbonus.
+
 ### Abstellgleis und Lootboxen
 
 Hat dein Kind eine Station **5-mal mit 3 Sternen** geschafft, kommt sie aufs **Abstellgleis**: Sie ist auf dem Netzplan grau markiert und bringt keine Sterne mehr (auch keine doppelten). Üben geht dort weiterhin. Bis dahin zeigt der Netzplan den Stand, z. B. „🎁 3/5“. Die Zahl stellst du im Elternbereich unter den Regeln ein (0 = kein Abstellgleis). Beim Kind unter **Stationen** kannst du eine Station mit „Reaktivieren“ für ein paar Fahrten zurückholen. Danach steht sie wieder auf dem Abstellgleis.
 
-Eine **Lootbox** gibt es einmalig, wenn eine Station aufs Abstellgleis kommt und wenn der Endbahnhof einer Linie zum ersten Mal bestanden ist. Außerdem kannst du deinem Kind im Elternbereich (beim Kind unter **Lootboxen**) als Ansporn bis zu 5 Boxen auf einmal schenken, mit einer kurzen Nachricht, die es auf der Box liest. Geschenkte Boxen haben eine eigene Farbe, und der Netzplan sagt „Deine Eltern haben dir eine Lootbox geschenkt!“. Dein Kind sammelt die Boxen (🎁 oben in der Leiste) und öffnet sie, wann es will. Erst beim Öffnen wird ausgelost, was drin ist:
+Eine **Lootbox** gibt es einmalig, wenn eine Station aufs Abstellgleis kommt und wenn der Endbahnhof einer Linie zum ersten Mal bestanden ist, und am 7. Tag jeder Serien-Woche. Außerdem kannst du deinem Kind im Elternbereich (beim Kind unter **Lootboxen**) als Ansporn bis zu 5 Boxen auf einmal schenken, mit einer kurzen Nachricht, die es auf der Box liest. Geschenkte Boxen haben eine eigene Farbe, und der Netzplan sagt „Deine Eltern haben dir eine Lootbox geschenkt!“. Dein Kind sammelt die Boxen (🎁 oben in der Leiste) und öffnet sie, wann es will. Erst beim Öffnen wird ausgelost, was drin ist:
 
-| Medienzeit | Wahrscheinlichkeit |
-|---|---|
-| 5 Minuten | 49 % |
-| 10 Minuten | 30 % |
-| 15 Minuten | 15 % |
-| 20 Minuten | 5 % |
-| 30 Minuten (Hauptgewinn) | 1 % |
+| Seltenheit | Medienzeit | Wahrscheinlichkeit |
+|---|---|---|
+| Normal (grau) | 5 Minuten | 49 % |
+| Selten (blau) | 10 Minuten | 30 % |
+| Episch (lila) | 15 Minuten | 15 % |
+| Legendär (gold) | 20 Minuten | 5 % |
+| Mythisch (Regenbogen, Hauptgewinn) | 30 Minuten | 1 % |
+
+Beim Öffnen wackelt die Box und dreht dann Stufe für Stufe durch die Farben hoch, bis sie bei ihrer Seltenheit ankommt. Jede Stufe blitzt auf, und die Box leuchtet stärker, wackelt schneller und tickt schneller. Je seltener die Box, desto länger dauert also die Spannung. Ab Episch gibt es Konfetti, ab Legendär Strahlen. Bei „Bewegung reduzieren“ zeigt die Box gleich das Ergebnis.
 
 Die Minuten werden als Sterne gutgeschrieben (Minuten ÷ Minuten pro Stern, aufgerundet) und **zählen nicht zum Tageslimit**. Das gilt auch für geschenkte Boxen. Erwachsenen-Profile bekommen keine Boxen.
 
@@ -165,7 +204,7 @@ Diese Elemente sollen die Aufmerksamkeit halten, ohne zusätzliche Medienzeit zu
 - **Endbahnhof:** Haben alle Stationen einer Linie mindestens 2 Sterne, öffnet sich eine gemischte Prüfung über die ganze Linie. Ab 80 % ist sie bestanden, und es gibt eine Goldkarte.
 - **Sammelalbum:** Jede Station mit 3 Sternen bringt eine Sammelkarte mit einem „Wusstest du?“-Text oder dem Merksatz der Station.
 - **Ränge und Züge:** XP gibt es für richtige Antworten (10), Stempel (50) und Endbahnhöfe (100). Der Weg führt über 9 Ränge vom Fahrgast bis zur Streckenlegende, und jeder Rang schaltet einen Zug frei, mit dem das Kind fährt.
-- **Serienschutz:** Einmal pro Woche darf ein Tag ausfallen, ohne dass die Tage-Serie reißt.
+- **Serienschutz:** Einmal pro Woche darf ein Tag ausfallen, ohne dass die Tage-Serie reißt (siehe [Tage-Serie und Serienbonus](#tage-serie-und-serienbonus)).
 - **Companion:** Eine Katze begleitet jede Fahrt. Jede der vier Katzen hat ihre eigene Art: Die schwarze („Geheimnisvoll“) dreht bei richtigen Antworten eine Pirouette mit Sternen, die weiße („Verträumt“) schwebt mit Herzen, die braune („Gemütlich“) hüpft schnurrend mit Noten, die getigerte („Wild“) springt wie auf Mäusejagd. Auch im Schlaf unterscheiden sie sich (Schwanzspitze, Ohrenzucken, Strecken, Schnarchblase). Nach einem Fehler schauen sie kurz auf und machen Mut, ab 5 richtigen Antworten in Folge bleiben sie wach und fiebern mit, und am Ziel feiern sie mit. Antippen geht auch. Katze und Skins wählt das Kind in der Sammlung unter „Companion“.
 - **Effekte:** Konfetti, Fanfare und hochzählende Sterne bei besonderen Momenten. Bei „Bewegung reduzieren“ in den Geräteeinstellungen fallen die Animationen weg.
 
@@ -309,7 +348,7 @@ Alle Lerninhalte liegen als JSON-Dateien in `content/<fach>/`. Nach einer Änder
 
 - **`vocab`**: Aus Wortlisten werden die Aufgaben automatisch gebaut (Auswahl, Eintippen, Hören, Paare finden). `alt` sind weitere richtige Schreibweisen. Mit `"typing": false` auf Stationsebene muss nichts eingetippt werden, bei Sätzen wird dann aus Wortkärtchen gebaut.
 - **`exercises`**: `choice` (Auswahl), `input` (Eintippen, `___` markiert die Lücke) und `order` (Satz bauen). Weitere Felder: `accept` für weitere richtige Antworten, `task` für einen eigenen Aufgabentext, `de` für eine deutsche Übersetzung als Hilfe, `"numeric": true` für eine Zahlentastatur, `"speak": false`, wenn der Satz nicht vorgelesen werden soll, und `"strict": true`, wenn Kurz- und Langform (don't / do not) nicht beide gelten sollen.
-- **Karten und Bilder**: `"map": "welt", "mark": "afrika"` zeigt in einer Aufgabe die Karte `content/<fach>/media/welt.svg` und hebt das Gebiet mit der id `afrika` hervor. Im „Merke“ zeigt `{ "map": "welt", "legend": [["afrika", "Afrika"], …] }` die Karte mit bunt gefärbten Gebieten und Legende. `npm run check` meldet fehlende Karten und Gebiete. Das geht genauso mit Zeichnungen, z. B. `content/biologie/media/hund-skelett.svg`: Dort sind Knochen (`class="bone"`) in Gruppen mit id zusammengefasst, und Nummern in `<g class="labels">` erscheinen nur im „Merke“.
+- **Karten und Bilder**: `"map": "welt", "mark": "afrika"` zeigt in einer Aufgabe die Karte `content/<fach>/media/welt.svg` und hebt das Gebiet mit der id `afrika` hervor. Im „Merke“ zeigt `{ "map": "welt", "legend": [["afrika", "Afrika"], …] }` die Karte mit bunt gefärbten Gebieten und Legende. `npm run check` meldet fehlende Karten und Gebiete. Das geht genauso mit Zeichnungen, z. B. `content/biologie/media/hund-skelett.svg`: Dort sind Knochen (`class="bone"`) in Gruppen mit id zusammengefasst, und Nummern in `<g class="labels">` erscheinen nur im „Merke“. In `content/musik/media/klasseninstrumente.svg` hat jedes Instrument ein Feld (`class="slot"`), das markiert bzw. eingefärbt wird, damit das Instrument selbst seine Farben behält.
 - **`"enabled": false`** in einer Stationsdatei blendet diese Station aus.
 - **`"card"`**: eigener Text für die Sammelkarte der Station. Ohne dieses Feld steht der erste Merksatz auf der Karte.
 - **Blitzrunden** stehen in der `subject.json` des Fachs, z. B. `"blitz": [{ "id": "quadrate", "title": "Quadratzahlen-Blitz", "units": ["quadrat-11-15"] }]`. Statt `units` geht auch `"line": "zahlen"` für eine ganze Linie. Mit `"types": ["choice"]` kommen nur Auswahlaufgaben dran.

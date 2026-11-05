@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 550" role="img" aria-label="Globus">
+<!-- globus: Globus mit schräger Erdachse wie auf dem Arbeitsblatt; Halbkugeln, Äquator, Achse und Pole einzeln markierbar -->
+<rect class="bg" x="0" y="0" width="600" height="550"/>
+<defs><clipPath id="globus-kugel"><circle cx="300" cy="260" r="180"/></clipPath></defs>
+<path class="stand" d="M216 453Q262 478 300 480V500"/>
+<ellipse class="foot" cx="300" cy="512" rx="95" ry="16"/>
+<g transform="rotate(23.5 300 260)">
+<path class="stand" d="M300 50A210 210 0 0 1 300 470"/>
+<path id="nordhalbkugel" class="area half" style="--c:#4FA3E0" d="M120 260A180 180 0 0 1 480 260A180 40 0 0 1 120 260Z"/>
+<path id="suedhalbkugel" class="area half" style="--c:#F2A93B" d="M120 260A180 40 0 0 0 480 260A180 180 0 0 1 120 260Z"/>
+<g clip-path="url(#globus-kugel)">
+<path class="globe-land" d="M262 128C282 112 318 110 338 122C356 134 352 156 338 168C326 178 304 176 296 188C288 200 270 202 258 190C244 176 244 142 262 128Z"/>
+<path class="globe-land" d="M270 222C296 208 340 212 356 232C370 250 366 282 352 306C340 328 330 352 312 366C298 376 284 368 282 350C280 330 266 314 256 296C246 278 246 236 270 222Z"/>
+<path class="globe-land" d="M372 136C402 126 446 140 468 166C486 190 484 222 466 236C448 248 420 238 400 222C382 208 356 194 356 170C356 152 360 140 372 136Z"/>
+<path class="globe-land" d="M140 168C156 150 184 148 198 162C210 176 204 200 190 214C176 228 156 226 144 212C134 200 130 182 140 168Z"/>
+<path class="globe-land" d="M172 286C186 276 206 282 212 300C218 320 210 352 196 370C184 384 168 380 164 362C160 340 160 296 172 286Z"/>
+<path class="globe-land" d="M408 318C428 308 456 314 462 332C468 350 452 366 432 368C414 370 398 360 396 344C394 332 398 322 408 318Z"/>
+</g>
+<path id="aequator" class="area line-part" style="--c:#E0475B" d="M120 260A180 40 0 0 0 480 260"/>
+<path id="erdachse" class="area line-part axis" style="--c:#7B3FA0" d="M300 30V490"/>
+<circle id="nordpol" class="area pole" style="--c:#C2185B" cx="300" cy="85" r="15"/>
+<circle id="suedpol" class="area pole" style="--c:#2E9D57" cx="300" cy="435" r="15"/>
+</g>
+</svg>

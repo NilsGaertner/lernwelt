@@ -1,0 +1,49 @@
+{
+  "id": "karten-lucky",
+  "line": "glueck",
+  "order": 1,
+  "title": "You are lucky",
+  "subtitle": "Glück, Monster und ein Paket",
+  "icon": "🍀",
+  "typePhrases": true,
+  "explain": [
+    { "p": "Manche Wendungen sagt man im Englischen anders als im Deutschen. Lern sie darum als **ganze Gruppe**." },
+    { "ex": [
+      ["You are lucky.", "Du hast Glück."],
+      ["I'm sure.", "Ich bin sicher."],
+      ["My parents are divorced.", "Meine Eltern sind geschieden."],
+      ["Where's the postman?", "Wo ist der Postbote?"]
+    ] },
+    { "tip": "**You are lucky** heißt „Du hast Glück“. Glücklich (froh) heißt **happy**." },
+    { "tip": "**at school** heißt „**in** der Schule“, nicht „eine Schule“. Genauso: **at home** = zu Hause." },
+    { "tip": "**Where's** ist die Kurzform von **Where is**." },
+    { "tip": "**weird** (komisch, seltsam) spricht man ungefähr „wiad“." }
+  ],
+  "vocab": [
+    { "en": "You are lucky.", "de": "Du hast Glück.", "alt": ["You're lucky.", "you are lucky"] },
+    { "en": "a friendly smile", "de": "ein freundliches Lächeln" },
+    { "en": "I'm sure.", "de": "Ich bin sicher.", "alt": ["I am sure."] },
+    { "en": "a weird monster", "de": "ein komisches Monster" },
+    { "en": "at school", "de": "in der Schule" },
+    { "en": "My parents are divorced.", "de": "Meine Eltern sind geschieden." },
+    { "en": "Where's the postman?", "de": "Wo ist der Postbote?", "alt": ["Where is the postman?"] },
+    { "en": "a new phone", "de": "ein neues Handy" },
+    { "en": "a message from my friend", "de": "eine Nachricht von meinem Freund" },
+    { "en": "to hang out with friends", "de": "mit Freunden abhängen" },
+    { "en": "to know the place", "de": "den Ort kennen" },
+    { "en": "a very big parcel", "de": "ein sehr großes Paket" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "You are ___.", "de": "Du hast Glück.", "options": ["lucky", "happy", "luck", "lucked"], "answer": "lucky", "explain": "Glück haben = **to be lucky**. happy heißt glücklich, froh." },
+    { "type": "choice", "task": "Was heißt das auf Deutsch?", "q": "at school", "options": ["in der Schule", "eine Schule", "die Schule", "zur Schule"], "answer": "in der Schule", "explain": "**at school** = in der Schule. Eine Schule wäre **a school**." },
+    { "type": "choice", "task": "Was heißt das auf Deutsch?", "q": "a friendly smile", "options": ["ein freundliches Lächeln", "ein guter Freund", "ein kleines Lachen", "mein Freund"], "answer": "ein freundliches Lächeln", "explain": "**friendly** = freundlich, **smile** = Lächeln." },
+    { "type": "input", "q": "I'm ___.", "de": "Ich bin sicher.", "answer": "sure" },
+    { "type": "input", "q": "a ___ monster", "de": "ein komisches Monster", "answer": "weird", "accept": ["strange"] },
+    { "type": "input", "q": "My parents are ___.", "de": "Meine Eltern sind geschieden.", "answer": "divorced" },
+    { "type": "input", "q": "Where's the ___?", "de": "Wo ist der Postbote?", "answer": "postman" },
+    { "type": "input", "q": "a message ___ my friend", "de": "eine Nachricht von meinem Freund", "answer": "from", "explain": "von (wem?) = **from**: a message **from** my friend." },
+    { "type": "input", "q": "to hang ___ with friends", "de": "mit Freunden abhängen", "answer": "out", "explain": "abhängen, Zeit verbringen = **to hang out**." },
+    { "type": "input", "q": "a very big ___", "de": "ein sehr großes Paket", "answer": "parcel", "accept": ["package"] },
+    { "type": "input", "q": "to ___ the place", "de": "den Ort kennen", "answer": "know", "explain": "kennen, wissen = **to know**. Das k spricht man nicht: „nou“." }
+  ]
+}
