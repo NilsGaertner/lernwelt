@@ -107,6 +107,8 @@ function validateUnit(meta, unit, file, problems, subjectDir) {
       problems.push(`${where}: Rechen-Beispiel braucht "rows" mit mindestens zwei Zahlen: ${JSON.stringify(b.column)}`);
     else if (b.column?.op === 'mul' && b.column.rows.length !== 2)
       problems.push(`${where}: Mal-Beispiel braucht genau zwei Zahlen: ${JSON.stringify(b.column)}`);
+    else if (b.column?.op === 'div' && (b.column.rows.length !== 2 || Number(b.column.rows[1]) < 2 || Number(b.column.rows[0]) % Number(b.column.rows[1])))
+      problems.push(`${where}: Teil-Beispiel braucht genau zwei Zahlen und darf keinen Rest haben: ${JSON.stringify(b.column)}`);
     else if (b.column?.op === 'sub' && b.column.rows.slice(1).reduce((a, r) => a - Number(r), Number(b.column.rows[0])) < 0)
       problems.push(`${where}: Minus-Beispiel ergibt weniger als 0: ${JSON.stringify(b.column)}`);
   }

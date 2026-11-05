@@ -1,0 +1,21 @@
+{
+  "id": "geteilt-gross",
+  "line": "schriftlich-geteilt",
+  "order": 86,
+  "title": "Große Teilaufgaben",
+  "subtitle": "Teiler bis 25, Ziffern schätzen",
+  "icon": "🎯",
+  "card": "Merke: Probe machen! Ergebnis mal Teiler muss wieder die Zahl von vorne ergeben: 793 · 21 = 16 653.",
+  "generator": "schriftlich",
+  "params": {"op": "div", "divisor": [12, 25], "quotientDigits": [3, 3], "digits": [4, 5]},
+  "itemCount": 100,
+  "explain": [
+    {"p": "Bei Teilern wie 21 oder 23 kennst du die Vielfachen nicht auswendig. Dann **schätzt** du jede Ziffer mit glatten Zahlen und prüfst sie."},
+    {"column": {"op": "div", "rows": ["16653", "21"], "caption": "16 653 : 21 = **793**"}},
+    {"p": "16 ist kleiner als 21, also nimmst du die ersten **drei** Ziffern: 166."},
+    {"table": {"head": ["", "Schätzen und prüfen", "Rest, dann herunterholen"], "rows": [["1.", "166 : 21 ≈ 160 : 20 = 8. Aber 8 · 21 = 168 ist zu groß → **7** (7 · 21 = 147)", "166 − 147 = 19 → **195**"], ["2.", "195 : 21 ≈ 200 : 20 = 10. Mehr als 9 geht nicht → **9** (9 · 21 = 189)", "195 − 189 = 6 → **63**"], ["3.", "63 : 21 = **3** (3 · 21 = 63)", "63 − 63 = 0, fertig"]]}},
+    {"tip": "Ist das Produkt **größer** als die Teilzahl, war die Ziffer zu groß: eine kleiner nehmen. Ist der Rest **größer als der Teiler**, war sie zu klein: eine größer nehmen."},
+    {"tip": "In jedem Schritt kommt oben genau **eine** Ziffer hin, also höchstens 9."},
+    {"tip": "Probe: 793 · 21 = 15 860 + 793 = 16 653 ✓"}
+  ]
+}

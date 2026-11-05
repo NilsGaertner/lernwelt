@@ -1,0 +1,50 @@
+{
+  "id": "textaufgaben",
+  "line": "probearbeit",
+  "order": 93,
+  "title": "Textaufgaben",
+  "subtitle": "Eintritt, Einnahmen, Gewinn, Durchschnitt",
+  "icon": "📝",
+  "card": "Merke: **Gewinn = Einnahmen − Kosten**. Und den **Durchschnitt** bekommst du so: alles zusammenzählen, dann durch die Anzahl teilen.",
+  "explain": [
+    { "p": "Bei Textaufgaben gehst du in vier Schritten vor:" },
+    { "table": { "head": ["", "Schritt"], "rows": [
+      ["1.", "**Lesen:** Was weiß ich? Was ist gefragt?"],
+      ["2.", "**Rechnung aufschreiben:** Welche Rechenart passt?"],
+      ["3.", "**Rechnen:** im Kopf oder schriftlich."],
+      ["4.", "**Antwortsatz:** mit Einheit (€, km …)."]
+    ] } },
+    { "p": "**Beispiel:** 48 Kinder und 6 Erwachsene fahren in den Zoo. Ein Kinderticket kostet 14 €, ein Erwachsenenticket 22 €." },
+    { "p": "Rechnung: 48 · 14 + 6 · 22 = 672 + 132 = **804**. Antwort: Der Ausflug kostet **804 €**." },
+    { "table": { "head": ["Wort in der Aufgabe", "Das rechnest du"], "rows": [
+      ["**Einnahmen** (Karten zu je 8 €)", "Anzahl · Preis, dann alles zusammenzählen"],
+      ["**Kosten**", "alle Ausgaben zusammenzählen"],
+      ["**Gewinn**", "Einnahmen − Kosten"],
+      ["**Durchschnitt** pro Tag", "alles zusammenzählen, dann : Anzahl der Tage"]
+    ] } },
+    { "tip": "Beim Durchschnitt: 48 km, 63 km, 57 km und 72 km sind zusammen 240 km. Das sind 4 Tage, also 240 : 4 = **60 km** pro Tag." },
+    { "tip": "Rechne auf einem Zettel mit und tippe nur die Zahl ein. Die Einheit steht schon da." }
+  ],
+  "exercises": [
+    { "type": "input", "task": "Textaufgabe", "q": "Zu einem Klassenausflug in den Zoo kommen 48 Kinder und 6 Erwachsene mit. Ein Kinderticket kostet 14 €, ein Erwachsenenticket 22 €. Was kostet der Ausflug insgesamt? ___ €", "answer": "804", "numeric": true, "placeholder": "Euro", "explain": "48 · 14 = 672 und 6 · 22 = 132. Zusammen 672 + 132 = **804 €**." },
+    { "type": "input", "task": "Textaufgabe", "q": "27 Kinder und 3 Erwachsene gehen ins Schwimmbad. Kinder zahlen 4 €, Erwachsene 7 €. Wie viel kostet der Eintritt zusammen? ___ €", "answer": "129", "numeric": true, "placeholder": "Euro", "explain": "27 · 4 = 108 und 3 · 7 = 21. Zusammen **129 €**." },
+    { "type": "input", "task": "Textaufgabe", "q": "An der Kinokasse wurden 135 Karten zu je 8 €, 218 Karten zu je 11 € und 96 Karten zu je 6 € verkauft. Wie viel Euro hat das Kino eingenommen? ___ €", "answer": "4054", "numeric": true, "placeholder": "Euro", "explain": "135 · 8 = 1080, 218 · 11 = 2398 und 96 · 6 = 576. Zusammen 1080 + 2398 + 576 = **4054 €**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Ein Kino hat an einem Abend 4054 € eingenommen. Es zahlt 1250 € Miete für den Film und 968 € für das Personal. Wie viel Gewinn macht das Kino? ___ €", "answer": "1836", "numeric": true, "placeholder": "Euro", "explain": "Kosten: 1250 + 968 = 2218 €. Gewinn = Einnahmen − Kosten: 4054 − 2218 = **1836 €**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Für ein Konzert wurden 412 Karten zu je 15 € und 286 Karten zu je 25 € verkauft. Die Band bekommt 4870 €, andere Kosten sind 2315 €. Wie viel Gewinn bleibt übrig? ___ €", "answer": "6145", "numeric": true, "placeholder": "Euro", "explain": "Einnahmen: 412 · 15 = 6180 und 286 · 25 = 7150, zusammen 13 330 €. Kosten: 4870 + 2315 = 7185 €. Gewinn: 13 330 − 7185 = **6145 €**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Mia fährt vier Tage Rad: 48 km, 63 km, 57 km und 72 km. Wie viele Kilometer fährt sie insgesamt? ___ km", "answer": "240", "numeric": true, "placeholder": "km", "explain": "48 + 63 + 57 + 72 = **240 km**. Geschickt: 48 + 72 = 120 und 63 + 57 = 120." },
+    { "type": "input", "task": "Textaufgabe", "q": "Mia fährt vier Tage Rad: 48 km, 63 km, 57 km und 72 km. Wie viele Kilometer fährt sie durchschnittlich am Tag? ___ km", "answer": "60", "numeric": true, "placeholder": "km", "explain": "Zusammen sind es 240 km. Durchschnitt: 240 : 4 = **60 km** pro Tag." },
+    { "type": "input", "task": "Textaufgabe", "q": "Familie Berg fährt in sechs Tagen durch Italien: 412 km, 285 km, 337 km, 298 km, 356 km und 310 km. Wie viele Kilometer sind das insgesamt? ___ km", "answer": "1998", "numeric": true, "placeholder": "km", "explain": "412 + 285 + 337 + 298 + 356 + 310 = **1998 km**. Überschlag: 400 + 300 + 300 + 300 + 400 + 300 = 2000 ✓" },
+    { "type": "input", "task": "Textaufgabe", "q": "Familie Berg fährt in sechs Tagen insgesamt 1998 km. Wie viele Kilometer fährt sie durchschnittlich am Tag? ___ km", "answer": "333", "numeric": true, "placeholder": "km", "explain": "1998 : 6 = **333 km**. Probe: 333 · 6 = 1998 ✓" },
+    { "type": "input", "task": "Textaufgabe", "q": "Eine Schule hat 24 Klassen mit je 27 Kindern. Wie viele Kinder gehen auf die Schule? ___", "answer": "648", "numeric": true, "placeholder": "Kinder", "explain": "24 · 27 = **648**. Geschickt: 24 · 25 = 600 und 24 · 2 = 48." },
+    { "type": "input", "task": "Textaufgabe", "q": "Ein Sammelalbum hat Platz für 1248 Sticker auf 16 Seiten. Auf jeder Seite sind gleich viele. Wie viele Sticker passen auf eine Seite? ___", "answer": "78", "numeric": true, "placeholder": "Sticker", "explain": "1248 : 16 = **78**. Probe: 78 · 16 = 1248 ✓" },
+    { "type": "input", "task": "Textaufgabe", "q": "Familie Kaya kauft 3 Fahrräder zu je 389 € und 2 Helme zu je 45 €. Sie bezahlt mit 1300 €. Wie viel Geld bekommt sie zurück? ___ €", "answer": "43", "numeric": true, "placeholder": "Euro", "explain": "3 · 389 = 1167 und 2 · 45 = 90, zusammen 1257 €. Zurück: 1300 − 1257 = **43 €**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Zu jedem der 17 Heimspiele eines Fußballvereins kommen 1350 Zuschauer. Wie viele Zuschauer sind das in der ganzen Saison? ___", "answer": "22950", "numeric": true, "placeholder": "Zuschauer", "explain": "1350 · 17 = 13 500 + 9450 = **22 950**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Eine Bücherei hat 4536 Bücher. In ein Regal passen 84 Bücher. Wie viele Regale braucht sie? ___", "answer": "54", "numeric": true, "placeholder": "Regale", "explain": "4536 : 84 = **54**. Probe: 54 · 84 = 4536 ✓" },
+    { "type": "input", "task": "Textaufgabe", "q": "Ein Theatersaal hat 28 Reihen mit je 32 Plätzen. Wie viele Zuschauer sehen drei ausverkaufte Vorstellungen? ___", "answer": "2688", "numeric": true, "placeholder": "Zuschauer", "explain": "Plätze: 28 · 32 = 896. Drei Vorstellungen: 896 · 3 = **2688**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Fünf Klassen mit je 26 Kindern fahren zum Wandertag. In einen Bus passen 50 Kinder. Wie viele Busse werden gebraucht? ___", "answer": "3", "numeric": true, "placeholder": "Busse", "explain": "5 · 26 = 130 Kinder. Zwei Busse reichen nur für 100 Kinder. Für die restlichen 30 braucht man noch einen Bus: **3 Busse**." },
+    { "type": "input", "task": "Textaufgabe", "q": "Ben hat schon 90 € gespart. Ein Fahrrad kostet 234 €. Jede Woche legt er 6 € dazu. Wie viele Wochen muss er noch sparen? ___", "answer": "24", "numeric": true, "placeholder": "Wochen", "explain": "Es fehlen 234 − 90 = 144 €. 144 : 6 = **24 Wochen**." },
+    { "type": "choice", "task": "Welche Rechnung passt?", "q": "48 Kinder und 6 Erwachsene fahren in den Zoo. Ein Kinderticket kostet 14 €, ein Erwachsenenticket 22 €. Was kostet der Ausflug?", "options": ["48 · 14 + 6 · 22", "(48 + 6) · (14 + 22)", "48 · 22 + 6 · 14", "48 + 14 + 6 + 22"], "answer": "48 · 14 + 6 · 22", "explain": "Jede Gruppe mal ihren eigenen Preis, dann zusammenzählen. Punkt vor Strich, also brauchst du keine Klammern." },
+    { "type": "choice", "task": "Was bedeutet das?", "q": "Wie berechnest du den **Gewinn**?", "options": ["Einnahmen − Kosten", "Einnahmen + Kosten", "Kosten − Einnahmen", "Einnahmen · Kosten"], "answer": "Einnahmen − Kosten" },
+    { "type": "choice", "task": "Was bedeutet das?", "q": "Wie berechnest du, wie viele Kilometer jemand **durchschnittlich am Tag** gefahren ist?", "options": ["Alle Kilometer zusammenzählen und durch die Anzahl der Tage teilen", "Die längste Strecke durch 2 teilen", "Die erste und die letzte Strecke zusammenzählen", "Alle Kilometer mit der Anzahl der Tage malnehmen"], "answer": "Alle Kilometer zusammenzählen und durch die Anzahl der Tage teilen" }
+  ]
+}

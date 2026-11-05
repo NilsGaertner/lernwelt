@@ -1,0 +1,21 @@
+{
+  "id": "geteilt-einstellig",
+  "line": "schriftlich-geteilt",
+  "order": 84,
+  "title": "Geteilt durch eine Ziffer",
+  "subtitle": "Schriftlich teilen, Schritt für Schritt",
+  "icon": "➗",
+  "card": "Wusstest du? Den Doppelpunkt **:** als Geteilt-Zeichen hat Gottfried Wilhelm Leibniz bekannt gemacht, derselbe wie beim Malpunkt. In England und den USA schreibt man dafür **÷**.",
+  "generator": "schriftlich",
+  "params": {"op": "div", "divisor": [2, 9], "quotientDigits": [2, 3], "digits": [3, 4]},
+  "itemCount": 100,
+  "explain": [
+    {"p": "Beim **schriftlichen Teilen** rechnest du von **links nach rechts**, anders als bei Plus, Minus und Mal. Die Fachwörter: **Dividend : Divisor = Quotient**."},
+    {"column": {"op": "div", "rows": ["7182", "9"], "caption": "7182 : 9 = **798**"}},
+    {"p": "7 : 9 geht nicht, die 7 ist zu klein. Also nimmst du die ersten **zwei** Ziffern: 71."},
+    {"table": {"head": ["", "Wie oft passt die 9?", "Rest, dann herunterholen"], "rows": [["1.", "71 : 9 = **7**, denn 7 · 9 = 63", "71 − 63 = 8 → **88**"], ["2.", "88 : 9 = **9**, denn 9 · 9 = 81", "88 − 81 = 7 → **72**"], ["3.", "72 : 9 = **8**, denn 8 · 9 = 72", "72 − 72 = 0, fertig"]]}},
+    {"tip": "Der Rest muss immer **kleiner** sein als die Zahl, durch die du teilst. Ist er größer, passt sie noch einmal mehr hinein."},
+    {"tip": "Probe mit der Umkehraufgabe: 798 · 9 = 7182 ✓"},
+    {"tip": "So geht es in der Lernwelt: Erst die Ziffer oben hinter das =, dann darunter die Malaufgabe und den Rest, jeweils von rechts. Die heruntergeholte Ziffer steht schon da. Bleibt vorne ein Kästchen frei, tippe **Weiter**. Gewertet wird nur das Ergebnis oben, die Zeilen darunter helfen dir beim Rechnen."}
+  ]
+}

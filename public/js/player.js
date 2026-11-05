@@ -1,6 +1,6 @@
 import {
   h, md, gapText, speak, canSpeak, sfx, escapeHtml, mapFigure, confetti, countUp, rankMeter, toast, guardBack,
-  columnMath, columnSum, columnSteps, mulMath, mulGrid, OP_SIGN, ask, notify, showPanel, dialogOpen, renderExplain, fmtScore,
+  columnMath, columnSum, columnSteps, mulMath, mulGrid, divMath, divGrid, OP_SIGN, ask, notify, showPanel, dialogOpen, renderExplain, fmtScore,
   playMusic,
 } from './ui.js';
 import { api } from './api.js';
@@ -310,6 +310,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
    */
   function columnArea(q) {
     if (q.op === 'mul') return mulArea(q);
+    if (q.op === 'div') return divArea(q);
     const maxLen = Math.max(...q.rows.map((r) => r.length));
     // Beim Plus mit Übertrag bleibt links eine Stelle frei – sonst verrät die Breite, ob vorne noch eine Ziffer kommt.
     // Beim Minus wird das Ergebnis nie länger als die obere Zahl.
@@ -346,8 +347,8 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       resCells.forEach((c, i) => { c.textContent = result[i]; });
       carryCells.forEach((c, i) => { if (c) c.textContent = carry[i]; });
     };
-    // Ein Übertrag ist höchstens 1 (beim Plus mit drei Zahlen 2).
-    const maxCarry = q.op === 'sub' ? 1 : q.rows.length - 1;
+    // Ein Übertrag ist höchstens 1 (bei drei Zahlen untereinander 2, beim Plus wie beim Minus).
+    const maxCarry = q.rows.length - 1;
     const press = (k) => {
       if (busy) return;
       if (/^\d$/.test(k)) {
@@ -602,6 +603,147 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     onEnter = check;
     dock(h('button.btn.line.big', { type: 'button', onclick: check }, 'Prüfen'));
     return h('.col-work', grid, pad);
+  }
+
+  /**
+   * Schriftlich teilen: wie im Heft Schritt für Schritt – Ergebnis-Ziffer oben, darunter das Produkt und der Rest
+   * (beide von rechts nach links, wie beim Minus). Die heruntergeholte Ziffer steht schon da.
+   * Ist eine Zeile vorne kürzer als ihr Platz, springt „Weiter“ zum nächsten Kästchen der Reihe nach.
+   * Gewertet wird nur das Ergebnis oben; die Zeilen darunter sind der Rechenweg und werden danach mit angezeigt.
+   */
+  function divArea(q) {
+    const m = divMath(q.rows);
+    const { width, steps, qStart } = m;
+    const rowIds = ['q', ...steps.flatMap((_, i) => [`p${i}`, `r${i}`])];
+    const vals = Object.fromEntries(rowIds.map((r) => [r, new Array(width).fill('')]));
+    const cells = Object.fromEntries(rowIds.map((r) => [r, []]));
+    // Reihenfolge wie im Heft: Ziffer oben, Produkt darunter, Rest – dann die nächste Ziffer oben.
+    const order = [];
+    steps.forEach((st, i) => {
+      order.push({ row: 'q', col: qStart + i });
+      for (let col = st.end; col >= st.pStart; col--) order.push({ row: `p${i}`, col });
+      for (let col = st.end; col >= st.dStart; col--) order.push({ row: `r${i}`, col });
+    });
+    const idx = (row, col) => order.findIndex((o) => o.row === row && o.col === col);
+    let cur = order[0];
+
+    const select = (row, col) => {
+      cur = { row, col };
+      Object.values(cells).flat().forEach((c) => c?.classList.remove('cur'));
+      cells[row][col]?.classList.add('cur');
+    };
+    const step = (dir) => {
+      const o = order[idx(cur.row, cur.col) + dir];
+      if (o) select(o.row, o.col);
+      return !!o;
+    };
+    // „Weiter“: zum ersten Kästchen der nächsten Zeile in der Reihenfolge.
+    const nextRow = () => {
+      const o = order.slice(idx(cur.row, cur.col)).find((e) => e.row !== cur.row);
+      if (o) select(o.row, o.col);
+    };
+    const moveVert = (dir) => {
+      const row = rowIds[rowIds.indexOf(cur.row) + dir];
+      if (!row) return;
+      const cols = cells[row].map((c, col) => (c ? col : null)).filter((c) => c != null);
+      const col = cols.includes(cur.col) ? cur.col : cols.reduce((best, c) => (Math.abs(c - cur.col) < Math.abs(best - cur.col) ? c : best));
+      select(row, col);
+    };
+    const paint = () => rowIds.forEach((r) => cells[r].forEach((c, col) => { if (c) c.textContent = vals[r][col]; }));
+    const press = (k) => {
+      if (busy) return;
+      if (/^\d$/.test(k)) {
+        vals[cur.row][cur.col] = k;
+        step(1);
+      } else if (k === 'back') {
+        if (vals[cur.row][cur.col]) vals[cur.row][cur.col] = '';
+        else if (step(-1)) vals[cur.row][cur.col] = '';
+      } else if (k === 'special') {
+        nextRow();
+      } else if (k === 'left' || k === 'right') {
+        const col = cur.col + (k === 'left' ? -1 : 1);
+        if (cells[cur.row][col]) select(cur.row, col);
+      } else if (k === 'up' || k === 'down') {
+        moveVert(k === 'up' ? -1 : 1);
+      }
+      paint();
+    };
+    onKey = (key) => {
+      const k = /^\d$/.test(key) ? key
+        : { Backspace: 'back', Delete: 'back', ArrowLeft: 'left', ArrowRight: 'right', ArrowUp: 'up', ArrowDown: 'down', Tab: 'special' }[key];
+      if (!k) return false;
+      press(k);
+      return true;
+    };
+
+    const btn = (row, col, cls, label) => (cells[row][col] = h(`button.cs-in${cls}`, {
+      type: 'button', 'aria-label': label, onclick: () => !busy && select(row, col),
+    }));
+    const grid = divGrid(q.rows, {
+      quotientCell: (k) => btn('q', qStart + k, '.cs-r', `Ergebnis ${k + 1}. Ziffer`),
+      prodCell: (i, col) => btn(`p${i}`, col, '', `Schritt ${i + 1}, Malaufgabe, ${col}. Stelle`),
+      diffCell: (i, col) => btn(`r${i}`, col, col >= steps[i].pStart ? '.cs-line' : '', `Schritt ${i + 1}, Rest, ${col}. Stelle`),
+    });
+    grid.removeAttribute('role');
+    grid.removeAttribute('aria-label');
+
+    const key = (label, k, cls = '') => h('button', { type: 'button', class: cls, onclick: () => press(k) }, label);
+    const pad = h('.keypad',
+      ['1', '2', '3', '4', '5', '6', '7', '8', '9'].map((d) => key(d, d)),
+      key('Weiter', 'special', 'k-carry'),
+      key('0', '0'),
+      h('button.k-back', { type: 'button', 'aria-label': 'Löschen', onclick: () => press('back') }, '⌫'));
+    select(cur.row, cur.col);
+
+    const shake = (msg, focus) => {
+      grid.classList.add('shake');
+      setTimeout(() => grid.classList.remove('shake'), 350);
+      if (msg) toast(msg);
+      if (focus) select(...focus);
+    };
+    const check = async () => {
+      if (busy) return;
+      const digits = steps.map((_, i) => vals.q[qStart + i]);
+      if (!digits.some(Boolean)) {
+        const started = rowIds.some((r) => r !== 'q' && vals[r].some(Boolean));
+        return shake(started ? 'Das Ergebnis kommt oben hinter das = .' : null, ['q', qStart]);
+      }
+      const gap = digits.findIndex((x) => !x);
+      if (gap >= 0) return shake('Da fehlt noch eine Ziffer im Ergebnis.', ['q', qStart + gap]);
+      const answer = digits.join('').replace(/^0+(?=\d)/, '');
+      Object.values(cells).flat().forEach((c) => c?.classList.remove('cur'));
+      q.entered = answer;
+      const res = await submit(q, answer);
+      if (!res) return select(cur.row, cur.col);
+      // Jetzt steht die richtige Rechnung da: falsche Ziffern rot, nicht ausgefüllte Zeilen grau.
+      const mark = (row, want, optional = () => false) => {
+        const typedRow = vals[row].some(Boolean);
+        cells[row].forEach((c, col) => {
+          if (!c) return;
+          const w = want(col);
+          const had = vals[row][col];
+          const free = optional(col) && !w;
+          c.textContent = w || (free ? had : '');
+          if (!typedRow) { if (w) c.classList.add('hint'); } else if (w || had) c.classList.add(had === w || free ? 'ok' : 'fix');
+        });
+      };
+      mark('q', (col) => String(steps[col - qStart]?.digit ?? ''));
+      steps.forEach((st, i) => {
+        const last = i === steps.length - 1;
+        mark(`p${i}`, (col) => digitAt(st.prod, st.end, col));
+        // Ein Rest 0 vor der heruntergeholten Ziffer darf dastehen oder fehlen.
+        const zeroOk = !last && st.diff === '0';
+        mark(`r${i}`, (col) => (zeroOk ? '' : digitAt(st.diff, st.end, col)), (col) => zeroOk && col === st.end && ['', '0'].includes(vals[`r${i}`][col]));
+      });
+    };
+    onEnter = check;
+    dock(h('button.btn.line.big', { type: 'button', onclick: check }, 'Prüfen'));
+    return h('.col-work', grid, pad);
+  }
+
+  /** Ziffer einer Zahl, die rechtsbündig in Spalte end aufhört. */
+  function digitAt(str, end, col) {
+    return col <= end ? str[str.length - 1 - (end - col)] ?? '' : '';
   }
 
   function dock(...buttons) {

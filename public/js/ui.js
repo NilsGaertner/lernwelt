@@ -54,7 +54,7 @@ export function gapText(s, fill = '') {
 // ---------------------------------------------------------------- Schriftliches Rechnen
 
 const PLACES = ['E', 'Z', 'H', 'T', 'ZT', 'HT', 'M', 'ZM', 'HM'];
-export const OP_SIGN = { add: '+', sub: '−', mul: '·' };
+export const OP_SIGN = { add: '+', sub: '−', mul: '·', div: ':' };
 
 /**
  * Rechnet eine schriftliche Rechnung Spalte für Spalte durch. Spalte 0 ist ganz links.
@@ -99,6 +99,7 @@ export function columnMath(rows, { width = null, op = 'add' } = {}) {
  */
 export function columnSum(rows, { op = 'add', width = null, carryCell = null, resultCell = null, carries: showCarries = null } = {}) {
   if (op === 'mul') return mulGrid(rows);
+  if (op === 'div') return divGrid(rows);
   const m = columnMath(rows, { width, op });
   const cell = (cls, text = '') => h(`span.${cls}`, text);
   const cells = [];
@@ -124,6 +125,7 @@ export function columnSum(rows, { op = 'add', width = null, carryCell = null, re
  */
 export function columnSteps(rows, { op = 'add', width = null } = {}) {
   if (op === 'mul') return mulSteps(rows);
+  if (op === 'div') return divSteps(rows);
   const { steps } = columnMath(rows, { width, op });
   const carryText = (k) => (k ? `, Übertrag **${k}**` : '');
   return h('ol.cs-steps', steps.map((st) => {
@@ -248,6 +250,105 @@ export function mulSteps(rows) {
   if (m.lb > 1) {
     items.push(h('li', h('b', '+'), h('span', { html: md(`Die Zeilen untereinander zusammenzählen (jede eine Stelle weiter rechts): **${groupDigits(m.total)}**`) })));
   }
+  return h('ol.cs-steps', items);
+}
+
+/**
+ * Schriftlich teilen wie im Heft: oben 8547 : 11 = 777, darunter für jede Ergebnis-Ziffer ein Schritt –
+ * das Produkt (− 77) unter der Teilzahl, darunter der Rest, daneben die heruntergeholte Ziffer.
+ * Spalte 0 bleibt frei für das Minuszeichen, die Ziffern der ersten Zahl stehen in Spalte 1 bis n.
+ * Jeder Schritt: part (Teilzahl), digit (Ergebnis-Ziffer), prod, diff (Rest), end (Spalte der letzten Ziffer
+ * der Teilzahl), down (heruntergeholte Ziffer oder null), pStart/dStart (erste Spalte der Produkt-/Rest-Kästchen).
+ * Die Kästchen sind so breit, wie Produkt bzw. Rest höchstens werden können – die Breite verrät nichts.
+ */
+export function divMath([a, b]) {
+  const n = a.length;
+  const lb = b.length;
+  const d = Number(b);
+  let i = 0;
+  let part = 0;
+  while (i < n && (part < d || i === 0)) part = part * 10 + Number(a[i++]);
+  let end = i; // Spalte im Gitter (Ziffer i-1 steht in Spalte i)
+  const steps = [];
+  for (;;) {
+    const digit = Math.floor(part / d);
+    const prod = digit * d;
+    const diff = part - prod;
+    const down = end < n ? a[end] : null;
+    steps.push({
+      part, digit, prod: String(prod), diff: String(diff), end, down,
+      pStart: Math.max(1, end - lb), dStart: Math.max(1, end - lb + 1),
+    });
+    if (down == null) break;
+    part = diff * 10 + Number(down);
+    end++;
+  }
+  const qStart = n + lb + 3;
+  return { n, lb, d, steps, quotient: String(Number(steps.map((s) => s.digit).join(''))), qStart, width: qStart + steps.length };
+}
+
+/** Ziffer einer Zahl, die rechtsbündig in Spalte end aufhört ('' wenn dort keine steht). */
+const digitAt = (str, end, col) => (col <= end ? str[str.length - 1 - (end - col)] ?? '' : '');
+
+/**
+ * Das Gitter fürs schriftliche Teilen. Ohne Optionen ist alles ausgerechnet (Beispiel auf der Merke-Seite).
+ * quotientCell(k) / prodCell(i, col) / diffCell(i, col) liefern eigene Kästchen zum Eintippen.
+ */
+export function divGrid(rows, { quotientCell = null, prodCell = null, diffCell = null } = {}) {
+  const m = divMath(rows);
+  const [a, b] = rows;
+  const cell = (cls, text = '') => h(`span.${cls}`, text);
+  const cells = [];
+  for (let col = 0; col < m.width; col++) {
+    if (col >= 1 && col <= m.n) cells.push(cell('cs-d', a[col - 1]));
+    else if (col === m.n + 1) cells.push(cell('cs-op', ':'));
+    else if (col > m.n + 1 && col < m.qStart - 1) cells.push(cell('cs-d', b[col - m.n - 2]));
+    else if (col === m.qStart - 1) cells.push(cell('cs-op', '='));
+    else if (col >= m.qStart) {
+      const k = col - m.qStart;
+      cells.push(quotientCell ? quotientCell(k) : cell('cs-r', String(m.steps[k].digit)));
+    } else cells.push(cell('cs-op'));
+  }
+  m.steps.forEach((st, i) => {
+    const last = i === m.steps.length - 1;
+    for (let col = 0; col < m.width; col++) {
+      if (col === st.pStart - 1) cells.push(cell('cs-op', '−'));
+      else if (col >= st.pStart && col <= st.end) cells.push(prodCell ? prodCell(i, col) : cell('cs-d', digitAt(st.prod, st.end, col)));
+      else cells.push(cell('cs-op'));
+    }
+    for (let col = 0; col < m.width; col++) {
+      // Der Strich steht unter dem Produkt.
+      const line = col >= st.pStart && col <= st.end ? '.cs-line' : '';
+      if (col >= st.dStart && col <= st.end) {
+        // Mittendrin ist ein Rest 0 vor der heruntergeholten Ziffer üblich, aber nicht nötig: dann steht dort nichts.
+        const text = !last && st.diff === '0' ? '' : digitAt(st.diff, st.end, col);
+        cells.push(diffCell ? diffCell(i, col) : cell(`cs-d${line}`, text));
+      } else if (col === st.end + 1 && st.down != null) cells.push(cell('cs-down', st.down));
+      else cells.push(cell(`cs-op${line}`));
+    }
+  });
+  return h('.colsum.div', { style: { '--cols': m.width }, role: 'img', 'aria-label': `${a} geteilt durch ${b} gleich ${m.quotient}` }, cells);
+}
+
+/**
+ * Der Rechenweg beim Teilen, Schritt für Schritt:
+ * „85 : 11 = 7 → 7 · 11 = 77, 85 − 77 = 8, die 4 herunterholen: 84“ … und am Ende die Probe.
+ */
+export function divSteps(rows) {
+  const m = divMath(rows);
+  const [a, b] = rows;
+  const items = [];
+  const first = m.steps[0];
+  const firstLen = String(first.part).length;
+  if (firstLen > 1 && Number(a.slice(0, firstLen - 1)) < m.d) {
+    items.push(h('li', h('b', '→'), h('span', { html: md(`${a.slice(0, firstLen - 1)} ist kleiner als ${b}, also nimmst du **${first.part}**.`) })));
+  }
+  m.steps.forEach((st, i) => {
+    let text = `${st.part} : ${b} = **${st.digit}** → ${st.digit} · ${b} = ${st.prod}, ${st.part} − ${st.prod} = ${st.diff}`;
+    text += st.down != null ? `, die ${st.down} herunterholen: ${Number(st.diff) * 10 + Number(st.down)}` : ' → fertig, kein Rest';
+    items.push(h('li', h('b', `${i + 1}.`), h('span', { html: md(text) })));
+  });
+  items.push(h('li', h('b', '✓'), h('span', { html: md(`Probe: ${groupDigits(m.quotient)} · ${b} = ${groupDigits(a)}`) })));
   return h('ol.cs-steps', items);
 }
 

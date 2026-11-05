@@ -484,6 +484,8 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 .colsum .cs-carry { font-size: 0.6em; place-items: end center; padding-bottom: 3px; color: var(--line); }
 .colsum .cs-line { box-shadow: inset 0 3px 0 var(--ink); }
 .colsum .cs-r { color: var(--line); }
+/* Schriftlich teilen: die heruntergeholte Ziffer */
+.colsum .cs-down { color: var(--ink-2); }
 .colsum button {
   font: inherit; color: var(--ink); padding: 0; border: 0; border-radius: 6px;
   background: color-mix(in srgb, var(--line) 7%, transparent); touch-action: manipulation;

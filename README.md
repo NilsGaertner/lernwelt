@@ -45,6 +45,14 @@ Die Schriftlich-minus-Linie übt die schriftliche Subtraktion bis 1000 im **Erg�
 
 Die Schriftlich-mal-Linie übt das schriftliche Multiplizieren wie im Schulheft: Die Aufgabe steht in einer Zeile (3597 · 19), darunter kommt für jede Ziffer des zweiten Faktors ein Teilprodukt, jedes eine Stelle weiter rechts, und darunter die Summe mit Übertrags-Kästchen. Die Stationen: mal eine Ziffer (165 · 8), mal zwei Ziffern (421 · 17) und große Aufgaben mit bis zu drei Zeilen. Ist eine Zeile vorne fertig, springt „Nächste Zeile“ weiter. Gewertet wird nur das Ergebnis. Bei einem Fehler zeigt die App alle Zeilen richtig an (selbst eingetragene Ziffern grün oder rot, im Kopf gerechnete Zeilen grau) und den Rechenweg mit Überschlag und „merke“ für jede Ziffer. Die Aufgaben kommen aus demselben Generator wie Plus und Minus (`"op": "mul"`, `"factorDigits"` für die Stellen des zweiten Faktors).
 
+**Mathe: Schriftlich geteilt (3 Stationen + Endbahnhof)**
+
+Die Schriftlich-geteilt-Linie übt das schriftliche Dividieren wie im Heft: Oben steht die Aufgabe in einer Zeile (8547 : 11 = 777), darunter für jede Ergebnis-Ziffer ein Schritt mit Malaufgabe (− 77), Strich und Rest. Die heruntergeholte Ziffer steht schon da. Die Reihenfolge ist wie im Heft: Ziffer oben, dann Produkt und Rest (jeweils von rechts), dann die nächste Ziffer. Bleibt vorne ein Kästchen frei, springt „Weiter“ zur nächsten Zeile. Gewertet wird nur das Ergebnis oben. Bei einem Fehler zeigt die App alle Zeilen richtig an und den Rechenweg Schritt für Schritt mit Probe. Die Stationen: durch eine Ziffer, durch 11 bis 15 (mit Vielfachen-Tabelle), große Aufgaben mit Teilern bis 25 (Ziffern schätzen). Die Aufgaben gehen immer ohne Rest auf und haben keine 0 im Ergebnis. Sie kommen aus demselben Generator (`"op": "div"`, `"divisor"`, `"quotientDigits"`). Der Endbahnhof hat 8 Aufgaben.
+
+**Mathe: Probearbeit (3 Stationen + Endbahnhof)**
+
+Nach dem „Übungsteil für die Klassenarbeit“ aus der Schule, mit neuen Zahlen. Die Linie steht ganz oben im Mathe-Netzplan. Die Stationen: große Zahlen schriftlich plus und minus (bis 7 Stellen, vier Zahlen untereinander oder zwei Zahlen abziehen, Generator mit `"mix"`), „Alles gemischt“ (Runden mit Z/H/T/ZT/HT/Mio., Ordnen, Lücken, Vorrangregel mit verschachtelten Klammern, vorteilhaft rechnen, Distributivgesetz, schriftlich teilen auf dem Zettel) und Textaufgaben (Eintritt, Einnahmen, Gewinn, Durchschnitt). Der Endbahnhof hat 12 Aufgaben.
+
 **Mathe: Stoff aus der 5. Klasse, Kapitel „Rechnen mit natürlichen Zahlen“ (4 Linien, 12 Stationen)**
 
 Nach den Heften und Arbeitsblättern aus der Schule. Bei einem Fehler zeigen viele Aufgaben den Rechenweg.

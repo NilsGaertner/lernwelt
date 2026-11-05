@@ -1,0 +1,21 @@
+{
+  "id": "geteilt-zweistellig",
+  "line": "schriftlich-geteilt",
+  "order": 85,
+  "title": "Geteilt durch 11 bis 15",
+  "subtitle": "Zweistellige Zahlen als Teiler",
+  "icon": "🧩",
+  "card": "Merke: Schreib dir die **Vielfachen** an den Rand: 14, 28, 42, 56, 70, 84, 98, 112, 126. Dann findest du jede Ziffer schnell.",
+  "generator": "schriftlich",
+  "params": {"op": "div", "divisor": [11, 15], "quotientDigits": [2, 3], "digits": [3, 4]},
+  "itemCount": 100,
+  "explain": [
+    {"p": "Mit einer zweistelligen Zahl teilst du genauso. Nur das Malnehmen ist schwerer, darum hilft eine **Vielfachen-Liste**."},
+    {"table": {"head": ["·", "11", "12", "13", "14", "15"], "rows": [["2", "22", "24", "26", "28", "30"], ["3", "33", "36", "39", "42", "45"], ["4", "44", "48", "52", "56", "60"], ["5", "55", "60", "65", "70", "75"], ["6", "66", "72", "78", "84", "90"], ["7", "77", "84", "91", "98", "105"], ["8", "88", "96", "104", "112", "120"], ["9", "99", "108", "117", "126", "135"]]}},
+    {"column": {"op": "div", "rows": ["4368", "14"], "caption": "4368 : 14 = **312**"}},
+    {"table": {"head": ["", "Wie oft passt die 14?", "Rest, dann herunterholen"], "rows": [["1.", "43 : 14 = **3**, denn 3 · 14 = 42", "43 − 42 = 1 → **16**"], ["2.", "16 : 14 = **1**, denn 1 · 14 = 14", "16 − 14 = 2 → **28**"], ["3.", "28 : 14 = **2**, denn 2 · 14 = 28", "28 − 28 = 0, fertig"]]}},
+    {"tip": "4 : 14 geht nicht. Darum nimmst du gleich die ersten zwei Ziffern: 43."},
+    {"tip": "Überschlag vorher: 4368 : 14 ≈ 4200 : 14 = 300. Das Ergebnis 312 passt."},
+    {"tip": "Probe: 312 · 14 = 4368 ✓"}
+  ]
+}
