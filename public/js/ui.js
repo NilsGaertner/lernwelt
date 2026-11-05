@@ -780,3 +780,34 @@ export function relDay(iso) {
   if (days === 1) return 'gestern';
   return `vor ${days} Tagen`;
 }
+
+// ---------------------------------------------------------------- Wochenkarte
+
+const WEEKDAYS = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+
+/** Die sieben Tage der Wochenkarte als kleine Leiste: ✔ für Tage, die zählen. */
+export function weekStrip(week, { big = false } = {}) {
+  return h(`.week-strip${big ? '.big' : ''}`, { role: 'img', 'aria-label': `Wochenkarte: ${week.count} von 7 Tagen` },
+    week.days.map((d, i) => h('span.wk-day', {
+      class: [d.counted ? 'counted' : '', d.today ? 'today' : '', d.future ? 'future' : ''].filter(Boolean).join(' '),
+    }, h('span.wk-name', WEEKDAYS[i]), h('span.wk-mark', d.counted ? '✔' : ''))));
+}
+
+/** „5 Minuten Bonus und eine Lootbox“ */
+export const weekPrize = (b) => `${b.minutes} Minuten Bonus${b.lootbox ? ' und die Lootbox der Woche' : ''}`;
+
+/** Ein Satz dazu, was die Wochenkarte gerade bringt – als Info, nicht als Auftrag. */
+export function weekHint(week) {
+  const lootLeft = week.lootboxDays - week.count;
+  const loot = week.count >= week.lootboxDays
+    ? ' Die Lootbox der Woche hast du schon. 🎁'
+    : week.lootboxReachable && !week.next.lootbox ? ` Bei ${week.lootboxDays} Tagen gibt es die Lootbox der Woche – noch ${lootLeft === 1 ? 'ein Tag' : `${lootLeft} Tage`}.` : '';
+  if (week.countedToday) {
+    const next = week.nextIsNewWeek
+      ? ' Morgen fängt eine neue Wochenkarte an.'
+      : week.next.minutes ? ` Ein weiterer Tag bringt ${weekPrize(week.next)}.` : '';
+    return `📅 Heute ist auf deiner Wochenkarte!${next}${loot}`;
+  }
+  const more = week.minStars - week.starsToday;
+  return `📅 Mit ${more} ★ mehr aus Fahrten kommt heute auf deine Wochenkarte${week.next.minutes ? ` – das bringt ${weekPrize(week.next)}` : ''}.${loot}`;
+}

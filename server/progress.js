@@ -37,7 +37,7 @@ export function rankInfo(xp) {
 
 export const unlockedTrains = (xp) => RANKS.filter((r) => xp >= r.min).map((r) => r.train);
 
-// ---------------------------------------------------------------- Tage-Serie mit Serienschutz
+// ---------------------------------------------------------------- Tage-Serie (für Abzeichen und den Elternbereich) und Wochenkarte
 
 const dayGap = (a, b) => Math.round((new Date(`${a}T12:00:00`) - new Date(`${b}T12:00:00`)) / 86400000);
 
@@ -52,13 +52,54 @@ export function rideStarsOn(childId, day = localDay()) {
   return db.prepare(`SELECT COALESCE(SUM(${RIDE_STARS_SQL}), 0) AS n FROM sessions WHERE child_id = ? AND day = ?`).get(childId, day).n;
 }
 
+// ---------------------------------------------------------------- Wochenkarte
+
+/** Ab so vielen Tagen in einer Woche gibt es die Lootbox der Woche. */
+export const WEEK_LOOTBOX_DAYS = 5;
+
+/** Montag der Woche, in der der Tag liegt. */
+export function weekStart(day = localDay()) {
+  const dow = (new Date(`${day}T12:00:00`).getDay() + 6) % 7;
+  return addDays(day, -dow);
+}
+
 /**
- * Bonus für den n-ten Tag einer Serie. Die Serie läuft in Wochen, jede Woche fängt wieder klein an:
- * Tag 1 nichts, Tag 2–4 je 5 Minuten, Tag 5–7 je 10 Minuten und am 7. Tag dazu eine Lootbox.
+ * Bonus für den n-ten Tag auf der Wochenkarte. Die Tage müssen nicht hintereinander liegen – ein ausgelassener Tag
+ * kostet nur seinen eigenen Bonus. 1. Tag nichts, 2.–4. Tag je 5 Minuten, ab dem 5. Tag je 10 Minuten, am 5. Tag eine Lootbox.
  */
-export function streakBonus(n) {
-  const day = ((n - 1) % 7) + 1;
-  return { day, minutes: day >= 5 ? 10 : day >= 2 ? 5 : 0, lootbox: day === 7 };
+export function weekBonus(n) {
+  return { day: n, minutes: n >= 5 ? 10 : n >= 2 ? 5 : 0, lootbox: n === WEEK_LOOTBOX_DAYS };
+}
+
+/** Die Wochenkarte von Montag bis Sonntag: Welche Tage zählen (mindestens STREAK_MIN_STARS Sterne aus Fahrten)? */
+export function weekInfo(childId, today = localDay()) {
+  const start = weekStart(today);
+  const counted = new Set(
+    db.prepare(`SELECT day FROM sessions WHERE child_id = ? AND day BETWEEN ? AND ? GROUP BY day HAVING SUM(${RIDE_STARS_SQL}) >= ?`)
+      .all(childId, start, addDays(start, 6), STREAK_MIN_STARS).map((r) => r.day)
+  );
+  const days = Array.from({ length: 7 }, (_, i) => {
+    const iso = addDays(start, i);
+    return { iso, counted: counted.has(iso), today: iso === today, future: iso > today };
+  });
+  const count = counted.size;
+  const countedToday = counted.has(today);
+  // Tage, die in dieser Woche noch dazukommen können (heute eingeschlossen, falls er noch nicht zählt)
+  const open = days.filter((d) => d.future || (d.today && !d.counted)).length;
+  const isSunday = days[6].today;
+  return {
+    start,
+    days,
+    count,
+    countedToday,
+    starsToday: rideStarsOn(childId, today),
+    minStars: STREAK_MIN_STARS,
+    lootboxDays: WEEK_LOOTBOX_DAYS,
+    lootboxReachable: count < WEEK_LOOTBOX_DAYS && count + open >= WEEK_LOOTBOX_DAYS,
+    // Was der nächste Tag auf der Karte bringt: heute, falls er noch nicht zählt, sonst morgen (sonntags beginnt morgen eine neue Karte)
+    next: countedToday && isSunday ? weekBonus(1) : weekBonus(count + 1),
+    nextIsNewWeek: countedToday && isSunday,
+  };
 }
 
 /**
@@ -97,8 +138,6 @@ export function streakInfo(childId) {
     practicedToday: days.has(today),
     starsToday: rideStarsOn(childId, today),
     minStars: STREAK_MIN_STARS,
-    // Der nächste Serientag: heute, falls er noch nicht zählt, sonst morgen
-    next: streakBonus(n + 1),
   };
 }
 

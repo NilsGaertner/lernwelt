@@ -1,7 +1,7 @@
 import {
   h, md, gapText, speak, canSpeak, sfx, escapeHtml, mapFigure, confetti, countUp, rankMeter, toast, guardBack,
   columnMath, columnSum, columnSteps, mulMath, mulGrid, divMath, divGrid, OP_SIGN, ask, notify, showPanel, dialogOpen, renderExplain, fmtScore,
-  playMusic,
+  playMusic, weekStrip, weekHint, weekPrize,
 } from './ui.js';
 import { api } from './api.js';
 import { lootbox } from './lootbox.js';
@@ -982,19 +982,14 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
           h('h2', 'Ab aufs Abstellgleis!'),
           h('p', `Du hast diese Station ${station.limit}× mit 3 Sternen geschafft – die kannst du! Sie macht jetzt Pause: Ab sofort gibt es hier keine Sterne mehr. Neue Sterne warten auf den anderen Stationen.`))));
     }
-    if (result.streakDay) {
-      const s = result.streakDay;
-      const next = result.streakProgress.next;
+    if (result.weekDay && result.week) {
+      const w = result.weekDay;
       panels.push(h('section.panel.rank-up',
-        h('.big-train', { 'aria-hidden': 'true' }, '🔥'),
+        h('.big-train', { 'aria-hidden': 'true' }, '📅'),
         h('div',
-          h('h2', s.days === 1 ? 'Heute zählt für deine Serie!' : `${s.days} Tage am Stück!`),
-          h('p', s.minutes
-            ? `Dafür gibt es ${s.minutes} Minuten Bonus${s.lootbox ? ' und eine Lootbox' : ''}. `
-            : 'Du hast heute genug Sterne gesammelt. ',
-            next.day === 1
-              ? 'Morgen beginnt deine nächste Serien-Woche.'
-              : `Übe morgen wieder, dann gibt es ${next.minutes} Minuten${next.lootbox ? ' und eine Lootbox' : ''}!`))));
+          h('h2', w.day === 1 ? 'Der erste Tag auf deiner Wochenkarte!' : `${w.day}. Tag auf deiner Wochenkarte!`),
+          weekStrip(result.week),
+          h('p', w.minutes ? `Dafür gibt es ${weekPrize(w)}.` : 'Du hast heute genug Sterne für deine Wochenkarte gesammelt.'))));
     }
     if (result.lootboxes?.length) {
       panels.push(h('section.panel',
@@ -1061,8 +1056,8 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
             station && !station.parked && !station.justRetired && station.limit > 0 && station.perfect > 0 && station.perfect < station.limit
               ? h('p.muted', `🎁 ${station.perfect} von ${station.limit} Fahrten mit 3 Sternen: Bei ${station.limit} kommt die Station aufs Abstellgleis, und du bekommst eine Lootbox.`)
               : null,
-            !result.streakDay && result.streakProgress.starsToday < result.streakProgress.minStars
-              ? h('p.muted', `🔥 Noch ${result.streakProgress.minStars - result.streakProgress.starsToday} ★ aus Fahrten heute, dann zählt der Tag für deine Serie${result.streakProgress.next.minutes ? ` – das bringt ${result.streakProgress.next.minutes} Minuten Bonus` : ''}.`)
+            result.week && !result.weekDay && !result.week.countedToday
+              ? h('p.muted', weekHint(result.week))
               : null,
             result.capped > 0 ? h('p.muted', 'Dein Sterne-Limit für heute ist erreicht. Morgen gibt es wieder neue – üben lohnt sich trotzdem!') : null,
             !result.capped && result.runToday >= 2 && ['unit', 'exam'].includes(result.mode)

@@ -1,4 +1,4 @@
-import { h, starRow, toast, prefs, speak, canSpeak, rankMeter, sfx, renderExplain, ask, closeDialogs } from './ui.js';
+import { h, starRow, toast, prefs, speak, canSpeak, rankMeter, sfx, renderExplain, ask, closeDialogs, weekStrip, weekHint } from './ui.js';
 import { api } from './api.js';
 import { runRide, collectCard } from './player.js';
 import { runBlitz, runChart, familyBoard } from './blitz.js';
@@ -97,10 +97,9 @@ function kidBar(ov) {
       h('span.ring', { 'aria-hidden': 'true' }, faceOf(ov.child)),
       h('span.bar', ov.child.name)),
     h('.spacer'),
-    ov.streak > 0
-      ? h('span.streak', {
-          title: `${ov.streak} Tage am Stück mit mindestens ${ov.streakInfo.minStars} Sternen.${ov.streakInfo.shieldReady ? ' Serienschutz bereit: Einmal pro Woche darf ein Tag ausfallen.' : ' Serienschutz diese Woche schon benutzt.'}`,
-        }, '🔥 ', ov.streak, ov.streakInfo.shieldReady ? h('span.shield', { 'aria-label': 'Serienschutz bereit' }, '🛡️') : null)
+    ov.week?.count > 0 && !ov.child.adult
+      ? h('span.streak', { title: `Wochenkarte: diese Woche an ${ov.week.count === 1 ? 'einem Tag' : `${ov.week.count} Tagen`} dabei` },
+          '📅 ', `${ov.week.count}/7`)
       : null,
     ov.child.adult
       ? null
@@ -220,7 +219,6 @@ async function dashboardView(id) {
 
   render(
     kidBar(ov),
-    shieldNote(ov),
     ov.child.adult ? null : boostBanner(id, meta, ov.boost, null),
     lootNote(id, ov),
     helloCard(id, ov),
@@ -230,12 +228,6 @@ async function dashboardView(id) {
     h('h2.section-title', '📚 Deine Fächer'),
     h('section.subject-grid', stats.map((st) => subjectCard(id, st, ov))),
     recentRides(id, meta, ov));
-}
-
-function shieldNote(ov) {
-  return ov.streakInfo.shieldUsedOn && ov.streakInfo.shieldUsedOn >= addDaysIso(-2)
-    ? h('p.shield-note', `🛡️ Dein Serienschutz hat deine Serie gerettet! Du bist jetzt ${ov.streak} Tage dabei. Der nächste Schutz ist in einer Woche wieder bereit.`)
-    : null;
 }
 
 function lootNote(id, ov) {
@@ -249,15 +241,6 @@ function lootNote(id, ov) {
     h('a', { href: `#/kid/${id}/boxen` }, 'Jetzt öffnen →'));
 }
 
-/** Wie weit der Tag für die Serie ist, und was der nächste Serientag bringt. */
-function streakHint(s) {
-  const prize = (b) => `${b.minutes} Minuten Bonus${b.lootbox ? ' und eine Lootbox' : ''}`;
-  if (s.practicedToday) {
-    return h('p.muted.small', `🔥 Heute zählt für deine Serie!${s.next.minutes ? ` Morgen gibt es ${prize(s.next)}.` : ''}`);
-  }
-  return h('p.muted.small', `🔥 Noch ${s.minStars - s.starsToday} ★ aus Fahrten, dann zählt heute für deine Serie${s.next.minutes ? ` – das bringt ${prize(s.next)}` : ''}.`);
-}
-
 /** Begrüßung mit Companion und den Sternen von heute. */
 function helloCard(id, ov) {
   const { child } = ov;
@@ -269,7 +252,8 @@ function helloCard(id, ov) {
     h('.hs-text',
       h('p', limit > 0 ? `Heute verdient: ${ov.earnedToday} von ${limit} ★` : `Heute verdient: ${ov.earnedToday} ★`),
       ov.limitRaised ? h('p.muted.small', '🎁 Heute gibt es ein Extra-Limit von deinen Eltern!') : null,
-      streakHint(ov.streakInfo),
+      ov.week ? weekStrip(ov.week) : null,
+      ov.week ? h('p.muted.small', weekHint(ov.week)) : null,
       limit > 0 ? h('.meter', { role: 'img', 'aria-label': `${ov.earnedToday} von ${limit}` },
         h('span', { style: { width: `${Math.min(100, (ov.earnedToday / limit) * 100)}%` } })) : null),
     h('a.btn.ghost.small', { href: `#/kid/${id}/tickets` }, '🎟️ Eintauschen'));
@@ -278,7 +262,7 @@ function helloCard(id, ov) {
       h('h1', `${hi}, ${child.name}!`),
       h('p.muted', ov.plan.done
         ? 'Dein Fahrplan für heute ist geschafft – stark! 🎉'
-        : ov.streak > 1 ? `🔥 Schon ${ov.streak} Tage am Stück – mach weiter so!` : 'Schön, dass du da bist. Wohin fährst du heute?'),
+        : ov.week?.count > 1 ? `Diese Woche schon an ${ov.week.count} Tagen dabei – stark!` : 'Schön, dass du da bist. Wohin fährst du heute?'),
       stars),
     cat?.el);
 }
@@ -551,12 +535,6 @@ function boostBanner(id, meta, boost, currentSubject) {
   const href = boost.unit ? `#/kid/${id}/station/${boost.subject}/${boost.unit}`
     : boost.subject && boost.subject !== currentSubject ? `#/kid/${id}/s/${boost.subject}` : null;
   return h('p.boost-note', text, href ? [' ', h('a', { href }, 'Hinfahren →')] : null);
-}
-
-function addDaysIso(n) {
-  const d = new Date();
-  d.setDate(d.getDate() + n);
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
 // ================================================================ Aufgaben-Werkstatt
@@ -955,17 +933,14 @@ function stampPanel(id, meta, ov) {
           stamped.has(d.iso) ? h('span.sg-stamp', { 'aria-label': `${d.day}.: Stempel` }, '✔') : h('span', d.day))))),
     planCard(id, ov.plan, meta),
     h('section.panel',
-      h('h2', `🔥 Deine Serie – ${ov.streak} ${ov.streak === 1 ? 'Tag' : 'Tage'}`),
-      h('p', `Ein Tag zählt für deine Serie, wenn du an ihm mindestens ${ov.streakInfo.minStars} ★ mit Fahrten verdienst (Boni zählen nicht mit). Für jeden Tag am Stück gibt es Bonuszeit:`),
+      h('h2', `📅 Deine Wochenkarte – ${ov.week.count} von 7 Tagen`),
+      weekStrip(ov.week, { big: true }),
+      h('p', `Ein Tag kommt auf deine Wochenkarte, wenn du an ihm mindestens ${ov.week.minStars} ★ mit Fahrten verdienst (Boni zählen nicht mit). Die Tage müssen nicht hintereinander sein. Für jeden Tag gibt es Bonuszeit:`),
       h('ul',
-        h('li', 'Tag 1: der Start'),
-        h('li', 'Tag 2 bis 4: je 5 Minuten'),
-        h('li', 'Tag 5 bis 7: je 10 Minuten – und am 7. Tag eine Lootbox 🎁')),
-      h('p.muted', 'Nach 7 Tagen beginnt eine neue Serien-Woche. Die Bonuszeit zählt nicht zum Tageslimit.'),
-      h('h3', '🛡️ Serienschutz'),
-      h('p', ov.streakInfo.shieldReady
-        ? 'Dein Serienschutz ist bereit: Wenn du mal einen Tag nicht übst, bleibt deine Serie trotzdem erhalten. Das geht einmal pro Woche.'
-        : 'Dein Serienschutz wurde in den letzten 7 Tagen schon benutzt. Nach einer Woche ist er wieder bereit.')),
+        h('li', '1. Tag der Woche: der Start'),
+        h('li', '2. bis 4. Tag: je 5 Minuten'),
+        h('li', `5. bis 7. Tag: je 10 Minuten – und am ${ov.week.lootboxDays}. Tag die Lootbox der Woche 🎁`)),
+      h('p.muted', 'Lässt du einen Tag aus, geht nichts verloren. Jeden Montag fängt eine neue Wochenkarte an. Die Bonuszeit zählt nicht zum Tageslimit.')),
   ];
 }
 
@@ -1023,8 +998,8 @@ async function boxesView(id) {
   const { closed, opened } = ov.lootboxes;
   const retireAfter = ov.settings.retireAfter;
   const how = retireAfter > 0
-    ? `Eine Lootbox bekommst du, wenn du eine Station ${retireAfter}× mit 3 Sternen schaffst (dann kommt sie aufs Abstellgleis), wenn du zum ersten Mal den Endbahnhof einer Linie bestehst und am 7. Tag deiner Serie. Manchmal schenken dir auch deine Eltern eine.`
-    : 'Eine Lootbox bekommst du, wenn du zum ersten Mal den Endbahnhof einer Linie bestehst und am 7. Tag deiner Serie. Manchmal schenken dir auch deine Eltern eine.';
+    ? `Eine Lootbox bekommst du, wenn du eine Station ${retireAfter}× mit 3 Sternen schaffst (dann kommt sie aufs Abstellgleis), wenn du zum ersten Mal den Endbahnhof einer Linie bestehst und am 5. Tag einer Woche auf deiner Wochenkarte. Manchmal schenken dir auch deine Eltern eine.`
+    : 'Eine Lootbox bekommst du, wenn du zum ersten Mal den Endbahnhof einer Linie bestehst und am 5. Tag einer Woche auf deiner Wochenkarte. Manchmal schenken dir auch deine Eltern eine.';
   render(
     kidBar(ov),
     h('section.panel',

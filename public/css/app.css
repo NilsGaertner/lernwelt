@@ -1431,3 +1431,17 @@ button.blitz-tile[disabled] { opacity: 0.6; cursor: progress; }
 .companion.hero { width: 140px; height: 140px; margin: 0; flex: none; }
 .companion .breath-head { transform-box: fill-box; transform-origin: 50% 85%; }
 @media (prefers-reduced-motion: reduce) { .companion .bubble, .cp-particle { display: none !important; } }
+
+/* Wochenkarte */
+.week-strip { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; max-width: 300px; margin: 6px 0; }
+.week-strip.big { max-width: 420px; gap: 6px; }
+.wk-day {
+  display: grid; justify-items: center; gap: 2px; padding: 4px 0; border-radius: 10px;
+  background: var(--paper-2); border: 2px solid transparent; font-size: 0.75rem; color: var(--muted);
+}
+.week-strip.big .wk-day { padding: 8px 0; font-size: 0.9rem; }
+.wk-day .wk-mark { min-height: 1.2em; font-weight: 800; color: var(--go); font-size: 1rem; }
+.week-strip.big .wk-mark { font-size: 1.3rem; }
+.wk-day.counted { background: color-mix(in srgb, var(--go) 18%, var(--paper-2)); color: var(--ink); }
+.wk-day.today { border-color: var(--star); color: var(--ink); font-weight: 700; }
+.wk-day.future { opacity: 0.45; }

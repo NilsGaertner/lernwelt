@@ -11,7 +11,7 @@ import {
 } from './rewards.js';
 import { localDay, addDays, nowIso, randomId, hashPin, verifyPin } from './util.js';
 import {
-  streakInfo, xpOf, rankInfo, unlockedTrains, RANKS, dailyPlan, stampDays, stampCount, lineStatus, blitzBests, blitzRecords, blitzTopics,
+  streakInfo, weekInfo, xpOf, rankInfo, unlockedTrains, RANKS, dailyPlan, stampDays, stampCount, lineStatus, blitzBests, blitzRecords, blitzTopics,
   lineUnits, nextStation, setStationState, notArchivedSql,
 } from './progress.js';
 import { lootboxes, openLootbox, giftLootbox } from './lootbox.js';
@@ -72,6 +72,7 @@ app.get('/api/children/:id/overview', (req, res) => {
     boost: activeBoost(),
     streak: streak(child.id),
     streakInfo: streakInfo(child.id),
+    week: weekInfo(child.id),
     progress: unitProgress(child.id),
     lines: lineStatus(child.id),
     plan: dailyPlan(child.id),

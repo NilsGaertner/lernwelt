@@ -5,7 +5,7 @@ import { CATS, SKINS, avatarSvg, avatarText } from './avatar-data.js';
 import { RARITIES, rarityLevel } from './lootbox.js';
 
 const AVATARS = [...Object.keys(CATS).map((k) => `cat:${k}`), '🦊', '🐼', '🐯', '🦁', '🐸', '🐙', '🦄', '🐲', '🐧', '🐨', '🦖', '🐱', '🐶', '🚀', '⚽', '🎮'];
-const KIND = { session: 'Übung', bonus: 'Bonus', badge: 'Abzeichen', ticket: 'Ticket', refund: 'Rückgabe', manual: 'Eltern', system: 'Hinweis', lootbox: 'Lootbox', streak: 'Serie' };
+const KIND = { session: 'Übung', bonus: 'Bonus', badge: 'Abzeichen', ticket: 'Ticket', refund: 'Rückgabe', manual: 'Eltern', system: 'Hinweis', lootbox: 'Lootbox', streak: 'Serie', week: 'Wochenkarte' };
 
 const papi = (path, opts = {}) => api(`/parent${path}`, { ...opts, parent: true });
 

@@ -1,5 +1,5 @@
 // Lootboxen: Überraschungs-Medienzeit für besondere Erfolge – eine Station aufs Abstellgleis gebracht
-// oder eine ganze Linie geschafft (Endbahnhof bestanden), der 7. Tag einer Serie – oder als Geschenk der Eltern. Das Kind sammelt die Boxen und öffnet sie selbst;
+// oder eine ganze Linie geschafft (Endbahnhof bestanden), der 5. Tag einer Woche auf der Wochenkarte – oder als Geschenk der Eltern. Das Kind sammelt die Boxen und öffnet sie selbst;
 // was drin ist, wird erst beim Öffnen ausgelost. Die Sterne daraus zählen nicht zum Tageslimit.
 import { db, getPublicSettings, transaction } from './db.js';
 import { localDay, nowIso, randomId } from './util.js';
@@ -25,7 +25,7 @@ function roll() {
   return LOOT[0].minutes;
 }
 
-/** Legt eine Box an. Jede Station, jede Linie und jeder Serientag gibt höchstens eine; sonst null. */
+/** Legt eine Box an. Jede Station, jede Linie und jede Woche gibt höchstens eine; sonst null. */
 export function grantLootbox(childId, { source, subject, ref, note }) {
   const r = db
     .prepare('INSERT OR IGNORE INTO lootboxes (child_id, source, subject, ref, note, created_at) VALUES (?, ?, ?, ?, ?, ?)')

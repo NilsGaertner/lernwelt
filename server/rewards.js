@@ -4,7 +4,7 @@ import { subjects } from './content.js';
 import { localDay, nowIso, fmtScore } from './util.js';
 import {
   streak, dailyPlan, stampCount, examsPassed, xpOf, rankInfo, PASSED_SQL, stationState, useExtraRide, nextStation,
-  rideStarsOn, streakBonus, STREAK_MIN_STARS,
+  rideStarsOn, weekBonus, weekInfo, STREAK_MIN_STARS,
 } from './progress.js';
 import { grantLootbox } from './lootbox.js';
 import { grantRandomSkin } from './avatars.js';
@@ -139,7 +139,7 @@ export function shortRideStars(rating, runToday, total, full) {
 }
 
 /**
- * Schließt eine Übung ab: speichert sie, vergibt Sterne (mit Tageslimit), Abzeichen, Fahrplan-Stempel, XP, Lootboxen und den Serienbonus.
+ * Schließt eine Übung ab: speichert sie, vergibt Sterne (mit Tageslimit), Abzeichen, Fahrplan-Stempel, XP, Lootboxen und den Bonus der Wochenkarte.
  * mode: 'unit' | 'review' | 'due' | 'exam' (unitId = Linie) | 'blitz' (unitId = Blitz-Thema, keine Sterne für die Runde selbst)
  * boosted: die Fahrt wurde während eines „Doppelte Sterne“-Events gestartet
  * Eine Station auf dem Abstellgleis bringt keine Sterne; die Fahrt, die sie dorthin bringt, gibt eine Lootbox.
@@ -253,23 +253,24 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
     }
     db.prepare('UPDATE sessions SET stars = ? WHERE id = ?').run(awarded, sessionId);
 
-    // Serie: Bringt diese Fahrt den Tag über die Schwelle, zählt er, und es gibt den Bonus des Serientags –
-    // am Tageslimit vorbei, wie bei den Lootboxen.
+    // Wochenkarte: Bringt diese Fahrt den Tag über die Schwelle, kommt er auf die Karte, und es gibt den Bonus
+    // für den n-ten Tag dieser Woche – am Tageslimit vorbei, wie bei den Lootboxen.
     const rideStarsToday = rideStarsOn(childId, day);
-    let streakDay = null;
+    const week = weekInfo(childId, day);
+    let weekDay = null;
     if (!adult && rideStarsToday >= STREAK_MIN_STARS && rideStarsToday - rideStars < STREAK_MIN_STARS) {
-      const bonus = streakBonus(stats.streak);
+      const bonus = weekBonus(week.count);
       const stars = Math.ceil(bonus.minutes / getPublicSettings().minutesPerStar);
       if (stars > 0) {
-        const note = `🔥 ${stats.streak}. Tag am Stück: ${bonus.minutes} Minuten Bonus`;
-        insert.run(childId, stars, 'streak', note, day, now);
-        rewards.push({ kind: 'streak', amount: stars, given: stars, note });
+        const note = `📅 ${week.count}. Tag auf der Wochenkarte: ${bonus.minutes} Minuten Bonus`;
+        insert.run(childId, stars, 'week', note, day, now);
+        rewards.push({ kind: 'week', amount: stars, given: stars, note });
         awarded += stars;
       }
       if (bonus.lootbox) {
-        newBoxes.push(grantLootbox(childId, { source: 'streak', subject: '', ref: day, note: `${stats.streak} Tage am Stück geübt` }));
+        newBoxes.push(grantLootbox(childId, { source: 'week', subject: '', ref: week.start, note: `${week.count} Tage in einer Woche geübt` }));
       }
-      streakDay = { days: stats.streak, ...bonus, stars };
+      weekDay = { ...bonus, stars };
     }
 
     const xpAfter = xpOf(childId);
@@ -291,8 +292,8 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
       earnedToday: earnedOn(childId, day),
       dailyLimit: dailyStarLimit,
       streak: stats.streak,
-      streakDay,
-      streakProgress: { starsToday: rideStarsToday, minStars: STREAK_MIN_STARS, next: streakBonus(stats.streak + 1) },
+      weekDay,
+      week: adult ? null : week,
       bestCombo,
       comboRecord: mode !== 'blitz' && bestCombo >= 3 && bestCombo > prevCombo,
       newCard: mode === 'unit' && rating === 3 && prevBest < 3,
