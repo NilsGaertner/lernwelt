@@ -1,0 +1,31 @@
+{
+  "id": "mc-stacks",
+  "line": "minecraft",
+  "order": 1,
+  "title": "Stacks und Kisten",
+  "subtitle": "Mal und geteilt mit 64",
+  "icon": "📦",
+  "card": "Wusstest du? Die meisten Blöcke stapeln sich bis **64**, Eier, Schneebälle und Enderperlen aber nur bis **16**. 64 = 2 · 2 · 2 · 2 · 2 · 2 = 2⁶.",
+  "explain": [
+    {"p": "In Minecraft steckt viel Mathe. Ein **Stack** sind 64 Blöcke, eine **Kiste** hat 27 Plätze, eine große Kiste 54."},
+    {"table": {"head": ["Frage", "Rechnung"], "rows": [["Wie viele Blöcke sind 7 Stacks?", "7 · 64 = **448**"], ["Wie viele Stacks sind 1344 Bretter?", "1344 : 64 = **21**"], ["Wie viele Blöcke passen in eine volle Kiste?", "27 · 64 = **1728**"]]}},
+    {"tip": "Mal 64 im Kopf: 7 · 64 = 7 · 60 + 7 · 4 = 420 + 28 = 448."},
+    {"tip": "Bleibt beim Teilen etwas übrig, ist das der **Rest**: 47 Diamanten : 3 = 15 Spitzhacken, Rest 2 Diamanten."}
+  ],
+  "exercises": [
+    {"type": "input", "task": "Minecraft", "q": "Steve hat 7 volle Stacks Bruchstein. Ein Stack sind 64 Blöcke. Wie viele Blöcke sind das? ___", "answer": "448", "numeric": true, "placeholder": "Blöcke", "explain": "7 · 64 = 420 + 28 = **448**."},
+    {"type": "input", "task": "Minecraft", "q": "Alex hat 1344 Holzbretter. Wie viele volle Stacks zu 64 sind das? ___", "answer": "21", "numeric": true, "placeholder": "Stacks", "explain": "1344 : 64 = **21**. Probe: 21 · 64 = 1344 ✓"},
+    {"type": "input", "task": "Minecraft", "q": "Eine Kiste hat 27 Plätze. In jeden passt ein Stack mit 64 Blöcken. Wie viele Blöcke passen in eine volle Kiste? ___", "answer": "1728", "numeric": true, "placeholder": "Blöcke", "explain": "27 · 64 = 1280 + 448 = **1728**."},
+    {"type": "input", "task": "Minecraft", "q": "Eine große Kiste hat 54 Plätze, jeder mit einem vollen Stack (64). Wie viele Blöcke passen hinein? ___", "answer": "3456", "numeric": true, "placeholder": "Blöcke", "explain": "Doppelt so viel wie eine kleine Kiste: 2 · 1728 = **3456**."},
+    {"type": "input", "task": "Minecraft", "q": "Aus 1 Holzstamm werden 4 Bretter. Steve fällt 38 Stämme. Wie viele Bretter bekommt er? ___", "answer": "152", "numeric": true, "placeholder": "Bretter"},
+    {"type": "input", "task": "Minecraft", "q": "Eine Werkbank braucht 4 Bretter. Wie viele Werkbänke kann Alex aus 156 Brettern bauen? ___", "answer": "39", "numeric": true, "placeholder": "Werkbänke"},
+    {"type": "input", "task": "Minecraft", "q": "Eine Diamantspitzhacke braucht 3 Diamanten. Steve hat 47 Diamanten. Wie viele Spitzhacken kann er bauen? ___", "answer": "15", "numeric": true, "placeholder": "Spitzhacken", "explain": "47 : 3 = 15 Rest 2. Er baut **15** Spitzhacken, 2 Diamanten bleiben übrig."},
+    {"type": "input", "task": "Minecraft", "q": "Aus 1 Kohle und 1 Stock werden 4 Fackeln. Wie viele Kohle braucht Alex für 96 Fackeln? ___", "answer": "24", "numeric": true, "placeholder": "Kohle"},
+    {"type": "input", "task": "Minecraft", "q": "Ein Eisenblock besteht aus 9 Eisenbarren. Wie viele Barren stecken in 23 Eisenblöcken? ___", "answer": "207", "numeric": true, "placeholder": "Barren"},
+    {"type": "input", "task": "Minecraft", "q": "Eier stapeln sich nur bis 16. Wie viele Stacks braucht man für 208 Eier? ___", "answer": "13", "numeric": true, "placeholder": "Stacks", "explain": "208 : 16 = **13**. Probe: 13 · 16 = 208 ✓"},
+    {"type": "input", "task": "Minecraft", "q": "Steve füllt 4 Kisten mit Erde. Jede Kiste hat 27 Plätze mit je 64 Blöcken. Wie viele Erdblöcke sind das? ___", "answer": "6912", "numeric": true, "placeholder": "Blöcke", "explain": "Eine Kiste: 27 · 64 = 1728. Vier Kisten: 4 · 1728 = **6912**."},
+    {"type": "input", "task": "Minecraft", "q": "Ein Ofen braucht 8 Bruchstein. Wie viele Öfen kann Alex aus 3 Stacks Bruchstein bauen? ___", "answer": "24", "numeric": true, "placeholder": "Öfen", "explain": "3 · 64 = 192 Bruchstein. 192 : 8 = **24** Öfen."},
+    {"type": "choice", "task": "Minecraft", "q": "Alex hat 9 Stacks Sand (je 64) und gibt 150 Sand ab. Welche Rechnung passt?", "options": ["9 · 64 − 150", "(9 − 150) · 64", "9 + 64 − 150", "9 · (64 − 150)"], "answer": "9 · 64 − 150", "explain": "Erst ausrechnen, wie viel Sand sie hat (9 · 64), dann 150 abziehen. Punkt vor Strich, also ohne Klammer."},
+    {"type": "input", "task": "Minecraft", "q": "Alex hat 9 Stacks Sand (je 64) und gibt 150 Sand ab. Wie viel Sand hat sie noch? ___", "answer": "426", "numeric": true, "placeholder": "Sand", "explain": "9 · 64 = 576, dann 576 − 150 = **426**."}
+  ]
+}

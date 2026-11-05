@@ -1,0 +1,31 @@
+{
+  "id": "mc-crafting",
+  "line": "minecraft",
+  "order": 3,
+  "title": "Crafting-Rechnungen",
+  "subtitle": "Klammern, Punkt vor Strich, geschickt rechnen",
+  "icon": "🛠️",
+  "card": "Merke: Bei 12 · (5 + 4) rechnest du erst die Klammer: 12 TNT brauchen je 5 Schwarzpulver **und** 4 Sand, also 12 · 9 = 108 Teile.",
+  "explain": [
+    {"p": "Beim Craften braucht jedes Teil mehrere Zutaten. Dann helfen **Klammern** und **Punkt vor Strich**."},
+    {"table": {"head": ["Frage", "Rechnung"], "rows": [["12 TNT, je 5 Schwarzpulver und 4 Sand", "12 · (5 + 4) = 12 · 9 = **108**"], ["3 Stacks Eisen und 17 einzelne Barren", "3 · 64 + 17 = 192 + 17 = **209**"], ["25 Häuser mit je 104 Blöcken", "25 · 100 + 25 · 4 = 2500 + 100 = **2600**"]]}},
+    {"tip": "KlaPoPuStri gilt auch in Minecraft: erst Klammer, dann Potenz, dann Punkt, dann Strich."},
+    {"tip": "Ein Glaswürfel mit 5 Blöcken Kantenlänge: 5 · 5 · 5 = 5³ = 125 Blöcke."}
+  ],
+  "exercises": [
+    {"type": "input", "task": "Minecraft", "q": "TNT braucht 5 Schwarzpulver und 4 Sand. Wie viele Teile braucht man für 12 TNT? 12 · (5 + 4) = ___", "answer": "108", "numeric": true, "placeholder": "Teile", "explain": "Erst die Klammer: 5 + 4 = 9. Dann 12 · 9 = **108**."},
+    {"type": "input", "task": "Minecraft", "q": "Ein Kuchen braucht 3 Weizen, 2 Zucker, 1 Ei und 3 Milch. Wie viele Teile sind das für 7 Kuchen? ___", "answer": "63", "numeric": true, "placeholder": "Teile", "explain": "Pro Kuchen 3 + 2 + 1 + 3 = 9 Teile. 7 · 9 = **63**."},
+    {"type": "input", "task": "Minecraft", "q": "Steve hat 3 Stacks Eisen (je 64) und 17 einzelne Barren. Wie viele Eisenbarren sind das? 3 · 64 + 17 = ___", "answer": "209", "numeric": true, "placeholder": "Barren", "explain": "Punkt vor Strich: 3 · 64 = 192, dann 192 + 17 = **209**."},
+    {"type": "choice", "task": "Minecraft", "q": "Was rechnest du bei 3 · 64 + 17 zuerst?", "options": ["3 · 64", "64 + 17", "3 + 64", "egal"], "answer": "3 · 64", "explain": "Punkt vor Strich: erst 3 · 64 = 192."},
+    {"type": "input", "task": "Minecraft", "q": "Ein Bücherregal braucht 6 Bretter. Für einen starken Zaubertisch braucht man 15 Bücherregale. Wie viele Bretter sind das? ___", "answer": "90", "numeric": true, "placeholder": "Bretter"},
+    {"type": "input", "task": "Minecraft", "q": "Ein Buch braucht 3 Papier. Ein Bücherregal braucht 3 Bücher. Wie viel Papier braucht man für 15 Bücherregale? ___", "answer": "135", "numeric": true, "placeholder": "Papier", "explain": "15 · 3 = 45 Bücher, 45 · 3 = **135** Papier."},
+    {"type": "input", "task": "Minecraft", "q": "Alex baut 25 Häuser mit je 104 Blöcken. Rechne geschickt: 25 · 104 = ___", "answer": "2600", "numeric": true, "placeholder": "Blöcke", "explain": "25 · 100 + 25 · 4 = 2500 + 100 = **2600**."},
+    {"type": "input", "task": "Minecraft", "q": "Eine Mauer hat 6 Reihen mit je 98 Blöcken. 98 · 6 = ___", "answer": "588", "numeric": true, "placeholder": "Blöcke", "explain": "Geschickt: 100 · 6 − 2 · 6 = 600 − 12 = **588**."},
+    {"type": "input", "task": "Minecraft", "q": "Alex hat 200 Pfeile. Sie verschießt 3-mal je 25 Pfeile und findet dann 40 wieder. 200 − 3 · 25 + 40 = ___", "answer": "165", "numeric": true, "placeholder": "Pfeile", "explain": "Punkt vor Strich: 3 · 25 = 75. Dann von links: 200 − 75 = 125, 125 + 40 = **165**."},
+    {"type": "input", "task": "Minecraft", "q": "Ein Glaswürfel ist 5 Blöcke lang, 5 breit und 5 hoch. Wie viele Glasblöcke sind das? 5³ = ___", "answer": "125", "numeric": true, "placeholder": "Blöcke", "explain": "5 · 5 · 5 = 25 · 5 = **125**."},
+    {"type": "input", "task": "Minecraft", "q": "Ein Ofen schmilzt 1 Erz in 10 Sekunden. Wie viele Sekunden braucht er für 2 Stacks Eisenerz (je 64)? ___", "answer": "1280", "numeric": true, "placeholder": "Sekunden", "explain": "2 · 64 = 128 Erze, 128 · 10 = **1280** Sekunden."},
+    {"type": "input", "task": "Minecraft", "q": "Ein Stück Kohle reicht für 8 Erze. Wie viele Kohle braucht Steve für 2 Stacks Erz (je 64)? ___", "answer": "16", "numeric": true, "placeholder": "Kohle", "explain": "128 : 8 = **16**."},
+    {"type": "input", "task": "Minecraft", "q": "Ein Dorfbewohner gibt 1 Smaragd für 20 Weizen. Alex hat 13 Stacks Weizen (je 64). Wie viele Smaragde bekommt sie höchstens? ___", "answer": "41", "numeric": true, "placeholder": "Smaragde", "explain": "13 · 64 = 832 Weizen. 832 : 20 = 41 Rest 12. Also **41** Smaragde, 12 Weizen bleiben übrig."},
+    {"type": "input", "task": "Minecraft", "q": "Steve baut einen Zaun um ein quadratisches Feld. Jede Seite ist 16 + 16 Blöcke lang. (16 + 16) · 4 = ___", "answer": "128", "numeric": true, "placeholder": "Blöcke", "explain": "Erst die Klammer: 32. Dann 32 · 4 = **128**."}
+  ]
+}

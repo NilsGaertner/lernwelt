@@ -35,11 +35,11 @@
     { "type": "choice", "task": "Gemischtes Zahlwort", "q": "27 067 485 000 = ___", "options": ["27 Mrd. 67 Mio. 485 Tsd.", "27 Mio. 67 Tsd. 485", "270 Mrd. 674 Mio. 850 Tsd.", "2 Mrd. 706 Mio. 748 Tsd."], "answer": "27 Mrd. 67 Mio. 485 Tsd." },
     { "type": "choice", "task": "Welche Zahl ist das?", "q": "1 Mio. 737 Tsd. 400 = ___", "options": ["1 737 400", "1 737 004", "17 374 000", "1 073 740"], "answer": "1 737 400" },
     { "type": "choice", "task": "Welche Zahl ist das?", "q": "5 Mrd. 8 Mio. = ___", "options": ["5 008 000 000", "5 800 000 000", "5 080 000 000", "58 000 000"], "answer": "5 008 000 000", "explain": "5 Mrd. = 5 000 000 000. Die 8 Mio. kommen ins Millionen-Päckchen: 5 **008** 000 000." },
-    { "type": "input", "task": "Schreib als Zahl.", "q": "fünf Millionen = ___", "answer": "5000000", "numeric": true, "placeholder": "Zahl" },
-    { "type": "input", "task": "Schreib als Zahl.", "q": "2 Mio. 30 Tsd. = ___", "answer": "2030000", "numeric": true, "placeholder": "Zahl", "explain": "2 Mio. = 2 000 000, dazu 30 Tsd. = 30 000. Zusammen **2 030 000**." },
-    { "type": "input", "task": "Schreib als Zahl.", "q": "7 Mrd. = ___", "answer": "7000000000", "numeric": true, "placeholder": "Zahl", "explain": "Eine Milliarde hat 9 Nullen: **7 000 000 000**." },
-    { "type": "input", "task": "Schreib als Zahl.", "q": "45 Tsd. 9 = ___", "answer": "45009", "numeric": true, "placeholder": "Zahl", "explain": "Das letzte Päckchen hat drei Ziffern: 45 **009**." },
-    { "type": "input", "task": "Schreib als Zahl.", "q": "12 Mio. 500 Tsd. = ___", "answer": "12500000", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Wie sieht das als Zahl aus?", "q": "fünf Millionen = ___", "answer": "5000000", "numeric": true, "placeholder": "Zahl" },
+    { "type": "input", "task": "Wie sieht das als Zahl aus?", "q": "2 Mio. 30 Tsd. = ___", "answer": "2030000", "numeric": true, "placeholder": "Zahl", "explain": "2 Mio. = 2 000 000, dazu 30 Tsd. = 30 000. Zusammen **2 030 000**." },
+    { "type": "input", "task": "Wie sieht das als Zahl aus?", "q": "7 Mrd. = ___", "answer": "7000000000", "numeric": true, "placeholder": "Zahl", "explain": "Eine Milliarde hat 9 Nullen: **7 000 000 000**." },
+    { "type": "input", "task": "Wie sieht das als Zahl aus?", "q": "45 Tsd. 9 = ___", "answer": "45009", "numeric": true, "placeholder": "Zahl", "explain": "Das letzte Päckchen hat drei Ziffern: 45 **009**." },
+    { "type": "input", "task": "Wie sieht das als Zahl aus?", "q": "12 Mio. 500 Tsd. = ___", "answer": "12500000", "numeric": true, "placeholder": "Zahl" },
     { "type": "choice", "task": "Stellenwert", "q": "Welchen Wert hat die **7** in 3 712 000?", "options": ["700 000", "7 000", "70 000", "7 000 000"], "answer": "700 000", "explain": "3 | 712 | 000 – die 7 steht bei den Hunderttausendern." },
     { "type": "choice", "task": "Stellenwert", "q": "Welchen Wert hat die **4** in 1 048 576?", "options": ["40 000", "4 000", "400 000", "400"], "answer": "40 000", "explain": "1 | 048 | 576 – die 4 steht bei den Zehntausendern." }
   ]

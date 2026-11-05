@@ -44,6 +44,7 @@ const routes = [
   [/^kid\/(\d+)\/blitz\/([\w-]+)\/([\w-]+)$/, blitzView],
   [/^kid\/(\d+)\/tickets$/, ticketsView],
   [/^kid\/(\d+)\/boxen$/, boxesView],
+  [/^kid\/(\d+)\/werkstatt$/, werkstattView],
   [/^parent(?:\/(.*))?$/, (rest) => parentView(app, rest ?? '', { reloadMeta: () => loadMeta(true) })],
 ];
 
@@ -125,7 +126,8 @@ async function startRide(opts) {
   const { childId, subject, unit, line, mode = 'unit', lineColor, backHash, mapHash = backHash, train, card } = opts;
   let session;
   try {
-    session = await api('/sessions', { method: 'POST', body: { childId, subject, unit, line, mode } });
+    const length = mode === 'exam' ? null : prefs.rideLength;
+    session = await api('/sessions', { method: 'POST', body: { childId, subject, unit, line, mode, length } });
   } catch (err) {
     toast(err.message);
     return;
@@ -170,7 +172,7 @@ function missionHref(id, m, meta) {
 function planCard(id, plan, meta) {
   return h('section.plan', { class: plan.done ? 'done' : '' },
     h('.plan-head',
-      h('h2', '📋 Tagesfahrplan'),
+      h('h2', '💡 Ideen für heute'),
       h('a.plan-stamps', { href: `#/kid/${id}/sammlung/stempel`, title: 'Zum Stempelheft' }, `🔖 ${plan.stamps} Stempel`)),
     h('ol.missions', plan.missions.map((m) => {
       const href = !m.done && missionHref(id, m, meta);
@@ -180,8 +182,8 @@ function planCard(id, plan, meta) {
         h('span.sr-only', m.done ? ' (erledigt)' : ' (offen)'));
     })),
     plan.done
-      ? h('p.plan-msg', 'Alles erledigt – der Stempel für heute ist dir sicher! 🎉')
-      : h('p.plan-msg.muted', `Schaffst du alle drei, gibt es einen Stempel und +50 XP.`));
+      ? h('p.plan-msg', 'Alle drei geschafft – der Stempel für heute ist dir sicher! 🎉')
+      : h('p.plan-msg.muted', 'Nur Ideen, kein Muss. Wer alle drei schafft, bekommt einen Stempel und +50 XP.'));
 }
 
 // ================================================================ Profilauswahl
@@ -245,7 +247,7 @@ async function homeView(id, subjectId) {
         h('span', { style: { fontSize: '1.8rem' }, 'aria-hidden': 'true' }, '🔁'),
         h('p', h('strong', 'Wiederholen: '),
           dueN === 1 ? 'Eine Aufgabe ist heute wieder dran' : `${dueN} Aufgaben sind heute wieder dran`,
-          ' – damit du nichts vergisst.'),
+          '.'),
         h('button.btn', {
           type: 'button',
           onclick: (e) => {
@@ -260,11 +262,11 @@ async function homeView(id, subjectId) {
     ? h('section.review-card',
         h('span', { style: { fontSize: '1.8rem' }, 'aria-hidden': 'true' }, '🔧'),
         h('p', h('strong', 'Fehler-Training: '),
-          reviewN === 1 ? 'Eine Aufgabe will nochmal geübt werden.' : `${reviewN} Aufgaben wollen nochmal geübt werden.`),
+          reviewN === 1 ? 'Eine Aufgabe ist noch wackelig.' : `${reviewN} Aufgaben sind noch wackelig.`),
         h('button.btn', {
           type: 'button',
           onclick: () => startRide({ childId: Number(id), subject: subject.id, mode: 'review', lineColor: '#D7263D', backHash: hash, train: ov.train }),
-        }, 'Jetzt üben'))
+        }, 'Üben'))
     : null;
 
   const tabs = meta.subjects.length > 1
@@ -304,7 +306,7 @@ async function homeView(id, subjectId) {
                 h('span.stop', { 'aria-hidden': 'true' }),
                 h('span.st-text',
                   h('span.st-name', `🏁 Endbahnhof`),
-                  h('span.st-sub', exam.passed ? `Bestanden (bestes Ergebnis ${exam.best} %) – nochmal fahren?` : 'Die große Prüfung über die ganze Linie!'),
+                  h('span.st-sub', exam.passed ? `Bestanden (bestes Ergebnis ${exam.best} %) – nochmal fahren?` : 'Alle Stationen der Linie gemischt.'),
                   exam.passed ? null : h('span.st-flag', 'Jetzt offen')),
                 h('span.term-icon', { 'aria-hidden': 'true' }, exam.passed ? '🏆' : '🎯'))
             : h('span.term-locked',
@@ -349,7 +351,7 @@ async function homeView(id, subjectId) {
       list);
   }));
 
-  render(kidBar(ov), shieldNote, boostNote, lootNote, continueCard(id, subject, progress), planCard(id, ov.plan, meta), tabs, today, due, review, blitz, map);
+  render(kidBar(ov), shieldNote, boostNote, lootNote, continueCard(id, subject, progress), planCard(id, ov.plan, meta), werkstattCard(id, ov), tabs, today, due, review, blitz, map);
 }
 
 /** Klappt die geschafften Stationen einer Linie ein und aus. */
@@ -428,6 +430,105 @@ function addDaysIso(n) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
+// ================================================================ Aufgaben-Werkstatt
+
+/** Karte auf der Startseite: Hier stellt das Kind die Fragen, die anderen rechnen. */
+function werkstattCard(id, ov) {
+  const w = ov.werkstatt ?? { open: 0, solved: 0, mine: 0 };
+  const text = ov.child.adult
+    ? w.open ? `${w.open === 1 ? 'Eine Aufgabe wartet' : `${w.open} Aufgaben warten`} auf dich.` : 'Hier landen die Aufgaben, die dir gestellt werden.'
+    : w.open
+      ? `Hier stellst du die Fragen. Und ${w.open === 1 ? 'eine Aufgabe wartet' : `${w.open} Aufgaben warten`} auf dich.`
+      : w.solved ? `Hier stellst du die Fragen. ${w.solved === 1 ? 'Eine Antwort ist schon da – stimmt sie?' : `${w.solved} Antworten sind schon da – stimmen sie?`}`
+        : 'Hier stellst du die Fragen – und die Großen müssen rechnen.';
+  return h('a.review-card.werkstatt-card', { href: `#/kid/${id}/werkstatt` },
+    h('span', { style: { fontSize: '1.8rem' }, 'aria-hidden': 'true' }, '✏️'),
+    h('p', h('strong', 'Aufgaben-Werkstatt: '), text));
+}
+
+async function werkstattView(id) {
+  const [ov, w] = await Promise.all([api(`/children/${id}/overview`), api(`/children/${id}/werkstatt`)]);
+  const reload = () => werkstattView(id);
+  const adult = !!ov.child.adult;
+
+  // Eine neue Aufgabe stellen
+  const text = h('textarea.type-in.w-text', {
+    rows: 4, maxlength: 500, placeholder: 'Zum Beispiel: Steve hat 5 Kisten mit je 27 Diamanten. Wie viele Diamanten sind das?',
+    'aria-label': 'Deine Aufgabe',
+  });
+  const answer = h('input.type-in.w-answer', {
+    type: 'text', maxlength: 60, autocomplete: 'off', placeholder: 'Lösung (geheim)', 'aria-label': 'Die richtige Lösung',
+  });
+  const save = async (e) => {
+    e.preventDefault();
+    try {
+      await api(`/children/${id}/werkstatt`, { method: 'POST', body: { text: text.value, answer: answer.value } });
+      toast('Aufgabe gestellt! Jetzt sind die anderen dran.');
+      reload();
+    } catch (err) {
+      toast(err.message);
+    }
+  };
+  const form = h('form.panel.w-form', { onsubmit: save },
+    h('h2', adult ? '✏️ Selbst eine Aufgabe stellen' : '✏️ Eine Aufgabe stellen'),
+    h('p.muted', adult
+      ? 'Auch Erwachsene dürfen Aufgaben stellen.'
+      : 'Du denkst dir eine Aufgabe aus – Mathe, Englisch oder was du willst. Die anderen lösen sie, und du siehst, ob sie richtig liegen.'),
+    text, answer,
+    h('button.btn.line.big', { type: 'submit' }, 'Aufgabe stellen'));
+
+  // Aufgaben, die mir gestellt wurden
+  const forMe = w.forMe.length
+    ? h('section.panel',
+        h('h2', '📬 Aufgaben für dich'),
+        h('ul.w-list', w.forMe.map((p) => {
+          const head = h('p.w-from', faceOf(p.author), ` ${p.author.name} fragt:`);
+          const q = h('p.w-q', p.text);
+          if (p.tried) {
+            return h('li', { class: p.tried.correct ? 'ok' : 'bad' }, head, q,
+              h('p.w-result', p.tried.correct ? `✔ Richtig: ${p.tried.given}` : `✘ Du hattest ${p.tried.given}, richtig ist ${p.tried.answer}.`));
+          }
+          const input = h('input.type-in', { type: 'text', maxlength: 60, autocomplete: 'off', placeholder: 'Deine Antwort', 'aria-label': 'Deine Antwort' });
+          const send = async (e) => {
+            e.preventDefault();
+            try {
+              const r = await api(`/children/${id}/werkstatt/${p.id}/try`, { method: 'POST', body: { given: input.value } });
+              toast(r.correct ? 'Richtig!' : `Leider nicht – richtig ist ${r.answer}.`);
+              reload();
+            } catch (err) {
+              toast(err.message);
+            }
+          };
+          return h('li', head, q, h('form.w-try', { onsubmit: send }, input, h('button.btn', { type: 'submit' }, 'Antworten')));
+        })))
+    : null;
+
+  // Meine Aufgaben und wer sie wie gelöst hat
+  const remove = async (p) => {
+    if (!(await ask('Aufgabe löschen?', { text: p.text, ok: 'Löschen', cancel: 'Behalten', danger: true }))) return;
+    try {
+      await api(`/children/${id}/werkstatt/${p.id}`, { method: 'DELETE' });
+      reload();
+    } catch (err) {
+      toast(err.message);
+    }
+  };
+  const mine = w.mine.length
+    ? h('section.panel',
+        h('h2', '🧾 Deine Aufgaben'),
+        h('ul.w-list', w.mine.map((p) => h('li',
+          h('p.w-q', p.text),
+          h('p.w-answer', `Deine Lösung: ${p.answer}`),
+          p.tries.length
+            ? h('ul.w-tries', p.tries.map((t) => h('li', { class: t.correct ? 'ok' : 'bad' },
+                faceOf(t.solver), ` ${t.solver.name}: ${t.given} ${t.correct ? '✔' : '✘'}`)))
+            : h('p.muted', 'Noch hat niemand geantwortet.'),
+          h('button.btn.ghost.small', { type: 'button', onclick: () => remove(p) }, 'Löschen')))))
+    : null;
+
+  render(kidBar(ov), h('a.back', { href: `#/kid/${id}` }, '← Zur Startseite'), forMe, form, mine);
+}
+
 // ================================================================ Station
 
 async function stationView(id, subjectId, unitId) {
@@ -495,6 +596,23 @@ async function stationView(id, subjectId, unitId) {
       : null
   );
 
+  // Das Kind bestimmt, wie lang die Fahrt wird. Kurze Fahrten bringen anteilig weniger Sterne.
+  const rideLabel = () => (moveOn ? '🔁 Nochmal' : `🚆 Losfahren · ${prefs.rideLength ?? n} Aufgaben`);
+  const lengths = [...new Set([3, 5, n])].filter((x) => x <= n);
+  const lenNote = h('span.len-note');
+  const lenPick = h('.ride-length', { role: 'radiogroup', 'aria-label': 'Wie lang soll die Fahrt sein?' },
+    h('span.len-label', 'Wie lang?'),
+    lengths.map((x) => h('button', {
+      type: 'button', role: 'radio', 'data-len': x,
+      onclick: () => { prefs.rideLength = x === n ? null : x; syncLength(); },
+    }, String(x))),
+    lenNote);
+  const syncLength = () => {
+    const cur = prefs.rideLength ?? n;
+    lenPick.querySelectorAll('button').forEach((b) => b.setAttribute('aria-checked', String(Number(b.dataset.len) === cur)));
+    lenNote.textContent = cur < n ? 'weniger ★' : 'volle ★';
+    ride.textContent = rideLabel();
+  };
   const ride = h('button.btn.big', {
     type: 'button',
     class: moveOn ? 'ghost' : 'line',
@@ -506,8 +624,10 @@ async function stationView(id, subjectId, unitId) {
         train: ov.train, card: u ? unitCard(subject, u, subject.units.indexOf(u) + 1) : null,
       });
     },
-  }, moveOn ? '🔁 Nochmal' : `🚆 Losfahren · ${n} Aufgaben`);
+  }, rideLabel());
+  syncLength();
   const dock = h('.dock', { style: { '--line': line.color } },
+    p?.parked || ov.child.adult ? null : lenPick,
     h('.dock-inner',
       moveOn ? h('a.btn.line.big', { href: nextHref }, '🚉 Nächster Halt →') : null,
       ride));
@@ -698,7 +818,7 @@ function stampPanel(id, meta, ov) {
   return [
     h('section.panel',
       h('h2', `🔖 Stempelheft – ${ov.plan.stamps} Stempel`),
-      h('p.muted', 'Jeden Tag, an dem du alle drei Aufgaben vom Tagesfahrplan schaffst, bekommst du einen Stempel.'),
+      h('p.muted', 'An Tagen, an denen du alle drei Ideen geschafft hast, gibt es einen Stempel.'),
       h('.stamp-grid',
         ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'].map((d) => h('span.sg-head', d)),
         days.map((d) => h('span.sg-day', { class: [stamped.has(d.iso) ? 'stamped' : '', d.future ? 'future' : '', d.today ? 'today' : ''].filter(Boolean).join(' ') },
@@ -708,7 +828,7 @@ function stampPanel(id, meta, ov) {
       h('h2', '🛡️ Serienschutz'),
       h('p', ov.streakInfo.shieldReady
         ? 'Dein Serienschutz ist bereit: Wenn du mal einen Tag nicht übst, bleibt deine Serie trotzdem erhalten. Das geht einmal pro Woche.'
-        : 'Dein Serienschutz wurde in den letzten 7 Tagen schon benutzt. Also heute lieber üben, damit deine Serie weiterläuft!')),
+        : 'Dein Serienschutz wurde in den letzten 7 Tagen schon benutzt. Nach einer Woche ist er wieder bereit.')),
   ];
 }
 

@@ -20,7 +20,7 @@
     { "p": "Die Lebenszeiten überschneiden sich: Neandertaler und Jetztzeitmenschen lebten eine Zeit lang **gleichzeitig** auf der Erde." }
   ],
   "exercises": [
-    { "type": "order", "task": "Bring die Menschenarten in die richtige Reihenfolge – die älteste zuerst.", "de": "Die Menschenarten", "answer": "Vormensch Urmensch Frühmensch Neandertaler Jetztzeitmensch" },
+    { "type": "order", "task": "Welche Reihenfolge stimmt? Die älteste Menschenart zuerst.", "de": "Die Menschenarten", "answer": "Vormensch Urmensch Frühmensch Neandertaler Jetztzeitmensch" },
     { "type": "choice", "q": "Welche Menschenart ist die älteste?", "options": ["Vormensch", "Urmensch", "Frühmensch", "Neandertaler"], "answer": "Vormensch" },
     { "type": "choice", "q": "Welche Menschenart lebt heute noch?", "options": ["Homo sapiens", "Neandertaler", "Homo erectus", "Homo habilis"], "answer": "Homo sapiens" },
     { "type": "choice", "q": "Wie heißt der Vormensch auf Lateinisch?", "options": ["Australopithecus", "Homo habilis", "Homo erectus", "Homo sapiens"], "answer": "Australopithecus" },

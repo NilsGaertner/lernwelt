@@ -1,0 +1,32 @@
+{
+  "id": "mc-bauen",
+  "line": "minecraft",
+  "order": 2,
+  "title": "Bauen und Abbauen",
+  "subtitle": "Große Zahlen, Runden, Überschlag",
+  "icon": "⛏️",
+  "card": "Wusstest du? Ein Minecraft-Tag dauert **20 Minuten**. Und im Nether ist 1 Block so weit wie **8 Blöcke** in der Oberwelt – darum baut man dort Abkürzungen.",
+  "explain": [
+    {"p": "Bei großen Bauprojekten kommen große Zahlen zusammen. Dann helfen **Überschlag** und **Runden**:"},
+    {"p": "3987 + 5104 + 2896 ≈ 4000 + 5000 + 3000 = 12 000. Genau sind es **11 987** – passt!"},
+    {"table": {"head": ["1 248 365 gerundet auf …", "Ziffer rechts daneben", "Ergebnis"], "rows": [["Tausender", "3 → ab", "1 248 000"], ["Zehntausender", "8 → auf", "1 250 000"]]}},
+    {"tip": "Nether-Trick: Oberwelt-Weg : 8 = Nether-Weg. 6400 Blöcke in der Oberwelt sind 6400 : 8 = 800 Blöcke im Nether."},
+    {"tip": "Ein Leuchtfeuer steht auf einer Pyramide aus Quadratzahlen: 3² + 5² + 7² + 9² = 9 + 25 + 49 + 81 = 164 Blöcke."}
+  ],
+  "exercises": [
+    {"type": "input", "task": "Minecraft", "q": "Ein Chunk ist 16 mal 16 Blöcke groß. Wie viele Blöcke hat eine Schicht eines Chunks? ___", "answer": "256", "numeric": true, "placeholder": "Blöcke", "explain": "16 · 16 = 16² = **256**."},
+    {"type": "input", "task": "Minecraft", "q": "Steve hat in einer Woche 12 486 Blöcke abgebaut, Alex 9879. Wie viele sind das zusammen? ___", "answer": "22365", "numeric": true, "placeholder": "Blöcke"},
+    {"type": "input", "task": "Minecraft", "q": "Steve hat 12 486 Blöcke abgebaut, Alex 9879. Wie viele hat Steve mehr? ___", "answer": "2607", "numeric": true, "placeholder": "Blöcke"},
+    {"type": "input", "task": "Minecraft", "q": "Für eine Burg braucht Alex 25 000 Steinziegel. Sie hat schon 17 638. Wie viele fehlen noch? ___", "answer": "7362", "numeric": true, "placeholder": "Ziegel"},
+    {"type": "input", "task": "Minecraft", "q": "Auf einem Server stehen 1 248 365 Blöcke. Runde auf Tausender: ___", "answer": "1248000", "numeric": true, "placeholder": "Zahl", "explain": "Rechts neben der 8 steht eine 3 → abrunden: **1 248 000**."},
+    {"type": "input", "task": "Minecraft", "q": "Auf einem Server stehen 1 248 365 Blöcke. Runde auf Zehntausender: ___", "answer": "1250000", "numeric": true, "placeholder": "Zahl", "explain": "Rechts neben der 4 steht eine 8 → aufrunden: **1 250 000**."},
+    {"type": "input", "task": "Minecraft", "q": "Ein Leuchtfeuer braucht eine Pyramide mit Stufen aus 3·3, 5·5, 7·7 und 9·9 Blöcken. Wie viele Blöcke sind das zusammen? ___", "answer": "164", "numeric": true, "placeholder": "Blöcke", "explain": "9 + 25 + 49 + 81 = **164**."},
+    {"type": "choice", "task": "Minecraft", "q": "Steve sammelt 3987 + 5104 + 2896 Blöcke. Welcher Überschlag passt?", "options": ["4000 + 5000 + 3000 = 12 000", "3000 + 5000 + 2000 = 10 000", "40 000 + 50 000 + 30 000 = 120 000", "4000 + 5000 = 9000"], "answer": "4000 + 5000 + 3000 = 12 000", "explain": "Jede Zahl auf Tausender runden: 3987 ≈ 4000, 5104 ≈ 5000, 2896 ≈ 3000."},
+    {"type": "input", "task": "Minecraft", "q": "Steve sammelt 3987 + 5104 + 2896 Blöcke. Wie viele genau? ___", "answer": "11987", "numeric": true, "placeholder": "Blöcke", "explain": "Genau **11 987**. Der Überschlag 12 000 passt."},
+    {"type": "input", "task": "Minecraft", "q": "Im Nether ist 1 Block so weit wie 8 Blöcke in der Oberwelt. Alex läuft im Nether 1250 Blöcke. Wie weit ist das in der Oberwelt? ___", "answer": "10000", "numeric": true, "placeholder": "Blöcke", "explain": "1250 · 8 = **10 000** Blöcke."},
+    {"type": "input", "task": "Minecraft", "q": "Steve will in der Oberwelt 6400 Blöcke weit reisen. Wie viele Blöcke muss er dafür im Nether laufen? ___", "answer": "800", "numeric": true, "placeholder": "Blöcke", "explain": "6400 : 8 = **800**."},
+    {"type": "input", "task": "Minecraft", "q": "Ein Minecraft-Tag dauert 20 Minuten. Wie viele Minecraft-Tage vergehen in 2 Stunden? ___", "answer": "6", "numeric": true, "placeholder": "Tage", "explain": "2 Stunden = 120 Minuten. 120 : 20 = **6**."},
+    {"type": "choice", "task": "Minecraft", "q": "Welche Welt hat die meisten Blöcke?", "options": ["1 042 386", "1 024 386", "1 024 836", "1 004 386"], "answer": "1 042 386", "explain": "Alle haben 1 Million. Dann die Hunderttausender: überall 0. Bei den Zehntausendern gewinnt die **4**."},
+    {"type": "input", "task": "Minecraft", "q": "Alex hat 50 000 Smaragde. Sie gibt 12 750 und 8925 aus. Wie viele hat sie noch? ___", "answer": "28325", "numeric": true, "placeholder": "Smaragde", "explain": "Ausgaben: 12 750 + 8925 = 21 675. 50 000 − 21 675 = **28 325**."}
+  ]
+}

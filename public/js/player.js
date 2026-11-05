@@ -84,9 +84,22 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
   // Führt ein anderer Weg von der Seite weg, räumt die Fahrt trotzdem auf.
   window.addEventListener('hashchange', () => { cleanup(); release(); }, { signal: keys.signal });
 
+  // Aussteigen ist jederzeit in Ordnung. Ab 3 beantworteten Aufgaben zählt die Fahrt als kurze Fahrt (anteilig Sterne).
+  const MIN_EARLY = 3;
   async function exit() {
-    const sure = await ask('Fahrt abbrechen?', { text: 'Sterne gibt es nur, wenn du am Ziel ankommst.', ok: 'Ja, aussteigen', cancel: 'Weiterfahren', danger: true });
+    const done = status.filter(Boolean).length;
+    const { mode } = session;
+    const counts = mode !== 'exam' && mode !== 'blitz' && done >= MIN_EARLY;
+    const sure = await ask('Hier aussteigen?', {
+      text: counts
+        ? `Kein Problem. Deine ${done} Aufgaben zählen als kurze Fahrt.`
+        : mode === 'exam'
+          ? 'Kein Problem. Den Endbahnhof kannst du jederzeit neu anfahren.'
+          : 'Kein Problem. Was du geübt hast, merkt sich die Lernwelt trotzdem.',
+      ok: 'Aussteigen', cancel: 'Weiterfahren',
+    });
     if (!sure || ended) return;
+    if (counts) return finish({ early: true });
     cleanup();
     release(onExit);
   }
@@ -860,16 +873,12 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
           onclick: () => showPanel(`📌 Merke: ${unit.title}`, h('.merke', renderExplain(unit.explain, lang))),
         }, '📌 Merke ansehen')));
       }
-      if (res.firstTry) lines.push(h('p.explain', 'Diese Aufgabe kommt am Ende nochmal.'));
     }
     // Ein falsch geschriebenes Wort einmal richtig abschreiben – das prägt die Schreibweise ein.
     const copy = !res.correct && q.type === 'input' && q.copy && /[a-z]/i.test(res.solution ?? '') ? copyField(res.solution) : null;
-    const btn = h('button.btn.big.sheet-go', { type: 'button', class: res.correct ? 'go' : '', disabled: !!copy, onclick: next }, 'Weiter');
+    const btn = h('button.btn.big.sheet-go', { type: 'button', class: res.correct ? 'go' : '', onclick: next }, 'Weiter');
     if (copy) {
-      copy.input.addEventListener('input', () => {
-        btn.disabled = !copy.matches();
-        copy.input.classList.toggle('right', copy.matches());
-      });
+      copy.input.addEventListener('input', () => copy.input.classList.toggle('right', copy.matches()));
       lines.push(copy.el);
     }
     const sheet = h('.sheet', { class: res.correct ? 'ok' : 'bad', role: 'alert' },
@@ -885,12 +894,9 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     document.body.append(sheet);
     // Kurz warten, damit ein Doppel-Enter nicht gleich weiterspringt.
     setTimeout(() => {
-      onEnter = () => {
-        if (!btn.disabled) return next();
-        copy.input.classList.add('shake');
-        setTimeout(() => copy.input.classList.remove('shake'), 350);
-      };
-      (copy ? copy.input : btn).focus({ preventScroll: true });
+      onEnter = next;
+      // Nicht ins Abschreib-Feld springen: Die Handy-Tastatur würde sich aufdrängen.
+      btn.focus({ preventScroll: true });
     }, 250);
   }
 
@@ -904,7 +910,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     return {
       input,
       matches: () => plain(input.value) === plain(solution),
-      el: h('label.copy', h('span', '✍️ Schreib es einmal richtig ab, dann geht es weiter:'), input),
+      el: h('label.copy', h('span', '✍️ Wenn du magst: einmal abschreiben hilft beim Merken.'), input),
     };
   }
 
@@ -918,18 +924,19 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
   }
 
   // ---------------------------------------------------------------- Ankunft
-  async function finish() {
+  async function finish({ early = false } = {}) {
     cleanup();
     release();
     stage.replaceChildren(h('.loading', 'Einfahrt in den Bahnhof …'));
     const here = location.hash;
     let result;
     try {
-      result = await api(`/sessions/${session.sessionId}/finish`, { method: 'POST' });
+      result = await api(`/sessions/${session.sessionId}/finish`, { method: 'POST', body: { early } });
     } catch (err) {
       stage.replaceChildren(h('.empty', h('p', err.message), h('button.btn', { type: 'button', onclick: onExit }, 'Zurück')));
       return;
     }
+    if (result.empty) return onExit();
     // Inzwischen woanders hin gewechselt? Dann das Ergebnis nicht über die neue Seite legen.
     if (location.hash !== here) return;
     const exam = result.exam;
@@ -937,8 +944,10 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       ? exam.passed ? 'Endbahnhof erreicht!' : 'Knapp vor dem Ziel!'
       : { 3: 'Perfekte Fahrt!', 2: 'Gute Fahrt!', 1: 'Angekommen!' }[result.rating];
     const sub = exam
-      ? exam.passed ? 'Du kennst die ganze Linie!' : `Ab 80 % ist die Prüfung bestanden, du hattest ${exam.percent} %. Übe die Stationen und versuch es nochmal.`
-      : { 3: 'Du bist spitze!', 2: 'Nur noch ein kleines Stück bis zu drei Sternen.', 1: 'Übung macht den Meister – fahr die Strecke ruhig nochmal.' }[result.rating];
+      ? exam.passed ? 'Du kennst die ganze Linie!' : `Ab 80 % ist die Prüfung bestanden, du hattest ${exam.percent} %. Du kannst den Endbahnhof jederzeit nochmal anfahren.`
+      : result.short
+        ? 'Kurze Fahrt geschafft. Drei Sterne für die Station gibt es auf einer ganzen Fahrt.'
+        : { 3: 'Du bist spitze!', 2: 'Nur noch ein kleines Stück bis zu drei Sternen.', 1: 'Jede Fahrt zählt.' }[result.rating];
     const celebrate = result.rating === 3 || result.xp.rankUp || result.plan?.justCompleted || exam?.first;
     if (celebrate) {
       sfx.fanfare();
@@ -1042,7 +1051,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
             !result.capped && result.runToday >= 2 && ['unit', 'exam'].includes(result.mode)
               ? h('p.muted', result.runToday === 2
                   ? `Deine 2. Fahrt ${result.mode === 'exam' ? 'zu diesem Endbahnhof' : 'auf dieser Station'} heute – dafür gibt es halbe Sterne. Neue Stationen bringen mehr!`
-                  : 'Diese Strecke bist du heute schon oft gefahren – jetzt gibt es nur noch 1 Stern. Probier eine andere Station, dort gibt es wieder die vollen Sterne!')
+                  : 'Auf dieser Strecke gibt es heute nur noch 1 Stern. Auf anderen Stationen gibt es wieder die vollen Sterne.')
               : null,
             h('p', h('strong', 'Du hast jetzt ', balanceEl, ' Sterne.'))),
       result.newBadges.length
@@ -1063,7 +1072,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     if (!misses.length) return null;
     return h('section.panel.misses', { style: { textAlign: 'left' } },
       h('h2', '📝 Das übst du noch'),
-      h('p.muted.small', 'Das hat beim ersten Versuch noch nicht ganz geklappt. Lies es dir nochmal durch – es kommt bald wieder dran.'),
+      h('p.muted.small', 'Das war beim ersten Versuch noch wackelig. Hier steht es zum Nachlesen, es kommt bald wieder dran.'),
       h('ul.miss-list', misses.map(({ q, res }) => {
         const audio = res.speak ?? res.reveal ?? q.audio ?? null;
         return h('li',

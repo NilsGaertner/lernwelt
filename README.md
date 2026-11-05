@@ -45,6 +45,10 @@ Die Schriftlich-minus-Linie übt die schriftliche Subtraktion bis 1000 im **Erg�
 
 Die Schriftlich-mal-Linie übt das schriftliche Multiplizieren wie im Schulheft: Die Aufgabe steht in einer Zeile (3597 · 19), darunter kommt für jede Ziffer des zweiten Faktors ein Teilprodukt, jedes eine Stelle weiter rechts, und darunter die Summe mit Übertrags-Kästchen. Die Stationen: mal eine Ziffer (165 · 8), mal zwei Ziffern (421 · 17) und große Aufgaben mit bis zu drei Zeilen. Ist eine Zeile vorne fertig, springt „Nächste Zeile“ weiter. Gewertet wird nur das Ergebnis. Bei einem Fehler zeigt die App alle Zeilen richtig an (selbst eingetragene Ziffern grün oder rot, im Kopf gerechnete Zeilen grau) und den Rechenweg mit Überschlag und „merke“ für jede Ziffer. Die Aufgaben kommen aus demselben Generator wie Plus und Minus (`"op": "mul"`, `"factorDigits"` für die Stellen des zweiten Faktors).
 
+**Mathe: Minecraft, Basketball und Katzen-Check (je 3 Stationen + Endbahnhof)**
+
+Der Stoff der Klassenarbeit in den Lieblingsthemen des Kindes, ganz oben im Mathe-Netzplan. Die Minecraft-Linie rechnet mit Stacks (64), Kisten (27 Plätze), Crafting-Rezepten, Nether-Wegen (1 : 8) und der Leuchtfeuer-Pyramide (3² + 5² + 7² + 9²). Die Basketball-Linie zählt Zweier, Dreier und Freiwürfe (Punkt vor Strich), rechnet Durchschnitte und Saison-Statistiken und hat Ticket- und Trikot-Aufgaben (Einnahmen, Kosten, Gewinn). In der Katzen-Linie hat „deine Katze“ gerechnet, und das Kind prüft: Kann das per Überschlag stimmen? Wo steckt der Rechenregel-Fehler? Passt die Rechnung zur Textaufgabe? Manchmal hat die Katze auch recht.
+
 **Mathe: Schriftlich geteilt (3 Stationen + Endbahnhof)**
 
 Die Schriftlich-geteilt-Linie übt das schriftliche Dividieren wie im Heft: Oben steht die Aufgabe in einer Zeile (8547 : 11 = 777), darunter für jede Ergebnis-Ziffer ein Schritt mit Malaufgabe (− 77), Strich und Rest. Die heruntergeholte Ziffer steht schon da. Die Reihenfolge ist wie im Heft: Ziffer oben, dann Produkt und Rest (jeweils von rechts), dann die nächste Ziffer. Bleibt vorne ein Kästchen frei, springt „Weiter“ zur nächsten Zeile. Gewertet wird nur das Ergebnis oben. Bei einem Fehler zeigt die App alle Zeilen richtig an und den Rechenweg Schritt für Schritt mit Probe. Die Stationen: durch eine Ziffer, durch 11 bis 15 (mit Vielfachen-Tabelle), große Aufgaben mit Teilern bis 25 (Ziffern schätzen). Die Aufgaben gehen immer ohne Rest auf und haben keine 0 im Ergebnis. Sie kommen aus demselben Generator (`"op": "div"`, `"divisor"`, `"quotientDigits"`). Der Endbahnhof hat 8 Aufgaben.
@@ -80,6 +84,10 @@ Passend zum Kapitel „Haustiere“ im Biologiebuch und zu den Arbeitsblättern 
 | Wolf-Linie | Vom Wolf zum Hund (Rudel, Rangordnung, Körpersprache), Hunderassen und Züchtung, Welpen und Hundehaltung (Säugetier, Nesthocker) |
 
 Beim Skelett und beim Gebiss ist ein Knochen bzw. eine Zahnart auf einer Zeichnung markiert, und dein Kind wählt oder schreibt den Namen. Im „Merke“ sind die Zeichnungen bunt und nummeriert wie im Buch.
+
+**Weniger Druck, mehr Selbstbestimmung:** Die Lernwelt fordert nicht, sie lädt ein. Die Aufgaben-Überschriften sind Fragen statt Befehle („Was kommt heraus?“ statt „Rechne aus.“). Das Kind wählt die Länge einer Fahrt selbst (3, 5 oder 10 Aufgaben). Kurze Fahrten bringen anteilig weniger Sterne und höchstens 2 als Bewertung, gemeistert und Abstellgleis gibt es nur auf ganzen Fahrten. Aussteigen geht jederzeit: Ab 3 beantworteten Aufgaben zählt das als kurze Fahrt, sonst verfällt die Fahrt ohne Strafe. Abschreiben nach einem Fehler ist ein Angebot, kein Muss. Der Tagesfahrplan heißt „Ideen für heute“.
+
+**Aufgaben-Werkstatt:** Hier stellt das Kind selbst Aufgaben (Text und Lösung), und die anderen Profile, z. B. die Erwachsenen-Profile der Eltern, lösen sie. Jeder hat einen Versuch. Das Kind sieht, wer was geantwortet hat und ob es stimmt. Zahlen werden großzügig verglichen: 135, „135 Diamanten“ und 1.728 bzw. 1728 zählen gleich. Für die Werkstatt gibt es keine Sterne.
 
 **Aufgabentypen:** Auswahl, Eintippen, Sätze aus Wortkärtchen bauen, Paare finden und Hörverstehen (die englischen Wörter werden vorgelesen).
 

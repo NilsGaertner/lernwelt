@@ -1,0 +1,28 @@
+{
+  "id": "katze-text",
+  "line": "katze",
+  "order": 3,
+  "title": "Rechnet die Katze richtig?",
+  "subtitle": "Textaufgaben prüfen",
+  "icon": "🧐",
+  "card": "Merke: Bei Textaufgaben passieren die meisten Fehler nicht beim Rechnen, sondern bei der Frage: **Welche Rechnung passt überhaupt?**",
+  "explain": [
+    {"p": "Hier hat deine Katze Textaufgaben gelöst. Prüf, ob ihre **Rechnung** zur Aufgabe passt – manchmal stimmt sie auch."},
+    {"table": {"head": ["Wenn gefragt ist …", "dann rechnest du"], "rows": [["Gewinn", "Einnahmen − Kosten"], ["Durchschnitt", "alles zusammen : Anzahl"], ["Wie viele Busse?", "teilen – und bei Rest einen Bus mehr"], ["verschiedene Preise", "jede Gruppe mal ihren Preis, dann zusammen"]]}},
+    {"tip": "Frag dich bei jeder Antwort: Kann das überhaupt sein? 120 km Durchschnitt, wenn jeder Tag unter 75 km war? Nein!"}
+  ],
+  "exercises": [
+    {"type": "choice", "task": "🐱 Textaufgabe", "q": "48 Kinder zahlen je 14 €, 6 Erwachsene je 22 €. Deine Katze rechnet (48 + 6) · (14 + 22). Was sagst du?", "options": ["Falsch: 48 · 14 + 6 · 22", "Richtig so", "Falsch: 48 + 14 + 6 + 22", "Falsch: 48 · 22 + 6 · 14"], "answer": "Falsch: 48 · 14 + 6 · 22", "explain": "Jede Gruppe zahlt ihren eigenen Preis: 48 · 14 + 6 · 22 = 672 + 132 = 804 €."},
+    {"type": "choice", "task": "🐱 Textaufgabe", "q": "Ein Kino nimmt 4054 € ein und hat 2218 € Kosten. Deine Katze rechnet den Gewinn: 4054 + 2218. Was sagst du?", "options": ["Falsch: Gewinn ist Einnahmen − Kosten", "Richtig: Kosten zählt man dazu", "Falsch: Gewinn ist Einnahmen · Kosten", "Falsch: Gewinn ist Kosten − Einnahmen"], "answer": "Falsch: Gewinn ist Einnahmen − Kosten", "explain": "Die Kosten werden abgezogen, nicht dazugezählt."},
+    {"type": "input", "task": "🐱 Und richtig?", "q": "Ein Kino nimmt 4054 € ein und hat 2218 € Kosten. Wie viel Gewinn ist es wirklich? ___ €", "answer": "1836", "numeric": true, "placeholder": "Euro", "explain": "4054 − 2218 = **1836 €**."},
+    {"type": "choice", "task": "🐱 Textaufgabe", "q": "130 Kinder fahren mit, in einen Bus passen 50. Deine Katze sagt: 130 : 50 = 2 Rest 30, also reichen 2 Busse. Was sagst du?", "options": ["Falsch: Die 30 übrigen brauchen noch einen Bus, also 3", "Richtig: Der Rest zählt nicht", "Falsch: 130 : 25 = 5 Busse", "Falsch: 130 − 50 = 80 Busse"], "answer": "Falsch: Die 30 übrigen brauchen noch einen Bus, also 3", "explain": "Kein Kind bleibt zu Hause! Der Rest braucht einen eigenen Bus."},
+    {"type": "choice", "task": "🐱 Textaufgabe", "q": "Mia fährt 48, 63, 57 und 72 km. Deine Katze rechnet den Durchschnitt: 240 : 2 = 120 km. Was sagst du?", "options": ["Falsch: Es sind 4 Tage, also 240 : 4 = 60 km", "Richtig: Durchschnitt heißt immer : 2", "Falsch: Es sind 4 Tage, also 240 · 4 = 960 km", "Falsch: Durchschnitt ist 48 + 72 = 120 km"], "answer": "Falsch: Es sind 4 Tage, also 240 : 4 = 60 km", "explain": "Geteilt wird durch die Anzahl der Tage. 120 km kann nicht sein, an keinem Tag war es so viel."},
+    {"type": "choice", "task": "🐱 Textaufgabe", "q": "Eine Kiste hat 27 Plätze mit je 64 Blöcken. Deine Katze rechnet 27 + 64 = 91 Blöcke. Was sagst du?", "options": ["Falsch: 27 · 64 = 1728", "Richtig: 27 + 64 = 91", "Falsch: 64 − 27 = 37", "Falsch: 27 · 46 = 1242"], "answer": "Falsch: 27 · 64 = 1728", "explain": "27 Plätze mit **je** 64 Blöcken: Das ist Malnehmen."},
+    {"type": "choice", "task": "🐱 Textaufgabe", "q": "Ben hat 90 € und spart jede Woche 6 € dazu, bis er 234 € für ein Rad hat. Deine Katze rechnet 234 : 6 = 39 Wochen. Was sagst du?", "options": ["Falsch: Erst die 90 € abziehen: 144 : 6 = 24 Wochen", "Richtig: 234 : 6 = 39 Wochen", "Falsch: 234 − 6 = 228 Wochen", "Falsch: 234 − 90 = 144 Wochen"], "answer": "Falsch: Erst die 90 € abziehen: 144 : 6 = 24 Wochen", "explain": "Es fehlen nur 234 − 90 = 144 €. 144 : 6 = 24."},
+    {"type": "choice", "task": "🐱 Textaufgabe", "q": "Ein Team trifft 9 Zweier und 5 Dreier. Deine Katze rechnet 9 + 5 = 14 Punkte. Was sagst du?", "options": ["Falsch: 9 · 2 + 5 · 3 = 33", "Richtig: 9 + 5 = 14", "Falsch: (9 + 5) · 5 = 70", "Falsch: 9 · 3 + 5 · 2 = 37"], "answer": "Falsch: 9 · 2 + 5 · 3 = 33", "explain": "Die Katze hat die Würfe gezählt, nicht die Punkte."},
+    {"type": "choice", "task": "🐱 Textaufgabe", "q": "Steve hat 7 Stacks mit je 64 Blöcken. Deine Katze rechnet 7 · 64 = 448 Blöcke. Was sagst du?", "options": ["Richtig: 7 · 64 = 448", "Falsch: 7 + 64 = 71", "Falsch: 7 · 64 = 428", "Falsch: 64 − 7 = 57"], "answer": "Richtig: 7 · 64 = 448", "explain": "7 · 64 = 420 + 28 = 448. Die Katze hat recht!"},
+    {"type": "choice", "task": "🐱 Textaufgabe", "q": "Für ein Konzert werden 412 Karten zu je 15 € verkauft. Deine Katze rechnet 412 · 15 = 6180 €. Was sagst du?", "options": ["Richtig: 412 · 15 = 6180", "Falsch: 412 + 15 = 427", "Falsch: 412 · 15 = 6080", "Falsch: 412 · 10 = 4120"], "answer": "Richtig: 412 · 15 = 6180", "explain": "412 · 10 = 4120 und 412 · 5 = 2060. Zusammen 6180 – stimmt!"},
+    {"type": "choice", "task": "🐱 Textaufgabe", "q": "Fritz und Clara fahren in 5 Tagen 1425 km. Deine Katze rechnet den Durchschnitt: 1425 : 5 = 285 km. Was sagst du?", "options": ["Richtig: 1425 : 5 = 285", "Falsch: 1425 · 5 = 7125", "Falsch: 1425 : 5 = 275", "Falsch: 1425 − 5 = 1420"], "answer": "Richtig: 1425 : 5 = 285", "explain": "1425 : 5 = 285. Probe: 285 · 5 = 1425 ✓"},
+    {"type": "input", "task": "🐱 Und richtig?", "q": "Ben hat 90 € und spart jede Woche 6 € dazu, bis er 234 € hat. Wie viele Wochen dauert es wirklich? ___", "answer": "24", "numeric": true, "placeholder": "Wochen"}
+  ]
+}

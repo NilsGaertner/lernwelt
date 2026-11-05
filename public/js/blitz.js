@@ -182,7 +182,7 @@ export function runBlitz(root, { childId, subject, topic, lineColor, onExit, onA
     // Inzwischen woanders hin gewechselt? Dann das Ergebnis nicht über die neue Seite legen.
     if (location.hash !== here) return;
     if (result.empty) {
-      stage.replaceChildren(h('.empty', h('p', 'Keine Aufgabe beantwortet – das zählt nicht. Probier es nochmal!'),
+      stage.replaceChildren(h('.empty', h('p', 'Keine Aufgabe beantwortet – diese Runde zählt nicht.'),
         h('.actions', h('button.btn.line', { type: 'button', onclick: onAgain }, '⚡ Nochmal'), h('button.btn.ghost', { type: 'button', onclick: onExit }, 'Zurück'))));
       return;
     }

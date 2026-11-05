@@ -1,0 +1,29 @@
+{
+  "id": "bb-statistik",
+  "line": "basketball",
+  "order": 2,
+  "title": "Saison-Statistik",
+  "subtitle": "Durchschnitt, große Zahlen, Runden",
+  "icon": "📊",
+  "card": "Wusstest du? Dirk Nowitzki aus Würzburg hat in der NBA **31 560 Punkte** erzielt – so viele wie kein anderer Spieler aus Europa.",
+  "explain": [
+    {"p": "Profis schauen ständig auf Statistiken. Der **Durchschnitt** sagt, wie viele Punkte jemand pro Spiel macht:"},
+    {"p": "Mia: 12, 18, 9, 15 und 21 Punkte. Zusammen 75. Durchschnitt: 75 : 5 = **15 Punkte pro Spiel**."},
+    {"table": {"head": ["Was ist gefragt?", "So rechnest du"], "rows": [["Durchschnitt", "alles zusammenzählen, dann : Anzahl der Spiele"], ["Zuschauer in der Saison", "Plätze · Anzahl der Spiele"], ["ungefähr", "runden"]]}},
+    {"tip": "31 560 auf Tausender gerundet: Rechts neben der 1 steht eine 5 → aufrunden: 32 000."}
+  ],
+  "exercises": [
+    {"type": "input", "task": "Basketball", "q": "Mia wirft in 5 Spielen 12, 18, 9, 15 und 21 Punkte. Wie viele Punkte sind das zusammen? ___", "answer": "75", "numeric": true, "placeholder": "Punkte"},
+    {"type": "input", "task": "Basketball", "q": "Mia wirft in 5 Spielen 12, 18, 9, 15 und 21 Punkte. Wie viele Punkte macht sie durchschnittlich pro Spiel? ___", "answer": "15", "numeric": true, "placeholder": "Punkte", "explain": "Zusammen 75. 75 : 5 = **15**."},
+    {"type": "input", "task": "Basketball", "q": "Eine Halle hat 3168 Plätze. Bei allen 17 Heimspielen ist sie ausverkauft. Wie viele Zuschauer sind das? ___", "answer": "53856", "numeric": true, "placeholder": "Zuschauer", "explain": "3168 · 17 = 31 680 + 22 176 = **53 856**. Überschlag: 3000 · 20 = 60 000 ✓"},
+    {"type": "input", "task": "Basketball", "q": "53 856 Zuschauer, gerundet auf Tausender: ___", "answer": "54000", "numeric": true, "placeholder": "Zahl", "explain": "Rechts neben der 3 steht eine 8 → aufrunden: **54 000**."},
+    {"type": "input", "task": "Basketball", "q": "Ein Team hat 34 Spiele und gewinnt 26. Unentschieden gibt es nicht. Wie viele Spiele hat es verloren? ___", "answer": "8", "numeric": true, "placeholder": "Spiele"},
+    {"type": "input", "task": "Basketball", "q": "In einer Liga mit 18 Teams spielt jedes Team gegen jedes andere zweimal. Wie viele Spiele hat ein Team in der Saison? ___", "answer": "34", "numeric": true, "placeholder": "Spiele", "explain": "Es gibt 17 andere Teams, gegen jedes 2 Spiele: 17 · 2 = **34**."},
+    {"type": "input", "task": "Basketball", "q": "Ein Profi macht in 80 Spielen 1840 Punkte. Wie viele Punkte sind das im Durchschnitt pro Spiel? ___", "answer": "23", "numeric": true, "placeholder": "Punkte", "explain": "1840 : 80 = 184 : 8 = **23**."},
+    {"type": "input", "task": "Basketball", "q": "Ein Team erzielt in 4 Spielen 92, 87, 105 und 96 Punkte. Wie viele Punkte sind das durchschnittlich pro Spiel? ___", "answer": "95", "numeric": true, "placeholder": "Punkte", "explain": "Zusammen 380. 380 : 4 = **95**."},
+    {"type": "choice", "task": "Basketball", "q": "Welche Halle hat die meisten Plätze?", "options": ["15 042", "14 520", "14 250", "14 502"], "answer": "15 042", "explain": "Nur 15 042 hat 15 Tausender, die anderen 14."},
+    {"type": "input", "task": "Basketball", "q": "Dirk Nowitzki hat in der NBA 31 560 Punkte erzielt. Runde auf Tausender: ___", "answer": "32000", "numeric": true, "placeholder": "Zahl", "explain": "Rechts neben der 1 steht eine 5 → aufrunden: **32 000**."},
+    {"type": "input", "task": "Basketball", "q": "Dirk Nowitzki hat in der NBA 31 560 Punkte erzielt. Runde auf Zehntausender: ___", "answer": "30000", "numeric": true, "placeholder": "Zahl", "explain": "Rechts neben der 3 steht eine 1 → abrunden: **30 000**."},
+    {"type": "input", "task": "Basketball", "q": "An 34 Spieltagen sehen jeweils 4500 Leute zu. Wie viele Zuschauer sind das in der Saison? ___", "answer": "153000", "numeric": true, "placeholder": "Zuschauer", "explain": "34 · 4500 = 34 · 45 · 100 = 1530 · 100 = **153 000**."}
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "bb-punkte",
+  "line": "basketball",
+  "order": 1,
+  "title": "Punkte zählen",
+  "subtitle": "Zweier, Dreier, Freiwürfe",
+  "icon": "🏀",
+  "card": "Wusstest du? Basketball wurde 1891 von James Naismith erfunden. Die ersten Körbe waren **Pfirsichkörbe** – nach jedem Treffer musste jemand den Ball herausholen.",
+  "explain": [
+    {"p": "Im Basketball gibt es **2 Punkte** für einen normalen Korb, **3 Punkte** für einen Wurf hinter der Dreierlinie und **1 Punkt** für einen Freiwurf."},
+    {"p": "18 Zweier, 7 Dreier und 11 Freiwürfe: 18 · 2 + 7 · 3 + 11 · 1 = 36 + 21 + 11 = **68 Punkte**"},
+    {"tip": "Punkt vor Strich passt hier perfekt: Erst jede Wurfart malnehmen, dann alles zusammenzählen."},
+    {"tip": "Ein Spiel hat 4 Viertel. In Europa dauert ein Viertel 10 Minuten, in der NBA 12 Minuten."}
+  ],
+  "exercises": [
+    {"type": "input", "task": "Basketball", "q": "Ein Team trifft 18 Zweier, 7 Dreier und 11 Freiwürfe. Wie viele Punkte sind das? ___", "answer": "68", "numeric": true, "placeholder": "Punkte", "explain": "18 · 2 + 7 · 3 + 11 · 1 = 36 + 21 + 11 = **68**."},
+    {"type": "input", "task": "Basketball", "q": "Lena trifft 6 Dreier und 4 Zweier. Wie viele Punkte macht sie? ___", "answer": "26", "numeric": true, "placeholder": "Punkte", "explain": "6 · 3 + 4 · 2 = 18 + 8 = **26**."},
+    {"type": "input", "task": "Basketball", "q": "Ein Team hat 84 Punkte: 12 Dreier, 14 Freiwürfe und der Rest Zweier. Wie viele Zweier waren es? ___", "answer": "17", "numeric": true, "placeholder": "Zweier", "explain": "Dreier und Freiwürfe: 36 + 14 = 50. Für Zweier bleiben 84 − 50 = 34 Punkte. 34 : 2 = **17** Zweier."},
+    {"type": "choice", "task": "Basketball", "q": "Ein Team trifft 9 Zweier und 5 Dreier. Welche Rechnung passt?", "options": ["9 · 2 + 5 · 3", "(9 + 5) · (2 + 3)", "9 + 2 + 5 + 3", "9 · 3 + 5 · 2"], "answer": "9 · 2 + 5 · 3", "explain": "Jede Wurfart mal ihre Punkte, dann zusammenzählen."},
+    {"type": "input", "task": "Basketball", "q": "Ein Team trifft 9 Zweier und 5 Dreier. Wie viele Punkte sind das? ___", "answer": "33", "numeric": true, "placeholder": "Punkte", "explain": "18 + 15 = **33**."},
+    {"type": "input", "task": "Basketball", "q": "Ein Spiel hat 4 Viertel mit je 10 Minuten. Wie viele Minuten dauert es ohne Pausen? ___", "answer": "40", "numeric": true, "placeholder": "Minuten"},
+    {"type": "input", "task": "Basketball", "q": "In der NBA hat ein Spiel 4 Viertel mit je 12 Minuten. Wie viele Minuten länger ist das als 4 Viertel mit je 10 Minuten? ___", "answer": "8", "numeric": true, "placeholder": "Minuten", "explain": "4 · 12 − 4 · 10 = 48 − 40 = **8**. Oder geschickt: 4 · (12 − 10) = 4 · 2 = 8."},
+    {"type": "input", "task": "Basketball", "q": "Ein Team macht im 1. Viertel 21 Punkte, im 2. Viertel 19, im 3. Viertel 26 und im 4. Viertel 22. Wie viele Punkte sind das insgesamt? ___", "answer": "88", "numeric": true, "placeholder": "Punkte", "explain": "21 + 19 = 40, 26 + 22 = 48, zusammen **88**."},
+    {"type": "input", "task": "Basketball", "q": "Ein Team macht 21, 19, 26 und 22 Punkte in den vier Vierteln. Wie viele Punkte sind das durchschnittlich pro Viertel? ___", "answer": "22", "numeric": true, "placeholder": "Punkte", "explain": "Zusammen 88 Punkte. 88 : 4 = **22**."},
+    {"type": "input", "task": "Basketball", "q": "Für einen Angriff hat ein Team höchstens 24 Sekunden. Wie viele Angriffe passen höchstens in ein Viertel mit 10 Minuten? ___", "answer": "25", "numeric": true, "placeholder": "Angriffe", "explain": "10 Minuten = 600 Sekunden. 600 : 24 = **25**."},
+    {"type": "input", "task": "Basketball", "q": "Tim trifft 15 Dreier und 15 Zweier. Rechne geschickt: 15 · 3 + 15 · 2 = ___", "answer": "75", "numeric": true, "placeholder": "Punkte", "explain": "Ausklammern: 15 · (3 + 2) = 15 · 5 = **75**."},
+    {"type": "input", "task": "Basketball", "q": "Der Korb hängt 305 cm hoch. Tim ist 148 cm groß. Wie viele Zentimeter fehlen bis zum Korb? ___", "answer": "157", "numeric": true, "placeholder": "cm"}
+  ]
+}

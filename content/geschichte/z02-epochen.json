@@ -23,7 +23,7 @@
     { "type": "choice", "task": "Welche Epoche ist markiert?", "map": "zeitstrahl", "mark": "antike", "options": ["Antike", "Frühgeschichte", "Mittelalter", "Neuzeit"], "answer": "Antike" },
     { "type": "choice", "task": "Welche Epoche ist markiert?", "map": "zeitstrahl", "mark": "mittelalter", "options": ["Mittelalter", "Antike", "Frühgeschichte", "Neuzeit"], "answer": "Mittelalter" },
     { "type": "choice", "task": "Welche Epoche ist markiert?", "map": "zeitstrahl", "mark": "neuzeit", "options": ["Neuzeit", "Mittelalter", "Antike", "Frühgeschichte"], "answer": "Neuzeit" },
-    { "type": "order", "task": "Bring die Epochen in die richtige Reihenfolge – die früheste zuerst.", "de": "Die vier Epochen", "answer": "Frühgeschichte Antike Mittelalter Neuzeit" },
+    { "type": "order", "task": "Welche Reihenfolge stimmt? Die früheste Epoche zuerst.", "de": "Die vier Epochen", "answer": "Frühgeschichte Antike Mittelalter Neuzeit" },
     { "type": "choice", "q": "In welcher Epoche leben wir heute?", "options": ["Neuzeit", "Mittelalter", "Antike", "Frühgeschichte"], "answer": "Neuzeit" },
     { "type": "choice", "q": "Wann begann die Antike ungefähr?", "options": ["um 3000 v. Chr.", "um 500 n. Chr.", "um 1500 n. Chr.", "bei Christi Geburt"], "answer": "um 3000 v. Chr." },
     { "type": "choice", "q": "Wann begann das Mittelalter ungefähr?", "options": ["um 500 n. Chr.", "um 3000 v. Chr.", "um 1500 n. Chr.", "bei Christi Geburt"], "answer": "um 500 n. Chr." },

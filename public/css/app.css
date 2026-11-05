@@ -265,6 +265,25 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
   border-radius: var(--radius); padding: 14px 20px; margin-bottom: 16px;
 }
 .review-card p { margin: 0; flex: 1; min-width: 200px; }
+/* Aufgaben-Werkstatt */
+a.werkstatt-card { color: inherit; text-decoration: none; border: 2px solid var(--rule); background: var(--paper-2); }
+.w-form { display: grid; gap: 12px; }
+.w-form textarea { min-height: 110px; resize: vertical; font: inherit; font-size: 1.1rem; font-weight: 500; }
+.w-list .btn.small { justify-self: start; }
+.w-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.w-list > li { padding: 14px; border-radius: 16px; background: var(--paper-2); border: 2px solid var(--rule); display: grid; gap: 8px; }
+.w-list > li.ok { border-color: var(--go); }
+.w-list > li.bad { border-color: var(--signal); }
+.w-list p { margin: 0; }
+.w-from { color: var(--ink-2); font-weight: 600; }
+.w-q { font-size: 1.1rem; white-space: pre-wrap; }
+.w-answer, .w-result { color: var(--ink-2); }
+.w-try { display: flex; gap: 10px; }
+.w-try .type-in { min-height: 52px; font-size: 1.15rem; }
+.w-tries { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.w-tries li.ok { color: var(--go); }
+.w-tries li.bad { color: var(--signal); }
+.w-from .cat, .w-tries .cat { display: inline-block; width: 1.5em; height: 1.5em; vertical-align: middle; }
 
 .subject-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
 .subject-tabs a {
@@ -372,6 +391,15 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
   border-top: 1px solid var(--rule);
 }
 .dock-inner { max-width: 720px; margin: 0 auto; display: flex; gap: 12px; align-items: center; }
+/* Fahrtlänge wählen: 3 · 5 · 10 */
+.ride-length { max-width: 720px; margin: 0 auto 10px; display: flex; gap: 8px; align-items: center; font-size: 0.9rem; }
+.ride-length .len-label { color: var(--ink-2); font-weight: 600; white-space: nowrap; }
+.ride-length button {
+  min-width: 44px; min-height: 36px; border-radius: 999px; font: inherit; font-weight: 700; color: var(--ink);
+  background: var(--paper-2); border: 2px solid var(--rule); touch-action: manipulation;
+}
+.ride-length button[aria-checked="true"] { border-color: var(--line); background: color-mix(in srgb, var(--line) 22%, var(--paper)); }
+.ride-length .len-note { color: var(--muted); margin-left: auto; white-space: nowrap; }
 .dock-inner .btn { flex: 1; }
 
 /* ---------------------------------------------------------------- Fahrt (Übung) */

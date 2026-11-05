@@ -37,7 +37,7 @@ function build(op, a, b) {
   return {
     id: `${op}:${a}:${b}`,
     type: 'input',
-    task: 'Rechne im Kopf.',
+    task: 'Im Kopf:',
     q: `${a} ${o.sign} ${b} = ___`,
     answer: String(o.calc(a, b)),
     numeric: true,

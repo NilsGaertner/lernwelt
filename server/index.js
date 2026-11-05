@@ -16,6 +16,7 @@ import {
 } from './progress.js';
 import { lootboxes, openLootbox, giftLootbox } from './lootbox.js';
 import { avatarState, equip, grantSkin, cleanAvatar } from './avatars.js';
+import { werkstatt, werkstattCounts, addPuzzle, deletePuzzle, tryPuzzle } from './werkstatt.js';
 
 const PORT = Number(process.env.PORT) || 8080;
 const problems = await loadContent();
@@ -86,8 +87,23 @@ app.get('/api/children/:id/overview', (req, res) => {
     tickets: tickets(child.id, 10),
     lootboxes: child.adult ? { closed: [], opened: [] } : lootboxes(child.id),
     avatarState: avatarState(child.id),
+    werkstatt: werkstattCounts(child.id),
     settings,
   });
+});
+
+// Aufgaben-Werkstatt: eigene Aufgaben stellen, die anderen Profile lösen sie
+app.get('/api/children/:id/werkstatt', (req, res) => {
+  res.json(werkstatt(childOr404(req.params.id).id));
+});
+app.post('/api/children/:id/werkstatt', (req, res) => {
+  res.json(addPuzzle(childOr404(req.params.id).id, req.body ?? {}));
+});
+app.delete('/api/children/:id/werkstatt/:pid', (req, res) => {
+  res.json(deletePuzzle(childOr404(req.params.id).id, Number(req.params.pid)));
+});
+app.post('/api/children/:id/werkstatt/:pid/try', (req, res) => {
+  res.json(tryPuzzle(childOr404(req.params.id).id, Number(req.params.pid), req.body?.given));
 });
 
 /** Nächster Halt nach einer Station (für den Hinweis „Weiter zur nächsten Station“). */
@@ -109,12 +125,14 @@ app.get('/api/subjects/:subject/units/:unit', (req, res) => {
 });
 
 app.post('/api/sessions', (req, res) => {
-  const { childId, subject, unit, line, topic, mode } = req.body ?? {};
+  const { childId, subject, unit, line, topic, mode, length } = req.body ?? {};
   const child = childOr404(childId);
-  const count = getPublicSettings().questionsPerSession;
+  const full = getPublicSettings().questionsPerSession;
+  // Das Kind darf eine kürzere Fahrt wählen (3 oder 5 Aufgaben). Sie bringt anteilig weniger Sterne.
+  const count = [3, 5].includes(Number(length)) ? Math.min(Number(length), full) : full;
   res.json(startSession({
     childId: child.id, subjectId: subject, unitId: unit, line, topic,
-    mode: ['review', 'due', 'exam', 'blitz'].includes(mode) ? mode : 'unit', count,
+    mode: ['review', 'due', 'exam', 'blitz'].includes(mode) ? mode : 'unit', count, full,
   }));
 });
 
@@ -144,7 +162,7 @@ app.post('/api/sessions/:id/answer', (req, res) => {
 });
 
 app.post('/api/sessions/:id/finish', (req, res) => {
-  res.json(finishSession(req.params.id));
+  res.json(finishSession(req.params.id, { early: !!req.body?.early }));
 });
 
 app.post('/api/children/:id/tickets', (req, res) => {

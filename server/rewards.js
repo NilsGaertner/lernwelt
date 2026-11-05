@@ -129,19 +129,30 @@ export function sessionStars(rating, runToday) {
 }
 
 /**
+ * Kurze Fahrt (3 oder 5 Aufgaben, oder früh ausgestiegen): höchstens 2 als Bewertung – gemeistert und
+ * Abstellgleis gibt es nur für ganze Fahrten – und Sterne anteilig zur Länge, mindestens 1.
+ * So lohnt es sich nicht, viele kurze statt einer langen Fahrt zu machen.
+ */
+export function shortRideStars(rating, runToday, total, full) {
+  return Math.max(1, Math.round((sessionStars(Math.min(rating, 2), runToday) * total) / full));
+}
+
+/**
  * Schließt eine Übung ab: speichert sie, vergibt Sterne (mit Tageslimit), Abzeichen, Fahrplan-Stempel, XP und Lootboxen.
  * mode: 'unit' | 'review' | 'due' | 'exam' (unitId = Linie) | 'blitz' (unitId = Blitz-Thema, keine Sterne für die Runde selbst)
  * boosted: die Fahrt wurde während eines „Doppelte Sterne“-Events gestartet
  * Eine Station auf dem Abstellgleis bringt keine Sterne; die Fahrt, die sie dorthin bringt, gibt eine Lootbox.
  */
-export function completeSession({ sessionId, childId, subject, unitId, unitTitle, mode, startedAt, total, correct, bestCombo = 0, boosted = false }) {
+export function completeSession({ sessionId, childId, subject, unitId, unitTitle, mode, startedAt, total, correct, bestCombo = 0, boosted = false, full = null }) {
   return transaction(() => {
     const day = localDay();
     const now = nowIso();
     const adult = !!db.prepare('SELECT adult FROM children WHERE id = ?').get(childId)?.adult;
     const xpBefore = xpOf(childId);
     const ratio = total ? correct / total : 0;
-    const rating = mode === 'blitz' ? 0 : ratio >= 0.9 ? 3 : ratio >= 0.7 ? 2 : 1;
+    const short = !!full && total < full;
+    const fullRating = mode === 'blitz' ? 0 : ratio >= 0.9 ? 3 : ratio >= 0.7 ? 2 : 1;
+    const rating = short ? Math.min(fullRating, 2) : fullRating;
 
     const prevBest =
       mode === 'unit'
@@ -184,7 +195,7 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
     const rewards = [];
     if (mode !== 'blitz' && !parked) {
       const repeat = runToday > 1 ? ` (${runToday}. Fahrt heute)` : '';
-      const stars = sessionStars(rating, runToday);
+      const stars = short ? shortRideStars(rating, runToday, total, full) : sessionStars(rating, runToday);
       rewards.push({ kind: 'session', amount: stars, note: `${unitTitle}: ${fmtScore(correct)} von ${total} richtig${repeat}` });
       if (boosted) {
         rewards.push({ kind: 'bonus', amount: stars, note: '🎉 Doppelte Sterne' });
@@ -247,6 +258,7 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
       total,
       correct,
       rating,
+      short,
       awarded,
       capped,
       adult,

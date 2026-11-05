@@ -128,22 +128,22 @@ function vocabQuestion(subject, cand, stat, canSpeak, onlyChoice = false) {
       };
     case 'listen2de':
       return {
-        pub: { type: 'choice', prompt: 'Hör genau hin: Was bedeutet das?', audio: v.en, autoplay: true, options: shuffle([v.de, ...vocabDistractors(subject, unit, v, 'de')]) },
+        pub: { type: 'choice', prompt: 'Was bedeutet das?', audio: v.en, autoplay: true, options: shuffle([v.de, ...vocabDistractors(subject, unit, v, 'de')]) },
         expected: [v.de], qtype: 'listen', reveal: v.en,
       };
     case 'type':
       return {
-        pub: { type: 'input', prompt: 'Schreib es auf Englisch.', text: v.de, placeholder: 'auf Englisch …' },
+        pub: { type: 'input', prompt: 'Wie heißt das auf Englisch?', text: v.de, placeholder: 'auf Englisch …' },
         expected: accept, qtype: 'input', speak: v.en,
       };
     case 'dictation':
       return {
-        pub: { type: 'input', prompt: 'Hör zu und schreib das englische Wort.', audio: v.en, autoplay: true, hint: v.de, placeholder: 'Was hörst du?' },
+        pub: { type: 'input', prompt: 'Welches englische Wort ist das?', audio: v.en, autoplay: true, hint: v.de, placeholder: 'Was hörst du?' },
         expected: accept, qtype: 'listen',
       };
     case 'order':
       return {
-        pub: { type: 'order', prompt: 'Bau den Satz auf Englisch.', text: v.de, words: scrambled(tokens(v.en)) },
+        pub: { type: 'order', prompt: 'Wie heißt der Satz auf Englisch?', text: v.de, words: scrambled(tokens(v.en)) },
         expected: [v.en], qtype: 'order', speak: v.en,
       };
     default:
@@ -167,7 +167,7 @@ function exerciseQuestion(subjectId, cand, canSpeak) {
     return {
       ...base,
       speak: null,
-      pub: { type: 'column', prompt: ex.task ?? 'Rechne schriftlich.', op: ex.op ?? 'add', rows: ex.rows, carry: ex.carry !== false },
+      pub: { type: 'column', prompt: ex.task ?? 'Schriftlich:', op: ex.op ?? 'add', rows: ex.rows, carry: ex.carry !== false },
       expected: [ex.answer], qtype: 'column',
     };
   }
@@ -181,25 +181,25 @@ function exerciseQuestion(subjectId, cand, canSpeak) {
   if (ex.type === 'order') {
     return {
       ...base,
-      pub: { type: 'order', prompt: ex.task ?? 'Bring die Wörter in die richtige Reihenfolge.', text: ex.de ?? ex.q, words: scrambled(tokens(ex.answer)) },
+      pub: { type: 'order', prompt: ex.task ?? 'Welche Reihenfolge ergibt den Satz?', text: ex.de ?? ex.q, words: scrambled(tokens(ex.answer)) },
       expected: [ex.answer, ...(ex.accept ?? [])], qtype: 'order',
     };
   }
   return {
     ...base,
-    pub: { type: 'input', prompt: ex.task ?? 'Schreib das fehlende Wort.', text: ex.q, textDe: ex.de ?? null, map, hint: ex.hint ?? null, placeholder: ex.placeholder ?? '…', numeric: !!ex.numeric },
+    pub: { type: 'input', prompt: ex.task ?? 'Welches Wort fehlt?', text: ex.q, textDe: ex.de ?? null, map, hint: ex.hint ?? null, placeholder: ex.placeholder ?? '…', numeric: !!ex.numeric },
     expected: [ex.answer, ...(ex.accept ?? [])], qtype: 'input',
   };
 }
 
 function matchQuestion(unit) {
   const pairs = shuffle(unit.vocab).slice(0, 5).map((v) => [v.en, v.de]);
-  return { pub: { type: 'match', prompt: 'Finde die Paare!', pairs }, expected: [], qtype: 'match', key: null };
+  return { pub: { type: 'match', prompt: 'Was gehört zusammen?', pairs }, expected: [], qtype: 'match', key: null };
 }
 
 // ---------------------------------------------------------------- Sitzung
 
-export function startSession({ childId, subjectId, unitId, line: lineId, topic: topicId, mode = 'unit', count = 10 }) {
+export function startSession({ childId, subjectId, unitId, line: lineId, topic: topicId, mode = 'unit', count = 10, full = count }) {
   const subject = subjects.get(subjectId);
   if (!subject) throw httpError(404, 'Dieses Fach gibt es nicht.');
   const canSpeak = !!subject.meta.speechLang;
@@ -213,7 +213,7 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
   let refId = null;
   if (mode === 'review' || mode === 'due') {
     // Fehler-Training: was noch wackelt · Wiederholung: was heute nach ein paar Tagen Pause wieder dran ist
-    candidates = practiceItems(childId, mode, subjectId, count * 3);
+    candidates = practiceItems(childId, mode, subjectId, full * 3);
     if (!candidates.length) {
       throw httpError(400, mode === 'due' ? 'Heute ist nichts mehr zu wiederholen. Super!' : 'Gerade gibt es nichts zu wiederholen. Super!');
     }
@@ -249,6 +249,10 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     title = unit.title;
     refId = unit.id;
   }
+  // Eine ganze Fahrt hat full Aufgaben – beim Wiederholen weniger, wenn es nicht mehr gibt.
+  // Nur wer weniger wählt oder früher aussteigt, macht eine kurze Fahrt.
+  const available = mode === 'unit' ? Infinity : candidates.length; // Stationen füllen mit Wiederholungen auf
+  full = Math.min(full, available);
 
   const withMatch = mode === 'unit' && unit.vocab.length >= 5 && count >= 8;
   const stats = statsFor(childId, [...new Set(candidates.map((c) => c.key))]);
@@ -286,6 +290,8 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     startedAt,
     boosted: boostApplies(activeBoost(), { subject: subjectId, mode, line: mode === 'exam' ? refId : unit?.line ?? 'main', unit: refId }),
     deadline: mode === 'blitz' ? Date.now() + (BLITZ_SECONDS + 3) * 1000 : null,
+    // So viele Aufgaben hat eine normale Fahrt. Kürzere Fahrten (gewählt oder früh ausgestiegen) bringen anteilig Sterne.
+    full,
     combo: 0,
     bestCombo: 0,
     // credit: Punkte für den ersten Versuch – 1, ½ (selbst verbessert) oder 0
@@ -405,7 +411,14 @@ export function answerQuestion(sessionId, qid, given) {
   };
 }
 
-export function finishSession(sessionId) {
+/** Ab so vielen beantworteten Aufgaben zählt ein früher Ausstieg als (kurze) Fahrt. */
+export const MIN_EARLY = 3;
+
+/**
+ * early: Das Kind steigt vor dem Ziel aus. Was es bis dahin beantwortet hat, zählt als kurze Fahrt
+ * (ab MIN_EARLY Aufgaben, nicht beim Endbahnhof). Sonst verfällt die Fahrt still – ohne Strafe.
+ */
+export function finishSession(sessionId, { early = false } = {}) {
   const s = active.get(sessionId);
   if (!s) throw httpError(404, 'Diese Übung ist abgelaufen.');
   const answered = s.questions.filter((q) => q.answered);
@@ -413,6 +426,11 @@ export function finishSession(sessionId) {
     if (!answered.length) {
       active.delete(sessionId);
       return { mode: 'blitz', empty: true };
+    }
+  } else if (early) {
+    if (s.mode === 'exam' || answered.length < MIN_EARLY) {
+      active.delete(sessionId);
+      return { mode: s.mode, empty: true };
     }
   } else if (answered.length < s.questions.length) {
     throw httpError(400, 'Es sind noch Aufgaben offen.');
@@ -431,5 +449,6 @@ export function finishSession(sessionId) {
     // halbe Punkte fürs Verbessern zählen mit (z. B. 8½ von 10)
     correct: answered.reduce((sum, q) => sum + q.credit, 0),
     bestCombo: s.bestCombo,
+    full: s.mode === 'unit' || s.mode === 'review' || s.mode === 'due' ? s.full : null,
   });
 }

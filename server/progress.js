@@ -316,14 +316,14 @@ function describe(m) {
   switch (m.type) {
     case 'subject': {
       const meta = subjects.get(m.subject)?.meta;
-      return { icon: meta?.icon ?? '🚉', label: `Fahr eine Station in ${meta?.name ?? m.subject}` };
+      return { icon: meta?.icon ?? '🚉', label: `Eine Station in ${meta?.name ?? m.subject}` };
     }
-    case 'review': return { icon: '🔧', label: 'Mach ein Fehler-Training' };
-    case 'due': return { icon: '🔁', label: 'Mach deine Wiederholung von heute' };
-    case 'new': return { icon: '🆕', label: 'Probier eine Station aus, bei der du noch nie warst' };
+    case 'review': return { icon: '🔧', label: 'Ein Fehler-Training' };
+    case 'due': return { icon: '🔁', label: 'Die Wiederholung von heute' };
+    case 'new': return { icon: '🆕', label: 'Eine Station, bei der du noch nie warst' };
     case 'perfect': return { icon: '⭐', label: 'Hol 3 Sterne bei einer Fahrt' };
-    case 'blitz': return { icon: '⚡', label: 'Mach eine Blitzrunde' };
-    case 'combo': return { icon: '🔥', label: 'Schaff 5 richtige Antworten hintereinander' };
+    case 'blitz': return { icon: '⚡', label: 'Eine Blitzrunde' };
+    case 'combo': return { icon: '🔥', label: '5 richtige Antworten hintereinander' };
     default: return { icon: '🚉', label: m.type };
   }
 }

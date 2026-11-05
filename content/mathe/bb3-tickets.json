@@ -1,0 +1,28 @@
+{
+  "id": "bb-tickets",
+  "line": "basketball",
+  "order": 3,
+  "title": "Tickets und Trikots",
+  "subtitle": "Einnahmen, Kosten, Gewinn, teilen",
+  "icon": "🎟️",
+  "card": "Merke: **Gewinn = Einnahmen − Kosten**. Ein Verein verdient nur, wenn mehr reinkommt, als er ausgibt.",
+  "explain": [
+    {"p": "Auch ein Basketballverein muss rechnen: Karten und Trikots bringen **Einnahmen**, Halle und Schiedsrichter kosten Geld."},
+    {"table": {"head": ["", "Rechnung"], "rows": [["Einnahmen", "1240 · 12 € + 386 · 25 € = 14 880 € + 9650 € = **24 530 €**"], ["Kosten", "6800 € + 1450 € + 2280 € = **10 530 €**"], ["Gewinn", "24 530 € − 10 530 € = **14 000 €**"]]}},
+    {"tip": "Geschickt malnehmen: 59 · 148 = 60 · 148 − 1 · 148 = 8880 − 148 = 8732."},
+    {"tip": "Beim Teilen fair aufteilen: 720 € Buskosten für 45 Fans → 720 : 45 = 16 € pro Person."}
+  ],
+  "exercises": [
+    {"type": "input", "task": "Basketball", "q": "Bei einem Heimspiel werden 1240 Karten zu 12 € und 386 Karten zu 25 € verkauft. Wie viel Euro nimmt der Verein ein? ___ €", "answer": "24530", "numeric": true, "placeholder": "Euro", "explain": "1240 · 12 = 14 880 und 386 · 25 = 9650. Zusammen **24 530 €**."},
+    {"type": "input", "task": "Basketball", "q": "Ein Verein nimmt 24 530 € ein. Die Halle kostet 6800 €, die Schiedsrichter 1450 € und Sonstiges 2280 €. Wie viel Gewinn bleibt? ___ €", "answer": "14000", "numeric": true, "placeholder": "Euro", "explain": "Kosten: 6800 + 1450 + 2280 = 10 530 €. Gewinn: 24 530 − 10 530 = **14 000 €**."},
+    {"type": "input", "task": "Basketball", "q": "Ein Trikot kostet 59 €. Der Fanshop verkauft 148 Trikots. Wie viel Euro nimmt er ein? ___ €", "answer": "8732", "numeric": true, "placeholder": "Euro", "explain": "Geschickt: 60 · 148 − 148 = 8880 − 148 = **8732 €**."},
+    {"type": "input", "task": "Basketball", "q": "Ein Verein kauft 15 Bälle zu je 38 € und 12 Trikots zu je 45 €. Was kostet alles zusammen? ___ €", "answer": "1110", "numeric": true, "placeholder": "Euro", "explain": "15 · 38 = 570 und 12 · 45 = 540. Zusammen **1110 €**."},
+    {"type": "input", "task": "Basketball", "q": "Ein Verein hat 1500 €. Er kauft 15 Bälle zu je 38 € und 12 Trikots zu je 45 €. Wie viel Geld bleibt übrig? ___ €", "answer": "390", "numeric": true, "placeholder": "Euro", "explain": "Der Einkauf kostet 570 + 540 = 1110 €. Übrig: 1500 − 1110 = **390 €**."},
+    {"type": "input", "task": "Basketball", "q": "12 Spielerinnen teilen sich 1044 € Preisgeld gleichmäßig. Wie viel bekommt jede? ___ €", "answer": "87", "numeric": true, "placeholder": "Euro", "explain": "1044 : 12 = **87**. Probe: 87 · 12 = 1044 ✓"},
+    {"type": "input", "task": "Basketball", "q": "Ein Bus zum Auswärtsspiel kostet 720 €. 45 Fans teilen sich die Kosten. Wie viel zahlt jeder? ___ €", "answer": "16", "numeric": true, "placeholder": "Euro", "explain": "720 : 45 = **16**. Probe: 16 · 45 = 720 ✓"},
+    {"type": "input", "task": "Basketball", "q": "Eine Dauerkarte kostet 180 € für 17 Heimspiele. Eine Einzelkarte kostet 12 €. Wie viel spart man mit der Dauerkarte, wenn man zu allen Spielen geht? ___ €", "answer": "24", "numeric": true, "placeholder": "Euro", "explain": "17 Einzelkarten: 17 · 12 = 204 €. Gespart: 204 − 180 = **24 €**."},
+    {"type": "input", "task": "Basketball", "q": "Der Fanshop hat 2400 Schals. An drei Spieltagen verkauft er 486, 512 und 397. Wie viele Schals sind noch da? ___", "answer": "1005", "numeric": true, "placeholder": "Schals", "explain": "Verkauft: 486 + 512 + 397 = 1395. Übrig: 2400 − 1395 = **1005**."},
+    {"type": "input", "task": "Basketball", "q": "236 Fans fahren zum Pokalfinale. In einen Bus passen 50 Leute. Wie viele Busse braucht man? ___", "answer": "5", "numeric": true, "placeholder": "Busse", "explain": "236 : 50 = 4 Rest 36. Für die 36 übrigen Fans braucht man noch einen Bus: **5 Busse**."},
+    {"type": "choice", "task": "Basketball", "q": "Ein Verein nimmt 9000 € ein und gibt 6500 € aus. Welche Rechnung zeigt den Gewinn?", "options": ["9000 − 6500", "9000 + 6500", "6500 − 9000", "9000 : 6500"], "answer": "9000 − 6500", "explain": "Gewinn = Einnahmen − Kosten: 9000 − 6500 = 2500 €."}
+  ]
+}

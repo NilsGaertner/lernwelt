@@ -1,0 +1,29 @@
+{
+  "id": "katze-fehler",
+  "line": "katze",
+  "order": 2,
+  "title": "Wo hakt es?",
+  "subtitle": "Rechenregeln: Fehler der Katze finden",
+  "icon": "🔍",
+  "card": "Merke: Wer einen Fehler erklären kann, hat die Regel wirklich verstanden. Lehrer machen genau das jeden Tag.",
+  "explain": [
+    {"p": "Deine Katze kennt die Regeln nicht immer. Die häufigsten Fehler:"},
+    {"table": {"head": ["Katze rechnet", "Fehler", "Richtig"], "rows": [["6 + 4 · 5 = 50", "Strich vor Punkt", "6 + 20 = **26**"], ["3 · 4² = 12² = 144", "Punkt vor Potenz", "3 · 16 = **48**"], ["7 · (10 + 3) = 70 + 3", "nur eine Zahl malgenommen", "70 + 21 = **91**"], ["20 − 8 − 2 = 20 − 6", "nicht von links gerechnet", "12 − 2 = **10**"]]}},
+    {"tip": "Manchmal hat die Katze aber auch recht! Bei Plus und Mal darf man vertauschen: 25 · 17 · 4 = 25 · 4 · 17 = 1700."}
+  ],
+  "exercises": [
+    {"type": "choice", "task": "🐱 Wo hakt es?", "q": "Deine Katze rechnet: 6 + 4 · 5 = 50. Was ist schiefgegangen?", "options": ["Sie hat Strich vor Punkt gerechnet", "Sie hat sich beim Malnehmen verrechnet", "Alles richtig: erst 6 + 4, dann · 5", "Sie hätte 6 · 4 rechnen müssen"], "answer": "Sie hat Strich vor Punkt gerechnet", "explain": "Sie hat erst 6 + 4 = 10 gerechnet. Punkt vor Strich: 4 · 5 = 20, dann 6 + 20 = **26**."},
+    {"type": "input", "task": "🐱 Und richtig?", "q": "Deine Katze kam bei 6 + 4 · 5 auf 50. Was ist richtig? ___", "answer": "26", "numeric": true, "placeholder": "Ergebnis"},
+    {"type": "choice", "task": "🐱 Wo hakt es?", "q": "Deine Katze rechnet: (3 + 4)² = 3² + 4² = 25. Stimmt das?", "options": ["Nein, erst die Klammer: 7² = 49", "Ja, Potenzen darf man so aufteilen", "Nein, erst 4², dann 3 + 16 = 19", "Nein, die Klammer ist 7, also 7 · 2 = 14"], "answer": "Nein, erst die Klammer: 7² = 49", "explain": "Klammer zuerst: 3 + 4 = 7, dann 7² = 49. Man darf die Potenz nicht auf die Zahlen in der Klammer verteilen."},
+    {"type": "choice", "task": "🐱 Wo hakt es?", "q": "Deine Katze rechnet: 3 · 4² = 12² = 144. Stimmt das?", "options": ["Nein, Potenz zuerst: 3 · 16 = 48", "Ja, erst 3 · 4, dann hoch 2", "Nein, 3 · 4 · 2 = 24", "Nein, erst 3², dann 9 · 4 = 36"], "answer": "Nein, Potenz zuerst: 3 · 16 = 48", "explain": "KlaPoPuStri: Potenz vor Punkt. 4² = 16, dann 3 · 16 = **48**."},
+    {"type": "choice", "task": "🐱 Wo hakt es?", "q": "Deine Katze rundet 4349 auf Hunderter und schreibt 4400. Stimmt das?", "options": ["Nein, es wird abgerundet: 4300", "Ja, wegen der 9 wird aufgerundet", "Nein, auf Hunderter heißt es 4000", "Nein, es heißt 4350"], "answer": "Nein, es wird abgerundet: 4300", "explain": "Rechts neben der Hunderterziffer 3 steht eine 4 → abrunden. Die 9 ganz hinten zählt nicht."},
+    {"type": "choice", "task": "🐱 Wo hakt es?", "q": "Deine Katze rundet 2961 auf Hunderter und schreibt 2900. Stimmt das?", "options": ["Nein, es wird aufgerundet: 3000", "Ja, die 9 bleibt einfach stehen", "Nein, es heißt 2960", "Nein, es wird abgerundet: 2000"], "answer": "Nein, es wird aufgerundet: 3000", "explain": "Rechts neben der 9 steht eine 6 → aufrunden. 29 Hunderter werden 30 Hunderter: 3000."},
+    {"type": "choice", "task": "🐱 Wo hakt es?", "q": "Deine Katze rechnet: 7 · (10 + 3) = 70 + 3 = 73. Stimmt das?", "options": ["Nein, die 7 gehört zu beiden: 70 + 21 = 91", "Ja, die 7 gehört nur zur 10", "Nein, die 7 gehört nur zur 3: 10 + 21 = 31", "Nein, erst 7 + 10, dann · 3 = 51"], "answer": "Nein, die 7 gehört zu beiden: 70 + 21 = 91", "explain": "Distributivgesetz: 7 · 10 + 7 · 3 = 70 + 21 = **91**."},
+    {"type": "choice", "task": "🐱 Wo hakt es?", "q": "Deine Katze rechnet: 20 − 8 − 2 = 20 − 6 = 14. Stimmt das?", "options": ["Nein, von links nach rechts: 12 − 2 = 10", "Ja, Minus darf man zusammenfassen", "Nein, alles plus: 20 + 8 + 2 = 30", "Nein, 20 − 8 = 12, dann 12 + 2 = 14"], "answer": "Nein, von links nach rechts: 12 − 2 = 10", "explain": "Nur Minus: von links nach rechts. 20 − 8 = 12, dann 12 − 2 = **10**."},
+    {"type": "choice", "task": "🐱 Wo hakt es?", "q": "Deine Katze rechnet: 24 : 4 : 2 = 24 : 2 = 12. Stimmt das?", "options": ["Nein, von links nach rechts: 6 : 2 = 3", "Ja, Geteilt darf man zusammenfassen", "Nein, 24 : 4 = 6, dann 6 · 2 = 12", "Nein, erst 4 · 2, dann 24 · 8"], "answer": "Nein, von links nach rechts: 6 : 2 = 3", "explain": "24 : 4 = 6, dann 6 : 2 = **3**. Beim Teilen darf man nicht einfach anders verbinden."},
+    {"type": "choice", "task": "🐱 Wo hakt es?", "q": "Deine Katze rechnet: 25 · 17 · 4 = 25 · 4 · 17 = 1700. Stimmt das?", "options": ["Ja – bei Mal darf man vertauschen", "Nein, vertauschen ist bei Mal verboten", "Nein, 25 · 4 = 100, dann 100 + 17 = 117", "Nein, vertauschen geht nur bei Plus"], "answer": "Ja – bei Mal darf man vertauschen", "explain": "Kommutativgesetz: 25 · 4 = 100, 100 · 17 = 1700. Gut gemacht, Katze!"},
+    {"type": "choice", "task": "🐱 Wo hakt es?", "q": "Deine Katze sagt: 10 − 4 ist dasselbe wie 4 − 10. Stimmt das?", "options": ["Nein, bei Minus darf man nicht vertauschen", "Ja, vertauschen geht bei allen Rechenarten", "Ja, bei beiden kommt 6 heraus", "Nein, nur bei Geteilt darf man nicht vertauschen"], "answer": "Nein, bei Minus darf man nicht vertauschen", "explain": "10 − 4 = 6, aber 4 − 10 geht mit natürlichen Zahlen gar nicht. Vertauschen gilt nur bei Plus und Mal."},
+    {"type": "input", "task": "🐱 Und richtig?", "q": "Deine Katze kam bei 2 · (5 + 3)² auf 256. Was ist richtig? ___", "answer": "128", "numeric": true, "placeholder": "Ergebnis", "explain": "Die Katze hat (2 · 8)² gerechnet. Richtig: Klammer 8, Potenz 8² = 64, dann 2 · 64 = **128**."},
+    {"type": "input", "task": "🐱 Und richtig?", "q": "Deine Katze kam bei 100 − 5 · 4² auf 1520. Was ist richtig? ___", "answer": "20", "numeric": true, "placeholder": "Ergebnis", "explain": "Die Katze hat (100 − 5) · 16 gerechnet. Richtig: 4² = 16, 5 · 16 = 80, 100 − 80 = **20**."}
+  ]
+}

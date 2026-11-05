@@ -547,6 +547,9 @@ export const prefs = {
   set sound(v) { save('lw.sound', v); },
   get lastChild() { return store('lw.lastChild', null); },
   set lastChild(v) { save('lw.lastChild', v); },
+  /** Gewählte Fahrtlänge (3, 5 oder null = ganze Fahrt), gemerkt pro Gerät. */
+  get rideLength() { const v = store('lw.rideLength', null); return [3, 5].includes(v) ? v : null; },
+  set rideLength(v) { save('lw.rideLength', [3, 5].includes(v) ? v : null); },
   /** Geschaffte Stationen einer Linie sind eingeklappt, bis das Kind sie aufklappt (gemerkt pro Gerät). */
   isFolded(key) { return store('lw.unfolded', {})[key] !== true; },
   setFolded(key, folded) {

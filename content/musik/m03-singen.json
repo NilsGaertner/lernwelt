@@ -20,7 +20,7 @@
     { "tip": "Hast du Schnupfen, klingt deine Stimme anders: Die **Nasenhöhle** ist verstopft, und das Resonanzrohr verändert den Klang." }
   ],
   "exercises": [
-    { "type": "order", "task": "In welcher Reihenfolge entsteht die Stimme? Bring die Teile in die richtige Reihenfolge.", "de": "Luft → Ton → Klang", "answer": "Atemorgan Stimmlippen Resonanzrohr" },
+    { "type": "order", "task": "In welcher Reihenfolge entsteht die Stimme?", "de": "Luft → Ton → Klang", "answer": "Atemorgan Stimmlippen Resonanzrohr" },
     { "type": "choice", "q": "Welcher Teil liefert die Luft, die zur Tonerzeugung nötig ist?", "options": ["das Atemorgan", "die Stimmlippen", "das Resonanzrohr", "die Zunge"], "answer": "das Atemorgan" },
     { "type": "choice", "q": "Was erzeugt den Ton?", "options": ["die Stimmlippen", "die Lunge", "die Nasenhöhle", "das Zwerchfell"], "answer": "die Stimmlippen" },
     { "type": "choice", "q": "Wo liegen die Stimmlippen?", "options": ["im Inneren des Kehlkopfes", "in der Lunge", "in der Nasenhöhle", "unter der Zunge"], "answer": "im Inneren des Kehlkopfes" },

@@ -5,6 +5,9 @@
   "order": 2,
   "enabled": true,
   "lines": [
+    { "id": "minecraft", "name": "Minecraft-Linie", "short": "Minecraft", "color": "#6AAA3A" },
+    { "id": "basketball", "name": "Basketball-Linie", "short": "Basketball", "color": "#F57C00" },
+    { "id": "katze", "name": "Katzen-Linie", "short": "Katzen-Check", "color": "#EC407A" },
     { "id": "probearbeit", "name": "Probearbeit-Linie", "short": "Probearbeit", "color": "#8D6E63", "examCount": 12 },
     { "id": "kopfrechnen", "name": "Kopfrechnen-Linie", "short": "Kopfrechnen", "color": "#D9631E" },
     { "id": "schriftlich-plus", "name": "Schriftlich-plus-Linie", "short": "Schriftlich plus", "color": "#1E6FB8", "examCount": 10 },

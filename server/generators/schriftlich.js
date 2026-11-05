@@ -24,7 +24,7 @@
 const rand = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
 const SEP = { add: '+', sub: '-', mul: '*', div: ':' };
 const SIGN = { add: '+', sub: '−', mul: '·', div: ':' };
-const TASK = { add: 'Rechne schriftlich.', sub: 'Rechne schriftlich minus.', mul: 'Rechne schriftlich mal.', div: 'Teile schriftlich.' };
+const TASK = { add: 'Schriftlich plus:', sub: 'Schriftlich minus:', mul: 'Schriftlich mal:', div: 'Schriftlich geteilt:' };
 
 function randomNumber(digits) {
   let s = String(rand(1, 9));
