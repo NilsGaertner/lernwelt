@@ -10,7 +10,7 @@
   "params": { "rules": ["be", "have"] },
   "itemCount": 1200,
   "explain": [
-    { "p": "Hier kommen **immer neue Sätze**. Auswendig lernen geht hier nicht – dafür merkst du, ob die Regel sitzt, so wie im Test. 💪" },
+    { "p": "Hier kommen **immer neue Sätze**. Auswendig lernen geht hier nicht – dafür merkst du, ob die Regel schon sitzt. 💪" },
     { "table": { "head": ["Wer?", "to be", "have got"], "rows": [
       ["I", "I **am**", "I **have got**"],
       ["you / we / they", "you **are**", "you **have got**"],

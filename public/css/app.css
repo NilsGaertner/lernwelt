@@ -1313,6 +1313,8 @@ table.data.units td:last-child { min-width: 190px; }
   border: 2px solid var(--line); background: var(--paper); font-weight: 700;
 }
 .mc.blank { border: 2px dashed var(--rule); }
+/* „Lieber auswählen?“ unter dem Eingabefeld: Schreiben ist ein Angebot */
+.switch-row { margin: 10px 0 0; }
 
 /* „Das sitzt“: was an mehreren Tagen mit Pausen richtig war */
 .known-line { font-weight: 600; color: var(--ink-2); }

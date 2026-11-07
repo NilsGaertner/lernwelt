@@ -37,14 +37,16 @@ export function nextBox(prev, outcome, { today = localDay(), blitz = false } = {
 
 /**
  * Speichert eine Antwort (nur der erste Versuch einer Aufgabe zählt).
- * known_at merkt sich, wann die Aufgabe in Box 3 gekommen ist (für „Das sitzt: +N diese Woche“).
- * Gibt zurück, ob die Aufgabe mit dieser Antwort neu „sitzt“.
+ * known_at merkt sich, wann die Aufgabe zum ersten Mal in Box 3 gekommen ist („Das sitzt“). Es bleibt stehen, auch
+ * wenn die Aufgabe später wieder wackelt: Die Zahl, die das Kind sieht, soll nie kleiner werden – eine Zahl, die
+ * schrumpft, fühlt sich wie Verlieren an (siehe „Weniger Druck“ in der README). Was wackelt, holt das Fehler-Training.
+ * Gibt zurück, ob die Aufgabe mit dieser Antwort zum ersten Mal „sitzt“.
  */
 export function recordAnswer({ childId, key, subject, unitId, outcome, blitz, at }) {
   const prev = db.prepare('SELECT box, due, known_at FROM item_stats WHERE child_id = ? AND item_key = ?').get(childId, key);
   const { box, due } = nextBox(prev, outcome, { blitz });
-  const becameKnown = box >= KNOWN_BOX && (prev?.box ?? 0) < KNOWN_BOX;
-  const knownAt = box < KNOWN_BOX ? null : becameKnown ? at : prev?.known_at ?? null;
+  const becameKnown = box >= KNOWN_BOX && !prev?.known_at;
+  const knownAt = prev?.known_at ?? (box >= KNOWN_BOX ? at : null);
   db.prepare(
     `INSERT INTO item_stats (child_id, item_key, subject, unit_id, box, correct, wrong, last_seen, due, known_at)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -55,6 +57,20 @@ export function recordAnswer({ childId, key, subject, unitId, outcome, blitz, at
   return { box, becameKnown };
 }
 
+/** known_at für Aufgaben, die schon saßen, bevor die Lernwelt das mitgeschrieben hat – zählen mit, aber nicht als neu. */
+const KNOWN_BEFORE = '2000-01-01T00:00:00.000Z';
+
+/**
+ * Aufgaben in Box 3 oder höher ohne known_at (aus der Zeit, bevor es das gab, oder nach dem Zusammenlegen früherer
+ * Aufgaben) bekommen ein frühes Datum. So bleiben sie für „Das sitzt“ gezählt, auch wenn sie später wackeln, und
+ * erscheinen nicht als „neu“ oder „diese Woche“. Läuft bei jedem Start; ändert nur, was noch fehlt.
+ */
+export function markKnownItems() {
+  const r = db.prepare('UPDATE item_stats SET known_at = ? WHERE known_at IS NULL AND box >= ?').run(KNOWN_BEFORE, KNOWN_BOX);
+  if (r.changes) console.log(`„Das sitzt“: ${r.changes} Aufgaben, die schon vorher saßen, übernommen.`);
+  return Number(r.changes);
+}
+
 /** Montag der Woche eines Tages (YYYY-MM-DD). */
 function weekStart(day) {
   const d = new Date(`${day}T12:00:00`);
@@ -62,13 +78,15 @@ function weekStart(day) {
 }
 
 /**
- * „Das sitzt“: Wörter und Aufgaben in Box 3 oder höher – also an mehreren Tagen mit Pausen richtig.
- * Das ist der ehrlichste Lernstand, den die Lernwelt kennt (Sterne zeigen nur, wie eine Fahrt lief).
- * Inhalte, die es nicht mehr gibt, zählen nicht mit. week: seit Montag neu dazugekommen.
+ * „Das sitzt“: Wörter und Aufgaben, die schon einmal in Box 3 waren – also an mehreren Tagen mit Pausen richtig.
+ * Sterne zeigen nur, wie eine Fahrt lief; das hier zeigt, was im Kopf geblieben ist. Die Zahl sinkt nicht (siehe recordAnswer).
+ * Inhalte, die es nicht mehr gibt, zählen nicht mit. week: seit Montag zum ersten Mal dazugekommen.
  */
 export function knownCounts(childId) {
   const monday = weekStart(localDay());
-  const rows = db.prepare('SELECT item_key, subject, known_at FROM item_stats WHERE child_id = ? AND box >= ?').all(childId, KNOWN_BOX);
+  const rows = db
+    .prepare('SELECT item_key, subject, known_at FROM item_stats WHERE child_id = ? AND (known_at IS NOT NULL OR box >= ?)')
+    .all(childId, KNOWN_BOX);
   const out = { total: 0, week: 0, bySubject: {} };
   for (const r of rows) {
     if (!resolveItem(r.item_key)) continue;
@@ -116,7 +134,8 @@ export function foldFormerItems() {
       }
       const better = t.box > o.box ? t : o;
       const last = [o.last_seen, t.last_seen].filter(Boolean).sort().at(-1) ?? null;
-      merge.run(better.box, better.due, better.known_at ?? null, o.correct + t.correct, o.wrong + t.wrong, last, t.child_id, key);
+      const known = [o.known_at, t.known_at].filter(Boolean).sort()[0] ?? null; // das erste Mal „sitzt“
+      merge.run(better.box, better.due, known, o.correct + t.correct, o.wrong + t.wrong, last, t.child_id, key);
       drop.run(t.child_id, t.item_key);
     }
   });

@@ -474,7 +474,7 @@ async function childView(root, id, render) {
       ? h('ul.weak-list', d.weak.map((w) =>
           h('li', h('span.lbl', w.label), h('span.meta', `${w.unit} · `, h('span.neg', `${w.wrong}× falsch`), ` · ${w.correct}× richtig`))))
       : h('p.muted', 'Aktuell nichts Auffälliges – prima!'),
-    h('p.muted.small', `Sicher gelernt: ${d.mastered} von ${d.seen} geübten Wörtern/Aufgaben (an mindestens drei Tagen richtig, mit Pausen dazwischen)${d.masteredWeek ? `, ${d.masteredWeek} davon diese Woche` : ''}. Dein Kind sieht diese Zahl als „Das sitzt“.`));
+    h('p.muted.small', `Schon gelernt: ${d.mastered} von ${d.seen} geübten Wörtern/Aufgaben (mindestens einmal an drei Tagen richtig, mit Pausen dazwischen)${d.masteredWeek ? `, ${d.masteredWeek} davon diese Woche` : ''}. Dein Kind sieht diese Zahl als „Das sitzt“. Sie sinkt nicht, wenn etwas wieder wackelt – das steht dann oben in dieser Liste.`));
 
   const bySubject = new Map();
   for (const u of d.units) {
@@ -673,7 +673,7 @@ async function childView(root, id, render) {
       kpi(`${d.streak}`, 'Tage am Stück'),
       kpi(`${d.rank.train} ${d.rank.level}`, `${d.rank.name} · ${d.rank.xp} XP`),
       kpi(`${d.stamps}`, 'Fahrplan-Stempel'),
-      kpi(`${d.mastered}`, d.masteredWeek ? `sicher gelernt (+${d.masteredWeek} diese Woche)` : 'sicher gelernt'),
+      kpi(`${d.mastered}`, d.masteredWeek ? `schon gelernt (+${d.masteredWeek} diese Woche)` : 'schon gelernt'),
       kpi(`${d.badges.length}`, 'Abzeichen'))),
     foldable(chart, 'child.chart'),
     foldable(weak, 'child.weak'),

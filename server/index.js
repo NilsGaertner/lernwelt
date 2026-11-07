@@ -3,8 +3,8 @@ import path from 'node:path';
 import { db, getSetting, setSetting, getPublicSettings, transaction } from './db.js';
 import { loadContent, publicSubjects, publicUnit, subjects, itemLabel, CONTENT_DIR } from './content.js';
 import { publicBadges } from './badges.js';
-import { startSession, answerQuestion, finishSession, hintQuestion } from './session.js';
-import { practiceCounts, migrateSpacing, knownCounts, foldFormerItems } from './srs.js';
+import { startSession, answerQuestion, finishSession, hintQuestion, chooseQuestion } from './session.js';
+import { practiceCounts, migrateSpacing, knownCounts, foldFormerItems, markKnownItems } from './srs.js';
 import {
   balance, earnedOn, streak, unitProgress, earnedBadges, requestTicket, decideTicket, tickets, adjustStars,
   starLimitFor, upcomingDayLimits, activeBoost, startBoost, stopBoost,
@@ -23,6 +23,7 @@ const problems = await loadContent();
 for (const p of problems) console.warn(`[Inhalt] ${p}`);
 migrateSpacing();
 foldFormerItems();
+markKnownItems();
 
 const app = express();
 app.use(express.json({ limit: '100kb' }));
@@ -166,6 +167,10 @@ app.post('/api/sessions/:id/answer', (req, res) => {
 
 app.post('/api/sessions/:id/hint', (req, res) => {
   res.json(hintQuestion(req.params.id, Number(req.body?.qid)));
+});
+
+app.post('/api/sessions/:id/choices', (req, res) => {
+  res.json(chooseQuestion(req.params.id, Number(req.body?.qid)));
 });
 
 app.post('/api/sessions/:id/finish', (req, res) => {
@@ -510,6 +515,7 @@ parent.put('/pin', (req, res) => {
 parent.post('/reload-content', async (req, res) => {
   const issues = await loadContent();
   foldFormerItems();
+  markKnownItems();
   res.json({ ok: true, problems: issues });
 });
 

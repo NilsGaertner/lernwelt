@@ -188,10 +188,11 @@ function vocabQuestion(subject, cand, stat, canSpeak, onlyChoice = false) {
  * "recall": Eine Auswahl-Aufgabe wird zum Schreiben, sobald sie ein bisschen sitzt – wie bei den Vokabeln.
  * Box 0: auswählen · Box 1: ab und zu schreiben · ab Box 2: schreiben. Selbst darauf kommen (statt wiedererkennen)
  * prägt sich besser ein. Ein Fehler bringt die Aufgabe zwei Boxen zurück, dann kommt wieder die Auswahl.
- * In der Blitzrunde wird immer angetippt.
+ * Schreiben ist ein Angebot, kein Muss: Mit „Lieber auswählen?“ kommen die Antworten zurück (½ Punkt, siehe chooseQuestion).
+ * In der Blitzrunde wird immer angetippt, und der Endbahnhof bleibt, wie er war – er soll nicht unbemerkt schwerer werden.
  */
 function recallTyped(ex, stat, mode) {
-  if (ex.type !== 'choice' || !ex.recall || ex.sound || mode === 'blitz') return false;
+  if (ex.type !== 'choice' || !ex.recall || ex.sound || mode === 'blitz' || mode === 'exam') return false;
   const box = stat?.box ?? 0;
   return box >= 2 || (box === 1 && Math.random() < 1 / 3);
 }
@@ -214,8 +215,11 @@ function exerciseQuestion(subjectId, cand, canSpeak, stat = null, mode = 'unit')
         prompt: typeof ex.recall === 'string' ? ex.recall : ex.task ?? (gap ? 'Welches Wort fehlt?' : 'Was ist die Antwort?'),
         text: ex.q, textDe: ex.de ?? null, map, hint: ex.hint ?? null,
         placeholder: ex.placeholder ?? (gap ? '…' : 'Deine Antwort …'), numeric: /^\d+$/.test(ex.answer),
+        canChoose: true,
       },
       expected: [ex.answer, ...(ex.accept ?? [])], qtype: 'input',
+      // Die Antworten zum Auswählen, falls das Kind lieber auswählt
+      choices: shuffle(ex.options),
     };
   }
   if (ex.type === 'column') {
@@ -435,6 +439,8 @@ export function answerQuestion(sessionId, qid, given) {
   } else {
     givenText = Array.isArray(given) ? given.join(' ') : String(given ?? '');
     result = checkAnswer(q, givenText);
+    // Angetippt statt geschrieben: Ein Buchstabe Unterschied ist dann kein Vertipper, sondern eine andere Antwort.
+    if (q.switched) delete result.almost;
   }
   const now = nowIso();
   const log = (correct, firstTry) =>
@@ -450,14 +456,18 @@ export function answerQuestion(sessionId, qid, given) {
   }
 
   const firstTry = !q.answered;
-  // Mit Hilfe (selbst verbessert oder mit Tipp) gibt es einen halben Punkt, und die Serie läuft nicht weiter.
-  const helped = firstTry && (!!q.secondChance || !!q.hinted);
+  // Mit Hilfe (selbst verbessert, mit Tipp oder ausgewählt statt geschrieben) gibt es einen halben Punkt.
+  const assisted = firstTry && (!!q.hinted || !!q.switched);
+  const helped = assisted || (firstTry && !!q.secondChance);
   const credit = result.correct ? (helped ? 0.5 : 1) : 0;
   if (firstTry) {
     q.answered = true;
     q.credit = credit;
   }
-  s.combo = result.correct && !helped ? s.combo + 1 : 0;
+  // Serie in der Fahrt: Ein Fehler beendet sie (auch der Vertipper vor dem Verbessern). Hilfe holen hält sie nur an –
+  // wer einen Tipp nimmt, soll dafür nicht seine Serie verlieren.
+  if (!result.correct || (firstTry && q.secondChance)) s.combo = 0;
+  else if (!assisted) s.combo += 1;
   s.bestCombo = Math.max(s.bestCombo, s.combo);
 
   log(result.correct, firstTry && !helped);
@@ -473,6 +483,7 @@ export function answerQuestion(sessionId, qid, given) {
     ...result,
     half: firstTry && credit === 0.5,
     hinted: firstTry && !!q.hinted,
+    switched: firstTry && !!q.switched,
     firstTry,
     combo: s.combo,
     solution: q.pub.type === 'match' ? null : q.expected[0],
@@ -543,4 +554,19 @@ export function hintQuestion(sessionId, qid) {
   if (!q.hintable) throw httpError(400, 'Für diese Aufgabe gibt es keinen Tipp.');
   if (!q.answered) q.hinted = true;
   return { mask: hintMask(q.expected[0]) };
+}
+
+/**
+ * „Lieber auswählen?“: Eine recall-Aufgabe, die zum Schreiben gekommen ist, wird wieder zur Auswahl. Schreiben ist ein
+ * Angebot, kein Muss. Wie beim Tipp gibt es dann höchstens einen halben Punkt (bei der Wiederholung am Ende kostet es
+ * nichts), und die Aufgabe rückt keine Box höher – Wiedererkennen ist noch nicht Erinnern.
+ */
+export function chooseQuestion(sessionId, qid) {
+  const s = active.get(sessionId);
+  if (!s) throw httpError(404, 'Diese Übung ist abgelaufen. Starte sie einfach neu.');
+  const q = s.questions[qid];
+  if (!q) throw httpError(400, 'Unbekannte Aufgabe.');
+  if (!q.choices) throw httpError(400, 'Für diese Aufgabe gibt es keine Auswahl.');
+  if (!q.answered) q.switched = true;
+  return { options: q.choices };
 }
