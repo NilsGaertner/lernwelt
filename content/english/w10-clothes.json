@@ -30,5 +30,11 @@
     { "en": "gloves", "de": "Handschuhe" },
     { "en": "boots", "de": "Stiefel" },
     { "en": "pyjamas", "de": "Schlafanzug", "alt": ["pajamas"] }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "It’s cold. Put on your ___ and your scarf.", "de": "Es ist kalt. Zieh deine Jacke und deinen Schal an.", "options": ["jacket", "shorts", "skirt", "pyjamas"], "answer": "jacket", "recall": true },
+    { "type": "choice", "q": "I wear my ___ in bed.", "de": "Im Bett trage ich meinen Schlafanzug.", "options": ["pyjamas", "trainers", "boots", "gloves"], "answer": "pyjamas", "recall": true, "accept": ["pajamas"] },
+    { "type": "choice", "q": "My ___ are too small. My feet hurt.", "de": "Meine Schuhe sind zu klein. Meine Füße tun weh.", "options": ["shoes", "gloves", "jeans", "socks"], "answer": "shoes", "recall": true },
+    { "type": "choice", "q": "It’s sunny. I’m wearing a T-shirt and ___.", "de": "Es ist sonnig. Ich trage ein T-Shirt und eine kurze Hose.", "options": ["shorts", "gloves", "boots", "coat"], "answer": "shorts", "recall": true, "explain": "Eine kurze Hose heißt **shorts** – immer mit -s, wie trousers und jeans." }
   ]
 }

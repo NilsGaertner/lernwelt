@@ -31,5 +31,11 @@
     { "en": "floor", "de": "Fußboden" },
     { "en": "shelf", "de": "Regal" },
     { "en": "toilet", "de": "Toilette" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "We cook in the ___.", "de": "Wir kochen in der Küche.", "options": ["kitchen", "bathroom", "bedroom", "garden"], "answer": "kitchen", "recall": true },
+    { "type": "choice", "q": "My books are on the ___.", "de": "Meine Bücher stehen im Regal.", "options": ["shelf", "floor", "stairs", "lamp"], "answer": "shelf", "recall": true },
+    { "type": "choice", "q": "We live in a small ___ in the city.", "de": "Wir wohnen in einer kleinen Wohnung in der Stadt.", "options": ["flat", "garden", "kitchen", "toilet"], "answer": "flat", "recall": true, "accept": ["apartment"] },
+    { "type": "choice", "q": "Please close the ___. It’s cold.", "de": "Bitte mach das Fenster zu. Es ist kalt.", "options": ["window", "door", "wall", "table"], "answer": "window", "recall": true }
   ]
 }

@@ -29,5 +29,11 @@
     { "en": "take photos", "de": "Fotos machen" },
     { "en": "free time", "de": "Freizeit" },
     { "en": "hobby", "de": "Hobby" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "I ___ to music every evening.", "de": "Ich höre jeden Abend Musik.", "options": ["listen", "watch", "play", "read"], "answer": "listen", "recall": true, "explain": "Musik hören heißt **listen to** music – mit „to“." },
+    { "type": "choice", "q": "On Saturdays I ___ football with my friends.", "de": "Samstags spiele ich mit meinen Freunden Fußball.", "options": ["play", "ride", "take", "go"], "answer": "play", "recall": true },
+    { "type": "choice", "q": "I ___ photos with my phone.", "de": "Ich mache Fotos mit meinem Handy.", "options": ["take", "make", "do", "play"], "answer": "take", "recall": true, "explain": "Fotos machen heißt auf Englisch **take** photos – nicht „make photos“." },
+    { "type": "choice", "q": "Let’s ___ shopping on Saturday.", "de": "Lass uns am Samstag einkaufen gehen.", "options": ["go", "make", "do", "take"], "answer": "go", "recall": true }
   ]
 }

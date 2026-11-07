@@ -115,6 +115,7 @@ function validateUnit(meta, unit, file, problems, subjectDir) {
   if (!unit.title) problems.push(`${where}: "title" fehlt`);
   if (meta.lines && !meta.lines.some((l) => l.id === unit.line)) problems.push(`${where}: unbekannte Linie "${unit.line}"`);
   if (unit.generator && !generators.has(unit.generator)) problems.push(`${where}: Generator "${unit.generator}" nicht gefunden`);
+  else if (unit.generator) checkGenerator(unit, where, problems);
   if (!unit.generator && unit.vocab.length + unit.exercises.length < 5) problems.push(`${where}: weniger als 5 Aufgaben`);
 
   const seen = new Set();
@@ -141,6 +142,58 @@ function validateUnit(meta, unit, file, problems, subjectDir) {
     if (ex.map) checkMap(ex.map, ex.mark ? [ex.mark] : []);
     if (ex.sound) checkSound(ex.sound);
     if (ex.sound && ex.type !== 'choice') problems.push(`${where}: Hör-Aufgaben gibt es nur als choice: ${JSON.stringify(ex)}`);
+    if (ex.accept != null && !(Array.isArray(ex.accept) && ex.accept.every((a) => typeof a === 'string'))) {
+      problems.push(`${where}: "accept" muss eine Liste von Texten sein: ${JSON.stringify(ex)}`);
+    }
+    // recall: erst auswählen, später selbst schreiben (siehe session.js)
+    if (ex.recall != null) {
+      if (typeof ex.recall !== 'boolean' && typeof ex.recall !== 'string') problems.push(`${where}: "recall" ist true oder ein Aufgabentext: ${JSON.stringify(ex)}`);
+      else if (ex.type !== 'choice') problems.push(`${where}: "recall" gibt es nur bei choice-Aufgaben: ${JSON.stringify(ex)}`);
+      else if (ex.sound) problems.push(`${where}: Hör-Aufgaben bleiben zum Antippen, "recall" geht dort nicht: ${JSON.stringify(ex)}`);
+      else if (meta.speechLang && !ex.de && !ex.hint) {
+        problems.push(`${where}: "recall" braucht hier "de" oder "hint" – sonst weiß das Kind beim Schreiben nicht, welches Wort gemeint ist: ${JSON.stringify(ex)}`);
+      }
+    }
+    // formerIds: Aufgaben dieser Station, die diese hier ersetzt – ihr Lernstand geht über (siehe srs.js)
+    if (ex.formerIds != null) {
+      if (!Array.isArray(ex.formerIds) || !ex.formerIds.every((id) => typeof id === 'string' && id)) {
+        problems.push(`${where}: "formerIds" muss eine Liste von ids sein: ${JSON.stringify(ex)}`);
+      } else {
+        for (const id of ex.formerIds) {
+          if (unit.exercises.some((o) => o !== ex && exerciseKey(meta.id, unit.id, o) === `${meta.id}/${unit.id}/x/${id}`)) {
+            problems.push(`${where}: "formerIds" nennt „${id}“, aber diese Aufgabe gibt es noch: ${JSON.stringify(ex)}`);
+          }
+        }
+      }
+    }
+  }
+  // Ein Schreib-Zwilling neben einer recall-Aufgabe ist doppelt: Die recall-Aufgabe wird von selbst zum Schreiben.
+  for (const ex of unit.exercises) {
+    if (ex.type !== 'choice' || !ex.recall) continue;
+    const same = (a, b) => (a ?? null) === (b ?? null);
+    const twin = unit.exercises.find((o) =>
+      o.type === 'input' && o.answer === ex.answer && same(o.q, ex.q) && same(o.map, ex.map) && same(o.mark, ex.mark));
+    if (twin) problems.push(`${where}: Schreib-Aufgabe ist überflüssig, „${ex.answer}“ hat schon "recall": ${JSON.stringify(twin)}`);
+  }
+}
+
+/** Berechnete Aufgaben: ein paar Proben erzeugen und prüfen – auch, ob byId wieder genau dieselbe Aufgabe liefert. */
+function checkGenerator(unit, where, problems) {
+  const gen = generators.get(unit.generator);
+  const before = problems.length;
+  const bad = (msg, ex) => problems.length - before < 3 && problems.push(`${where}: Generator "${unit.generator}" – ${msg}: ${JSON.stringify(ex)}`);
+  let sample;
+  try {
+    sample = gen.generate(40, unit);
+  } catch (err) {
+    return problems.push(`${where}: Generator "${unit.generator}" stürzt ab: ${err.message}`);
+  }
+  if (!sample.length) return problems.push(`${where}: Generator "${unit.generator}" erzeugt keine Aufgaben`);
+  for (const ex of sample) {
+    if (!ex.id || ex.answer == null) bad('Aufgabe ohne id oder answer', ex);
+    else if (ex.type === 'choice' && (!ex.options?.includes(ex.answer) || new Set(ex.options).size !== ex.options.length)) {
+      bad('Antwort fehlt in options oder eine Option ist doppelt', ex);
+    } else if (JSON.stringify(gen.byId?.(ex.id, unit)) !== JSON.stringify(ex)) bad('byId liefert nicht dieselbe Aufgabe', ex);
   }
 }
 
@@ -173,6 +226,15 @@ export function itemLabel(key) {
   if (!q && ex.map) return `Karte: ${ex.answer}`;
   if (/_{3,}/.test(q)) return q.replace(/_{3,}/g, `[${ex.answer}]`);
   return q ? `${q} → ${ex.answer}` : ex.answer;
+}
+
+/**
+ * Höchstens so viele Aufgaben hat eine ganze Fahrt auf dieser Station (null = keine Grenze): Stationen mit Wörtern
+ * oder berechneten Aufgaben füllen mit Wiederholungen in anderer Form auf. Eine kleine Station ohne Wörter hat lieber
+ * eine kürzere ganze Fahrt als dieselbe Frage zweimal (die Kontinente: 7 Aufgaben).
+ */
+export function rideCap(unit) {
+  return unit.generator || unit.vocab.length ? null : Math.max(5, unit.exercises.length);
 }
 
 export function unitItemCount(unit) {
@@ -222,5 +284,6 @@ export function publicUnit(subjectId, unitId) {
     explain: unit.explain.map((b) => (b.map ? { ...b, map: mediaUrl(subjectId, b.map) } : b)),
     vocab: unit.showVocab === false ? [] : unit.vocab.map((v) => ({ en: v.en, de: v.de })),
     items: unitItemCount(unit),
+    rideCap: rideCap(unit),
   };
 }

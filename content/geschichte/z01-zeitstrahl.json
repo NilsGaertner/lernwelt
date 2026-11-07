@@ -19,10 +19,10 @@
     { "tip": "Liegt die 0 dazwischen, musst du **plus** rechnen: erst bis zur 0, dann weiter." }
   ],
   "exercises": [
-    { "type": "choice", "q": "Was bedeutet „v. Chr.“?", "options": ["vor Christus", "von Christus", "vor Chronik", "viel früher"], "answer": "vor Christus" },
-    { "type": "choice", "q": "Was bedeutet „n. Chr.“?", "options": ["nach Christus", "neben Christus", "neue Chronik", "nicht Christus"], "answer": "nach Christus" },
+    { "type": "choice", "q": "Was bedeutet „v. Chr.“?", "options": ["vor Christus", "von Christus", "vor Chronik", "viel früher"], "answer": "vor Christus", "recall": true, "accept": ["vor Christi Geburt"] },
+    { "type": "choice", "q": "Was bedeutet „n. Chr.“?", "options": ["nach Christus", "neben Christus", "neue Chronik", "nicht Christus"], "answer": "nach Christus", "recall": true, "accept": ["nach Christi Geburt"] },
     { "type": "choice", "q": "Was steht auf dem Zeitstrahl bei Christi Geburt?", "options": ["0", "1000", "2026", "3000"], "answer": "0" },
-    { "type": "choice", "q": "Wo stehen auf dem Zeitstrahl die frühen Zeiten?", "options": ["links", "rechts", "in der Mitte", "ganz oben"], "answer": "links", "explain": "Links ist früher, rechts ist später. Ganz rechts ist heute." },
+    { "type": "choice", "q": "Wo stehen auf dem Zeitstrahl die frühen Zeiten?", "options": ["links", "rechts", "in der Mitte", "ganz oben"], "answer": "links", "recall": true, "accept": ["ganz links", "auf der linken Seite"], "explain": "Links ist früher, rechts ist später. Ganz rechts ist heute." },
     { "type": "choice", "q": "Was war am frühesten?", "options": ["3000 v. Chr.", "500 v. Chr.", "500 n. Chr.", "1500 n. Chr."], "answer": "3000 v. Chr.", "explain": "Vor Christus zählt man rückwärts. Je größer die Zahl v. Chr., desto länger ist es her." },
     { "type": "choice", "q": "Was war früher: 800 v. Chr. oder 200 v. Chr.?", "options": ["800 v. Chr.", "200 v. Chr.", "beide gleich", "kann man nicht sagen"], "answer": "800 v. Chr.", "explain": "Vor Christus gilt: die größere Zahl ist **früher**. 800 v. Chr. ist länger her." },
     { "type": "choice", "q": "Was war früher: 800 n. Chr. oder 200 n. Chr.?", "options": ["200 n. Chr.", "800 n. Chr.", "beide gleich", "kann man nicht sagen"], "answer": "200 n. Chr.", "explain": "Nach Christus zählt man ganz normal vorwärts: 200 kommt vor 800." },

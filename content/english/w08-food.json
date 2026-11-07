@@ -35,5 +35,11 @@
     { "en": "dinner", "de": "Abendessen" },
     { "en": "hungry", "de": "hungrig" },
     { "en": "thirsty", "de": "durstig" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "I’m ___. Can I have a glass of water, please?", "de": "Ich habe Durst. Kann ich bitte ein Glas Wasser haben?", "options": ["thirsty", "hungry", "tired", "sad"], "answer": "thirsty", "recall": true, "explain": "Durst haben heißt **to be thirsty**: I’m thirsty. Hunger haben: I’m hungry." },
+    { "type": "choice", "q": "We have ___ at seven o’clock in the morning.", "de": "Wir frühstücken um sieben Uhr morgens.", "options": ["breakfast", "lunch", "dinner", "cake"], "answer": "breakfast", "recall": true },
+    { "type": "choice", "q": "I like ___ with butter and cheese.", "de": "Ich mag Brot mit Butter und Käse.", "options": ["bread", "milk", "juice", "tea"], "answer": "bread", "recall": true },
+    { "type": "choice", "q": "An ___ a day keeps the doctor away.", "de": "Ein Apfel am Tag hält den Doktor fern.", "options": ["apple", "egg", "ice cream", "orange"], "answer": "apple", "recall": true, "explain": "Ein englisches Sprichwort. Vor **apple** steht **an**, weil apple mit einem Vokal anfängt." }
   ]
 }

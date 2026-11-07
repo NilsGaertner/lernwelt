@@ -172,6 +172,8 @@ addColumn('children', 'adult', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('children', 'skin', 'TEXT');
 // Wiederholen mit Abständen: an diesem Tag (YYYY-MM-DD) ist die Aufgabe wieder dran (siehe srs.js)
 addColumn('item_stats', 'due', 'TEXT');
+// „Das sitzt“: wann die Aufgabe in Box 3 gekommen ist (für „+N diese Woche“, siehe srs.js)
+addColumn('item_stats', 'known_at', 'TEXT');
 // Companion (Katze + Skin) ist vom Profilbild getrennt; wer bisher eine Katze als Bild hatte, behält sie als Companion
 if (!db.prepare('PRAGMA table_info(children)').all().some((c) => c.name === 'companion')) {
   db.exec("ALTER TABLE children ADD COLUMN companion TEXT NOT NULL DEFAULT 'cat:black'");
@@ -195,6 +197,9 @@ if (!freshDatabase && !getSetting('starScale')) doubleStarScale();
 for (const [key, value] of Object.entries(DEFAULT_SETTINGS)) {
   db.prepare('INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)').run(key, value);
 }
+// Abstellgleis: Seit dieser Umstellung zählt pro Station nur eine Fahrt mit 3 Sternen am Tag (siehe progress.js).
+// Fahrten davor zählen weiter einzeln – so geht kein Stand zurück, den das Kind schon gesehen hat.
+if (!getSetting('retireDaysSince')) setSetting('retireDaysSince', nowIso());
 
 /**
  * Einmalige Umstellung auf die gestaffelten Sterne (1. Fahrt am Tag zählt doppelt): Alle Sterne sind ab jetzt

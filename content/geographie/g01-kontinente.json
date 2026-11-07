@@ -14,19 +14,12 @@
     { "p": "Europa und Asien hängen aneinander. Die Grenze verläuft unter anderem am **Uralgebirge** in Russland." }
   ],
   "exercises": [
-    { "id": "karte-nordamerika", "type": "choice", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "nordamerika", "options": ["Nordamerika", "Südamerika", "Asien", "Afrika"], "answer": "Nordamerika" },
-    { "id": "karte-suedamerika", "type": "choice", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "suedamerika", "options": ["Südamerika", "Nordamerika", "Antarktis", "Afrika"], "answer": "Südamerika" },
-    { "id": "karte-europa", "type": "choice", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "europa", "options": ["Europa", "Asien", "Afrika", "Südamerika"], "answer": "Europa" },
-    { "id": "karte-afrika", "type": "choice", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "afrika", "options": ["Afrika", "Südamerika", "Europa", "Australien"], "answer": "Afrika" },
-    { "id": "karte-asien", "type": "choice", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "asien", "options": ["Asien", "Nordamerika", "Europa", "Australien"], "answer": "Asien" },
-    { "id": "karte-australien", "type": "choice", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "australien", "options": ["Australien", "Asien", "Südamerika", "Nordamerika"], "answer": "Australien" },
-    { "id": "karte-antarktis", "type": "choice", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "antarktis", "options": ["Antarktis", "Südamerika", "Asien", "Afrika"], "answer": "Antarktis" },
-    { "id": "schreib-nordamerika", "type": "input", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "nordamerika", "answer": "Nordamerika", "accept": ["Nord Amerika"], "placeholder": "Kontinent" },
-    { "id": "schreib-suedamerika", "type": "input", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "suedamerika", "answer": "Südamerika", "accept": ["Suedamerika", "Süd Amerika"], "placeholder": "Kontinent" },
-    { "id": "schreib-europa", "type": "input", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "europa", "answer": "Europa", "placeholder": "Kontinent" },
-    { "id": "schreib-afrika", "type": "input", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "afrika", "answer": "Afrika", "placeholder": "Kontinent" },
-    { "id": "schreib-asien", "type": "input", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "asien", "answer": "Asien", "placeholder": "Kontinent" },
-    { "id": "schreib-australien", "type": "input", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "australien", "answer": "Australien", "accept": ["Australien und Ozeanien", "Ozeanien"], "placeholder": "Kontinent" },
-    { "id": "schreib-antarktis", "type": "input", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "antarktis", "answer": "Antarktis", "accept": ["Antarktika"], "placeholder": "Kontinent" }
+    { "id": "karte-nordamerika", "type": "choice", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "nordamerika", "options": ["Nordamerika", "Südamerika", "Asien", "Afrika"], "answer": "Nordamerika", "recall": true, "accept": ["Nord Amerika"], "placeholder": "Kontinent", "formerIds": ["schreib-nordamerika"] },
+    { "id": "karte-suedamerika", "type": "choice", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "suedamerika", "options": ["Südamerika", "Nordamerika", "Antarktis", "Afrika"], "answer": "Südamerika", "recall": true, "accept": ["Suedamerika", "Süd Amerika"], "placeholder": "Kontinent", "formerIds": ["schreib-suedamerika"] },
+    { "id": "karte-europa", "type": "choice", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "europa", "options": ["Europa", "Asien", "Afrika", "Südamerika"], "answer": "Europa", "recall": true, "placeholder": "Kontinent", "formerIds": ["schreib-europa"] },
+    { "id": "karte-afrika", "type": "choice", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "afrika", "options": ["Afrika", "Südamerika", "Europa", "Australien"], "answer": "Afrika", "recall": true, "placeholder": "Kontinent", "formerIds": ["schreib-afrika"] },
+    { "id": "karte-asien", "type": "choice", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "asien", "options": ["Asien", "Nordamerika", "Europa", "Australien"], "answer": "Asien", "recall": true, "placeholder": "Kontinent", "formerIds": ["schreib-asien"] },
+    { "id": "karte-australien", "type": "choice", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "australien", "options": ["Australien", "Asien", "Südamerika", "Nordamerika"], "answer": "Australien", "recall": true, "accept": ["Australien und Ozeanien", "Ozeanien"], "placeholder": "Kontinent", "formerIds": ["schreib-australien"] },
+    { "id": "karte-antarktis", "type": "choice", "task": "Wie heißt der markierte Kontinent?", "map": "welt", "mark": "antarktis", "options": ["Antarktis", "Südamerika", "Asien", "Afrika"], "answer": "Antarktis", "recall": true, "accept": ["Antarktika"], "placeholder": "Kontinent", "formerIds": ["schreib-antarktis"] }
   ]
 }

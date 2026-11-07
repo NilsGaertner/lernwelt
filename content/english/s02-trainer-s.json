@@ -1,0 +1,27 @@
+{
+  "id": "trainer-s",
+  "line": "trainer",
+  "order": 2,
+  "title": "Trainer: he plays",
+  "subtitle": "He, she, it – das -s muss mit",
+  "icon": "🏃",
+  "card": "**He, she, it – das -s muss mit!** watch → watch**es**, fly → fl**ies**, play → play**s**, have → **has**.",
+  "generator": "saetze",
+  "params": { "rules": ["s"] },
+  "itemCount": 750,
+  "explain": [
+    { "p": "Hier kommen **immer neue Sätze** im Simple Present. Bei **he, she, it** – und bei allem, was du durch he, she oder it ersetzen kannst (Tom, my mum, the dog) – hängst du ein **-s** an. Sonst nicht." },
+    { "tip": "He, she, it – das -s muss mit!" },
+    { "table": { "head": ["Verb endet auf …", "he / she / it", "Beispiel"], "rows": [
+      ["fast alle Verben", "**-s**", "read → read**s**, get up → get**s** up"],
+      ["-s, -sh, -ch, -x, -o", "**-es**", "watch → watch**es**, go → go**es**, miss → miss**es**"],
+      ["Konsonant + y", "**-ies**", "fly → fl**ies**, tidy → tid**ies**"],
+      ["Vokal + y", "nur **-s**", "play → play**s**, buy → buy**s**"],
+      ["have", "**has**", "she **has** breakfast"]
+    ] } },
+    { "ex": [
+      ["My dad watches TV in the evening.", "Mein Papa schaut abends fern."],
+      ["Tom and Lisa play football after school.", "Tom und Lisa spielen nach der Schule Fußball."]
+    ] }
+  ]
+}

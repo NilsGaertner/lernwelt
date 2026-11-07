@@ -18,7 +18,7 @@
     { "tip": "Verwechslungsgefahr: Der **Resonanzboden** gehört zu Instrumenten wie Gitarre oder Klavier. Beim Singen heißt es **Resonanzrohr**." }
   ],
   "exercises": [
-    { "type": "choice", "task": "Lückentext: Welches Wort passt?", "q": "Die nötige ___ liefert das Atemorgan.", "options": ["Luft", "Stimme", "Töne", "Akkorde"], "answer": "Luft" },
+    { "type": "choice", "task": "Lückentext: Welches Wort passt?", "q": "Die nötige ___ liefert das Atemorgan.", "options": ["Luft", "Stimme", "Töne", "Akkorde"], "answer": "Luft", "recall": "Lückentext: Welches Wort fehlt?" },
     { "type": "choice", "task": "Lückentext: Welches Wort passt?", "q": "Die nötige Luft liefert das ___.", "options": ["Atemorgan", "Blasinstrument", "Resonanzrohr", "Kehlkopf"], "answer": "Atemorgan", "explain": "Lunge, Luftröhre und Zwerchfell bilden das **Atemorgan**. Ein Blasinstrument ist zum Beispiel eine Flöte." },
     { "type": "choice", "task": "Lückentext: Welches Wort passt?", "q": "Mithilfe des Zwerchfells strömt Luft aus der ___ durch die Luftröhre zum Kehlkopf.", "options": ["Lunge", "Luftröhre", "Stimme", "Resonanzboden"], "answer": "Lunge", "explain": "Die Luftröhre kommt danach und steht schon im Satz. Die Luft kommt aus der **Lunge**." },
     { "type": "choice", "task": "Lückentext: Welches Wort passt?", "q": "Mithilfe des Zwerchfells strömt Luft aus der Lunge durch die Luftröhre zum ___.", "options": ["Kehlkopf", "Resonanzrohr", "Atemorgan", "Blasinstrument"], "answer": "Kehlkopf" },

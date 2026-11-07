@@ -242,9 +242,42 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     };
     const tryHint = h('p.try-again', { hidden: true, role: 'status' },
       '🤏 Fast! Ein Buchstabe stimmt noch nicht. Schau genau hin und verbessere es – dann gibt es noch einen halben Punkt.');
+    // Tipp: erster Buchstabe und Länge – lieber mit Hilfe selbst draufkommen als aufgeben (kostet den halben Punkt,
+    // bei der Wiederholung am Ende der Fahrt nichts mehr).
+    const retry = queue[pos]?.retry;
+    const maskLine = h('p.hint-mask', { hidden: true, role: 'status' });
+    const hintBtn = q.canHint
+      ? h('button.btn.ghost.big.hint-btn', {
+          type: 'button',
+          title: 'Zeigt den ersten Buchstaben und wie lang das Wort ist. Dann gibt es höchstens einen halben Punkt.',
+          onclick: async (e) => {
+            const btn = e.currentTarget;
+            if (busy || btn.disabled) return;
+            btn.disabled = true;
+            try {
+              const { mask } = await api(`/sessions/${session.sessionId}/hint`, { method: 'POST', body: { qid: q.id } });
+              maskLine.replaceChildren(h('span.mask-label', '💡 Tipp:'), maskCells(mask),
+                retry ? null : h('span.muted.small', 'Mit Tipp gibt es ½ Punkt.'));
+              maskLine.hidden = false;
+              input.focus();
+            } catch (err) {
+              btn.disabled = false;
+              toast(err.message);
+            }
+          },
+        }, '💡 Tipp')
+      : null;
     onEnter = check;
-    dock(h('button.btn.line.big', { type: 'button', onclick: check }, 'Prüfen'));
-    return [input, tryHint];
+    dock(hintBtn, h('button.btn.line.big', { type: 'button', onclick: check }, 'Prüfen'));
+    return [input, tryHint, maskLine];
+  }
+
+  /** „E_______“ als Kästchen: der erste Buchstabe steht da, für jeden weiteren ein leeres Kästchen. */
+  function maskCells(mask) {
+    const words = mask.split(/(\s+)/).filter(Boolean);
+    const label = words.filter((w) => w.trim()).map((w) => `${w[0]} und ${[...w].filter((c) => c === '_').length} weitere Buchstaben`).join(', dann ');
+    return h('span.mask', { role: 'img', 'aria-label': label },
+      words.map((w) => (w.trim() ? h('span.mask-word', [...w].map((c) => (c === '_' ? h('span.mc.blank') : h('span.mc', c)))) : null)));
   }
 
   function orderArea(q) {
@@ -843,7 +876,8 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     if (res.correct) {
       onEnter = null;
       stage.querySelector('.qcard')?.append(h('span.praise', { 'aria-live': 'polite' },
-        res.half ? 'Gut verbessert! ½ Punkt' : q.type === 'match' && res.mistakes ? 'Fast fehlerfrei!' : pick(PRAISE)));
+        res.half ? (res.hinted ? 'Mit Tipp geschafft! ½ Punkt' : 'Gut verbessert! ½ Punkt')
+        : q.type === 'match' && res.mistakes ? 'Fast fehlerfrei!' : pick(PRAISE)));
       if (res.note) toast(res.note);
       setTimeout(() => { if (!ended) next(); }, res.note ? 1400 : 900);
       return;
@@ -858,7 +892,8 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       if (res.reveal) lines.push(h('p.solution', { html: `Das Wort war: ${escapeHtml(res.reveal)}` }));
       if (res.note) lines.push(h('p.explain', res.note));
     } else {
-      title = res.almost ? 'Fast! Nur ein Buchstabe falsch.' : 'Nicht ganz.';
+      // Bei Zahlen ist es eine Ziffer – und dort ein echter Rechenfehler, darum ohne zweiten Versuch.
+      title = res.almost ? (/^[\d\s.]+$/.test(res.solution ?? '') ? 'Fast! Nur eine Ziffer falsch.' : 'Fast! Nur ein Buchstabe falsch.') : 'Nicht ganz.';
       // Beim schriftlichen Rechnen stehen in den Kästchen jetzt die richtigen Ziffern – die eigene Eingabe soll sichtbar bleiben.
       if (q.type === 'column' && q.entered) lines.push(h('p.explain', `Du hast ${q.entered} eingetragen.`));
       lines.push(h('p.solution', { html: `Richtig ist: ${md(res.solution)}` }));
@@ -958,6 +993,16 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     countUp(balanceEl, result.balance - result.awarded, result.balance, { delay: 1400 });
 
     const panels = [];
+    // Das Wichtigste zuerst: Was ist jetzt wirklich gelernt? (an mehreren Tagen mit Pausen richtig, Box 3)
+    if (result.known?.gained > 0) {
+      const { gained: n, items, total: all } = result.known;
+      panels.push(h('section.panel.rank-up.known-up',
+        h('.big-train', { 'aria-hidden': 'true' }, '🧠'),
+        h('div',
+          h('h2', n === 1 ? 'Eine Aufgabe sitzt jetzt!' : `${n} Aufgaben sitzen jetzt!`),
+          h('ul.known-list', items.map((t) => h('li', { html: md(t) })), n > items.length ? h('li.muted', `… und ${n - items.length} mehr`) : null),
+          h('p', `Du hattest ${n === 1 ? 'sie' : 'sie alle'} an mehreren Tagen richtig, mit Pausen dazwischen. So bleibt es im Kopf. Insgesamt sitzen schon ${all}.`))));
+    }
     if (result.plan?.justCompleted) {
       setTimeout(() => sfx.stamp(), 1200);
       panels.push(h('section.panel.plan-done',
@@ -980,7 +1025,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
         h('.big-train', { 'aria-hidden': 'true' }, '🅿️'),
         h('div',
           h('h2', 'Ab aufs Abstellgleis!'),
-          h('p', `Du hast diese Station ${station.limit}× mit 3 Sternen geschafft – die kannst du! Sie macht jetzt Pause: Ab sofort gibt es hier keine Sterne mehr. Neue Sterne warten auf den anderen Stationen.`))));
+          h('p', `Du hast diese Station an ${station.limit} Tagen mit 3 Sternen geschafft – die sitzt! Sie macht jetzt Pause: Ab sofort gibt es hier keine Sterne mehr. Neue Sterne warten auf den anderen Stationen.`))));
     }
     if (result.weekDay && result.week) {
       const w = result.weekDay;
@@ -1028,7 +1073,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
         h('h1', headline),
         h('.big-stars', { role: 'img', 'aria-label': `${result.rating} von 3 Sternen` },
           [1, 2, 3].map((i) => h('span', { class: i <= result.rating ? 'on' : 'off' }, '★'))),
-        h('p.score', `${fmtScore(result.correct)} von ${result.total} beim ersten Versuch richtig${result.correct % 1 ? ' (½ = selbst verbessert)' : ''}. ${sub}`),
+        h('p.score', `${fmtScore(result.correct)} von ${result.total} beim ersten Versuch richtig${result.correct % 1 ? ' (½ = selbst verbessert oder mit Tipp)' : ''}. ${sub}`),
         comboLine),
       missPanel(),
       ...panels,
@@ -1054,7 +1099,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
                   : '🔄 Das war die letzte Fahrt mit Sternen – jetzt geht die Station zurück aufs Abstellgleis.')
               : null,
             station && !station.parked && !station.justRetired && station.limit > 0 && station.perfect > 0 && station.perfect < station.limit
-              ? h('p.muted', `🎁 ${station.perfect} von ${station.limit} Fahrten mit 3 Sternen: Bei ${station.limit} kommt die Station aufs Abstellgleis, und du bekommst eine Lootbox.`)
+              ? h('p.muted', `🎁 An ${station.perfect} von ${station.limit} Tagen 3 Sterne: Schaffst du es an ${station.limit} verschiedenen Tagen, kommt die Station aufs Abstellgleis, und du bekommst eine Lootbox.${station.alreadyToday ? ' Heute hat hier schon eine Fahrt gezählt – an einem anderen Tag zählt die nächste.' : ''}`)
               : null,
             result.week && !result.weekDay && !result.week.countedToday
               ? h('p.muted', weekHint(result.week))
@@ -1092,7 +1137,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
             ? h('button.say', { type: 'button', 'aria-label': `Vorlesen: ${audio}`, onclick: () => say(audio) }, '🔊')
             : h('span'),
           h('span', { html: md(missLabel(q, res)) }),
-          res.half ? h('span.half-tag', { title: 'selbst verbessert' }, '½') : null);
+          res.half ? h('span.half-tag', { title: res.hinted ? 'mit Tipp' : 'selbst verbessert' }, '½') : null);
       })));
   }
 

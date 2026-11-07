@@ -263,8 +263,22 @@ function helloCard(id, ov) {
       h('p.muted', ov.plan.done
         ? 'Dein Fahrplan für heute ist geschafft – stark! 🎉'
         : ov.week?.count > 1 ? `Diese Woche schon an ${ov.week.count} Tagen dabei – stark!` : 'Schön, dass du da bist. Wohin fährst du heute?'),
+      knownLine(ov.known),
       stars),
     cat?.el);
+}
+
+/**
+ * „Das sitzt“: Wörter und Aufgaben, die das Kind an mehreren Tagen mit Pausen richtig hatte.
+ * Sterne zeigen, wie eine Fahrt lief – das hier zeigt, was wirklich im Kopf geblieben ist.
+ */
+function knownLine(known) {
+  if (!known?.total) {
+    return h('p.known-line.muted.small', '🧠 Hier siehst du bald, was richtig sitzt: alles, was du an mehreren Tagen richtig hattest.');
+  }
+  return h('p.known-line', { title: 'Wörter und Aufgaben, die du an mehreren Tagen richtig hattest, mit Pausen dazwischen' },
+    '🧠 Das sitzt schon: ', h('strong', known.total),
+    known.week ? h('span.known-week', ` +${known.week} diese Woche`) : null);
 }
 
 /** Stand eines Fachs: Sterne, gemeisterte Stationen, nächster Halt, letzte Fahrt, offene Übungen. */
@@ -281,6 +295,7 @@ function subjectStats(subject, ov) {
     last: units.map((u) => progress[u.id]?.last).filter(Boolean).sort().at(-1) ?? null,
     due: ov.due?.[subject.id] ?? 0,
     review: ov.review[subject.id] ?? 0,
+    known: ov.known?.bySubject[subject.id] ?? 0,
   };
 }
 
@@ -299,7 +314,8 @@ function subjectCard(id, st, ov) {
         !ov.child.adult && ov.boost?.subject === subject.id ? chip('boost', '🎉 ×2', ' Sterne') : null),
       h('span.meter', { role: 'img', 'aria-label': `${st.stars} von ${max} Sternen` },
         h('span', { style: { width: `${max ? (st.stars / max) * 100 : 0}%` } })),
-      h('span.sc-meta', `★ ${st.stars} von ${max}`, st.last ? ` · zuletzt ${ago(st.last)}` : ' · noch nicht gefahren'),
+      h('span.sc-meta', `★ ${st.stars} von ${max}`, st.known ? ` · 🧠 ${st.known} sitzen` : '',
+        st.last ? ` · zuletzt ${ago(st.last)}` : ' · noch nicht gefahren'),
       h('span.sc-next', st.next
         ? ['Nächster Halt: ', h('strong', `${st.next.icon} ${st.next.title}`)]
         : st.mastered === st.units ? '🏆 Alles gemeistert!' : '✔ Für heute alles gefahren')),
@@ -355,7 +371,7 @@ async function subjectView(id, subjectId) {
       h('span.icon', { 'aria-hidden': 'true' }, subject.icon),
       h('div',
         h('h1', subject.name),
-        h('p', `${st.mastered} von ${st.units} Stationen gemeistert · ★ ${st.stars} von ${st.units * 3}`))));
+        h('p', `${st.mastered} von ${st.units} Stationen gemeistert · ★ ${st.stars} von ${st.units * 3}${st.known ? ` · 🧠 ${st.known} sitzen` : ''}`))));
 
   // Extra-Training als Kacheln nebeneinander: Wiederholen (Gelerntes, das nach ein paar Tagen Pause wieder dran ist),
   // Fehler-Training und die Blitzrunden.
@@ -440,7 +456,7 @@ async function subjectView(id, subjectId) {
             p?.parked ? h('span.st-flag.parked', '🅿️ Abstellgleis') : null,
             p?.retired && !p.parked ? h('span.st-flag.back', `🔄 Noch ${p.extraRides}× mit Sternen`) : null,
             !ov.child.adult && retireAfter > 0 && p?.perfect > 0 && !p.retired
-              ? h('span.loot-tag', { title: `${p.perfect} von ${retireAfter} Fahrten mit 3 Sternen – dann gibt es eine Lootbox` }, `🎁 ${p.perfect}/${retireAfter}`)
+              ? h('span.loot-tag', { title: `An ${p.perfect} von ${retireAfter} Tagen 3 Sterne – dann gibt es eine Lootbox` }, `🎁 ${p.perfect}/${retireAfter}`)
               : null,
             boosted ? h('span.boost-tag', '🎉 ×2 Sterne') : null),
           starRow(p?.best ?? 0)));
@@ -666,11 +682,13 @@ async function stationView(id, subjectId, unitId) {
   // Heute schon geschafft oder auf dem Abstellgleis: lieber weiter zum nächsten Halt
   const moveOn = nextHref && (p?.parked || (p?.today > 0 && p.best >= 2));
   const status = p?.parked
-    ? h('p.parked-note', `🅿️ Abstellgleis: Du hast diese Station ${p.perfect}× mit 3 Sternen geschafft. Hier gibt es keine Sterne mehr – üben darfst du trotzdem.`)
+    ? h('p.parked-note', '🅿️ Abstellgleis: Diese Station hast du oft genug mit 3 Sternen geschafft. Hier gibt es keine Sterne mehr – üben darfst du trotzdem.')
     : p?.retired
       ? h('p.parked-note.back', `🔄 Deine Eltern haben diese Station zurückgeholt: ${p.extraRides === 1 ? 'Die nächste Fahrt bringt' : `Die nächsten ${p.extraRides} Fahrten bringen`} wieder Sterne.`)
       : !ov.child.adult && retireAfter > 0
-        ? h('p.loot-progress', `🎁 ${p?.perfect ?? 0} von ${retireAfter} Fahrten mit 3 Sternen. Bei ${retireAfter} kommt die Station aufs Abstellgleis, und du bekommst eine Lootbox.`)
+        ? h('p.loot-progress',
+            `🎁 An ${p?.perfect ?? 0} von ${retireAfter} Tagen 3 Sterne. Schaffst du sie an ${retireAfter} verschiedenen Tagen, kommt die Station aufs Abstellgleis, und du bekommst eine Lootbox.`,
+            p?.perfectToday ? ' Heute hat hier schon eine Fahrt gezählt – die nächste zählt morgen.' : '')
         : null;
 
   const page = h('div', { style: { '--line': line.color } },
@@ -705,20 +723,23 @@ async function stationView(id, subjectId, unitId) {
   );
 
   // Das Kind bestimmt, wie lang die Fahrt wird. Kurze Fahrten bringen anteilig weniger Sterne.
-  const rideLabel = () => (moveOn ? '🔁 Nochmal' : `🚆 Losfahren · ${prefs.rideLength ?? n} Aufgaben`);
-  const lengths = [...new Set([3, 5, n])].filter((x) => x <= n);
+  // Kleine Stationen ohne Wörter haben eine kürzere ganze Fahrt (rideCap, z. B. die Kontinente: 7) – der Knopf für die
+  // ganze Fahrt zeigt dann diese Zahl.
+  const most = unit.rideCap ? Math.min(n, unit.rideCap) : n;
+  const rideLabel = () => (moveOn ? '🔁 Nochmal' : `🚆 Losfahren · ${Math.min(prefs.rideLength ?? n, most)} Aufgaben`);
+  const lengths = [...new Set([3, 5, n])].filter((x) => x === n || x < most);
   const lenNote = h('span.len-note');
   const lenPick = h('.ride-length', { role: 'radiogroup', 'aria-label': 'Wie lang soll die Fahrt sein?' },
     h('span.len-label', 'Wie lang?'),
     lengths.map((x) => h('button', {
       type: 'button', role: 'radio', 'data-len': x,
       onclick: () => { prefs.rideLength = x === n ? null : x; syncLength(); },
-    }, String(x))),
+    }, String(x === n ? most : x))),
     lenNote);
   const syncLength = () => {
     const cur = prefs.rideLength ?? n;
     lenPick.querySelectorAll('button').forEach((b) => b.setAttribute('aria-checked', String(Number(b.dataset.len) === cur)));
-    lenNote.textContent = cur < n ? 'weniger ★' : 'volle ★';
+    lenNote.textContent = Math.min(cur, most) < most ? 'weniger ★' : 'volle ★';
     ride.textContent = rideLabel();
   };
   const ride = h('button.btn.big', {
@@ -998,7 +1019,7 @@ async function boxesView(id) {
   const { closed, opened } = ov.lootboxes;
   const retireAfter = ov.settings.retireAfter;
   const how = retireAfter > 0
-    ? `Eine Lootbox bekommst du, wenn du eine Station ${retireAfter}× mit 3 Sternen schaffst (dann kommt sie aufs Abstellgleis), wenn du zum ersten Mal den Endbahnhof einer Linie bestehst und am 5. Tag einer Woche auf deiner Wochenkarte. Manchmal schenken dir auch deine Eltern eine.`
+    ? `Eine Lootbox bekommst du, wenn du eine Station an ${retireAfter} verschiedenen Tagen mit 3 Sternen schaffst (dann kommt sie aufs Abstellgleis), wenn du zum ersten Mal den Endbahnhof einer Linie bestehst und am 5. Tag einer Woche auf deiner Wochenkarte. Manchmal schenken dir auch deine Eltern eine.`
     : 'Eine Lootbox bekommst du, wenn du zum ersten Mal den Endbahnhof einer Linie bestehst und am 5. Tag einer Woche auf deiner Wochenkarte. Manchmal schenken dir auch deine Eltern eine.';
   render(
     kidBar(ov),

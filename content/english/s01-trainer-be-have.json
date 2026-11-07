@@ -1,0 +1,30 @@
+{
+  "id": "trainer-be-have",
+  "line": "trainer",
+  "order": 1,
+  "title": "Trainer: am, is, are – have got",
+  "subtitle": "Immer neue Sätze",
+  "icon": "🏋️",
+  "card": "Im Trainer kommen **immer neue Sätze**. Auswendig lernen geht nicht – die Regel schon: **he, she, it → is, has got**.",
+  "generator": "saetze",
+  "params": { "rules": ["be", "have"] },
+  "itemCount": 1200,
+  "explain": [
+    { "p": "Hier kommen **immer neue Sätze**. Auswendig lernen geht hier nicht – dafür merkst du, ob die Regel sitzt, so wie im Test. 💪" },
+    { "table": { "head": ["Wer?", "to be", "have got"], "rows": [
+      ["I", "I **am**", "I **have got**"],
+      ["you / we / they", "you **are**", "you **have got**"],
+      ["he / she / it", "he **is**", "he **has got**"]
+    ] } },
+    { "tip": "Namen und Dinge ersetzt du im Kopf durch ein Pronomen: **Tom** → he → Tom **is**. **My parents** → they → my parents **are**. **The dog** → it → the dog **has got**." },
+    { "table": { "head": ["", "to be", "have got"], "rows": [
+      ["Verneinung", "I **am not**, he **isn't**, they **aren't**", "he **hasn't got**, they **haven't got**"],
+      ["Frage", "**Is** Tom at home? **Are** you hungry?", "**Has** Lisa got a pet? **Have** you got a bike?"]
+    ] } },
+    { "ex": [
+      ["My parents are at home.", "Meine Eltern sind zu Hause."],
+      ["The dog has got big ears.", "Der Hund hat große Ohren."],
+      ["Is your sister at school?", "Ist deine Schwester in der Schule?"]
+    ] }
+  ]
+}
