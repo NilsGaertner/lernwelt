@@ -4,7 +4,7 @@ Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch, Mathe, Geogra
 
 ## Was drin ist
 
-**Englisch (Klasse 5, Grundlagen): 52 Stationen, knapp 1000 Wörter und Aufgaben**
+**Englisch (Klasse 5, Grundlagen): 55 Stationen, gut 1000 Wörter und Aufgaben und der Satz-Trainer mit immer neuen Sätzen**
 
 Jede Linie hat 3 Stationen und danach den Endbahnhof. So ist eine Linie in ein paar Tagen geschafft, und die Lootbox dafür bleibt in Reichweite. Wörter und Grammatik sind nach Themen gemischt, die zusammenpassen.
 
@@ -14,6 +14,7 @@ Jede Linie hat 3 Stationen und danach den Endbahnhof. So ist eine Linie in ein p
 | Zimmer-Linie | Weitere Vokabelkarten: Rooms, Kitchen and bathroom, Furniture |
 | Glücks-Linie | Neue Vokabelblätter: You are lucky, Be quiet please, und Wörter aus dem Heft, die schwer zu schreiben sind (seagull, purple, eight …) |
 | Test-Linie | Test No 2 nachgeübt: Schultasche, Farben und Wortgruppen übersetzen; I am – he has (to be und to have für jede Person); Personal pronouns und to be (Emma, Sheree); my/his/her/our/your/their |
+| Satz-Trainer-Linie | Immer neue Sätze statt fester Aufgaben: am/is/are und have got (mit Verneinung und Frage), he/she/it mit -s (plays, watches, flies, has), Do/Does-Fragen und don't/doesn't mit dem Verb ohne -s. Die Sätze baut `server/generators/saetze.js` bei jeder Fahrt neu (über tausend pro Station), auswendig lernen geht also nicht – nur die Regel anwenden. Auch der Grammatik-Blitz nutzt sie. |
 | Hallo-Linie | Begrüßen und Vorstellen, Familie, Fragewörter |
 | Ich-bin-Linie | I/you/he…, am/is/are, Verneinung und Fragen mit „to be“ |
 | Zahlen-Linie | Zahlen bis 20, Zahlen bis 100, Uhrzeit |
@@ -30,7 +31,7 @@ Jede Linie hat 3 Stationen und danach den Endbahnhof. So ist eine Linie in ein p
 
 Früher gab es nur drei lange Englisch-Linien (Wörter, Grammatik, Alltag). Der Fortschritt der Stationen bleibt bei der neuen Aufteilung erhalten. Wer dort schon einen Endbahnhof bestanden hatte, behält die Goldkarte im Album unter „Frühere Linien“.
 
-Jede Station hat eine **„Merke“-Erklärung** auf Deutsch (kindgerecht, mit Beispielen und Vorlese-Knopf) und danach eine Übung mit 10 Aufgaben.
+Jede Station hat eine **„Merke“-Erklärung** auf Deutsch (kindgerecht, mit Beispielen und Vorlese-Knopf) und danach eine Übung mit 10 Aufgaben. Die Wörter-Stationen (Familie, Schule, Tiere, Essen, Körper, Kleidung, Zuhause, Freizeit, Verben, Adjektive) haben dazu je vier Lückensätze, damit die Wörter auch im Satz vorkommen – mit typischen Fallen wie „take photos“ statt „make photos“ oder „hair“ ohne -s.
 
 **Mathe: Quadratzahlen (3 Stationen)**
 
@@ -102,9 +103,13 @@ Dazu gibt es den „Musik-Blitz“.
 
 **So lernt es mit:**
 - Wörter, die gut sitzen, kommen seltener dran. Neue und wacklige kommen öfter und werden nach und nach schwieriger (erst Auswahl, dann selbst schreiben, dann nach Gehör schreiben).
-- **Wiederholen mit Abständen:** Jede Aufgabe liegt in einer von 6 Boxen. Eine richtige Antwort hebt sie nur eine Box höher, wenn sie wieder fällig war, also nicht mehrmals am selben Tag. Fällig wird sie nach 1, 3, 7, 14 und 30 Tagen. Was fällig ist, zeigt der Netzplan als **„Wiederholen“**, über alle Stationen hinweg, auch über die auf dem Abstellgleis. Ist etwas fällig, steht die Wiederholung im Tagesfahrplan. Die Blitzrunde kann eine Box nur senken, nicht heben, weil dort nur angetippt wird.
+- **Erst auswählen, dann selbst schreiben:** Genauso werden über 200 Auswahlfragen in Biologie, Geographie, Geschichte, Musik und Mathe (Fachbegriffe) zum Schreiben, sobald sie ein bisschen sitzen: neu antippen, ab der zweiten Box selbst schreiben. Selbst draufkommen prägt sich besser ein als wiedererkennen. Nach einem Fehler kommt wieder die Auswahl. Früher gab es viele Kartenfragen doppelt (einmal zum Auswählen, einmal zum Schreiben). Die sind jetzt eine Aufgabe, der Lernstand der Schreib-Aufgabe ist übernommen.
+- **Keine Zwillinge in einer Fahrt:** Zwei Fragen zur selben markierten Stelle einer Karte (z. B. „Nordosten“ antippen und „NO“ schreiben) kommen nie in dieselbe Fahrt, in Fächern ohne Fremdsprache auch keine zwei Fragen mit derselben Antwort – sonst verrät die eine die andere. Kleine Stationen ohne Wörter haben dafür eine kürzere Fahrt (die Kontinente: 7 Aufgaben).
+- **Wiederholen mit Abständen:** Jede Aufgabe liegt in einer von 8 Boxen. Eine richtige Antwort hebt sie nur eine Box höher, wenn sie wieder fällig war, also nicht mehrmals am selben Tag. Fällig wird sie nach 1, 3, 7, 14, 30, 60 und 120 Tagen. Die langen Abstände halten die tägliche Wiederholung klein, auch wenn es viele Hundert gelernte Wörter gibt. Ein Fehler wirft eine Aufgabe zwei Boxen zurück, aus den langen Abständen bis in Box 3. Was fällig ist, zeigt der Netzplan als **„Wiederholen“**, über alle Stationen hinweg, auch über die auf dem Abstellgleis. Ist etwas fällig, steht die Wiederholung im Tagesfahrplan. Die Blitzrunde kann eine Box nur senken, nicht heben, weil dort nur angetippt wird.
+- **„Das sitzt“:** Eine Aufgabe sitzt, wenn sie an mindestens drei Tagen richtig war, mit Pausen dazwischen (ab Box 3). Die Startseite zeigt, wie viel schon sitzt und wie viel diese Woche dazugekommen ist, jede Fach-Kachel die Zahl fürs Fach. Am Ziel einer Fahrt steht, was durch diese Fahrt neu sitzt. Sterne zeigen, wie eine Fahrt lief – diese Zahl zeigt, was im Kopf geblieben ist.
 - Falsch beantwortete Aufgaben kommen am Ende der Übung noch einmal, mit neu gemischten Antworten. Gewertet wird aber nur der erste Versuch.
-- **Fast richtig:** Ist bei einer Vokabel nur ein Buchstabe falsch, darf dein Kind sie einmal selbst verbessern, bevor die Lösung kommt. Klappt das, gibt es einen **halben Punkt** (z. B. „8½ von 10“).
+- **Fast richtig:** Ist nur ein Buchstabe falsch, darf dein Kind die Antwort einmal selbst verbessern, bevor die Lösung kommt. Klappt das, gibt es einen **halben Punkt** (z. B. „8½ von 10“). Das gilt für Vokabeln und für alles, was in Biologie, Geographie, Geschichte, Musik und Mathe geschrieben wird (in Biologie zählt das Wissen, nicht der eine Buchstabe). Nicht bei Zahlen (3120 statt 3720 ist ein Rechenfehler) und nicht in Englisch-Lücken, wo der eine Buchstabe oft genau das Geübte ist (he like → likes).
+- **Tipp-Knopf:** Bei Aufgaben zum Schreiben zeigt „💡 Tipp“ den ersten Buchstaben und für jeden weiteren ein leeres Kästchen (E _ _ _ _ _). Mit Tipp gibt es höchstens einen halben Punkt, und die Serie in der Fahrt läuft nicht weiter. So bleibt dein Kind beim Erinnern, statt aufzugeben. Bei der Wiederholung am Ende der Fahrt kostet der Tipp nichts, in der Blitzrunde gibt es keinen, und bei Antworten unter drei Buchstaben auch nicht.
 - **Abschreiben:** Ist eine Vokabel falsch geschrieben, tippt dein Kind die Lösung einmal richtig ab, bevor es weitergeht.
 - Nach einem Fehler gibt es eine kurze Erklärung (bei allen Englisch-Grammatikaufgaben) und den Knopf **„📌 Merke ansehen“** mit der Erklärung der Station. Am Ziel listet **„Das übst du noch“** alle Fehler der Fahrt mit Lösung und Vorlese-Knopf auf.
 - Die Vokabelkarten aus der Schule (Karteikarten-Linie, `"typePhrases": true`) werden auch als ganze Wendung abgefragt, so wie im Vokabeltest. Das „to“ vorne darf fehlen.
@@ -147,7 +152,7 @@ Nach 7 Tagen beginnt eine neue Serien-Woche: Tag 8 zählt wieder wie Tag 1, Tag 
 
 ### Abstellgleis und Lootboxen
 
-Hat dein Kind eine Station **5-mal mit 3 Sternen** geschafft, kommt sie aufs **Abstellgleis**: Sie ist auf dem Netzplan grau markiert und bringt keine Sterne mehr (auch keine doppelten). Üben geht dort weiterhin. Bis dahin zeigt der Netzplan den Stand, z. B. „🎁 3/5“. Die Zahl stellst du im Elternbereich unter den Regeln ein (0 = kein Abstellgleis). Beim Kind unter **Stationen** kannst du eine Station mit „Reaktivieren“ für ein paar Fahrten zurückholen. Danach steht sie wieder auf dem Abstellgleis.
+Hat dein Kind eine Station **an 5 verschiedenen Tagen mit 3 Sternen** geschafft, kommt sie aufs **Abstellgleis**: Sie ist auf dem Netzplan grau markiert und bringt keine Sterne mehr (auch keine doppelten). Üben geht dort weiterhin. Pro Tag zählt nur eine Fahrt mit 3 Sternen: Fünfmal hintereinander am selben Nachmittag zeigt nur das Kurzzeitgedächtnis, fünf verschiedene Tage zeigen, dass die Station sitzt (und die Lootbox lässt sich nicht an einem Nachmittag abholen). Bis dahin zeigt der Netzplan den Stand, z. B. „🎁 3/5“, und die Station sagt, wenn heute schon eine Fahrt gezählt hat. Fahrten von vor der Umstellung zählen weiter einzeln, damit kein Stand zurückgeht. Die Zahl stellst du im Elternbereich unter den Regeln ein (0 = kein Abstellgleis). Beim Kind unter **Stationen** kannst du eine Station mit „Reaktivieren“ für ein paar Fahrten zurückholen. Danach steht sie wieder auf dem Abstellgleis.
 
 Eine **Lootbox** gibt es einmalig, wenn eine Station aufs Abstellgleis kommt und wenn der Endbahnhof einer Linie zum ersten Mal bestanden ist, und am 7. Tag jeder Serien-Woche. Außerdem kannst du deinem Kind im Elternbereich (beim Kind unter **Lootboxen**) als Ansporn bis zu 5 Boxen auf einmal schenken, mit einer kurzen Nachricht, die es auf der Box liest. Geschenkte Boxen haben eine eigene Farbe, und der Netzplan sagt „Deine Eltern haben dir eine Lootbox geschenkt!“. Dein Kind sammelt die Boxen (🎁 oben in der Leiste) und öffnet sie, wann es will. Erst beim Öffnen wird ausgelost, was drin ist:
 
@@ -192,7 +197,7 @@ Diese Elemente sollen die Aufmerksamkeit halten, ohne zusätzliche Medienzeit zu
 - **Companion:** Eine Katze begleitet jede Fahrt. Jede der vier Katzen hat ihre eigene Art: Die schwarze („Geheimnisvoll“) dreht bei richtigen Antworten eine Pirouette mit Sternen, die weiße („Verträumt“) schwebt mit Herzen, die braune („Gemütlich“) hüpft schnurrend mit Noten, die getigerte („Wild“) springt wie auf Mäusejagd. Auch im Schlaf unterscheiden sie sich (Schwanzspitze, Ohrenzucken, Strecken, Schnarchblase). Nach einem Fehler schauen sie kurz auf und machen Mut, ab 5 richtigen Antworten in Folge bleiben sie wach und fiebern mit, und am Ziel feiern sie mit. Antippen geht auch. Katze und Skins wählt das Kind in der Sammlung unter „Companion“.
 - **Effekte:** Konfetti, Fanfare und hochzählende Sterne bei besonderen Momenten. Bei „Bewegung reduzieren“ in den Geräteeinstellungen fallen die Animationen weg.
 
-Im Elternbereich siehst du pro Kind: Übungszeit der letzten 14 Tage, was noch schwerfällt (konkrete Wörter und Sätze), den Stand jeder Station, die Lootboxen, die letzten Fahrten und das komplette Sterne-Konto.
+Im Elternbereich siehst du pro Kind: Übungszeit der letzten 14 Tage, was noch schwerfällt (konkrete Wörter und Sätze), wie viel sicher sitzt (und wie viel davon diese Woche dazugekommen ist), den Stand jeder Station, die Lootboxen, die letzten Fahrten und das komplette Sterne-Konto.
 
 **Stationen archivieren:** Ist ein Thema vom Stoff her nicht mehr dran, archivierst du die Station (oder gleich die ganze Linie) beim Kind unter **Stationen**. Sie verschwindet dann vom Netzplan, aus dem Fehler-Training, aus der Blitzrunde und aus dem Endbahnhof. Der Endbahnhof braucht dann nur noch die übrigen Stationen. Der Fortschritt bleibt gespeichert, und mit „Zurückholen“ ist die Station wieder da. Das gilt pro Kind.
 
@@ -332,6 +337,8 @@ Alle Lerninhalte liegen als JSON-Dateien in `content/<fach>/`. Nach einer Änder
 
 - **`vocab`**: Aus Wortlisten werden die Aufgaben automatisch gebaut (Auswahl, Eintippen, Hören, Paare finden). `alt` sind weitere richtige Schreibweisen. Mit `"typing": false` auf Stationsebene muss nichts eingetippt werden, bei Sätzen wird dann aus Wortkärtchen gebaut.
 - **`exercises`**: `choice` (Auswahl), `input` (Eintippen, `___` markiert die Lücke) und `order` (Satz bauen). Weitere Felder: `accept` für weitere richtige Antworten, `task` für einen eigenen Aufgabentext, `de` für eine deutsche Übersetzung als Hilfe, `"numeric": true` für eine Zahlentastatur, `"speak": false`, wenn der Satz nicht vorgelesen werden soll, und `"strict": true`, wenn Kurz- und Langform (don't / do not) nicht beide gelten sollen.
+- **`"recall": true`** an einer `choice`-Aufgabe: Sie kommt erst zum Auswählen und ab der zweiten Box zum Schreiben (siehe „Erst auswählen, dann selbst schreiben“). Für die Schreib-Form gelten `answer` und `accept`, optional `placeholder`. Statt `true` geht auch ein eigener Aufgabentext für die Schreib-Form, z. B. `"recall": "Lückentext: Welches Wort fehlt?"`. Eine zweite Aufgabe zum Schreiben derselben Sache ist dann überflüssig – `npm run check` meldet sie. In Englisch braucht eine recall-Aufgabe `de` oder `hint`, sonst weiß das Kind beim Schreiben nicht, welches Wort gemeint ist. Passt nur für Fragen, die man auch ohne Auswahl beantworten kann (nicht für „Was gehört **nicht** dazu?“).
+- **`"formerIds": ["…"]`**: Ersetzt eine Aufgabe andere Aufgaben derselben Station (z. B. den gelöschten Schreib-Zwilling), geht deren Lernstand beim nächsten Start auf sie über.
 - **Karten und Bilder**: `"map": "welt", "mark": "afrika"` zeigt in einer Aufgabe die Karte `content/<fach>/media/welt.svg` und hebt das Gebiet mit der id `afrika` hervor. Im „Merke“ zeigt `{ "map": "welt", "legend": [["afrika", "Afrika"], …] }` die Karte mit bunt gefärbten Gebieten und Legende. `npm run check` meldet fehlende Karten und Gebiete. Das geht genauso mit Zeichnungen, z. B. `content/biologie/media/hund-skelett.svg`: Dort sind Knochen (`class="bone"`) in Gruppen mit id zusammengefasst, und Nummern in `<g class="labels">` erscheinen nur im „Merke“. In `content/musik/media/klasseninstrumente.svg` hat jedes Instrument ein Feld (`class="slot"`), das markiert bzw. eingefärbt wird, damit das Instrument selbst seine Farben behält.
 - **`"enabled": false`** in einer Stationsdatei blendet diese Station aus.
 - **`"card"`**: eigener Text für die Sammelkarte der Station. Ohne dieses Feld steht der erste Merksatz auf der Karte.
@@ -365,7 +372,9 @@ Diese Stationen haben keine festen Aufgaben. Sie werden von `server/generators/r
 ```
 Genauso funktioniert `server/generators/schriftlich.js` für die schriftliche Addition (Aufgabentyp `column`). Auf der Merke-Seite zeigt ein Block `{ "column": { "rows": ["367", "258"] } }` eine fertig gerechnete Aufgabe mit Überträgen.
 
-Für neue Aufgabenarten (z. B. Brüche, Uhrzeiten) legst du einen weiteren Generator in `server/generators/` an. Wie der aufgebaut ist, steht oben in `rechnen.js`.
+Für neue Aufgabenarten (z. B. Brüche, Uhrzeiten) legst du einen weiteren Generator in `server/generators/` an. Wie der aufgebaut ist, steht oben in `rechnen.js`. `npm run check` erzeugt von jedem Generator ein paar Proben und prüft sie, auch dass `byId` aus der id wieder genau dieselbe Aufgabe baut (das braucht das Fehler-Training).
+
+Auch der Satz-Trainer in Englisch ist ein Generator: `server/generators/saetze.js` mit `"params": { "rules": ["be", "have"] }` (am/is/are, have got), `["s"]` (he/she/it mit -s) oder `["do"]` (do/does, don't/doesn't). Alle Verbformen stehen dort ausgeschrieben in Listen. Neue Wörter oder Personen hängst du dort an, eine vorhandene id bekommt nie eine andere Bedeutung, sonst passen die gespeicherten Fehler nicht mehr.
 
 ## Aufbau (für Neugierige)
 
@@ -377,7 +386,8 @@ server/        Node.js-Server (Express, SQLite über das eingebaute node:sqlite)
   progress.js    Ränge, Serie, Tagesfahrplan, Endbahnhöfe, Abstellgleis und Archiv
   lootbox.js     Lootboxen
   content.js     liest die Inhalte ein
-  generators/    berechnete Aufgaben (Mathe)
+  srs.js         Wiederholen mit Abständen, „Das sitzt“
+  generators/    berechnete Aufgaben (Mathe, Englisch-Sätze)
 public/        Oberfläche (reines HTML/CSS/JS, kein Build-Schritt)
 unraid/        Docker-Template und Build-Skript für Unraid
 content/       Lerninhalte als JSON (Karten in content/<fach>/media/, Kartendaten: Natural Earth)

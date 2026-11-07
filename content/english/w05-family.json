@@ -31,5 +31,11 @@
     { "en": "twins", "de": "Zwillinge" },
     { "en": "boy", "de": "Junge" },
     { "en": "girl", "de": "Mädchen" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "My ___ is a teacher.", "de": "Meine Mama ist Lehrerin.", "options": ["mum", "dad", "uncle", "brother"], "answer": "mum", "recall": true, "accept": ["mom", "mummy"] },
+    { "type": "choice", "q": "I have got two ___ and one sister.", "de": "Ich habe zwei Brüder und eine Schwester.", "options": ["brothers", "sisters", "parents", "uncles"], "answer": "brothers", "recall": true, "explain": "Zwei Brüder: **brother** bekommt in der Mehrzahl ein -s → brother**s**." },
+    { "type": "choice", "q": "My ___ live in Hamburg.", "de": "Meine Großeltern wohnen in Hamburg.", "options": ["grandparents", "parents", "cousins", "twins"], "answer": "grandparents", "recall": true },
+    { "type": "choice", "q": "Tom and Lisa are ___. They have got the same birthday.", "de": "Tom und Lisa sind Zwillinge. Sie haben am selben Tag Geburtstag.", "options": ["twins", "parents", "babies", "uncles"], "answer": "twins", "recall": true }
   ]
 }

@@ -35,5 +35,11 @@
     { "en": "know", "de": "wissen / kennen" },
     { "en": "live", "de": "wohnen / leben" },
     { "en": "work", "de": "arbeiten" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "I ___ up at seven o’clock.", "de": "Ich stehe um sieben Uhr auf.", "options": ["get", "stand", "go", "come"], "answer": "get", "recall": true, "explain": "Aufstehen (aus dem Bett) heißt **get up**. „stand up“ heißt aufstehen vom Stuhl." },
+    { "type": "choice", "q": "Can you ___ me, please?", "de": "Kannst du mir bitte helfen?", "options": ["help", "need", "find", "know"], "answer": "help", "recall": true },
+    { "type": "choice", "q": "I can’t ___ my pen. Where is it?", "de": "Ich kann meinen Füller nicht finden. Wo ist er?", "options": ["find", "look", "know", "open"], "answer": "find", "recall": true },
+    { "type": "choice", "q": "Please ___ the door.", "de": "Bitte schließ die Tür.", "options": ["close", "open", "sit", "jump"], "answer": "close", "recall": true }
   ]
 }

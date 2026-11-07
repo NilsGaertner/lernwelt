@@ -1,0 +1,24 @@
+{
+  "id": "trainer-do",
+  "line": "trainer",
+  "order": 3,
+  "title": "Trainer: do, does, don't",
+  "subtitle": "Fragen und Verneinung",
+  "icon": "❓",
+  "card": "Nach **does** und **doesn't** steht das Verb **ohne -s**: Does she **play**? She doesn't **play**.",
+  "generator": "saetze",
+  "params": { "rules": ["do"] },
+  "itemCount": 1200,
+  "explain": [
+    { "p": "Hier kommen **immer neue Sätze**: Fragen mit **Do** oder **Does** und Verneinungen mit **don't** oder **doesn't**." },
+    { "table": { "head": ["Wer?", "Frage", "Verneinung"], "rows": [
+      ["I / you / we / they", "**Do** you play …?", "I **don't** play …"],
+      ["he / she / it", "**Does** she play …?", "She **doesn't** play …"]
+    ] } },
+    { "tip": "Das -s steckt schon in **does** und **doesn't**. Darum steht das Verb danach **ohne -s**: Does Tom **play**? Tom doesn't **play**." },
+    { "ex": [
+      ["Does your sister like pizza?", "Mag deine Schwester Pizza?"],
+      ["My dad doesn't watch TV in the evening.", "Mein Papa schaut abends nicht fern."]
+    ] }
+  ]
+}

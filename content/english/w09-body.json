@@ -35,5 +35,11 @@
     { "en": "back", "de": "Rücken" },
     { "en": "tummy", "de": "Bauch", "alt": ["stomach", "belly"] },
     { "en": "shoulder", "de": "Schulter" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "I brush my ___ every morning.", "de": "Ich putze mir jeden Morgen die Zähne.", "options": ["teeth", "tooth", "feet", "hair"], "answer": "teeth", "recall": true, "explain": "Ein Zahn: **tooth**. Mehrere Zähne: **teeth**." },
+    { "type": "choice", "q": "I can hear with my ___.", "de": "Ich kann mit meinen Ohren hören.", "options": ["ears", "eyes", "hands", "teeth"], "answer": "ears", "recall": true, "explain": "Mehrere Ohren: ear → ear**s**." },
+    { "type": "choice", "q": "My ___ hurts. I can’t walk.", "de": "Mein Knie tut weh. Ich kann nicht laufen.", "options": ["knee", "nose", "ear", "neck"], "answer": "knee", "recall": true },
+    { "type": "choice", "q": "She has got long, brown ___.", "de": "Sie hat lange, braune Haare.", "options": ["hair", "hairs", "eyes", "ears"], "answer": "hair", "recall": true, "explain": "Die Haare auf dem Kopf sind auf Englisch **hair** – ohne -s, auch wenn es im Deutschen „Haare“ heißt." }
   ]
 }

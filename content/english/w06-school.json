@@ -37,5 +37,11 @@
     { "en": "lesson", "de": "Unterrichtsstunde" },
     { "en": "subject", "de": "Schulfach" },
     { "en": "timetable", "de": "Stundenplan" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Can I have your ___, please? I want to draw a line.", "de": "Kann ich bitte dein Lineal haben? Ich will eine Linie zeichnen.", "options": ["ruler", "rubber", "scissors", "board"], "answer": "ruler", "recall": true },
+    { "type": "choice", "q": "Our ___ is Mrs Brown. She is very nice.", "de": "Unsere Lehrerin ist Mrs Brown. Sie ist sehr nett.", "options": ["teacher", "pupil", "lesson", "board"], "answer": "teacher", "recall": true },
+    { "type": "choice", "q": "Maths is my favourite ___.", "de": "Mathe ist mein Lieblingsfach.", "options": ["subject", "lesson", "timetable", "break"], "answer": "subject", "recall": true },
+    { "type": "choice", "q": "I do my ___ after lunch.", "de": "Ich mache meine Hausaufgaben nach dem Mittagessen.", "options": ["homework", "timetable", "break", "classroom"], "answer": "homework", "recall": true, "explain": "**homework** hat kein -s, auch wenn es im Deutschen „die Hausaufgaben“ sind." }
   ]
 }

@@ -39,5 +39,11 @@
     { "en": "tortoise", "de": "Schildkröte", "alt": ["turtle"] },
     { "en": "budgie", "de": "Wellensittich" },
     { "en": "pet", "de": "Haustier" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "The ___ is very big and grey.", "de": "Der Elefant ist sehr groß und grau.", "options": ["elephant", "mouse", "frog", "budgie"], "answer": "elephant", "recall": true },
+    { "type": "choice", "q": "A ___ can swim, but it can’t fly.", "de": "Ein Fisch kann schwimmen, aber er kann nicht fliegen.", "options": ["fish", "bird", "duck", "budgie"], "answer": "fish", "recall": true },
+    { "type": "choice", "q": "We have got a ___ at home. It’s a rabbit.", "de": "Wir haben ein Haustier zu Hause. Es ist ein Kaninchen.", "options": ["pet", "cow", "lion", "snake"], "answer": "pet", "recall": true },
+    { "type": "choice", "q": "Cows, pigs and ___ live on a farm.", "de": "Kühe, Schweine und Schafe leben auf dem Bauernhof.", "options": ["sheep", "lions", "monkeys", "tigers"], "answer": "sheep", "recall": true, "explain": "**sheep** bleibt in der Mehrzahl gleich: one sheep – many sheep." }
   ]
 }

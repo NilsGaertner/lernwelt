@@ -36,5 +36,11 @@
     { "en": "friendly", "de": "freundlich" },
     { "en": "loud", "de": "laut" },
     { "en": "quiet", "de": "leise / ruhig" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "My grandpa is 80. He is very ___.", "de": "Mein Opa ist 80. Er ist sehr alt.", "options": ["old", "young", "new", "small"], "answer": "old", "recall": true },
+    { "type": "choice", "q": "This film is ___. I want to sleep.", "de": "Dieser Film ist langweilig. Ich will schlafen.", "options": ["boring", "funny", "loud", "easy"], "answer": "boring", "recall": true },
+    { "type": "choice", "q": "My shoes are very ___. I must clean them.", "de": "Meine Schuhe sind sehr schmutzig. Ich muss sie putzen.", "options": ["dirty", "clean", "short", "fast"], "answer": "dirty", "recall": true },
+    { "type": "choice", "q": "Be ___, please! The baby is sleeping.", "de": "Sei bitte leise! Das Baby schläft.", "options": ["quiet", "loud", "funny", "difficult"], "answer": "quiet", "recall": true }
   ]
 }
