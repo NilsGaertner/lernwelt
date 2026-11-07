@@ -1,6 +1,6 @@
 import { db, EARN_KINDS, getPublicSettings, getSetting, setSetting, transaction } from './db.js';
 import { BADGES, BADGE_BONUS } from './badges.js';
-import { subjects } from './content.js';
+import { subjects, itemLabel } from './content.js';
 import { localDay, nowIso, fmtScore } from './util.js';
 import {
   streak, dailyPlan, stampCount, examsPassed, xpOf, rankInfo, PASSED_SQL, stationState, useExtraRide, nextStation,
@@ -8,6 +8,7 @@ import {
 } from './progress.js';
 import { grantLootbox } from './lootbox.js';
 import { grantRandomSkin } from './avatars.js';
+import { knownCounts } from './srs.js';
 
 export { streak, unitProgress } from './progress.js';
 
@@ -133,9 +134,12 @@ export function sessionStars(rating, runToday) {
  * Schließt eine Übung ab: speichert sie, vergibt Sterne (mit Tageslimit), Abzeichen, Fahrplan-Stempel, XP, Lootboxen und den Serienbonus.
  * mode: 'unit' | 'review' | 'due' | 'exam' (unitId = Linie) | 'blitz' (unitId = Blitz-Thema, keine Sterne für die Runde selbst)
  * boosted: die Fahrt wurde während eines „Doppelte Sterne“-Events gestartet
+ * newlyKnown: Schlüssel der Aufgaben, die seit dieser Fahrt „sitzen“ (Box 3 erreicht, siehe srs.js)
  * Eine Station auf dem Abstellgleis bringt keine Sterne; die Fahrt, die sie dorthin bringt, gibt eine Lootbox.
  */
-export function completeSession({ sessionId, childId, subject, unitId, unitTitle, mode, startedAt, total, correct, bestCombo = 0, boosted = false }) {
+export function completeSession({
+  sessionId, childId, subject, unitId, unitTitle, mode, startedAt, total, correct, bestCombo = 0, boosted = false, newlyKnown = [],
+}) {
   return transaction(() => {
     const day = localDay();
     const now = nowIso();
@@ -163,7 +167,9 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
     // Abstellgleis: Stand vor dieser Fahrt. Auf einer zurückgeholten Station verbraucht die Fahrt eine Extra-Fahrt.
     const station = mode === 'unit' ? stationState(childId, subject, unitId) : null;
     const parked = !!station?.parked;
-    const justRetired = !!station && !station.retired && rating === 3 && station.limit > 0 && station.perfect + 1 >= station.limit;
+    // Fürs Abstellgleis zählt pro Tag nur eine Fahrt mit 3 Sternen: Die Station soll auch nach ein paar Tagen noch sitzen.
+    const countsToday = !!station && rating === 3 && !station.perfectToday;
+    const justRetired = !!station && !station.retired && countsToday && station.limit > 0 && station.perfect + 1 >= station.limit;
     if (station?.retired && !parked) useExtraRide(childId, subject, unitId);
     // Der Tagesbonus gehört zur ersten Fahrt, die Sterne bringt.
     const firstToday = !parked && !db.prepare('SELECT 1 FROM sessions WHERE child_id = ? AND day = ? AND parked = 0').get(childId, day);
@@ -288,11 +294,19 @@ export function completeSession({ sessionId, childId, subject, unitId, unitTitle
         ? {
             parked,
             justRetired,
-            perfect: station.perfect + (rating === 3 ? 1 : 0),
+            // perfect: Tage mit 3 Sternen · alreadyToday: 3 Sterne, aber heute hatte schon eine Fahrt gezählt
+            perfect: station.perfect + (countsToday ? 1 : 0),
+            alreadyToday: rating === 3 && station.perfectToday,
             limit: station.limit,
             extraRidesLeft: station.retired && !parked ? station.extraRides - 1 : null,
           }
         : null,
+      // items: die ersten fünf zum Anschauen („Karte: “ ist für die Eltern-Übersicht gedacht, dem Kind reicht der Name)
+      known: {
+        gained: newlyKnown.length,
+        items: newlyKnown.slice(0, 5).map((k) => itemLabel(k).replace(/^Karte: /, '')),
+        total: knownCounts(childId).total,
+      },
       lootboxes: newBoxes.filter(Boolean),
       skins: newSkins.filter(Boolean),
       next: mode === 'unit' || mode === 'exam' ? nextStation(childId, subject, mode === 'unit' ? unitId : null) : null,

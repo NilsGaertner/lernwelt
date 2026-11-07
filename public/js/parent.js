@@ -172,7 +172,7 @@ async function dashboard(root, render, reloadMeta) {
       f('minutesPerStar', 'Minuten Medienzeit pro Stern', s.minutesPerStar, 'Die erste Fahrt einer Station am Tag bringt bis zu 6 Sterne, die zweite bis zu 3, jede weitere 1. Dazu kommen Boni.', { type: 'number', min: 0.5, max: 60, step: 0.5 }),
       f('dailyStarLimit', 'Maximale Sterne pro Tag', s.dailyStarLimit, '0 = unbegrenzt. Üben geht auch danach, nur ohne Sterne.', { type: 'number', min: 0, max: 2000 }),
       f('questionsPerSession', 'Aufgaben pro Übung', s.questionsPerSession, 'Empfohlen: 8–12.', { type: 'number', min: 5, max: 30 }),
-      f('retireAfter', 'Abstellgleis nach … Fahrten mit 3 Sternen', s.retireAfter, 'Danach bringt die Station keine Sterne mehr, dafür gibt es einmal eine Lootbox. 0 = nie.', { type: 'number', min: 0, max: 50 }),
+      f('retireAfter', 'Abstellgleis nach … Tagen mit 3 Sternen', s.retireAfter, 'Pro Tag zählt eine Fahrt. Danach bringt die Station keine Sterne mehr, dafür gibt es einmal eine Lootbox. 0 = nie.', { type: 'number', min: 0, max: 50 }),
       f('ticketMinutes', 'Ticket-Größen in Minuten', s.ticketMinutes.join(', '), 'Mit Komma getrennt, z. B. 15, 30, 60.')),
     h('button.btn', { type: 'submit' }, 'Speichern'));
 
@@ -474,7 +474,7 @@ async function childView(root, id, render) {
       ? h('ul.weak-list', d.weak.map((w) =>
           h('li', h('span.lbl', w.label), h('span.meta', `${w.unit} · `, h('span.neg', `${w.wrong}× falsch`), ` · ${w.correct}× richtig`))))
       : h('p.muted', 'Aktuell nichts Auffälliges – prima!'),
-    h('p.muted.small', `Sicher gelernt: ${d.mastered} von ${d.seen} geübten Wörtern/Aufgaben (3× in Folge richtig).`));
+    h('p.muted.small', `Sicher gelernt: ${d.mastered} von ${d.seen} geübten Wörtern/Aufgaben (an mindestens drei Tagen richtig, mit Pausen dazwischen)${d.masteredWeek ? `, ${d.masteredWeek} davon diese Woche` : ''}. Dein Kind sieht diese Zahl als „Das sitzt“.`));
 
   const bySubject = new Map();
   for (const u of d.units) {
@@ -523,11 +523,11 @@ async function childView(root, id, render) {
   };
   const units = h('section.panel',
     h('h2', '🗺️ Stationen', h('span.muted.small', `${d.units.filter((u) => !u.archived).length} in Betrieb · ${d.units.filter((u) => u.archived).length} archiviert`)),
-    h('p.muted', `Archivierte Stationen sieht dein Kind nicht mehr: nicht auf dem Netzplan, nicht im Fehler-Training, in der Blitzrunde oder im Endbahnhof. Der Fortschritt bleibt gespeichert. ${limit > 0 ? `Nach ${limit} Fahrten mit 3 Sternen kommt eine Station aufs Abstellgleis und bringt keine Sterne mehr. Mit „Reaktivieren“ bringt sie für ein paar Fahrten wieder Sterne.` : 'Das Abstellgleis ist ausgeschaltet (siehe Regeln in der Übersicht).'}`),
+    h('p.muted', `Archivierte Stationen sieht dein Kind nicht mehr: nicht auf dem Netzplan, nicht im Fehler-Training, in der Blitzrunde oder im Endbahnhof. Der Fortschritt bleibt gespeichert. ${limit > 0 ? `Nach ${limit} Tagen mit 3 Sternen (pro Tag zählt eine Fahrt) kommt eine Station aufs Abstellgleis und bringt keine Sterne mehr. Mit „Reaktivieren“ bringt sie für ein paar Fahrten wieder Sterne.` : 'Das Abstellgleis ist ausgeschaltet (siehe Regeln in der Übersicht).'}`),
     [...bySubject].map(([name, list]) => h('div',
       bySubject.size > 1 ? h('h3', { style: { margin: '12px 0 4px' } }, name) : null,
       h('.table-wrap', h('table.data.units',
-        h('thead', h('tr', h('th', 'Station'), h('th', 'Bestes'), h('th', '3 ★'), h('th', 'Fahrten'), h('th', 'Ø richtig'), h('th', 'Zuletzt'), h('th', 'Status'))),
+        h('thead', h('tr', h('th', 'Station'), h('th', 'Bestes'), h('th', { title: 'Tage mit 3 Sternen (pro Tag zählt eine Fahrt)' }, 'Tage 3 ★'), h('th', 'Fahrten'), h('th', 'Ø richtig'), h('th', 'Zuletzt'), h('th', 'Status'))),
         h('tbody', list.flatMap((u, i) => {
           const rows = [];
           if (u.line !== list[i - 1]?.line) {
@@ -673,7 +673,7 @@ async function childView(root, id, render) {
       kpi(`${d.streak}`, 'Tage am Stück'),
       kpi(`${d.rank.train} ${d.rank.level}`, `${d.rank.name} · ${d.rank.xp} XP`),
       kpi(`${d.stamps}`, 'Fahrplan-Stempel'),
-      kpi(`${d.mastered}`, 'sicher gelernt'),
+      kpi(`${d.mastered}`, d.masteredWeek ? `sicher gelernt (+${d.masteredWeek} diese Woche)` : 'sicher gelernt'),
       kpi(`${d.badges.length}`, 'Abzeichen'))),
     foldable(chart, 'child.chart'),
     foldable(weak, 'child.weak'),

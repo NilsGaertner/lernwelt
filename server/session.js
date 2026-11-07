@@ -33,13 +33,43 @@ function priority(stat, today) {
   return (5 - Math.min(stat.box, 5)) * 0.6 + Math.min(stat.wrong, 5) * 0.2 + (due ? 1.5 : 0) + Math.random() * 1.5;
 }
 
-function choose(candidates, stats, n) {
+/**
+ * Zwillinge: Aufgaben, die sich in derselben Fahrt gegenseitig verraten – Fragen zur selben markierten Stelle einer
+ * Karte oder Zeichnung (Nordosten auswählen, NO schreiben) und, in Fächern ohne Fremdsprache, Aufgaben mit derselben
+ * Antwort (Rudel antippen, später „Wölfe leben im ___“ schreiben). In Englisch kommen is, are, has … absichtlich oft dran.
+ */
+function twinKeys(c, byAnswer) {
+  if (c.kind !== 'exercise') return [];
+  const d = c.data;
+  const keys = [];
+  if (d.map && d.mark) keys.push(`@${d.map}:${d.mark}`);
+  if (byAnswer && d.answer != null) keys.push(`=${normalize(d.answer)}`);
+  return keys;
+}
+
+/** Die ersten n aus der Liste, aber keine zwei Zwillinge in derselben Fahrt – außer es gibt sonst zu wenig Aufgaben. */
+function takeDistinct(list, n, byAnswer) {
+  const out = [];
+  const later = [];
+  const seen = new Set();
+  for (const c of list) {
+    const keys = twinKeys(c, byAnswer);
+    if (out.length < n && !keys.some((k) => seen.has(k))) {
+      out.push(c);
+      keys.forEach((k) => seen.add(k));
+    } else later.push(c);
+  }
+  for (const c of later) if (out.length < n) out.push(c);
+  return out;
+}
+
+function choose(candidates, stats, n, byAnswer) {
   const today = localDay();
   const ranked = candidates
     .map((c) => ({ c, p: priority(stats.get(c.key), today) }))
     .sort((a, b) => b.p - a.p)
     .map((x) => x.c);
-  const out = ranked.slice(0, n);
+  const out = takeDistinct(ranked, n, byAnswer);
   // Kleine Einheiten: Aufgaben dürfen (in anderer Form) wiederkommen.
   while (out.length < n && ranked.length) out.push(ranked[out.length % ranked.length]);
   return shuffle(out);
@@ -154,7 +184,19 @@ function vocabQuestion(subject, cand, stat, canSpeak, onlyChoice = false) {
   }
 }
 
-function exerciseQuestion(subjectId, cand, canSpeak) {
+/**
+ * "recall": Eine Auswahl-Aufgabe wird zum Schreiben, sobald sie ein bisschen sitzt – wie bei den Vokabeln.
+ * Box 0: auswählen · Box 1: ab und zu schreiben · ab Box 2: schreiben. Selbst darauf kommen (statt wiedererkennen)
+ * prägt sich besser ein. Ein Fehler bringt die Aufgabe zwei Boxen zurück, dann kommt wieder die Auswahl.
+ * In der Blitzrunde wird immer angetippt.
+ */
+function recallTyped(ex, stat, mode) {
+  if (ex.type !== 'choice' || !ex.recall || ex.sound || mode === 'blitz') return false;
+  const box = stat?.box ?? 0;
+  return box >= 2 || (box === 1 && Math.random() < 1 / 3);
+}
+
+function exerciseQuestion(subjectId, cand, canSpeak, stat = null, mode = 'unit') {
   const ex = cand.data;
   const map = ex.map ? { src: mediaUrl(subjectId, ex.map), mark: ex.mark ?? null } : null;
   const filled = (ex.q ? ex.q.replace(/_{3,}/, ex.answer) : ex.answer)
@@ -163,6 +205,19 @@ function exerciseQuestion(subjectId, cand, canSpeak) {
   const speakable = ex.type === 'order' || /_{3,}/.test(ex.q ?? '');
   const speak = canSpeak && speakable && ex.speak !== false ? filled : null;
   const base = { explain: ex.explain ?? null, speak, strict: !!ex.strict };
+  if (recallTyped(ex, stat, mode)) {
+    const gap = /_{3,}/.test(ex.q ?? '');
+    return {
+      ...base,
+      pub: {
+        type: 'input',
+        prompt: typeof ex.recall === 'string' ? ex.recall : ex.task ?? (gap ? 'Schreib das fehlende Wort.' : 'Schreib die Antwort.'),
+        text: ex.q, textDe: ex.de ?? null, map, hint: ex.hint ?? null,
+        placeholder: ex.placeholder ?? (gap ? '…' : 'Deine Antwort …'), numeric: /^\d+$/.test(ex.answer),
+      },
+      expected: [ex.answer, ...(ex.accept ?? [])], qtype: 'input',
+    };
+  }
   if (ex.type === 'column') {
     return {
       ...base,
@@ -248,20 +303,32 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     candidates = unitCandidates(subjectId, unit, count);
     title = unit.title;
     refId = unit.id;
+    // Kleine Station ohne Wörter: lieber eine kürzere Fahrt als dieselbe Frage zweimal.
+    if (!unit.generator && !unit.vocab.length) count = Math.min(count, Math.max(5, candidates.length));
   }
 
   const withMatch = mode === 'unit' && unit.vocab.length >= 5 && count >= 8;
   const stats = statsFor(childId, [...new Set(candidates.map((c) => c.key))]);
   const chosen =
     mode === 'blitz' ? chooseForBlitz(candidates, stats, count)
-    : mode === 'exam' ? shuffle(candidates).slice(0, count) // Prüfung: bunt gemischt über die ganze Linie
-    : choose(candidates, stats, withMatch ? count - 1 : count);
+    : mode === 'exam' ? takeDistinct(shuffle(candidates), count, !canSpeak) // Prüfung: bunt gemischt über die ganze Linie
+    : choose(candidates, stats, withMatch ? count - 1 : count, !canSpeak);
 
   const questions = chosen.map((c) => {
     const q = c.kind === 'vocab'
       ? vocabQuestion(subject, c, stats.get(c.key), canSpeak && mode !== 'blitz', mode === 'blitz')
-      : exerciseQuestion(subjectId, c, canSpeak && mode !== 'blitz');
-    return { ...q, key: c.key, kind: c.kind, unitId: c.unit.id };
+      : exerciseQuestion(subjectId, c, canSpeak && mode !== 'blitz', stats.get(c.key), mode);
+    // Getippte Wörter (keine Zahlen): Dafür gibt es den Tipp-Knopf und bei einem einzelnen falschen Buchstaben „Fast!“.
+    const typedWord = q.pub.type === 'input' && !q.pub.numeric && !q.expected.some((e) => /\d/.test(e));
+    const letters = String(q.expected[0] ?? '').replace(/[^\p{L}]/gu, '').length;
+    return {
+      ...q, key: c.key, kind: c.kind, unitId: c.unit.id,
+      // „Fast!“ mit zweitem Versuch: bei Vokabeln und in Fächern ohne Fremdsprache – in Biologie zählt das Wissen,
+      // nicht der eine Buchstabe. In Englisch-Lücken ist der eine Buchstabe oft genau das Geübte (he like → likes).
+      lenient: c.kind === 'vocab' || (!canSpeak && typedWord),
+      // Tipp erst ab drei Buchstaben – bei „O“ oder „an“ würde er die ganze Lösung verraten.
+      hintable: mode !== 'blitz' && typedWord && letters >= 3,
+    };
   });
   if (withMatch) questions.splice(Math.floor(questions.length / 2), 0, { ...matchQuestion(unit), unitId: unit.id });
 
@@ -288,6 +355,8 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     deadline: mode === 'blitz' ? Date.now() + (BLITZ_SECONDS + 3) * 1000 : null,
     combo: 0,
     bestCombo: 0,
+    // Diese Aufgaben „sitzen“ seit dieser Fahrt (Box 3 erreicht)
+    newlyKnown: [],
     // credit: Punkte für den ersten Versuch – 1, ½ (selbst verbessert) oder 0
     questions: questions.map((q) => ({ ...q, answered: false, credit: 0 })),
   };
@@ -301,8 +370,9 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     boosted: session.boosted,
     speechLang: mode === 'blitz' ? null : subject.meta.speechLang ?? null,
     // copy: nach einem Fehler die Lösung einmal abschreiben – bei Vokabeln und Schulkarten, wo es um die Schreibweise geht
+    // canHint: es gibt den Tipp-Knopf (erster Buchstabe und Länge, dann höchstens ½ Punkt)
     questions: session.questions.map((q, i) => ({
-      id: i, unit: q.unitId, copy: q.kind === 'vocab' || !!subject.units.get(q.unitId)?.typePhrases, ...q.pub,
+      id: i, unit: q.unitId, copy: q.kind === 'vocab' || !!subject.units.get(q.unitId)?.typePhrases, canHint: q.hintable, ...q.pub,
     })),
     units,
   };
@@ -366,9 +436,8 @@ export function answerQuestion(sessionId, qid, given) {
     logAnswer.run(s.id, s.childId, s.subject, q.unitId, q.key, q.qtype, correct ? 1 : 0, firstTry ? 1 : 0, givenText.slice(0, 200), q.expected[0] ?? '', now);
 
   // Ein Wort mit nur einem falschen Buchstaben darf das Kind einmal selbst verbessern, bevor es die Lösung sieht.
-  // Klappt das, gibt es einen halben Punkt. (Nur bei Vokabeln: In Grammatik-Lücken ist der eine Buchstabe oft
-  // genau das, was geübt wird – he like → likes.)
-  if (!q.answered && !q.secondChance && result.almost && q.kind === 'vocab' && s.mode !== 'blitz') {
+  // Klappt das, gibt es einen halben Punkt. (Nicht in Englisch-Lücken und nicht bei Zahlen, siehe lenient in startSession.)
+  if (!q.answered && !q.secondChance && result.almost && q.lenient && s.mode !== 'blitz') {
     q.secondChance = true;
     s.combo = 0;
     log(false, true);
@@ -376,26 +445,29 @@ export function answerQuestion(sessionId, qid, given) {
   }
 
   const firstTry = !q.answered;
-  const second = firstTry && !!q.secondChance;
-  const credit = result.correct ? (second ? 0.5 : 1) : 0;
+  // Mit Hilfe (selbst verbessert oder mit Tipp) gibt es einen halben Punkt, und die Serie läuft nicht weiter.
+  const helped = firstTry && (!!q.secondChance || !!q.hinted);
+  const credit = result.correct ? (helped ? 0.5 : 1) : 0;
   if (firstTry) {
     q.answered = true;
     q.credit = credit;
   }
-  s.combo = result.correct && !second ? s.combo + 1 : 0;
+  s.combo = result.correct && !helped ? s.combo + 1 : 0;
   s.bestCombo = Math.max(s.bestCombo, s.combo);
 
-  log(result.correct, firstTry && !second);
+  log(result.correct, firstTry && !helped);
   if (q.key && firstTry) {
-    recordAnswer({
+    const { becameKnown } = recordAnswer({
       childId: s.childId, key: q.key, subject: s.subject, unitId: q.unitId, at: now, blitz: s.mode === 'blitz',
       outcome: credit === 1 ? 'right' : credit ? 'half' : 'wrong',
     });
+    if (becameKnown) s.newlyKnown.push(q.key);
   }
 
   return {
     ...result,
     half: firstTry && credit === 0.5,
+    hinted: firstTry && !!q.hinted,
     firstTry,
     combo: s.combo,
     solution: q.pub.type === 'match' ? null : q.expected[0],
@@ -431,5 +503,26 @@ export function finishSession(sessionId) {
     // halbe Punkte fürs Verbessern zählen mit (z. B. 8½ von 10)
     correct: answered.reduce((sum, q) => sum + q.credit, 0),
     bestCombo: s.bestCombo,
+    newlyKnown: s.newlyKnown,
   });
+}
+
+/** „Eckzähne“ → „E_______“, „get up“ → „g__ u_“: der erste Buchstabe jedes Worts, der Rest als Lücken. */
+export function hintMask(answer) {
+  return String(answer ?? '').replace(/\*\*/g, '').replace(/\p{L}+/gu, (w) => w[0] + '_'.repeat(w.length - 1));
+}
+
+/**
+ * Tipp-Knopf: verrät den ersten Buchstaben und die Länge. Wer ihn beim ersten Versuch nimmt, bekommt höchstens einen
+ * halben Punkt (wie beim Selbst-Verbessern) – so bleibt das Kind beim Erinnern, statt aufzugeben und abzuschreiben.
+ * Bei der Wiederholung am Ende der Fahrt kostet er nichts mehr.
+ */
+export function hintQuestion(sessionId, qid) {
+  const s = active.get(sessionId);
+  if (!s) throw httpError(404, 'Diese Übung ist abgelaufen. Starte sie einfach neu.');
+  const q = s.questions[qid];
+  if (!q) throw httpError(400, 'Unbekannte Aufgabe.');
+  if (!q.hintable) throw httpError(400, 'Für diese Aufgabe gibt es keinen Tipp.');
+  if (!q.answered) q.hinted = true;
+  return { mask: hintMask(q.expected[0]) };
 }

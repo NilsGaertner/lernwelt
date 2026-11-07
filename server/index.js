@@ -3,8 +3,8 @@ import path from 'node:path';
 import { db, getSetting, setSetting, getPublicSettings, transaction } from './db.js';
 import { loadContent, publicSubjects, publicUnit, subjects, itemLabel, CONTENT_DIR } from './content.js';
 import { publicBadges } from './badges.js';
-import { startSession, answerQuestion, finishSession } from './session.js';
-import { practiceCounts, migrateSpacing } from './srs.js';
+import { startSession, answerQuestion, finishSession, hintQuestion } from './session.js';
+import { practiceCounts, migrateSpacing, knownCounts, foldFormerItems } from './srs.js';
 import {
   balance, earnedOn, streak, unitProgress, earnedBadges, requestTicket, decideTicket, tickets, adjustStars,
   starLimitFor, upcomingDayLimits, activeBoost, startBoost, stopBoost,
@@ -21,6 +21,7 @@ const PORT = Number(process.env.PORT) || 8080;
 const problems = await loadContent();
 for (const p of problems) console.warn(`[Inhalt] ${p}`);
 migrateSpacing();
+foldFormerItems();
 
 const app = express();
 app.use(express.json({ limit: '100kb' }));
@@ -82,6 +83,7 @@ app.get('/api/children/:id/overview', (req, res) => {
     stampDays: stampDays(child.id),
     review: practiceCounts(child.id, 'review'),
     due: practiceCounts(child.id, 'due'),
+    known: knownCounts(child.id),
     badges: earnedBadges(child.id),
     tickets: tickets(child.id, 10),
     lootboxes: child.adult ? { closed: [], opened: [] } : lootboxes(child.id),
@@ -141,6 +143,10 @@ app.post('/api/children/:id/train', (req, res) => {
 
 app.post('/api/sessions/:id/answer', (req, res) => {
   res.json(answerQuestion(req.params.id, Number(req.body?.qid), req.body?.answer));
+});
+
+app.post('/api/sessions/:id/hint', (req, res) => {
+  res.json(hintQuestion(req.params.id, Number(req.body?.qid)));
 });
 
 app.post('/api/sessions/:id/finish', (req, res) => {
@@ -292,7 +298,7 @@ parent.get('/children/:id', (req, res) => {
     )
     .all(child.id)
     .map((r) => ({ label: itemLabel(r.item_key), unit: unitTitle(r.subject, r.unit_id), correct: r.correct, wrong: r.wrong, box: r.box }));
-  const mastered = db.prepare('SELECT COUNT(*) AS n FROM item_stats WHERE child_id = ? AND box >= 3').get(child.id).n;
+  const known = knownCounts(child.id);
   const seen = db.prepare('SELECT COUNT(*) AS n FROM item_stats WHERE child_id = ?').get(child.id).n;
 
   const sessions = logEntries({ childId: child.id, limit: 15 }).entries;
@@ -308,7 +314,8 @@ parent.get('/children/:id', (req, res) => {
     days,
     units,
     weak,
-    mastered,
+    mastered: known.total,
+    masteredWeek: known.week,
     seen,
     sessions,
     ledger,
@@ -483,6 +490,7 @@ parent.put('/pin', (req, res) => {
 
 parent.post('/reload-content', async (req, res) => {
   const issues = await loadContent();
+  foldFormerItems();
   res.json({ ok: true, problems: issues });
 });
 

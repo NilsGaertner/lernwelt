@@ -1,7 +1,7 @@
 // Spiel-Fortschritt: Ränge (XP), Tage-Serie mit Serienschutz, Tagesfahrplan, Endbahnhöfe, Blitz-Rekorde,
 // Abstellgleis und Archiv. Alles wird aus den gespeicherten Übungen berechnet – nur der Tagesfahrplan
 // und die Eltern-Einstellungen pro Station (unit_state) haben eigene Tabellen.
-import { db, getPublicSettings } from './db.js';
+import { db, getPublicSettings, getSetting } from './db.js';
 import { subjects } from './content.js';
 import { localDay, addDays, nowIso } from './util.js';
 import { practiceItems } from './srs.js';
@@ -107,10 +107,20 @@ export const streak = (childId) => streakInfo(childId).days;
 // ---------------------------------------------------------------- Abstellgleis und Archiv
 
 /**
- * Eine Station, die so oft mit 3 Sternen geschafft wurde, kommt aufs Abstellgleis und bringt keine Sterne mehr
- * (0 = nie). Die Eltern können sie für ein paar Fahrten zurückholen (unit_state.extra_rides).
+ * Eine Station, die an so vielen Tagen mit 3 Sternen geschafft wurde, kommt aufs Abstellgleis und bringt keine
+ * Sterne mehr (0 = nie). Die Eltern können sie für ein paar Fahrten zurückholen (unit_state.extra_rides).
  */
 export const retireAfter = () => getPublicSettings().retireAfter;
+
+/**
+ * Fahrten mit 3 Sternen fürs Abstellgleis: Pro Tag zählt eine – fünfmal hintereinander am selben Nachmittag zeigt
+ * nur das Kurzzeitgedächtnis, fünf verschiedene Tage zeigen, dass die Station sitzt. Fahrten vor der Umstellung
+ * (Einstellung retireDaysSince) zählen weiter einzeln, damit kein Stand zurückgeht. Braucht den Zeitpunkt als Parameter.
+ */
+const PERFECT_SQL = 'COUNT(DISTINCT CASE WHEN rating = 3 THEN (CASE WHEN finished_at < ? THEN id ELSE day END) END)';
+/** Hat heute schon eine Fahrt mit 3 Sternen gezählt? Braucht Tag und Zeitpunkt als Parameter. */
+const PERFECT_TODAY_SQL = 'COALESCE(MAX(rating = 3 AND day = ? AND finished_at >= ?), 0)';
+const retireSince = () => getSetting('retireDaysSince') ?? '';
 
 /** SQL-Bedingung: die Station der Zeile (subject, unit_id) ist für das Kind nicht archiviert. */
 export const notArchivedSql = (t) =>
@@ -122,16 +132,25 @@ export function archivedUnits(childId) {
   );
 }
 
-/** Stand einer Station vor der nächsten Fahrt: Fahrten mit 3 Sternen, Abstellgleis, Extra-Fahrten, archiviert. */
+/**
+ * Stand einer Station vor der nächsten Fahrt: Tage mit 3 Sternen (perfect), ob heute schon einer gezählt hat,
+ * Abstellgleis, Extra-Fahrten, archiviert.
+ */
 export function stationState(childId, subjectId, unitId) {
-  const perfect = db
-    .prepare("SELECT COALESCE(SUM(rating = 3), 0) AS n FROM sessions WHERE child_id = ? AND subject = ? AND unit_id = ? AND mode = 'unit'")
-    .get(childId, subjectId, unitId).n;
+  const since = retireSince();
+  const r = db
+    .prepare(
+      `SELECT ${PERFECT_SQL} AS perfect, ${PERFECT_TODAY_SQL} AS perfectToday
+       FROM sessions WHERE child_id = ? AND subject = ? AND unit_id = ? AND mode = 'unit'`
+    )
+    .get(since, localDay(), since, childId, subjectId, unitId);
   const s = db.prepare('SELECT archived, extra_rides FROM unit_state WHERE child_id = ? AND subject = ? AND unit_id = ?').get(childId, subjectId, unitId);
   const limit = retireAfter();
-  const retired = limit > 0 && perfect >= limit;
+  const retired = limit > 0 && r.perfect >= limit;
   const extraRides = s?.extra_rides ?? 0;
-  return { perfect, limit, retired, extraRides, parked: retired && extraRides === 0, archived: !!s?.archived };
+  return {
+    perfect: r.perfect, perfectToday: !!r.perfectToday, limit, retired, extraRides, parked: retired && extraRides === 0, archived: !!s?.archived,
+  };
 }
 
 /** Eltern: Station archivieren bzw. zurückholen, oder vom Abstellgleis für `extraRides` Fahrten zurückholen. */
@@ -150,22 +169,28 @@ export function useExtraRide(childId, subjectId, unitId) {
 // ---------------------------------------------------------------- Stationen und Linien
 
 /**
- * Pro Einheit: beste Bewertung (1–3), Durchgänge (insgesamt, heute, mit 3 Sternen) und der Stand
- * von Abstellgleis und Archiv. Einheiten ohne Fahrten und ohne Eltern-Einstellung fehlen.
+ * Pro Einheit: beste Bewertung (1–3), Durchgänge (insgesamt, heute), Tage mit 3 Sternen (perfect, siehe PERFECT_SQL)
+ * und der Stand von Abstellgleis und Archiv. Einheiten ohne Fahrten und ohne Eltern-Einstellung fehlen.
  */
 export function unitProgress(childId) {
+  const today = localDay();
+  const since = retireSince();
   const rows = db
     .prepare(
-      `SELECT subject, unit_id, MAX(rating) AS best, COUNT(*) AS runs, SUM(rating = 3) AS perfect, SUM(day = ?) AS today,
+      `SELECT subject, unit_id, MAX(rating) AS best, COUNT(*) AS runs, ${PERFECT_SQL} AS perfect,
+              ${PERFECT_TODAY_SQL} AS perfectToday, SUM(day = ?) AS today,
               ROUND(AVG(correct * 100.0 / total)) AS avg, MAX(finished_at) AS last
        FROM sessions WHERE child_id = ? AND mode = 'unit' GROUP BY subject, unit_id`
     )
-    .all(localDay(), childId);
+    .all(since, today, since, today, childId);
   const states = db.prepare('SELECT subject, unit_id, archived, extra_rides FROM unit_state WHERE child_id = ?').all(childId);
   const out = {};
-  const entry = (sid, uid) => ((out[sid] ??= {})[uid] ??= { best: 0, runs: 0, perfect: 0, today: 0, avg: null, last: null });
+  const entry = (sid, uid) =>
+    ((out[sid] ??= {})[uid] ??= { best: 0, runs: 0, perfect: 0, perfectToday: false, today: 0, avg: null, last: null });
   for (const r of rows) {
-    Object.assign(entry(r.subject, r.unit_id), { best: r.best, runs: r.runs, perfect: r.perfect, today: r.today, avg: r.avg, last: r.last });
+    Object.assign(entry(r.subject, r.unit_id), {
+      best: r.best, runs: r.runs, perfect: r.perfect, perfectToday: !!r.perfectToday, today: r.today, avg: r.avg, last: r.last,
+    });
   }
   const stateOf = new Map(states.map((s) => [`${s.subject}/${s.unit_id}`, s]));
   for (const s of states) entry(s.subject, s.unit_id);
