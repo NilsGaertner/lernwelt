@@ -688,7 +688,7 @@ async function stationView(id, subjectId, unitId) {
       : !ov.child.adult && retireAfter > 0
         ? h('p.loot-progress',
             `🎁 An ${p?.perfect ?? 0} von ${retireAfter} Tagen 3 Sterne. Schaffst du sie an ${retireAfter} verschiedenen Tagen, kommt die Station aufs Abstellgleis, und du bekommst eine Lootbox.`,
-            p?.perfectToday ? ' Heute hat hier schon eine Fahrt gezählt – die nächste zählt morgen.' : '')
+            p?.perfectToday ? ' Heute hat hier schon eine Fahrt gezählt – an einem anderen Tag zählt die nächste.' : '')
         : null;
 
   const page = h('div', { style: { '--line': line.color } },

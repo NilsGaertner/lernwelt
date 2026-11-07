@@ -241,7 +241,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       if (!res.correct) input.blur();
     };
     const tryHint = h('p.try-again', { hidden: true, role: 'status' },
-      '🤏 Fast! Ein Buchstabe stimmt noch nicht. Schau genau hin und verbessere es – dann gibt es noch einen halben Punkt.');
+      '🤏 Fast! Ein Buchstabe stimmt noch nicht. Findest du ihn? Dann gibt es noch einen halben Punkt.');
     // Tipp: erster Buchstabe und Länge – lieber mit Hilfe selbst draufkommen als aufgeben (kostet den halben Punkt,
     // bei der Wiederholung am Ende der Fahrt nichts mehr).
     const retry = queue[pos]?.retry;
@@ -267,9 +267,31 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
           },
         }, '💡 Tipp')
       : null;
+    // Schreiben ist ein Angebot, kein Muss: Bei Aufgaben, die vom Auswählen zum Schreiben gekommen sind (recall),
+    // holt „Lieber auswählen?“ die Antworten zurück – dann gibt es wie beim Tipp ½ Punkt.
+    const switchRow = q.canChoose
+      ? h('p.switch-row', h('button.btn.ghost.small.switch-btn', {
+          type: 'button',
+          onclick: async (e) => {
+            const btn = e.currentTarget;
+            if (busy || btn.disabled) return;
+            btn.disabled = true;
+            try {
+              const { options } = await api(`/sessions/${session.sessionId}/choices`, { method: 'POST', body: { qid: q.id } });
+              q.options = options;
+              document.querySelectorAll('.dock').forEach((el) => el.remove());
+              onEnter = null;
+              stage.querySelector('.answer-area')?.replaceChildren(choiceArea(q));
+            } catch (err) {
+              btn.disabled = false;
+              toast(err.message);
+            }
+          },
+        }, retry ? 'Lieber auswählen?' : 'Lieber auswählen? (½ Punkt)'))
+      : null;
     onEnter = check;
     dock(hintBtn, h('button.btn.line.big', { type: 'button', onclick: check }, 'Prüfen'));
-    return [input, tryHint, maskLine];
+    return [input, tryHint, maskLine, switchRow];
   }
 
   /** „E_______“ als Kästchen: der erste Buchstabe steht da, für jeden weiteren ein leeres Kästchen. */
@@ -876,7 +898,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     if (res.correct) {
       onEnter = null;
       stage.querySelector('.qcard')?.append(h('span.praise', { 'aria-live': 'polite' },
-        res.half ? (res.hinted ? 'Mit Tipp geschafft! ½ Punkt' : 'Gut verbessert! ½ Punkt')
+        res.half ? (res.hinted ? 'Mit Tipp geschafft! ½ Punkt' : res.switched ? 'Gut erkannt! ½ Punkt' : 'Gut verbessert! ½ Punkt')
         : q.type === 'match' && res.mistakes ? 'Fast fehlerfrei!' : pick(PRAISE)));
       if (res.note) toast(res.note);
       setTimeout(() => { if (!ended) next(); }, res.note ? 1400 : 900);
@@ -1073,7 +1095,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
         h('h1', headline),
         h('.big-stars', { role: 'img', 'aria-label': `${result.rating} von 3 Sternen` },
           [1, 2, 3].map((i) => h('span', { class: i <= result.rating ? 'on' : 'off' }, '★'))),
-        h('p.score', `${fmtScore(result.correct)} von ${result.total} beim ersten Versuch richtig${result.correct % 1 ? ' (½ = selbst verbessert oder mit Tipp)' : ''}. ${sub}`),
+        h('p.score', `${fmtScore(result.correct)} von ${result.total} beim ersten Versuch richtig${result.correct % 1 ? ' (½ = mit Hilfe geschafft)' : ''}. ${sub}`),
         comboLine),
       missPanel(),
       ...panels,
@@ -1137,7 +1159,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
             ? h('button.say', { type: 'button', 'aria-label': `Vorlesen: ${audio}`, onclick: () => say(audio) }, '🔊')
             : h('span'),
           h('span', { html: md(missLabel(q, res)) }),
-          res.half ? h('span.half-tag', { title: res.hinted ? 'mit Tipp' : 'selbst verbessert' }, '½') : null);
+          res.half ? h('span.half-tag', { title: res.hinted ? 'mit Tipp' : res.switched ? 'ausgewählt' : 'selbst verbessert' }, '½') : null);
       })));
   }
 
