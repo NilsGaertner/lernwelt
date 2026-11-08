@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" role="img" aria-label="Liniendiagramm: Wachstum eines Blütentriebs der Hyazinthe über 21 Tage">
+<!-- hyazinthe: Kurve ungefähr wie im Test („Wachstum bei einem Blütentrieb der Hyazinthe“). -->
+<rect class="bg" x="0" y="0" width="720" height="430"/>
+<text class="tick" x="360" y="30" style="font-size:22px">Länge des Blütentriebs in cm</text>
+<path class="leader" d="M80 322H676M80 284H676M80 246H676M80 208H676M80 170H676M80 132H676M80 94H676M80 56H676M164 56V360M248 56V360M332 56V360M416 56V360M500 56V360M584 56V360M668 56V360" style="stroke-width:1;opacity:.3"/>
+<text class="tick" x="58" y="329" style="font-size:19px">2</text>
+<text class="tick" x="58" y="291" style="font-size:19px">4</text>
+<text class="tick" x="58" y="253" style="font-size:19px">6</text>
+<text class="tick" x="58" y="215" style="font-size:19px">8</text>
+<text class="tick" x="58" y="177" style="font-size:19px">10</text>
+<text class="tick" x="58" y="139" style="font-size:19px">12</text>
+<text class="tick" x="58" y="101" style="font-size:19px">14</text>
+<text class="tick" x="58" y="63" style="font-size:19px">16</text>
+<text class="tick" x="80" y="388" style="font-size:19px">0</text>
+<text class="tick" x="164" y="388" style="font-size:19px">3</text>
+<text class="tick" x="248" y="388" style="font-size:19px">6</text>
+<text class="tick" x="332" y="388" style="font-size:19px">9</text>
+<text class="tick" x="416" y="388" style="font-size:19px">12</text>
+<text class="tick" x="500" y="388" style="font-size:19px">15</text>
+<text class="tick" x="584" y="388" style="font-size:19px">18</text>
+<text class="tick" x="668" y="388" style="font-size:19px">21</text>
+<path class="leader" d="M80 45V360H688" style="fill:none;stroke-width:3"/>
+<path id="kurve" class="area line-part" style="--c:#2EAD6B;stroke-width:6;stroke-linejoin:round" d="M80 360 164 337.2 220 322 276 303 332 280.2 360 265 416 227 444 198.5 472 170 500 141.5 528 118.7 556 105.4 584 94 612 86.4 640 78.8 668 75"/>
+<text class="tick" x="628" y="422" style="font-size:18px">Tage (x-Achse)</text>
+</svg>

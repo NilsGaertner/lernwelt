@@ -1,0 +1,41 @@
+{
+  "id": "welche-zeit",
+  "line": "deutschland",
+  "order": 3,
+  "title": "In welcher Zeit war das?",
+  "subtitle": "Jahre einordnen und rechnen",
+  "icon": "🧮",
+  "card": "Wusstest du? Die Besatzungszeit dauerte nur 4 Jahre. Das war der kürzeste dieser Zeitabschnitte.",
+  "explain": [
+    { "p": "Zu jeder Jahreszahl gehört ein Zeitabschnitt. Du suchst die Zahl auf dem Zeitstrahl." },
+    { "map": "deutschland", "legend": [["kaiserreich", "Deutsches Kaiserreich"], ["weimar", "Weimarer Republik"], ["nationalsozialismus", "Nationalsozialismus"], ["besatzung", "Besatzung"], ["bundesrepublik", "Bundesrepublik Deutschland"], ["ddr", "Deutsche Demokratische Republik (DDR)"]] },
+    { "tip": "Zwischen 1949 und 1990 kommt es auf den Ort an: Im **Westen** war die Bundesrepublik, im **Osten** die DDR." },
+    { "p": "So rechnest du aus, wie lange etwas gedauert hat: **späteres Jahr minus früheres Jahr**." },
+    { "table": { "head": ["Zeitabschnitt", "Rechnung", "Dauer"], "rows": [
+      ["Kaiserreich", "1918 − 1871", "47 Jahre"],
+      ["Weimarer Republik", "1933 − 1918", "15 Jahre"],
+      ["Besatzung", "1949 − 1945", "4 Jahre"],
+      ["DDR", "1990 − 1949", "41 Jahre"]
+    ] } }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "In welcher Zeit war das?", "q": "Das Jahr 1900", "options": ["Deutsches Kaiserreich", "Weimarer Republik", "Besatzung", "Bundesrepublik Deutschland"], "answer": "Deutsches Kaiserreich", "explain": "1900 liegt zwischen 1871 und 1918." },
+    { "type": "choice", "task": "In welcher Zeit war das?", "q": "Das Jahr 1925", "options": ["Weimarer Republik", "Deutsches Kaiserreich", "Besatzung", "Bundesrepublik Deutschland"], "answer": "Weimarer Republik", "explain": "1925 liegt zwischen 1918 und 1933." },
+    { "type": "choice", "task": "In welcher Zeit war das?", "q": "Das Jahr 1947", "options": ["Besatzung", "Weimarer Republik", "Deutsches Kaiserreich", "Deutsche Demokratische Republik"], "answer": "Besatzung", "explain": "1947 liegt zwischen 1945 und 1949." },
+    { "type": "choice", "task": "In welcher Zeit war das?", "q": "Das Jahr 2010", "options": ["Bundesrepublik Deutschland", "Deutsche Demokratische Republik", "Besatzung", "Weimarer Republik"], "answer": "Bundesrepublik Deutschland", "explain": "Die DDR gab es nur bis 1990. 2010 gehört zur Bundesrepublik." },
+    { "type": "choice", "task": "In welcher Zeit war das?", "q": "Im Jahr 1970, im Osten von Deutschland", "options": ["Deutsche Demokratische Republik", "Bundesrepublik Deutschland", "Besatzung", "Weimarer Republik"], "answer": "Deutsche Demokratische Republik", "explain": "1949 bis 1990 war im Osten die DDR." },
+    { "type": "choice", "task": "In welcher Zeit war das?", "q": "Im Jahr 1970, im Westen von Deutschland", "options": ["Bundesrepublik Deutschland", "Deutsche Demokratische Republik", "Besatzung", "Deutsches Kaiserreich"], "answer": "Bundesrepublik Deutschland", "explain": "Seit 1949 gab es im Westen die Bundesrepublik." },
+    { "type": "choice", "task": "In welcher Zeit war das?", "q": "Eine Frau wurde 1912 geboren.", "options": ["Deutsches Kaiserreich", "Weimarer Republik", "Besatzung", "Bundesrepublik Deutschland"], "answer": "Deutsches Kaiserreich" },
+    { "type": "choice", "task": "In welcher Zeit war das?", "q": "Mias Uroma Erna wurde 1930 geboren.", "options": ["Weimarer Republik", "Deutsches Kaiserreich", "Besatzung", "Bundesrepublik Deutschland"], "answer": "Weimarer Republik" },
+    { "type": "choice", "task": "In welcher Zeit war das?", "q": "Mias Mama Lena wurde 1985 in Köln geboren. Köln liegt im Westen.", "options": ["Bundesrepublik Deutschland", "Deutsche Demokratische Republik", "Weimarer Republik", "Besatzung"], "answer": "Bundesrepublik Deutschland" },
+    { "type": "choice", "q": "Zu welcher großen Epoche gehören all diese Zeitabschnitte?", "options": ["Neuzeit", "Mittelalter", "Antike", "Frühgeschichte"], "answer": "Neuzeit", "recall": true, "explain": "Die Neuzeit beginnt um 1500. 1871 liegt danach." },
+    { "type": "choice", "q": "Welcher Zeitabschnitt dauerte am kürzesten?", "options": ["Besatzung", "Weimarer Republik", "Deutsches Kaiserreich", "Deutsche Demokratische Republik"], "answer": "Besatzung", "explain": "Von 1945 bis 1949 sind es nur 4 Jahre." },
+    { "type": "choice", "q": "Was dauerte länger: das Kaiserreich oder die DDR?", "options": ["das Kaiserreich", "die DDR", "beide genau gleich", "kann man nicht sagen"], "answer": "das Kaiserreich", "explain": "Kaiserreich: 47 Jahre. DDR: 41 Jahre." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Wie viele Jahre dauerte das Kaiserreich (1871 bis 1918)?", "answer": "47", "numeric": true, "explain": "1918 − 1871 = **47**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Wie viele Jahre dauerte die Weimarer Republik (1918 bis 1933)?", "answer": "15", "numeric": true, "explain": "1933 − 1918 = **15**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Wie viele Jahre dauerte die Besatzung (1945 bis 1949)?", "answer": "4", "numeric": true, "explain": "1949 − 1945 = **4**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Wie viele Jahre gab es die DDR (1949 bis 1990)?", "answer": "41", "numeric": true, "explain": "1990 − 1949 = **41**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Wie alt wird die Bundesrepublik im Jahr 2026?", "answer": "77", "numeric": true, "explain": "2026 − 1949 = **77**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Wie viele Jahre liegen zwischen dem Beginn des Kaiserreichs (1871) und dem Jahr 2026?", "answer": "155", "numeric": true, "explain": "2026 − 1871 = **155**." }
+  ]
+}

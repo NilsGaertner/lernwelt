@@ -1,0 +1,40 @@
+{
+  "id": "katze-fortpflanzung",
+  "line": "katze",
+  "order": 3,
+  "title": "Fortpflanzung der Katzen",
+  "subtitle": "Sprichst du „biologisch“?",
+  "icon": "🐱",
+  "card": "Wusstest du? Kätzchen kommen blind zur Welt. Erst nach ein bis zwei Wochen öffnen sie die Augen.",
+  "explain": [
+    { "table": { "head": ["Begriff", "Bedeutung"], "rows": [
+      ["**Kater**", "männliche Katze"],
+      ["**Fortpflanzung**", "Produktion von Nachkommen"],
+      ["**Paarung**", "geschlechtliche Vereinigung des weiblichen und männlichen Tiers"],
+      ["**rollig**", "So nennt man eine Katze, die zur Paarung bereit ist."],
+      ["**Tragzeit**", "Zeit, in der die Jungen im Bauch der Mutter heranwachsen. Bei der Katze sind das etwa **neun Wochen**."],
+      ["**Entwicklung**", "Veränderungen durch Reifungsprozesse, die im Leben erfolgen"]
+    ] } },
+    { "tip": "Die Katze ist ein **Säugetier**, weil die Mutter ihre Jungen mit **Milch säugt**. „Weil sie atmen kann“ reicht als Begründung nicht, denn auch Vögel, Eidechsen und Insekten atmen." },
+    { "p": "Junge Katzen heißen **Kätzchen**. Nach der Geburt sind sie blind und hilflos und trinken Milch bei der Mutter. Darum sind sie **Nesthocker**." },
+    { "p": "Kater verteidigen ihr **Revier** und kämpfen um rollige Katzen. Darum haben ausgewachsene Kater oft ein zerrupftes Ohr oder andere Verletzungen, so wie die Raufbolde in Büchern und Trickfilmen." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wie nennt man eine männliche Katze?", "options": ["Kater", "Rüde", "Hengst", "Bulle"], "answer": "Kater", "recall": true },
+    { "type": "choice", "q": "Wie heißt die Produktion von Nachkommen?", "options": ["Fortpflanzung", "Stoffwechsel", "Bewegung", "Atmung"], "answer": "Fortpflanzung", "recall": true },
+    { "type": "choice", "q": "Wie heißen Veränderungen durch Reifungsprozesse, die im Leben erfolgen?", "options": ["Entwicklung", "Paarung", "Tragzeit", "Beutefang"], "answer": "Entwicklung", "recall": true },
+    { "type": "choice", "q": "Wie heißt die geschlechtliche Vereinigung des weiblichen und männlichen Tiers?", "options": ["Paarung", "Entwicklung", "Fortbewegung", "Tragzeit"], "answer": "Paarung", "recall": true },
+    { "type": "choice", "q": "Wie heißt die Zeit, in der die Jungen im Bauch der Mutter heranwachsen?", "options": ["Tragzeit", "Paarung", "Dämmerung", "Pubertät"], "answer": "Tragzeit", "recall": true, "accept": ["Trächtigkeit"] },
+    { "type": "choice", "q": "Wie lange dauert die Tragzeit bei der Katze etwa?", "options": ["etwa neun Wochen", "etwa neun Tage", "etwa neun Monate", "etwa ein Jahr"], "answer": "etwa neun Wochen", "explain": "Beim Menschen sind es etwa neun Monate, bei der Katze etwa neun **Wochen**." },
+    { "type": "input", "q": "Die Tragzeit bei der Katze dauert etwa ___ Wochen.", "answer": "9", "accept": ["neun"], "numeric": true },
+    { "type": "choice", "q": "Wie nennt man eine Katze, die zur Paarung bereit ist?", "options": ["rollig", "läufig", "trächtig", "blind"], "answer": "rollig", "recall": true, "explain": "Bei der Hündin sagt man **läufig**, bei der Katze **rollig**." },
+    { "type": "choice", "q": "Ist die Katze ein Säugetier?", "options": ["Ja, weil die Mutter ihre Jungen mit Milch säugt.", "Ja, weil sie atmen kann.", "Nein, weil sie Krallen hat.", "Nein, weil sie Fleisch frisst."], "answer": "Ja, weil die Mutter ihre Jungen mit Milch säugt." },
+    { "type": "choice", "q": "Warum reicht „weil sie atmen kann“ als Begründung für Säugetier nicht?", "options": ["Auch Vögel, Eidechsen und Insekten atmen.", "Katzen atmen gar nicht.", "Nur Menschen atmen.", "Atmen ist nicht wichtig."], "answer": "Auch Vögel, Eidechsen und Insekten atmen." },
+    { "type": "choice", "q": "Was trinken Kätzchen in den ersten Wochen?", "options": ["Milch ihrer Mutter", "Wasser aus dem Napf", "Kakao", "Saft"], "answer": "Milch ihrer Mutter" },
+    { "type": "choice", "q": "Neugeborene Kätzchen sind blind und hilflos. Wie nennt man solche Tiere?", "options": ["Nesthocker", "Nestflüchter", "Schleichjäger", "Rudeltiere"], "answer": "Nesthocker", "recall": true },
+    { "type": "choice", "q": "Warum haben ausgewachsene Kater oft Verletzungen?", "options": ["Sie verteidigen ihr Revier und kämpfen um Katzen.", "Sie fallen oft von Bäumen.", "Sie werden von Mäusen gebissen.", "Sie schlafen zu wenig."], "answer": "Sie verteidigen ihr Revier und kämpfen um Katzen." },
+    { "type": "choice", "q": "Wie nennt man das Gebiet, das ein Kater verteidigt?", "options": ["Revier", "Rudel", "Nest", "Stall"], "answer": "Revier", "recall": true },
+    { "type": "choice", "q": "Beim Hund heißt das Männchen Rüde. Und bei der Katze?", "options": ["Kater", "Bock", "Hahn", "Eber"], "answer": "Kater" },
+    { "type": "order", "de": "Warum ist die Katze ein Säugetier?", "answer": "Die Katze säugt ihre Jungen mit Milch." }
+  ]
+}

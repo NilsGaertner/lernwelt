@@ -1,0 +1,43 @@
+{
+  "id": "blick-zurueck",
+  "line": "deutschland",
+  "order": 1,
+  "title": "Ein Blick zurück",
+  "subtitle": "Eine Familie auf dem Zeitstrahl",
+  "icon": "👵",
+  "card": "Merke: 10 Jahre sind ein **Jahrzehnt**, 100 Jahre ein **Jahrhundert**, 1000 Jahre ein **Jahrtausend**.",
+  "explain": [
+    { "p": "Auf einem Zeitstrahl kann man auch die eigene **Familie** eintragen. Hier ist die Familie von **Mia**. Ein Strich sind **10 Jahre**." },
+    { "map": "familie-zeitstrahl" },
+    { "table": { "head": ["Wer?", "Geboren"], "rows": [
+      ["Uroma Erna", "1930"],
+      ["Opa Karl", "1955"],
+      ["Mama Lena", "1985"],
+      ["Mia", "2015"]
+    ] } },
+    { "tip": "Wie alt jemand ist, rechnest du so: **Jahr minus Geburtsjahr**. Mia im Jahr 2026: 2026 − 2015 = **11**." },
+    { "table": { "head": ["Wort", "So viele Jahre"], "rows": [
+      ["**Jahrzehnt**", "10"],
+      ["**Jahrhundert**", "100"],
+      ["**Jahrtausend**", "1000"]
+    ] } },
+    { "p": "Wer etwas selbst erlebt hat und davon erzählt, ist ein **Zeitzeuge** oder eine **Zeitzeugin**. Wenn deine Großeltern von früher erzählen, ist das eine **mündliche Quelle**." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wie viele Jahre sind ein Jahrzehnt?", "options": ["10", "100", "1000", "5"], "answer": "10", "recall": true },
+    { "type": "choice", "q": "Wie viele Jahre sind ein Jahrhundert?", "options": ["100", "10", "1000", "50"], "answer": "100", "recall": true },
+    { "type": "choice", "q": "Wie viele Jahre sind ein Jahrtausend?", "options": ["1000", "100", "10", "10000"], "answer": "1000", "recall": true, "accept": ["1.000"] },
+    { "type": "choice", "task": "Wann wurde die markierte Person ungefähr geboren?", "map": "familie-zeitstrahl", "mark": "uroma", "options": ["um 1930", "um 1955", "um 1985", "um 2015"], "answer": "um 1930" },
+    { "type": "choice", "task": "Wann wurde die markierte Person ungefähr geboren?", "map": "familie-zeitstrahl", "mark": "opa", "options": ["um 1955", "um 1930", "um 1985", "um 2015"], "answer": "um 1955" },
+    { "type": "choice", "task": "Wann wurde die markierte Person ungefähr geboren?", "map": "familie-zeitstrahl", "mark": "mama", "options": ["um 1985", "um 1955", "um 1930", "um 2015"], "answer": "um 1985" },
+    { "type": "choice", "task": "Wann wurde die markierte Person ungefähr geboren?", "map": "familie-zeitstrahl", "mark": "mia", "options": ["um 2015", "um 1985", "um 1955", "um 1930"], "answer": "um 2015" },
+    { "type": "choice", "q": "Wo steht die älteste Person auf dem Zeitstrahl?", "options": ["am weitesten links", "am weitesten rechts", "genau in der Mitte", "ganz oben"], "answer": "am weitesten links", "explain": "Links ist früher. Wer zuerst geboren wurde, steht am weitesten links." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Mia wurde 2015 geboren. Wie alt ist sie im Jahr 2026?", "answer": "11", "numeric": true, "explain": "2026 − 2015 = **11**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Mama Lena wurde 1985 geboren. Wie alt ist sie im Jahr 2026?", "answer": "41", "numeric": true, "explain": "2026 − 1985 = **41**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Opa Karl wurde 1955 geboren. Wie alt ist er im Jahr 2026?", "answer": "71", "numeric": true, "explain": "2026 − 1955 = **71**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Uroma Erna wurde 1930 geboren. Wie alt ist sie im Jahr 2026?", "answer": "96", "numeric": true, "explain": "2026 − 1930 = **96**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Wie viele Jahre liegen zwischen Mamas Geburt (1985) und Mias Geburt (2015)?", "answer": "30", "numeric": true, "explain": "2015 − 1985 = **30**. Das ist ungefähr eine Generation." },
+    { "type": "choice", "q": "Eine Oma erzählt, wie sie früher zur Schule ging. Wie nennt man jemanden, der etwas selbst erlebt hat und davon erzählt?", "options": ["Zeitzeugin", "Historikerin", "Schauspielerin", "Reporterin"], "answer": "Zeitzeugin", "recall": true, "accept": ["Zeitzeuge", "Zeitzeugen"] },
+    { "type": "choice", "q": "Die Oma erzählt von früher. Welche Quellenart ist das?", "options": ["mündliche Quelle", "bildliche Quelle", "schriftliche Quelle", "gegenständliche Quelle"], "answer": "mündliche Quelle", "recall": true, "accept": ["mündlich", "muendliche Quelle"] }
+  ]
+}

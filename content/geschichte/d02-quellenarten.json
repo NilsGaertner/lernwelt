@@ -1,0 +1,42 @@
+{
+  "id": "quellenarten",
+  "line": "spuren",
+  "order": 2,
+  "title": "Welche Quellenart?",
+  "subtitle": "Gegenständlich, schriftlich, mündlich, bildlich",
+  "icon": "🗂️",
+  "card": "Wusstest du? Das älteste erhaltene Foto der Welt ist etwa 200 Jahre alt. Es wurde um 1826 aufgenommen.",
+  "explain": [
+    { "p": "Ist etwas eine Quelle, kommt die zweite Frage: **Welche Art von Quelle ist es?** Es gibt vier Arten." },
+    { "table": { "head": ["Quellenart", "Beispiele"], "rows": [
+      ["**gegenständliche** Quelle: Ist es ein **Ding** von damals?", "Werkzeug, Öllampe, Münze, Knochen, Burg"],
+      ["**schriftliche** Quelle: Wurde es **geschrieben**?", "Brief, Urkunde, Tagebuch, Inschrift, alte Zeitung"],
+      ["**mündliche** Quelle: Wird es **erzählt**?", "Oma erzählt von früher, Interview mit Zeitzeugen, Sage, altes Lied"],
+      ["**bildliche** Quelle: Ist es ein **Bild** von damals?", "altes Foto, Gemälde, Höhlenmalerei"]
+    ] } },
+    { "tip": "Die vier Namen gehören immer zum Wort **Quelle**: gegenständliche Quelle, schriftliche Quelle, mündliche Quelle, bildliche Quelle. „Bildliche Darstellung“ ist keine Quellenart." },
+    { "tip": "Einen Brief kann man anfassen. Trotzdem ist er eine **schriftliche** Quelle, denn wichtig ist, was draufsteht." },
+    { "p": "Ein Text im Schulbuch ist **gar keine** Quelle, sondern eine Darstellung. Darum kommt immer zuerst die Frage: Stammt es aus der Zeit, um die es geht?" }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Welche Quellenart ist das?", "q": "Ein altes Werkzeug", "options": ["gegenständliche Quelle", "schriftliche Quelle", "mündliche Quelle", "bildliche Quelle"], "answer": "gegenständliche Quelle", "recall": true, "accept": ["gegenständlich", "gegenstaendliche Quelle", "Sachquelle"], "explain": "Ein Werkzeug ist ein **Ding** von damals, also eine **gegenständliche** Quelle." },
+    { "type": "choice", "task": "Welche Quellenart ist das?", "q": "Ein Brief aus dem Jahr 1900", "options": ["schriftliche Quelle", "gegenständliche Quelle", "mündliche Quelle", "bildliche Quelle"], "answer": "schriftliche Quelle", "recall": true, "accept": ["schriftlich", "Textquelle"], "explain": "Ein Brief wurde **geschrieben**, also ist er eine **schriftliche** Quelle." },
+    { "type": "choice", "task": "Welche Quellenart ist das?", "q": "Ein Foto einer Schulklasse aus dem Jahr 1910", "options": ["bildliche Quelle", "gegenständliche Quelle", "mündliche Quelle", "schriftliche Quelle"], "answer": "bildliche Quelle", "recall": true, "accept": ["bildlich", "Bildquelle"], "explain": "Ein Foto ist ein **Bild** von damals, also eine **bildliche** Quelle." },
+    { "type": "choice", "task": "Welche Quellenart ist das?", "q": "Eine Großmutter erzählt von ihrer Kindheit.", "options": ["mündliche Quelle", "schriftliche Quelle", "gegenständliche Quelle", "bildliche Quelle"], "answer": "mündliche Quelle", "recall": true, "accept": ["mündlich", "muendliche Quelle"], "explain": "Sie **erzählt** es, also ist es eine **mündliche** Quelle." },
+    { "type": "choice", "task": "Welche Quellenart ist das?", "q": "Eine römische Öllampe aus Ton", "options": ["gegenständliche Quelle", "schriftliche Quelle", "mündliche Quelle", "bildliche Quelle"], "answer": "gegenständliche Quelle", "recall": true, "accept": ["gegenständlich", "gegenstaendliche Quelle", "Sachquelle"] },
+    { "type": "choice", "task": "Welche Quellenart ist das?", "q": "Ein Schwert aus dem Mittelalter", "options": ["gegenständliche Quelle", "bildliche Quelle", "mündliche Quelle", "schriftliche Quelle"], "answer": "gegenständliche Quelle", "recall": true, "accept": ["gegenständlich", "gegenstaendliche Quelle", "Sachquelle"] },
+    { "type": "choice", "task": "Welche Quellenart ist das?", "q": "Ein Tagebuch aus dem Jahr 1850", "options": ["schriftliche Quelle", "gegenständliche Quelle", "bildliche Quelle", "mündliche Quelle"], "answer": "schriftliche Quelle", "recall": true, "accept": ["schriftlich", "Textquelle"] },
+    { "type": "choice", "task": "Welche Quellenart ist das?", "q": "Eine Inschrift auf einem römischen Stein", "options": ["schriftliche Quelle", "gegenständliche Quelle", "bildliche Quelle", "mündliche Quelle"], "answer": "schriftliche Quelle", "recall": true, "accept": ["schriftlich", "Textquelle"], "explain": "Auch auf Stein kann man schreiben. Wichtig ist hier, was dasteht, also ist es eine **schriftliche** Quelle." },
+    { "type": "choice", "task": "Welche Quellenart ist das?", "q": "Eine Zeitung aus dem Jahr 1925", "options": ["schriftliche Quelle", "bildliche Quelle", "gegenständliche Quelle", "mündliche Quelle"], "answer": "schriftliche Quelle", "recall": true, "accept": ["schriftlich", "Textquelle"] },
+    { "type": "choice", "task": "Welche Quellenart ist das?", "q": "Ein Gemälde eines Königs aus dem Jahr 1700", "options": ["bildliche Quelle", "gegenständliche Quelle", "schriftliche Quelle", "mündliche Quelle"], "answer": "bildliche Quelle", "recall": true, "accept": ["bildlich", "Bildquelle"] },
+    { "type": "choice", "task": "Welche Quellenart ist das?", "q": "Eine Höhlenmalerei von einem Pferd", "options": ["bildliche Quelle", "gegenständliche Quelle", "schriftliche Quelle", "mündliche Quelle"], "answer": "bildliche Quelle", "recall": true, "accept": ["bildlich", "Bildquelle"] },
+    { "type": "choice", "task": "Welche Quellenart ist das?", "q": "Ein Zeitzeuge berichtet im Interview, wie er 1989 die Öffnung der Mauer erlebt hat.", "options": ["mündliche Quelle", "schriftliche Quelle", "bildliche Quelle", "gegenständliche Quelle"], "answer": "mündliche Quelle", "recall": true, "accept": ["mündlich", "muendliche Quelle"], "explain": "Er hat es selbst erlebt und **erzählt** davon, also ist es eine **mündliche** Quelle." },
+    { "type": "choice", "task": "Welche Quellenart ist das?", "q": "Ein altes Lied, das Menschen einander vorsingen", "options": ["mündliche Quelle", "schriftliche Quelle", "bildliche Quelle", "gegenständliche Quelle"], "answer": "mündliche Quelle", "recall": true, "accept": ["mündlich", "muendliche Quelle"] },
+    { "type": "choice", "task": "Welche Quellenart ist das?", "q": "Der Text über die Römer in deinem Schulbuch", "options": ["gar keine Quelle, sondern eine Darstellung", "schriftliche Quelle", "gegenständliche Quelle", "mündliche Quelle"], "answer": "gar keine Quelle, sondern eine Darstellung", "explain": "Er ist zwar geschrieben, aber **heute**. Also ist er keine Quelle, sondern eine Darstellung." },
+    { "type": "choice", "task": "Welche Quellenart ist das?", "q": "Ein Bild von heute: So könnte eine Burg im Mittelalter ausgesehen haben.", "options": ["gar keine Quelle, sondern eine Darstellung", "bildliche Quelle", "gegenständliche Quelle", "mündliche Quelle"], "answer": "gar keine Quelle, sondern eine Darstellung", "explain": "Das Bild ist nicht aus dem Mittelalter, sondern von heute. Also ist es eine Darstellung." },
+    { "type": "input", "q": "Ein Ding von damals ist eine ___ Quelle.", "answer": "gegenständliche", "accept": ["gegenstaendliche"] },
+    { "type": "input", "q": "Etwas, das damals geschrieben wurde, ist eine ___ Quelle.", "answer": "schriftliche" },
+    { "type": "input", "q": "Etwas, das jemand erzählt, ist eine ___ Quelle.", "answer": "mündliche", "accept": ["muendliche"] },
+    { "type": "input", "q": "Ein Bild von damals ist eine ___ Quelle.", "answer": "bildliche" }
+  ]
+}

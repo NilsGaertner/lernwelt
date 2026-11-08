@@ -23,6 +23,7 @@
     { "en": "white", "de": "weiß" },
     { "en": "grey", "de": "grau", "alt": ["gray"] },
     { "en": "light blue", "de": "hellblau" },
+    { "en": "dark blue", "de": "dunkelblau" },
     { "en": "dark green", "de": "dunkelgrün" },
     { "en": "colour", "de": "Farbe", "alt": ["color"] }
   ],

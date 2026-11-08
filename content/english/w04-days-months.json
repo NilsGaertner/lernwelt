@@ -9,7 +9,8 @@
     { "p": "Wochentage und Monate schreibt man im Englischen **immer groß**: **M**onday, **J**uly." },
     { "p": "Vor Wochentagen steht **on**, vor Monaten **in**:" },
     { "ex": [["on Monday", "am Montag"], ["on Saturday", "am Samstag"], ["in May", "im Mai"], ["in December", "im Dezember"]] },
-    { "tip": "Merkhilfe: **Wed**nesday spricht man „Wens-day“ – das d hört man nicht." }
+    { "tip": "Merkhilfe: **Wed**nesday spricht man „Wens-day“ – das d hört man nicht." },
+    { "tip": "**on Friday** heißt: am Freitag. **on Fridays** heißt: freitags, also jeden Freitag." }
   ],
   "vocab": [
     { "en": "Monday", "de": "Montag" },
@@ -40,6 +41,9 @@
     { "type": "choice", "q": "I play football ___ Monday.", "options": ["on", "in", "at"], "answer": "on", "explain": "Vor Wochentagen steht **on**: on Monday." },
     { "type": "choice", "q": "My birthday is ___ June.", "options": ["in", "on", "at"], "answer": "in", "explain": "Vor Monaten steht **in**: in June." },
     { "type": "choice", "q": "The day after Friday is ___.", "options": ["Saturday", "Thursday", "Sunday", "Tuesday"], "answer": "Saturday", "explain": "Nach Freitag (Friday) kommt Samstag = **Saturday**. Wochentage schreibt man groß." },
-    { "type": "choice", "q": "The month after March is ___.", "options": ["April", "May", "February", "June"], "answer": "April", "explain": "Nach März (March) kommt **April**. Monate schreibt man groß." }
+    { "type": "choice", "q": "The month after March is ___.", "options": ["April", "May", "February", "June"], "answer": "April", "explain": "Nach März (March) kommt **April**. Monate schreibt man groß." },
+    { "type": "choice", "q": "We play basketball ___.", "de": "Wir spielen freitags Basketball.", "options": ["on Fridays", "on Friday", "in Friday", "at Fridays"], "answer": "on Fridays", "explain": "freitags, also jeden Freitag = **on Fridays**." },
+    { "type": "choice", "q": "Can you come ___?", "de": "Kannst du am Freitag kommen?", "options": ["on Friday", "on Fridays", "in Friday", "at Friday"], "answer": "on Friday", "explain": "an einem bestimmten Freitag = **on Friday**." },
+    { "type": "choice", "q": "Saturday and Sunday are the ___.", "de": "Samstag und Sonntag sind das Wochenende.", "options": ["weekend", "week", "month", "year"], "answer": "weekend", "recall": true }
   ]
 }

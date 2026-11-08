@@ -1,0 +1,40 @@
+{
+  "id": "katze-koerper",
+  "line": "katze",
+  "order": 2,
+  "title": "Perfekt angepasst",
+  "subtitle": "Krallen, Augen, Tasthaare",
+  "icon": "🐾",
+  "card": "Wusstest du? Mit ihren Tasthaaren merkt eine Katze sogar im Dunkeln, ob sie durch eine enge Stelle passt.",
+  "explain": [
+    { "p": "Der Körper der Katze ist genau an ihre Jagdmethode **angepasst**:" },
+    { "table": { "head": ["Merkmal", "Wozu ist es gut?"], "rows": [
+      ["scharfe **Krallen** und große **Fangzähne**", "Beute ergreifen und festhalten"],
+      ["**Reißzähne**", "Beute zerlegen"],
+      ["besonders lichtempfindliche **Augen**", "in der Dämmerung jagen"],
+      ["**Tasthaare** und **Gehör**", "sich in der Dunkelheit orientieren"],
+      ["weiche **Ballen** an den Pfoten", "leise schleichen"]
+    ] } },
+    { "p": "Die Katze kann ihre **Krallen einziehen**. Beim Gehen sind sie versteckt. Das hat zwei Vorteile: Sie ist beim Anschleichen **lautlos**, und die Krallen **bleiben scharf**. Beim Packen der Beute fährt sie sie aus." },
+    { "p": "**Lichtempfindlich** heißt: Schon wenig Licht reicht der Katze zum Sehen. Im Hellen sind ihre Pupillen schmale Schlitze, im Dunkeln weit offen." },
+    { "tip": "So erklärt man ein Merkmal mit einem Satz: Die Katze kann ihre Beute **festhalten**, **weil** sie scharfe Krallen und große Fangzähne besitzt." }
+  ],
+  "exercises": [
+    { "type": "input", "q": "Die Katze kann ihre Beute festhalten, weil sie scharfe ___ und große Fangzähne besitzt.", "answer": "Krallen" },
+    { "type": "input", "q": "Die Katze kann ihre Beute festhalten, weil sie scharfe Krallen und große ___ besitzt.", "answer": "Fangzähne", "accept": ["Fangzaehne", "Eckzähne", "Eckzaehne"], "explain": "Nicht irgendwelche Zähne: Es sind die großen **Fangzähne** (Eckzähne)." },
+    { "type": "input", "q": "Die Katze kann ihre Beute zerlegen, weil sie ___ besitzt.", "answer": "Reißzähne", "accept": ["Reisszähne", "Reisszaehne"] },
+    { "type": "input", "q": "Die Katze kann in der Dämmerung jagen, weil sie besonders lichtempfindliche ___ hat.", "answer": "Augen" },
+    { "type": "input", "q": "Die Katze kann sich in der Dunkelheit mithilfe ihrer ___ und ihres Gehörs orientieren.", "answer": "Tasthaare", "accept": ["Schnurrhaare", "Tasthaaren"] },
+    { "type": "input", "q": "Die Katze kann sich in der Dunkelheit mithilfe ihrer Tasthaare und ihres ___ orientieren.", "answer": "Gehörs", "accept": ["Gehör", "Gehoers", "Gehoer"] },
+    { "type": "choice", "q": "Warum ist es für die Katze ein Vorteil, dass sie ihre Krallen einziehen kann?", "options": ["Sie schleicht lautlos, und die Krallen bleiben scharf.", "Sie kann dann besser schwimmen.", "Die Krallen wachsen dann nicht mehr.", "Sie sieht dann besser."], "answer": "Sie schleicht lautlos, und die Krallen bleiben scharf." },
+    { "type": "choice", "q": "Wann fährt die Katze ihre Krallen aus?", "options": ["beim Packen der Beute", "beim Schlafen", "beim Anschleichen", "beim Trinken"], "answer": "beim Packen der Beute" },
+    { "type": "choice", "q": "Was bedeutet „lichtempfindlich“?", "options": ["Schon wenig Licht reicht zum Sehen.", "Licht tut den Augen weh.", "Die Augen leuchten von selbst.", "Die Augen sehen nur bei Sonne."], "answer": "Schon wenig Licht reicht zum Sehen." },
+    { "type": "choice", "q": "Wie sehen die Pupillen der Katze im Dunkeln aus?", "options": ["weit offen", "wie schmale Schlitze", "ganz geschlossen", "viereckig"], "answer": "weit offen", "explain": "Weit offene Pupillen lassen möglichst viel Licht ins Auge." },
+    { "type": "choice", "q": "Wozu braucht die Katze ihre Tasthaare?", "options": ["um sich im Dunkeln zu orientieren", "um Beute zu zerlegen", "um warm zu bleiben", "um Milch zu trinken"], "answer": "um sich im Dunkeln zu orientieren" },
+    { "type": "choice", "q": "Was macht die Schritte der Katze so leise?", "options": ["weiche Ballen und eingezogene Krallen", "lange Beine", "ihr dickes Fell am Rücken", "ihr Schwanz"], "answer": "weiche Ballen und eingezogene Krallen" },
+    { "type": "choice", "q": "Mit welchen Zähnen zerlegt die Katze ihre Beute?", "options": ["mit den Reißzähnen", "mit den Fangzähnen", "mit den Schneidezähnen", "mit den Milchzähnen"], "answer": "mit den Reißzähnen", "explain": "Mit den Fangzähnen hält sie die Beute fest, mit den Reißzähnen zerlegt sie sie." },
+    { "type": "choice", "q": "Was bedeutet „angepasst“?", "options": ["Der Körper passt genau zu der Art, wie das Tier lebt und jagt.", "Das Tier trägt passende Kleidung.", "Das Tier ist besonders klein.", "Das Tier macht alles nach."], "answer": "Der Körper passt genau zu der Art, wie das Tier lebt und jagt." },
+    { "type": "order", "de": "Wozu sind die Krallen gut?", "answer": "Die Krallen halten die Beute fest." },
+    { "type": "order", "de": "Warum kann die Katze in der Dämmerung jagen?", "answer": "Die Katze jagt in der Dämmerung, weil ihre Augen lichtempfindlich sind." }
+  ]
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 730 225" role="img" aria-label="Zeitstrahl von 1900 bis 2030 mit einer Familie">
+<!-- familie-zeitstrahl: ausgedachte Familie, aufgebaut wie das Arbeitsblatt „Ein Blick zurück“. Ein Strich = 10 Jahre. -->
+<rect class="bg" x="0" y="0" width="730" height="225"/>
+<path class="leader" d="M20 160H712" style="stroke-width:5"/>
+<path class="leader" d="M704 150L716 160L704 170" style="fill:none;stroke-width:5"/>
+<path class="leader" d="M40 142V178M90 150V170M140 142V178M190 150V170M240 142V178M290 150V170M340 142V178M390 150V170M440 142V178M490 150V170M540 142V178M590 150V170M640 142V178M690 150V170" style="stroke-width:3"/>
+<text class="tick" x="40" y="206">1900</text>
+<text class="tick" x="140" y="206">1920</text>
+<text class="tick" x="240" y="206">1940</text>
+<text class="tick" x="340" y="206">1960</text>
+<text class="tick" x="440" y="206">1980</text>
+<text class="tick" x="540" y="206">2000</text>
+<text class="tick" x="640" y="206">2020</text>
+<g id="uroma" class="area"><rect class="slot" x="150" y="36" width="80" height="36" rx="10"/><path class="leader" d="M190 72V160"/><circle class="hub" cx="190" cy="160" r="8"/><text class="tick" x="190" y="62">Uroma</text></g>
+<g id="opa" class="area"><rect class="slot" x="275" y="36" width="80" height="36" rx="10"/><path class="leader" d="M315 72V160"/><circle class="hub" cx="315" cy="160" r="8"/><text class="tick" x="315" y="62">Opa</text></g>
+<g id="mama" class="area"><rect class="slot" x="425" y="36" width="80" height="36" rx="10"/><path class="leader" d="M465 72V160"/><circle class="hub" cx="465" cy="160" r="8"/><text class="tick" x="465" y="62">Mama</text></g>
+<g id="mia" class="area"><rect class="slot" x="575" y="36" width="80" height="36" rx="10"/><path class="leader" d="M615 72V160"/><circle class="hub" cx="615" cy="160" r="8"/><text class="tick" x="615" y="62">Mia</text></g>
+<g id="heute" class="area"><rect class="slot" x="630" y="0" width="80" height="36" rx="10"/><path class="leader" d="M670 36V160"/><circle class="hub" cx="670" cy="160" r="8"/><text class="tick" x="670" y="26">heute</text></g>
+</svg>

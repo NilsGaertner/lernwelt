@@ -1,0 +1,55 @@
+{
+  "id": "eiszeit-klima",
+  "line": "eiszeit",
+  "order": 1,
+  "title": "Europa in der Eiszeit",
+  "subtitle": "Eis, Gletscher und Steppe",
+  "icon": "🧊",
+  "card": "Wusstest du? In der Eiszeit lag über Skandinavien eine Eisschicht, die mehr als 2000 Meter dick war.",
+  "explain": [
+    { "p": "Vor etwa **75.000 Jahren** sah Europa ganz anders aus als heute. Es war viel **kälter**. Eine so lange kalte Zeit heißt **Eiszeit** oder **Kaltzeit**." },
+    { "p": "Große Teile Europas lagen unter mächtigen **Gletschern**. Auf dem Gebiet des heutigen Deutschlands gab es riesige **Graslandschaften** und **Steppe** mit wenig Bewuchs. Nur um das **Mittelmeer** herum gab es Wälder, wie wir sie heute kennen." },
+    { "map": "eiszeit", "legend": [["eis", "Eis und Gletscher"], ["tundra", "Tundra"], ["steppe", "Steppe"], ["mittelmeersteppe", "Mittelmeersteppe"]] },
+    { "p": "Die Karte ist vereinfacht und zeigt die Küsten von heute. Die roten Punkte sind wichtige **Fundorte**." },
+    { "table": { "head": ["Wort", "Bedeutung"], "rows": [
+      ["**Klima**", "wie das Wetter an einem Ort über viele Jahre im Durchschnitt ist"],
+      ["**Gletscher**", "eine riesige Masse aus Eis. Sie entsteht aus Schnee, der über viele Jahre liegen bleibt. Das Eis fließt ganz langsam bergab."],
+      ["**Tundra**", "kalte Landschaft ohne Bäume, mit Moosen und niedrigen Sträuchern"],
+      ["**Steppe**", "weite Graslandschaft mit wenigen oder gar keinen Bäumen"]
+    ] } },
+    { "p": "Vor etwa **11.700 Jahren** ging die letzte Kaltzeit zu Ende. Dann veränderte sich die Landschaft:" },
+    { "table": { "head": ["Was geschah?", "Was folgte daraus?"], "rows": [
+      ["Die **Temperaturen** stiegen allmählich an.", "Das Eis der Gletscher schmolz."],
+      ["Es gab viel **Schmelzwasser**.", "Neue Flüsse entstanden, und die Küsten veränderten sich."],
+      ["Es wurde wärmer.", "**Wälder** breiteten sich in ganz Europa aus."],
+      ["Auch die Grassteppen veränderten sich.", "Neue Gräser und **wilde Getreidepflanzen** entwickelten sich."]
+    ] } },
+    { "tip": "Schwierige Wörter aus dem Buch: **geprägt** heißt hier „bestimmt von“. **Mächtige** Gletscher sind sehr große, dicke Gletscher. **Allmählich** heißt „langsam, nach und nach“." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wie war das Klima in Europa vor etwa 75.000 Jahren?", "options": ["viel kälter als heute", "viel heißer als heute", "genau wie heute", "immer regnerisch und warm"], "answer": "viel kälter als heute" },
+    { "type": "choice", "q": "Wie nennt man eine lange kalte Zeit noch?", "options": ["Kaltzeit", "Steinzeit", "Neuzeit", "Jahreszeit"], "answer": "Kaltzeit", "recall": true, "accept": ["Eiszeit"] },
+    { "type": "choice", "q": "Was ist ein Gletscher?", "options": ["eine riesige Masse aus Eis", "ein hoher Berg aus Stein", "ein See in den Bergen", "ein kalter Wind"], "answer": "eine riesige Masse aus Eis" },
+    { "type": "input", "q": "Riesige Massen aus Eis, die langsam fließen, heißen ___.", "answer": "Gletscher" },
+    { "type": "choice", "q": "Was gab es in der Eiszeit auf dem Gebiet des heutigen Deutschlands?", "options": ["riesige Graslandschaften und Steppe", "dichte Wälder überall", "eine heiße Wüste", "große Reisfelder"], "answer": "riesige Graslandschaften und Steppe" },
+    { "type": "choice", "q": "Wo gab es in der Eiszeit Wälder, wie wir sie heute kennen?", "options": ["nur um das Mittelmeer herum", "überall in Deutschland", "nur in Skandinavien", "direkt auf den Gletschern"], "answer": "nur um das Mittelmeer herum" },
+    { "type": "choice", "q": "Wo war die Eisschicht in der Eiszeit besonders dick?", "options": ["über Skandinavien", "über Spanien", "über Italien", "über Griechenland"], "answer": "über Skandinavien", "explain": "Auf der Karte im Buch ist die Eisschicht über Skandinavien mehr als 2000 Meter dick." },
+    { "type": "choice", "q": "Wann ging die letzte Kaltzeit zu Ende?", "options": ["vor etwa 11.700 Jahren", "vor etwa 75.000 Jahren", "vor etwa 1.700 Jahren", "vor etwa 1 Million Jahren"], "answer": "vor etwa 11.700 Jahren" },
+    { "type": "choice", "q": "Was passierte mit den Gletschern, als es wärmer wurde?", "options": ["Das Eis schmolz.", "Sie wurden immer größer.", "Sie wurden zu Stein.", "Nichts."], "answer": "Das Eis schmolz." },
+    { "type": "choice", "q": "Was entstand durch das Schmelzwasser?", "options": ["neue Flüsse", "neue Gletscher", "neue Berge", "neue Wüsten"], "answer": "neue Flüsse", "explain": "Das Schmelzwasser floss ab. So entstanden neue Flüsse, und die Küsten veränderten sich." },
+    { "type": "choice", "q": "Was breitete sich nach der Kaltzeit in ganz Europa aus?", "options": ["Wälder", "Gletscher", "Wüsten", "Reisfelder"], "answer": "Wälder", "recall": true, "accept": ["Wald"] },
+    { "type": "choice", "q": "Was entwickelte sich in den Grassteppen?", "options": ["neue Gräser und wilde Getreidepflanzen", "Apfelbäume und Palmen", "Kartoffeln und Mais", "Bananen und Orangen"], "answer": "neue Gräser und wilde Getreidepflanzen" },
+    { "type": "choice", "task": "Was war hier in der Eiszeit?", "map": "eiszeit", "mark": "eis", "options": ["Eis und Gletscher", "Tundra", "Steppe", "Mittelmeersteppe"], "answer": "Eis und Gletscher", "recall": true, "accept": ["Eis", "Gletscher"], "placeholder": "Was war hier?" },
+    { "type": "choice", "task": "Was war hier in der Eiszeit?", "map": "eiszeit", "mark": "tundra", "options": ["Tundra", "Eis und Gletscher", "Steppe", "Mittelmeersteppe"], "answer": "Tundra", "recall": true, "placeholder": "Was war hier?" },
+    { "type": "choice", "task": "Was war hier in der Eiszeit?", "map": "eiszeit", "mark": "steppe", "options": ["Steppe", "Eis und Gletscher", "Tundra", "Mittelmeersteppe"], "answer": "Steppe", "recall": true, "accept": ["Lössteppe", "Löss-Steppe"], "placeholder": "Was war hier?" },
+    { "type": "choice", "task": "Was war hier in der Eiszeit?", "map": "eiszeit", "mark": "mittelmeersteppe", "options": ["Mittelmeersteppe", "Eis und Gletscher", "Tundra", "Steppe"], "answer": "Mittelmeersteppe" },
+    { "type": "choice", "task": "Welcher Fundort ist markiert?", "map": "eiszeit", "mark": "fund-neandertal", "options": ["Neandertal", "Lascaux", "Altamira", "Krim"], "answer": "Neandertal", "explain": "Das Neandertal liegt bei Düsseldorf. Dort wurden 1856 die Knochen gefunden, nach denen der Neandertaler heißt." },
+    { "type": "choice", "q": "Wie heißt eine kalte Landschaft ohne Bäume, mit Moosen und niedrigen Sträuchern?", "options": ["Tundra", "Steppe", "Regenwald", "Wüste"], "answer": "Tundra" },
+    { "type": "choice", "q": "Wie heißt eine weite Graslandschaft mit wenigen Bäumen?", "options": ["Steppe", "Tundra", "Gletscher", "Regenwald"], "answer": "Steppe" },
+    { "type": "choice", "q": "Im Buch steht: „Europa war von einer Eiszeit geprägt.“ Was heißt „geprägt“ hier?", "options": ["Die Eiszeit bestimmte, wie es in Europa aussah.", "Europa wurde gedruckt.", "Europa war klein.", "In Europa gab es Münzen."], "answer": "Die Eiszeit bestimmte, wie es in Europa aussah." },
+    { "type": "choice", "q": "Im Buch steht: „mächtige Gletscher“. Was heißt „mächtig“ hier?", "options": ["sehr groß und dick", "sehr klug", "sehr schnell", "sehr laut"], "answer": "sehr groß und dick" },
+    { "type": "choice", "q": "Im Buch steht: „Die Temperaturen stiegen allmählich an.“ Was heißt „allmählich“?", "options": ["langsam, nach und nach", "ganz plötzlich", "jeden Tag gleich", "gar nicht"], "answer": "langsam, nach und nach" },
+    { "type": "input", "q": "Wie das Wetter an einem Ort über viele Jahre ist, nennt man ___.", "answer": "Klima" },
+    { "type": "order", "de": "Was geschah am Ende der Kaltzeit?", "answer": "Die Temperaturen stiegen und das Eis schmolz." }
+  ]
+}

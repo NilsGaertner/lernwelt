@@ -1,0 +1,49 @@
+{
+  "id": "family-tree",
+  "line": "heft",
+  "order": 1,
+  "title": "Family tree",
+  "subtitle": "Wer gehört zu wem?",
+  "icon": "🌳",
+  "card": "Merke: Oliver is Emma**'s** brother. Mit **'s** sagst du, zu wem jemand gehört.",
+  "explain": [
+    { "p": "Das ist ein **family tree**, ein Stammbaum. Henry ist der Vater von Susan und Andrew. James und Susan haben zwei Kinder, Andrew und Sarah haben einen Sohn." },
+    { "map": "family-tree" },
+    { "table": { "head": ["Englisch", "Deutsch"], "rows": [
+      ["**father** / **mother** → **parents**", "Vater / Mutter → Eltern"],
+      ["**dad** / **mum**", "Papa / Mama"],
+      ["**son** / **daughter**", "Sohn / Tochter"],
+      ["**brother** / **sister**", "Bruder / Schwester"],
+      ["**grandfather** / **grandmother** → **grandparents**", "Großvater / Großmutter → Großeltern"],
+      ["**grandpa** / **grandma**", "Opa / Oma"],
+      ["**uncle** / **aunt**", "Onkel / Tante"],
+      ["**cousin**", "Cousin / Cousine"]
+    ] } },
+    { "tip": "Mit **'s** sagst du, zu wem jemand gehört: Oliver is Emma**'s** brother. Das heißt: Oliver ist Emmas Bruder." },
+    { "tip": "**father** und **brother** schreibt man mit **th**: fa**th**er, bro**th**er. Das klingt anders als im Deutschen." }
+  ],
+  "exercises": [
+    { "type": "choice", "map": "family-tree", "q": "Oliver is Emma's ___.", "options": ["brother", "sister", "father", "cousin"], "answer": "brother", "recall": true, "hint": "Familienwort auf Englisch", "explain": "Oliver und Emma haben dieselben Eltern. Oliver ist ein Junge: **brother**." },
+    { "type": "choice", "map": "family-tree", "q": "Andrew is Michael's ___.", "options": ["father", "uncle", "brother", "grandfather"], "answer": "father", "recall": true, "accept": ["dad"], "hint": "Familienwort auf Englisch", "explain": "Andrew und Sarah sind Michaels Eltern: Andrew ist sein **father** (mit th)." },
+    { "type": "choice", "map": "family-tree", "q": "Emma is Oliver's ___.", "options": ["sister", "brother", "mother", "aunt"], "answer": "sister", "recall": true, "hint": "Familienwort auf Englisch" },
+    { "type": "choice", "map": "family-tree", "q": "Sarah is Michael's ___.", "options": ["mother", "aunt", "sister", "grandmother"], "answer": "mother", "recall": true, "accept": ["mum", "mom", "mummy"], "hint": "Familienwort auf Englisch" },
+    { "type": "choice", "map": "family-tree", "q": "Henry is Emma's ___.", "options": ["grandfather", "father", "uncle", "cousin"], "answer": "grandfather", "recall": true, "accept": ["grandpa", "grandad", "granddad"], "hint": "Familienwort auf Englisch", "explain": "Henry ist der Vater von Emmas Mutter Susan, also Emmas **grandfather** (grandpa)." },
+    { "type": "choice", "map": "family-tree", "q": "James is Emma's ___.", "options": ["father", "brother", "uncle", "grandfather"], "answer": "father", "recall": true, "accept": ["dad"], "hint": "Familienwort auf Englisch" },
+    { "type": "choice", "map": "family-tree", "q": "Andrew is Emma's ___.", "options": ["uncle", "father", "brother", "cousin"], "answer": "uncle", "recall": true, "hint": "Familienwort auf Englisch", "explain": "Andrew ist der Bruder von Emmas Mutter, also Emmas **uncle**." },
+    { "type": "choice", "map": "family-tree", "q": "Michael is Oliver's ___.", "options": ["cousin", "brother", "uncle", "son"], "answer": "cousin", "recall": true, "hint": "Familienwort auf Englisch", "explain": "Ihre Eltern sind Geschwister. Also sind sie **cousins**." },
+    { "type": "choice", "map": "family-tree", "q": "Susan is Michael's ___.", "options": ["aunt", "mother", "sister", "cousin"], "answer": "aunt", "recall": true, "hint": "Familienwort auf Englisch", "explain": "Susan ist die Schwester von Michaels Vater, also Michaels **aunt**." },
+    { "type": "choice", "map": "family-tree", "q": "Susan is Andrew's ___.", "options": ["sister", "mother", "aunt", "daughter"], "answer": "sister", "recall": true, "hint": "Familienwort auf Englisch" },
+    { "type": "choice", "map": "family-tree", "q": "Emma is Susan's ___.", "options": ["daughter", "son", "sister", "aunt"], "answer": "daughter", "recall": true, "hint": "Familienwort auf Englisch" },
+    { "type": "choice", "map": "family-tree", "q": "Oliver is Susan's ___.", "options": ["son", "daughter", "brother", "uncle"], "answer": "son", "recall": true, "hint": "Familienwort auf Englisch" },
+    { "type": "choice", "map": "family-tree", "q": "James and Susan are Emma's ___.", "options": ["parents", "grandparents", "cousins", "brothers"], "answer": "parents", "recall": true, "hint": "Familienwort auf Englisch" },
+    { "type": "choice", "map": "family-tree", "q": "Who is Emma's uncle?", "options": ["Andrew", "James", "Henry", "Oliver"], "answer": "Andrew", "speak": false },
+    { "type": "choice", "map": "family-tree", "q": "Who is Michael's aunt?", "options": ["Susan", "Sarah", "Emma", "Henry"], "answer": "Susan", "speak": false },
+    { "type": "choice", "map": "family-tree", "q": "Who is Oliver's sister?", "options": ["Emma", "Susan", "Sarah", "Michael"], "answer": "Emma", "speak": false },
+    { "type": "input", "task": "Wie heißt das auf Englisch?", "q": "Vater", "answer": "father", "accept": ["dad"], "speak": false, "placeholder": "auf Englisch …", "explain": "Vater = **father**, mit f und th." },
+    { "type": "input", "task": "Wie heißt das auf Englisch?", "q": "Bruder", "answer": "brother", "speak": false, "placeholder": "auf Englisch …", "explain": "Bruder = **brother**, mit o und th." },
+    { "type": "input", "task": "Wie heißt das auf Englisch?", "q": "Cousin oder Cousine", "answer": "cousin", "speak": false, "placeholder": "auf Englisch …" },
+    { "type": "order", "de": "Oliver ist Emmas Bruder.", "answer": "Oliver is Emma's brother." },
+    { "type": "order", "de": "Susan ist Michaels Tante.", "answer": "Susan is Michael's aunt." },
+    { "type": "order", "de": "Andrew ist Emmas Onkel.", "answer": "Andrew is Emma's uncle." }
+  ]
+}

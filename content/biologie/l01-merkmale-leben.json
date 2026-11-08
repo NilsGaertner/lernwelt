@@ -1,0 +1,46 @@
+{
+  "id": "merkmale-leben",
+  "line": "leben",
+  "order": 1,
+  "title": "Merkmale des Lebens",
+  "subtitle": "Was alle Lebewesen gemeinsam haben",
+  "icon": "🌱",
+  "card": "Merke: **Bewegung, Stoffwechsel, Reizbarkeit, Fortpflanzung, Wachstum und Entwicklung** sind die Merkmale des Lebens.",
+  "explain": [
+    { "p": "**Biologie** ist die Lehre vom **Leben** und von lebenden Systemen. Woran erkennt man ein Lebewesen? An den **Merkmalen des Lebens**:" },
+    { "table": { "head": ["Merkmal", "Beispiele"], "rows": [
+      ["**Bewegung**: Lebewesen bewegen sich **selbstständig**, aus eigener Kraft.", "gehen, fliegen, schwimmen"],
+      ["**Stoffwechsel**: Lebewesen nehmen Stoffe auf, verwerten sie und geben Reste wieder ab.", "essen, trinken, atmen, ausscheiden"],
+      ["**Reizbarkeit**: Lebewesen nehmen **Reize** aus der Umwelt wahr und **reagieren** darauf.", "hören, sehen, riechen und darauf reagieren"],
+      ["**Fortpflanzung**: Lebewesen bekommen Nachkommen.", "Kinder bekommen, Samen bilden"],
+      ["**Wachstum und Entwicklung**: Lebewesen werden größer und verändern sich.", "Pubertät, aus dem Samen wird ein Baum"]
+    ] } },
+    { "tip": "**Reizbar** heißt in Biologie **nicht** „schnell wütend“. Es heißt: Ein Lebewesen merkt etwas und reagiert darauf." },
+    { "table": { "head": ["Merkmal", "Apfelbaum", "Katze"], "rows": [
+      ["**Bewegung**", "Blüten öffnen und schließen sich", "schleichen, springen"],
+      ["**Stoffwechsel**", "Wasser mit den Wurzeln aufnehmen", "Nährstoffe aufnehmen, ausscheiden"],
+      ["**Reizbarkeit**", "wendet sich zur Sonne", "dreht bei einem Geräusch die Ohren"],
+      ["**Fortpflanzung**", "Blüten, Bestäubung, Früchte, Samen", "bekommt Kätzchen"],
+      ["**Wachstum und Entwicklung**", "aus dem Samen wird ein Baum", "aus dem Kätzchen wird eine Katze"]
+    ] } }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Welches Merkmal des Lebens ist das?", "q": "Ein Hund läuft zu seinem Napf.", "options": ["Bewegung", "Stoffwechsel", "Reizbarkeit", "Fortpflanzung"], "answer": "Bewegung", "recall": true },
+    { "type": "choice", "task": "Welches Merkmal des Lebens ist das?", "q": "Ein Vogel fliegt zu seinem Nest.", "options": ["Bewegung", "Fortpflanzung", "Stoffwechsel", "Wachstum"], "answer": "Bewegung", "recall": true },
+    { "type": "choice", "task": "Welches Merkmal des Lebens ist das?", "q": "Ein Kätzchen trinkt Milch und scheidet später Kot aus.", "options": ["Stoffwechsel", "Bewegung", "Reizbarkeit", "Fortpflanzung"], "answer": "Stoffwechsel", "recall": true },
+    { "type": "choice", "task": "Welches Merkmal des Lebens ist das?", "q": "Ein Apfelbaum nimmt mit den Wurzeln Wasser auf.", "options": ["Stoffwechsel", "Bewegung", "Fortpflanzung", "Reizbarkeit"], "answer": "Stoffwechsel", "recall": true },
+    { "type": "choice", "task": "Welches Merkmal des Lebens ist das?", "q": "Ein Mensch atmet ein und aus.", "options": ["Stoffwechsel", "Reizbarkeit", "Fortpflanzung", "Wachstum"], "answer": "Stoffwechsel", "recall": true },
+    { "type": "choice", "task": "Welches Merkmal des Lebens ist das?", "q": "Eine Katze hört ein Rascheln und dreht die Ohren.", "options": ["Reizbarkeit", "Stoffwechsel", "Fortpflanzung", "Wachstum"], "answer": "Reizbarkeit", "recall": true },
+    { "type": "choice", "task": "Welches Merkmal des Lebens ist das?", "q": "Ein Mensch kneift bei grellem Licht die Augen zu.", "options": ["Reizbarkeit", "Stoffwechsel", "Fortpflanzung", "Wachstum"], "answer": "Reizbarkeit", "recall": true },
+    { "type": "choice", "task": "Welches Merkmal des Lebens ist das?", "q": "Eine Pflanze wendet ihre Blätter zum Licht.", "options": ["Reizbarkeit", "Stoffwechsel", "Fortpflanzung", "Wachstum"], "answer": "Reizbarkeit", "recall": true, "explain": "Das Licht ist der Reiz. Die Pflanze reagiert darauf." },
+    { "type": "choice", "task": "Welches Merkmal des Lebens ist das?", "q": "Eine Katze bekommt Junge.", "options": ["Fortpflanzung", "Wachstum", "Bewegung", "Stoffwechsel"], "answer": "Fortpflanzung", "recall": true },
+    { "type": "choice", "task": "Welches Merkmal des Lebens ist das?", "q": "Ein Apfelbaum bildet Früchte mit Samen.", "options": ["Fortpflanzung", "Bewegung", "Reizbarkeit", "Stoffwechsel"], "answer": "Fortpflanzung", "recall": true },
+    { "type": "choice", "task": "Welches Merkmal des Lebens ist das?", "q": "Aus einem kleinen Kätzchen wird eine große Katze.", "options": ["Wachstum", "Bewegung", "Reizbarkeit", "Stoffwechsel"], "answer": "Wachstum", "recall": true, "accept": ["Wachstum und Entwicklung", "Entwicklung"] },
+    { "type": "choice", "task": "Welches Merkmal des Lebens ist das?", "q": "Ein Kind kommt in die Pubertät.", "options": ["Entwicklung", "Bewegung", "Reizbarkeit", "Stoffwechsel"], "answer": "Entwicklung", "recall": true, "accept": ["Wachstum und Entwicklung", "Wachstum"] },
+    { "type": "choice", "q": "Was gehört NICHT zu den Merkmalen des Lebens?", "options": ["eine bestimmte Farbe haben", "Stoffwechsel", "Fortpflanzung", "Wachstum"], "answer": "eine bestimmte Farbe haben" },
+    { "type": "choice", "q": "Was ist Stoffwechsel?", "options": ["Stoffe aufnehmen, verwerten und Reste abgeben", "die Kleidung wechseln", "schnell laufen", "Nachkommen bekommen"], "answer": "Stoffe aufnehmen, verwerten und Reste abgeben" },
+    { "type": "choice", "q": "Was bedeutet „reizbar“ in der Biologie?", "options": ["Ein Lebewesen nimmt Reize wahr und reagiert darauf.", "Ein Lebewesen wird schnell wütend.", "Ein Lebewesen sieht schön aus.", "Ein Lebewesen wächst schnell."], "answer": "Ein Lebewesen nimmt Reize wahr und reagiert darauf." },
+    { "type": "choice", "q": "Welche Schreibweise ist richtig?", "options": ["Fortpflanzung", "Fortflanzung", "Vortpflanzung", "Fortpflansung"], "answer": "Fortpflanzung" },
+    { "type": "input", "q": "Biologie ist die Lehre vom ___.", "answer": "Leben", "accept": ["Leben und lebenden Systemen"] }
+  ]
+}

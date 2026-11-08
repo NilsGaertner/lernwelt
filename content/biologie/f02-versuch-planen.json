@@ -1,0 +1,42 @@
+{
+  "id": "versuch-planen",
+  "line": "forschen",
+  "order": 2,
+  "title": "Einen Versuch planen",
+  "subtitle": "Nur eine Sache verändern",
+  "icon": "🧪",
+  "card": "Merke: In einem guten Versuch wird **nur eine Sache** verändert. Alles andere bleibt gleich.",
+  "explain": [
+    { "tip": "In einem guten Versuch wird **nur eine Sache** verändert. Alles andere bleibt **gleich**. Sonst weiß man nicht, woran es lag." },
+    { "p": "Zum Vergleich gibt es zwei Ansätze. Im Kresse-Versuch hat der **Experimentalansatz** Wasser, der **Kontrollansatz** bleibt trocken. Sonst sind beide gleich." },
+    { "map": "kresse-versuch", "legend": [["schale-wasser", "Experimentalansatz"], ["schale-trocken", "Kontrollansatz"]] },
+    { "p": "So plant man einen Versuch zur Frage: **Hängt die Keimung von der Art des Bodens ab?** Zu einer vollständigen Planung gehören **Material, Vermutung, Durchführung und erwartete Beobachtung**." },
+    { "table": { "head": ["Teil", "Beispiel"], "rows": [
+      ["**Material**", "3 Petrischalen, Erde, Sand, Watte, Wasser, Kressesamen"],
+      ["**Vermutung**", "Ich vermute, dass Kressesamen auf Erde am besten keimen."],
+      ["**Durchführung**", "In jede Schale kommt ein anderer Boden. In jede Schale kommen gleich viele Samen und gleich viel Wasser. Alle Schalen stehen am selben Ort."],
+      ["**Erwartete Beobachtung**", "Auf Erde werden die Keimlinge schneller groß als auf Sand und Watte."]
+    ] } },
+    { "p": "Was braucht Kresse zum **Keimen**? Ohne **Wasser** geht es nicht. Erde braucht sie dafür nicht, denn sie keimt auch auf feuchter Watte. Im Versuch keimte sie auch **ohne Licht**." },
+    { "tip": "Eine Vermutung darf auch falsch sein. Der Versuch soll ja gerade zeigen, ob sie stimmt." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Hängt die Keimung von der Art des Bodens ab? Was wird in diesem Versuch verändert?", "options": ["die Art des Bodens", "die Menge Wasser", "die Art der Samen", "der Standort"], "answer": "die Art des Bodens" },
+    { "type": "choice", "q": "Was muss bei diesem Versuch in allen Schalen gleich bleiben?", "options": ["Wasser, Licht, Wärme und die Zahl der Samen", "die Art des Bodens", "nur die Farbe der Schale", "gar nichts"], "answer": "Wasser, Licht, Wärme und die Zahl der Samen" },
+    { "type": "choice", "q": "Warum verändert man nur eine Sache?", "options": ["Sonst weiß man nicht, woran es lag.", "Sonst dauert es zu lange.", "Weil Material teuer ist.", "Weil es so schöner aussieht."], "answer": "Sonst weiß man nicht, woran es lag." },
+    { "type": "choice", "q": "Welches Material gehört zum Versuch zur Art des Bodens?", "options": ["Petrischalen, Erde, Sand, Watte, Wasser, Kressesamen", "Lupe und Tinte", "nur Kressesamen", "Hammer und Nagel"], "answer": "Petrischalen, Erde, Sand, Watte, Wasser, Kressesamen" },
+    { "type": "choice", "q": "In einer Versuchsplanung steht nur das Material. Was fehlt noch?", "options": ["Vermutung, Durchführung und erwartete Beobachtung", "gar nichts", "der Name der Lehrkraft", "das Datum von gestern"], "answer": "Vermutung, Durchführung und erwartete Beobachtung" },
+    { "type": "choice", "q": "Welcher Satz ist eine Vermutung?", "options": ["Ich vermute, dass Kresse auf Erde am besten keimt.", "In Schale 1 ist Erde.", "Ich gebe Wasser dazu.", "Die Kresse ist grün."], "answer": "Ich vermute, dass Kresse auf Erde am besten keimt." },
+    { "type": "choice", "q": "Welcher Satz gehört zur Durchführung?", "options": ["Ich gebe in jede Schale gleich viele Samen und gleich viel Wasser.", "Ich vermute, dass Sand schlechter ist.", "Kresse braucht Wasser.", "Die Keimlinge sind groß."], "answer": "Ich gebe in jede Schale gleich viele Samen und gleich viel Wasser." },
+    { "type": "choice", "q": "Welcher Satz beschreibt eine erwartete Beobachtung?", "options": ["Auf Erde werden die Keimlinge schneller groß als auf Sand.", "Ich brauche drei Schalen.", "Hängt die Keimung vom Boden ab?", "Ich stelle alle Schalen ans Fenster."], "answer": "Auf Erde werden die Keimlinge schneller groß als auf Sand." },
+    { "type": "choice", "q": "Warum stehen alle Schalen am selben Ort?", "options": ["Damit Licht und Wärme überall gleich sind.", "Damit sie nicht wegfliegen.", "Weil sonst kein Platz ist.", "Damit man sie zählen kann."], "answer": "Damit Licht und Wärme überall gleich sind." },
+    { "type": "choice", "task": "Wie heißt die markierte Schale im Versuch?", "map": "kresse-versuch", "mark": "schale-wasser", "options": ["Experimentalansatz", "Kontrollansatz"], "answer": "Experimentalansatz", "recall": true, "placeholder": "…ansatz" },
+    { "type": "choice", "task": "Wie heißt die markierte Schale im Versuch?", "map": "kresse-versuch", "mark": "schale-trocken", "options": ["Kontrollansatz", "Experimentalansatz"], "answer": "Kontrollansatz", "recall": true, "placeholder": "…ansatz" },
+    { "type": "choice", "q": "Die Samen keimen nur in der Schale mit Wasser. Was ist die Deutung?", "options": ["Kressesamen benötigen Wasser zum Keimen.", "Kressesamen benötigen Licht zum Keimen.", "Watte ist grün.", "Schalen sind wichtig."], "answer": "Kressesamen benötigen Wasser zum Keimen." },
+    { "type": "choice", "q": "Auch im trockenen Kontrollansatz keimen plötzlich Samen. Was könnte passiert sein?", "options": ["Der Kontrollansatz wurde feucht gehalten.", "Die Samen konnten lesen.", "Die Schale war zu rund.", "Das kann nicht sein."], "answer": "Der Kontrollansatz wurde feucht gehalten.", "explain": "So etwas schreibt man in die **Fehleranalyse**." },
+    { "type": "choice", "q": "Was brauchen Kressesamen zum Keimen unbedingt?", "options": ["Wasser", "Erde", "Dünger", "einen Blumentopf"], "answer": "Wasser", "recall": true },
+    { "type": "choice", "q": "Brauchen Kressesamen zum Keimen unbedingt Erde?", "options": ["Nein, sie keimen auch auf feuchter Watte.", "Ja, ohne Erde geht es nie.", "Ja, aber nur Sand.", "Nein, sie keimen gar nicht."], "answer": "Nein, sie keimen auch auf feuchter Watte." },
+    { "type": "choice", "q": "Was passierte im Versuch mit den Samen ohne Licht?", "options": ["Sie keimten trotzdem.", "Sie keimten gar nicht.", "Sie wurden zu Steinen.", "Sie verschwanden."], "answer": "Sie keimten trotzdem." },
+    { "type": "input", "q": "Eine Vermutung nennt man auch ___.", "answer": "Hypothese" }
+  ]
+}

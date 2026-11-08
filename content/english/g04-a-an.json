@@ -12,6 +12,7 @@
       ["**an**", "vor einem Vokal-Laut (a, e, i, o, u)", "an apple, an egg, an orange"]
     ] } },
     { "tip": "Es kommt auf das Wort direkt dahinter an: an **a**pple, aber: a **r**ed apple." },
+    { "tip": "Es zählt der **Klang**, nicht der Buchstabe: **a** uniform (klingt wie „ju:“) und **an** hour (das h hört man nicht, es klingt wie „auer“)." },
     { "p": "Und **the** (der, die, das) bleibt immer gleich: the dog, the apple, the dogs." }
   ],
   "exercises": [
@@ -30,6 +31,13 @@
     { "type": "input", "q": "Is that ___ owl?", "answer": "an", "hint": "a / an · owl = Eule", "explain": "owl beginnt mit o → **an** owl." },
     { "type": "input", "q": "She has got ___ rabbit.", "answer": "a", "hint": "a / an", "explain": "rabbit beginnt mit r → **a** rabbit." },
     { "type": "input", "q": "I've got ___ idea!", "answer": "an", "hint": "a / an · idea = Idee", "explain": "idea beginnt mit i → **an** idea." },
-    { "type": "input", "q": "He is ___ good friend.", "answer": "a", "hint": "a / an", "explain": "Es zählt das Wort direkt dahinter: **g**ood beginnt mit g → **a**." }
+    { "type": "input", "q": "He is ___ good friend.", "answer": "a", "hint": "a / an", "explain": "Es zählt das Wort direkt dahinter: **g**ood beginnt mit g → **a**." },
+    { "type": "choice", "q": "She has got ___ school uniform.", "options": ["a", "an"], "answer": "a", "explain": "Es zählt das Wort direkt dahinter: **s**chool → **a**." },
+    { "type": "choice", "q": "He wears ___ uniform.", "de": "Er trägt eine Uniform.", "options": ["a", "an"], "answer": "a", "explain": "uniform spricht man mit „ju:“. Das klingt wie ein Konsonant → **a** uniform." },
+    { "type": "choice", "q": "I can wait for ___ hour.", "de": "Ich kann eine Stunde warten.", "options": ["an", "a"], "answer": "an", "explain": "Bei hour hört man das h nicht. Es klingt wie „auer“ → **an** hour." },
+    { "type": "choice", "q": "It's ___ grey book.", "options": ["a", "an"], "answer": "a", "explain": "grey beginnt mit g → **a** grey book." },
+    { "type": "choice", "q": "It's ___ old poster.", "options": ["an", "a"], "answer": "an", "explain": "old beginnt mit einem Vokal → **an** old poster." },
+    { "type": "choice", "q": "It's ___ new poster.", "options": ["a", "an"], "answer": "a", "explain": "new beginnt mit n → **a** new poster." },
+    { "type": "input", "q": "The film starts in ___ hour.", "de": "Der Film beginnt in einer Stunde.", "answer": "an", "hint": "a / an", "explain": "Bei hour hört man das h nicht → **an** hour." }
   ]
 }

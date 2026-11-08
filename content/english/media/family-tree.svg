@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 370" role="img" aria-label="Family tree">
+<!-- family-tree: Stammbaum vom Arbeitsblatt. Henry ist der Vater von Susan und Andrew. -->
+<rect class="bg" x="0" y="0" width="720" height="370"/>
+<path class="leader" d="M360 86V118M255 118H455M255 118V150M455 118V150M170 178H190M520 178H540M180 178V250M105 250H255M105 250V290M255 250V290M530 178V290" style="fill:none;stroke-width:3"/>
+<g id="henry" class="area"><rect class="land" x="295" y="30" width="130" height="56" rx="12"/><rect class="slot" x="295" y="30" width="130" height="56" rx="12"/><text class="tick" x="360" y="66">Henry</text></g>
+<g id="james" class="area"><rect class="land" x="40" y="150" width="130" height="56" rx="12"/><rect class="slot" x="40" y="150" width="130" height="56" rx="12"/><text class="tick" x="105" y="186">James</text></g>
+<g id="susan" class="area"><rect class="land" x="190" y="150" width="130" height="56" rx="12"/><rect class="slot" x="190" y="150" width="130" height="56" rx="12"/><text class="tick" x="255" y="186">Susan</text></g>
+<g id="andrew" class="area"><rect class="land" x="390" y="150" width="130" height="56" rx="12"/><rect class="slot" x="390" y="150" width="130" height="56" rx="12"/><text class="tick" x="455" y="186">Andrew</text></g>
+<g id="sarah" class="area"><rect class="land" x="540" y="150" width="130" height="56" rx="12"/><rect class="slot" x="540" y="150" width="130" height="56" rx="12"/><text class="tick" x="605" y="186">Sarah</text></g>
+<g id="oliver" class="area"><rect class="land" x="40" y="290" width="130" height="56" rx="12"/><rect class="slot" x="40" y="290" width="130" height="56" rx="12"/><text class="tick" x="105" y="326">Oliver</text></g>
+<g id="emma" class="area"><rect class="land" x="190" y="290" width="130" height="56" rx="12"/><rect class="slot" x="190" y="290" width="130" height="56" rx="12"/><text class="tick" x="255" y="326">Emma</text></g>
+<g id="michael" class="area"><rect class="land" x="465" y="290" width="130" height="56" rx="12"/><rect class="slot" x="465" y="290" width="130" height="56" rx="12"/><text class="tick" x="530" y="326">Michael</text></g>
+</svg>

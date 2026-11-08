@@ -31,6 +31,12 @@
     { "type": "input", "q": "___ you help me, please?", "answer": "Can", "hint": "Kannst …?", "explain": "Frage: **Can** kommt nach vorn – Can you help me?" },
     { "type": "order", "de": "Kannst du schwimmen?", "answer": "Can you swim?", "explain": "Frage: **Can** + you + swim?" },
     { "type": "order", "de": "Er kann nicht singen.", "answer": "He can't sing.", "accept": ["He cannot sing."], "explain": "He + **can't** + sing. Das Verb bleibt ohne -s." },
-    { "type": "order", "de": "Darf ich mitkommen?", "answer": "Can I come with you?", "explain": "Darf ich …? = **Can I** …? – Can I come with you?" }
+    { "type": "order", "de": "Darf ich mitkommen?", "answer": "Can I come with you?", "explain": "Darf ich …? = **Can I** …? – Can I come with you?" },
+    { "type": "choice", "q": "Her dad only speaks English. He ___ speak French.", "de": "Ihr Vater spricht nur Englisch. Er kann kein Französisch.", "options": ["can't", "can", "doesn't can", "isn't"], "answer": "can't", "explain": "Er spricht nur Englisch → **can't** speak French." },
+    { "type": "choice", "q": "Cats ___ climb trees.", "de": "Katzen können auf Bäume klettern.", "options": ["can", "cans", "can to", "are can"], "answer": "can", "explain": "**can** bleibt immer gleich, danach das Verb ohne to." },
+    { "type": "input", "q": "I can ___ a hundred metres.", "de": "Ich kann hundert Meter schwimmen.", "answer": "swim", "hint": "schwimmen", "explain": "Nach can kommt die Grundform: can **swim**." },
+    { "type": "input", "q": "Can you ___ a fire?", "de": "Kannst du ein Feuer machen?", "answer": "make", "hint": "machen", "explain": "Nach can kommt die Grundform: can you **make** …?" },
+    { "type": "order", "de": "Kannst du Spanisch sprechen?", "answer": "Can you speak Spanish?" },
+    { "type": "order", "de": "Kann dein Bruder Auto fahren?", "answer": "Can your brother drive a car?" }
   ]
 }

@@ -1,0 +1,39 @@
+{
+  "id": "sicher-oder-vermutet",
+  "line": "hoehle",
+  "order": 2,
+  "title": "Sicher oder vermutet?",
+  "subtitle": "vermutlich, wahrscheinlich, etwa",
+  "icon": "🤔",
+  "card": "Merke: Steht im Buch **vermutlich**, **wahrscheinlich** oder **etwa**, gehört das Wort auch in deinen Text.",
+  "explain": [
+    { "p": "Über die frühen Menschen wissen Forscher vieles aus Funden. Manches ist aber nicht sicher. Dann stehen im Buch diese Wörter:" },
+    { "table": { "head": ["Wort", "Beispiel"], "rows": [
+      ["**vermutlich**: Forscher nehmen es an.", "Der Urmensch kannte **vermutlich** kein Feuer."],
+      ["**wahrscheinlich**: Vieles spricht dafür.", "Der Vormensch aß Pflanzen und **wahrscheinlich** auch Fleisch."],
+      ["**eventuell**: Es könnte sein.", "**Eventuell** malten die Menschen aus Freude."],
+      ["**etwa**, **circa**, **rund**: ungefähr (bei Zahlen)", "vor **etwa** 2,1 bis 1,5 Millionen Jahren"]
+    ] } },
+    { "tip": "Steht im Buch „vermutlich“, gehört das Wort auch in deinen Text. Sonst klingt es so, als wäre es ganz sicher." },
+    { "p": "Bei so alten Zeiten kann niemand das genaue Jahr wissen. Darum steht dort fast immer **etwa**, **circa** oder **rund**." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Der Urmensch kannte ___ kein Feuer.", "options": ["vermutlich", "ganz sicher", "immer", "gestern"], "answer": "vermutlich", "explain": "So steht es im Buch: Der Urmensch kannte **vermutlich** kein Feuer." },
+    { "type": "choice", "q": "Der Frühmensch hatte ___ eine einfache Sprache.", "options": ["vermutlich", "ganz sicher", "immer", "nie"], "answer": "vermutlich" },
+    { "type": "choice", "q": "Der Urmensch konnte ___ einfache sprachliche Laute machen.", "options": ["wahrscheinlich", "ganz sicher", "niemals", "gestern"], "answer": "wahrscheinlich" },
+    { "type": "choice", "q": "Der Vormensch aß Pflanzen und ___ auch Fleisch.", "options": ["wahrscheinlich", "ganz sicher", "niemals", "täglich"], "answer": "wahrscheinlich" },
+    { "type": "choice", "q": "Der Vormensch lebte vor ___ 4,5 bis 1 Million Jahren.", "options": ["etwa", "genau", "immer", "nie"], "answer": "etwa", "explain": "So lange her kann niemand genau wissen. Darum steht dort **etwa**." },
+    { "type": "choice", "q": "Durch die Klimaveränderungen verschlechterten sich ___ die Ernährungsmöglichkeiten in Afrika.", "options": ["vermutlich", "ganz sicher", "immer", "gestern"], "answer": "vermutlich" },
+    { "type": "choice", "q": "Im Buch steht: „Der Urmensch kannte vermutlich kein Feuer.“ Welcher Satz gibt das richtig wieder?", "options": ["Der Urmensch kannte vermutlich kein Feuer.", "Der Urmensch kannte ganz sicher kein Feuer.", "Der Urmensch kannte das Feuer gut.", "Der Urmensch erfand das Feuer."], "answer": "Der Urmensch kannte vermutlich kein Feuer." },
+    { "type": "choice", "q": "Im Buch steht: „seit rund 300.000 Jahren“. Welcher Satz passt dazu?", "options": ["Den Jetztzeitmenschen gibt es seit rund 300.000 Jahren.", "Den Jetztzeitmenschen gibt es seit genau 300.000 Jahren.", "Den Jetztzeitmenschen gibt es seit 3000 Jahren.", "Den Jetztzeitmenschen gibt es nicht mehr."], "answer": "Den Jetztzeitmenschen gibt es seit rund 300.000 Jahren." },
+    { "type": "choice", "q": "Was bedeutet „etwa“?", "options": ["ungefähr", "genau", "niemals", "sicher"], "answer": "ungefähr", "recall": true, "accept": ["circa", "rund", "ca"] },
+    { "type": "choice", "q": "Welches Wort bedeutet dasselbe wie „etwa“?", "options": ["circa", "genau", "immer", "sicher"], "answer": "circa", "recall": true, "accept": ["ca", "rund", "ungefähr"] },
+    { "type": "choice", "task": "Sicher oder vermutet?", "q": "Vermutlich zogen die Menschen nach Norden, weil es weniger zu essen gab.", "options": ["vermutet", "sicher"], "answer": "vermutet" },
+    { "type": "choice", "task": "Sicher oder vermutet?", "q": "In der Höhle von Lascaux gibt es Bilder von Tieren.", "options": ["sicher", "vermutet"], "answer": "sicher", "explain": "Die Bilder kann man heute noch ansehen." },
+    { "type": "choice", "task": "Sicher oder vermutet?", "q": "Eventuell malten die Menschen aus Freude.", "options": ["vermutet", "sicher"], "answer": "vermutet" },
+    { "type": "choice", "task": "Sicher oder vermutet?", "q": "Im Neandertal wurden 1856 Knochen gefunden.", "options": ["sicher", "vermutet"], "answer": "sicher" },
+    { "type": "choice", "task": "Sicher oder vermutet?", "q": "Wahrscheinlich konnte der Urmensch einfache Laute machen.", "options": ["vermutet", "sicher"], "answer": "vermutet" },
+    { "type": "input", "q": "Vermutlich, wahrscheinlich und eventuell zeigen: Das ist nicht ganz ___.", "answer": "sicher", "accept": ["gewiss"] },
+    { "type": "order", "de": "Wer weiß es nicht ganz sicher?", "answer": "Forscher vermuten, dass der Urmensch kein Feuer kannte." }
+  ]
+}

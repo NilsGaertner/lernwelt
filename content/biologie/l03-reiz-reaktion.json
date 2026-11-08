@@ -1,0 +1,38 @@
+{
+  "id": "reiz-reaktion",
+  "line": "leben",
+  "order": 3,
+  "title": "Reiz und Reaktion",
+  "subtitle": "Reizbar heißt nicht wütend",
+  "icon": "⚡",
+  "card": "Merke: Erst kommt der **Reiz**, dann die **Reaktion**. Es klingelt, und der Hund bellt.",
+  "explain": [
+    { "p": "**Reize** kommen aus der Umwelt: Licht, Geräusche, Gerüche, Berührungen, Wärme und Kälte. **Sinnesorgane** nehmen sie auf. Das Lebewesen **reagiert** darauf." },
+    { "table": { "head": ["Reiz", "Sinnesorgan", "Reaktion"], "rows": [
+      ["helles Licht", "Auge", "Die Pupille wird kleiner."],
+      ["Es klingelt an der Tür.", "Ohr", "Der Hund bellt."],
+      ["Geruch von Futter", "Nase", "Die Katze läuft in die Küche."],
+      ["Eine Fliege landet auf der Hand.", "Haut", "Man wedelt sie weg."]
+    ] } },
+    { "p": "Auch Pflanzen reagieren: Fällt Licht von der Seite auf eine Pflanze, wächst sie zum Licht hin." },
+    { "tip": "So wird eine Antwort vollständig: **Reiz** nennen und **Reaktion** nennen. Zum Beispiel: Ein Mensch hört seinen Namen (Reiz) und dreht sich um (Reaktion)." },
+    { "p": "**Bewegung beim Menschen** erklärt man so: Der Mensch bewegt sich aus eigener Kraft, zum Beispiel beim Laufen, Rennen und Wandern." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Der Hund hört die Türklingel und bellt. Was ist der Reiz?", "options": ["die Türklingel", "das Bellen", "das Ohr", "der Hund"], "answer": "die Türklingel", "explain": "Der Reiz kommt von außen: Es klingelt." },
+    { "type": "choice", "q": "Der Hund hört die Türklingel und bellt. Was ist die Reaktion?", "options": ["das Bellen", "die Türklingel", "das Ohr", "die Tür"], "answer": "das Bellen" },
+    { "type": "choice", "q": "Die Katze riecht Futter und läuft in die Küche. Was ist der Reiz?", "options": ["der Geruch des Futters", "das Laufen", "die Nase", "die Küche"], "answer": "der Geruch des Futters" },
+    { "type": "choice", "q": "Die Katze riecht Futter und läuft in die Küche. Was ist die Reaktion?", "options": ["Sie läuft in die Küche.", "Das Futter riecht.", "Die Nase ist nass.", "Die Küche ist warm."], "answer": "Sie läuft in die Küche." },
+    { "type": "choice", "q": "Es wird sehr hell. Die Pupille wird kleiner. Was ist der Reiz?", "options": ["das helle Licht", "die kleine Pupille", "das Auge", "die Lampe ist neu"], "answer": "das helle Licht" },
+    { "type": "choice", "q": "Eine Pflanze am Fenster wächst zum Licht hin. Was ist die Reaktion?", "options": ["Sie wächst zum Licht hin.", "Das Licht scheint.", "Das Fenster ist offen.", "Die Pflanze ist grün."], "answer": "Sie wächst zum Licht hin." },
+    { "type": "choice", "q": "Eine Maus raschelt, und die Katze dreht die Ohren. Welches Sinnesorgan nimmt den Reiz auf?", "options": ["das Ohr", "das Auge", "die Nase", "die Zunge"], "answer": "das Ohr", "recall": true, "accept": ["Ohr", "die Ohren", "Ohren"] },
+    { "type": "choice", "q": "Mit welchem Sinnesorgan nimmt der Mensch Licht auf?", "options": ["mit dem Auge", "mit dem Ohr", "mit der Nase", "mit der Haut"], "answer": "mit dem Auge", "recall": true, "accept": ["Auge", "Augen", "mit den Augen", "das Auge"] },
+    { "type": "choice", "q": "Mit welchem Sinnesorgan nimmt der Mensch Gerüche auf?", "options": ["mit der Nase", "mit dem Ohr", "mit dem Auge", "mit der Haut"], "answer": "mit der Nase", "recall": true, "accept": ["Nase", "die Nase"] },
+    { "type": "choice", "q": "Welches Beispiel zeigt Reizbarkeit beim Menschen am besten?", "options": ["Er hört seinen Namen und dreht sich um.", "Er ist 1,50 m groß.", "Er hat braune Haare.", "Er heißt Max."], "answer": "Er hört seinen Namen und dreht sich um." },
+    { "type": "choice", "q": "Welche Antwort ist vollständig?", "options": ["Ein Mensch tritt auf einen spitzen Stein (Reiz) und zieht den Fuß weg (Reaktion).", "Ein Mensch ist reizbar.", "Ein Mensch hat einen Fuß.", "Steine sind spitz."], "answer": "Ein Mensch tritt auf einen spitzen Stein (Reiz) und zieht den Fuß weg (Reaktion)." },
+    { "type": "choice", "q": "Warum trifft Bewegung auf den Menschen zu?", "options": ["Er bewegt sich aus eigener Kraft, zum Beispiel beim Laufen.", "Andere schieben ihn immer.", "Er hat Batterien.", "Er fährt manchmal Bus."], "answer": "Er bewegt sich aus eigener Kraft, zum Beispiel beim Laufen.", "explain": "Im Bus bewegt der Motor den Menschen. Beim Laufen bewegt er sich selbst." },
+    { "type": "input", "q": "Licht, Geräusche und Gerüche sind ___ aus der Umwelt.", "answer": "Reize", "accept": ["Reiz"] },
+    { "type": "input", "q": "Was ein Lebewesen auf einen Reiz hin tut, nennt man ___.", "answer": "Reaktion" },
+    { "type": "input", "q": "Reize werden von den ___ aufgenommen.", "answer": "Sinnesorganen", "accept": ["Sinnesorgane"] }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "diagramme",
+  "line": "forschen",
+  "order": 3,
+  "title": "Diagramme auswerten",
+  "subtitle": "Riechschleimhaut und Hyazinthe",
+  "icon": "📊",
+  "card": "Merke: Die **Auswertung** sagt, was das Diagramm zeigt. Die **Schlussfolgerung** sagt, was daraus folgt.",
+  "explain": [
+    { "p": "So liest man ein Diagramm:" },
+    { "table": { "head": ["Schritt", "Frage"], "rows": [
+      ["① **Überschrift**", "Worum geht es?"],
+      ["② **Achsen**", "Was steht auf der x-Achse (waagerecht)? Was steht auf der y-Achse (senkrecht)?"],
+      ["③ **Werte ablesen**", "Welche Zahl gehört zu welcher Säule oder zu welchem Punkt?"],
+      ["④ **Auswertung**", "Was zeigt das Diagramm? Was ist am größten, was am kleinsten?"],
+      ["⑤ **Schlussfolgerung**", "Was folgt daraus?"]
+    ] } },
+    { "map": "riechschleimhaut", "legend": [["bar-hund", "Hund"], ["bar-katze", "Katze"], ["bar-kaninchen", "Kaninchen"], ["bar-mensch", "Mensch"]] },
+    { "p": "**Auswertung:** Das Diagramm zeigt, dass der Hund die größte Riechschleimhaut hat. Danach kommen Katze, Kaninchen und Mensch." },
+    { "p": "**Schlussfolgerung:** Der Hund kann am besten riechen, weil er die größte Riechschleimhaut hat." },
+    { "map": "hyazinthe", "legend": [["kurve", "Länge des Blütentriebs einer Hyazinthe"]] },
+    { "p": "**Auswertung:** Der Trieb wird von Tag zu Tag länger. Zwischen Tag 10 und Tag 16 wächst er am schnellsten. **Schlussfolgerung:** Die Zwiebel **wächst**. Wachstum ist ein Merkmal des Lebens, also lebt sie." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Was steht im Säulendiagramm auf der x-Achse?", "map": "riechschleimhaut", "options": ["die Arten", "die Oberfläche in cm²", "die Tage", "die Länge in cm"], "answer": "die Arten" },
+    { "type": "choice", "q": "Was zeigt die y-Achse im Säulendiagramm?", "map": "riechschleimhaut", "options": ["die Oberfläche der Riechschleimhaut in cm²", "die Namen der Tiere", "das Alter der Tiere", "die Zahl der Tage"], "answer": "die Oberfläche der Riechschleimhaut in cm²" },
+    { "type": "choice", "q": "Wer hat die größte Riechschleimhaut?", "map": "riechschleimhaut", "options": ["Hund", "Katze", "Kaninchen", "Mensch"], "answer": "Hund", "recall": true },
+    { "type": "choice", "q": "Wer hat die kleinste Riechschleimhaut?", "map": "riechschleimhaut", "options": ["Mensch", "Kaninchen", "Katze", "Hund"], "answer": "Mensch", "recall": true },
+    { "type": "choice", "q": "Wer hat die zweitgrößte Riechschleimhaut?", "map": "riechschleimhaut", "options": ["Katze", "Kaninchen", "Mensch", "Hund"], "answer": "Katze", "recall": true },
+    { "type": "input", "task": "Was liest du ab?", "q": "Wie groß ist die Riechschleimhaut der Katze? (in cm²)", "map": "riechschleimhaut", "answer": "20", "numeric": true },
+    { "type": "choice", "task": "Was liest du ab?", "q": "Wie groß ist die Riechschleimhaut des Hundes ungefähr?", "map": "riechschleimhaut", "options": ["etwa 85 cm²", "etwa 20 cm²", "etwa 9 cm²", "etwa 4 cm²"], "answer": "etwa 85 cm²" },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Der Hund hat 85 cm², die Katze 20 cm². Wie viele cm² hat der Hund mehr?", "answer": "65", "numeric": true, "explain": "85 − 20 = **65**." },
+    { "type": "order", "task": "Welche Reihenfolge stimmt? Die größte Riechschleimhaut zuerst.", "de": "Von groß nach klein", "answer": "Hund Katze Kaninchen Mensch" },
+    { "type": "choice", "q": "Welcher Satz ist eine Auswertung?", "options": ["Das Diagramm zeigt, dass der Hund die größte Riechschleimhaut hat.", "Der Hund kann am besten riechen, weil seine Riechschleimhaut am größten ist.", "Hunde sind die besten Haustiere.", "Ich mag Diagramme."], "answer": "Das Diagramm zeigt, dass der Hund die größte Riechschleimhaut hat.", "explain": "Die Auswertung sagt nur, was man im Diagramm sieht." },
+    { "type": "choice", "q": "Welcher Satz ist eine Schlussfolgerung?", "options": ["Der Hund kann am besten riechen, weil seine Riechschleimhaut am größten ist.", "Das Diagramm zeigt vier Säulen.", "Die Katze hat 20 cm².", "Die Säule des Menschen ist klein."], "answer": "Der Hund kann am besten riechen, weil seine Riechschleimhaut am größten ist." },
+    { "type": "choice", "q": "Was steht im Liniendiagramm auf der x-Achse?", "map": "hyazinthe", "options": ["die Tage", "die Länge in cm", "die Arten", "die Temperatur"], "answer": "die Tage" },
+    { "type": "choice", "task": "Was liest du ab?", "q": "Wie lang ist der Trieb nach 21 Tagen ungefähr?", "map": "hyazinthe", "options": ["etwa 15 cm", "etwa 5 cm", "etwa 10 cm", "etwa 21 cm"], "answer": "etwa 15 cm" },
+    { "type": "choice", "task": "Was liest du ab?", "q": "Wie lang ist der Trieb nach 10 Tagen ungefähr?", "map": "hyazinthe", "options": ["etwa 5 cm", "etwa 10 cm", "etwa 15 cm", "etwa 1 cm"], "answer": "etwa 5 cm" },
+    { "type": "choice", "q": "Wann wächst der Trieb am schnellsten?", "map": "hyazinthe", "options": ["zwischen Tag 10 und Tag 16", "zwischen Tag 0 und Tag 3", "zwischen Tag 18 und Tag 21", "er wächst immer gleich schnell"], "answer": "zwischen Tag 10 und Tag 16", "explain": "Dort steigt die Linie am steilsten." },
+    { "type": "choice", "q": "Woran erkennt man im Diagramm, dass der Trieb schnell wächst?", "options": ["Die Linie steigt steil an.", "Die Linie ist grün.", "Die Linie ist waagerecht.", "Die Linie geht nach unten."], "answer": "Die Linie steigt steil an." },
+    { "type": "choice", "q": "Welches Merkmal des Lebens zeigt das Diagramm der Hyazinthe?", "map": "hyazinthe", "options": ["Wachstum", "Reizbarkeit", "Bewegung", "Fortpflanzung"], "answer": "Wachstum" },
+    { "type": "choice", "q": "Was kann man aus dem Diagramm der Hyazinthe schließen?", "options": ["Die Zwiebel lebt, denn der Trieb wächst.", "Die Zwiebel ist tot.", "Die Zwiebel braucht keine Erde.", "Zwiebeln können fliegen."], "answer": "Die Zwiebel lebt, denn der Trieb wächst." }
+  ]
+}

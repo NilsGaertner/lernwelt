@@ -1,0 +1,38 @@
+{
+  "id": "schleichjaeger",
+  "line": "katze",
+  "order": 1,
+  "title": "Die Katze – ein Schleichjäger",
+  "subtitle": "So fängt sie ihre Beute",
+  "icon": "🐈",
+  "card": "Wusstest du? Eine Katze kann etwa fünfmal so hoch springen, wie sie groß ist.",
+  "explain": [
+    { "p": "Katzen jagen anders als Hunde. Der Wolf, der Vorfahre des Hundes, ist ein **Hetzjäger**: Er verfolgt seine Beute lange, oft im Rudel. Die Katze ist ein **Schleichjäger**: Sie schleicht sich **allein** und **leise** an und überrascht ihre Beute." },
+    { "table": { "head": ["Phase", "Was macht die Katze?"], "rows": [
+      ["A **Anschleichen**", "Sie hat die Beute entdeckt und schleicht sich langsam und geduckt heran."],
+      ["B **Lauern**", "Sie duckt sich, bleibt still und beobachtet die Beute genau."],
+      ["C **Beutesprung**", "Plötzlich springt sie los."],
+      ["D **Packen**", "Sie packt die Beute mit Krallen und Zähnen."]
+    ] } },
+    { "tip": "Zu jeder Phase passt ein kurzer Satz: Die Katze **schleicht** sich an. Sie **lauert**. Sie **springt**. Sie **packt** die Beute." },
+    { "p": "Am liebsten jagen Katzen in der **Dämmerung**, also am frühen Morgen oder am Abend." }
+  ],
+  "exercises": [
+    { "type": "order", "task": "Welche Reihenfolge stimmt? Was kommt zuerst?", "de": "Die vier Phasen beim Beutefang", "answer": "anschleichen lauern springen packen" },
+    { "type": "choice", "q": "Was macht die Katze in der ersten Phase?", "options": ["Sie schleicht sich langsam und geduckt an.", "Sie springt los.", "Sie packt die Beute.", "Sie rennt laut hinterher."], "answer": "Sie schleicht sich langsam und geduckt an." },
+    { "type": "choice", "q": "Was macht die Katze beim Lauern?", "options": ["Sie duckt sich, bleibt still und beobachtet die Beute.", "Sie miaut laut.", "Sie rennt im Kreis.", "Sie schläft."], "answer": "Sie duckt sich, bleibt still und beobachtet die Beute." },
+    { "type": "choice", "q": "Was kommt nach dem Lauern?", "options": ["der Beutesprung", "das Anschleichen", "das Schlafen", "das Fressen"], "answer": "der Beutesprung", "recall": true, "accept": ["Beutesprung", "Sprung", "springen"] },
+    { "type": "choice", "q": "Was kommt nach dem Beutesprung?", "options": ["Sie packt die Beute.", "Sie schleicht sich an.", "Sie lauert.", "Sie läuft weg."], "answer": "Sie packt die Beute." },
+    { "type": "choice", "q": "Warum nennt man die Katze einen Schleichjäger?", "options": ["Sie schleicht sich leise an und überrascht ihre Beute.", "Sie verfolgt ihre Beute stundenlang.", "Sie jagt immer in großen Gruppen.", "Sie frisst nur Pflanzen."], "answer": "Sie schleicht sich leise an und überrascht ihre Beute." },
+    { "type": "choice", "q": "Wie nennt man einen Jäger, der sich leise anschleicht?", "options": ["Schleichjäger", "Hetzjäger", "Pflanzenfresser", "Rudeltier"], "answer": "Schleichjäger", "recall": true, "accept": ["Schleichjaeger"] },
+    { "type": "choice", "q": "Wie nennt man einen Jäger, der seine Beute lange verfolgt, wie der Wolf?", "options": ["Hetzjäger", "Schleichjäger", "Nesthocker", "Nasentier"], "answer": "Hetzjäger", "recall": true, "accept": ["Hetzjaeger"] },
+    { "type": "choice", "q": "Wie jagt eine Katze meistens?", "options": ["allein", "im großen Rudel", "immer zu zweit", "mit Hunden zusammen"], "answer": "allein", "explain": "Wölfe jagen oft im Rudel. Katzen jagen meistens allein." },
+    { "type": "choice", "q": "Wann jagen Katzen besonders gern?", "options": ["in der Dämmerung", "in der Mittagssonne", "nur im Winter", "nur am Sonntag"], "answer": "in der Dämmerung", "recall": true, "accept": ["Dämmerung", "Daemmerung", "morgens und abends"] },
+    { "type": "choice", "q": "Welcher Satz beschreibt Phase C richtig?", "options": ["Die Katze springt plötzlich los.", "Die Katze sprang gestern.", "Die Katze springte.", "Die Katze sprung los."], "answer": "Die Katze springt plötzlich los.", "explain": "springen – sie **springt** – sie **sprang**." },
+    { "type": "input", "q": "Ein Tier, das von einer Katze gefangen wird, nennt man ___.", "answer": "Beute", "accept": ["Beutetier"] },
+    { "type": "input", "q": "Die Katze ___ sich leise an.", "hint": "schleichen", "answer": "schleicht" },
+    { "type": "input", "q": "Plötzlich ___ die Katze los.", "hint": "springen", "answer": "springt" },
+    { "type": "order", "de": "Phase A", "answer": "Die Katze schleicht sich leise an." },
+    { "type": "order", "de": "Phase D", "answer": "Die Katze packt die Beute mit Krallen und Zähnen." }
+  ]
+}

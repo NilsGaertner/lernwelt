@@ -9,7 +9,7 @@
     { "p": "Wenn etwas einer Person gehört, hängst du **'s** an den Namen: **Tom's** bike = Toms Fahrrad." },
     { "table": { "head": ["Wer?", "Regel", "Beispiel"], "rows": [
       ["eine Person", "**'s**", "my sister**'s** room (das Zimmer meiner Schwester)"],
-      ["mehrere mit -s", "nur **'**", "my parents**'** car (das Auto meiner Eltern)"],
+      ["mehrere mit -s", "nur **'**", "my parents**'** car (das Auto meiner Eltern), the Millers**'** house (das Haus der Millers)"],
       ["mehrere ohne -s", "**'s**", "the children**'s** toys (die Spielsachen der Kinder)"]
     ] } },
     { "tip": "Im Deutschen: „Toms Fahrrad“ – ohne Apostroph. Im Englischen **immer mit** Apostroph: Tom**'s** bike." }
@@ -26,6 +26,10 @@
     { "type": "input", "q": "Where is my ___ bag?", "de": "Wo ist die Tasche meiner Mama?", "answer": "mum's", "accept": ["mom's"], "hint": "mum + ?", "explain": "Eine Mama → mum + **'s**: my **mum's** bag." },
     { "type": "input", "q": "My ___ house is old.", "de": "Das Haus meiner Großeltern ist alt.", "answer": "grandparents'", "hint": "grandparents + ?", "strict": true, "explain": "grandparents endet schon auf -s (Mehrzahl) → nur der Apostroph: grandparents**'**." },
     { "type": "order", "de": "Das ist Pauls Hund.", "answer": "This is Paul's dog.", "explain": "Pauls Hund = **Paul's** dog. Der Apostroph steht vor dem s!" },
-    { "type": "order", "de": "Wo ist Sarahs Jacke?", "answer": "Where is Sarah's jacket?", "explain": "Frage: Where is …? – und Sarahs Jacke = **Sarah's** jacket." }
+    { "type": "order", "de": "Wo ist Sarahs Jacke?", "answer": "Where is Sarah's jacket?", "explain": "Frage: Where is …? – und Sarahs Jacke = **Sarah's** jacket." },
+    { "type": "choice", "q": "This is the ___ house.", "de": "Das ist das Haus der Millers.", "options": ["Millers'", "Miller's", "Millers", "Millers's"], "answer": "Millers'", "explain": "the Millers sind mehrere Personen und enden schon auf -s → nur Apostroph: the **Millers'** house." },
+    { "type": "choice", "q": "___ class is in room 12.", "de": "Mr Lees Klasse ist in Raum 12.", "options": ["Mr Lee's", "Mr Lees", "Mr Lees'", "Mr Lee"], "answer": "Mr Lee's", "explain": "Ein Name + **'s**: **Mr Lee's** class." },
+    { "type": "input", "q": "This is ___ guitar.", "de": "Das ist Zanes Gitarre.", "answer": "Zane's", "hint": "Zane + ?", "explain": "Name + **'s**: **Zane's** guitar." },
+    { "type": "input", "q": "She is ___ friend.", "de": "Sie ist Lilys Freundin.", "answer": "Lily's", "hint": "Lily + ?", "explain": "Name + **'s**: **Lily's** friend." }
   ]
 }

@@ -1,0 +1,49 @@
+{
+  "id": "hoehlenmalerei",
+  "line": "hoehle",
+  "order": 1,
+  "title": "Warum malten die Menschen?",
+  "subtitle": "Höhlenmalerei",
+  "icon": "🎨",
+  "card": "Wusstest du? Die Bilder in der Höhle von Altamira entdeckte 1879 ein kleines Mädchen. Es schaute einfach an die Decke.",
+  "explain": [
+    { "p": "**Höhlenmalereien** sind **bildliche Quellen** aus der Frühgeschichte. Berühmte Höhlen liegen in **Lascaux** (Frankreich) und **Altamira** (Spanien). Auf den Bildern sind besonders oft **Tiere** zu sehen." },
+    { "map": "eiszeit", "legend": [["eis", "Eis und Gletscher"], ["tundra", "Tundra"], ["steppe", "Steppe"], ["mittelmeersteppe", "Mittelmeersteppe"]] },
+    { "p": "Ein Bild untersucht man in zwei Schritten:" },
+    { "table": { "head": ["Schritt", "Fragen"], "rows": [
+      ["① **Beschreiben**", "Was ist zu sehen? Welche Tiere? Welche Farben?"],
+      ["② **Deuten**", "Warum könnten die Menschen das gemalt haben?"]
+    ] } },
+    { "p": "**Warum** die Menschen gemalt haben, weiß niemand sicher, denn aus dieser Zeit gibt es keine schriftlichen Quellen. Forscher haben verschiedene **Vermutungen**:" },
+    { "table": { "head": ["Vermutung", "Das könnte bedeuten …"], "rows": [
+      ["**Kunst**", "Die Menschen hatten Freude am Malen."],
+      ["**Jagdglück**", "Sie malten Tiere, um bei der Jagd Erfolg zu haben."],
+      ["**Wissen weitergeben**", "Sie zeigten, welche Tiere es gab und wie man sie jagt."],
+      ["**Glaube**", "Die Bilder gehörten zu Festen für übersinnliche Mächte."]
+    ] } },
+    { "tip": "Wer vermutet, sagt das auch: **vermutlich**, **wahrscheinlich**, **eventuell**." },
+    { "p": "Die Farben kamen aus der Natur: Schwarz zum Beispiel aus **Holzkohle**, Rot und Gelb aus **farbiger Erde**. Licht gaben **Feuer** und kleine Lampen aus Stein." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Eine Höhlenmalerei wurde vor Tausenden Jahren gemalt. Welche Quellenart ist das?", "options": ["bildliche Quelle", "schriftliche Quelle", "mündliche Quelle", "Darstellung"], "answer": "bildliche Quelle", "recall": true, "accept": ["bildlich", "Bildquelle"] },
+    { "type": "choice", "q": "Was ist auf Höhlenbildern besonders oft zu sehen?", "options": ["Tiere", "Häuser", "Schiffe", "Burgen"], "answer": "Tiere", "recall": true, "accept": ["Tier"] },
+    { "type": "choice", "q": "In welchem Land liegt die Höhle von Lascaux?", "options": ["Frankreich", "Spanien", "Italien", "Deutschland"], "answer": "Frankreich", "recall": true },
+    { "type": "choice", "q": "In welchem Land liegt die Höhle von Altamira?", "options": ["Spanien", "Frankreich", "Griechenland", "Deutschland"], "answer": "Spanien", "recall": true },
+    { "type": "choice", "task": "Welche Höhle ist markiert?", "map": "eiszeit", "mark": "fund-lascaux", "options": ["Lascaux", "Altamira", "Neandertal"], "answer": "Lascaux" },
+    { "type": "choice", "task": "Welche Höhle ist markiert?", "map": "eiszeit", "mark": "fund-altamira", "options": ["Altamira", "Lascaux", "Neandertal"], "answer": "Altamira" },
+    { "type": "choice", "q": "Woher kam die schwarze Farbe zum Beispiel?", "options": ["aus Holzkohle", "aus dem Malkasten", "aus Filzstiften", "aus Druckerpatronen"], "answer": "aus Holzkohle" },
+    { "type": "choice", "q": "Woher kamen Rot und Gelb?", "options": ["aus farbiger Erde", "aus dem Malkasten", "aus Filzstiften", "aus Tinte"], "answer": "aus farbiger Erde" },
+    { "type": "choice", "q": "Woher kam das Licht in den dunklen Höhlen?", "options": ["von Feuer und kleinen Lampen aus Stein", "von Taschenlampen", "von Glühbirnen", "durch große Fenster"], "answer": "von Feuer und kleinen Lampen aus Stein" },
+    { "type": "choice", "q": "Weiß man sicher, warum die Menschen in Höhlen gemalt haben?", "options": ["Nein, es gibt nur Vermutungen.", "Ja, sie haben es aufgeschrieben.", "Ja, ein Zeitzeuge hat es erzählt.", "Ja, es steht auf den Bildern."], "answer": "Nein, es gibt nur Vermutungen." },
+    { "type": "choice", "q": "Warum gibt es nur Vermutungen?", "options": ["Aus dieser Zeit gibt es keine schriftlichen Quellen.", "Die Bilder sind zu klein.", "Niemand darf die Bilder ansehen.", "Die Farben sind verschwunden."], "answer": "Aus dieser Zeit gibt es keine schriftlichen Quellen." },
+    { "type": "choice", "task": "Welche Vermutung ist das?", "q": "Die Menschen malten Tiere, damit sie bei der Jagd mehr Erfolg haben.", "options": ["Jagdglück", "Kunst", "Wissen weitergeben", "Glaube"], "answer": "Jagdglück" },
+    { "type": "choice", "task": "Welche Vermutung ist das?", "q": "Die Menschen malten, weil es ihnen Freude machte.", "options": ["Kunst", "Jagdglück", "Wissen weitergeben", "Glaube"], "answer": "Kunst" },
+    { "type": "choice", "task": "Welche Vermutung ist das?", "q": "Die Großen zeigten den Kindern auf den Bildern, welche Tiere man jagen kann.", "options": ["Wissen weitergeben", "Kunst", "Jagdglück", "Glaube"], "answer": "Wissen weitergeben" },
+    { "type": "choice", "task": "Welche Vermutung ist das?", "q": "Die Bilder gehörten zu Festen für übersinnliche Mächte.", "options": ["Glaube", "Kunst", "Jagdglück", "Wissen weitergeben"], "answer": "Glaube" },
+    { "type": "choice", "q": "Welcher Satz ist eine Vermutung?", "options": ["Vermutlich malten die Menschen Tiere, um Jagdglück zu haben.", "In der Höhle von Lascaux gibt es Bilder von Tieren.", "Die Bilder sind in einer Höhle.", "Auf dem Bild ist ein Pferd zu sehen."], "answer": "Vermutlich malten die Menschen Tiere, um Jagdglück zu haben." },
+    { "type": "choice", "q": "Welcher Satz beschreibt nur, was zu sehen ist?", "options": ["Auf dem Bild ist eine Tiergruppe zu sehen.", "Eventuell war den Menschen langweilig.", "Wahrscheinlich glaubten sie an Geister.", "Vermutlich wollten sie Jagdglück."], "answer": "Auf dem Bild ist eine Tiergruppe zu sehen." },
+    { "type": "choice", "q": "Was kommt zuerst, wenn man ein Bild untersucht?", "options": ["beschreiben, was zu sehen ist", "deuten, was es bedeutet", "das Bild übermalen", "eine Vermutung aufschreiben"], "answer": "beschreiben, was zu sehen ist" },
+    { "type": "input", "q": "Bilder an Höhlenwänden aus der Steinzeit heißen ___.", "answer": "Höhlenmalereien", "accept": ["Höhlenmalerei", "Hoehlenmalereien", "Hoehlenmalerei"] },
+    { "type": "input", "q": "___ malten die Menschen aus Freude am Malen.", "hint": "ein Wort für „nicht ganz sicher“", "answer": "Vermutlich", "accept": ["Wahrscheinlich", "Eventuell"] }
+  ]
+}
