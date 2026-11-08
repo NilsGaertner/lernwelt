@@ -1,0 +1,41 @@
+{
+  "id": "lebewesen-oder-nicht",
+  "line": "leben",
+  "order": 2,
+  "title": "Lebewesen oder nicht?",
+  "subtitle": "Maus, Spielzeugmaus, Auto",
+  "icon": "🐭",
+  "card": "Merke: Bewegung allein reicht nicht. Ein Lebewesen hat **alle** Merkmale des Lebens.",
+  "explain": [
+    { "p": "Etwas kann sich bewegen und ist trotzdem **kein Lebewesen**. Ein Lebewesen hat **alle** Merkmale des Lebens." },
+    { "table": { "head": ["Merkmal", "Maus, Mensch", "Spielzeugmaus, Auto"], "rows": [
+      ["**Bewegung**", "ja", "nicht **selbstständig**"],
+      ["**Reizbarkeit**", "ja", "nein"],
+      ["**Fortpflanzung**", "ja", "nein"],
+      ["**Wachstum**", "ja", "nein"],
+      ["**Stoffwechsel**", "ja", "nein"]
+    ] } },
+    { "tip": "**Selbstständig** heißt: aus eigener Kraft. Die Spielzeugmaus läuft nur mit Batterie oder Aufziehfeder, das Auto nur mit Motor. Darum zählt ihre Bewegung nicht als Merkmal des Lebens." },
+    { "p": "Eine gute Begründung nennt die **Entscheidung** und die **fehlenden Merkmale**: Die Spielzeugmaus ist kein Lebewesen, **weil** sie keinen Stoffwechsel hat, nicht wächst und sich nicht fortpflanzt." },
+    { "p": "Ein Auto tankt Benzin und stößt Abgase aus. Das sieht ähnlich aus, ist aber kein Stoffwechsel: Das Auto baut daraus nichts Neues auf und wächst nicht." },
+    { "p": "Auch Samen und Zwiebeln sehen manchmal leblos aus. Pflanzt man eine **Hyazinthenzwiebel** ein, wird ihr Trieb jeden Tag länger. Das ist **Wachstum**. Also lebt die Zwiebel." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Lebewesen oder nicht?", "q": "Spielzeugmaus", "options": ["Nein, sie hat keinen Stoffwechsel, wächst nicht und pflanzt sich nicht fort.", "Ja, denn sie kann sich bewegen.", "Ja, denn sie sieht aus wie eine Maus.", "Nein, denn sie ist zu klein."], "answer": "Nein, sie hat keinen Stoffwechsel, wächst nicht und pflanzt sich nicht fort." },
+    { "type": "choice", "task": "Lebewesen oder nicht?", "q": "Auto", "options": ["Nein, es hat keinen Stoffwechsel, wächst nicht und pflanzt sich nicht fort.", "Ja, denn es kann sich bewegen.", "Ja, denn es braucht Benzin.", "Nein, denn es ist rot."], "answer": "Nein, es hat keinen Stoffwechsel, wächst nicht und pflanzt sich nicht fort." },
+    { "type": "choice", "task": "Lebewesen oder nicht?", "q": "Apfelbaum", "options": ["Ja, er zeigt alle Merkmale des Lebens.", "Nein, denn er kann nicht laufen.", "Nein, denn er hat keine Augen.", "Nein, denn er ist aus Holz."], "answer": "Ja, er zeigt alle Merkmale des Lebens." },
+    { "type": "choice", "task": "Lebewesen oder nicht?", "q": "Roboter, der durchs Zimmer fährt", "options": ["kein Lebewesen", "Lebewesen"], "answer": "kein Lebewesen", "explain": "Ein Roboter wächst nicht, pflanzt sich nicht fort und hat keinen Stoffwechsel." },
+    { "type": "choice", "task": "Lebewesen oder nicht?", "q": "Stein", "options": ["kein Lebewesen", "Lebewesen"], "answer": "kein Lebewesen" },
+    { "type": "choice", "task": "Lebewesen oder nicht?", "q": "Wolke, die am Himmel zieht", "options": ["kein Lebewesen", "Lebewesen"], "answer": "kein Lebewesen", "explain": "Die Wolke bewegt sich nicht aus eigener Kraft, sondern der Wind schiebt sie." },
+    { "type": "choice", "task": "Lebewesen oder nicht?", "q": "Regenwurm", "options": ["Lebewesen", "kein Lebewesen"], "answer": "Lebewesen" },
+    { "type": "choice", "task": "Lebewesen oder nicht?", "q": "Kressesamen, der gerade keimt", "options": ["Lebewesen", "kein Lebewesen"], "answer": "Lebewesen", "explain": "Der Samen keimt und wächst. Also lebt er." },
+    { "type": "choice", "q": "Warum zählt die Bewegung eines Autos nicht als Merkmal des Lebens?", "options": ["Es bewegt sich nicht aus eigener Kraft, sondern durch den Motor.", "Es fährt zu schnell.", "Es hat vier Räder.", "Es fährt nur auf Straßen."], "answer": "Es bewegt sich nicht aus eigener Kraft, sondern durch den Motor." },
+    { "type": "choice", "q": "Warum zählt die Bewegung einer Spielzeugmaus nicht als Merkmal des Lebens?", "options": ["Sie bewegt sich nur durch Batterie oder Aufziehfeder.", "Sie ist zu klein.", "Sie macht keine Geräusche.", "Sie läuft nur geradeaus."], "answer": "Sie bewegt sich nur durch Batterie oder Aufziehfeder." },
+    { "type": "input", "q": "Bewegung zählt nur als Merkmal des Lebens, wenn sie ___ ist.", "answer": "selbstständig", "accept": ["selbständig", "aus eigener Kraft"] },
+    { "type": "choice", "q": "Welche Begründung ist vollständig?", "options": ["Der Stein ist kein Lebewesen, weil er sich nicht fortpflanzt, nicht wächst und keinen Stoffwechsel hat.", "Der Stein ist kein Lebewesen.", "Der Stein ist grau.", "Der Stein liegt auf dem Boden."], "answer": "Der Stein ist kein Lebewesen, weil er sich nicht fortpflanzt, nicht wächst und keinen Stoffwechsel hat." },
+    { "type": "choice", "q": "Wie viele Merkmale des Lebens hat ein Lebewesen?", "options": ["alle", "nur eines", "nur zwei", "gar keines"], "answer": "alle" },
+    { "type": "choice", "q": "Eine Hyazinthenzwiebel wird eingepflanzt, und ihr Trieb wird jeden Tag länger. Welches Merkmal des Lebens zeigt das?", "options": ["Wachstum", "Reizbarkeit", "Bewegung", "Fortpflanzung"], "answer": "Wachstum", "recall": true },
+    { "type": "choice", "q": "Was folgt daraus, dass der Trieb der Zwiebel wächst?", "options": ["Die Zwiebel lebt.", "Die Zwiebel ist kaputt.", "Die Zwiebel ist ein Stein.", "Das sagt gar nichts."], "answer": "Die Zwiebel lebt." },
+    { "type": "order", "de": "Warum ist das Auto kein Lebewesen?", "answer": "Das Auto ist kein Lebewesen, weil es nicht wächst." }
+  ]
+}

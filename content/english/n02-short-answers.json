@@ -1,0 +1,57 @@
+{
+  "id": "short-answers",
+  "line": "heft",
+  "order": 2,
+  "title": "Yes, I am. No, there isn't.",
+  "subtitle": "Kurze Antworten",
+  "icon": "💬",
+  "card": "Merke: Bei **Yes** keine Kurzform: Yes, I **am**. Yes, he **is**. Yes, there **are**.",
+  "explain": [
+    { "p": "Auf eine Ja-Nein-Frage antwortet man auf Englisch gern kurz. Dafür nimmst du das **Wort vom Anfang der Frage** noch einmal." },
+    { "table": { "head": ["Frage", "Yes", "No"], "rows": [
+      ["**Am** I nice?", "Yes, you **are**.", "No, you **aren't**."],
+      ["**Are** you new?", "Yes, I **am**.", "No, I'**m not**."],
+      ["**Is** he good?", "Yes, he **is**.", "No, he **isn't**."],
+      ["**Is** she pretty?", "Yes, she **is**.", "No, she **isn't**."],
+      ["**Is** it cold?", "Yes, it **is**.", "No, it **isn't**."],
+      ["**Are** we happy?", "Yes, we **are**.", "No, we **aren't**."],
+      ["**Are** they old?", "Yes, they **are**.", "No, they **aren't**."],
+      ["**Is** there a pen …?", "Yes, there **is**.", "No, there **isn't**."],
+      ["**Are** there pencils …?", "Yes, there **are**.", "No, there **aren't**."],
+      ["**Can** he cook?", "Yes, he **can**.", "No, he **can't**."]
+    ] } },
+    { "tip": "Bei **Yes** gibt es keine Kurzform: Yes, I **am**. Nicht: Yes, I'm." },
+    { "tip": "Frage mit **you** → Antwort mit **I**: Are you new? – Yes, **I** am. Und umgekehrt: Am I nice? – Yes, **you** are." },
+    { "ex": [
+      ["There is a pen in my pencil case.", "In meinem Mäppchen ist ein Stift."],
+      ["Is there a pen in your pencil case?", "Ist in deinem Mäppchen ein Stift?"],
+      ["There are pencils in my pencil case.", "In meinem Mäppchen sind Bleistifte."],
+      ["Are there pencils in your pencil case?", "Sind in deinem Mäppchen Bleistifte?"]
+    ] }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Are you new? – Yes, ___.", "options": ["I am", "you are", "I'm", "I is"], "answer": "I am", "explain": "Frage mit you → Antwort mit I. Bei Yes keine Kurzform: **I am**." },
+    { "type": "choice", "q": "Am I nice? – Yes, ___.", "options": ["you are", "I am", "you is", "I'm"], "answer": "you are", "explain": "Frage mit I → Antwort mit you: **you are**." },
+    { "type": "choice", "q": "Are you twelve? – No, ___.", "options": ["I'm not", "I amn't", "you aren't", "I not"], "answer": "I'm not", "explain": "Bei I heißt es **I'm not**. „amn't“ gibt es nicht." },
+    { "type": "choice", "q": "Is he good at football? – No, ___.", "options": ["he isn't", "he aren't", "he not", "it isn't"], "answer": "he isn't" },
+    { "type": "choice", "q": "Is she your sister? – Yes, ___.", "options": ["she is", "she's", "she are", "he is"], "answer": "she is", "explain": "Bei Yes keine Kurzform: **she is**." },
+    { "type": "choice", "q": "Is it cold? – No, ___.", "options": ["it isn't", "it aren't", "he isn't", "it not"], "answer": "it isn't" },
+    { "type": "choice", "q": "Are we happy? – Yes, ___.", "options": ["we are", "we're", "we is", "they are"], "answer": "we are" },
+    { "type": "choice", "q": "Are they old? – No, ___.", "options": ["they aren't", "they isn't", "they not", "we aren't"], "answer": "they aren't" },
+    { "type": "choice", "q": "Is there a pen in your pencil case? – Yes, ___.", "options": ["there is", "it is", "there are", "there's"], "answer": "there is", "explain": "Is there …? – Yes, **there is**. Bei Yes keine Kurzform." },
+    { "type": "choice", "q": "Is there a ruler in your bag? – No, ___.", "options": ["there isn't", "there aren't", "it isn't", "there not"], "answer": "there isn't" },
+    { "type": "choice", "q": "Are there pencils in your pencil case? – Yes, ___.", "options": ["there are", "there is", "they are", "there're"], "answer": "there are" },
+    { "type": "choice", "q": "Are there cats in the garden? – No, ___.", "options": ["there aren't", "there isn't", "they aren't", "there not"], "answer": "there aren't" },
+    { "type": "choice", "q": "Can he cook? – No, ___.", "options": ["he can't", "he isn't", "he doesn't", "he cans"], "answer": "he can't" },
+    { "type": "choice", "q": "Can you speak Spanish? – No, ___.", "options": ["I can't", "I don't", "I'm not", "you can't"], "answer": "I can't" },
+    { "type": "choice", "q": "Can your brother drive a car? – Yes, ___.", "options": ["he can", "he does", "he is", "he cans"], "answer": "he can" },
+    { "type": "input", "q": "Is she nice? – Yes, she ___.", "answer": "is", "hint": "kurze Antwort" },
+    { "type": "input", "q": "Are you OK? – No, I'm ___.", "answer": "not", "hint": "kurze Antwort" },
+    { "type": "input", "q": "Are they in the garden? – No, they ___.", "answer": "aren't", "hint": "kurze Antwort, verneint" },
+    { "type": "input", "q": "Is there a lamp on the desk? – No, there ___.", "answer": "isn't", "hint": "kurze Antwort, verneint" },
+    { "type": "input", "q": "Are there chairs in the room? – Yes, there ___.", "answer": "are", "hint": "kurze Antwort" },
+    { "type": "order", "de": "Ist in deinem Mäppchen ein Stift?", "answer": "Is there a pen in your pencil case?" },
+    { "type": "order", "de": "Sind in deinem Mäppchen Bleistifte?", "answer": "Are there pencils in your pencil case?" },
+    { "type": "order", "de": "Nein, sind sie nicht. (Antwort auf: Are there …?)", "answer": "No, there aren't." }
+  ]
+}

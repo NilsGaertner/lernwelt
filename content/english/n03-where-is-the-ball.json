@@ -1,0 +1,41 @@
+{
+  "id": "where-is-the-ball",
+  "line": "heft",
+  "order": 3,
+  "title": "Where is the ball?",
+  "subtitle": "in, on, under … mit Bildern",
+  "icon": "⚽",
+  "card": "Merke: **in front of** hat drei Wörter, **next to** hat zwei.",
+  "explain": [
+    { "p": "Das sind die Skizzen aus dem Heft. Die Kiste bleibt, nur der Ball wandert." },
+    { "map": "prepositions" },
+    { "ex": [
+      ["The ball is in the box.", "Der Ball ist in der Kiste."],
+      ["The ball is on the box.", "Der Ball ist auf der Kiste."],
+      ["The ball is under the box.", "Der Ball ist unter der Kiste."],
+      ["The ball is next to the box.", "Der Ball ist neben der Kiste."],
+      ["The ball is in front of the box.", "Der Ball ist vor der Kiste."],
+      ["The ball is behind the box.", "Der Ball ist hinter der Kiste."],
+      ["The ball is between the boxes.", "Der Ball ist zwischen den Kisten."]
+    ] },
+    { "tip": "**in front of** hat drei Wörter, **next to** hat zwei." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Wo ist der Ball?", "map": "prepositions", "mark": "p-in", "q": "The ball is ___ the box.", "options": ["in", "on", "under", "behind"], "answer": "in", "hint": "in, on, under …" },
+    { "type": "choice", "task": "Wo ist der Ball?", "map": "prepositions", "mark": "p-on", "q": "The ball is ___ the box.", "options": ["on", "in", "under", "next to"], "answer": "on", "recall": true, "hint": "in, on, under …" },
+    { "type": "choice", "task": "Wo ist der Ball?", "map": "prepositions", "mark": "p-under", "q": "The ball is ___ the box.", "options": ["under", "on", "behind", "in front of"], "answer": "under", "recall": true, "hint": "in, on, under …" },
+    { "type": "choice", "task": "Wo ist der Ball?", "map": "prepositions", "mark": "p-next-to", "q": "The ball is ___ the box.", "options": ["next to", "in front of", "behind", "on"], "answer": "next to", "recall": true, "hint": "zwei Wörter" },
+    { "type": "choice", "task": "Wo ist der Ball?", "map": "prepositions", "mark": "p-in-front-of", "q": "The ball is ___ the box.", "options": ["in front of", "behind", "next to", "under"], "answer": "in front of", "recall": true, "hint": "drei Wörter" },
+    { "type": "choice", "task": "Wo ist der Ball?", "map": "prepositions", "mark": "p-behind", "q": "The ball is ___ the box.", "options": ["behind", "in front of", "next to", "on"], "answer": "behind", "recall": true, "hint": "in, on, under …" },
+    { "type": "choice", "task": "Wo ist der Ball?", "map": "prepositions", "mark": "p-between", "q": "The ball is ___ the boxes.", "options": ["between", "next to", "behind", "under"], "answer": "between", "recall": true, "hint": "in, on, under …" },
+    { "type": "input", "task": "Wie heißt das auf Englisch?", "q": "vor", "answer": "in front of", "speak": false, "placeholder": "drei Wörter", "explain": "vor = **in front of**, mit n: fro**n**t." },
+    { "type": "input", "task": "Wie heißt das auf Englisch?", "q": "zwischen", "answer": "between", "speak": false, "placeholder": "auf Englisch …" },
+    { "type": "input", "task": "Wie heißt das auf Englisch?", "q": "neben", "answer": "next to", "speak": false, "placeholder": "zwei Wörter" },
+    { "type": "input", "task": "Wie heißt das auf Englisch?", "q": "hinter", "answer": "behind", "speak": false, "placeholder": "auf Englisch …" },
+    { "type": "choice", "q": "My pencils are ___ my pencil case.", "de": "Meine Bleistifte sind in meinem Mäppchen.", "options": ["in", "on", "under", "between"], "answer": "in" },
+    { "type": "choice", "q": "The cat is sitting ___ the two chairs.", "de": "Die Katze sitzt zwischen den zwei Stühlen.", "options": ["between", "next to", "on", "behind"], "answer": "between" },
+    { "type": "order", "de": "Der Ball ist vor der Kiste.", "answer": "The ball is in front of the box." },
+    { "type": "order", "de": "Der Ball ist zwischen den Kisten.", "answer": "The ball is between the boxes." },
+    { "type": "order", "de": "Der Ball ist neben der Kiste.", "answer": "The ball is next to the box." }
+  ]
+}

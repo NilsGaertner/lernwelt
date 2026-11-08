@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" role="img" aria-label="Säulendiagramm: Oberfläche der Riechschleimhaut bei Hund, Katze, Kaninchen und Mensch">
+<!-- riechschleimhaut: Werte wie in der Station „Hunde helfen dem Menschen“ (85, 20, 9, 4 cm²). -->
+<rect class="bg" x="0" y="0" width="720" height="430"/>
+<text class="tick" x="360" y="30" style="font-size:22px">Oberfläche der Riechschleimhaut in cm²</text>
+<path class="leader" d="M80 327H680M80 294H680M80 261H680M80 228H680M80 195H680M80 162H680M80 129H680M80 96H680M80 63H680" style="stroke-width:1;opacity:.3"/>
+<text class="tick" x="58" y="334" style="font-size:19px">10</text>
+<text class="tick" x="58" y="301" style="font-size:19px">20</text>
+<text class="tick" x="58" y="268" style="font-size:19px">30</text>
+<text class="tick" x="58" y="235" style="font-size:19px">40</text>
+<text class="tick" x="58" y="202" style="font-size:19px">50</text>
+<text class="tick" x="58" y="169" style="font-size:19px">60</text>
+<text class="tick" x="58" y="136" style="font-size:19px">70</text>
+<text class="tick" x="58" y="103" style="font-size:19px">80</text>
+<text class="tick" x="58" y="70" style="font-size:19px">90</text>
+<rect id="bar-hund" class="area land" style="--c:#9A5B1E" x="110" y="79.5" width="80" height="280.5"/>
+<rect id="bar-katze" class="area land" style="--c:#E0912F" x="260" y="294" width="80" height="66"/>
+<rect id="bar-kaninchen" class="area land" style="--c:#7A9E3C" x="410" y="330.3" width="80" height="29.7"/>
+<rect id="bar-mensch" class="area land" style="--c:#2E86DE" x="560" y="346.8" width="80" height="13.2"/>
+<path class="leader" d="M80 45V360H690" style="fill:none;stroke-width:3"/>
+<text class="tick" x="150" y="392">Hund</text>
+<text class="tick" x="300" y="392">Katze</text>
+<text class="tick" x="450" y="392">Kaninchen</text>
+<text class="tick" x="600" y="392">Mensch</text>
+<text class="tick" x="620" y="422" style="font-size:18px">Arten (x-Achse)</text>
+</svg>

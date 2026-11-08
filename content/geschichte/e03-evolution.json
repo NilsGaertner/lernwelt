@@ -1,0 +1,44 @@
+{
+  "id": "evolution",
+  "line": "eiszeit",
+  "order": 3,
+  "title": "Evolution",
+  "subtitle": "Anpassung über viele Generationen",
+  "icon": "🧬",
+  "card": "Merke: **Evolution** dauert viele **Generationen**. Eine Generation sind ungefähr 30 Jahre.",
+  "explain": [
+    { "p": "**Evolution** ist ein **Entwicklungsprozess**. Dabei verändern sich Arten von Menschen im Laufe der Zeit und passen sich an ihre **Umgebung** an." },
+    { "table": { "head": ["Was kann sich verändern?", "Beispiele"], "rows": [
+      ["**Merkmale**", "Aussehen und Körperbau, zum Beispiel durch die Ernährung"],
+      ["**Fähigkeiten**", "neue Fähigkeiten, um sich an die Umgebung anzupassen"],
+      ["**Arten**", "Es können neue Menschenarten entstehen."]
+    ] } },
+    { "tip": "Evolution dauert sehr lange. Sie läuft über **viele Generationen**. Eine **Generation** sind ungefähr **30 Jahre**, das ist etwa der Abstand von Eltern zu ihren Kindern." },
+    { "table": { "head": ["Generationen", "Jahre (ungefähr)"], "rows": [
+      ["1", "30"],
+      ["10", "300"],
+      ["100", "3000"]
+    ] } },
+    { "p": "Ein einzelner Mensch macht keine Evolution durch. Sie geschieht von Eltern zu Kindern zu Enkeln, über sehr lange Zeit." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Was ist Evolution?", "options": ["Eine Entwicklung, bei der sich Arten im Laufe der Zeit verändern und anpassen.", "Ein plötzlicher Klimawechsel.", "Eine Art von Werkzeug.", "Eine Wanderung nach Norden."], "answer": "Eine Entwicklung, bei der sich Arten im Laufe der Zeit verändern und anpassen." },
+    { "type": "input", "q": "Der Prozess, bei dem sich Arten im Laufe der Zeit verändern und anpassen, heißt ___.", "answer": "Evolution" },
+    { "type": "choice", "q": "Wie lang ist eine Generation ungefähr?", "options": ["etwa 30 Jahre", "etwa 3 Jahre", "etwa 100 Jahre", "etwa 300 Jahre"], "answer": "etwa 30 Jahre" },
+    { "type": "input", "q": "Eine Generation sind ungefähr ___ Jahre.", "answer": "30", "numeric": true },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Wie viele Jahre sind 10 Generationen ungefähr?", "answer": "300", "numeric": true, "explain": "10 · 30 Jahre = **300 Jahre**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Wie viele Jahre sind 100 Generationen ungefähr?", "answer": "3000", "accept": ["3.000"], "numeric": true, "explain": "100 · 30 Jahre = **3000 Jahre**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Wie viele Generationen sind ungefähr 90 Jahre?", "answer": "3", "numeric": true, "explain": "90 : 30 = **3**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Wie viele Generationen sind ungefähr 600 Jahre?", "answer": "20", "numeric": true, "explain": "600 : 30 = **20**." },
+    { "type": "choice", "q": "Wie lange dauert Evolution?", "options": ["viele Generationen", "einen Winter", "ein paar Jahre", "ein Menschenleben"], "answer": "viele Generationen" },
+    { "type": "choice", "q": "Was kann sich durch Evolution verändern?", "options": ["Aussehen und Körperbau", "die Namen der Epochen", "die Länge eines Jahres", "die Jahreszahlen"], "answer": "Aussehen und Körperbau" },
+    { "type": "choice", "q": "Was kann durch Evolution entstehen?", "options": ["neue Menschenarten", "neue Kontinente", "neue Planeten", "neue Jahreszeiten"], "answer": "neue Menschenarten" },
+    { "type": "choice", "q": "Wodurch veränderte sich laut Buch das Aussehen der Menschen?", "options": ["durch die Ernährung", "durch das Lesen", "durch Fernsehen", "durch das Schlafen"], "answer": "durch die Ernährung" },
+    { "type": "choice", "q": "Wofür entwickeln Menschen neue Fähigkeiten?", "options": ["um sich an die Umgebung anzupassen", "um weniger zu essen", "um nicht mehr zu jagen", "um berühmt zu werden"], "answer": "um sich an die Umgebung anzupassen" },
+    { "type": "choice", "q": "Welches Beispiel passt zu „Anpassung an die Umgebung“?", "options": ["Im kalten Norden trugen die Menschen Felle.", "Im kalten Norden gingen sie barfuß.", "Im heißen Süden zündeten sie mehr Feuer an, um zu schwitzen.", "Sie blieben immer am selben Ort."], "answer": "Im kalten Norden trugen die Menschen Felle." },
+    { "type": "choice", "q": "Vom Vormenschen bis zum Jetztzeitmenschen: Wie nennt man diese lange Entwicklung?", "options": ["Evolution", "Besatzung", "Antike", "Epoche"], "answer": "Evolution", "recall": true },
+    { "type": "choice", "q": "Stimmt das? „Ein einzelner Mensch verändert im Laufe seines Lebens seine Art.“", "options": ["Nein, das dauert viele Generationen.", "Ja, das geht in einem Jahr.", "Ja, aber nur im Winter.", "Ja, immer."], "answer": "Nein, das dauert viele Generationen." },
+    { "type": "input", "q": "Die Menschen passen sich an ihre ___ an.", "answer": "Umgebung", "accept": ["Umwelt"] },
+    { "type": "order", "de": "Wie lange dauert Evolution?", "answer": "Evolution dauert viele Generationen." }
+  ]
+}

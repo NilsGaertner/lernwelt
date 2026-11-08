@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 240" role="img" aria-label="Zeitstrahl: Deutschland von 1871 bis heute">
+<!-- deutschland: nach dem Arbeitsblatt „Ein Blick zurück“. Längen nur ungefähr, damit auch die kurze Besatzungszeit zu sehen ist. -->
+<rect class="bg" x="0" y="0" width="720" height="240"/>
+<rect id="kaiserreich" class="area land" style="--c:#8E6BBF" x="30" y="40" width="160" height="56"/>
+<rect id="weimar" class="area land" style="--c:#2E86DE" x="190" y="40" width="90" height="56"/>
+<rect id="nationalsozialismus" class="area land" style="--c:#6B6B6B" x="280" y="40" width="80" height="56"/>
+<rect id="besatzung" class="area land" style="--c:#E0912F" x="360" y="40" width="50" height="56"/>
+<path id="bundesrepublik" class="area land" style="--c:#2EAD6B" d="M410 40H684L712 68L684 96H410Z"/>
+<rect id="ddr" class="area land" style="--c:#D1495B" x="410" y="100" width="150" height="48"/>
+<path class="leader" d="M30 30V168M190 30V168M280 30V168M360 30V168M410 30V198M560 96V168M684 96V168"/>
+<text class="tick" x="42" y="192">1871</text>
+<text class="tick" x="190" y="192">1918</text>
+<text class="tick" x="280" y="192">1933</text>
+<text class="tick" x="360" y="192">1945</text>
+<text class="tick" x="410" y="222">1949</text>
+<text class="tick" x="560" y="192">1990</text>
+<text class="tick" x="684" y="192">heute</text>
+</svg>

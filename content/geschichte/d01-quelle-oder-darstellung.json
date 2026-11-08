@@ -1,0 +1,42 @@
+{
+  "id": "quelle-oder-darstellung",
+  "line": "spuren",
+  "order": 1,
+  "title": "Quelle oder Darstellung?",
+  "subtitle": "Stammt es aus der Zeit?",
+  "icon": "🔍",
+  "card": "Merke: Eine **Quelle** stammt aus der Zeit, um die es geht. Eine **Darstellung** wurde später darüber gemacht.",
+  "explain": [
+    { "p": "Wer Geschichte erforscht, stellt zuerst eine Frage: **Stammt das aus der Zeit, um die es geht?**" },
+    { "table": { "head": ["Quelle", "Darstellung"], "rows": [
+      ["entstand **damals**, in der Zeit, um die es geht", "entstand **später**, oft erst heute"],
+      ["ist aus der Vergangenheit **übrig geblieben**", "Jemand schreibt, zeichnet oder filmt später **über** die Vergangenheit."],
+      ["römische Öllampe, Gesangbuch aus dem Mittelalter, altes Foto, Brief von 1900", "Schulbuchtext, Museumstext, Sachbuch, Erklärvideo, Film über die Römer"]
+    ] } },
+    { "tip": "„Darstellung“ heißt hier **nicht** „Bild“. Eine Darstellung kann ein Text sein. Und ein altes Bild ist eine **Quelle**." },
+    { "p": "Ein Beispiel aus dem Museum: Die **Öllampe** aus dem 2. Jahrhundert n. Chr. ist eine **Quelle**, denn sie stammt aus der Römerzeit. Der **Text daneben** ist eine **Darstellung**, denn Fachleute haben ihn viel später geschrieben." },
+    { "tip": "Auch dein Geschichtsbuch enthält beides: Der **Sachtext** ist eine Darstellung. Steht daneben ein altes Foto oder ein alter Brief, ist das eine Quelle." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Quelle oder Darstellung?", "q": "Eine römische Öllampe aus dem 2. Jahrhundert n. Chr.", "options": ["Quelle", "Darstellung"], "answer": "Quelle", "explain": "Die Lampe wurde damals gemacht. Sie stammt aus der Römerzeit, also ist sie eine **Quelle**." },
+    { "type": "choice", "task": "Quelle oder Darstellung?", "q": "Eine Seite aus einem Gesangbuch, geschrieben um 1250", "options": ["Quelle", "Darstellung"], "answer": "Quelle", "explain": "Die Seite wurde um 1250 geschrieben. Sie ist aus der damaligen Zeit übrig geblieben, also eine **Quelle**." },
+    { "type": "choice", "task": "Quelle oder Darstellung?", "q": "Ein Text von heute im Museum: „So nutzten die Römer ihre Öllampen.“", "options": ["Darstellung", "Quelle"], "answer": "Darstellung", "explain": "Der Text wurde **heute** über die Römer geschrieben, also ist er eine **Darstellung**." },
+    { "type": "choice", "task": "Quelle oder Darstellung?", "q": "Der Text über die Eiszeit in deinem Geschichtsbuch", "options": ["Darstellung", "Quelle"], "answer": "Darstellung", "explain": "Die Eiszeit ist lange vorbei. Der Text wurde viel später geschrieben, also ist er eine **Darstellung**." },
+    { "type": "choice", "task": "Quelle oder Darstellung?", "q": "Ein Foto einer Schulklasse aus dem Jahr 1910", "options": ["Quelle", "Darstellung"], "answer": "Quelle", "explain": "Das Foto wurde 1910 gemacht. Ein Bild von damals ist eine **Quelle**." },
+    { "type": "choice", "task": "Quelle oder Darstellung?", "q": "Ein Brief aus dem Jahr 1900", "options": ["Quelle", "Darstellung"], "answer": "Quelle", "explain": "Der Brief wurde 1900 geschrieben. Er stammt aus der Zeit, also ist er eine **Quelle**." },
+    { "type": "choice", "task": "Quelle oder Darstellung?", "q": "Ein Faustkeil aus der Steinzeit", "options": ["Quelle", "Darstellung"], "answer": "Quelle", "explain": "Der Faustkeil ist aus der Steinzeit übrig geblieben. Also ist er eine **Quelle**." },
+    { "type": "choice", "task": "Quelle oder Darstellung?", "q": "Eine Großmutter erzählt, wie sie als Kind gelebt hat.", "options": ["Quelle", "Darstellung"], "answer": "Quelle", "explain": "Sie hat es selbst erlebt und erzählt davon. Das ist eine **Quelle**, genauer: eine mündliche Quelle." },
+    { "type": "choice", "task": "Quelle oder Darstellung?", "q": "Eine Münze aus dem Mittelalter", "options": ["Quelle", "Darstellung"], "answer": "Quelle", "explain": "Die Münze wurde im Mittelalter gemacht, also ist sie eine **Quelle**." },
+    { "type": "choice", "task": "Quelle oder Darstellung?", "q": "Eine Höhlenmalerei aus der Steinzeit", "options": ["Quelle", "Darstellung"], "answer": "Quelle", "explain": "Die Menschen haben sie damals gemalt. Ein Bild von damals ist eine **Quelle**." },
+    { "type": "choice", "task": "Quelle oder Darstellung?", "q": "Ein Erklärvideo von heute über die alten Römer", "options": ["Darstellung", "Quelle"], "answer": "Darstellung", "explain": "Das Video ist von heute. Es erzählt **über** die Römer, also ist es eine **Darstellung**." },
+    { "type": "choice", "task": "Quelle oder Darstellung?", "q": "Eine römische Stadt, die jemand heute in Minecraft nachgebaut hat", "options": ["Darstellung", "Quelle"], "answer": "Darstellung", "explain": "Gebaut wurde sie heute. Sie zeigt, wie es damals ausgesehen haben könnte, also ist sie eine **Darstellung**." },
+    { "type": "choice", "task": "Quelle oder Darstellung?", "q": "Ein Kinofilm von heute über Ritter", "options": ["Darstellung", "Quelle"], "answer": "Darstellung", "explain": "Der Film ist von heute, die Ritter lebten im Mittelalter. Also ist er eine **Darstellung**." },
+    { "type": "choice", "task": "Quelle oder Darstellung?", "q": "Eine Zeichnung im Schulbuch: So könnte ein Neandertaler ausgesehen haben.", "options": ["Darstellung", "Quelle"], "answer": "Darstellung", "explain": "Die Zeichnung ist nicht aus der Steinzeit. Sie zeigt, was Forscher vermuten, also ist sie eine **Darstellung**." },
+    { "type": "choice", "q": "Warum ist die römische Öllampe eine Quelle?", "options": ["Sie stammt aus der Zeit der Römer.", "Sie steht heute im Museum.", "Sie ist aus Ton.", "Man kann sie anfassen."], "answer": "Sie stammt aus der Zeit der Römer." },
+    { "type": "choice", "q": "Warum ist der Museumstext über die Öllampe eine Darstellung?", "options": ["Fachleute haben ihn viel später geschrieben.", "Er ist gedruckt.", "Er ist kurz.", "Er steht neben der Lampe."], "answer": "Fachleute haben ihn viel später geschrieben." },
+    { "type": "choice", "q": "Welche Frage hilft bei „Quelle oder Darstellung?“ am besten?", "options": ["Stammt es aus der Zeit, um die es geht?", "Ist es ein Bild?", "Ist es kaputt?", "Steht es im Museum?"], "answer": "Stammt es aus der Zeit, um die es geht?" },
+    { "type": "choice", "q": "Ein altes Foto zeigt etwas, das man sehen kann. Was stimmt?", "options": ["Es ist eine Quelle, weil es von damals ist.", "Es ist eine Darstellung, weil es ein Bild ist.", "Es ist beides nicht.", "Das kann man nie wissen."], "answer": "Es ist eine Quelle, weil es von damals ist.", "explain": "Ob etwas ein Bild ist, entscheidet nicht. Es zählt, **wann** es entstanden ist." },
+    { "type": "input", "q": "Etwas, das jemand später über die Vergangenheit schreibt, ist eine ___.", "answer": "Darstellung" },
+    { "type": "input", "q": "Etwas, das aus der Zeit von damals übrig geblieben ist, ist eine ___.", "answer": "Quelle" }
+  ]
+}

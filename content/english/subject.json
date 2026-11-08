@@ -8,6 +8,7 @@
     { "id": "karten", "name": "Karteikarten-Linie", "short": "Karteikarten", "color": "#00695C" },
     { "id": "zimmer", "name": "Zimmer-Linie", "short": "Zimmer", "color": "#0D3B66" },
     { "id": "glueck", "name": "Glücks-Linie", "short": "Glück", "color": "#2E7D32" },
+    { "id": "heft", "name": "Heft-Linie", "short": "Heft", "color": "#7B3FA0" },
     { "id": "test", "name": "Test-Linie", "short": "Test No 2", "color": "#B71C1C" },
     { "id": "trainer", "name": "Satz-Trainer-Linie", "short": "Satz-Trainer", "color": "#4A148C" },
     { "id": "hallo", "name": "Hallo-Linie", "short": "Hallo", "color": "#1F6FD1" },
@@ -32,11 +33,11 @@
   "blitz": [
     {
       "id": "woerter", "title": "Wörter-Blitz", "icon": "⚡", "subtitle": "Englische Wörter so schnell du kannst", "types": ["choice"],
-      "units": ["karten-dinge", "karten-tun", "karten-alltag", "karten-zimmer", "karten-kueche-bad", "karten-moebel", "karten-lucky", "karten-quiet", "karten-spelling", "test-schoolbag","numbers","numbers-100", "colours", "days-months", "family", "school", "animals", "food", "body", "clothes", "home", "free-time", "verbs", "adjectives", "weather"]
+      "units": ["karten-dinge", "karten-tun", "karten-alltag", "karten-zimmer", "karten-kueche-bad", "karten-moebel", "karten-lucky", "karten-quiet", "karten-spelling", "test-schoolbag", "family-tree", "numbers","numbers-100", "colours", "days-months", "family", "school", "animals", "food", "body", "clothes", "home", "free-time", "verbs", "adjectives", "weather"]
     },
     {
       "id": "grammatik", "title": "Grammatik-Blitz", "icon": "🌩️", "subtitle": "Welche Form passt?", "types": ["choice"],
-      "units": ["trainer-be-have", "trainer-s", "trainer-do", "test-be-have", "test-pronouns", "test-possessives", "pronouns", "to-be", "to-be-not", "a-an", "plural", "have-got", "possessives", "genitive", "this-that", "there-is", "prepositions", "can", "question-words", "simple-present", "dont-doesnt", "do-does", "frequency", "present-progressive", "present-vs-progressive", "object-pronouns"]
+      "units": ["short-answers", "where-is-the-ball", "trainer-be-have", "trainer-s", "trainer-do", "test-be-have", "test-pronouns", "test-possessives", "pronouns", "to-be", "to-be-not", "a-an", "plural", "have-got", "possessives", "genitive", "this-that", "there-is", "prepositions", "can", "question-words", "simple-present", "dont-doesnt", "do-does", "frequency", "present-progressive", "present-vs-progressive", "object-pronouns"]
     }
   ]
 }

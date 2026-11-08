@@ -1,0 +1,42 @@
+{
+  "id": "nach-norden",
+  "line": "eiszeit",
+  "order": 2,
+  "title": "Die Menschen ziehen nach Norden",
+  "subtitle": "Neue Lebensräume",
+  "icon": "🚶",
+  "card": "Wusstest du? Die Menschen der Eiszeit nähten sich Kleidung aus Fellen, mit Nadeln aus Knochen.",
+  "explain": [
+    { "p": "Durch die Klimaveränderungen verschlechterten sich **vermutlich** die Ernährungsmöglichkeiten in **Afrika**. Das heißt: Dort gab es wohl weniger zu essen. Darum zogen die **Jetztzeitmenschen** in Richtung **Norden**." },
+    { "table": { "head": ["Was fanden sie dort?", "Wo?"], "rows": [
+      ["große Herden von **Wildtieren**, die man jagen konnte", "in den Wäldern und Graslandschaften"],
+      ["**Beeren, Wurzeln und Pilze**", "in den Wäldern"]
+    ] } },
+    { "table": { "head": ["Problem", "Wie halfen sich die Menschen?"], "rows": [
+      ["Kälte", "**Felle**, einfache **Zelte** und **Feuer**"],
+      ["neue Tiere, neue Umgebung", "neue **Werkzeuge**, neue Fähigkeiten, zum Beispiel bei der Jagd, und neue Lebensweisen"]
+    ] } },
+    { "tip": "**Anpassung** heißt: Die Menschen veränderten ihr Leben so, dass sie in der neuen Umgebung überleben konnten." },
+    { "p": "Während der Kaltzeit wurde das Essen weniger. Darum waren Jagd, Feuer und warme Kleidung so wichtig." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Warum zogen die Jetztzeitmenschen vermutlich nach Norden?", "options": ["In Afrika gab es durch das Klima wohl weniger zu essen.", "In Afrika war es zu kalt.", "Sie suchten Gold.", "Sie wollten neue Städte bauen."], "answer": "In Afrika gab es durch das Klima wohl weniger zu essen." },
+    { "type": "choice", "q": "Von wo aus zogen die Jetztzeitmenschen los?", "options": ["von Afrika", "von Amerika", "von Australien", "von der Antarktis"], "answer": "von Afrika", "recall": true, "accept": ["Afrika", "aus Afrika"] },
+    { "type": "choice", "q": "Welche Menschen zogen in Richtung Norden?", "options": ["die Jetztzeitmenschen", "die Vormenschen", "die Urmenschen", "die Ritter"], "answer": "die Jetztzeitmenschen", "recall": true, "accept": ["Jetztzeitmenschen", "Jetztzeitmensch", "Homo sapiens"] },
+    { "type": "choice", "q": "Was gab es in den Wäldern und Graslandschaften zu jagen?", "options": ["große Herden von Wildtieren", "Kühe und Schweine", "Hühner aus dem Stall", "Goldfische"], "answer": "große Herden von Wildtieren" },
+    { "type": "choice", "q": "Was fanden die Menschen in den Wäldern außerdem?", "options": ["Beeren, Wurzeln und Pilze", "Brot und Käse", "Reis und Nudeln", "Getreide von Feldern"], "answer": "Beeren, Wurzeln und Pilze" },
+    { "type": "choice", "q": "Wie schützten sich die Menschen in kalten Zeiten?", "options": ["mit Fellen, einfachen Zelten und Feuer", "mit Steinhäusern und Heizung", "mit Mänteln aus dem Laden", "gar nicht"], "answer": "mit Fellen, einfachen Zelten und Feuer" },
+    { "type": "choice", "q": "Was entwickelten die Menschen in den neuen Lebensräumen?", "options": ["neue Werkzeuge, Fähigkeiten und Lebensweisen", "die Schrift und das Auto", "Burgen und Klöster", "Computer und Telefone"], "answer": "neue Werkzeuge, Fähigkeiten und Lebensweisen" },
+    { "type": "choice", "q": "Warum war die Anpassung an die Umgebung nötig?", "options": ["Nur so konnten sie in den neuen Lebensräumen überleben.", "Weil es so vorgeschrieben war.", "Weil sie sich langweilten.", "Sie war nicht nötig."], "answer": "Nur so konnten sie in den neuen Lebensräumen überleben." },
+    { "type": "choice", "q": "Die Menschen tragen im kalten Norden Felle. Wie nennt man so eine Veränderung?", "options": ["Anpassung", "Abstimmung", "Ausflug", "Ernte"], "answer": "Anpassung", "recall": true },
+    { "type": "choice", "q": "Im Buch steht: „Die Ernährungsmöglichkeiten verschlechterten sich.“ Was heißt das?", "options": ["Es gab weniger zu essen.", "Es gab mehr zu essen.", "Das Essen wurde billiger.", "Die Menschen kochten schlechter."], "answer": "Es gab weniger zu essen." },
+    { "type": "choice", "q": "Im Buch steht: „Die Wälder boten ein reichhaltiges Angebot.“ Was heißt das?", "options": ["Dort gab es viel und vieles zu finden.", "Dort musste man bezahlen.", "Dort gab es fast nichts.", "Dort gab es nur eine Pflanze."], "answer": "Dort gab es viel und vieles zu finden." },
+    { "type": "choice", "q": "Im Buch steht „vermutlich“. Was sagt dieses Wort?", "options": ["Forscher wissen es nicht ganz sicher.", "Es ist ganz sicher so.", "Es ist bestimmt falsch.", "Es ist erst gestern passiert."], "answer": "Forscher wissen es nicht ganz sicher." },
+    { "type": "input", "q": "Die Jetztzeitmenschen zogen in Richtung ___.", "answer": "Norden" },
+    { "type": "input", "q": "Als Schutz vor der Kälte trugen die Menschen ___.", "answer": "Felle", "accept": ["Fell", "Tierfelle"] },
+    { "type": "input", "q": "In den Wäldern fanden die Menschen Beeren, Wurzeln und ___.", "answer": "Pilze" },
+    { "type": "input", "q": "Während der Kaltzeit wurde das Essen ___.", "answer": "weniger", "accept": ["knapp", "knapper"], "hint": "Es gab nicht mehr so viel." },
+    { "type": "order", "de": "Wohin zogen die Menschen?", "answer": "Die Menschen zogen in Richtung Norden." },
+    { "type": "order", "de": "Warum zogen sie los? (nicht ganz sicher)", "answer": "Vermutlich gab es in Afrika weniger zu essen." }
+  ]
+}

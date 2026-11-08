@@ -4,10 +4,20 @@
   "icon": "🐾",
   "order": 4,
   "lines": [
+    { "id": "katze", "name": "Katzen-Linie", "short": "Katze", "color": "#C2410C" },
+    { "id": "leben", "name": "Lebewesen-Linie", "short": "Lebewesen", "color": "#2E7D32" },
+    { "id": "forschen", "name": "Forscher-Linie", "short": "Forscher", "color": "#00838F" },
     { "id": "hund", "name": "Hund-Linie", "short": "Hund", "color": "#9A5B1E" },
     { "id": "wolf", "name": "Wolf-Linie", "short": "Wolf", "color": "#546E7A" }
   ],
   "blitz": [
-    { "id": "hunde", "title": "Hunde-Blitz", "icon": "⚡", "subtitle": "Körper, Gebiss, Wolf und Welpen", "types": ["choice"] }
+    {
+      "id": "leben-katze", "title": "Leben-und-Katzen-Blitz", "icon": "⚡", "subtitle": "Merkmale des Lebens, Versuche und Katzen", "types": ["choice"],
+      "units": ["schleichjaeger", "katze-koerper", "katze-fortpflanzung", "merkmale-leben", "lebewesen-oder-nicht", "reiz-reaktion", "arbeitsweisen", "versuch-planen", "diagramme"]
+    },
+    {
+      "id": "hunde", "title": "Hunde-Blitz", "icon": "⚡", "subtitle": "Körper, Gebiss, Wolf und Welpen", "types": ["choice"],
+      "units": ["hunde-helfen", "skelett", "gebiss", "vom-wolf", "hunderassen", "welpen"]
+    }
   ]
 }

@@ -1,0 +1,50 @@
+{
+  "id": "deutschland-zeiten",
+  "line": "deutschland",
+  "order": 2,
+  "title": "Deutschland seit 1871",
+  "subtitle": "Vom Kaiserreich bis heute",
+  "icon": "🏛️",
+  "card": "Merke: Von **1949 bis 1990** gab es zwei deutsche Staaten: die Bundesrepublik und die DDR.",
+  "explain": [
+    { "p": "Die letzten 150 Jahre deutscher Geschichte teilt man in diese Zeitabschnitte ein. Sie gehören alle zur **Neuzeit**." },
+    { "map": "deutschland", "legend": [["kaiserreich", "Deutsches Kaiserreich"], ["weimar", "Weimarer Republik"], ["nationalsozialismus", "Nationalsozialismus"], ["besatzung", "Besatzung"], ["bundesrepublik", "Bundesrepublik Deutschland"], ["ddr", "Deutsche Demokratische Republik (DDR)"]] },
+    { "table": { "head": ["Zeitabschnitt", "Was war das?"], "rows": [
+      ["**Deutsches Kaiserreich** 1871 – 1918", "An der Spitze stand ein **Kaiser**."],
+      ["**Weimarer Republik** 1918 – 1933", "Die erste **Demokratie** in ganz Deutschland."],
+      ["**Nationalsozialismus** 1933 – 1945", "Eine **Diktatur** unter Adolf Hitler. In dieser Zeit war der Zweite Weltkrieg, und Millionen Menschen wurden verfolgt und ermordet."],
+      ["**Besatzung** 1945 – 1949", "Nach dem Krieg bestimmten die **Siegermächte** in Deutschland: USA, Sowjetunion, Großbritannien und Frankreich."],
+      ["**Bundesrepublik Deutschland** seit 1949", "Zuerst nur im Westen. Seit **1990** gehört auch der Osten dazu."],
+      ["**Deutsche Demokratische Republik (DDR)** 1949 – 1990", "Ein eigener Staat im Osten. Bestimmt hat dort vor allem eine Partei."]
+    ] } },
+    { "tip": "Von **1949 bis 1990** gab es **zwei deutsche Staaten**. 1990 wurden sie wieder **ein** Land." },
+    { "table": { "head": ["Wort", "Bedeutung"], "rows": [
+      ["**Republik**", "ein Staat ohne Kaiser oder König"],
+      ["**Demokratie**", "Das Volk bestimmt mit, zum Beispiel durch Wahlen."],
+      ["**Diktatur**", "Einer oder wenige bestimmen allein. Wer widerspricht, wird bestraft."],
+      ["**Besatzung**", "Soldaten aus anderen Ländern bleiben im Land und bestimmen dort."]
+    ] } }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Welcher Zeitabschnitt ist markiert?", "map": "deutschland", "mark": "kaiserreich", "options": ["Deutsches Kaiserreich", "Weimarer Republik", "Besatzung", "Bundesrepublik Deutschland"], "answer": "Deutsches Kaiserreich", "recall": true, "accept": ["Kaiserreich", "Das Kaiserreich"] },
+    { "type": "choice", "task": "Welcher Zeitabschnitt ist markiert?", "map": "deutschland", "mark": "weimar", "options": ["Weimarer Republik", "Deutsches Kaiserreich", "Nationalsozialismus", "Besatzung"], "answer": "Weimarer Republik", "recall": true },
+    { "type": "choice", "task": "Welcher Zeitabschnitt ist markiert?", "map": "deutschland", "mark": "nationalsozialismus", "options": ["Nationalsozialismus", "Weimarer Republik", "Besatzung", "Deutsches Kaiserreich"], "answer": "Nationalsozialismus" },
+    { "type": "choice", "task": "Welcher Zeitabschnitt ist markiert?", "map": "deutschland", "mark": "besatzung", "options": ["Besatzung", "Nationalsozialismus", "Bundesrepublik Deutschland", "Weimarer Republik"], "answer": "Besatzung", "recall": true, "accept": ["Besatzungszeit"] },
+    { "type": "choice", "task": "Welcher Zeitabschnitt ist markiert?", "map": "deutschland", "mark": "bundesrepublik", "options": ["Bundesrepublik Deutschland", "Deutsche Demokratische Republik", "Besatzung", "Deutsches Kaiserreich"], "answer": "Bundesrepublik Deutschland", "recall": true, "accept": ["Bundesrepublik", "BRD"] },
+    { "type": "choice", "task": "Welcher Zeitabschnitt ist markiert?", "map": "deutschland", "mark": "ddr", "options": ["Deutsche Demokratische Republik", "Bundesrepublik Deutschland", "Besatzung", "Weimarer Republik"], "answer": "Deutsche Demokratische Republik", "recall": true, "accept": ["DDR"] },
+    { "type": "order", "task": "Welche Reihenfolge stimmt? Das Früheste zuerst.", "de": "Von 1871 bis heute", "answer": "Kaiserreich Weimar Nationalsozialismus Besatzung Bundesrepublik" },
+    { "type": "choice", "q": "Von wann bis wann gab es das Deutsche Kaiserreich?", "options": ["1871 bis 1918", "1918 bis 1933", "1933 bis 1945", "1949 bis 1990"], "answer": "1871 bis 1918" },
+    { "type": "choice", "q": "Von wann bis wann gab es die Weimarer Republik?", "options": ["1918 bis 1933", "1871 bis 1918", "1933 bis 1945", "1945 bis 1949"], "answer": "1918 bis 1933" },
+    { "type": "choice", "q": "Von wann bis wann dauerte der Nationalsozialismus?", "options": ["1933 bis 1945", "1918 bis 1933", "1945 bis 1949", "1949 bis 1990"], "answer": "1933 bis 1945" },
+    { "type": "choice", "q": "Von wann bis wann dauerte die Besatzung?", "options": ["1945 bis 1949", "1933 bis 1945", "1949 bis 1990", "1918 bis 1933"], "answer": "1945 bis 1949" },
+    { "type": "choice", "q": "Seit wann gibt es die Bundesrepublik Deutschland?", "options": ["seit 1949", "seit 1871", "seit 1945", "seit 1990"], "answer": "seit 1949" },
+    { "type": "choice", "q": "Von wann bis wann gab es die DDR?", "options": ["1949 bis 1990", "1945 bis 1949", "1933 bis 1945", "1918 bis 1933"], "answer": "1949 bis 1990" },
+    { "type": "choice", "q": "Wie viele deutsche Staaten gab es von 1949 bis 1990?", "options": ["zwei", "einen", "drei", "vier"], "answer": "zwei", "recall": true, "accept": ["2"] },
+    { "type": "choice", "q": "Was geschah 1990?", "options": ["Die DDR und die Bundesrepublik wurden wieder ein Land.", "Das Kaiserreich begann.", "Die Besatzung begann.", "Die Weimarer Republik endete."], "answer": "Die DDR und die Bundesrepublik wurden wieder ein Land." },
+    { "type": "choice", "q": "Was kam nach dem Deutschen Kaiserreich?", "options": ["die Weimarer Republik", "die DDR", "die Besatzung", "die Antike"], "answer": "die Weimarer Republik", "recall": true, "accept": ["Weimarer Republik"] },
+    { "type": "choice", "q": "Wer stand an der Spitze des Kaiserreichs?", "options": ["ein Kaiser", "ein Präsident", "eine Partei", "die Siegermächte"], "answer": "ein Kaiser", "recall": true, "accept": ["Kaiser", "der Kaiser"] },
+    { "type": "choice", "q": "Was ist eine Demokratie?", "options": ["Das Volk bestimmt mit, zum Beispiel durch Wahlen.", "Ein Kaiser bestimmt allein.", "Soldaten aus anderen Ländern bestimmen.", "Niemand bestimmt."], "answer": "Das Volk bestimmt mit, zum Beispiel durch Wahlen." },
+    { "type": "choice", "q": "Was ist eine Republik?", "options": ["ein Staat ohne Kaiser oder König", "ein Staat mit einem Kaiser", "eine große Stadt", "eine Armee"], "answer": "ein Staat ohne Kaiser oder König" },
+    { "type": "choice", "q": "Wer bestimmte von 1945 bis 1949 in Deutschland?", "options": ["die Siegermächte", "ein Kaiser", "die DDR", "die Weimarer Republik"], "answer": "die Siegermächte", "recall": true, "accept": ["Siegermächte", "Siegermaechte", "die Alliierten", "Alliierte"] }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "saetze-bauen",
+  "line": "hoehle",
+  "order": 3,
+  "title": "Aus Stichworten werden Sätze",
+  "subtitle": "Wie halfen die Fähigkeiten?",
+  "icon": "✍️",
+  "card": "Merke: **weil** nennt den Grund. **Dadurch** und **deshalb** zeigen die Folge.",
+  "explain": [
+    { "p": "**Wie halfen Fähigkeiten den frühen Menschen beim Überleben?** Ein guter Text wählt **drei Fähigkeiten** aus und erklärt zu jeder: **Was wurde dadurch möglich?** Und **warum half das beim Überleben?**" },
+    { "table": { "head": ["Satzanfang", "So kann der Satz weitergehen"], "rows": [
+      ["Der aufrechte Gang ermöglichte …", "… das Tragen von Werkzeugen und Nahrung."],
+      ["Mithilfe von … konnten die Menschen …", "Mithilfe von Steinwerkzeugen konnten die Menschen Fleisch schneiden."],
+      ["Das war hilfreich, weil …", "… sie so mehr zu essen hatten."],
+      ["Bei … gab es vermutlich schon …", "Beim Frühmenschen gab es vermutlich schon eine einfache Sprache."],
+      ["Diese Fähigkeiten wirkten zusammen, denn …", "… wer sich absprechen konnte, jagte in der Gruppe besser."]
+    ] } },
+    { "tip": "Nach **weil** steht das Verb am Ende: …, weil es wilde Tiere fern**hielt**. Nach **Dadurch** und **Deshalb** kommt das Verb gleich danach: Dadurch **konnte** er sich wärmen." },
+    { "tip": "Das Wort **jagen** schreibt man mit **t** in der Vergangenheit: Sie **jagten** in Gruppen." },
+    { "p": "Am Ende hilft die **Prüfliste**: Werden drei Fähigkeiten genannt? Wird zu jeder erklärt, wie sie beim Überleben half? Sind Vermutungen und ungefähre Angaben richtig aus dem Buch übernommen?" }
+  ],
+  "exercises": [
+    { "type": "order", "de": "aufrechter Gang → Werkzeuge tragen", "answer": "Der aufrechte Gang ermöglichte das Tragen von Werkzeugen." },
+    { "type": "order", "de": "Steinwerkzeuge → Fleisch schneiden", "answer": "Mithilfe von Steinwerkzeugen konnten die Menschen Fleisch schneiden." },
+    { "type": "order", "de": "Feuer → hält wilde Tiere fern", "answer": "Das Feuer war hilfreich, weil es wilde Tiere fernhielt." },
+    { "type": "order", "de": "Feuer → Wärme → Kälte überstehen", "answer": "Das Feuer wärmte die Menschen. Dadurch überstanden sie die Kälte." },
+    { "type": "order", "de": "Frühmensch → einfache Sprache (nicht ganz sicher)", "answer": "Beim Frühmenschen gab es vermutlich schon eine einfache Sprache." },
+    { "type": "order", "de": "in Gruppen jagen → große Tiere", "answer": "Die Menschen jagten in Gruppen. Deshalb konnten sie große Tiere erlegen." },
+    { "type": "choice", "q": "Die Hände waren frei. ___ konnten die Menschen Werkzeuge tragen.", "options": ["Dadurch", "Weil", "Obwohl", "Aber"], "answer": "Dadurch", "explain": "**Dadurch** zeigt, was möglich wurde." },
+    { "type": "choice", "q": "Die Jagd in Gruppen war hilfreich, ___ man so große Tiere erlegen konnte.", "options": ["weil", "deshalb", "dadurch", "obwohl"], "answer": "weil", "explain": "**weil** nennt den Grund. Das Verb steht am Ende: … erlegen **konnte**." },
+    { "type": "choice", "q": "In der Kaltzeit war es sehr kalt. ___ schützten sich die Menschen mit Fellen.", "options": ["Deshalb", "Weil", "Obwohl", "Wenn"], "answer": "Deshalb", "explain": "**Deshalb** zeigt die Folge." },
+    { "type": "choice", "q": "Diese Fähigkeiten wirkten zusammen, ___ wer sich absprechen konnte, jagte besser.", "options": ["denn", "dadurch", "deshalb", "obwohl"], "answer": "denn", "explain": "**denn** nennt den Grund. Danach bleibt die normale Satzstellung." },
+    { "type": "choice", "q": "Welcher Satz ist richtig geschrieben?", "options": ["Die Neandertaler jagten in Gruppen.", "Die Neandertaler jagden in Gruppen.", "Die Neandertaler jagten in Gruppen zu jagen.", "Die Neandertaler jagte in Gruppen."], "answer": "Die Neandertaler jagten in Gruppen.", "explain": "jagen – sie **jagten**, mit t. Das zweite „zu jagen“ ist schon im Wort jagten drin." },
+    { "type": "choice", "q": "Er konnte mit ___ Händen Sachen tragen.", "options": ["seinen", "sein", "seine", "seiner"], "answer": "seinen", "explain": "mit + Mehrzahl: mit **seinen** Händen." },
+    { "type": "choice", "q": "Welcher Satz erklärt, warum eine Fähigkeit beim Überleben half?", "options": ["Das Feuer hielt wilde Tiere fern, und die Menschen waren sicherer.", "Der Frühmensch nutzte das Feuer.", "Feuer ist heiß.", "Feuer ist rot und gelb."], "answer": "Das Feuer hielt wilde Tiere fern, und die Menschen waren sicherer." },
+    { "type": "choice", "q": "Was fehlt in diesem Text? „Der Frühmensch nutzte das Feuer. Der Neandertaler hatte Waffen. Der Jetztzeitmensch überquerte Meerengen.“", "options": ["Es fehlt, wie das beim Überleben half.", "Es fehlen drei Fähigkeiten.", "Es fehlen die Menschenarten.", "Es fehlt nichts."], "answer": "Es fehlt, wie das beim Überleben half." },
+    { "type": "choice", "q": "Wie viele Fähigkeiten gehören in den Text?", "options": ["drei", "eine", "zehn", "keine"], "answer": "drei" },
+    { "type": "choice", "q": "Was gehört NICHT auf die Prüfliste?", "options": ["Ist der Text besonders lang?", "Werden drei Fähigkeiten genannt?", "Wird erklärt, wie sie beim Überleben halfen?", "Sind Vermutungen richtig übernommen?"], "answer": "Ist der Text besonders lang?" }
+  ]
+}

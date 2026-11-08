@@ -1,10 +1,10 @@
 # Lernwelt
 
-Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch, Mathe, Geographie und Biologie auf einem **Netzplan** wie bei der U-Bahn: Jede Lernlinie ist eine Bahnlinie, jede Einheit eine Station. Für jede Übung gibt es Sterne, dazu Abzeichen, und die Sterne lassen sich gegen **Fahrkarten für Medienzeit** tauschen. Du bestätigst die Tickets im Elternbereich und siehst dort auch den Lernfortschritt.
+Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch, Mathe, Geographie, Biologie, Geschichte und Musik auf einem **Netzplan** wie bei der U-Bahn: Jede Lernlinie ist eine Bahnlinie, jede Einheit eine Station. Für jede Übung gibt es Sterne, dazu Abzeichen, und die Sterne lassen sich gegen **Fahrkarten für Medienzeit** tauschen. Du bestätigst die Tickets im Elternbereich und siehst dort auch den Lernfortschritt.
 
 ## Was drin ist
 
-**Englisch (Klasse 5, Grundlagen): 55 Stationen, gut 1000 Wörter und Aufgaben und der Satz-Trainer mit immer neuen Sätzen**
+**Englisch (Klasse 5, Grundlagen): 58 Stationen, gut 1000 Wörter und Aufgaben und der Satz-Trainer mit immer neuen Sätzen**
 
 Jede Linie hat 3 Stationen und danach den Endbahnhof. So ist eine Linie in ein paar Tagen geschafft, und die Lootbox dafür bleibt in Reichweite. Wörter und Grammatik sind nach Themen gemischt, die zusammenpassen.
 
@@ -13,6 +13,7 @@ Jede Linie hat 3 Stationen und danach den Endbahnhof. So ist eine Linie in ein p
 | Karteikarten-Linie | Die Vokabelkarten aus der Schule: Farben und Dinge, Verben mit „to“, kurze Sätze für jeden Tag |
 | Zimmer-Linie | Weitere Vokabelkarten: Rooms, Kitchen and bathroom, Furniture |
 | Glücks-Linie | Neue Vokabelblätter: You are lucky, Be quiet please, und Wörter aus dem Heft, die schwer zu schreiben sind (seagull, purple, eight …) |
+| Heft-Linie | Aus dem Heft: Family tree (Stammbaum vom Arbeitsblatt, wer ist wessen brother, aunt, cousin …), kurze Antworten (Yes, I am. No, there aren't. No, he can't.), Where is the ball? (die Skizzen mit Kiste und Ball) |
 | Test-Linie | Test No 2 nachgeübt: Schultasche, Farben und Wortgruppen übersetzen; I am – he has (to be und to have für jede Person); Personal pronouns und to be (Emma, Sheree); my/his/her/our/your/their |
 | Satz-Trainer-Linie | Immer neue Sätze statt fester Aufgaben: am/is/are und have got (mit Verneinung und Frage), he/she/it mit -s (plays, watches, flies, has), Do/Does-Fragen und don't/doesn't mit dem Verb ohne -s. Die Sätze baut `server/generators/saetze.js` bei jeder Fahrt neu (über tausend pro Station), auswendig lernen geht also nicht – nur die Regel anwenden. Auch der Grammatik-Blitz nutzt sie. |
 | Hallo-Linie | Begrüßen und Vorstellen, Familie, Fragewörter |
@@ -88,16 +89,34 @@ Die Welt-Linie hat die Stationen Die Kontinente, Kontinente-Wissen, Die Ozeane u
 
 Dazu gibt es den „Welt-Blitz“ und den „Erde-und-Atlas-Blitz“.
 
-**Biologie: Der Hund (2 Linien mit je 3 Stationen + Endbahnhof)**
+**Biologie: Katze, Merkmale des Lebens, Versuche und Hund (5 Linien mit je 3 Stationen + Endbahnhof)**
 
-Passend zum Kapitel „Haustiere“ im Biologiebuch und zu den Arbeitsblättern dazu:
+Passend zum Kapitel „Haustiere“ im Biologiebuch, zu den Arbeitsblättern und zum Test über die Merkmale des Lebens:
 
 | Linie | Stationen |
 |---|---|
+| Katzen-Linie | Die Katze als Schleichjäger (die vier Phasen beim Beutefang), Perfekt angepasst (Krallen, Fangzähne, Augen, Tasthaare), Fortpflanzung der Katzen (Fachwörter, Säugetier richtig begründen, Revier) |
+| Lebewesen-Linie | Merkmale des Lebens, Lebewesen oder nicht? (Maus, Spielzeugmaus, Auto: Bewegung zählt nur, wenn sie selbstständig ist), Reiz und Reaktion (reizbar heißt nicht wütend) |
+| Forscher-Linie | So arbeitet man in der Biologie (Versuchsprotokoll am Kresse-Versuch), Einen Versuch planen (nur eine Sache verändern, Kontrollansatz, vollständige Planung), Diagramme auswerten (Riechschleimhaut und Hyazinthe) |
 | Hund-Linie | Hunde helfen dem Menschen (Blinden-, Spür-, Hüte-, Wachhund, Nasen- und Ohrentier), Das Skelett, Das Gebiss (Zahnarten, Zahnformel, Fleischfressergebiss) |
 | Wolf-Linie | Vom Wolf zum Hund (Rudel, Rangordnung, Körpersprache), Hunderassen und Züchtung, Welpen und Hundehaltung (Säugetier, Nesthocker) |
 
-Beim Skelett und beim Gebiss ist ein Knochen bzw. eine Zahnart auf einer Zeichnung markiert, und dein Kind wählt oder schreibt den Namen. Im „Merke“ sind die Zeichnungen bunt und nummeriert wie im Buch.
+Beim Skelett und beim Gebiss ist ein Knochen bzw. eine Zahnart auf einer Zeichnung markiert, und dein Kind wählt oder schreibt den Namen. Im „Merke“ sind die Zeichnungen bunt und nummeriert wie im Buch. Dazu gibt es den „Hunde-Blitz“ und den „Leben-und-Katzen-Blitz“.
+
+**Geschichte: Quellen, Eiszeit, Höhlenmalerei und Deutschland (6 Linien, 18 Stationen)**
+
+Nach dem Geschichtsheft, dem Buch und dem Test über Zeitstrahl und Quellen:
+
+| Linie | Stationen |
+|---|---|
+| Spurensucher-Linie | Quelle oder Darstellung? (die Leitfrage: Stammt es aus der Zeit, um die es geht?), Welche Quellenart?, Was gehört in welche Epoche? (Zeitstrahl wie im Test, Jahreszahlen an den Übergängen, Funde einordnen) |
+| Eiszeit-Linie | Europa in der Eiszeit (Karte nach dem Buch, Gletscher, Tundra, Steppe, schwierige Wörter aus dem Sachtext), Die Menschen ziehen nach Norden, Evolution (mit Generationen rechnen) |
+| Höhlen-Linie | Warum malten die Menschen?, Sicher oder vermutet? (vermutlich, wahrscheinlich, etwa), Aus Stichworten werden Sätze (Formulierungshilfen, weil, dadurch, deshalb) |
+| Deutschland-Linie | Ein Blick zurück (Familie auf dem Zeitstrahl), Deutschland seit 1871 (vom Kaiserreich bis heute), In welcher Zeit war das? (Jahre einordnen, Dauer rechnen) |
+| Zeitstrahl-Linie | Der Zeitstrahl, Die Epochen, Quellen und Darstellungen |
+| Vorfahren-Linie | Die Menschenarten, Fähigkeiten und Ernährung, Überleben in der Steinzeit |
+
+Der Nationalsozialismus kommt nur als Name und Zeitraum vor, im „Merke“ steht ein kurzer Satz dazu. Die Stationen „Deutschland seit 1871“ und „In welcher Zeit war das?“ sind nicht im Geschichts-Blitz, weil die Zeit nicht in ein Tempo-Spiel passt.
 
 **Weniger Druck, mehr Selbstbestimmung:** Die Lernwelt fordert nicht, sie lädt ein. Die Aufgaben-Überschriften sind Fragen statt Befehle („Was kommt heraus?“ statt „Rechne aus.“). Das Kind wählt die Länge einer Fahrt selbst (3, 5 oder 10 Aufgaben). Kurze Fahrten bringen anteilig weniger Sterne und höchstens 2 als Bewertung, gemeistert und Abstellgleis gibt es nur auf ganzen Fahrten. Aussteigen geht jederzeit: Ab 3 beantworteten Aufgaben zählt das als kurze Fahrt, sonst verfällt die Fahrt ohne Strafe. Abschreiben nach einem Fehler ist ein Angebot, kein Muss. Der Tagesfahrplan heißt „Ideen für heute“.
 

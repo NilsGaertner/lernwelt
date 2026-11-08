@@ -4,10 +4,17 @@
   "icon": "🏺",
   "order": 5,
   "lines": [
+    { "id": "spuren", "name": "Spurensucher-Linie", "short": "Spurensucher", "color": "#1F6F8B" },
+    { "id": "eiszeit", "name": "Eiszeit-Linie", "short": "Eiszeit", "color": "#3F88C5" },
+    { "id": "hoehle", "name": "Höhlen-Linie", "short": "Höhle", "color": "#A0522D" },
+    { "id": "deutschland", "name": "Deutschland-Linie", "short": "Deutschland", "color": "#4A5568" },
     { "id": "zeitstrahl", "name": "Zeitstrahl-Linie", "short": "Zeitstrahl", "color": "#B23A48" },
     { "id": "vorfahren", "name": "Vorfahren-Linie", "short": "Vorfahren", "color": "#7A5C3E" }
   ],
   "blitz": [
-    { "id": "geschichte", "title": "Geschichts-Blitz", "icon": "⚡", "subtitle": "Zeitstrahl, Quellen und frühe Menschen", "types": ["choice"] }
+    {
+      "id": "geschichte", "title": "Geschichts-Blitz", "icon": "⚡", "subtitle": "Zeitstrahl, Quellen, Eiszeit und frühe Menschen", "types": ["choice"],
+      "units": ["quelle-oder-darstellung", "quellenarten", "epochen-eintragen", "eiszeit-klima", "nach-norden", "evolution", "hoehlenmalerei", "sicher-oder-vermutet", "blick-zurueck", "zeitstrahl", "epochen", "quellen", "menschenarten", "faehigkeiten", "ueberleben"]
+    }
   ]
 }

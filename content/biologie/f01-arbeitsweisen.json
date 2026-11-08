@@ -1,0 +1,45 @@
+{
+  "id": "arbeitsweisen",
+  "line": "forschen",
+  "order": 1,
+  "title": "So arbeitet man in der Biologie",
+  "subtitle": "Beobachten und experimentieren",
+  "icon": "🔬",
+  "card": "Merke: Fragestellung – Vermutung – Material – Durchführung – Beobachtung – Deutung.",
+  "explain": [
+    { "table": { "head": ["Arbeitsweise", "Beispiel"], "rows": [
+      ["**Beobachten und beschreiben**: genau hinschauen, auch mit der Lupe, und aufschreiben, was man sieht", "das Aussehen eines Eichenblattes im Sommer"],
+      ["**Experimentieren**: eine Frage mit einem Versuch prüfen", "Können Kressesamen ohne Wasser keimen?"]
+    ] } },
+    { "p": "Einen Versuch schreibt man in einem **Versuchsprotokoll** auf:" },
+    { "table": { "head": ["Teil", "Beispiel Kresse"], "rows": [
+      ["**Fragestellung**: Was will ich herausfinden?", "Können Kressesamen ohne Wasser keimen?"],
+      ["**Vermutung** (Hypothese): Was denke ich vorher?", "Ich vermute, dass Kressesamen Wasser zum Keimen brauchen."],
+      ["**Material**: Was brauche ich?", "2 Schalen, Watte, Wasser, Kressesamen"],
+      ["**Durchführung**: Was mache ich?", "In beide Schalen kommen Watte und Samen. Nur eine Schale bekommt Wasser."],
+      ["**Beobachtung**: Was sehe ich, Tag für Tag?", "Tag 3: Die Keimlinge werden größer, die Blätter sind grün."],
+      ["**Deutung**: Was bedeutet das?", "Kressesamen benötigen Wasser zum Keimen."],
+      ["**Fehleranalyse**: Was könnte das Ergebnis verfälscht haben?", "Die Lichtverhältnisse waren unterschiedlich."]
+    ] } },
+    { "map": "kresse-versuch" },
+    { "tip": "**Beobachtung** ist, was man sieht. **Deutung** ist, was das bedeutet." },
+    { "p": "Noch ein Versuch zum Beobachten: Stellt man eine weiße Rose in Wasser mit Tinte, färbt sich die Blüte nach und nach, weil die Rose das Wasser aufsaugt." }
+  ],
+  "exercises": [
+    { "type": "order", "task": "Welche Reihenfolge stimmt? Was kommt zuerst?", "de": "Die Teile eines Versuchsprotokolls", "answer": "Fragestellung Vermutung Material Durchführung Beobachtung Deutung" },
+    { "type": "choice", "task": "Welcher Teil des Protokolls ist das?", "q": "„Können Kressesamen ohne Wasser keimen?“", "options": ["Fragestellung", "Vermutung", "Material", "Deutung"], "answer": "Fragestellung", "recall": true, "accept": ["Frage", "Aufgabe"] },
+    { "type": "choice", "task": "Welcher Teil des Protokolls ist das?", "q": "„Ich vermute, dass Kressesamen Wasser zum Keimen brauchen.“", "options": ["Vermutung", "Beobachtung", "Durchführung", "Material"], "answer": "Vermutung", "recall": true, "accept": ["Hypothese"] },
+    { "type": "choice", "task": "Welcher Teil des Protokolls ist das?", "q": "„2 Schalen, Watte, Wasser, Kressesamen“", "options": ["Material", "Durchführung", "Beobachtung", "Fragestellung"], "answer": "Material", "recall": true },
+    { "type": "choice", "task": "Welcher Teil des Protokolls ist das?", "q": "„In beide Schalen kommen Watte und Samen. Nur eine Schale bekommt Wasser.“", "options": ["Durchführung", "Material", "Deutung", "Vermutung"], "answer": "Durchführung", "recall": true, "accept": ["Durchfuehrung"] },
+    { "type": "choice", "task": "Welcher Teil des Protokolls ist das?", "q": "„Tag 3: Die Keimlinge werden größer, die Blätter sind grün.“", "options": ["Beobachtung", "Deutung", "Vermutung", "Fragestellung"], "answer": "Beobachtung", "recall": true },
+    { "type": "choice", "task": "Welcher Teil des Protokolls ist das?", "q": "„Kressesamen benötigen Wasser zum Keimen.“", "options": ["Deutung", "Beobachtung", "Material", "Fragestellung"], "answer": "Deutung", "recall": true, "accept": ["Ergebnis", "Auswertung"] },
+    { "type": "choice", "task": "Welcher Teil des Protokolls ist das?", "q": "„Die Lichtverhältnisse waren unterschiedlich.“", "options": ["Fehleranalyse", "Material", "Fragestellung", "Vermutung"], "answer": "Fehleranalyse", "recall": true },
+    { "type": "choice", "q": "Wie heißt die Vermutung mit einem anderen Wort?", "options": ["Hypothese", "Experiment", "Protokoll", "Material"], "answer": "Hypothese", "recall": true },
+    { "type": "choice", "q": "Was macht man beim Beobachten?", "options": ["genau hinschauen und aufschreiben, was man sieht", "raten, was passieren könnte", "die Pflanze abschneiden", "nur etwas zeichnen, was man sich ausdenkt"], "answer": "genau hinschauen und aufschreiben, was man sieht" },
+    { "type": "choice", "q": "Womit kann man kleine Dinge vergrößert ansehen?", "options": ["mit der Lupe", "mit dem Lineal", "mit der Schere", "mit der Waage"], "answer": "mit der Lupe", "recall": true, "accept": ["Lupe", "die Lupe", "Mikroskop"] },
+    { "type": "choice", "q": "Welcher Satz ist eine Beobachtung?", "options": ["Die Samen in der nassen Schale keimen.", "Kressesamen brauchen Wasser zum Keimen.", "Ich vermute, dass Licht nötig ist.", "Können Samen ohne Wasser keimen?"], "answer": "Die Samen in der nassen Schale keimen." },
+    { "type": "choice", "q": "Welcher Satz ist eine Deutung?", "options": ["Kressesamen brauchen Wasser zum Keimen.", "Die Samen in der nassen Schale keimen.", "In der trockenen Schale passiert nichts.", "Am Tag 3 sind die Blätter grün."], "answer": "Kressesamen brauchen Wasser zum Keimen." },
+    { "type": "choice", "q": "Eine weiße Rose steht in Wasser mit blauer Tinte. Was kann man beobachten?", "options": ["Die Blüte färbt sich nach und nach blau.", "Die Rose wird sofort rot.", "Das Wasser wird weiß.", "Gar nichts."], "answer": "Die Blüte färbt sich nach und nach blau.", "explain": "Die Rose saugt das Wasser mit der Tinte auf." },
+    { "type": "input", "q": "Der Text, in dem man einen Versuch aufschreibt, heißt Versuchs___.", "answer": "protokoll", "accept": ["Versuchsprotokoll"] }
+  ]
+}

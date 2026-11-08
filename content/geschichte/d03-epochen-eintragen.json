@@ -1,0 +1,45 @@
+{
+  "id": "epochen-eintragen",
+  "line": "spuren",
+  "order": 3,
+  "title": "Was gehört in welche Epoche?",
+  "subtitle": "Zeitstrahl, Jahreszahlen, Funde",
+  "icon": "🧭",
+  "card": "Merke: Frühgeschichte – **ca. 3000 v. Chr.** – Antike – **ca. 500 n. Chr.** – Mittelalter – **ca. 1500 n. Chr.** – Neuzeit.",
+  "explain": [
+    { "p": "So sieht der Zeitstrahl mit den vier Epochen aus. Die **erste** Epoche ist die **Frühgeschichte**, erst danach kommt die Antike." },
+    { "map": "epochen-luecke", "legend": [["epoche-1", "Frühgeschichte"], ["epoche-2", "Antike"], ["epoche-3", "Mittelalter"], ["epoche-4", "Neuzeit"]] },
+    { "tip": "An jeden Übergang gehört **eine** Jahreszahl mit v. Chr. oder n. Chr.: **ca. 3000 v. Chr.**, **ca. 500 n. Chr.**, **ca. 1500 n. Chr.** „Von–bis“ steht dort nicht." },
+    { "tip": "Die Antike endet **nicht** bei Christi Geburt. Sie geht über die 0 hinaus bis etwa 500 n. Chr." },
+    { "p": "So findest du die Epoche zu einem Fund: Du schaust auf die Jahreszahl und suchst sie auf dem Zeitstrahl." },
+    { "table": { "head": ["Fund", "Epoche"], "rows": [
+      ["Faustkeil, vor etwa 300.000 Jahren", "vor 3000 v. Chr. → **Frühgeschichte**"],
+      ["römische Öllampe, 2. Jahrhundert n. Chr.", "zwischen 3000 v. Chr. und 500 n. Chr. → **Antike**"],
+      ["Gesangbuch, um 1250 n. Chr.", "zwischen 500 und 1500 → **Mittelalter**"],
+      ["Brief, 1900", "nach 1500 → **Neuzeit**"]
+    ] } },
+    { "p": "Das **2. Jahrhundert n. Chr.** sind die Jahre 101 bis 200." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Welche Epoche gehört an die markierte Stelle?", "map": "epochen-luecke", "mark": "epoche-1", "options": ["Frühgeschichte", "Antike", "Mittelalter", "Neuzeit"], "answer": "Frühgeschichte", "recall": true, "accept": ["Fruehgeschichte", "Vorgeschichte", "Urgeschichte"], "explain": "Ganz am Anfang steht die **Frühgeschichte**. Erst danach kommt die Antike." },
+    { "type": "choice", "task": "Welche Epoche gehört an die markierte Stelle?", "map": "epochen-luecke", "mark": "epoche-2", "options": ["Antike", "Frühgeschichte", "Mittelalter", "Neuzeit"], "answer": "Antike", "recall": true },
+    { "type": "choice", "task": "Welche Epoche gehört an die markierte Stelle?", "map": "epochen-luecke", "mark": "epoche-3", "options": ["Mittelalter", "Antike", "Frühgeschichte", "Neuzeit"], "answer": "Mittelalter", "recall": true },
+    { "type": "choice", "task": "Welche Epoche gehört an die markierte Stelle?", "map": "epochen-luecke", "mark": "epoche-4", "options": ["Neuzeit", "Mittelalter", "Antike", "Frühgeschichte"], "answer": "Neuzeit", "recall": true },
+    { "type": "choice", "task": "Welche Jahreszahl gehört an den markierten Übergang?", "map": "epochen-luecke", "mark": "uebergang-1", "options": ["ca. 3000 v. Chr.", "ca. 500 n. Chr.", "ca. 1500 n. Chr.", "ca. 3000 n. Chr."], "answer": "ca. 3000 v. Chr.", "explain": "Hier endet die Frühgeschichte und die Antike beginnt: um **3000 v. Chr.**" },
+    { "type": "choice", "task": "Welche Jahreszahl gehört an den markierten Übergang?", "map": "epochen-luecke", "mark": "uebergang-2", "options": ["ca. 500 n. Chr.", "ca. 3000 v. Chr.", "ca. 1500 n. Chr.", "ca. 500 v. Chr."], "answer": "ca. 500 n. Chr.", "explain": "Hier endet die Antike und das Mittelalter beginnt: um **500 n. Chr.**" },
+    { "type": "choice", "task": "Welche Jahreszahl gehört an den markierten Übergang?", "map": "epochen-luecke", "mark": "uebergang-3", "options": ["ca. 1500 n. Chr.", "ca. 500 n. Chr.", "ca. 3000 v. Chr.", "ca. 1500 v. Chr."], "answer": "ca. 1500 n. Chr.", "explain": "Hier endet das Mittelalter und die Neuzeit beginnt: um **1500 n. Chr.**" },
+    { "type": "order", "task": "Welche Reihenfolge stimmt? Die früheste Epoche zuerst.", "de": "Von früher bis heute", "answer": "Frühgeschichte Antike Mittelalter Neuzeit" },
+    { "type": "choice", "task": "In welche Epoche gehört das?", "q": "Eine römische Öllampe aus dem 2. Jahrhundert n. Chr.", "options": ["Antike", "Mittelalter", "Frühgeschichte", "Neuzeit"], "answer": "Antike", "explain": "Die Antike ging bis etwa 500 n. Chr. Das 2. Jahrhundert liegt davor." },
+    { "type": "choice", "task": "In welche Epoche gehört das?", "q": "Eine Seite aus einem Gesangbuch von etwa 1250 n. Chr.", "options": ["Mittelalter", "Antike", "Neuzeit", "Frühgeschichte"], "answer": "Mittelalter", "explain": "1250 liegt zwischen 500 und 1500 n. Chr., also im **Mittelalter**." },
+    { "type": "choice", "task": "In welche Epoche gehört das?", "q": "Ein Steinwerkzeug aus dem Jahr 5000 v. Chr.", "options": ["Frühgeschichte", "Antike", "Mittelalter", "Neuzeit"], "answer": "Frühgeschichte", "explain": "5000 v. Chr. ist **früher** als 3000 v. Chr. Die Antike hatte noch nicht begonnen." },
+    { "type": "choice", "task": "In welche Epoche gehört das?", "q": "Eine Münze aus dem Jahr 100 v. Chr.", "options": ["Antike", "Frühgeschichte", "Mittelalter", "Neuzeit"], "answer": "Antike", "explain": "„v. Chr.“ heißt nicht gleich Frühgeschichte. Die Antike beginnt schon um 3000 v. Chr." },
+    { "type": "choice", "task": "In welche Epoche gehört das?", "q": "Eine Burg, gebaut im Jahr 1200", "options": ["Mittelalter", "Neuzeit", "Antike", "Frühgeschichte"], "answer": "Mittelalter" },
+    { "type": "choice", "task": "In welche Epoche gehört das?", "q": "Ein Brief aus dem Jahr 1900", "options": ["Neuzeit", "Mittelalter", "Antike", "Frühgeschichte"], "answer": "Neuzeit", "explain": "Die Neuzeit beginnt um 1500. 1900 liegt danach." },
+    { "type": "choice", "q": "Von wann bis wann dauerte die Antike ungefähr?", "options": ["von 3000 v. Chr. bis 500 n. Chr.", "von 3000 v. Chr. bis 0", "von 0 bis 500 n. Chr.", "von 500 bis 1500 n. Chr."], "answer": "von 3000 v. Chr. bis 500 n. Chr." },
+    { "type": "choice", "q": "Von wann bis wann dauerte das Mittelalter ungefähr?", "options": ["von 500 bis 1500 n. Chr.", "von 0 bis 500 n. Chr.", "von 3000 v. Chr. bis 500 n. Chr.", "von 1500 n. Chr. bis heute"], "answer": "von 500 bis 1500 n. Chr." },
+    { "type": "choice", "q": "Wozu dient ein Zeitstrahl?", "options": ["Er zeigt, was wann war und in welcher Reihenfolge.", "Er misst, wie schwer etwas ist.", "Er zeigt, wo ein Ort liegt.", "Er sagt, wer recht hat."], "answer": "Er zeigt, was wann war und in welcher Reihenfolge." },
+    { "type": "input", "q": "Die Antike beginnt ungefähr im Jahr ___ v. Chr.", "answer": "3000", "accept": ["3.000"], "numeric": true },
+    { "type": "input", "q": "Das Mittelalter beginnt ungefähr im Jahr ___ n. Chr.", "answer": "500", "numeric": true },
+    { "type": "input", "q": "Die Neuzeit beginnt ungefähr im Jahr ___ n. Chr.", "answer": "1500", "accept": ["1.500"], "numeric": true }
+  ]
+}
