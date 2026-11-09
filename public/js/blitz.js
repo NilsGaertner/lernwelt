@@ -1,5 +1,6 @@
 import { h, md, gapText, sfx, mapFigure, confetti, rankMeter, guardBack, ask, dialogOpen, closeDialogs } from './ui.js';
 import { api } from './api.js';
+import { W } from './themes.js';
 import { faceOf } from './avatar.js';
 
 /**
@@ -200,14 +201,14 @@ export function runBlitz(root, { childId, subject, topic, lineColor, onExit, onA
       result.plan?.justCompleted
         ? h('section.panel.plan-done',
             h('.stamp', { 'aria-hidden': 'true' }, h('span', '✔'), h('small', 'Erledigt')),
-            h('div', h('h2', '📋 Tagesfahrplan erfüllt!'), h('p', `Stempel Nr. ${result.plan.stamps} für dein Stempelheft.`)))
+            h('div', h('h2', `📋 ${W.say.planDone}`), h('p', `Stempel Nr. ${result.plan.stamps} für dein Stempelheft.`)))
         : null,
       records.runs.length > 1 ? h('section.panel', { style: { textAlign: 'left' } }, h('h2', '📈 Deine letzten Runden'), runChart(records.runs)) : null,
       familyBoard(records.family, childId),
       h('section.panel', { style: { textAlign: 'left' } }, h('h2', `✨ +${result.xp.gained} XP`), rankMeter(result.xp.rank)),
       result.newBadges.length
         ? h('section.panel', h('h2', '🎉 Neues Abzeichen!'),
-            h('.new-badges', result.newBadges.map((x) => h('.badge.pop', h('.medal', x.icon), h('.bname', x.name), h('.bdesc', x.desc)))))
+            h('.new-badges', result.newBadges.map(W.badge).map((x) => h('.badge.pop', h('.medal', x.icon), h('.bname', x.name), h('.bdesc', x.desc)))))
         : null,
       h('.actions',
         h('button.btn.line.big', { type: 'button', onclick: onAgain }, '⚡ Nochmal'),

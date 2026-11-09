@@ -167,6 +167,9 @@ addColumn('sessions', 'boosted', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('sessions', 'parked', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('sessions', 'ride_stars', 'INTEGER');
 addColumn('children', 'train', 'TEXT');
+// Thema des Kindes (public/js/themes.js); theme_locked = 1: nur die Eltern dürfen es ändern
+addColumn('children', 'theme', 'TEXT');
+addColumn('children', 'theme_locked', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('children', 'adult', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('children', 'skin', 'TEXT');
 // Wiederholen mit Abständen: an diesem Tag (YYYY-MM-DD) ist die Aufgabe wieder dran (siehe srs.js)

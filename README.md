@@ -339,6 +339,18 @@ Nach einer Änderung im Elternbereich unter „Lerninhalte“ auf **„Inhalte n
 
 Updates des Images ändern an den eigenen Aufgaben nichts. Ein anderer Ort für den Ordner geht mit der Umgebungsvariablen `CUSTOM_CONTENT_DIR`.
 
+### Themen
+
+Jedes Profil hat ein Thema, einstellbar im Elternbereich beim Profil unter **„Thema“**. Dort lässt sich auch festlegen, ob das Kind selbst wechseln darf (dann in der Sammlung unter „🎨 Thema“). Das Thema ändert Farben, Schrift, Ränge, Abzeichen-Namen und die Wörter. Sterne, Lootboxen und Lernstand bleiben beim Wechsel erhalten.
+
+| Thema | Plan | Linie | Station | Fahrt | Endbahnhof | Abstellgleis |
+|---|---|---|---|---|---|---|
+| 🚆 Bahn | Netzplan | Linie | Station | Fahrt | Endbahnhof | Abstellgleis |
+| ⛏️ Block-Welt | Weltkarte | Biom | Level | Expedition | Schatzkammer | Truhe |
+| 🌿 Ruhig | Lernplan | Kurs | Lektion | Runde | Abschluss | Ablage |
+
+Ein neues Thema steht in `public/js/themes.js` (Wörter mit Geschlecht, Ränge, Symbole) und in `public/css/app.css` im Abschnitt „Themen“ (Farben).
+
 ### Hinweise
 
 - Die Seite ist fürs **Heimnetz** gedacht. Bitte nicht per Portfreigabe ins Internet stellen, denn der Container selbst kann kein HTTPS und es gibt nur eine einfache PIN.

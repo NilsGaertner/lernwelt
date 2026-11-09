@@ -7,6 +7,7 @@ import { lootbox, openedBox, rarityLegend } from './lootbox.js';
 import { faceOf } from './avatar.js';
 import { avatarSvg, PERSONAS } from './avatar-data.js';
 import { companion } from './companion.js';
+import { W, cap, applyTheme, THEMES } from './themes.js';
 
 const app = document.getElementById('app');
 const state = { meta: null };
@@ -14,6 +15,13 @@ const state = { meta: null };
 async function loadMeta(force = false) {
   if (!state.meta || force) state.meta = await api('/meta');
   return state.meta;
+}
+
+/** Lädt die Daten des Kindes und schaltet auf sein Thema um – vor dem Zeichnen, damit Worte und Farben gleich stimmen. */
+async function kidOverview(id) {
+  const ov = await api(`/children/${id}/overview`);
+  applyTheme(ov.child.theme);
+  return ov;
 }
 
 function render(...nodes) {
@@ -53,6 +61,7 @@ async function route() {
   closeDialogs();
   document.querySelectorAll('.sheet, .dock, .card-view').forEach((el) => el.remove());
   const path = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
+  if (!path.startsWith('kid/')) applyTheme();
   for (const [re, fn] of routes) {
     const m = path.match(re);
     if (!m) continue;
@@ -155,8 +164,8 @@ const unitCard = (subject, u, number) => ({
 });
 /** Goldkarte einer ganzen Linie (nach bestandener Endbahnhof-Prüfung). */
 const lineCard = (subject, line) => ({
-  icon: '🏆', title: line.name, color: line.color,
-  text: `Endbahnhof erreicht: Du hast alle Stationen der ${line.name} (${subject.name}) gemeistert!`,
+  icon: '🏆', title: W.lineName(line), color: line.color,
+  text: `${W.say.terminusDone}: Du hast alle ${W.station.p} ${W.lineOf(line)} (${subject.name}) gemeistert!`,
 });
 
 function missionHref(id, m, meta) {
@@ -192,7 +201,7 @@ async function profilesView() {
   render(
     h('section.welcome',
       h('h1', 'Lernwelt'),
-      h('p', children.length ? 'Wer fährt heute mit?' : 'Willkommen!')),
+      h('p', children.length ? 'Wer ist heute dabei?' : 'Willkommen!')),
     children.length
       ? h('.profiles', children.map((c) =>
           h('a.profile', { href: `#/kid/${c.id}` }, h('span.face', { 'aria-hidden': 'true' }, faceOf(c)), h('span.name', c.name))))
@@ -206,7 +215,7 @@ async function profilesView() {
 // ================================================================ Übersicht (Startseite)
 
 async function dashboardView(id) {
-  const [meta, ov] = await Promise.all([loadMeta(), api(`/children/${id}/overview`)]);
+  const [meta, ov] = await Promise.all([loadMeta(), kidOverview(id)]);
   prefs.lastChild = Number(id);
   if (!meta.subjects.length) {
     render(kidBar(ov), h('.empty', 'Es sind noch keine Fächer eingerichtet.'));
@@ -261,8 +270,8 @@ function helloCard(id, ov) {
     h('.hello-text',
       h('h1', `${hi}, ${child.name}!`),
       h('p.muted', ov.plan.done
-        ? 'Dein Fahrplan für heute ist geschafft – stark! 🎉'
-        : ov.week?.count > 1 ? `Diese Woche schon an ${ov.week.count} Tagen dabei – stark!` : 'Schön, dass du da bist. Wohin fährst du heute?'),
+        ? `${cap(W.plan.dein())} für heute ist geschafft – stark! 🎉`
+        : ov.week?.count > 1 ? `Diese Woche schon an ${ov.week.count} Tagen dabei – stark!` : `Schön, dass du da bist. ${W.say.where}`),
       knownLine(ov.known),
       stars),
     cat?.el);
@@ -315,10 +324,10 @@ function subjectCard(id, st, ov) {
       h('span.meter', { role: 'img', 'aria-label': `${st.stars} von ${max} Sternen` },
         h('span', { style: { width: `${max ? (st.stars / max) * 100 : 0}%` } })),
       h('span.sc-meta', `★ ${st.stars} von ${max}`, st.known ? ` · 🧠 ${st.known} sitzen` : '',
-        st.last ? ` · zuletzt ${ago(st.last)}` : ' · noch nicht gefahren'),
+        st.last ? ` · zuletzt ${ago(st.last)}` : ` · noch nicht ${W.say.done}`),
       h('span.sc-next', st.next
-        ? ['Nächster Halt: ', h('strong', `${st.next.icon} ${st.next.title}`)]
-        : st.mastered === st.units ? '🏆 Alles gemeistert!' : '✔ Für heute alles gefahren')),
+        ? [`${W.say.next}: `, h('strong', `${st.next.icon} ${st.next.title}`)]
+        : st.mastered === st.units ? '🏆 Alles gemeistert!' : `✔ Für heute alles ${W.say.done}`)),
     h('span.sc-go', { 'aria-hidden': 'true' }, '›'));
 }
 
@@ -331,7 +340,7 @@ function recentRides(id, meta, ov) {
     .slice(0, 4);
   if (!rides.length) return null;
   return h('section.panel.recent',
-    h('h2', '🕘 Zuletzt gefahren'),
+    h('h2', `🕘 Zuletzt ${W.say.done}`),
     h('ul.recent-list', rides.map(({ s, u, p }) =>
       h('li', h('a', { href: `#/kid/${id}/station/${s.id}/${u.id}`, style: { '--line': lineOf(s, u.line).color } },
         h('span.r-icon', { 'aria-hidden': 'true' }, u.icon),
@@ -353,7 +362,7 @@ function ago(iso) {
 // ================================================================ Fach: Übungen und Netzplan
 
 async function subjectView(id, subjectId) {
-  const [meta, ov] = await Promise.all([loadMeta(), api(`/children/${id}/overview`)]);
+  const [meta, ov] = await Promise.all([loadMeta(), kidOverview(id)]);
   prefs.lastChild = Number(id);
   const subject = meta.subjects.find((s) => s.id === subjectId);
   if (!subject) {
@@ -371,7 +380,7 @@ async function subjectView(id, subjectId) {
       h('span.icon', { 'aria-hidden': 'true' }, subject.icon),
       h('div',
         h('h1', subject.name),
-        h('p', `${st.mastered} von ${st.units} Stationen gemeistert · ★ ${st.stars} von ${st.units * 3}${st.known ? ` · 🧠 ${st.known} sitzen` : ''}`))));
+        h('p', `${st.mastered} von ${st.units} ${W.station.p} gemeistert · ★ ${st.stars} von ${st.units * 3}${st.known ? ` · 🧠 ${st.known} sitzen` : ''}`))));
 
   // Extra-Training als Kacheln nebeneinander: Wiederholen (Gelerntes, das nach ein paar Tagen Pause wieder dran ist),
   // Fehler-Training und die Blitzrunden.
@@ -422,15 +431,15 @@ async function subjectView(id, subjectId) {
               },
                 h('span.stop', { 'aria-hidden': 'true' }),
                 h('span.st-text',
-                  h('span.st-name', `🏁 Endbahnhof`),
-                  h('span.st-sub', exam.passed ? `Bestanden (bestes Ergebnis ${exam.best} %) – nochmal fahren?` : 'Alle Stationen der Linie gemischt.'),
+                  h('span.st-name', `${W.icons.terminus} ${W.terminus.s}`),
+                  h('span.st-sub', exam.passed ? `Bestanden (bestes Ergebnis ${exam.best} %) – ${W.say.again.toLowerCase()}?` : `Alle ${W.station.p} ${W.line.der('gen')} gemischt.`),
                   exam.passed ? null : h('span.st-flag', 'Jetzt offen')),
                 h('span.term-icon', { 'aria-hidden': 'true' }, exam.passed ? '🏆' : '🎯'))
             : h('span.term-locked',
                 h('span.stop', { 'aria-hidden': 'true' }),
                 h('span.st-text',
-                  h('span.st-name', '🔒 Endbahnhof'),
-                  h('span.st-sub', 'Öffnet, wenn alle Stationen mindestens 2 Sterne haben.'))))
+                  h('span.st-name', `🔒 ${W.terminus.s}`),
+                  h('span.st-sub', `Öffnet, wenn alle ${W.station.p} mindestens 2 Sterne haben.`))))
       : null;
     const boostedUnit = (u) => ov.boost?.subject === subject.id && ov.boost.unit === u.id && !progress[u.id]?.parked;
     // Geschafft = 3 Sterne oder Abstellgleis. Zurückgeholte Stationen und Event-Stationen bleiben sichtbar.
@@ -452,8 +461,8 @@ async function subjectView(id, subjectId) {
           h('span.st-text',
             h('span.st-name', `${u.icon} ${u.title}`),
             h('span.st-sub', u.subtitle),
-            u === next ? h('span.st-flag', 'Nächster Halt') : null,
-            p?.parked ? h('span.st-flag.parked', '🅿️ Abstellgleis') : null,
+            u === next ? h('span.st-flag', W.say.next) : null,
+            p?.parked ? h('span.st-flag.parked', `${W.icons.parked} ${W.say.parkedFlag}`) : null,
             p?.retired && !p.parked ? h('span.st-flag.back', `🔄 Noch ${p.extraRides}× mit Sternen`) : null,
             !ov.child.adult && retireAfter > 0 && p?.perfect > 0 && !p.retired
               ? h('span.loot-tag', { title: `An ${p.perfect} von ${retireAfter} Tagen 3 Sterne – dann gibt es eine Lootbox` }, `🎁 ${p.perfect}/${retireAfter}`)
@@ -462,7 +471,7 @@ async function subjectView(id, subjectId) {
           starRow(p?.best ?? 0)));
     }), terminus].filter(Boolean));
     return h('div.line-col', { style: { '--line': line.color } },
-      h('.line-head', h('span.line-pill', line.name),
+      h('.line-head', h('span.line-pill', W.lineName(line)),
         ov.boost?.subject === subject.id && ov.boost.line === line.id ? h('span.boost-tag', '🎉 ×2 Sterne') : null,
         h('span.count', `${doneCount} / ${units.length} gemeistert`)),
       list);
@@ -474,7 +483,7 @@ async function subjectView(id, subjectId) {
     ov.child.adult ? null : boostBanner(id, meta, ov.boost, subject.id),
     continueCard(id, subject, progress),
     training,
-    h('h2.section-title', '🗺️ Netzplan'),
+    h('h2.section-title', `${W.icons.map} ${W.map.s}`),
     map);
 }
 
@@ -487,7 +496,7 @@ function foldToggle(list, key, n) {
   const set = (folded, remember = true) => {
     list.classList.toggle('folded', folded);
     btn.setAttribute('aria-expanded', String(!folded));
-    name.textContent = folded ? `✔ ${n} geschaffte Stationen` : '✔ Geschaffte Stationen ausblenden';
+    name.textContent = folded ? `✔ ${n} geschaffte ${W.station.p}` : `✔ Geschaffte ${W.station.p} ausblenden`;
     sub.textContent = folded ? 'Antippen, um sie zu zeigen' : 'Sie bleiben in deinem Album';
     if (remember) prefs.setFolded(key, folded);
   };
@@ -519,7 +528,7 @@ function continueCard(id, subject, progress) {
     h('span.c-text',
       h('span.c-label', 'Weiter geht’s'),
       h('strong.c-title', u.title),
-      h('span.c-sub', `${subject.icon} ${subject.name} · ${line.name}`)),
+      h('span.c-sub', `${subject.icon} ${subject.name} · ${W.lineName(line)}`)),
     h('span.c-go', { 'aria-hidden': 'true' }, '▶'));
 }
 
@@ -535,8 +544,11 @@ function boostHere(boost, subjectId, lineId, unitId) {
 function boostWhere(meta, boost) {
   const sub = meta.subjects.find((x) => x.id === boost.subject);
   if (!sub) return null;
-  if (boost.unit) return `auf der Station „${sub.units.find((u) => u.id === boost.unit)?.title ?? boost.unit}“`;
-  if (boost.line) return `auf der Linie „${sub.lines.find((l) => l.id === boost.line)?.name ?? boost.line}“`;
+  if (boost.unit) return `${W.station.on} „${sub.units.find((u) => u.id === boost.unit)?.title ?? boost.unit}“`;
+  if (boost.line) {
+    const line = sub.lines.find((l) => l.id === boost.line);
+    return `${W.line.on} „${line ? W.lineName(line) : boost.line}“`;
+  }
   return `in ${sub.name}`;
 }
 
@@ -546,11 +558,11 @@ function boostBanner(id, meta, boost, currentSubject) {
   const where = boostWhere(meta, boost);
   const time = new Date(boost.until).toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
   const text = boost.once
-    ? `🎉 Deine nächste Fahrt${where ? ` ${where}` : ''} bringt doppelte Sterne!`
-    : `🎉 Doppelte Sterne${where ? ` ${where}` : ''}! Jede Fahrt${where ? ' dort' : ''}, die du bis ${time} Uhr startest, bringt doppelt so viele Sterne.`;
+    ? `🎉 ${cap(W.ride.dein('nom', 'nächst'))}${where ? ` ${where}` : ''} bringt doppelte Sterne!`
+    : `🎉 Doppelte Sterne${where ? ` ${where}` : ''}! ${cap(W.ride.jed())}${where ? ' dort' : ''}, ${W.ride.art('der', 'acc')} du bis ${time} Uhr startest, bringt doppelt so viele Sterne.`;
   const href = boost.unit ? `#/kid/${id}/station/${boost.subject}/${boost.unit}`
     : boost.subject && boost.subject !== currentSubject ? `#/kid/${id}/s/${boost.subject}` : null;
-  return h('p.boost-note', text, href ? [' ', h('a', { href }, 'Hinfahren →')] : null);
+  return h('p.boost-note', text, href ? [' ', h('a', { href }, `${W.say.goThere} →`)] : null);
 }
 
 // ================================================================ Aufgaben-Werkstatt
@@ -571,7 +583,7 @@ function werkstattCard(id, ov) {
 }
 
 async function werkstattView(id) {
-  const [ov, w] = await Promise.all([api(`/children/${id}/overview`), api(`/children/${id}/werkstatt`)]);
+  const [ov, w] = await Promise.all([kidOverview(id), api(`/children/${id}/werkstatt`)]);
   const reload = () => werkstattView(id);
   const adult = !!ov.child.adult;
 
@@ -657,7 +669,7 @@ async function werkstattView(id) {
 
 async function stationView(id, subjectId, unitId) {
   const [meta, ov, unit, { next }] = await Promise.all([
-    loadMeta(), api(`/children/${id}/overview`), api(`/subjects/${subjectId}/units/${unitId}`), api(`/children/${id}/next/${subjectId}/${unitId}`),
+    loadMeta(), kidOverview(id), api(`/subjects/${subjectId}/units/${unitId}`), api(`/children/${id}/next/${subjectId}/${unitId}`),
   ]);
   const subject = meta.subjects.find((s) => s.id === subjectId);
   const line = lineOf(subject, unit.line);
@@ -667,13 +679,13 @@ async function stationView(id, subjectId, unitId) {
   const retireAfter = ov.settings.retireAfter;
   const sign = h('header.sign',
     h('span.icon', { 'aria-hidden': 'true' }, unit.icon),
-    h('div', h('h1', unit.title), h('p', `${unit.subtitle} · ${line.name}`)));
+    h('div', h('h1', unit.title), h('p', `${unit.subtitle} · ${W.lineName(line)}`)));
 
   if (p?.archived) {
     render(kidBar(ov), h('div', { style: { '--line': line.color } },
-      h('a.back', { href: mapHash }, '← Zum Netzplan'),
+      h('a.back', { href: mapHash }, `← ${W.map.zu}`),
       sign,
-      h('p.parked-note', '🚧 Diese Station ist gerade außer Betrieb.')));
+      h('p.parked-note', `🚧 ${cap(W.station.dies())} ist gerade ${W.say.closed}.`)));
     return;
   }
 
@@ -682,28 +694,28 @@ async function stationView(id, subjectId, unitId) {
   // Heute schon geschafft oder auf dem Abstellgleis: lieber weiter zum nächsten Halt
   const moveOn = nextHref && (p?.parked || (p?.today > 0 && p.best >= 2));
   const status = p?.parked
-    ? h('p.parked-note', '🅿️ Abstellgleis: Diese Station hast du oft genug mit 3 Sternen geschafft. Hier gibt es keine Sterne mehr – üben darfst du trotzdem.')
+    ? h('p.parked-note', `${W.icons.parked} ${W.say.parkedFlag}: ${cap(W.station.dies('acc'))} hast du oft genug mit 3 Sternen geschafft. Hier gibt es keine Sterne mehr – üben darfst du trotzdem.`)
     : p?.retired
-      ? h('p.parked-note.back', `🔄 Deine Eltern haben diese Station zurückgeholt: ${p.extraRides === 1 ? 'Die nächste Fahrt bringt' : `Die nächsten ${p.extraRides} Fahrten bringen`} wieder Sterne.`)
+      ? h('p.parked-note.back', `🔄 Deine Eltern haben ${W.station.dies('acc')} zurückgeholt: ${p.extraRides === 1 ? `${cap(W.ride.der('nom', 'nächst'))} bringt` : `Die nächsten ${p.extraRides} ${W.ride.p} bringen`} wieder Sterne.`)
       : !ov.child.adult && retireAfter > 0
         ? h('p.loot-progress',
-            `🎁 An ${p?.perfect ?? 0} von ${retireAfter} Tagen 3 Sterne. Schaffst du sie an ${retireAfter} verschiedenen Tagen, kommt die Station aufs Abstellgleis, und du bekommst eine Lootbox.`,
-            p?.perfectToday ? ' Heute hat hier schon eine Fahrt gezählt – an einem anderen Tag zählt die nächste.' : '')
+            `🎁 An ${p?.perfect ?? 0} von ${retireAfter} Tagen 3 Sterne. Schaffst du ${W.station.pronAcc} an ${retireAfter} verschiedenen Tagen, kommt ${W.station.der()} ${W.say.parkedTo}, und du bekommst eine Lootbox.`,
+            p?.perfectToday ? ` Heute hat hier schon ${W.ride.ein()} gezählt – an einem anderen Tag zählt ${W.ride.art('der', 'nom')} nächste.` : '')
         : null;
 
   const page = h('div', { style: { '--line': line.color } },
-    h('a.back', { href: mapHash }, '← Zum Netzplan'),
+    h('a.back', { href: mapHash }, `← ${W.map.zu}`),
     sign,
     !ov.child.adult && !p?.parked && boostHere(ov.boost, subjectId, unit.line, unitId)
-      ? h('p.boost-note', ov.boost.once ? '🎉 Deine nächste Fahrt hier bringt doppelte Sterne!' : '🎉 Hier gibt es gerade doppelte Sterne!')
+      ? h('p.boost-note', ov.boost.once ? `🎉 ${cap(W.ride.dein('nom', 'nächst'))} hier bringt doppelte Sterne!` : '🎉 Hier gibt es gerade doppelte Sterne!')
       : null,
     h('.record',
       starRow(p?.best ?? 0),
-      h('span', p?.runs ? `${p.runs}× gefahren · im Schnitt ${p.avg} % richtig` : 'Hier warst du noch nie – los geht’s!')),
+      h('span', p?.runs ? `${p.runs}× ${W.say.done} · im Schnitt ${p.avg} % richtig` : 'Hier warst du noch nie – los geht’s!')),
     status,
     moveOn
       ? h('p.next-note',
-          p.parked ? 'Neue Sterne gibt es beim nächsten Halt: ' : 'Hier warst du heute schon. Beim nächsten Halt gibt es wieder volle Sterne: ',
+          p.parked ? `Neue Sterne gibt es ${W.say.nextDat}: ` : `Hier warst du heute schon. ${cap(W.say.nextDat)} gibt es wieder volle Sterne: `,
           h('a', { href: nextHref }, `${next.icon} ${next.title}${otherSubject} →`))
       : null,
     unit.explain.length
@@ -711,7 +723,7 @@ async function stationView(id, subjectId, unitId) {
       : null,
     unit.vocab.length
       ? h('section.panel',
-          h('h2', `📖 Wörter dieser Station (${unit.vocab.length})`),
+          h('h2', `📖 Wörter ${W.station.dies('gen')} (${unit.vocab.length})`),
           h('ul.vocab-list', unit.vocab.map((v) =>
             h('li',
               subject.speechLang && canSpeak()
@@ -726,10 +738,10 @@ async function stationView(id, subjectId, unitId) {
   // Kleine Stationen ohne Wörter haben eine kürzere ganze Fahrt (rideCap, z. B. die Kontinente: 7) – der Knopf für die
   // ganze Fahrt zeigt dann diese Zahl.
   const most = unit.rideCap ? Math.min(n, unit.rideCap) : n;
-  const rideLabel = () => (moveOn ? '🔁 Nochmal' : `🚆 Losfahren · ${Math.min(prefs.rideLength ?? n, most)} Aufgaben`);
+  const rideLabel = () => (moveOn ? '🔁 Nochmal' : `${W.icons.ride} ${W.say.start} · ${Math.min(prefs.rideLength ?? n, most)} Aufgaben`);
   const lengths = [...new Set([3, 5, n])].filter((x) => x === n || x < most);
   const lenNote = h('span.len-note');
-  const lenPick = h('.ride-length', { role: 'radiogroup', 'aria-label': 'Wie lang soll die Fahrt sein?' },
+  const lenPick = h('.ride-length', { role: 'radiogroup', 'aria-label': `Wie lang soll ${W.ride.der()} sein?` },
     h('span.len-label', 'Wie lang?'),
     lengths.map((x) => h('button', {
       type: 'button', role: 'radio', 'data-len': x,
@@ -758,7 +770,7 @@ async function stationView(id, subjectId, unitId) {
   const dock = h('.dock', { style: { '--line': line.color } },
     p?.parked || ov.child.adult ? null : lenPick,
     h('.dock-inner',
-      moveOn ? h('a.btn.line.big', { href: nextHref }, '🚉 Nächster Halt →') : null,
+      moveOn ? h('a.btn.line.big', { href: nextHref }, `${W.icons.next} ${W.say.next} →`) : null,
       ride));
 
   render(kidBar(ov), page);
@@ -767,20 +779,23 @@ async function stationView(id, subjectId, unitId) {
 
 // ================================================================ Sammlung: Rang & Züge, Album, Stempelheft, Abzeichen
 
-const TABS = [
-  ['rang', '🚂 Rang & Züge'],
+const collectionTabs = (ov) => [
+  ['rang', `${W.icons.tab} Rang & ${W.item.p}`],
   ['album', '🃏 Album'],
   ['avatar', '🐱 Companion'],
   ['stempel', '🔖 Stempel'],
   ['abzeichen', '🏅 Abzeichen'],
+  // Haben die Eltern das Thema festgelegt, gibt es hier nichts zu wählen.
+  ...(ov.child.theme_locked ? [] : [['thema', '🎨 Thema']]),
 ];
 
 async function collectionView(id, tab) {
-  const [meta, ov] = await Promise.all([loadMeta(), api(`/children/${id}/overview`)]);
-  if (!TABS.some(([t]) => t === tab)) tab = 'rang';
-  const nav = h('nav.subject-tabs', { 'aria-label': 'Sammlung' }, TABS.map(([t, label]) =>
+  const [meta, ov] = await Promise.all([loadMeta(), kidOverview(id)]);
+  const tabs = collectionTabs(ov);
+  if (!tabs.some(([t]) => t === tab)) tab = 'rang';
+  const nav = h('nav.subject-tabs', { 'aria-label': 'Sammlung' }, tabs.map(([t, label]) =>
     h('a', { href: `#/kid/${id}/sammlung/${t}`, 'aria-current': t === tab ? 'page' : null }, label)));
-  const body = { rang: rankPanel, album: albumPanel, avatar: avatarPanel, stempel: stampPanel, abzeichen: badgePanel }[tab](id, meta, ov);
+  const body = { rang: rankPanel, album: albumPanel, avatar: avatarPanel, stempel: stampPanel, abzeichen: badgePanel, thema: themePanel }[tab](id, meta, ov);
   render(kidBar(ov), nav, ...[body].flat());
 }
 
@@ -810,7 +825,7 @@ function avatarPanel(id, meta, ov) {
       hero?.el,
       h('div',
         h('h2', persona ? `Dein Companion: ${persona.trait}` : 'Dein Companion'),
-        h('p.muted', 'Diese Katze begleitet dich bei jeder Fahrt und freut sich mit dir über richtige Antworten.'),
+        h('p.muted', `Diese Katze begleitet dich bei ${W.ride.jed('dat')} und freut sich mit dir über richtige Antworten.`),
         persona ? h('p', persona.about) : null,
         h('p.muted.small', 'Tipp sie an! Such dir eine Katze und einen Skin aus.'))),
     h('section.panel',
@@ -823,25 +838,25 @@ function avatarPanel(id, meta, ov) {
       }))),
     h('section.panel',
       h('h2', `🎩 Skins (${owned.length} von ${skins.length})`),
-      h('p.muted', 'Skins findest du, wenn du einen Endbahnhof zum ersten Mal schaffst. Manche gibt es nur als Geschenk.'),
+      h('p.muted', `Skins findest du, wenn du ${W.terminus.ein('acc')} zum ersten Mal schaffst. Manche gibt es nur als Geschenk.`),
       h('.trains', [
         pick('Ohne Skin', avatarSvg(base), () => change({ skin: '' }), !ov.child.skin, false, !ov.child.skin ? 'Getragen' : 'Ausziehen'),
         ...skins.map((s) => {
           const has = owned.includes(s.id);
           const current = ov.child.skin === s.id;
           return pick(has ? s.name : '???', avatarSvg(base, s.id), () => change({ skin: s.id }), current, !has,
-            current ? 'Getragen' : has ? 'Anziehen' : s.pool === 'line' ? 'Endbahnhof schaffen' : 'Besonderer Anlass');
+            current ? 'Getragen' : has ? 'Anziehen' : s.pool === 'line' ? `${W.terminus.s} schaffen` : 'Besonderer Anlass');
         }),
       ])),
   ];
 }
 
 function rankPanel(id, meta, ov) {
-  const pick = async (train) => {
+  const pick = async (level, train) => {
     try {
-      await api(`/children/${id}/train`, { method: 'POST', body: { train } });
+      await api(`/children/${id}/train`, { method: 'POST', body: { level } });
       sfx.right();
-      toast(`${train} ist jetzt dein Zug!`);
+      toast(`${train} ist jetzt ${W.item.dein()}!`);
       collectionView(id, 'rang');
     } catch (err) {
       toast(err.message);
@@ -851,10 +866,10 @@ function rankPanel(id, meta, ov) {
     h('section.panel',
       h('h2', `⭐ Dein Rang (${ov.rank.level} von ${ov.ranks.length})`),
       rankMeter(ov.rank),
-      h('p.muted.small', 'XP gibt es für jede richtige Antwort (10 XP), für jeden Fahrplan-Stempel (50 XP) und für jeden Endbahnhof (100 XP).')),
+      h('p.muted.small', `XP gibt es für jede richtige Antwort (10 XP), für jeden ${W.plan.s}-Stempel (50 XP) und für ${W.terminus.jed('acc')} (100 XP).`)),
     h('section.panel',
-      h('h2', '🚉 Dein Zug'),
-      h('p.muted', 'Mit diesem Zug fährst du durch die Übungen. Jeder neue Rang schaltet einen neuen Zug frei.'),
+      h('h2', `${W.icons.next} ${cap(W.item.dein())}`),
+      h('p.muted', `Mit ${W.item.dies('dat')} ${W.say.through}. Jeder neue Rang schaltet ${W.item.ein('acc', 'neu')} frei.`),
       h('.trains', ov.ranks.map((r, i) => {
         const unlocked = ov.trains.includes(r.train);
         const current = ov.train === r.train;
@@ -863,11 +878,11 @@ function rankPanel(id, meta, ov) {
           class: [unlocked ? '' : 'locked', current ? 'current' : ''].filter(Boolean).join(' '),
           disabled: !unlocked || current,
           'aria-pressed': String(current),
-          onclick: () => pick(r.train),
+          onclick: () => pick(i + 1, r.train),
         },
           h('span.t-emoji', { 'aria-hidden': 'true' }, unlocked ? r.train : '🔒'),
           h('span.t-name', r.name),
-          h('span.t-sub', current ? 'Dein Zug' : unlocked ? 'Auswählen' : `ab ${r.min} XP`));
+          h('span.t-sub', current ? cap(W.item.dein()) : unlocked ? 'Auswählen' : `ab ${r.min} XP`));
       }))),
   ];
 }
@@ -893,10 +908,10 @@ function albumPanel(id, meta, ov) {
         if (exam?.passed) owned++;
         const gold = albumCard({
           ...lineCard(subject, line), owned: !!exam?.passed, gold: true,
-          hint: 'Besteh die Endbahnhof-Prüfung dieser Linie, dann bekommst du die Goldkarte.',
+          hint: `Besteh die ${W.say.exam} ${W.line.dies('gen')}, dann bekommst du die Goldkarte.`,
         });
         return h('div.album-line', { style: { '--line': line.color } },
-          h('h3.line-pill', line.name),
+          h('h3.line-pill', W.lineName(line)),
           h('.album', gold, cards));
       }),
       formerGold(subject, ov.lines[subject.id] ?? {}, () => { owned++; total++; }));
@@ -904,7 +919,7 @@ function albumPanel(id, meta, ov) {
   return [
     h('section.panel',
       h('h2', `🃏 Sammelalbum – ${owned} von ${total} Karten`),
-      h('p.muted', 'Für jede Station, die du mit 3 Sternen schaffst, bekommst du eine Karte. Für jeden Endbahnhof gibt es eine Goldkarte.'),
+      h('p.muted', `Für ${W.station.jed('acc')}, ${W.station.art('der', 'acc')} du mit 3 Sternen schaffst, bekommst du eine Karte. Für ${W.terminus.jed('acc')} gibt es eine Goldkarte.`),
       h('.meter', h('span', { style: { width: `${total ? (owned / total) * 100 : 0}%` } }))),
     ...sections,
   ];
@@ -916,11 +931,34 @@ function formerGold(subject, status, count) {
   if (!passed.length) return null;
   passed.forEach(count);
   return h('div.album-line', { style: { '--line': '#8A6D1F' } },
-    h('h3.line-pill', 'Frühere Linien'),
+    h('h3.line-pill', `Frühere ${W.line.p}`),
     h('.album', passed.map((line) => albumCard({ ...lineCard(subject, line), owned: true, gold: true }))));
 }
 
 /** Kleine Karte im Album; antippen zeigt sie groß. */
+function themePanel(id, meta, ov) {
+  const pick = async (theme) => {
+    try {
+      await api(`/children/${id}/theme`, { method: 'POST', body: { theme } });
+      sfx.right();
+      collectionView(id, 'thema');
+    } catch (err) {
+      toast(err.message);
+    }
+  };
+  return h('section.panel',
+    h('h2', '🎨 Wie soll deine Lernwelt aussehen?'),
+    h('p.muted', 'Du kannst jederzeit wechseln. Deine Sterne und alles, was du gesammelt hast, bleiben.'),
+    h('.trains', Object.values(THEMES).map((t) =>
+      h('button.train-pick', {
+        type: 'button', class: t.id === W.id ? 'current' : '', disabled: t.id === W.id, 'aria-pressed': String(t.id === W.id),
+        onclick: () => pick(t.id),
+      },
+        h('span.t-emoji', { 'aria-hidden': 'true' }, t.icon),
+        h('span.t-name', t.name),
+        h('span.t-sub', t.id === W.id ? 'Gerade an' : t.desc)))));
+}
+
 function albumCard(data) {
   return h('button.card-btn', {
     type: 'button',
@@ -956,7 +994,7 @@ function stampPanel(id, meta, ov) {
     h('section.panel',
       h('h2', `📅 Deine Wochenkarte – ${ov.week.count} von 7 Tagen`),
       weekStrip(ov.week, { big: true }),
-      h('p', `Ein Tag kommt auf deine Wochenkarte, wenn du an ihm mindestens ${ov.week.minStars} ★ mit Fahrten verdienst (Boni zählen nicht mit). Die Tage müssen nicht hintereinander sein. Für jeden Tag gibt es Bonuszeit:`),
+      h('p', `Ein Tag kommt auf deine Wochenkarte, wenn du an ihm mindestens ${ov.week.minStars} ★ mit ${W.ride.pDat} verdienst (Boni zählen nicht mit). Die Tage müssen nicht hintereinander sein. Für jeden Tag gibt es Bonuszeit:`),
       h('ul',
         h('li', '1. Tag der Woche: der Start'),
         h('li', '2. bis 4. Tag: je 5 Minuten'),
@@ -973,9 +1011,9 @@ function badgePanel(id, meta, ov) {
       h('p.muted', 'Für jedes neue Abzeichen bekommst du 6 Extra-Sterne.')),
     h('.badges', meta.badges.map((b) =>
       h('.badge', { class: earned.has(b.id) ? '' : 'locked' },
-        h('.medal', { 'aria-hidden': 'true' }, b.icon),
-        h('.bname', b.name),
-        h('.bdesc', b.desc),
+        h('.medal', { 'aria-hidden': 'true' }, W.badge(b).icon),
+        h('.bname', W.badge(b).name),
+        h('.bdesc', W.badge(b).desc),
         earned.has(b.id) ? h('.bdesc', `✓ ${new Date(earned.get(b.id)).toLocaleDateString('de-DE')}`) : null))),
   ];
 }
@@ -983,7 +1021,7 @@ function badgePanel(id, meta, ov) {
 // ================================================================ Blitzrunde
 
 async function blitzView(id, subjectId, topicId) {
-  const [meta, ov, rec] = await Promise.all([loadMeta(), api(`/children/${id}/overview`), api(`/children/${id}/blitz/${subjectId}/${topicId}`)]);
+  const [meta, ov, rec] = await Promise.all([loadMeta(), kidOverview(id), api(`/children/${id}/blitz/${subjectId}/${topicId}`)]);
   const subject = meta.subjects.find((s) => s.id === subjectId);
   const color = subject?.lines[0]?.color ?? '#D9631E';
   const backHash = `#/kid/${id}/s/${subjectId}`;
@@ -998,7 +1036,7 @@ async function blitzView(id, subjectId, topicId) {
   render(
     kidBar(ov),
     h('div', { style: { '--line': color } },
-      h('a.back', { href: backHash }, '← Zum Netzplan'),
+      h('a.back', { href: backHash }, `← ${W.map.zu}`),
       h('header.sign',
         h('span.icon', { 'aria-hidden': 'true' }, rec.topic.icon),
         h('div', h('h1', rec.topic.title), h('p', rec.topic.subtitle || subject?.name))),
@@ -1015,12 +1053,12 @@ async function blitzView(id, subjectId, topicId) {
 // ================================================================ Lootboxen
 
 async function boxesView(id) {
-  const ov = await api(`/children/${id}/overview`);
+  const ov = await kidOverview(id);
   const { closed, opened } = ov.lootboxes;
   const retireAfter = ov.settings.retireAfter;
   const how = retireAfter > 0
-    ? `Eine Lootbox bekommst du, wenn du eine Station an ${retireAfter} verschiedenen Tagen mit 3 Sternen schaffst (dann kommt sie aufs Abstellgleis), wenn du zum ersten Mal den Endbahnhof einer Linie bestehst und am 5. Tag einer Woche auf deiner Wochenkarte. Manchmal schenken dir auch deine Eltern eine.`
-    : 'Eine Lootbox bekommst du, wenn du zum ersten Mal den Endbahnhof einer Linie bestehst und am 5. Tag einer Woche auf deiner Wochenkarte. Manchmal schenken dir auch deine Eltern eine.';
+    ? `Eine Lootbox bekommst du, wenn du ${W.station.ein('acc')} an ${retireAfter} verschiedenen Tagen mit 3 Sternen schaffst (dann kommt ${W.station.Pron.toLowerCase()} ${W.say.parkedTo}), wenn du zum ersten Mal ${W.terminus.der('acc')} ${W.line.ein('gen')} bestehst und am 5. Tag einer Woche auf deiner Wochenkarte. Manchmal schenken dir auch deine Eltern eine.`
+    : `Eine Lootbox bekommst du, wenn du zum ersten Mal ${W.terminus.der('acc')} ${W.line.ein('gen')} bestehst und am 5. Tag einer Woche auf deiner Wochenkarte. Manchmal schenken dir auch deine Eltern eine.`;
   render(
     kidBar(ov),
     h('section.panel',
@@ -1040,7 +1078,7 @@ async function boxesView(id) {
 const STATUS = { pending: 'wartet auf OK', approved: 'genehmigt', rejected: 'abgelehnt', cancelled: 'zurückgegeben' };
 
 async function ticketsView(id) {
-  const ov = await api(`/children/${id}/overview`);
+  const ov = await kidOverview(id);
   const { minutesPerStar, ticketMinutes } = ov.settings;
 
   const buy = async (minutes, stars) => {
