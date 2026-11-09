@@ -69,9 +69,8 @@ const CONTRACTIONS = [
 ];
 
 /** Vereinheitlicht eine Antwort für den Vergleich. */
-export function normalize(s, { expand = true } = {}) {
-  let t = String(s ?? '')
-    .toLowerCase()
+export function normalize(s, { expand = true, keepCase = false } = {}) {
+  let t = (keepCase ? String(s ?? '') : String(s ?? '').toLowerCase())
     .replace(/[’‘`´]/g, "'")
     .replace(/[„“”"]/g, '')
     .replace(/[-–]/g, ' ')

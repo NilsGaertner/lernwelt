@@ -1,0 +1,33 @@
+{
+  "id": "eu-oder-aeu",
+  "line": "verwandte",
+  "order": 2,
+  "title": "eu oder äu?",
+  "subtitle": "Haus – Häuser",
+  "icon": "🏠",
+  "explain": [
+    { "p": "**eu** und **äu** klingen gleich. Auch hier hilft ein verwandtes Wort." },
+    { "tip": "Gibt es ein verwandtes Wort mit **au**? Dann schreibt man **äu**: Haus – H**äu**ser." },
+    { "table": { "head": ["Verwandtes Wort mit au", "Schreibweise"], "rows": [["das Haus", "die H**äu**ser"], ["die Maus", "die M**äu**se"], ["der Baum", "die B**äu**me"], ["laufen", "er l**äu**ft"]] }},
+    { "p": "Gibt es kein verwandtes Wort mit **au**, schreibt man **eu**: heute, neu, Freund, Feuer." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die H___ser", "options": ["eu", "äu"], "answer": "äu", "explain": "das Haus – die Häuser" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die M___se", "options": ["eu", "äu"], "answer": "äu", "explain": "die Maus – die Mäuse" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die B___me", "options": ["eu", "äu"], "answer": "äu", "explain": "der Baum – die Bäume" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "er l___ft", "options": ["eu", "äu"], "answer": "äu", "explain": "laufen – er läuft" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die R___me", "options": ["eu", "äu"], "answer": "äu", "explain": "der Raum – die Räume" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Tr___me", "options": ["eu", "äu"], "answer": "äu", "explain": "der Traum – die Träume" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "h___te", "options": ["eu", "äu"], "answer": "eu", "explain": "Es gibt kein verwandtes Wort mit au." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "n___", "options": ["eu", "äu"], "answer": "eu", "explain": "Es gibt kein verwandtes Wort mit au." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Fr___nd", "options": ["eu", "äu"], "answer": "eu", "explain": "Es gibt kein verwandtes Wort mit au." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das F___er", "options": ["eu", "äu"], "answer": "eu", "explain": "Es gibt kein verwandtes Wort mit au." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die L___te", "options": ["eu", "äu"], "answer": "eu", "explain": "Es gibt kein verwandtes Wort mit au." },
+    { "type": "input", "task": "Welches Wort passt hier?", "q": "die Häuser – das ___", "answer": "Haus" },
+    { "type": "input", "task": "Welches Wort passt hier?", "q": "die Mäuse – die ___", "answer": "Maus" },
+    { "type": "input", "task": "Welches Wort passt hier?", "q": "die Bäume – der ___", "answer": "Baum" },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "In unserer Straße stehen alte ___.", "answer": "Häuser", "say": true, "explain": "das Haus – die Häuser" },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Die Katze jagt zwei ___.", "answer": "Mäuse", "say": true, "explain": "die Maus – die Mäuse" },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Mein bester ___ wohnt nebenan.", "answer": "Freund", "say": true }
+  ]
+}

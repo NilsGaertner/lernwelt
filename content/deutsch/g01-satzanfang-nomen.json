@@ -1,0 +1,32 @@
+{
+  "id": "satzanfang-nomen",
+  "line": "gross",
+  "order": 1,
+  "title": "Satzanfänge und Nomen",
+  "subtitle": "Was schreibt man groß?",
+  "icon": "🔠",
+  "explain": [
+    { "p": "Groß schreibt man zwei Dinge: das **erste Wort im Satz** und alle **Nomen**." },
+    { "table": { "head": ["Was?", "Beispiel"], "rows": [["Satzanfang", "**Heute** habe ich große Freude."], ["Nomen", "Der kleine **Hund** schläft."]] }},
+    { "tip": "Die Nomen-Probe: Passt **der, die** oder **das** davor? Dann ist es ein Nomen: der Hund, die Tasche, das Spiel." },
+    { "p": "Auch Dinge, die man nicht anfassen kann, sind Nomen: die **Freude**, der **Mut**, die **Zeit**." },
+    { "p": "Wörter, die sagen, **wie** etwas ist, bleiben klein – auch direkt vor einem Nomen: der **kleine** Hund, ein **mutiger** Junge." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Groß oder klein?", "q": "Der kleine ___ schläft.", "options": ["Hund", "hund"], "answer": "Hund", "explain": "**der** Hund – ein Nomen, also groß.", "recall": "Was hörst du? Wie schreibt man das fehlende Wort?", "say": true },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Heute habe ich große ___.", "options": ["Freude", "freude"], "answer": "Freude", "explain": "**die** Freude – auch Gefühle sind Nomen.", "recall": "Was hörst du? Wie schreibt man das fehlende Wort?", "say": true },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Ein ___ Junge hilft.", "options": ["mutiger", "Mutiger"], "answer": "mutiger", "explain": "Das Wort sagt, **wie** der Junge ist. Das Nomen ist **Junge**." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Wir sehen eine ___ Katze.", "options": ["schwarze", "Schwarze"], "answer": "schwarze", "explain": "Wie ist die Katze? Das Nomen ist **Katze**." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Mia trägt einen roten ___.", "options": ["Rucksack", "rucksack"], "answer": "Rucksack", "explain": "**der** Rucksack – ein Nomen." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "___ scheint die Sonne.", "options": ["Heute", "heute"], "answer": "Heute", "explain": "Das erste Wort im Satz schreibt man groß." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Der Zug ist sehr ___.", "options": ["schnell", "Schnell"], "answer": "schnell", "explain": "Wie ist der Zug? Das Wort beschreibt und bleibt klein." },
+    { "type": "choice", "q": "Welches Wort ist ein Nomen?", "options": ["Freude", "schnell", "laufen", "heute"], "answer": "Freude", "explain": "Passt **die** davor? die Freude." },
+    { "type": "choice", "q": "Welches Wort ist **kein** Nomen?", "options": ["mutig", "Junge", "Mut", "Wald"], "answer": "mutig", "explain": "der Junge, der Mut, der Wald – aber nicht „der mutig“." },
+    { "type": "choice", "task": "Welcher Satz ist richtig geschrieben?", "options": ["Am Morgen gehe ich in die Schule.", "am Morgen gehe ich in die Schule.", "Am morgen gehe ich in die Schule.", "Am Morgen gehe ich in die schule."], "answer": "Am Morgen gehe ich in die Schule.", "explain": "Satzanfang groß, und **der Morgen** und **die Schule** sind Nomen." },
+    { "type": "choice", "task": "Welcher Satz ist richtig geschrieben?", "options": ["Die Katze jagt eine kleine Maus.", "die Katze jagt eine kleine Maus.", "Die katze jagt eine kleine Maus.", "Die Katze jagt eine Kleine Maus."], "answer": "Die Katze jagt eine kleine Maus.", "explain": "**klein** sagt, wie die Maus ist, und bleibt klein." },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Meine ___ schläft gern auf dem Sofa.", "answer": "Katze", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Im ___ wachsen viele Bäume.", "answer": "Wald", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Das Spiel ist ___.", "answer": "spannend", "say": true, "explain": "Wie ist das Spiel? Das Wort beschreibt und bleibt klein." },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "___ gehen wir ins Kino.", "answer": "Heute", "say": true, "explain": "Am Satzanfang steht ein großer Buchstabe." }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "grundform",
+  "line": "woerterbuch",
+  "order": 2,
+  "title": "Wie steht es im Wörterbuch?",
+  "subtitle": "Grundform finden",
+  "icon": "🔍",
+  "explain": [
+    { "p": "Viele Wörter stehen nicht so im Wörterbuch, wie sie im Satz vorkommen." },
+    { "table": { "head": ["Wortart", "Im Wörterbuch steht", "Beispiel"], "rows": [["Verb", "die **Grundform**", "fragte → **fragen**, wirst → **werden**"], ["Nomen", "die **Einzahl**", "Häuser → **Haus**, Mäuse → **Maus**"], ["Adjektiv", "die **Grundform**", "kälter → **kalt**, größer → **groß**"]] }},
+    { "tip": "Zusammengesetzte Wörter stehen oft nicht drin. Dann helfen die einzelnen Teile: Waldgeist → **Wald** und **Geist**." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Wo schaust du nach?", "q": "Unter welchem Wort steht **fragte** im Wörterbuch?", "options": ["fragen", "fragte", "Frage", "gefragt"], "answer": "fragen", "explain": "Verben stehen in der Grundform.", "recall": true },
+    { "type": "choice", "task": "Wo schaust du nach?", "q": "Unter welchem Wort steht **sagte** im Wörterbuch?", "options": ["sagen", "sagte", "Sage", "gesagt"], "answer": "sagen", "explain": "Verben stehen in der Grundform.", "recall": true },
+    { "type": "choice", "task": "Wo schaust du nach?", "q": "Unter welchem Wort steht **wirst** im Wörterbuch?", "options": ["werden", "wirst", "Wirt", "wird"], "answer": "werden", "explain": "wirst, wird, wurde – die Grundform heißt **werden**.", "recall": true },
+    { "type": "choice", "task": "Wo schaust du nach?", "q": "Unter welchem Wort steht **musst** im Wörterbuch?", "options": ["müssen", "musst", "Mus", "muss"], "answer": "müssen", "explain": "Die Grundform heißt **müssen**.", "recall": true },
+    { "type": "choice", "task": "Wo schaust du nach?", "q": "Unter welchem Wort steht **liest** im Wörterbuch?", "options": ["lesen", "liest", "Liese", "las"], "answer": "lesen", "explain": "Die Grundform heißt **lesen**.", "recall": true },
+    { "type": "choice", "task": "Wo schaust du nach?", "q": "Unter welchem Wort steht **trägt** im Wörterbuch?", "options": ["tragen", "trägt", "Trage", "trug"], "answer": "tragen", "explain": "Die Grundform heißt **tragen**.", "recall": true },
+    { "type": "choice", "task": "Wo schaust du nach?", "q": "Unter welchem Wort steht **saßen** im Wörterbuch?", "options": ["sitzen", "saßen", "Sessel", "gesessen"], "answer": "sitzen", "explain": "Die Grundform heißt **sitzen**.", "recall": true },
+    { "type": "choice", "task": "Wo schaust du nach?", "q": "Unter welchem Wort steht **Häuser** im Wörterbuch?", "options": ["Haus", "Häuser", "Hausen", "Häuschen"], "answer": "Haus", "explain": "Nomen stehen in der Einzahl.", "recall": true },
+    { "type": "choice", "task": "Wo schaust du nach?", "q": "Unter welchem Wort steht **Mäuse** im Wörterbuch?", "options": ["Maus", "Mäuse", "Mausen", "Mäuschen"], "answer": "Maus", "explain": "Nomen stehen in der Einzahl.", "recall": true },
+    { "type": "choice", "task": "Wo schaust du nach?", "q": "Unter welchem Wort steht **Wälder** im Wörterbuch?", "options": ["Wald", "Wälder", "Walden", "Wäldchen"], "answer": "Wald", "explain": "Nomen stehen in der Einzahl.", "recall": true },
+    { "type": "choice", "task": "Wo schaust du nach?", "q": "Unter welchem Wort steht **kälter** im Wörterbuch?", "options": ["kalt", "kälter", "Kälte", "kaltes"], "answer": "kalt", "explain": "Adjektive stehen in der Grundform.", "recall": true },
+    { "type": "choice", "task": "Wo schaust du nach?", "q": "Unter welchem Wort steht **größer** im Wörterbuch?", "options": ["groß", "größer", "Größe", "größten"], "answer": "groß", "explain": "Adjektive stehen in der Grundform.", "recall": true },
+    { "type": "choice", "q": "**Waldgeist** steht nicht im Wörterbuch. Welche Teile helfen weiter?", "options": ["Wald und Geist", "Wal und Geist", "Waldgei und St", "Wald und Geister"], "answer": "Wald und Geist", "explain": "Zusammengesetzte Wörter kann man in ihre Teile zerlegen." },
+    { "type": "choice", "q": "Welche Form steht bei Verben im Wörterbuch?", "options": ["die Grundform", "die Vergangenheit", "die du-Form"], "answer": "die Grundform" }
+  ]
+}

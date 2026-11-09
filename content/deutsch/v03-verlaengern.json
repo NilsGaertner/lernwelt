@@ -1,0 +1,34 @@
+{
+  "id": "verlaengern",
+  "line": "verwandte",
+  "order": 3,
+  "title": "b oder p? d oder t? g oder k?",
+  "subtitle": "Wörter verlängern",
+  "icon": "🔎",
+  "explain": [
+    { "p": "Am Wortende klingt **b** wie **p**, **d** wie **t** und **g** wie **k**. Darum hört man es nicht sicher." },
+    { "tip": "Wird das Wort länger, hört man den Buchstaben deutlich: Bil**d** – Bil**d**er." },
+    { "table": { "head": ["Wort", "Verlängert"], "rows": [["das Bil**d**", "die Bil**d**er"], ["der Ber**g**", "die Ber**g**e"], ["gel**b**", "das Gel**b**e"], ["der Zu**g**", "die Zü**g**e"], ["kal**t**", "die kal**t**e Nacht"]] }}
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das Bil___", "options": ["d", "t"], "answer": "d", "explain": "die Bilder" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "gel___", "options": ["b", "p"], "answer": "b", "explain": "das Gelbe" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Ber___", "options": ["g", "k"], "answer": "g", "explain": "die Berge" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Wal___", "options": ["d", "t"], "answer": "d", "explain": "die Wälder" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Hun___", "options": ["d", "t"], "answer": "d", "explain": "die Hunde" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Sie___", "options": ["g", "k"], "answer": "g", "explain": "die Siege" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Kor___", "options": ["b", "p"], "answer": "b", "explain": "die Körbe" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Zu___", "options": ["g", "k"], "answer": "g", "explain": "die Züge" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "run___", "options": ["d", "t"], "answer": "d", "explain": "die runde Form" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "kal___", "options": ["d", "t"], "answer": "t", "explain": "die kalte Nacht" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Ban___", "options": ["g", "k"], "answer": "k", "explain": "die Bänke" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das Bro___", "options": ["d", "t"], "answer": "t", "explain": "die Brote" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "kran___", "options": ["g", "k"], "answer": "k", "explain": "die kranke Katze" },
+    { "type": "input", "task": "Welches Wort passt hier?", "q": "das Bild – die ___", "answer": "Bilder" },
+    { "type": "input", "task": "Welches Wort passt hier?", "q": "der Berg – die ___", "answer": "Berge" },
+    { "type": "input", "task": "Welches Wort passt hier?", "q": "gelb – das ___", "answer": "Gelbe" },
+    { "type": "input", "task": "Welches Wort passt hier?", "q": "der Zug – die ___", "answer": "Züge" },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Auf einer ___ liest ein Kind.", "answer": "Bank", "say": true, "explain": "die Bänke: Man hört das k." },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Am Fluss sieht sie einen ___.", "answer": "Hund", "say": true, "explain": "die Hunde: Man hört das d." }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "verben-nomen",
+  "line": "gross",
+  "order": 2,
+  "title": "Verben werden Nomen",
+  "subtitle": "Das Spielen, beim Lesen",
+  "icon": "📖",
+  "explain": [
+    { "p": "Verben schreibt man eigentlich klein: Wir **tanzen** gern. Aber ein Verb kann zum **Nomen** werden. Dann schreibt man es groß." },
+    { "table": { "head": ["Signalwort", "Beispiel"], "rows": [["**das**", "Das **Spielen** macht Spaß."], ["**beim**", "Beim **Lesen** vergesse ich die Zeit."], ["**zum**", "Das Wasser ist zum **Trinken**."], ["**vom**", "Ich bin müde vom **Rennen**."], ["**im**", "Im **Stehen** esse ich schneller."]] }},
+    { "tip": "Steht **das, beim, zum, vom** oder **im** vor dem Verb? Dann ist es ein Nomen, und man schreibt es groß." },
+    { "p": "Ohne Signalwort bleibt das Verb klein: Ich **lese** gern. Wir **spielen** heute." },
+    { "p": "Manchmal steht noch ein Wort dazwischen: das **laute Singen**. Auch dann schreibt man das Verb groß." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Groß oder klein?", "q": "Das ___ macht Spaß.", "options": ["Spielen", "spielen"], "answer": "Spielen", "explain": "**Das** ist das Signalwort.", "recall": "Was hörst du? Wie schreibt man das fehlende Wort?", "say": true },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Beim ___ vergesse ich die Zeit.", "options": ["Lesen", "lesen"], "answer": "Lesen", "explain": "**Beim** ist das Signalwort.", "recall": "Was hörst du? Wie schreibt man das fehlende Wort?", "say": true },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Beim ___ werden ihre Hände nass.", "options": ["Spielen", "spielen"], "answer": "Spielen", "explain": "**Beim** zeigt: Hier ist das Verb zum Nomen geworden.", "recall": "Was hörst du? Wie schreibt man das fehlende Wort?", "say": true },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Beim ___ trinke ich Wasser.", "options": ["Lesen", "lesen"], "answer": "Lesen", "explain": "**Beim** zeigt: Hier ist das Verb zum Nomen geworden.", "recall": "Was hörst du? Wie schreibt man das fehlende Wort?", "say": true },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Wir ___ gern.", "options": ["tanzen", "Tanzen"], "answer": "tanzen", "explain": "Kein Signalwort: Das Verb bleibt klein." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Das Wasser ist zum ___.", "options": ["Trinken", "trinken"], "answer": "Trinken", "explain": "**zum** ist das Signalwort." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Ich ___ jeden Abend ein Buch.", "options": ["lese", "Lese"], "answer": "lese", "explain": "Kein Signalwort: Das Verb bleibt klein." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Zum ___ brauche ich einen Stift.", "options": ["Schreiben", "schreiben"], "answer": "Schreiben", "explain": "**Zum** ist das Signalwort." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Mia kann gut ___.", "options": ["schwimmen", "Schwimmen"], "answer": "schwimmen", "explain": "Kein Signalwort: Das Verb bleibt klein." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Das ___ im See ist kalt.", "options": ["Schwimmen", "schwimmen"], "answer": "Schwimmen", "explain": "**Das** ist das Signalwort." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Vom ___ bin ich müde.", "options": ["Rennen", "rennen"], "answer": "Rennen", "explain": "**Vom** ist das Signalwort." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Wir ___ heute Basketball.", "options": ["spielen", "Spielen"], "answer": "spielen", "explain": "Kein Signalwort: Das Verb bleibt klein." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Das laute ___ stört die Katze.", "options": ["Singen", "singen"], "answer": "Singen", "explain": "**Das** gehört zu **Singen**, auch wenn „laute“ dazwischensteht." },
+    { "type": "choice", "q": "Welches Wort zeigt, dass ein Verb zum Nomen wird?", "options": ["beim", "gern", "oft", "schnell"], "answer": "beim", "explain": "**das, beim, zum, vom, im** sind Signalwörter." },
+    { "type": "choice", "task": "Welcher Satz ist richtig geschrieben?", "options": ["Beim Spielen wird es laut.", "Beim spielen wird es laut.", "beim Spielen wird es laut.", "beim spielen wird es laut."], "answer": "Beim Spielen wird es laut.", "explain": "**Beim** steht am Satzanfang und ist Signalwort: Beide Wörter schreibt man groß." },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Das ___ macht müde.", "answer": "Laufen", "say": true, "explain": "**Das** ist das Signalwort." },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Wir ___ heute im Garten.", "answer": "arbeiten", "say": true, "explain": "Kein Signalwort: Das Verb bleibt klein." }
+  ]
+}

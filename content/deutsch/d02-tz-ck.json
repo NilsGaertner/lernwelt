@@ -1,0 +1,35 @@
+{
+  "id": "tz-ck",
+  "line": "vokale",
+  "order": 2,
+  "title": "z oder tz? k oder ck?",
+  "subtitle": "Katze – tanzen, Jacke – Wolke",
+  "icon": "🐱",
+  "explain": [
+    { "p": "Nach einem **kurzen Vokal** schreibt man **tz** und **ck**: Ka**tz**e, Ja**ck**e." },
+    { "p": "Steht schon ein Konsonant davor (l, n, r), reicht **z** oder **k**: ta**nz**en, Wo**lk**e." },
+    { "p": "Nach einem langen Vokal oder nach **au, ei, eu** auch: Hei**z**ung, Pau**k**e." },
+    { "tip": "Nach **l, n, r** kommt nie tz oder ck." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Ka___e", "options": ["z", "tz"], "answer": "tz", "explain": "Kurzes a: Katze." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "tan___en", "options": ["z", "tz"], "answer": "z", "explain": "Nach n: tanzen." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "si___en", "options": ["z", "tz"], "answer": "tz", "explain": "Kurzes i: sitzen." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das Her___", "options": ["z", "tz"], "answer": "z", "explain": "Nach r: Herz." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Bli___", "options": ["z", "tz"], "answer": "tz", "explain": "Kurzes i: Blitz." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das Sal___", "options": ["z", "tz"], "answer": "z", "explain": "Nach l: Salz." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Mü___e", "options": ["z", "tz"], "answer": "tz", "explain": "Kurzes ü: Mütze." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Hei___ung", "options": ["z", "tz"], "answer": "z", "explain": "Nach ei: Heizung." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Ja___e", "options": ["k", "ck"], "answer": "ck", "explain": "Kurzes a: Jacke." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Wol___e", "options": ["k", "ck"], "answer": "k", "explain": "Nach l: Wolke." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Zu___er", "options": ["k", "ck"], "answer": "ck", "explain": "Kurzes u: Zucker." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Mü___e", "options": ["k", "ck"], "answer": "ck", "explain": "Kurzes ü: Mücke." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Pau___e", "options": ["k", "ck"], "answer": "k", "explain": "Nach au: Pauke." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Ban___", "options": ["k", "ck"], "answer": "k", "explain": "Nach n: Bank." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Bä___erei", "options": ["k", "ck"], "answer": "ck", "explain": "Kurzes ä: Bäckerei." },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Katze", "Kaze", "Kazte"], "answer": "Katze", "explain": "Kurzes a: **tz**.", "recall": "Was hörst du? Wie schreibt man das?", "say": "die Katze", "accept": ["die Katze"] },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Jacke", "Jake", "Jakke"], "answer": "Jacke", "explain": "Kurzes a: **ck**.", "recall": "Was hörst du? Wie schreibt man das?", "say": "die Jacke", "accept": ["die Jacke"] },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Am Himmel zieht eine dunkle ___ auf.", "answer": "Wolke", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Beim Fest wollen wir ___.", "answer": "tanzen", "say": true }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "langes-i",
+  "line": "vokale",
+  "order": 3,
+  "title": "Langes i",
+  "subtitle": "liegen, Sieg, fliegen",
+  "icon": "🐝",
+  "explain": [
+    { "p": "Ein **langes i** schreibt man fast immer **ie**: l**ie**gen, S**ie**g, fl**ie**gen, W**ie**se." },
+    { "p": "Ein **kurzes i** schreibt man nur **i**: K**i**nd, B**i**ld, F**i**sch." },
+    { "tip": "Ausnahmen sind oft Wörter aus anderen Sprachen: T**i**ger, K**i**no, Krokod**i**l." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Was fehlt hier?", "q": "l___gen", "options": ["i", "ie"], "answer": "ie", "explain": "Langes i: liegen." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der S___g", "options": ["i", "ie"], "answer": "ie", "explain": "Langes i: Sieg." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "w___gen", "options": ["i", "ie"], "answer": "ie", "explain": "Langes i: wiegen." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "fl___gen", "options": ["i", "ie"], "answer": "ie", "explain": "Langes i: fliegen." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "kr___gen", "options": ["i", "ie"], "answer": "ie", "explain": "Langes i: kriegen." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die W___se", "options": ["i", "ie"], "answer": "ie", "explain": "Langes i: Wiese." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die B___ne", "options": ["i", "ie"], "answer": "ie", "explain": "Langes i: Biene." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "sp___len", "options": ["i", "ie"], "answer": "ie", "explain": "Langes i: spielen." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "v___l", "options": ["i", "ie"], "answer": "ie", "explain": "Langes i: viel." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das K___nd", "options": ["i", "ie"], "answer": "i", "explain": "Kurzes i: Kind." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das B___ld", "options": ["i", "ie"], "answer": "i", "explain": "Kurzes i: Bild." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der F___sch", "options": ["i", "ie"], "answer": "i", "explain": "Kurzes i: Fisch." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das K___no", "options": ["i", "ie"], "answer": "i", "explain": "Eine Ausnahme aus einer anderen Sprache: Kino." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der T___ger", "options": ["i", "ie"], "answer": "i", "explain": "Eine Ausnahme aus einer anderen Sprache: Tiger." },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["fliegen", "fligen", "fliegn"], "answer": "fliegen", "explain": "Langes i: **ie**.", "recall": "Was hörst du? Wie schreibt man das?", "say": "fliegen" },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Die Vögel ___ nach Süden.", "answer": "fliegen", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Unser ___ war knapp.", "answer": "Sieg", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Die Katze will den ganzen Tag ___.", "answer": "liegen", "say": true }
+  ]
+}

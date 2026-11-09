@@ -1,0 +1,33 @@
+{
+  "id": "s-gemischt",
+  "line": "zisch",
+  "order": 3,
+  "title": "s, ss oder ß – gemischt",
+  "subtitle": "Und am Wortende?",
+  "icon": "🧩",
+  "explain": [
+    { "table": { "head": ["Vor dem s-Laut", "Es klingt", "Schreibweise", "Beispiel"], "rows": [["kurzer Vokal", "scharf", "**ss**", "Fluss, Wasser"], ["langer Vokal, au, ei, eu", "summend", "**s**", "Wiese, leise"], ["langer Vokal, au, ei, eu", "scharf", "**ß**", "Straße, draußen"]] }},
+    { "tip": "Am Wortende hilft ein längeres Wort: Haus – Häuser (**s**), Fuß – Füße (**ß**), Fluss – Flüsse (**ss**)." },
+    { "p": "Bei Verben kann der Vokal wechseln, und damit auch die Schreibweise: essen – er **isst** – er **aß**." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das Hau___", "options": ["s", "ss", "ß"], "answer": "s", "explain": "Häuser – es summt: Haus." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das Gra___", "options": ["s", "ss", "ß"], "answer": "s", "explain": "Gräser – es summt: Gras." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Mau___", "options": ["s", "ss", "ß"], "answer": "s", "explain": "Mäuse – es summt: Maus." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das Gla___", "options": ["s", "ss", "ß"], "answer": "s", "explain": "Gläser – es summt: Glas." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Fu___", "options": ["s", "ss", "ß"], "answer": "ß", "explain": "Füße – es zischt: Fuß." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Flu___", "options": ["s", "ss", "ß"], "answer": "ss", "explain": "Flüsse – kurzes ü: Fluss." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Krei___", "options": ["s", "ss", "ß"], "answer": "s", "explain": "Kreise – es summt: Kreis." },
+    { "type": "choice", "q": "Mia ___ gerade ein Buch.", "options": ["liest", "ließt", "lisst"], "answer": "liest", "explain": "von **lesen**: Das s bleibt ein s." },
+    { "type": "choice", "q": "Gestern ___ wir auf der Bank.", "options": ["saßen", "sassen", "sasen"], "answer": "saßen", "explain": "sitzen – wir saßen: langes a, und es zischt." },
+    { "type": "choice", "q": "Tom ___ einen Apfel.", "options": ["isst", "ißt", "ist"], "answer": "isst", "explain": "von **essen**: kurzes i, **ss**. Das Wort **ist** kommt von „sein“." },
+    { "type": "choice", "q": "Gestern ___ er Pizza.", "options": ["aß", "ass", "as"], "answer": "aß", "explain": "essen – er aß: langes a, und es zischt." },
+    { "type": "choice", "q": "Mia ___ den Ball liegen.", "options": ["lässt", "läßt", "läst"], "answer": "lässt", "explain": "von **lassen**: kurzes ä, **ss**." },
+    { "type": "choice", "q": "Die Katze ___ gerade.", "options": ["frisst", "frißt", "frist"], "answer": "frisst", "explain": "von **fressen**: kurzes i, **ss**." },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "In ihrer ___ trägt sie einen Ball.", "answer": "Tasche", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Der Hund springt in den ___.", "answer": "Fluss", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Beim Spielen werden ihre Hände ___.", "answer": "nass", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Auf der ___ fahren viele Autos.", "answer": "Straße", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Wir ___ lange auf dem Sofa.", "answer": "saßen", "say": true }
+  ]
+}
