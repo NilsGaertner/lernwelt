@@ -349,7 +349,7 @@ Jedes Profil hat ein Thema, einstellbar im Elternbereich beim Profil unter **„
 | ⛏️ Block-Welt | Weltkarte | Biom | Level | Expedition | Schatzkammer | Truhe |
 | 🌿 Ruhig | Lernplan | Kurs | Lektion | Runde | Abschluss | Ablage |
 
-Ein neues Thema steht in `public/js/themes.js` (Wörter mit Geschlecht, Ränge, Symbole) und in `public/css/app.css` im Abschnitt „Themen“ (Farben).
+Ein neues Thema steht in `public/js/themes.js` (Wörter mit Geschlecht, Ränge, Symbole) und in `public/css/app.css` im Abschnitt „Themen“ (Farben). Eigene Grafiken zeichnet `public/js/theme-art.js`: In der Block-Welt bekommt jede Linie eine Pixel-Landschaft mit einem Wimpel pro gemeisterter Station, und die Stationen sind Blöcke auf dem Weg in die Schatzkammer. In „Ruhig“ wächst pro Kurs eine Pflanze, die nach dem Abschluss blüht.
 
 ### Hinweise
 

@@ -8,6 +8,7 @@ import { faceOf } from './avatar.js';
 import { avatarSvg, PERSONAS } from './avatar-data.js';
 import { companion } from './companion.js';
 import { W, cap, applyTheme, THEMES } from './themes.js';
+import { lineBanner, lineIcon, stopArt, helloBanner } from './theme-art.js';
 
 const app = document.getElementById('app');
 const state = { meta: null };
@@ -267,6 +268,7 @@ function helloCard(id, ov) {
         h('span', { style: { width: `${Math.min(100, (ov.earnedToday / limit) * 100)}%` } })) : null),
     h('a.btn.ghost.small', { href: `#/kid/${id}/tickets` }, '🎟️ Eintauschen'));
   return h('section.hello',
+    helloBanner(child),
     h('.hello-text',
       h('h1', `${hi}, ${child.name}!`),
       h('p.muted', ov.plan.done
@@ -411,7 +413,7 @@ async function subjectView(id, subjectId) {
   ].filter(Boolean);
   const training = tiles.length ? h('section.blitz-row', tiles) : null;
 
-  const map = h('section.map', subject.lines.map((line) => {
+  const map = h('section.map', subject.lines.map((line, lineIndex) => {
     // Archivierte Stationen haben die Eltern aus dem Fahrplan genommen.
     const units = subject.units.filter((u) => u.line === line.id && !progress[u.id]?.archived);
     if (!units.length) return null;
@@ -429,14 +431,14 @@ async function subjectView(id, subjectId) {
                   startRide({ childId: Number(id), subject: subject.id, line: line.id, mode: 'exam', lineColor: line.color, backHash: hash, train: ov.train, card: lineCardData });
                 },
               },
-                h('span.stop', { 'aria-hidden': 'true' }),
+                h('span.stop', { 'aria-hidden': 'true' }, stopArt(exam.passed ? 'chest-open' : 'chest')),
                 h('span.st-text',
                   h('span.st-name', `${W.icons.terminus} ${W.terminus.s}`),
                   h('span.st-sub', exam.passed ? `Bestanden (bestes Ergebnis ${exam.best} %) – ${W.say.again.toLowerCase()}?` : `Alle ${W.station.p} ${W.line.der('gen')} gemischt.`),
                   exam.passed ? null : h('span.st-flag', 'Jetzt offen')),
                 h('span.term-icon', { 'aria-hidden': 'true' }, exam.passed ? '🏆' : '🎯'))
             : h('span.term-locked',
-                h('span.stop', { 'aria-hidden': 'true' }),
+                h('span.stop', { 'aria-hidden': 'true' }, stopArt('chest-locked')),
                 h('span.st-text',
                   h('span.st-name', `🔒 ${W.terminus.s}`),
                   h('span.st-sub', `Öffnet, wenn alle ${W.station.p} mindestens 2 Sterne haben.`))))
@@ -451,13 +453,14 @@ async function subjectView(id, subjectId) {
     const foldKey = `${subject.id}/${line.id}`;
     const list = h('ol.stations', { class: doneN >= 2 && prefs.isFolded(foldKey) ? 'folded' : '' });
     const fold = doneN >= 2 ? foldToggle(list, foldKey, doneN) : null;
-    list.append(...[fold, ...units.map((u) => {
+    list.append(...[fold, ...units.map((u, unitIndex) => {
       const p = progress[u.id];
       const cls = [p?.parked ? 'parked' : p?.best === 3 ? 'mastered' : p?.runs ? 'visited' : '', u === next ? 'next' : '', isDone(u) ? 'done' : ''].filter(Boolean).join(' ');
       const boosted = boostedUnit(u);
       return h('li.station', { class: cls },
         h('a', { href: `#/kid/${id}/station/${subject.id}/${u.id}` },
-          h('span.stop', { 'aria-hidden': 'true' }),
+          h('span.stop', { 'aria-hidden': 'true', 'data-n': unitIndex + 1 },
+            stopArt(p?.parked ? 'parked' : p?.best === 3 ? 'mastered' : u === next ? 'next' : p?.runs ? 'visited' : 'todo')),
           h('span.st-text',
             h('span.st-name', `${u.icon} ${u.title}`),
             h('span.st-sub', u.subtitle),
@@ -471,7 +474,8 @@ async function subjectView(id, subjectId) {
           starRow(p?.best ?? 0)));
     }), terminus].filter(Boolean));
     return h('div.line-col', { style: { '--line': line.color } },
-      h('.line-head', h('span.line-pill', W.lineName(line)),
+      lineBanner(lineIndex, line, doneCount, !!exam?.passed),
+      h('.line-head', lineIcon(doneCount, units.length, !!exam?.passed), h('span.line-pill', W.lineName(line)),
         ov.boost?.subject === subject.id && ov.boost.line === line.id ? h('span.boost-tag', '🎉 ×2 Sterne') : null,
         h('span.count', `${doneCount} / ${units.length} gemeistert`)),
       list);
@@ -492,7 +496,7 @@ function foldToggle(list, key, n) {
   const name = h('span.st-name');
   const sub = h('span.st-sub');
   const btn = h('button', { type: 'button', onclick: () => set(!list.classList.contains('folded')) },
-    h('span.stop', { 'aria-hidden': 'true' }), h('span.st-text', name, sub));
+    h('span.stop', { 'aria-hidden': 'true' }, stopArt('fold')), h('span.st-text', name, sub));
   const set = (folded, remember = true) => {
     list.classList.toggle('folded', folded);
     btn.setAttribute('aria-expanded', String(!folded));

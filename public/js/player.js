@@ -5,6 +5,7 @@ import {
 } from './ui.js';
 import { api } from './api.js';
 import { W, cap } from './themes.js';
+import { arrivalArt } from './theme-art.js';
 import { lootbox } from './lootbox.js';
 import { companion } from './companion.js';
 
@@ -1094,6 +1095,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
         arrivalCat?.el,
         h('.eyebrow', `${W.say.eyebrow} · ${session.title}`),
         h('h1', headline),
+        arrivalArt(result.rating, !!exam?.passed),
         h('.big-stars', { role: 'img', 'aria-label': `${result.rating} von 3 Sternen` },
           [1, 2, 3].map((i) => h('span', { class: i <= result.rating ? 'on' : 'off' }, '★'))),
         h('p.score', `${fmtScore(result.correct)} von ${result.total} beim ersten Versuch richtig${result.correct % 1 ? ' (½ = mit Hilfe geschafft)' : ''}. ${sub}`),
