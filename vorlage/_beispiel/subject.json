@@ -1,0 +1,13 @@
+{
+  "id": "englisch",
+  "name": "Englisch",
+  "icon": "🇬🇧",
+  "order": 1,
+  "speechLang": "en-GB",
+  "lines": [
+    { "id": "start", "name": "Start-Linie", "short": "Start", "color": "#1F6FD1" }
+  ],
+  "blitz": [
+    { "id": "woerter", "title": "Wörter-Blitz", "icon": "⚡", "subtitle": "Englische Wörter so schnell du kannst", "types": ["choice"], "line": "start" }
+  ]
+}

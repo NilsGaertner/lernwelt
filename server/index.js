@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'node:path';
 import { db, getSetting, setSetting, getPublicSettings, transaction } from './db.js';
-import { loadContent, publicSubjects, publicUnit, subjects, itemLabel, CONTENT_DIR } from './content.js';
+import { loadContent, prepareCustomDir, contentDir, contentSource, publicSubjects, publicUnit, subjects, itemLabel } from './content.js';
 import { publicBadges } from './badges.js';
 import { startSession, answerQuestion, finishSession, hintQuestion, chooseQuestion } from './session.js';
 import { practiceCounts, migrateSpacing, knownCounts, foldFormerItems, markKnownItems } from './srs.js';
@@ -19,8 +19,10 @@ import { avatarState, equip, grantSkin, cleanAvatar } from './avatars.js';
 import { werkstatt, werkstattCounts, addPuzzle, deletePuzzle, tryPuzzle } from './werkstatt.js';
 
 const PORT = Number(process.env.PORT) || 8080;
+prepareCustomDir();
 const problems = await loadContent();
 for (const p of problems) console.warn(`[Inhalt] ${p}`);
+if (contentSource().custom) console.log(`[Inhalt] Eigene Aufgaben aus ${contentDir()}`);
 migrateSpacing();
 foldFormerItems();
 markKnownItems();
@@ -29,11 +31,11 @@ const app = express();
 app.use(express.json({ limit: '100kb' }));
 app.use(express.static(path.resolve(import.meta.dirname, '..', 'public'), { extensions: ['html'] }));
 
-// Karten und Bilder der Fächer (content/<fach>/media/…)
+// Karten und Bilder der Fächer (<fach>/media/… im aktiven Inhalts-Ordner)
 app.get('/media/:subject/:file', (req, res, next) => {
   const { subject, file } = req.params;
   if (!/^[\w-]+$/.test(subject) || !/^[\w-]+\.(svg|png|jpg|webp)$/.test(file)) return next();
-  res.sendFile(path.join(CONTENT_DIR, subject, 'media', file), { maxAge: '1h' }, (err) => err && next());
+  res.sendFile(path.join(contentDir(), subject, 'media', file), { maxAge: '1h' }, (err) => err && next());
 });
 
 const fail = (status, message) => Object.assign(new Error(message), { status });
@@ -260,7 +262,7 @@ parent.get('/overview', (req, res) => {
     .all();
   res.json({
     children, pending, settings: getPublicSettings(), pinIsDefault: getSetting('pinIsDefault') === '1',
-    today, todayLimit: starLimitFor(today), dayLimits: upcomingDayLimits(), boost: activeBoost(),
+    today, todayLimit: starLimitFor(today), dayLimits: upcomingDayLimits(), boost: activeBoost(), content: contentSource(),
     recent: logEntries({ limit: 8 }).entries,
     subjects: publicSubjects().map(({ id, name, icon, lines, units }) => ({
       id, name, icon, lines: lines.map(({ id, name }) => ({ id, name })), units: units.map(({ id, title, line }) => ({ id, title, line })),
@@ -516,7 +518,7 @@ parent.post('/reload-content', async (req, res) => {
   const issues = await loadContent();
   foldFormerItems();
   markKnownItems();
-  res.json({ ok: true, problems: issues });
+  res.json({ ok: true, problems: issues, content: contentSource() });
 });
 
 // ---------------------------------------------------------------- Fahrtenbuch

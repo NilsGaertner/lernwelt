@@ -1,0 +1,29 @@
+{
+  "id": "zahlen",
+  "line": "start",
+  "order": 2,
+  "title": "Numbers",
+  "subtitle": "Zahlen bis 12",
+  "icon": "🔢",
+  "explain": [
+    { "p": "Die Zahlen von 1 bis 12 muss man auswendig kennen. Ab 13 gibt es ein Muster: thir**teen**, four**teen** …" },
+    { "tip": "**eight** (8) schreibt man mit **gh** – das hört man nicht." }
+  ],
+  "vocab": [
+    { "en": "one", "de": "1" },
+    { "en": "two", "de": "2" },
+    { "en": "three", "de": "3" },
+    { "en": "four", "de": "4" },
+    { "en": "five", "de": "5" },
+    { "en": "six", "de": "6" },
+    { "en": "seven", "de": "7" },
+    { "en": "eight", "de": "8" },
+    { "en": "nine", "de": "9" },
+    { "en": "ten", "de": "10" },
+    { "en": "eleven", "de": "11" },
+    { "en": "twelve", "de": "12" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "How do you write 8?", "options": ["eight", "eigth", "aight", "eitgh"], "answer": "eight", "speak": false, "explain": "**eight** – e, i, g, h, t." }
+  ]
+}

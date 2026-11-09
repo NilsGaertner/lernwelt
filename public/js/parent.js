@@ -1,4 +1,4 @@
-import { h, toast, starRow, fmtDate, relDay, ask, fmtScore, prefs } from './ui.js';
+import { h, toast, starRow, fmtDate, relDay, ask, fmtScore, prefs, showPanel } from './ui.js';
 import { api, parentToken } from './api.js';
 import { faceOf } from './avatar.js';
 import { CATS, SKINS, avatarSvg, avatarText } from './avatar-data.js';
@@ -195,14 +195,26 @@ async function dashboard(root, render, reloadMeta) {
 
   const contentPanel = h('section.panel',
     h('h2', '📚 Lerninhalte'),
-    h('p.muted', 'Nach Änderungen an den Dateien im Ordner „content“ hier neu einlesen – ohne Neustart.'),
+    data.content?.custom
+      ? h('p', `✏️ Es laufen eure eigenen Aufgaben aus dem Ordner „aufgaben“ im Datenordner (${data.content.dir}). Die mitgelieferten Fächer sind ausgeblendet.`)
+      : h('p', '📦 Es laufen die mitgelieferten Aufgaben.'),
+    h('p.muted', data.content?.custom
+      ? 'Sollen wieder die mitgelieferten Aufgaben laufen? Dann die Fach-Ordner aus „aufgaben“ entfernen (oder ein _ davorsetzen) und neu einlesen.'
+      : `Eigene Aufgaben, z. B. für eine andere Klasse: Fach-Ordner in den Ordner „aufgaben“ im Datenordner legen (${data.content?.customDir ?? '/data/aufgaben'}). Dann laufen nur diese. Wie das geht, steht dort in LIESMICH.txt.`),
+    h('p.muted', 'Nach Änderungen an den Aufgaben-Dateien hier neu einlesen – ohne Neustart.'),
     h('button.btn.ghost', {
       type: 'button',
       onclick: async () => {
         try {
           const r = await papi('/reload-content', { method: 'POST' });
           await reloadMeta();
-          toast(r.problems.length ? `Eingelesen, aber ${r.problems.length} Problem(e) – siehe Server-Log.` : 'Inhalte neu eingelesen.');
+          const from = r.content?.custom ? 'Eigene Aufgaben' : 'Mitgelieferte Aufgaben';
+          toast(r.problems.length ? `${from} eingelesen, aber mit ${r.problems.length} Problem(en).` : `${from} neu eingelesen.`);
+          if (r.problems.length) {
+            await showPanel(`⚠️ ${r.problems.length} Problem(e) in den Aufgaben`,
+              h('ul', r.problems.slice(0, 50).map((p) => h('li', p)), r.problems.length > 50 ? h('li', '…') : null));
+          }
+          if (r.content?.custom !== data.content?.custom) refresh();
         } catch (err) { toast(err.message); }
       },
     }, 'Inhalte neu einlesen'));

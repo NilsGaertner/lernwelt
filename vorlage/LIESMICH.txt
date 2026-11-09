@@ -1,0 +1,61 @@
+EIGENE AUFGABEN FÜR DIE LERNWELT
+================================
+
+In diesen Ordner könnt ihr eigene Aufgaben legen, z. B. für ein Kind in einer
+anderen Klasse.
+
+So funktioniert es
+------------------
+Liegt hier mindestens ein Fach-Ordner (ein Ordner mit einer Datei
+"subject.json" darin), zeigt die Lernwelt NUR die Fächer aus diesem Ordner.
+Die mitgelieferten Aufgaben sind dann ausgeblendet.
+
+Liegt hier kein Fach-Ordner, laufen die mitgelieferten Aufgaben wie gewohnt.
+
+Ordner, deren Name mit _ beginnt, zählen nicht mit:
+
+  _beispiel       Ein kleines Beispiel-Fach (Englisch, 1 Linie, 3 Stationen).
+                  Zum Ausprobieren den Ordner in "englisch" umbenennen.
+
+  _mitgeliefert   Eine Kopie ALLER mitgelieferten Fächer (Englisch, Mathe,
+                  Geographie …). Wird bei jedem Start der App neu geschrieben,
+                  also bitte nichts darin ändern. Wer ein Fach behalten will,
+                  kopiert den Fach-Ordner von dort hierher, z. B.
+                  _mitgeliefert/mathe  ->  mathe
+                  und ändert dann die Kopie.
+
+Nach einer Änderung
+-------------------
+Im Elternbereich unter "Lerninhalte" auf "Inhalte neu einlesen" tippen
+(ein Neustart geht auch). Fehler in den Dateien zeigt die App dann an.
+
+Aufbau
+------
+  aufgaben/
+    englisch/
+      subject.json        Name des Fachs und seine Linien
+      01-farben.json      eine Datei pro Station
+      02-zahlen.json
+      media/              Bilder und Karten (optional, .svg/.png/.jpg/.webp)
+    mathe/
+      ...
+
+Am besten hat jede Linie 3 Stationen. Danach kommt der Endbahnhof (eine
+Prüfung über die ganze Linie, dafür gibt es eine Lootbox).
+
+Die Dateien sind JSON: Texte in "Anführungszeichen", zwischen den Einträgen
+ein Komma, nach dem letzten Eintrag keins. Ein Editor wie VS Code oder
+Notepad++ zeigt Tippfehler an. Speichern als UTF-8.
+
+Alle Felder (Wortlisten, Auswahl, Eintippen, Satz bauen, Merke-Seite,
+Blitzrunden, Mathe-Generatoren) erklärt die Anleitung im Abschnitt
+"Inhalte ändern und erweitern":
+https://github.com/NilsGaertner/lernwelt#inhalte-ändern-und-erweitern
+
+Mathe-Stationen mit "generator" (z. B. schriftlich rechnen) funktionieren
+auch hier: die Station aus _mitgeliefert/mathe kopieren und die Zahlen in
+"params" anpassen.
+
+Zurück zu den mitgelieferten Aufgaben: die Fach-Ordner hier löschen oder
+ein _ vor den Namen setzen und neu einlesen. Sterne, Abzeichen und Tickets
+bleiben dabei erhalten.

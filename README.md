@@ -4,7 +4,7 @@ Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch, Mathe, Geogra
 
 ## Was drin ist
 
-**Englisch (Klasse 5, Grundlagen): 58 Stationen, gut 1000 Wörter und Aufgaben und der Satz-Trainer mit immer neuen Sätzen**
+**Englisch (Klasse 5, Grundlagen): 61 Stationen, gut 1000 Wörter und Aufgaben und der Satz-Trainer mit immer neuen Sätzen**
 
 Jede Linie hat 3 Stationen und danach den Endbahnhof. So ist eine Linie in ein paar Tagen geschafft, und die Lootbox dafür bleibt in Reichweite. Wörter und Grammatik sind nach Themen gemischt, die zusammenpassen.
 
@@ -13,6 +13,7 @@ Jede Linie hat 3 Stationen und danach den Endbahnhof. So ist eine Linie in ein p
 | Karteikarten-Linie | Die Vokabelkarten aus der Schule: Farben und Dinge, Verben mit „to“, kurze Sätze für jeden Tag |
 | Zimmer-Linie | Weitere Vokabelkarten: Rooms, Kitchen and bathroom, Furniture |
 | Glücks-Linie | Neue Vokabelblätter: You are lucky, Be quiet please, und Wörter aus dem Heft, die schwer zu schreiben sind (seagull, purple, eight …) |
+| Besuchs-Linie | Der dritte Kartenstapel: do, make oder play? (do the homework, make a cake, play games, visit the grandparents), An old clock (an easy task, an important guest, a drawing on the wall, our culture – a oder an?), Lots of trees (live in an area with lots of trees, The furniture **is** new, forty, fifty) |
 | Heft-Linie | Aus dem Heft: Family tree (Stammbaum vom Arbeitsblatt, wer ist wessen brother, aunt, cousin …), kurze Antworten (Yes, I am. No, there aren't. No, he can't.), Where is the ball? (die Skizzen mit Kiste und Ball) |
 | Test-Linie | Test No 2 nachgeübt: Schultasche, Farben und Wortgruppen übersetzen; I am – he has (to be und to have für jede Person); Personal pronouns und to be (Emma, Sheree); my/his/her/our/your/their |
 | Satz-Trainer-Linie | Immer neue Sätze statt fester Aufgaben: am/is/are und have got (mit Verneinung und Frage), he/she/it mit -s (plays, watches, flies, has), Do/Does-Fragen und don't/doesn't mit dem Verb ohne -s. Die Sätze baut `server/generators/saetze.js` bei jeder Fahrt neu (über tausend pro Station), auswendig lernen geht also nicht – nur die Regel anwenden. Auch der Grammatik-Blitz nutzt sie. |
@@ -324,6 +325,20 @@ Mit **Force Update** in der Docker-Liste kommst du danach wieder auf die Version
 
 Mit dem Plugin **Docker Compose Manager** geht statt des Templates auch `docker compose up -d` im Projektordner (siehe `docker-compose.yml`). Updates holst du dann mit `docker compose pull && docker compose up -d`. Ohne das Plugin kennt Unraid den Befehl `docker compose` nicht.
 
+### Eigene Aufgaben (z. B. für andere Familien oder Klassen)
+
+Beim Start legt die App im Datenordner den Ordner **`aufgaben`** an (auf Unraid: `/mnt/user/appdata/lernwelt/data/aufgaben`). Darin liegen:
+
+- `LIESMICH.txt` – eine kurze Anleitung,
+- `_beispiel/` – ein kleines Englisch-Fach mit einer Linie und drei Stationen zum Abschauen,
+- `_mitgeliefert/` – eine Kopie aller mitgelieferten Fächer. Sie wird bei jedem Start neu geschrieben, darin also nichts ändern.
+
+Solange dort kein Fach-Ordner liegt (ein Ordner mit `subject.json`), laufen die mitgelieferten Aufgaben. **Sobald dort ein Fach-Ordner liegt, zeigt die App nur noch die Fächer aus `aufgaben`.** Ordner mit `_` vorn zählen nicht mit. Wer z. B. Mathe behalten und nur Englisch austauschen will, kopiert `_mitgeliefert/mathe` nach `aufgaben/mathe` und legt daneben ein eigenes `englisch`. Wie die Dateien aufgebaut sind, steht unten unter [Inhalte ändern und erweitern](#inhalte-ändern-und-erweitern).
+
+Nach einer Änderung im Elternbereich unter „Lerninhalte“ auf **„Inhalte neu einlesen“** tippen. Dort steht auch, welche Aufgaben gerade laufen, und Fehler in den Dateien werden angezeigt. Zurück zu den mitgelieferten Aufgaben: die Fach-Ordner aus `aufgaben` entfernen (oder ein `_` davorsetzen) und neu einlesen.
+
+Updates des Images ändern an den eigenen Aufgaben nichts. Ein anderer Ort für den Ordner geht mit der Umgebungsvariablen `CUSTOM_CONTENT_DIR`.
+
 ### Hinweise
 
 - Die Seite ist fürs **Heimnetz** gedacht. Bitte nicht per Portfreigabe ins Internet stellen, denn der Container selbst kann kein HTTPS und es gibt nur eine einfache PIN.
@@ -428,5 +443,6 @@ server/        Node.js-Server (Express, SQLite über das eingebaute node:sqlite)
 public/        Oberfläche (reines HTML/CSS/JS, kein Build-Schritt)
 unraid/        Docker-Template und Build-Skript für Unraid
 content/       Lerninhalte als JSON (Karten in content/<fach>/media/, Kartendaten: Natural Earth)
-data/          Datenbank (wird automatisch angelegt, im Container: /data)
+vorlage/       Anleitung und Beispiel für eigene Aufgaben (wird nach data/aufgaben kopiert)
+data/          Datenbank und eigene Aufgaben (wird automatisch angelegt, im Container: /data)
 ```

@@ -1,0 +1,32 @@
+{
+  "id": "farben",
+  "line": "start",
+  "order": 1,
+  "title": "Colours",
+  "subtitle": "Farben",
+  "icon": "🎨",
+  "explain": [
+    { "p": "Die Farbe steht wie im Deutschen **vor** dem Ding: a **red** ball." },
+    { "ex": [
+      ["a red ball", "ein roter Ball"],
+      ["the blue sky", "der blaue Himmel"]
+    ] },
+    { "tip": "Lila heißt **purple**, rosa heißt **pink**." }
+  ],
+  "vocab": [
+    { "en": "red", "de": "rot" },
+    { "en": "blue", "de": "blau" },
+    { "en": "green", "de": "grün" },
+    { "en": "yellow", "de": "gelb" },
+    { "en": "black", "de": "schwarz" },
+    { "en": "white", "de": "weiß" },
+    { "en": "purple", "de": "lila" },
+    { "en": "pink", "de": "rosa" },
+    { "en": "grey", "de": "grau", "alt": ["gray"] }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "The sky is ___.", "de": "Der Himmel ist blau.", "options": ["blue", "red", "green", "black"], "answer": "blue" },
+    { "type": "input", "q": "Bananas are ___.", "de": "Bananen sind gelb.", "answer": "yellow" },
+    { "type": "choice", "q": "a ___ house", "de": "ein lila Haus", "options": ["purple", "pink", "lila", "brown"], "answer": "purple", "explain": "Lila heißt **purple**. Pink ist rosa." }
+  ]
+}

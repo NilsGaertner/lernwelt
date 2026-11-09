@@ -1,4 +1,8 @@
 import crypto from 'node:crypto';
+import path from 'node:path';
+
+/** Datenordner: Datenbank und eigene Aufgaben (im Container /data). */
+export const DATA_DIR = process.env.DATA_DIR || path.resolve(import.meta.dirname, '..', 'data');
 
 /** Lokales Datum als YYYY-MM-DD (Zeitzone über die Umgebungsvariable TZ). */
 export function localDay(d = new Date()) {

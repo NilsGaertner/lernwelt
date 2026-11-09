@@ -1,7 +1,10 @@
 // Prüft alle Inhaltsdateien: npm run check
-import { loadContent, subjects, unitItemCount } from './content.js';
+import { loadContent, subjects, unitItemCount, contentSource } from './content.js';
 
 const problems = await loadContent();
+const source = contentSource();
+console.log(`${source.custom ? 'Eigene Aufgaben' : 'Mitgelieferte Aufgaben'} aus ${source.dir}
+`);
 for (const { meta, units } of subjects.values()) {
   let items = 0;
   for (const u of units.values()) items += unitItemCount(u);

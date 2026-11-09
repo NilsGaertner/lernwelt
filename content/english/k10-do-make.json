@@ -1,0 +1,43 @@
+{
+  "id": "karten-do-make",
+  "line": "besuch",
+  "order": 1,
+  "title": "Do, make or play?",
+  "subtitle": "Spielen, backen, besuchen",
+  "icon": "🎂",
+  "typePhrases": true,
+  "explain": [
+    { "p": "Im Deutschen sagt man oft einfach „machen“. Im Englischen gibt es dafür zwei Wörter: **do** und **make**." },
+    { "ex": [
+      ["to do the homework", "die Hausaufgaben machen"],
+      ["to make a cake", "einen Kuchen backen"],
+      ["to play games", "Spiele spielen"],
+      ["to visit the grandparents", "die Großeltern besuchen"]
+    ] },
+    { "tip": "**do** = etwas tun, erledigen: **do** the homework, **do** sport." },
+    { "tip": "**make** = etwas herstellen, das es danach gibt: **make** a cake, **make** breakfast. Den Kuchen gibt es hinterher wirklich!" },
+    { "tip": "Spiele und Ballspiele gehen mit **play**: **play** games, **play** basketball, **play** Minecraft." },
+    { "tip": "**visit** = besuchen. Direkt danach kommt, wen du besuchst: visit the grandparents – ohne „to“ dazwischen." }
+  ],
+  "vocab": [
+    { "en": "to play games", "de": "Spiele spielen" },
+    { "en": "to do the homework", "de": "die Hausaufgaben machen" },
+    { "en": "to make a cake", "de": "einen Kuchen backen", "alt": ["to bake a cake"] },
+    { "en": "to visit the grandparents", "de": "die Großeltern besuchen" },
+    { "en": "to play basketball", "de": "Basketball spielen" },
+    { "en": "to do sport", "de": "Sport machen" },
+    { "en": "to make breakfast", "de": "Frühstück machen" },
+    { "en": "to visit friends", "de": "Freunde besuchen" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "to ___ the homework", "de": "die Hausaufgaben machen", "options": ["do", "make", "play", "write"], "answer": "do", "explain": "Hausaufgaben erledigt man: **do** the homework." },
+    { "type": "choice", "q": "to ___ a cake", "de": "einen Kuchen backen", "options": ["make", "do", "play", "take"], "answer": "make", "explain": "Hinterher gibt es den Kuchen wirklich – darum **make** a cake. Auch richtig: **bake** a cake." },
+    { "type": "choice", "q": "to ___ games", "de": "Spiele spielen", "options": ["play", "do", "make", "go"], "answer": "play", "explain": "Spiele gehen mit **play**: play games, play Minecraft." },
+    { "type": "choice", "q": "I ___ my homework in the afternoon.", "de": "Ich mache nachmittags meine Hausaufgaben.", "options": ["do", "make", "does", "am"], "answer": "do", "explain": "Hausaufgaben = **do**. Bei I bleibt es do (nur he/she/it: does)." },
+    { "type": "input", "q": "We ___ a cake for Grandma.", "de": "Wir backen einen Kuchen für Oma.", "answer": "make", "accept": ["bake"], "explain": "einen Kuchen backen = **make** a cake (oder bake a cake)." },
+    { "type": "input", "q": "to visit the ___", "de": "die Großeltern besuchen", "answer": "grandparents", "explain": "**grand** + **parents** (Eltern) = Großeltern. Zusammen geschrieben." },
+    { "type": "input", "q": "to ___ the grandparents", "de": "die Großeltern besuchen", "answer": "visit" },
+    { "type": "choice", "task": "Was heißt das auf Deutsch?", "q": "to do the homework", "options": ["die Hausaufgaben machen", "die Hausarbeit machen", "das Haus bauen", "zu Hause arbeiten"], "answer": "die Hausaufgaben machen", "explain": "**homework** = Hausaufgaben. Hausarbeit (putzen, aufräumen) heißt **housework**." },
+    { "type": "choice", "q": "Can we ___ basketball after school?", "de": "Können wir nach der Schule Basketball spielen?", "options": ["play", "do", "make", "visit"], "answer": "play", "explain": "Ballspiele gehen mit **play**: play basketball, play football." }
+  ]
+}

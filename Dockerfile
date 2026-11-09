@@ -18,6 +18,8 @@ RUN npm ci --omit=dev && npm cache clean --force
 COPY server ./server
 COPY public ./public
 COPY content ./content
+# Anleitung und Beispiel für eigene Aufgaben (landet beim Start in /data/aufgaben)
+COPY vorlage ./vorlage
 COPY docker-entrypoint.sh /usr/local/bin/lernwelt-entrypoint.sh
 # Windows-Zeilenenden entfernen, falls die Datei über eine Windows-Freigabe kopiert wurde
 RUN sed -i 's/\r$//' /usr/local/bin/lernwelt-entrypoint.sh \

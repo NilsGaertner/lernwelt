@@ -16,6 +16,6 @@ services:
     volumes:
       # Fortschritt, Sterne und Einstellungen – bleiben bei Updates erhalten
       - /mnt/user/appdata/lernwelt/data:/data
-      # Optional: Inhalte von außen einbinden, um sie ohne Neubau zu bearbeiten
-      # (danach im Elternbereich „Inhalte neu einlesen“ klicken)
-      # - /mnt/user/appdata/lernwelt/content:/app/content
+      # Eigene Aufgaben: Fach-Ordner nach /mnt/user/appdata/lernwelt/data/aufgaben legen,
+      # dann laufen nur diese (Anleitung in LIESMICH.txt dort, danach im Elternbereich
+      # „Inhalte neu einlesen“ klicken)

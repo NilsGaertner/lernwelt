@@ -1,10 +1,50 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { shortHash } from './util.js';
+import { shortHash, DATA_DIR } from './util.js';
 
-export const CONTENT_DIR = process.env.CONTENT_DIR || path.resolve(import.meta.dirname, '..', 'content');
+/** Die mitgelieferten Aufgaben (im Repo gepflegt). */
+const BUILTIN_DIR = process.env.CONTENT_DIR || path.resolve(import.meta.dirname, '..', 'content');
+/**
+ * Eigene Aufgaben, z. B. von anderen Familien: Liegt hier mindestens ein Fach-Ordner mit subject.json,
+ * zeigt die App nur diese Fächer und keine mitgelieferten. Ordner mit _ oder . vorn zählen nicht
+ * (dort liegen die Vorlage und die Kopie der mitgelieferten Fächer).
+ */
+export const CUSTOM_DIR = process.env.CUSTOM_CONTENT_DIR || path.join(DATA_DIR, 'aufgaben');
+const TEMPLATE_DIR = path.resolve(import.meta.dirname, '..', 'vorlage');
 const GENERATOR_DIR = path.resolve(import.meta.dirname, 'generators');
+
+let activeDir = BUILTIN_DIR;
+/** Ordner, aus dem die Fächer gerade kommen (für Karten und Bilder unter /media). */
+export const contentDir = () => activeDir;
+export const contentSource = () => ({ custom: activeDir !== BUILTIN_DIR, dir: activeDir, customDir: CUSTOM_DIR });
+
+function subjectDirs(root) {
+  if (!fs.existsSync(root)) return [];
+  return fs.readdirSync(root, { withFileTypes: true })
+    .filter((d) => d.isDirectory() && !/^[_.]/.test(d.name) && fs.existsSync(path.join(root, d.name, 'subject.json')))
+    .map((d) => d.name);
+}
+
+/**
+ * Legt beim Start den Ordner für eigene Aufgaben an: eine Anleitung, ein kleines Beispiel-Fach (_beispiel)
+ * und eine frische Kopie aller mitgelieferten Fächer (_mitgeliefert) zum Herauskopieren.
+ */
+export function prepareCustomDir() {
+  try {
+    fs.mkdirSync(CUSTOM_DIR, { recursive: true });
+    for (const name of ['LIESMICH.txt', '_beispiel']) {
+      const target = path.join(CUSTOM_DIR, name);
+      if (!fs.existsSync(target)) fs.cpSync(path.join(TEMPLATE_DIR, name), target, { recursive: true });
+    }
+    const copy = path.join(CUSTOM_DIR, '_mitgeliefert');
+    fs.rmSync(copy, { recursive: true, force: true });
+    fs.mkdirSync(copy);
+    for (const name of subjectDirs(BUILTIN_DIR)) fs.cpSync(path.join(BUILTIN_DIR, name), path.join(copy, name), { recursive: true });
+  } catch (err) {
+    console.warn(`[Inhalt] Der Ordner für eigene Aufgaben (${CUSTOM_DIR}) lässt sich nicht vorbereiten: ${err.message}`);
+  }
+}
 
 /** subjectId -> { meta, units: Map(unitId -> unit) } */
 export const subjects = new Map();
@@ -28,14 +68,12 @@ export async function loadContent() {
     generators.set(path.basename(file, '.js'), mod);
   }
 
-  for (const dir of fs.readdirSync(CONTENT_DIR, { withFileTypes: true })) {
-    if (!dir.isDirectory()) continue;
-    const subjectDir = path.join(CONTENT_DIR, dir.name);
-    const metaFile = path.join(subjectDir, 'subject.json');
-    if (!fs.existsSync(metaFile)) continue;
-    const meta = readJson(metaFile, problems);
+  activeDir = subjectDirs(CUSTOM_DIR).length ? CUSTOM_DIR : BUILTIN_DIR;
+  for (const name of subjectDirs(activeDir)) {
+    const subjectDir = path.join(activeDir, name);
+    const meta = readJson(path.join(subjectDir, 'subject.json'), problems);
     if (!meta || meta.enabled === false) continue;
-    meta.id ??= dir.name;
+    meta.id ??= name;
 
     const units = [];
     for (const file of fs.readdirSync(subjectDir)) {
@@ -76,7 +114,7 @@ function readJson(file, problems) {
   try {
     return JSON.parse(fs.readFileSync(file, 'utf8'));
   } catch (err) {
-    problems.push(`${file}: ${err.message}`);
+    problems.push(`${path.relative(activeDir, file)}: ${err.message}`);
     return null;
   }
 }

@@ -1,0 +1,45 @@
+{
+  "id": "karten-old-clock",
+  "line": "besuch",
+  "order": 2,
+  "title": "An old clock",
+  "subtitle": "Gäste, Bilder – und a oder an?",
+  "icon": "🕰️",
+  "typePhrases": true,
+  "explain": [
+    { "p": "Auf vielen dieser Karten steht **an** statt **a**. Klingt das nächste Wort mit **a, e, i, o, u** an, wird aus a ein **an**. So lässt es sich leichter sprechen." },
+    { "ex": [
+      ["an old clock", "eine alte Uhr"],
+      ["an easy task", "eine leichte Aufgabe"],
+      ["an important guest", "ein wichtiger Gast"],
+      ["a drawing on the wall", "eine Zeichnung an der Wand"]
+    ] },
+    { "tip": "Es zählt das Wort direkt dahinter: **a** clock, aber **an old** clock." },
+    { "tip": "An der Wand heißt **on the wall** – das Bild hängt ja auf der Wandfläche." },
+    { "tip": "Bei **guest** hört man das u nicht. Es klingt wie „gest“." },
+    { "tip": "**our** (unser) klingt fast wie **hour** (Stunde): „aua“. Unsere Kultur = **our culture**." }
+  ],
+  "vocab": [
+    { "en": "an old clock", "de": "eine alte Uhr" },
+    { "en": "an easy task", "de": "eine leichte Aufgabe" },
+    { "en": "an important guest", "de": "ein wichtiger Gast" },
+    { "en": "a drawing on the wall", "de": "eine Zeichnung an der Wand" },
+    { "en": "our culture", "de": "unsere Kultur" },
+    { "en": "an English book", "de": "ein Englischbuch" },
+    { "en": "an orange bag", "de": "eine orange Tasche" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "___ old clock", "de": "eine alte Uhr", "options": ["an", "a"], "answer": "an", "explain": "**o**ld beginnt mit o → **an** old clock." },
+    { "type": "choice", "q": "___ easy task", "de": "eine leichte Aufgabe", "options": ["an", "a"], "answer": "an", "explain": "**e**asy beginnt mit e → **an** easy task." },
+    { "type": "choice", "q": "___ important guest", "de": "ein wichtiger Gast", "options": ["an", "a"], "answer": "an", "explain": "**i**mportant beginnt mit i → **an** important guest." },
+    { "type": "choice", "q": "___ drawing on the wall", "de": "eine Zeichnung an der Wand", "options": ["a", "an"], "answer": "a", "explain": "**d**rawing beginnt mit d → **a** drawing." },
+    { "type": "choice", "q": "a drawing ___ the wall", "de": "eine Zeichnung an der Wand", "options": ["on", "at", "in", "of"], "answer": "on", "explain": "Was an der Wand hängt, ist **on** the wall." },
+    { "type": "input", "q": "an old ___", "de": "eine alte Uhr", "answer": "clock", "explain": "Eine Uhr an der Wand oder auf dem Tisch = **clock**. Eine Armbanduhr = watch." },
+    { "type": "input", "q": "an important ___", "de": "ein wichtiger Gast", "answer": "guest", "explain": "**guest** – mit u nach dem g, das man nicht hört." },
+    { "type": "input", "q": "an ___ task", "de": "eine leichte Aufgabe", "answer": "easy" },
+    { "type": "input", "q": "our ___", "de": "unsere Kultur", "answer": "culture", "explain": "**culture** – am Ende -ture wie in picture." },
+    { "type": "choice", "q": "___ culture", "de": "unsere Kultur", "options": ["our", "hour", "are", "your"], "answer": "our", "explain": "**our** = unser. **hour** (Stunde) klingt gleich, ist aber ein anderes Wort." },
+    { "type": "choice", "task": "Was heißt das auf Deutsch?", "q": "an easy task", "options": ["eine leichte Aufgabe", "eine schwere Aufgabe", "ein leichter Test", "eine Tasche"], "answer": "eine leichte Aufgabe", "explain": "**easy** = leicht, einfach. **task** = Aufgabe. Schwer wäre **difficult**." },
+    { "type": "choice", "q": "Steve has got ___ old sword.", "de": "Steve hat ein altes Schwert.", "options": ["an", "a"], "answer": "an", "explain": "**o**ld beginnt mit o → **an** old sword." }
+  ]
+}

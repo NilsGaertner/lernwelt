@@ -8,6 +8,7 @@
     { "id": "karten", "name": "Karteikarten-Linie", "short": "Karteikarten", "color": "#00695C" },
     { "id": "zimmer", "name": "Zimmer-Linie", "short": "Zimmer", "color": "#0D3B66" },
     { "id": "glueck", "name": "Glücks-Linie", "short": "Glück", "color": "#2E7D32" },
+    { "id": "besuch", "name": "Besuchs-Linie", "short": "Besuch", "color": "#0277BD" },
     { "id": "heft", "name": "Heft-Linie", "short": "Heft", "color": "#7B3FA0" },
     { "id": "test", "name": "Test-Linie", "short": "Test No 2", "color": "#B71C1C" },
     { "id": "trainer", "name": "Satz-Trainer-Linie", "short": "Satz-Trainer", "color": "#4A148C" },
@@ -33,7 +34,7 @@
   "blitz": [
     {
       "id": "woerter", "title": "Wörter-Blitz", "icon": "⚡", "subtitle": "Englische Wörter so schnell du kannst", "types": ["choice"],
-      "units": ["karten-dinge", "karten-tun", "karten-alltag", "karten-zimmer", "karten-kueche-bad", "karten-moebel", "karten-lucky", "karten-quiet", "karten-spelling", "test-schoolbag", "family-tree", "numbers","numbers-100", "colours", "days-months", "family", "school", "animals", "food", "body", "clothes", "home", "free-time", "verbs", "adjectives", "weather"]
+      "units": ["karten-dinge", "karten-tun", "karten-alltag", "karten-zimmer", "karten-kueche-bad", "karten-moebel", "karten-lucky", "karten-quiet", "karten-spelling", "karten-do-make", "karten-old-clock", "karten-lots-of-trees", "test-schoolbag", "family-tree", "numbers","numbers-100", "colours", "days-months", "family", "school", "animals", "food", "body", "clothes", "home", "free-time", "verbs", "adjectives", "weather"]
     },
     {
       "id": "grammatik", "title": "Grammatik-Blitz", "icon": "🌩️", "subtitle": "Welche Form passt?", "types": ["choice"],

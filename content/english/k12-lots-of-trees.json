@@ -1,0 +1,43 @@
+{
+  "id": "karten-lots-of-trees",
+  "line": "besuch",
+  "order": 3,
+  "title": "Lots of trees",
+  "subtitle": "Wohnen, Möbel und Zahlen",
+  "icon": "🌳",
+  "typePhrases": true,
+  "explain": [
+    { "p": "**lots of** = viele, eine Menge. Es passt vor fast alles: lots of trees, lots of friends, lots of homework." },
+    { "ex": [
+      ["to live in an area with lots of trees", "in einer Gegend mit vielen Bäumen wohnen"],
+      ["The furniture is new.", "Die Möbel sind neu."],
+      ["forty", "vierzig (40)"],
+      ["fifty", "fünfzig (50)"]
+    ] },
+    { "tip": "**furniture** (Möbel) ist im Englischen **ein** Wort in der Einzahl. Darum heißt es: The furniture **is** new. „furnitures“ gibt es nicht – genau wie bei homework." },
+    { "tip": "**forty** schreibt man ohne u, anders als four und fourteen." },
+    { "tip": "**fifty** kommt von five, aber aus dem v wird ein f: **fif**teen, **fif**ty." },
+    { "tip": "Auch hier: **an** area, weil area mit a anfängt." }
+  ],
+  "vocab": [
+    { "en": "to live in an area with lots of trees", "de": "in einer Gegend mit vielen Bäumen wohnen" },
+    { "en": "lots of trees", "de": "viele Bäume" },
+    { "en": "an area", "de": "eine Gegend" },
+    { "en": "The furniture is new.", "de": "Die Möbel sind neu." },
+    { "en": "forty", "de": "vierzig" },
+    { "en": "fifty", "de": "fünfzig" },
+    { "en": "lots of friends", "de": "viele Freunde" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "The furniture ___ new.", "de": "Die Möbel sind neu.", "options": ["is", "are", "am", "be"], "answer": "is", "explain": "**furniture** ist im Englischen Einzahl → The furniture **is** new." },
+    { "type": "input", "q": "The ___ is new.", "de": "Die Möbel sind neu.", "answer": "furniture" },
+    { "type": "choice", "q": "40 = ___", "options": ["forty", "fourty", "fourteen", "fortie"], "answer": "forty", "speak": false, "explain": "40 = **forty** – ohne u. Nur four und fourteen haben ein u." },
+    { "type": "choice", "q": "50 = ___", "options": ["fifty", "fivety", "fifteen", "fivty"], "answer": "fifty", "speak": false, "explain": "Aus five wird **fif-**: fifteen (15), fifty (50)." },
+    { "type": "input", "q": "to live in an ___ with lots of trees", "de": "in einer Gegend mit vielen Bäumen wohnen", "answer": "area" },
+    { "type": "input", "q": "to live in an area with ___ of trees", "de": "in einer Gegend mit vielen Bäumen wohnen", "answer": "lots" },
+    { "type": "choice", "q": "to live ___ an area with lots of trees", "de": "in einer Gegend mit vielen Bäumen wohnen", "options": ["in", "on", "at", "with"], "answer": "in", "explain": "in einer Gegend wohnen = live **in** an area." },
+    { "type": "choice", "q": "an area ___ lots of trees", "de": "eine Gegend mit vielen Bäumen", "options": ["with", "of", "from", "and"], "answer": "with", "explain": "mit = **with**." },
+    { "type": "choice", "q": "lots ___ trees", "de": "viele Bäume", "options": ["of", "off", "from", "with"], "answer": "of", "explain": "viele = **lots of**. Das of gehört immer dazu." },
+    { "type": "choice", "q": "In Minecraft there are lots of ___.", "de": "In Minecraft gibt es viele Bäume.", "options": ["trees", "tree", "a tree", "treees"], "answer": "trees", "explain": "Nach **lots of** kommt die Mehrzahl: lots of tree**s**." }
+  ]
+}

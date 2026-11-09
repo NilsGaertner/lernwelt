@@ -1,0 +1,23 @@
+{
+  "id": "saetze",
+  "line": "start",
+  "order": 3,
+  "title": "I am ten",
+  "subtitle": "Kurze Sätze bauen",
+  "icon": "💬",
+  "explain": [
+    { "p": "**I am** = ich bin. Kurz: **I'm**." },
+    { "ex": [
+      ["I am ten.", "Ich bin zehn."],
+      ["My ball is red.", "Mein Ball ist rot."]
+    ] }
+  ],
+  "exercises": [
+    { "type": "order", "de": "Ich bin zehn.", "answer": "I am ten.", "accept": ["I'm ten."] },
+    { "type": "order", "de": "Mein Ball ist rot.", "answer": "My ball is red." },
+    { "type": "order", "de": "Der Himmel ist blau.", "answer": "The sky is blue." },
+    { "type": "input", "q": "I ___ ten.", "de": "Ich bin zehn.", "answer": "am", "hint": "am / is / are" },
+    { "type": "choice", "q": "My cat ___ black.", "de": "Meine Katze ist schwarz.", "options": ["is", "am", "are"], "answer": "is" },
+    { "type": "choice", "q": "We ___ friends.", "de": "Wir sind Freunde.", "options": ["are", "is", "am"], "answer": "are" }
+  ]
+}
