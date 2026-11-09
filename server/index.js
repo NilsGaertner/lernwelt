@@ -11,12 +11,13 @@ import {
 } from './rewards.js';
 import { localDay, addDays, nowIso, randomId, hashPin, verifyPin } from './util.js';
 import {
-  streakInfo, weekInfo, xpOf, rankInfo, unlockedTrains, RANKS, dailyPlan, stampDays, stampCount, lineStatus, blitzBests, blitzRecords, blitzTopics,
+  streakInfo, weekInfo, xpOf, rankInfo, unlockedTrains, ranksFor, dailyPlan, stampDays, stampCount, lineStatus, blitzBests, blitzRecords, blitzTopics,
   lineUnits, nextStation, setStationState, notArchivedSql,
 } from './progress.js';
 import { lootboxes, openLootbox, giftLootbox } from './lootbox.js';
 import { avatarState, equip, grantSkin, cleanAvatar } from './avatars.js';
 import { werkstatt, werkstattCounts, addPuzzle, deletePuzzle, tryPuzzle } from './werkstatt.js';
+import { THEMES, DEFAULT_THEME } from '../public/js/themes.js';
 
 const PORT = Number(process.env.PORT) || 8080;
 prepareCustomDir();
@@ -41,7 +42,7 @@ app.get('/media/:subject/:file', (req, res, next) => {
 const fail = (status, message) => Object.assign(new Error(message), { status });
 
 function childOr404(id) {
-  const child = db.prepare('SELECT id, name, avatar, companion, skin, train, adult FROM children WHERE id = ?').get(Number(id));
+  const child = db.prepare('SELECT id, name, avatar, companion, skin, train, adult, theme, theme_locked FROM children WHERE id = ?').get(Number(id));
   if (!child) throw fail(404, 'Dieses Profil gibt es nicht.');
   return child;
 }
@@ -56,10 +57,15 @@ app.get('/api/children', (req, res) => {
   res.json(db.prepare('SELECT id, name, avatar, companion, skin, adult FROM children ORDER BY adult, id').all());
 });
 
-/** Der gewählte Zug – falls (noch) nicht freigeschaltet, der beste freigeschaltete. */
+/**
+ * Das gewählte Symbol in der Fahrt, falls (noch) nicht freigeschaltet das beste freigeschaltete. Gespeichert ist es
+ * als Symbol des Bahn-Themas und steht damit für eine Rang-Stufe, so bleibt die Wahl beim Themenwechsel erhalten.
+ */
 function trainOf(child, xp) {
-  const trains = unlockedTrains(xp);
-  return trains.includes(child.train) ? child.train : trains[trains.length - 1];
+  const i = ranksFor(DEFAULT_THEME).findIndex((r) => r.train === child.train);
+  const ranks = ranksFor(child.theme);
+  if (i >= 0 && xp >= ranks[i].min) return ranks[i].train;
+  return unlockedTrains(xp, child.theme).at(-1);
 }
 
 app.get('/api/children/:id/overview', (req, res) => {
@@ -81,10 +87,10 @@ app.get('/api/children/:id/overview', (req, res) => {
     lines: lineStatus(child.id),
     plan: dailyPlan(child.id),
     blitz: blitzBests(child.id),
-    rank: rankInfo(xp),
-    ranks: RANKS,
+    rank: rankInfo(xp, child.theme),
+    ranks: ranksFor(child.theme),
     train: trainOf(child, xp),
-    trains: unlockedTrains(xp),
+    trains: unlockedTrains(xp, child.theme),
     stampDays: stampDays(child.id),
     review: practiceCounts(child.id, 'review'),
     due: practiceCounts(child.id, 'due'),
@@ -126,7 +132,7 @@ app.post('/api/children/:id/lootboxes/:box/open', (req, res) => {
 
 app.get('/api/subjects/:subject/units/:unit', (req, res) => {
   const unit = publicUnit(req.params.subject, req.params.unit);
-  if (!unit) throw fail(404, 'Diese Station gibt es nicht.');
+  if (!unit) throw fail(404, 'Diese Übung gibt es nicht.');
   res.json(unit);
 });
 
@@ -157,10 +163,20 @@ app.post('/api/children/:id/avatar', (req, res) => {
 
 app.post('/api/children/:id/train', (req, res) => {
   const child = childOr404(req.params.id);
-  const train = String(req.body?.train ?? '');
-  if (!unlockedTrains(xpOf(child.id)).includes(train)) throw fail(400, 'Diesen Zug hast du noch nicht freigeschaltet.');
-  db.prepare('UPDATE children SET train = ? WHERE id = ?').run(train, child.id);
-  res.json({ train });
+  const level = Number(req.body?.level);
+  const rank = ranksFor(child.theme)[level - 1];
+  if (!rank || xpOf(child.id) < rank.min) throw fail(400, 'Das hast du noch nicht freigeschaltet.');
+  db.prepare('UPDATE children SET train = ? WHERE id = ?').run(ranksFor(DEFAULT_THEME)[level - 1].train, child.id);
+  res.json({ train: rank.train });
+});
+
+app.post('/api/children/:id/theme', (req, res) => {
+  const child = childOr404(req.params.id);
+  if (child.theme_locked) throw fail(403, 'Das Thema stellen gerade deine Eltern ein.');
+  const theme = String(req.body?.theme ?? '');
+  if (!THEMES[theme]) throw fail(400, 'Dieses Thema gibt es nicht.');
+  db.prepare('UPDATE children SET theme = ? WHERE id = ?').run(theme, child.id);
+  res.json({ theme });
 });
 
 app.post('/api/sessions/:id/answer', (req, res) => {
@@ -231,7 +247,7 @@ parent.post('/logout', (req, res) => {
 parent.get('/overview', (req, res) => {
   const today = localDay();
   const weekStart = addDays(today, -6);
-  const children = db.prepare('SELECT id, name, avatar, skin, adult FROM children ORDER BY adult, id').all().map((c) => {
+  const children = db.prepare('SELECT id, name, avatar, skin, adult, theme FROM children ORDER BY adult, id').all().map((c) => {
     const t = db
       .prepare(
         `SELECT COUNT(*) AS sessions, COALESCE(SUM(duration_sec), 0) AS secs, COALESCE(SUM(correct), 0) AS correct, COALESCE(SUM(total), 0) AS total
@@ -247,7 +263,7 @@ parent.get('/overview', (req, res) => {
       balance: balance(c.id),
       earnedToday: earnedOn(c.id, today),
       streak: streak(c.id),
-      rank: rankInfo(xpOf(c.id)),
+      rank: rankInfo(xpOf(c.id), c.theme),
       planDone: dailyPlan(c.id).done,
       today: { sessions: t.sessions, minutes: Math.round(t.secs / 60), accuracy: t.total ? Math.round((t.correct * 100) / t.total) : null },
       week: { sessions: w.sessions, minutes: Math.round(w.secs / 60) },
@@ -334,7 +350,7 @@ parent.get('/children/:id', (req, res) => {
     child,
     balance: balance(child.id),
     streak: streak(child.id),
-    rank: rankInfo(xpOf(child.id)),
+    rank: rankInfo(xpOf(child.id), child.theme),
     stamps: stampCount(child.id),
     badges: earnedBadges(child.id),
     days,
@@ -396,6 +412,15 @@ parent.put('/children/:id', (req, res) => {
   const avatar = cleanAvatar(req.body?.avatar, child.avatar);
   db.prepare('UPDATE children SET name = ?, avatar = ? WHERE id = ?').run(name, avatar, child.id);
   res.json({ ...child, name, avatar });
+});
+
+parent.put('/children/:id/theme', (req, res) => {
+  const child = childOr404(req.params.id);
+  const theme = String(req.body?.theme ?? '');
+  if (!THEMES[theme]) throw fail(400, 'Dieses Thema gibt es nicht.');
+  const locked = req.body?.locked ? 1 : 0;
+  db.prepare('UPDATE children SET theme = ?, theme_locked = ? WHERE id = ?').run(theme, locked, child.id);
+  res.json({ theme, locked: !!locked });
 });
 
 parent.delete('/children/:id', (req, res) => {

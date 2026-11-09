@@ -1,7 +1,7 @@
 import { db } from './db.js';
 import { subjects, vocabKey, exerciseKey, getGenerator, mediaUrl, publicUnit, rideCap } from './content.js';
 import { completeSession, activeBoost, boostApplies } from './rewards.js';
-import { lineStatus, lineUnits, blitzTopics, archivedUnits } from './progress.js';
+import { lineStatus, lineUnits, blitzTopics, archivedUnits, worldOf } from './progress.js';
 import { practiceItems, recordAnswer } from './srs.js';
 import { normalize, levenshtein, shuffle, pick, randomId, nowIso, localDay } from './util.js';
 
@@ -281,10 +281,10 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
   } else if (mode === 'exam') {
     const line = (subject.meta.lines ?? []).find((l) => l.id === lineId);
     const status = lineStatus(childId)[subjectId]?.[lineId];
-    if (!line || !status) throw httpError(404, 'Diesen Endbahnhof gibt es nicht.');
-    if (!status.unlocked) throw httpError(400, 'Der Endbahnhof öffnet, wenn alle Stationen der Linie mindestens 2 Sterne haben.');
+    if (!line || !status) throw httpError(404, 'Diese Prüfung gibt es nicht.');
+    if (!status.unlocked) throw httpError(400, 'Das öffnet sich, wenn alle Übungen hier mindestens 2 Sterne haben.');
     candidates = lineUnits(subjectId, lineId).filter(inService).flatMap((u) => unitCandidates(subjectId, u, count));
-    title = `Endbahnhof ${line.short ?? line.name}`;
+    title = `${worldOf(childId).terminus.s} ${line.short ?? line.name}`;
     refId = line.id;
     count = line.examCount ?? Math.max(12, Math.round(count * 1.5));
   } else if (mode === 'blitz') {
@@ -302,8 +302,8 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     count = 80;
   } else {
     unit = subject.units.get(unitId);
-    if (!unit) throw httpError(404, 'Diese Station gibt es nicht.');
-    if (!inService(unit)) throw httpError(400, 'Diese Station ist gerade außer Betrieb.');
+    if (!unit) throw httpError(404, 'Diese Übung gibt es nicht.');
+    if (!inService(unit)) throw httpError(400, 'Diese Übung ist gerade ausgeschaltet.');
     candidates = unitCandidates(subjectId, unit, count);
     title = unit.title;
     refId = unit.id;

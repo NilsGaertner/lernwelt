@@ -1,4 +1,5 @@
 // Kleine Helfer für DOM, Text, Ton und Sprache.
+import { W } from './themes.js';
 
 /** h('div.cls#id', {attrs}, ...children) – erzeugt DOM-Elemente. */
 export function h(tag, attrs, ...children) {
@@ -809,5 +810,5 @@ export function weekHint(week) {
     return `📅 Heute ist auf deiner Wochenkarte!${next}${loot}`;
   }
   const more = week.minStars - week.starsToday;
-  return `📅 Mit ${more} ★ mehr aus Fahrten kommt heute auf deine Wochenkarte${week.next.minutes ? ` – das bringt ${weekPrize(week.next)}` : ''}.${loot}`;
+  return `📅 Mit ${more} ★ mehr aus ${W.ride.pDat} kommt heute auf deine Wochenkarte${week.next.minutes ? ` – das bringt ${weekPrize(week.next)}` : ''}.${loot}`;
 }

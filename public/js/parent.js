@@ -3,6 +3,7 @@ import { api, parentToken } from './api.js';
 import { faceOf } from './avatar.js';
 import { CATS, SKINS, avatarSvg, avatarText } from './avatar-data.js';
 import { RARITIES, rarityLevel } from './lootbox.js';
+import { THEMES, DEFAULT_THEME } from './themes.js';
 
 const AVATARS = [...Object.keys(CATS).map((k) => `cat:${k}`), '🦊', '🐼', '🐯', '🦁', '🐸', '🐙', '🦄', '🐲', '🐧', '🐨', '🦖', '🐱', '🐶', '🚀', '⚽', '🎮'];
 const KIND = { session: 'Übung', bonus: 'Bonus', badge: 'Abzeichen', ticket: 'Ticket', refund: 'Rückgabe', manual: 'Eltern', system: 'Hinweis', lootbox: 'Lootbox', streak: 'Serie', week: 'Wochenkarte' };
@@ -648,6 +649,21 @@ async function childView(root, id, render) {
         h('td', l.note ?? ''),
         h('td', { style: { textAlign: 'right' } }, h(`span.${l.amount >= 0 ? 'pos' : 'neg'}`, `${l.amount > 0 ? '+' : ''}${l.amount}`))))))));
 
+  const saveTheme = async () => {
+    try {
+      await papi(`/children/${id}/theme`, { method: 'PUT', body: { theme: themeSelect.value, locked: !kidMayChoose.checked } });
+      toast('Thema gespeichert.');
+    } catch (err) { toast(err.message); }
+  };
+  const themeSelect = h('select.input', { id: 'child-theme', onchange: saveTheme }, Object.values(THEMES).map((t) =>
+    h('option', { value: t.id, selected: t.id === (d.child.theme ?? DEFAULT_THEME) }, `${t.icon} ${t.name} – ${t.desc}`)));
+  const kidMayChoose = h('input', { type: 'checkbox', checked: !d.child.theme_locked, onchange: saveTheme });
+  const themePanel = h('section.panel',
+    h('h2', '🎨 Thema'),
+    h('p.muted', 'Das Thema ändert für dieses Profil Farben, Schrift, Ränge und Wörter: aus „Station“ wird zum Beispiel „Level“. Sterne und Lernstand bleiben erhalten. Hier im Elternbereich heißt es weiter Station und Linie.'),
+    h('.field', h('label', { for: 'child-theme' }, 'Thema'), themeSelect),
+    h('.field', h('label.check', kidMayChoose, ' Das Kind darf das Thema selbst wechseln (in der Sammlung)')));
+
   let avatar = d.child.avatar;
   const nameInput = h('input.input', { id: 'edit-name', value: d.child.name, maxlength: 40 });
   const edit = h('form.panel', {
@@ -695,6 +711,7 @@ async function childView(root, id, render) {
     foldable(sessions, 'child.sessions'),
     foldable(adjust, 'child.adjust'),
     foldable(ledger, 'child.ledger', { open: false }),
+    foldable(themePanel, 'child.theme', { open: false }),
     foldable(edit, 'child.edit', { open: false })
   );
 }

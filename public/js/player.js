@@ -4,6 +4,8 @@ import {
   playMusic, weekStrip, weekHint, weekPrize,
 } from './ui.js';
 import { api } from './api.js';
+import { W, cap } from './themes.js';
+import { arrivalArt } from './theme-art.js';
 import { lootbox } from './lootbox.js';
 import { companion } from './companion.js';
 
@@ -23,7 +25,7 @@ const shuffle = (arr) => {
  * Falsch beantwortete Aufgaben kommen am Ende noch einmal – gewertet wird nur der erste Versuch.
  * onExit: Fahrt abgebrochen · onMap: zum Netzplan · onAgain: nochmal fahren · onNext(next): zur nächsten Station
  */
-export function runRide(root, session, { childId, subject = null, lineColor, train: trainIcon = '🚆', card = null, onExit, onMap = onExit, onAgain, onNext }) {
+export function runRide(root, session, { childId, subject = null, lineColor, train: trainIcon = W.icons.ride, card = null, onExit, onMap = onExit, onAgain, onNext }) {
   const lang = session.speechLang;
   const total = session.questions.length;
   const queue = session.questions.map((q) => ({ q, retry: false }));
@@ -57,7 +59,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
   const catSlot = h('span', { hidden: true });
   const wrap = h('section.ride', { style: { '--line': lineColor } },
     h('.ride-top',
-      h('button.icon-btn', { type: 'button', title: 'Fahrt abbrechen', 'aria-label': 'Fahrt abbrechen', onclick: exit }, '✕'),
+      h('button.icon-btn', { type: 'button', title: `${W.ride.s} abbrechen`, 'aria-label': `${W.ride.s} abbrechen`, onclick: exit }, '✕'),
       h('.track', { role: 'progressbar', 'aria-valuemin': 0, 'aria-valuemax': total }, h('.rail'), railDone, trackDots, train),
       count),
     comboBadge,
@@ -90,13 +92,13 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     const done = status.filter(Boolean).length;
     const { mode } = session;
     const counts = mode !== 'exam' && mode !== 'blitz' && done >= MIN_EARLY;
-    const sure = await ask('Hier aussteigen?', {
+    const sure = await ask(W.say.exit, {
       text: counts
-        ? `Kein Problem. Deine ${done} Aufgaben zählen als kurze Fahrt.`
+        ? `Kein Problem. Deine ${done} Aufgaben zählen als ${W.ride.bare('kurz', 'acc')}.`
         : mode === 'exam'
-          ? 'Kein Problem. Den Endbahnhof kannst du jederzeit neu anfahren.'
+          ? `Kein Problem. ${cap(W.terminus.der('acc'))} kannst du jederzeit neu ${W.say.retry}.`
           : 'Kein Problem. Was du geübt hast, merkt sich die Lernwelt trotzdem.',
-      ok: 'Aussteigen', cancel: 'Weiterfahren',
+      ok: W.say.exitOk, cancel: W.say.exitNo,
     });
     if (!sure || ended) return;
     if (counts) return finish({ early: true });
@@ -862,7 +864,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
   }
 
   // ---------------------------------------------------------------- Serie
-  const COMBO_STEPS = { 3: 'Schnellzug!', 5: 'ICE!', 8: 'Hochgeschwindigkeit!', 12: 'Rekordfahrt!' };
+  const COMBO_STEPS = W.combos;
   function updateCombo(n) {
     const prev = combo;
     combo = n;
@@ -984,7 +986,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
   async function finish({ early = false } = {}) {
     cleanup();
     release();
-    stage.replaceChildren(h('.loading', 'Einfahrt in den Bahnhof …'));
+    stage.replaceChildren(h('.loading', W.say.arriving));
     const here = location.hash;
     let result;
     try {
@@ -998,13 +1000,13 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     if (location.hash !== here) return;
     const exam = result.exam;
     const headline = exam
-      ? exam.passed ? 'Endbahnhof erreicht!' : 'Knapp vor dem Ziel!'
-      : { 3: 'Perfekte Fahrt!', 2: 'Gute Fahrt!', 1: 'Angekommen!' }[result.rating];
+      ? exam.passed ? `${W.say.terminusDone}!` : 'Knapp vor dem Ziel!'
+      : { 3: `${W.ride.bare('Perfekt')}!`, 2: `${W.ride.bare('Gut')}!`, 1: W.say.arrived }[result.rating];
     const sub = exam
-      ? exam.passed ? 'Du kennst die ganze Linie!' : `Ab 80 % ist die Prüfung bestanden, du hattest ${exam.percent} %. Du kannst den Endbahnhof jederzeit nochmal anfahren.`
+      ? exam.passed ? `Du kennst ${W.line.der('acc', 'ganz')}!` : `Ab 80 % ist die Prüfung bestanden, du hattest ${exam.percent} %. Du kannst ${W.terminus.der('acc')} jederzeit nochmal ${W.say.retry}.`
       : result.short
-        ? 'Kurze Fahrt geschafft. Drei Sterne für die Station gibt es auf einer ganzen Fahrt.'
-        : { 3: 'Du bist spitze!', 2: 'Nur noch ein kleines Stück bis zu drei Sternen.', 1: 'Jede Fahrt zählt.' }[result.rating];
+        ? `${W.ride.bare('Kurz')} geschafft. Drei Sterne für ${W.station.der('acc')} gibt es ${W.ride.onEin('ganz')}.`
+        : { 3: 'Du bist spitze!', 2: 'Nur noch ein kleines Stück bis zu drei Sternen.', 1: `${cap(W.ride.jed())} zählt.` }[result.rating];
     const celebrate = result.rating === 3 || result.xp.rankUp || result.plan?.justCompleted || exam?.first;
     if (celebrate) {
       sfx.fanfare();
@@ -1029,7 +1031,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       setTimeout(() => sfx.stamp(), 1200);
       panels.push(h('section.panel.plan-done',
         h('.stamp', { 'aria-hidden': 'true' }, h('span', '✔'), h('small', 'Erledigt')),
-        h('div', h('h2', '📋 Tagesfahrplan erfüllt!'), h('p', `Ein neuer Stempel für dein Stempelheft – das ist schon Stempel Nr. ${result.plan.stamps}.`))));
+        h('div', h('h2', `📋 ${W.say.planDone}`), h('p', `Ein neuer Stempel für dein Stempelheft – das ist schon Stempel Nr. ${result.plan.stamps}.`))));
     }
     if (result.newCard && card) {
       panels.push(h('section.panel',
@@ -1044,10 +1046,10 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     const station = result.station;
     if (station?.justRetired) {
       panels.push(h('section.panel.parked-up',
-        h('.big-train', { 'aria-hidden': 'true' }, '🅿️'),
+        h('.big-train', { 'aria-hidden': 'true' }, W.icons.parked),
         h('div',
-          h('h2', 'Ab aufs Abstellgleis!'),
-          h('p', `Du hast diese Station an ${station.limit} Tagen mit 3 Sternen geschafft – die sitzt! Sie macht jetzt Pause: Ab sofort gibt es hier keine Sterne mehr. Neue Sterne warten auf den anderen Stationen.`))));
+          h('h2', W.say.parkedTitle),
+          h('p', `Du hast ${W.station.dies('acc')} an ${station.limit} Tagen mit 3 Sternen geschafft – ${W.station.pron} sitzt! ${W.station.Pron} macht jetzt Pause: Ab sofort gibt es hier keine Sterne mehr. Neue Sterne warten ${W.station.onOthersThe}.`))));
     }
     if (result.weekDay && result.week) {
       const w = result.weekDay;
@@ -1078,7 +1080,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       const r = result.xp.rankUp;
       panels.push(h('section.panel.rank-up',
         h('.big-train', { 'aria-hidden': 'true' }, r.train),
-        h('div', h('h2', `Neuer Rang: ${r.name}!`), h('p', `Du hast einen neuen Zug freigeschaltet: ${r.train}. Du kannst ihn in deiner Sammlung auswählen.`))));
+        h('div', h('h2', `Neuer Rang: ${r.name}!`), h('p', `Du hast ${W.item.ein('acc', 'neu')} freigeschaltet: ${r.train}. Du kannst ${W.item.pronAcc} in deiner Sammlung auswählen.`))));
     }
 
     const comboLine = result.bestCombo >= 3
@@ -1091,8 +1093,9 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     root.replaceChildren(h('section.arrival', { style: { '--line': lineColor } },
       h('.board',
         arrivalCat?.el,
-        h('.eyebrow', `Endstation · ${session.title}`),
+        h('.eyebrow', `${W.say.eyebrow} · ${session.title}`),
         h('h1', headline),
+        arrivalArt(result.rating, !!exam?.passed),
         h('.big-stars', { role: 'img', 'aria-label': `${result.rating} von 3 Sternen` },
           [1, 2, 3].map((i) => h('span', { class: i <= result.rating ? 'on' : 'off' }, '★'))),
         h('p.score', `${fmtScore(result.correct)} von ${result.total} beim ersten Versuch richtig${result.correct % 1 ? ' (½ = mit Hilfe geschafft)' : ''}. ${sub}`),
@@ -1113,15 +1116,15 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
                   ? [r.given ? `+${r.given} ★ ` : '', h('span.capped', `+${r.amount - r.given}`)]
                   : `+${r.given} ★`)))),
             station?.parked
-              ? h('p.muted', `🅿️ Diese Station steht auf dem Abstellgleis – hier gibt es keine Sterne mehr. Üben darfst du trotzdem! Sterne gibt es auf den anderen Stationen.`)
+              ? h('p.muted', `${W.icons.parked} ${cap(W.station.dies())} ${W.say.parkedIs} – hier gibt es keine Sterne mehr. Üben darfst du trotzdem! Sterne gibt es ${W.station.onOthersThe}.`)
               : null,
             station?.extraRidesLeft != null
               ? h('p.muted', station.extraRidesLeft > 0
-                  ? `🔄 Diese Station ist noch für ${station.extraRidesLeft} ${station.extraRidesLeft === 1 ? 'Fahrt' : 'Fahrten'} mit Sternen in Betrieb.`
-                  : '🔄 Das war die letzte Fahrt mit Sternen – jetzt geht die Station zurück aufs Abstellgleis.')
+                  ? `🔄 ${cap(W.station.dies())} ist noch für ${station.extraRidesLeft} ${station.extraRidesLeft === 1 ? W.ride.s : W.ride.p} mit Sternen ${W.say.open}.`
+                  : `🔄 Das war ${W.ride.der('nom', 'letzt')} mit Sternen – jetzt geht ${W.station.der()} zurück ${W.say.parkedTo}.`)
               : null,
             station && !station.parked && !station.justRetired && station.limit > 0 && station.perfect > 0 && station.perfect < station.limit
-              ? h('p.muted', `🎁 An ${station.perfect} von ${station.limit} Tagen 3 Sterne: Schaffst du es an ${station.limit} verschiedenen Tagen, kommt die Station aufs Abstellgleis, und du bekommst eine Lootbox.${station.alreadyToday ? ' Heute hat hier schon eine Fahrt gezählt – an einem anderen Tag zählt die nächste.' : ''}`)
+              ? h('p.muted', `🎁 An ${station.perfect} von ${station.limit} Tagen 3 Sterne: Schaffst du es an ${station.limit} verschiedenen Tagen, kommt ${W.station.der()} ${W.say.parkedTo}, und du bekommst eine Lootbox.${station.alreadyToday ? ` Heute hat hier schon ${W.ride.ein()} gezählt – an einem anderen Tag zählt ${W.ride.art('der', 'nom')} nächste.` : ''}`)
               : null,
             result.week && !result.weekDay && !result.week.countedToday
               ? h('p.muted', weekHint(result.week))
@@ -1129,8 +1132,8 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
             result.capped > 0 ? h('p.muted', 'Dein Sterne-Limit für heute ist erreicht. Morgen gibt es wieder neue – üben lohnt sich trotzdem!') : null,
             !result.capped && result.runToday >= 2 && ['unit', 'exam'].includes(result.mode)
               ? h('p.muted', result.runToday === 2
-                  ? `Deine 2. Fahrt ${result.mode === 'exam' ? 'zu diesem Endbahnhof' : 'auf dieser Station'} heute – dafür gibt es halbe Sterne. Neue Stationen bringen mehr!`
-                  : 'Auf dieser Strecke gibt es heute nur noch 1 Stern. Auf anderen Stationen gibt es wieder die vollen Sterne.')
+                  ? `${cap(W.ride.art('dein', 'nom'))} 2. ${W.ride.s} ${result.mode === 'exam' ? `zu ${W.terminus.dies('dat')}` : W.station.onThis} heute – dafür gibt es halbe Sterne. Neue ${W.station.p} bringen mehr!`
+                  : `${cap(W.station.onThis)} gibt es heute nur noch 1 Stern. ${cap(W.station.onOthers)} gibt es wieder die vollen Sterne.`)
               : null,
             h('p', h('strong', 'Du hast jetzt ', balanceEl, ' Sterne.'))),
       result.newBadges.length
@@ -1138,11 +1141,11 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
             h('h2', result.newBadges.length === 1 ? '🎉 Neues Abzeichen!' : '🎉 Neue Abzeichen!'),
             h('.new-badges', result.newBadges.map((b, i) =>
               h('.badge.pop', { style: { animationDelay: `${0.8 + i * 0.25}s` } },
-                h('.medal', { 'aria-hidden': 'true' }, b.icon), h('.bname', b.name), h('.bdesc', b.desc)))))
+                h('.medal', { 'aria-hidden': 'true' }, W.badge(b).icon), h('.bname', W.badge(b).name), h('.bdesc', W.badge(b).desc)))))
         : null,
       arrivalActions(result)));
     // Der wichtigste Knopf steht unten fest – sonst müsste man erst an allen Kästen vorbei scrollen.
-    dock(arrivalMain(result), h('button.btn.ghost.big', { type: 'button', 'aria-label': 'Zum Netzplan', title: 'Zum Netzplan', onclick: onMap }, '🗺️'));
+    dock(arrivalMain(result), h('button.btn.ghost.big', { type: 'button', 'aria-label': W.map.zu, title: W.map.zu, onclick: onMap }, W.icons.map));
     window.scrollTo(0, 0);
   }
 
@@ -1167,8 +1170,8 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
   function arrivalMain(result) {
     const done = result.exam ? result.exam.passed : result.rating >= 2 || result.station?.parked || result.station?.justRetired;
     return done && result.next && onNext
-      ? h('button.btn.line.big', { type: 'button', onclick: () => onNext(result.next) }, `🚉 Nächster Halt: ${result.next.icon} ${result.next.title}`)
-      : h('button.btn.line.big', { type: 'button', onclick: onAgain }, '🔁 Nochmal fahren');
+      ? h('button.btn.line.big', { type: 'button', onclick: () => onNext(result.next) }, `${W.icons.next} ${W.say.next}: ${result.next.icon} ${result.next.title}`)
+      : h('button.btn.line.big', { type: 'button', onclick: onAgain }, `🔁 ${W.say.again}`);
   }
 
   /** Nach einer geschafften Fahrt geht es zum nächsten Halt, nicht nochmal auf dieselbe Station. */
@@ -1176,10 +1179,10 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     const done = result.exam ? result.exam.passed : result.rating >= 2 || result.station?.parked || result.station?.justRetired;
     const next = result.next && onNext
       ? h('button.btn.big', { type: 'button', class: done ? 'line' : 'ghost', onclick: () => onNext(result.next) },
-          `🚉 Nächster Halt: ${result.next.icon} ${result.next.title}${result.next.subject !== subject && result.next.subjectName ? ` (${result.next.subjectName})` : ''}`)
+          `${W.icons.next} ${W.say.next}: ${result.next.icon} ${result.next.title}${result.next.subject !== subject && result.next.subjectName ? ` (${result.next.subjectName})` : ''}`)
       : null;
-    const again = h('button.btn.big', { type: 'button', class: done && next ? 'ghost' : 'line', onclick: onAgain }, '🔁 Nochmal fahren');
-    const map = h('button.btn.ghost.big', { type: 'button', onclick: onMap }, '🗺️ Zum Netzplan');
+    const again = h('button.btn.big', { type: 'button', class: done && next ? 'ghost' : 'line', onclick: onAgain }, `🔁 ${W.say.again}`);
+    const map = h('button.btn.ghost.big', { type: 'button', onclick: onMap }, `${W.icons.map} ${W.map.zu}`);
     return h('.actions', done ? [next, again, map] : [again, next, map]);
   }
 
@@ -1196,5 +1199,5 @@ export function collectCard({ icon, title, text, color, number, owned, fresh = f
       h('.ccard-title', title),
       owned
         ? h('.ccard-text', { html: md(text ?? '') })
-        : h('.ccard-text.muted', hint ?? 'Hol 3 Sterne bei dieser Station, dann gehört die Karte dir.')));
+        : h('.ccard-text.muted', hint ?? `Hol 3 Sterne bei ${W.station.dies('dat')}, dann gehört die Karte dir.`)));
 }

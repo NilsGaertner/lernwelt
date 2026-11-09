@@ -5,21 +5,16 @@ import { db, getPublicSettings, getSetting } from './db.js';
 import { subjects } from './content.js';
 import { localDay, addDays, nowIso } from './util.js';
 import { practiceItems } from './srs.js';
+import { themeOf, cap } from '../public/js/themes.js';
 
 // ---------------------------------------------------------------- Ränge
 
-/** Jeder Rang schaltet einen Zug frei, mit dem das Kind durch die Übungen fährt. */
-export const RANKS = [
-  { min: 0, name: 'Fahrgast', train: '🚆' },
-  { min: 300, name: 'Schaffner-Azubi', train: '🚋' },
-  { min: 1000, name: 'Schaffner', train: '🚃' },
-  { min: 2000, name: 'Rangierer', train: '🚂' },
-  { min: 3500, name: 'Lokführer-Azubi', train: '🚇' },
-  { min: 5500, name: 'Lokführer', train: '🚝' },
-  { min: 8000, name: 'Zugchef', train: '🚄' },
-  { min: 12000, name: 'ICE-Kapitän', train: '🚅' },
-  { min: 17000, name: 'Streckenlegende', train: '🚀' },
-];
+/** XP ab denen die Ränge gelten. Namen und Symbole kommen aus dem Thema (public/js/themes.js). */
+const RANK_XP = [0, 300, 1000, 2000, 3500, 5500, 8000, 12000, 17000];
+export const ranksFor = (theme) => themeOf(theme).ranks.map((r, i) => ({ min: RANK_XP[i], ...r }));
+
+/** Worte und Ränge des Themas, das dieses Kind gewählt hat. */
+export const worldOf = (childId) => themeOf(db.prepare('SELECT theme FROM children WHERE id = ?').get(childId)?.theme);
 export const XP = { answer: 10, stamp: 50, exam: 100 };
 
 export function xpOf(childId) {
@@ -28,14 +23,15 @@ export function xpOf(childId) {
   return answers * XP.answer + stamps * XP.stamp + examsPassed(childId) * XP.exam;
 }
 
-export function rankInfo(xp) {
+export function rankInfo(xp, theme) {
+  const RANKS = ranksFor(theme);
   let i = 0;
   while (i + 1 < RANKS.length && xp >= RANKS[i + 1].min) i++;
   const next = RANKS[i + 1] ?? null;
   return { level: i + 1, ...RANKS[i], xp, next: next ? { name: next.name, min: next.min, train: next.train } : null };
 }
 
-export const unlockedTrains = (xp) => RANKS.filter((r) => xp >= r.min).map((r) => r.train);
+export const unlockedTrains = (xp, theme) => ranksFor(theme).filter((r) => xp >= r.min).map((r) => r.train);
 
 // ---------------------------------------------------------------- Tage-Serie (für Abzeichen und den Elternbereich) und Wochenkarte
 
@@ -401,16 +397,16 @@ function createMissions(childId, day) {
   return [{ type: 'subject', subject: first.id }, ...due, ...pool].slice(0, 3);
 }
 
-function describe(m) {
+function describe(m, W) {
   switch (m.type) {
     case 'subject': {
       const meta = subjects.get(m.subject)?.meta;
-      return { icon: meta?.icon ?? '🚉', label: `Eine Station in ${meta?.name ?? m.subject}` };
+      return { icon: meta?.icon ?? '🚉', label: `${cap(W.station.ein('nom'))} in ${meta?.name ?? m.subject}` };
     }
     case 'review': return { icon: '🔧', label: 'Ein Fehler-Training' };
     case 'due': return { icon: '🔁', label: 'Die Wiederholung von heute' };
-    case 'new': return { icon: '🆕', label: 'Eine Station, bei der du noch nie warst' };
-    case 'perfect': return { icon: '⭐', label: 'Hol 3 Sterne bei einer Fahrt' };
+    case 'new': return { icon: '🆕', label: `${cap(W.station.ein('nom'))}, bei ${W.station.pron === 'die' ? 'der' : 'dem'} du noch nie warst` };
+    case 'perfect': return { icon: '⭐', label: `Hol 3 Sterne bei ${W.ride.ein('dat')}` };
     case 'blitz': return { icon: '⚡', label: 'Eine Blitzrunde' };
     case 'combo': return { icon: '🔥', label: '5 richtige Antworten hintereinander' };
     default: return { icon: '🚉', label: m.type };
@@ -445,7 +441,7 @@ export function dailyPlan(childId) {
       .run(childId, day, JSON.stringify(createMissions(childId, day)));
     row = db.prepare('SELECT * FROM daily_plans WHERE child_id = ? AND day = ?').get(childId, day);
   }
-  const missions = JSON.parse(row.missions).map((m) => ({ ...m, ...describe(m), done: missionDone(childId, day, m) }));
+  const missions = JSON.parse(row.missions).map((m) => ({ ...m, ...describe(m, worldOf(childId)), done: missionDone(childId, day, m) }));
   const done = missions.length > 0 && missions.every((m) => m.done);
   let justCompleted = false;
   if (done && !row.completed_at) {

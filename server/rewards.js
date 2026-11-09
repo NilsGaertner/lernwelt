@@ -3,7 +3,7 @@ import { BADGES, BADGE_BONUS } from './badges.js';
 import { subjects, itemLabel } from './content.js';
 import { localDay, nowIso, fmtScore } from './util.js';
 import {
-  streak, dailyPlan, stampCount, examsPassed, xpOf, rankInfo, PASSED_SQL, stationState, useExtraRide, nextStation,
+  streak, dailyPlan, stampCount, examsPassed, xpOf, rankInfo, worldOf, PASSED_SQL, stationState, useExtraRide, nextStation,
   rideStarsOn, weekBonus, weekInfo, STREAK_MIN_STARS,
 } from './progress.js';
 import { grantLootbox } from './lootbox.js';
@@ -203,9 +203,10 @@ export function completeSession({
       boosted && mode !== 'blitz' && !parked ? 1 : 0, parked ? 1 : 0, rideStars
     );
 
+    const W = worldOf(childId);
     const rewards = [];
     if (mode !== 'blitz' && !parked) {
-      const repeat = runToday > 1 ? ` (${runToday}. Fahrt heute)` : '';
+      const repeat = runToday > 1 ? ` (${runToday}. ${W.ride.s} heute)` : '';
       const stars = rideStars;
       rewards.push({ kind: 'session', amount: stars, note: `${unitTitle}: ${fmtScore(correct)} von ${total} richtig${repeat}` });
       if (boosted) {
@@ -213,7 +214,7 @@ export function completeSession({
         if (activeBoost()?.once) stopBoost();
       }
     }
-    if (mode === 'unit' && rating === 3 && prevBest < 3) rewards.push({ kind: 'bonus', amount: BONUS.mastered, note: 'Station gemeistert' });
+    if (mode === 'unit' && rating === 3 && prevBest < 3) rewards.push({ kind: 'bonus', amount: BONUS.mastered, note: `${W.station.s} gemeistert` });
     const examPassed = mode === 'exam' && correct * 5 >= total * 4;
     if (examPassed && !prevExamPassed) rewards.push({ kind: 'bonus', amount: BONUS.exam, note: `${unitTitle} geschafft` });
     if (firstToday) rewards.push({ kind: 'bonus', amount: BONUS.firstToday, note: 'Erste Übung heute' });
@@ -222,11 +223,11 @@ export function completeSession({
     const newBoxes = [];
     const newSkins = [];
     if (!adult && justRetired) {
-      newBoxes.push(grantLootbox(childId, { source: 'station', subject, ref: unitId, note: `${unitTitle} aufs Abstellgleis gebracht` }));
+      newBoxes.push(grantLootbox(childId, { source: 'station', subject, ref: unitId, note: `${unitTitle} ${W.say.parkedTo} gebracht` }));
     }
     if (!adult && examPassed && !prevExamPassed) {
       const line = subjects.get(subject)?.meta.lines?.find((l) => l.id === unitId);
-      const box = grantLootbox(childId, { source: 'line', subject, ref: unitId, note: `${line?.name ?? unitTitle} geschafft` });
+      const box = grantLootbox(childId, { source: 'line', subject, ref: unitId, note: `${line ? W.lineName(line) : unitTitle} geschafft` });
       newBoxes.push(box);
       // Zum ersten Bestehen einer Linie gehört auch ein neuer Avatar-Skin (falls noch einer fehlt)
       if (box) newSkins.push(grantRandomSkin(childId, 'line', 'line'));
@@ -239,7 +240,7 @@ export function completeSession({
     const newBadges = BADGES.filter((b) => !have.has(b.id) && b.test(stats));
     for (const b of newBadges) {
       db.prepare('INSERT INTO badges (child_id, badge_id, earned_at) VALUES (?, ?, ?)').run(childId, b.id, now);
-      rewards.push({ kind: 'badge', amount: BADGE_BONUS, note: `Abzeichen: ${b.name}` });
+      rewards.push({ kind: 'badge', amount: BADGE_BONUS, note: `Abzeichen: ${W.badge(b).name}` });
     }
 
     // Erwachsenen-Profile (z. B. für die Blitz-Herausforderung) sammeln keine Sterne.
@@ -281,8 +282,8 @@ export function completeSession({
     }
 
     const xpAfter = xpOf(childId);
-    const rankBefore = rankInfo(xpBefore);
-    const rank = rankInfo(xpAfter);
+    const rankBefore = rankInfo(xpBefore, W.id);
+    const rank = rankInfo(xpAfter, W.id);
 
     return {
       mode,
