@@ -234,6 +234,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
         input.readOnly = false;
         input.classList.add('almost', 'shake');
         setTimeout(() => input.classList.remove('shake'), 350);
+        if (res.caseOnly) tryHint.textContent = '🤏 Fast! Alle Buchstaben stimmen. Groß oder klein – was meinst du? Dann gibt es noch einen halben Punkt.';
         tryHint.hidden = false;
         return input.focus();
       }
@@ -293,7 +294,24 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       : null;
     onEnter = check;
     dock(hintBtn, h('button.btn.line.big', { type: 'button', onclick: check }, 'Prüfen'));
-    return [input, tryHint, maskLine, switchRow];
+    return [input, session.spelling ? letterKeys(input) : null, tryHint, maskLine, switchRow];
+  }
+
+  /** ä, ö, ü und ß zum Antippen: Auf vielen Tastaturen ist das ß gut versteckt, und hier kommt es darauf an. */
+  function letterKeys(input) {
+    return h('.letter-keys', ['ä', 'ö', 'ü', 'ß'].map((c) =>
+      h('button.letter-key', {
+        type: 'button',
+        'aria-label': `${c} einfügen`,
+        // Der Fokus bleibt im Eingabefeld, sonst klappt die Handy-Tastatur bei jedem Tippen zu.
+        onmousedown: (e) => e.preventDefault(),
+        onclick: () => {
+          if (input.readOnly) return;
+          input.setRangeText(c, input.selectionStart, input.selectionEnd, 'end');
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+          input.focus();
+        },
+      }, c)));
   }
 
   /** „E_______“ als Kästchen: der erste Buchstabe steht da, für jeden weiteren ein leeres Kästchen. */
@@ -917,7 +935,8 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
       if (res.note) lines.push(h('p.explain', res.note));
     } else {
       // Bei Zahlen ist es eine Ziffer – und dort ein echter Rechenfehler, darum ohne zweiten Versuch.
-      title = res.almost ? (/^[\d\s.]+$/.test(res.solution ?? '') ? 'Fast! Nur eine Ziffer falsch.' : 'Fast! Nur ein Buchstabe falsch.') : 'Nicht ganz.';
+      title = res.caseOnly ? 'Fast! Nur groß und klein stimmen noch nicht.'
+        : res.almost ? (/^[\d\s.]+$/.test(res.solution ?? '') ? 'Fast! Nur eine Ziffer falsch.' : 'Fast! Nur ein Buchstabe falsch.') : 'Nicht ganz.';
       // Beim schriftlichen Rechnen stehen in den Kästchen jetzt die richtigen Ziffern – die eigene Eingabe soll sichtbar bleiben.
       if (q.type === 'column' && q.entered) lines.push(h('p.explain', `Du hast ${q.entered} eingetragen.`));
       lines.push(h('p.solution', { html: `Richtig ist: ${md(res.solution)}` }));
@@ -959,9 +978,9 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     }, 250);
   }
 
-  /** Eingabefeld zum Abschreiben der Lösung (Groß/klein und Satzzeichen sind egal). */
+  /** Eingabefeld zum Abschreiben der Lösung (Satzzeichen sind egal, Groß/klein nur bei Rechtschreibung nicht). */
   function copyField(solution) {
-    const plain = (t) => String(t).toLowerCase().replace(/\*\*/g, '').replace(/[’‘`´]/g, "'").replace(/[.!?,;:]+/g, ' ').replace(/\s+/g, ' ').trim();
+    const plain = (t) => (session.spelling ? String(t) : String(t).toLowerCase()).replace(/\*\*/g, '').replace(/[’‘`´]/g, "'").replace(/[.!?,;:]+/g, ' ').replace(/\s+/g, ' ').trim();
     const input = h('input.type-in.copy-in', {
       type: 'text', autocomplete: 'off', autocapitalize: 'off', autocorrect: 'off', spellcheck: 'false',
       enterkeyhint: 'done', placeholder: 'Hier abschreiben …', 'aria-label': 'Die Lösung einmal richtig abschreiben',
@@ -969,7 +988,7 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
     return {
       input,
       matches: () => plain(input.value) === plain(solution),
-      el: h('label.copy', h('span', '✍️ Wenn du magst: einmal abschreiben hilft beim Merken.'), input),
+      el: h('label.copy', h('span', '✍️ Wenn du magst: einmal abschreiben hilft beim Merken.'), input, session.spelling ? letterKeys(input) : null),
     };
   }
 

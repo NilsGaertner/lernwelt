@@ -206,6 +206,9 @@ function exerciseQuestion(subjectId, cand, canSpeak, stat = null, mode = 'unit')
   const speakable = ex.type === 'order' || /_{3,}/.test(ex.q ?? '');
   const speak = canSpeak && speakable && ex.speak !== false ? filled : null;
   const base = { explain: ex.explain ?? null, speak, strict: !!ex.strict };
+  // Diktat ("say"): Vorgelesen wird der Satz samt fehlendem Wort oder der Text aus "say". Nur beim Schreiben –
+  // in der Auswahl stehen die Schreibweisen ja schon da.
+  const dictation = canSpeak && ex.say ? { audio: ex.say === true ? filled : ex.say, autoplay: true } : null;
   if (recallTyped(ex, stat, mode)) {
     const gap = /_{3,}/.test(ex.q ?? '');
     return {
@@ -214,8 +217,8 @@ function exerciseQuestion(subjectId, cand, canSpeak, stat = null, mode = 'unit')
         type: 'input',
         prompt: typeof ex.recall === 'string' ? ex.recall : ex.task ?? (gap ? 'Welches Wort fehlt?' : 'Was ist die Antwort?'),
         text: ex.q, textDe: ex.de ?? null, map, hint: ex.hint ?? null,
-        placeholder: ex.placeholder ?? (gap ? '…' : 'Deine Antwort …'), numeric: /^\d+$/.test(ex.answer),
-        canChoose: true,
+        placeholder: ex.placeholder ?? (gap ? '…' : ex.say ? 'Was hörst du?' : 'Deine Antwort …'), numeric: /^\d+$/.test(ex.answer),
+        canChoose: true, ...dictation,
       },
       expected: [ex.answer, ...(ex.accept ?? [])], qtype: 'input',
       // Die Antworten zum Auswählen, falls das Kind lieber auswählt
@@ -246,7 +249,7 @@ function exerciseQuestion(subjectId, cand, canSpeak, stat = null, mode = 'unit')
   }
   return {
     ...base,
-    pub: { type: 'input', prompt: ex.task ?? 'Welches Wort fehlt?', text: ex.q, textDe: ex.de ?? null, map, hint: ex.hint ?? null, placeholder: ex.placeholder ?? '…', numeric: !!ex.numeric },
+    pub: { type: 'input', prompt: ex.task ?? 'Welches Wort fehlt?', text: ex.q, textDe: ex.de ?? null, map, hint: ex.hint ?? null, placeholder: ex.placeholder ?? '…', numeric: !!ex.numeric, ...dictation },
     expected: [ex.answer, ...(ex.accept ?? [])], qtype: 'input',
   };
 }
@@ -262,6 +265,8 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
   const subject = subjects.get(subjectId);
   if (!subject) throw httpError(404, 'Dieses Fach gibt es nicht.');
   const canSpeak = !!subject.meta.speechLang;
+  // Rechtschreibung (Deutsch): Groß und klein zählen, und wer sich verschreibt, darf selbst verbessern.
+  const spelling = !!subject.meta.spelling;
   // Archivierte Stationen sind für das Kind aus dem Fahrplan genommen – auch im Fehler-Training, Endbahnhof und Blitz.
   const archived = archivedUnits(childId);
   const inService = (u) => !archived.has(`${subjectId}/${u.id}`);
@@ -332,7 +337,8 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
       ...q, key: c.key, kind: c.kind, unitId: c.unit.id,
       // „Fast!“ mit zweitem Versuch: bei Vokabeln und in Fächern ohne Fremdsprache – in Biologie zählt das Wissen,
       // nicht der eine Buchstabe. In Englisch-Lücken ist der eine Buchstabe oft genau das Geübte (he like → likes).
-      lenient: c.kind === 'vocab' || (!canSpeak && typedWord),
+      lenient: c.kind === 'vocab' || ((!canSpeak || spelling) && typedWord),
+      exactCase: spelling,
       // Tipp erst ab drei Buchstaben – bei „O“ oder „an“ würde er die ganze Lösung verraten.
       hintable: mode !== 'blitz' && typedWord && letters >= 3,
     };
@@ -378,10 +384,11 @@ export function startSession({ childId, subjectId, unitId, line: lineId, topic: 
     seconds: mode === 'blitz' ? BLITZ_SECONDS : null,
     boosted: session.boosted,
     speechLang: mode === 'blitz' ? null : subject.meta.speechLang ?? null,
+    spelling,
     // copy: nach einem Fehler die Lösung einmal abschreiben – bei Vokabeln und Schulkarten, wo es um die Schreibweise geht
     // canHint: es gibt den Tipp-Knopf (erster Buchstabe und Länge, dann höchstens ½ Punkt)
     questions: session.questions.map((q, i) => ({
-      id: i, unit: q.unitId, copy: q.kind === 'vocab' || !!subject.units.get(q.unitId)?.typePhrases, canHint: q.hintable, ...q.pub,
+      id: i, unit: q.unitId, copy: q.kind === 'vocab' || !!subject.units.get(q.unitId)?.typePhrases || (spelling && q.hintable), canHint: q.hintable, ...q.pub,
     })),
     units,
   };
@@ -392,7 +399,7 @@ function checkAnswer(q, given) {
   if (q.pub.type === 'choice') return { correct: q.expected.includes(String(given)) };
   // Zahlen dürfen mit Tausenderpunkten oder Leerzeichen getippt werden: 45.000 und 45 000 zählen wie 45000.
   if (q.pub.numeric) given = String(given ?? '').trim().replace(/(\d)[\s.](?=\d{3}(?!\d))/g, '$1');
-  const strictOpt = { expand: !q.strict };
+  const strictOpt = { expand: !q.strict, keepCase: !!q.exactCase };
   const g = normalize(given, strictOpt);
   if (!g) return { correct: false };
   const correct = q.expected.some((e) => normalize(e, strictOpt) === g);
@@ -408,6 +415,12 @@ function checkAnswer(q, given) {
     } else if (exact && /^[a-z]/.test(exact) && /^[A-Z]/.test(raw) && !exact.includes(' ') && !q.pub.text?.includes('___')) {
       result.note = 'Tipp: Im Englischen schreibt man Nomen klein – nur Namen, Wochentage, Monate und Sprachen groß.';
     }
+    return result;
+  }
+  // Rechtschreibung: Alle Buchstaben stimmen, nur groß und klein noch nicht – auch das darf das Kind selbst verbessern.
+  if (q.exactCase && q.expected.some((e) => normalize(e) === normalize(given))) {
+    result.almost = true;
+    result.caseOnly = true;
     return result;
   }
   // „Fast!“: nur ein Buchstabe anders als die Lösung (oder eine erlaubte Variante davon)
@@ -452,7 +465,7 @@ export function answerQuestion(sessionId, qid, given) {
     q.secondChance = true;
     s.combo = 0;
     log(false, true);
-    return { correct: false, almost: true, tryAgain: true, firstTry: true, combo: 0 };
+    return { correct: false, almost: true, caseOnly: !!result.caseOnly, tryAgain: true, firstTry: true, combo: 0 };
   }
 
   const firstTry = !q.answered;

@@ -1,0 +1,34 @@
+{
+  "id": "ss-kurz",
+  "line": "zisch",
+  "order": 2,
+  "title": "ss nach kurzem Vokal",
+  "subtitle": "Kasse, lassen, Fluss",
+  "icon": "💧",
+  "explain": [
+    { "p": "Ist der Vokal davor **kurz**, schreibt man **ss** – auch am Wortende." },
+    { "table": { "head": ["Vokal", "Schreibweise", "Beispiele"], "rows": [["kurz", "**ss**", "Kasse, lassen, Wasser, Fluss, nass"], ["lang", "**s** oder **ß**", "Hose, Straße"]] }},
+    { "tip": "Klingt der Vokal kurz und knapp wie in **Fluss**? Dann folgt **ss**." },
+    { "ex": [["Wir lassen den Hund im Garten.", "von „lassen“, kurzes a"], ["Wir lasen ein Buch.", "von „lesen“, langes a"]] }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Ka___e", "options": ["s", "ss", "ß"], "answer": "ss", "explain": "Kurzes a: Kasse." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "la___en", "options": ["s", "ss", "ß"], "answer": "ss", "explain": "Kurzes a: lassen." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Flu___", "options": ["s", "ss", "ß"], "answer": "ss", "explain": "Kurzes u: Fluss." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "na___", "options": ["s", "ss", "ß"], "answer": "ss", "explain": "Kurzes a: nass." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das Wa___er", "options": ["s", "ss", "ß"], "answer": "ss", "explain": "Kurzes a: Wasser." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Kla___e", "options": ["s", "ss", "ß"], "answer": "ss", "explain": "Kurzes a: Klasse." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das Schlo___", "options": ["s", "ss", "ß"], "answer": "ss", "explain": "Kurzes o: Schloss." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "verge___en", "options": ["s", "ss", "ß"], "answer": "ss", "explain": "Kurzes e: vergessen." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "mü___en", "options": ["s", "ss", "ß"], "answer": "ss", "explain": "Kurzes ü: müssen." },
+    { "type": "choice", "q": "Welches Wort hat einen **kurzen** Vokal?", "options": ["Kasse", "Straße", "Wiese", "Hose"], "answer": "Kasse", "explain": "Bei **Kasse** ist das a kurz. Bei den anderen ist der Vokal lang." },
+    { "type": "choice", "q": "Wie klingt das u in **Fluss**?", "options": ["kurz", "lang"], "answer": "kurz", "explain": "Kurzer Vokal: **ss**." },
+    { "type": "choice", "q": "Gestern ___ wir ein Buch.", "options": ["lasen", "lassen"], "answer": "lasen", "explain": "von **lesen**: langes a, es summt." },
+    { "type": "choice", "q": "Wir ___ den Hund im Garten.", "options": ["lassen", "lasen"], "answer": "lassen", "explain": "Kurzes a: **ss**." },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Wasser", "Waser", "Waßer"], "answer": "Wasser", "explain": "Kurzes a: **ss**.", "recall": "Was hörst du? Wie schreibt man das?", "say": "Wasser" },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Fluss", "Fluß", "Flus"], "answer": "Fluss", "explain": "Kurzes u: **ss**.", "recall": "Was hörst du? Wie schreibt man das?", "say": "der Fluss", "accept": ["der Fluss"] },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Ich trinke ein Glas ___.", "answer": "Wasser", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "An der ___ bezahlt Mia.", "answer": "Kasse", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Nach dem Regen ist alles ___.", "answer": "nass", "say": true }
+  ]
+}

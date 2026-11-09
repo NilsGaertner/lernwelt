@@ -1,6 +1,6 @@
 # Lernwelt
 
-Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch, Mathe, Geographie, Biologie, Geschichte und Musik auf einem **Netzplan** wie bei der U-Bahn: Jede Lernlinie ist eine Bahnlinie, jede Einheit eine Station. Für jede Übung gibt es Sterne, dazu Abzeichen, und die Sterne lassen sich gegen **Fahrkarten für Medienzeit** tauschen. Du bestätigst die Tickets im Elternbereich und siehst dort auch den Lernfortschritt.
+Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch, Mathe, Deutsch, Geographie, Biologie, Geschichte und Musik auf einem **Netzplan** wie bei der U-Bahn: Jede Lernlinie ist eine Bahnlinie, jede Einheit eine Station. Für jede Übung gibt es Sterne, dazu Abzeichen, und die Sterne lassen sich gegen **Fahrkarten für Medienzeit** tauschen. Du bestätigst die Tickets im Elternbereich und siehst dort auch den Lernfortschritt.
 
 ## Was drin ist
 
@@ -134,6 +134,10 @@ Nach dem MusiX-Arbeitsheft 1 A, Kapitel 2 „Rund um die Stimme“:
 | Instrumenten-Linie | Klasseninstrumente (zehn Instrumente an einer Zeichnung benennen und schreiben), Instrumente erforschen (Material, Spielweise, Klang, Tonhöhe erkennbar?), Grundbeat und kleine Schläge (Hör-Aufgaben wie im Trainingsraum 2: 🔴 = Grundbeat, • = kleiner Schlag) |
 
 Dazu gibt es den „Musik-Blitz“.
+
+**Deutsch: Rechtschreibung (5 Linien, 15 Stationen)**
+
+Die Groß-und-klein-Linie übt Satzanfänge, Nomen und Verben, die zu Nomen werden (das Spielen, beim Lesen). Die Zisch-Linie übt s, ss und ß, die Verwandten-Linie e/ä, eu/äu und das Verlängern (b/p, d/t, g/k), die Vokal-Linie kurze und lange Vokale, tz/ck und das lange i. Die Wörterbuch-Linie übt das ABC, die Grundform und Stolperwörter wie Medaille oder Eishockey. In Deutsch zählen Groß- und Kleinschreibung auch beim Tippen: Stimmen alle Buchstaben und nur groß/klein nicht, darf das Kind selbst verbessern (½ Punkt). Unter dem Eingabefeld gibt es ä, ö, ü und ß zum Antippen. Lückendiktate werden vorgelesen, und viele Auswahl-Aufgaben werden später zum Diktat.
 
 **Aufgabentypen:** Auswahl, Eintippen, Sätze aus Wortkärtchen bauen, Paare finden und Hörverstehen (die englischen Wörter werden vorgelesen).
 
@@ -354,7 +358,7 @@ Ein neues Thema steht in `public/js/themes.js` (Wörter mit Geschlecht, Ränge, 
 ### Hinweise
 
 - Die Seite ist fürs **Heimnetz** gedacht. Bitte nicht per Portfreigabe ins Internet stellen, denn der Container selbst kann kein HTTPS und es gibt nur eine einfache PIN.
-- Das Vorlesen nutzt die Stimmen des Geräts. Auf iPad, Android, Windows und in Chrome/Edge klappt das gut. Falls nichts zu hören ist: Lautstärke prüfen und in den Geräteeinstellungen eine englische Stimme installieren.
+- Das Vorlesen nutzt die Stimmen des Geräts. Auf iPad, Android, Windows und in Chrome/Edge klappt das gut. Falls nichts zu hören ist: Lautstärke prüfen und in den Geräteeinstellungen eine englische und eine deutsche Stimme installieren.
 - Die Schriften kommen von Google Fonts. Ohne Internet sieht es etwas schlichter aus, funktioniert aber genauso.
 
 ---
@@ -402,23 +406,24 @@ Alle Lerninhalte liegen als JSON-Dateien in `content/<fach>/`. Nach einer Änder
 - **`vocab`**: Aus Wortlisten werden die Aufgaben automatisch gebaut (Auswahl, Eintippen, Hören, Paare finden). `alt` sind weitere richtige Schreibweisen. Mit `"typing": false` auf Stationsebene muss nichts eingetippt werden, bei Sätzen wird dann aus Wortkärtchen gebaut.
 - **`exercises`**: `choice` (Auswahl), `input` (Eintippen, `___` markiert die Lücke) und `order` (Satz bauen). Weitere Felder: `accept` für weitere richtige Antworten, `task` für einen eigenen Aufgabentext, `de` für eine deutsche Übersetzung als Hilfe, `"numeric": true` für eine Zahlentastatur, `"speak": false`, wenn der Satz nicht vorgelesen werden soll, und `"strict": true`, wenn Kurz- und Langform (don't / do not) nicht beide gelten sollen.
 - **`"recall": true`** an einer `choice`-Aufgabe: Sie kommt erst zum Auswählen und ab der zweiten Box zum Schreiben (siehe „Erst auswählen, dann selbst schreiben“). Für die Schreib-Form gelten `answer` und `accept`, optional `placeholder`. Statt `true` geht auch ein eigener Aufgabentext für die Schreib-Form, z. B. `"recall": "Lückentext: Welches Wort fehlt?"`. Eine zweite Aufgabe zum Schreiben derselben Sache ist dann überflüssig – `npm run check` meldet sie. In Englisch braucht eine recall-Aufgabe `de` oder `hint`, sonst weiß das Kind beim Schreiben nicht, welches Wort gemeint ist. Passt nur für Fragen, die man auch ohne Auswahl beantworten kann (nicht für „Was gehört **nicht** dazu?“).
+- **`"say"`** an einer `input`-Aufgabe oder einer `choice`-Aufgabe mit `recall`: Diktat. Beim Schreiben wird vorgelesen, bei `true` der Satz samt fehlendem Wort, sonst der angegebene Text. Das Fach braucht dafür `speechLang`.
 - **`"formerIds": ["…"]`**: Ersetzt eine Aufgabe andere Aufgaben derselben Station (z. B. den gelöschten Schreib-Zwilling), geht deren Lernstand beim nächsten Start auf sie über.
 - **Karten und Bilder**: `"map": "welt", "mark": "afrika"` zeigt in einer Aufgabe die Karte `content/<fach>/media/welt.svg` und hebt das Gebiet mit der id `afrika` hervor. Im „Merke“ zeigt `{ "map": "welt", "legend": [["afrika", "Afrika"], …] }` die Karte mit bunt gefärbten Gebieten und Legende. `npm run check` meldet fehlende Karten und Gebiete. Das geht genauso mit Zeichnungen, z. B. `content/biologie/media/hund-skelett.svg`: Dort sind Knochen (`class="bone"`) in Gruppen mit id zusammengefasst, und Nummern in `<g class="labels">` erscheinen nur im „Merke“. In `content/musik/media/klasseninstrumente.svg` hat jedes Instrument ein Feld (`class="slot"`), das markiert bzw. eingefärbt wird, damit das Instrument selbst seine Farben behält.
 - **`"enabled": false`** in einer Stationsdatei blendet diese Station aus.
 - **`"card"`**: eigener Text für die Sammelkarte der Station. Ohne dieses Feld steht der erste Merksatz auf der Karte.
 - **Blitzrunden** stehen in der `subject.json` des Fachs, z. B. `"blitz": [{ "id": "quadrate", "title": "Quadratzahlen-Blitz", "units": ["quadrat-11-15"] }]`. Statt `units` geht auch `"line": "zahlen"` für eine ganze Linie. Mit `"types": ["choice"]` kommen nur Auswahlaufgaben dran.
 
-### Ein neues Fach (z. B. Deutsch)
+### Ein neues Fach (z. B. Französisch)
 
-1. Ordner `content/deutsch/` anlegen.
+1. Ordner `content/franzoesisch/` anlegen.
 2. Darin eine `subject.json` mit Name und Linien:
    ```json
    {
-     "id": "deutsch", "name": "Deutsch", "icon": "📝", "order": 3,
-     "lines": [ { "id": "rechtschreibung", "name": "Rechtschreib-Linie", "color": "#C2410C" } ]
+     "id": "franzoesisch", "name": "Französisch", "icon": "🇫🇷", "order": 8,
+     "lines": [ { "id": "start", "name": "Start-Linie", "color": "#C2410C" } ]
    }
    ```
-   Für Fremdsprachen zusätzlich `"speechLang": "fr-FR"` (o. Ä.) angeben, dann wird vorgelesen.
+   Für Fremdsprachen zusätzlich `"speechLang": "fr-FR"` (o. Ä.) angeben, dann wird vorgelesen. Mit `"spelling": true` (wie in Deutsch) zählt beim Tippen auch Groß- und Kleinschreibung, und es gibt die Tasten ä, ö, ü und ß.
 3. Stationen wie oben als eigene Dateien daneben legen.
 
 Am besten hat jede Linie 3 Stationen: Dann ist der Endbahnhof (mit Lootbox) schnell erreicht. Teilst du die Linien eines Fachs später neu auf, trag die alten unter `"formerLines": [{ "id": "…", "name": "…" }]` ein. Dann behalten schon bestandene Endbahnhöfe ihre Goldkarte, und das Fahrtenbuch zeigt weiter den Namen der Linie.

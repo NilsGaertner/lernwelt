@@ -1,0 +1,33 @@
+{
+  "id": "s-oder-eszett",
+  "line": "zisch",
+  "order": 1,
+  "title": "s oder ß?",
+  "subtitle": "Summt es oder zischt es?",
+  "icon": "🐝",
+  "explain": [
+    { "p": "Nach einem **langen Vokal** oder nach **au, ei, eu** hört man genau hin:" },
+    { "table": { "head": ["Was hörst du?", "Schreibweise", "Beispiele"], "rows": [["Es **summt** wie eine Biene", "**s**", "Wiese, Hose, lesen, leise"], ["Es **zischt** scharf", "**ß**", "Straße, Füße, saßen, draußen"]] }},
+    { "tip": "Hilft es, das Wort langsam zu sprechen? Summt es, schreibt man **s**. Zischt es, schreibt man **ß**." },
+    { "p": "Beim **ie** ist der Vokal immer lang. Darum steht danach nie **ss**: **Wiese**." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Wie___e", "options": ["s", "ss", "ß"], "answer": "s", "explain": "Langes i, und es summt: Wiese." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Stra___e", "options": ["s", "ss", "ß"], "answer": "ß", "explain": "Langes a, und es zischt: Straße." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Ho___e", "options": ["s", "ss", "ß"], "answer": "s", "explain": "Langes o, und es summt: Hose." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Spa___", "options": ["s", "ss", "ß"], "answer": "ß", "explain": "Langes a, und es zischt: Spaß." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "sie sa___en", "options": ["s", "ss", "ß"], "answer": "ß", "explain": "sitzen – sie saßen: langes a, und es zischt." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "sie besa___en", "options": ["s", "ss", "ß"], "answer": "ß", "explain": "besitzen – sie besaßen: langes a, und es zischt." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "le___en", "options": ["s", "ss", "ß"], "answer": "s", "explain": "Langes e, und es summt: lesen." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Fü___e", "options": ["s", "ss", "ß"], "answer": "ß", "explain": "Langes ü, und es zischt: Füße." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Na___e", "options": ["s", "ss", "ß"], "answer": "s", "explain": "Langes a, und es summt: Nase." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "drau___en", "options": ["s", "ss", "ß"], "answer": "ß", "explain": "Nach au zischt es hier: draußen." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "lei___e", "options": ["s", "ss", "ß"], "answer": "s", "explain": "Nach ei summt es hier: leise." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Rei___e", "options": ["s", "ss", "ß"], "answer": "s", "explain": "Nach ei summt es hier: Reise." },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Wiese", "Wiesse", "Wieße"], "answer": "Wiese", "explain": "Nach **ie** ist der Vokal lang, und es summt: nur ein **s**.", "recall": "Was hörst du? Wie schreibt man das?", "say": "die Wiese", "accept": ["die Wiese"] },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Straße", "Strasse", "Strase"], "answer": "Straße", "explain": "Langes a, und es zischt: **ß**.", "recall": "Was hörst du? Wie schreibt man das?", "say": "die Straße", "accept": ["die Straße"] },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Am Morgen geht Mia über die ___.", "answer": "Wiese", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Wir spielen ___ im Hof.", "answer": "draußen", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Basketball macht mir viel ___.", "answer": "Spaß", "say": true }
+  ]
+}

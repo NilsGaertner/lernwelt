@@ -1,0 +1,18 @@
+{
+  "id": "deutsch",
+  "name": "Deutsch",
+  "icon": "✏️",
+  "order": 2.5,
+  "speechLang": "de-DE",
+  "spelling": true,
+  "lines": [
+    { "id": "gross", "name": "Groß-und-klein-Linie", "short": "Groß & klein", "color": "#C2410C" },
+    { "id": "zisch", "name": "Zisch-Linie", "short": "s, ss, ß", "color": "#1F6F8B" },
+    { "id": "verwandte", "name": "Verwandten-Linie", "short": "Verwandte", "color": "#2E7D32" },
+    { "id": "vokale", "name": "Vokal-Linie", "short": "Vokale", "color": "#6A1B9A" },
+    { "id": "woerterbuch", "name": "Wörterbuch-Linie", "short": "Wörterbuch", "color": "#B23A48" }
+  ],
+  "blitz": [
+    { "id": "rechtschreibung", "title": "Rechtschreib-Blitz", "icon": "⚡", "subtitle": "Groß und klein, s-Laute, Verwandte und Vokale", "types": ["choice"] }
+  ]
+}

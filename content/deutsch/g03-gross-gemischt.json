@@ -1,0 +1,31 @@
+{
+  "id": "gross-gemischt",
+  "line": "gross",
+  "order": 3,
+  "title": "Groß oder klein – gemischt",
+  "subtitle": "Fehler-Detektiv",
+  "icon": "🕵️",
+  "explain": [
+    { "p": "Drei Fragen helfen bei jedem Wort:" },
+    { "table": { "head": ["Frage", "Dann …", "Beispiel"], "rows": [["Steht es am **Satzanfang**?", "groß", "**Heute** spielen wir."], ["Passt **der, die, das** davor?", "groß", "die **Sportart**, das **Judo**, der **Montag**"], ["Steht ein **Signalwort** vor dem Verb?", "groß", "beim **Schwimmen**"], ["Nichts davon?", "klein", "Wir **schwimmen** gern. Das Buch ist **spannend**."]] }},
+    { "tip": "Auch Sportarten und Wochentage sind Nomen: das Judo, der Basketball, der Montag." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Groß oder klein?", "q": "Meine ___ ist Basketball.", "options": ["Sportart", "sportart"], "answer": "Sportart", "explain": "**die** Sportart – ein Nomen.", "recall": "Was hörst du? Wie schreibt man das fehlende Wort?", "say": true },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Tom macht gern ___.", "options": ["Judo", "judo"], "answer": "Judo", "explain": "**das** Judo – Sportarten sind Nomen.", "recall": "Was hörst du? Wie schreibt man das fehlende Wort?", "say": true },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Mia geht jeden Freitag ___.", "options": ["schwimmen", "Schwimmen"], "answer": "schwimmen", "explain": "Kein Signalwort: Das Verb bleibt klein." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Beim ___ ist Mia sehr schnell.", "options": ["Schwimmen", "schwimmen"], "answer": "Schwimmen", "explain": "**Beim** ist das Signalwort." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Am ___ spielt Tom Schach.", "options": ["Montag", "montag"], "answer": "Montag", "explain": "**der** Montag – Wochentage sind hier Nomen." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Das Buch ist ___.", "options": ["spannend", "Spannend"], "answer": "spannend", "explain": "Wie ist das Buch? Das Wort bleibt klein." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Das ___ draußen macht Spaß.", "options": ["Spielen", "spielen"], "answer": "Spielen", "explain": "**Das** ist das Signalwort." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "Die ___ Katze schnurrt.", "options": ["kleine", "Kleine"], "answer": "kleine", "explain": "Wie ist die Katze? Das Nomen ist **Katze**." },
+    { "type": "choice", "task": "Groß oder klein?", "q": "___ Hund bellt laut.", "options": ["Der", "der"], "answer": "Der", "explain": "Das erste Wort im Satz schreibt man groß." },
+    { "type": "choice", "task": "Welcher Satz ist richtig geschrieben?", "options": ["Beim Lesen trinke ich Wasser.", "Beim lesen trinke ich Wasser.", "beim Lesen trinke ich Wasser.", "Beim Lesen trinke ich wasser."], "answer": "Beim Lesen trinke ich Wasser.", "explain": "**Beim** am Satzanfang, **Lesen** nach dem Signalwort, **Wasser** ist ein Nomen." },
+    { "type": "choice", "task": "Welcher Satz ist richtig geschrieben?", "options": ["Tom spielt seit vier Jahren Basketball.", "Tom spielt seit vier jahren Basketball.", "tom spielt seit vier Jahren Basketball.", "Tom Spielt seit vier Jahren Basketball."], "answer": "Tom spielt seit vier Jahren Basketball.", "explain": "**Tom** ist ein Name, **Jahren** und **Basketball** sind Nomen. **spielt** ist ein Verb." },
+    { "type": "choice", "q": "„Mia läuft schnell über die wiese.“ Welches Wort sollte groß sein?", "options": ["wiese", "schnell", "läuft", "über"], "answer": "wiese", "explain": "**die** Wiese – ein Nomen." },
+    { "type": "choice", "q": "„Beim schwimmen werden die Haare nass.“ Welches Wort sollte groß sein?", "options": ["schwimmen", "nass", "werden", "die"], "answer": "schwimmen", "explain": "**Beim** ist das Signalwort." },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Beim ___ in Minecraft vergesse ich die Zeit.", "answer": "Bauen", "say": true, "explain": "**Beim** ist das Signalwort." },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Am ___ gehen wir schwimmen.", "answer": "Sonntag", "say": true, "explain": "**der** Sonntag – ein Nomen." },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Wir ___ gern.", "answer": "lachen", "say": true, "explain": "Kein Signalwort: Das Verb bleibt klein." }
+  ]
+}

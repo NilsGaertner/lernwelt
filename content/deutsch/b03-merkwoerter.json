@@ -1,0 +1,32 @@
+{
+  "id": "merkwoerter",
+  "line": "woerterbuch",
+  "order": 3,
+  "title": "Stolperwörter",
+  "subtitle": "Hobbys, Medaille, Eishockey",
+  "icon": "🏅",
+  "explain": [
+    { "p": "Manche Wörter halten sich an keine Regel, oft weil sie aus anderen Sprachen kommen. Solche Wörter lernt man am besten als Ganzes, oder man schaut im Wörterbuch nach." },
+    { "table": { "head": ["Wort", "Was ist besonders?"], "rows": [["**Hobby**, **Hobbys**", "bb, und in der Mehrzahl nur ein s dazu"], ["**Basketball**", "Basket + Ball, mit t in der Mitte und ll am Ende"], ["**Eishockey**", "ck und ey"], ["**Medaille**", "ai und ll, kommt aus dem Französischen"], ["**Cousin**, **Cousine**", "beginnt mit Cou, kommt aus dem Französischen"], ["**Judo**", "beginnt mit J, kommt aus dem Japanischen"]] }},
+    { "tip": "Lange Wörter lassen sich zerlegen: Lieblings + essen, Sport + art, Mann + schaft." },
+    { "p": "**seit** hat mit der Zeit zu tun: seit vier Jahren. **seid** kommt von „sein“: Ihr seid schnell." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Hobbys", "Hobys", "Hobbies"], "answer": "Hobbys", "explain": "**bb**, und in der Mehrzahl kommt nur ein **s** dazu.", "recall": "Was hörst du? Wie schreibt man das?", "say": "Hobbys" },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Basketball", "Baskettball", "Basketbal"], "answer": "Basketball", "explain": "Basket + Ball.", "recall": "Was hörst du? Wie schreibt man das?", "say": "Basketball" },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Eishockey", "Eishocky", "Eishokey"], "answer": "Eishockey", "explain": "Hockey mit **ck** und **ey**.", "recall": "Was hörst du? Wie schreibt man das?", "say": "Eishockey" },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Medaille", "Medallie", "Medaile"], "answer": "Medaille", "explain": "Das Wort kommt aus dem Französischen: Med**ai**lle.", "recall": "Was hörst du? Wie schreibt man das?", "say": "die Medaille", "accept": ["die Medaille"] },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Cousin", "Cosin", "Cusin"], "answer": "Cousin", "explain": "Das Wort kommt aus dem Französischen: **Cou**sin.", "recall": "Was hörst du? Wie schreibt man das?", "say": "der Cousin", "accept": ["der Cousin"] },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Cousine", "Cosine", "Cusine"], "answer": "Cousine", "explain": "Das Wort kommt aus dem Französischen: **Cou**sine.", "recall": "Was hörst du? Wie schreibt man das?", "say": "die Cousine", "accept": ["die Cousine"] },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Judo", "Schudo", "Juhdo"], "answer": "Judo", "explain": "Das Wort kommt aus dem Japanischen.", "recall": "Was hörst du? Wie schreibt man das?", "say": "Judo" },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Lieblingsessen", "Liebligsessen", "Lieblingessen"], "answer": "Lieblingsessen", "explain": "Lieblings + essen.", "recall": "Was hörst du? Wie schreibt man das?", "say": "das Lieblingsessen", "accept": ["das Lieblingsessen"] },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Sportart", "Sportard", "Spordart"], "answer": "Sportart", "explain": "Sport + Art.", "recall": "Was hörst du? Wie schreibt man das?", "say": "die Sportart", "accept": ["die Sportart"] },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Mannschaft", "Manschaft", "Mannschafft"], "answer": "Mannschaft", "explain": "Mann + schaft.", "recall": "Was hörst du? Wie schreibt man das?", "say": "die Mannschaft", "accept": ["die Mannschaft"] },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Schach", "Schak", "Schack"], "answer": "Schach", "explain": "Am Ende steht **ch**.", "recall": "Was hörst du? Wie schreibt man das?", "say": "Schach" },
+    { "type": "choice", "q": "Tom spielt ___ vier Jahren Basketball.", "options": ["seit", "seid"], "answer": "seit", "explain": "**seit** hat mit der Zeit zu tun." },
+    { "type": "choice", "q": "Ihr ___ heute richtig schnell.", "options": ["seid", "seit"], "answer": "seid", "explain": "**seid** kommt von „sein“." },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Beim Turnier gewinnt sie eine ___.", "answer": "Medaille", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Im Winter spielen sie gern ___.", "answer": "Eishockey", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Mittags gibt es mein ___.", "answer": "Lieblingsessen", "say": true }
+  ]
+}

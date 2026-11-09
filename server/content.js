@@ -188,9 +188,15 @@ function validateUnit(meta, unit, file, problems, subjectDir) {
       if (typeof ex.recall !== 'boolean' && typeof ex.recall !== 'string') problems.push(`${where}: "recall" ist true oder ein Aufgabentext: ${JSON.stringify(ex)}`);
       else if (ex.type !== 'choice') problems.push(`${where}: "recall" gibt es nur bei choice-Aufgaben: ${JSON.stringify(ex)}`);
       else if (ex.sound) problems.push(`${where}: Hör-Aufgaben bleiben zum Antippen, "recall" geht dort nicht: ${JSON.stringify(ex)}`);
-      else if (meta.speechLang && !ex.de && !ex.hint) {
+      else if (meta.speechLang && !meta.spelling && !ex.de && !ex.hint) {
         problems.push(`${where}: "recall" braucht hier "de" oder "hint" – sonst weiß das Kind beim Schreiben nicht, welches Wort gemeint ist: ${JSON.stringify(ex)}`);
       }
+    }
+    // say: Diktat – das Kind hört das Wort oder den Satz und schreibt (siehe exerciseQuestion in session.js)
+    if (ex.say != null) {
+      if (ex.say !== true && (typeof ex.say !== 'string' || !ex.say)) problems.push(`${where}: "say" ist true oder ein Text zum Vorlesen: ${JSON.stringify(ex)}`);
+      if (!meta.speechLang) problems.push(`${where}: "say" braucht "speechLang" in der subject.json: ${JSON.stringify(ex)}`);
+      if (ex.type !== 'input' && !(ex.type === 'choice' && ex.recall)) problems.push(`${where}: "say" gibt es nur beim Schreiben (input oder choice mit "recall"): ${JSON.stringify(ex)}`);
     }
     // formerIds: Aufgaben dieser Station, die diese hier ersetzt – ihr Lernstand geht über (siehe srs.js)
     if (ex.formerIds != null) {

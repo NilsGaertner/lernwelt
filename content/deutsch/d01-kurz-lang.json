@@ -1,0 +1,33 @@
+{
+  "id": "kurz-lang",
+  "line": "vokale",
+  "order": 1,
+  "title": "Kurz oder lang?",
+  "subtitle": "Sonne – Sofa",
+  "icon": "🌞",
+  "explain": [
+    { "p": "Nach einem **kurzen** Vokal hört man meist zwei Konsonanten. Hört man nur einen, schreibt man ihn **doppelt**." },
+    { "table": { "head": ["Vokal", "Schreibweise", "Beispiele"], "rows": [["kurz", "doppelt", "So**nn**e, Mu**tt**er, Ba**ll**, re**nn**en"], ["lang", "einzeln", "So**f**a, Ha**s**e, O**f**en"]] }},
+    { "tip": "Klingt der Vokal kurz und knapp wie in **Sonne**? Dann kommt der Konsonant doppelt. Klingt er lang wie in **Sofa**? Dann einzeln." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wie klingt das o in **Sonne**?", "options": ["kurz", "lang"], "answer": "kurz", "explain": "Kurzes o: Das n kommt doppelt." },
+    { "type": "choice", "q": "Wie klingt das o in **Sofa**?", "options": ["lang", "kurz"], "answer": "lang", "explain": "Langes o: Das f kommt einzeln." },
+    { "type": "choice", "q": "Wie klingt das a in **Hase**?", "options": ["lang", "kurz"], "answer": "lang", "explain": "Langes a: nur ein s." },
+    { "type": "choice", "q": "Wie klingt das u in **Mutter**?", "options": ["kurz", "lang"], "answer": "kurz", "explain": "Kurzes u: Das t kommt doppelt." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die So___e", "options": ["n", "nn"], "answer": "nn", "explain": "Kurzes o: Sonne." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das So___a", "options": ["f", "ff"], "answer": "f", "explain": "Langes o: Sofa." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Mu___er", "options": ["t", "tt"], "answer": "tt", "explain": "Kurzes u: Mutter." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Bu___er", "options": ["t", "tt"], "answer": "tt", "explain": "Kurzes u: Butter." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Te___er", "options": ["l", "ll"], "answer": "ll", "explain": "Kurzes e: Teller." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der O___en", "options": ["f", "ff"], "answer": "f", "explain": "Langes o: Ofen." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "schwi___en", "options": ["m", "mm"], "answer": "mm", "explain": "Kurzes i: schwimmen." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "re___en", "options": ["n", "nn"], "answer": "nn", "explain": "Kurzes e: rennen." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Ha___er", "options": ["m", "mm"], "answer": "mm", "explain": "Kurzes a: Hammer." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Schu___e", "options": ["l", "ll"], "answer": "l", "explain": "Langes u: Schule." },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Sonne", "Sone", "Sonnne"], "answer": "Sonne", "explain": "Kurzes o: **nn**.", "recall": "Was hörst du? Wie schreibt man das?", "say": "die Sonne", "accept": ["die Sonne"] },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Ich sitze auf dem ___.", "answer": "Sofa", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Wir ___ um die Wette.", "answer": "rennen", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Im Sommer gehen wir ___.", "answer": "schwimmen", "say": true }
+  ]
+}

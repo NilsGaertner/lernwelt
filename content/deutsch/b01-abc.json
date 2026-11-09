@@ -1,0 +1,29 @@
+{
+  "id": "abc",
+  "line": "woerterbuch",
+  "order": 1,
+  "title": "Nach dem ABC",
+  "subtitle": "Schneller finden",
+  "icon": "🔤",
+  "explain": [
+    { "p": "Im Wörterbuch stehen die Wörter nach dem **ABC**. Entscheidend ist erst der erste Buchstabe." },
+    { "tip": "Ist der erste Buchstabe gleich, zählt der zweite, dann der dritte: B**a**ll vor B**e**in, Ba**l**l vor Ba**u**m." },
+    { "p": "**ä, ö, ü** zählen beim Sortieren wie **a, o, u**." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Welches Wort steht im Wörterbuch zuerst?", "options": ["Ball", "Hund", "Wald", "Katze"], "answer": "Ball", "explain": "B kommt vor H, K und W." },
+    { "type": "choice", "q": "Welches Wort steht im Wörterbuch zuerst?", "options": ["Bein", "Baum", "Bus", "Blatt"], "answer": "Baum", "explain": "Der zweite Buchstabe entscheidet: a kommt zuerst." },
+    { "type": "choice", "q": "Welches Wort steht im Wörterbuch zuerst?", "options": ["Stern", "Straße", "Stuhl", "Stall"], "answer": "Stall", "explain": "Der dritte Buchstabe entscheidet: a kommt zuerst." },
+    { "type": "choice", "q": "Welches Wort steht zwischen **Hund** und **Katze**?", "options": ["Insel", "Affe", "Zug", "Lampe"], "answer": "Insel", "explain": "H – I – K." },
+    { "type": "choice", "q": "Welches Wort steht zwischen **Sonne** und **Tasche**?", "options": ["Straße", "Rose", "Uhr", "Nase"], "answer": "Straße", "explain": "So – St – T." },
+    { "type": "choice", "q": "Welches Wort steht ganz am Ende?", "options": ["wo", "hier", "da", "sagte"], "answer": "wo", "explain": "W kommt zuletzt." },
+    { "type": "choice", "q": "Wo findet man **Zug** im Wörterbuch?", "options": ["ganz hinten", "ganz vorne", "in der Mitte"], "answer": "ganz hinten", "explain": "Z ist der letzte Buchstabe." },
+    { "type": "choice", "q": "Wo findet man **Affe** im Wörterbuch?", "options": ["ganz vorne", "ganz hinten", "in der Mitte"], "answer": "ganz vorne", "explain": "A ist der erste Buchstabe." },
+    { "type": "choice", "q": "Wie zählt **ä** beim Sortieren?", "options": ["wie a", "wie e", "ganz am Ende"], "answer": "wie a", "explain": "ä, ö, ü zählen wie a, o, u." },
+    { "type": "order", "task": "Wie sieht die ABC-Reihenfolge aus?", "q": "Was kommt zuerst, was zuletzt?", "answer": "Ball Hund Katze Wald", "speak": false },
+    { "type": "order", "task": "Wie sieht die ABC-Reihenfolge aus?", "q": "Was kommt zuerst, was zuletzt?", "answer": "da der er fragte", "speak": false },
+    { "type": "order", "task": "Wie sieht die ABC-Reihenfolge aus?", "q": "Was kommt zuerst, was zuletzt?", "answer": "hier musst sagte wirst", "speak": false },
+    { "type": "order", "task": "Wie sieht die ABC-Reihenfolge aus?", "q": "Was kommt zuerst, was zuletzt?", "answer": "Bach Ball Bank Baum", "speak": false },
+    { "type": "order", "task": "Wie sieht die ABC-Reihenfolge aus?", "q": "Was kommt zuerst, was zuletzt?", "answer": "Sofa Sonne Straße Stuhl", "speak": false }
+  ]
+}

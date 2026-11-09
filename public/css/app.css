@@ -590,6 +590,13 @@ a.werkstatt-card .sc-go { font-size: 1.8rem; color: var(--muted); line-height: 1
 .type-in:focus { outline: none; border-color: var(--line); background: var(--paper); }
 .type-in.right { border-color: var(--go); background: var(--go-bg); }
 .type-in.wrong { border-color: var(--signal); background: var(--stop-bg); }
+/* ä, ö, ü, ß zum Antippen (Rechtschreibung) */
+.letter-keys { display: flex; gap: 8px; margin-top: 8px; }
+.letter-key {
+  min-width: 48px; min-height: 44px; padding: 4px 10px; font-size: 1.25rem; font-weight: 600;
+  border: 2px solid var(--rule); border-radius: 12px; background: var(--paper); color: var(--ink);
+}
+.letter-key:active { background: var(--paper-2); }
 
 /* Schriftliches Rechnen: Zahlen untereinander auf Karopapier wie im Matheheft */
 .colsum {

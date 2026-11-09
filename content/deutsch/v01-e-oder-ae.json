@@ -1,0 +1,33 @@
+{
+  "id": "e-oder-ae",
+  "line": "verwandte",
+  "order": 1,
+  "title": "e oder ä?",
+  "subtitle": "Ball – Bälle",
+  "icon": "⚽",
+  "explain": [
+    { "p": "**e** und **ä** klingen oft gleich. Ein verwandtes Wort verrät, was richtig ist." },
+    { "tip": "Gibt es ein verwandtes Wort mit **a**? Dann schreibt man **ä**: Ball – B**ä**lle." },
+    { "table": { "head": ["Verwandtes Wort mit a", "Schreibweise"], "rows": [["der Ball", "die B**ä**lle"], ["kalt", "k**ä**lter"], ["der Wald", "die W**ä**lder"], ["die Hand", "die H**ä**nde"], ["tragen", "sie tr**ä**gt"]] }},
+    { "p": "Gibt es kein verwandtes Wort mit **a**, schreibt man meist **e**: Bett, Feld, Geld." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die B___lle", "options": ["e", "ä"], "answer": "ä", "explain": "der Ball – die Bälle" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "k___lter", "options": ["e", "ä"], "answer": "ä", "explain": "kalt – kälter" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die W___lder", "options": ["e", "ä"], "answer": "ä", "explain": "der Wald – die Wälder" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die H___nde", "options": ["e", "ä"], "answer": "ä", "explain": "die Hand – die Hände" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "sie tr___gt", "options": ["e", "ä"], "answer": "ä", "explain": "tragen – sie trägt" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "l___nger", "options": ["e", "ä"], "answer": "ä", "explain": "lang – länger" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die N___chte", "options": ["e", "ä"], "answer": "ä", "explain": "die Nacht – die Nächte" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die L___nder", "options": ["e", "ä"], "answer": "ä", "explain": "das Land – die Länder" },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das F___ld", "options": ["e", "ä"], "answer": "e", "explain": "Es gibt kein verwandtes Wort mit a." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das B___tt", "options": ["e", "ä"], "answer": "e", "explain": "Es gibt kein verwandtes Wort mit a." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das G___ld", "options": ["e", "ä"], "answer": "e", "explain": "Es gibt kein verwandtes Wort mit a." },
+    { "type": "input", "task": "Welches Wort passt hier?", "q": "die Bälle – der ___", "answer": "Ball" },
+    { "type": "input", "task": "Welches Wort passt hier?", "q": "die Wälder – der ___", "answer": "Wald" },
+    { "type": "input", "task": "Welches Wort passt hier?", "q": "kälter – ___", "answer": "kalt" },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Im Herbst sind die ___ bunt.", "answer": "Wälder", "say": true, "explain": "der Wald – die Wälder" },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Beim Basketball fliegen die ___.", "answer": "Bälle", "say": true, "explain": "der Ball – die Bälle" },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Im Winter wird es ___.", "answer": "kälter", "say": true, "explain": "kalt – kälter" }
+  ]
+}
