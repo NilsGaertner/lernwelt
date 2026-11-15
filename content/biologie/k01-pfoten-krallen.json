@@ -1,0 +1,43 @@
+{
+  "id": "pfoten-krallen",
+  "line": "hundkatze",
+  "order": 1,
+  "title": "Pfoten und Krallen",
+  "subtitle": "Zehengänger, Sehnen und Spuren im Schnee",
+  "icon": "🐾",
+  "card": "Wusstest du? Was beim Hund wie ein Knie nach hinten aussieht, ist in Wirklichkeit seine Ferse.",
+  "explain": [
+    { "p": "Der Mensch tritt mit der ganzen Fußsohle auf. Er ist ein **Sohlengänger**. Hund und Katze laufen nur auf den Zehen. Sie sind **Zehengänger**." },
+    { "p": "Beim Hund liegt die **Ferse** weit oben am Hinterbein. Das Gelenk, das wie ein Knie nach hinten aussieht, ist die Ferse. Die **Mittelfußknochen** sind lang. So wird das Bein länger, und der Hund macht große Schritte." },
+    { "table": { "head": ["", "Hund", "Katze"], "rows": [
+      ["**Krallen**", "kann er **nicht** einziehen", "kann sie **einziehen** und ausfahren"],
+      ["**Pfotenabdruck**", "mit **Krallenspuren**, eher länglich", "**ohne** Krallenspuren, eher rund"],
+      ["**Wozu?**", "Die Krallen geben **Halt** beim schnellen Laufen, wie Spikes an Sportschuhen.", "Leise **schleichen**, und zum **Klettern** und **Packen** fährt sie die Krallen aus."]
+    ] } },
+    { "p": "Bei beiden federn weiche **Fußballen** die Schritte und Sprünge ab." },
+    { "p": "**So fährt die Katze ihre Kralle aus:** Ein kleiner Muskel zieht an der **unteren Sehne**. Dabei wird ein **elastisches Band** zwischen den Zehenknochen gedehnt, und die Kralle kommt aus der **Hautfalte**." },
+    { "p": "**So zieht sie die Kralle ein:** Ein anderer Muskel zieht an der **oberen Sehne**. Das elastische Band verkürzt sich und hilft mit. Die Kralle verschwindet wieder in der Hautfalte." },
+    { "tip": "Knochen, Sehnen und Bänder sind die **Strukturen** der Pfote. Jede hat eine Aufgabe, eine **Funktion**. Struktur und Funktion gehören eng zusammen." },
+    { "p": "Weil die Krallen beim Laufen eingezogen sind, reiben sie nicht am Boden. Darum sind **Katzenkrallen immer scharf**." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Der Mensch tritt mit der ganzen Fußsohle auf. Wie nennt man ihn?", "options": ["Sohlengänger", "Zehengänger", "Schleichjäger", "Nesthocker"], "answer": "Sohlengänger", "recall": true },
+    { "type": "choice", "q": "Hund und Katze laufen nur auf den Zehen. Wie nennt man sie?", "options": ["Zehengänger", "Sohlengänger", "Hetzjäger", "Rudeltiere"], "answer": "Zehengänger", "recall": true },
+    { "type": "choice", "q": "Beim Hund sieht ein Gelenk am Hinterbein aus wie ein Knie nach hinten. Was ist es wirklich?", "options": ["die Ferse", "das Knie", "der Ellenbogen", "die Hüfte"], "answer": "die Ferse", "explain": "Der Hund läuft auf den Zehen. Darum liegt seine Ferse weit oben am Bein." },
+    { "type": "choice", "q": "Wie hilft das lange Mittelfußstück dem Hund beim Laufen?", "options": ["Das Bein wird länger, und er macht große Schritte.", "Er kann damit besser riechen.", "Er kann damit klettern.", "Er kann seine Krallen einziehen."], "answer": "Das Bein wird länger, und er macht große Schritte." },
+    { "type": "choice", "q": "Wozu nützen dem Hund die Krallen, die er nicht einziehen kann?", "options": ["Sie geben Halt beim schnellen Laufen.", "Er schleicht damit leise.", "Er klettert damit auf Bäume.", "Er hält damit das Gleichgewicht."], "answer": "Sie geben Halt beim schnellen Laufen.", "explain": "Wie Spikes an Sportschuhen." },
+    { "type": "choice", "q": "Was federt bei Hund und Katze die Schritte und Sprünge ab?", "options": ["die Fußballen", "die Krallen", "der Schwanz", "die Tasthaare"], "answer": "die Fußballen", "recall": true, "accept": ["Fußballen", "Ballen", "die Ballen"] },
+    { "type": "choice", "q": "Im Schnee ist eine Spur mit Krallenabdrücken. Wer ist hier gelaufen?", "options": ["ein Hund", "eine Katze"], "answer": "ein Hund", "explain": "Die Katze zieht beim Laufen ihre Krallen ein. Darum sieht man bei ihr keine Krallenspuren." },
+    { "type": "choice", "q": "Im Schnee ist eine runde Spur ohne Krallenabdrücke. Wer ist hier gelaufen?", "options": ["eine Katze", "ein Hund"], "answer": "eine Katze", "explain": "Die Katze läuft mit eingezogenen Krallen." },
+    { "type": "choice", "q": "Was zieht an der unteren Sehne, damit die Kralle herauskommt?", "options": ["ein kleiner Muskel", "das elastische Band", "der Zehenknochen", "die Hautfalte"], "answer": "ein kleiner Muskel", "explain": "Muskeln ziehen, Sehnen übertragen den Zug." },
+    { "type": "choice", "q": "Was passiert mit dem elastischen Band, wenn die Kralle ausfährt?", "options": ["Es wird gedehnt.", "Es reißt.", "Es verkürzt sich.", "Es bleibt genau gleich."], "answer": "Es wird gedehnt." },
+    { "type": "choice", "q": "An welcher Sehne zieht der Muskel, wenn die Katze die Kralle einzieht?", "options": ["an der oberen Sehne", "an der unteren Sehne", "an der Hautfalte", "am Fußballen"], "answer": "an der oberen Sehne" },
+    { "type": "choice", "q": "Wohin verschwindet die eingezogene Kralle?", "options": ["in die Hautfalte", "in den Fußballen", "in den Knochen", "in den Muskel"], "answer": "in die Hautfalte", "recall": true, "accept": ["Hautfalte", "in der Hautfalte"] },
+    { "type": "choice", "q": "Knochen, Sehnen und Bänder der Pfote haben je eine bestimmte Aufgabe. Wie nennt man diese Aufgabe?", "options": ["Funktion", "Struktur", "Reiz", "Revier"], "answer": "Funktion", "recall": true, "explain": "Die Bauteile sind die **Strukturen**, ihre Aufgabe ist die **Funktion**." },
+    { "type": "choice", "q": "„Katzenkrallen sind immer scharf.“ Warum stimmt das?", "options": ["Beim Laufen sind sie eingezogen und reiben nicht am Boden.", "Die Katze schärft sie jeden Tag mit den Zähnen.", "Sie wachsen jede Nacht neu.", "Katzen laufen nur auf weichem Gras."], "answer": "Beim Laufen sind sie eingezogen und reiben nicht am Boden." },
+    { "type": "choice", "q": "Wozu fährt die Katze ihre Krallen aus?", "options": ["zum Klettern und zum Packen der Beute", "zum leisen Schleichen", "zum Schlafen", "zum Riechen"], "answer": "zum Klettern und zum Packen der Beute" },
+    { "type": "input", "q": "Hund und Katze laufen auf den Zehen. Sie sind ___.", "answer": "Zehengänger", "accept": ["Zehengaenger"] },
+    { "type": "input", "q": "Die Bauteile der Pfote nennt man Strukturen, ihre Aufgabe nennt man ___.", "answer": "Funktion" },
+    { "type": "order", "task": "Wie heißt der Satz richtig?", "de": "Warum Katzen leise schleichen", "answer": "Die Katze zieht beim Schleichen ihre Krallen ein." }
+  ]
+}

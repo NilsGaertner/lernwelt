@@ -35,6 +35,10 @@ Früher gab es nur drei lange Englisch-Linien (Wörter, Grammatik, Alltag). Der 
 
 Jede Station hat eine **„Merke“-Erklärung** auf Deutsch (kindgerecht, mit Beispielen und Vorlese-Knopf) und danach eine Übung mit 10 Aufgaben. Die Wörter-Stationen (Familie, Schule, Tiere, Essen, Körper, Kleidung, Zuhause, Freizeit, Verben, Adjektive) haben dazu je vier Lückensätze, damit die Wörter auch im Satz vorkommen – mit typischen Fallen wie „take photos“ statt „make photos“ oder „hair“ ohne -s.
 
+**Mathe: Römische Zahlen (3 Stationen + Endbahnhof)**
+
+Die Römer-Linie steht ganz oben im Mathe-Netzplan: erst I, V und X bis 39 (Plus- und Minus-Regel, XIV oder XVI?), dann L und C bis 100, dann D, M und Jahreszahlen bis 3999. Gefragt wird in beide Richtungen (XIV = ? und 14 = ?). Dazu kommt Zusammenzählen (XII + VIII) und das Auswählen der richtigen Schreibweise. Die falschen Möglichkeiten sind typische Fehler: IIII statt IV, IL statt XLIX, IIX statt VIII, XVI statt XIV. Die Aufgaben erzeugt `server/generators/roemisch.js` jedes Mal neu. Klein getippte Zahlen (xiv) zählen als richtig, die App zeigt dann die Schreibweise in Großbuchstaben.
+
 **Mathe: Quadratzahlen (3 Stationen)**
 
 Die Kopfrechnen-Linie übt 11 · 11 bis 20 · 20: erst 11 bis 15, dann 16 bis 20, dann alle gemischt. Gefragt wird vorwärts (13 · 13 = ?) und rückwärts (? · ? = 169), mit Rechentricks im „Merke“.
@@ -90,17 +94,18 @@ Die Welt-Linie hat die Stationen Die Kontinente, Kontinente-Wissen, Die Ozeane u
 
 Dazu gibt es den „Welt-Blitz“ und den „Erde-und-Atlas-Blitz“.
 
-**Biologie: Katze, Merkmale des Lebens, Versuche und Hund (5 Linien mit je 3 Stationen + Endbahnhof)**
+**Biologie: Katze, Merkmale des Lebens, Versuche und Hund (6 Linien, 19 Stationen, je mit Endbahnhof)**
 
 Passend zum Kapitel „Haustiere“ im Biologiebuch, zu den Arbeitsblättern und zum Test über die Merkmale des Lebens:
 
 | Linie | Stationen |
 |---|---|
+| Hund-und-Katze-Linie | Pfoten und Krallen (Zehen- und Sohlengänger, die Ferse beim Hund, wie die Katze ihre Krallen ausfährt: Struktur und Funktion, Spuren im Schnee), Katzensinne (Nachtjäger, Pupillen, leuchtende Augen und Katzenaugen am Fahrrad, Tasthaare), Hund oder Katze? (Vergleich, Katzengebiss mit 30 Zähnen, Tragstarre, Katzenhaltung, „wie Hund und Katze“) |
 | Katzen-Linie | Die Katze als Schleichjäger (die vier Phasen beim Beutefang), Perfekt angepasst (Krallen, Fangzähne, Augen, Tasthaare), Fortpflanzung der Katzen (Fachwörter, Säugetier richtig begründen, Revier) |
 | Lebewesen-Linie | Merkmale des Lebens, Lebewesen oder nicht? (Maus, Spielzeugmaus, Auto: Bewegung zählt nur, wenn sie selbstständig ist), Reiz und Reaktion (reizbar heißt nicht wütend) |
 | Forscher-Linie | So arbeitet man in der Biologie (Versuchsprotokoll am Kresse-Versuch), Einen Versuch planen (nur eine Sache verändern, Kontrollansatz, vollständige Planung), Diagramme auswerten (Riechschleimhaut und Hyazinthe) |
 | Hund-Linie | Hunde helfen dem Menschen (Blinden-, Spür-, Hüte-, Wachhund, Nasen- und Ohrentier), Das Skelett, Das Gebiss (Zahnarten, Zahnformel, Fleischfressergebiss) |
-| Wolf-Linie | Vom Wolf zum Hund (Rudel, Rangordnung, Körpersprache), Hunderassen und Züchtung, Welpen und Hundehaltung (Säugetier, Nesthocker) |
+| Wolf-Linie | Vom Wolf zum Hund (Rudel, Rangordnung, Körpersprache), Hunderassen und Züchtung, Welpen und Hundehaltung (Säugetier, Nesthocker), Jagd im Rudel und Zähmung (Leitwolf, Hetzjäger, Revier, Variabilität, Dingo) |
 
 Beim Skelett und beim Gebiss ist ein Knochen bzw. eine Zahnart auf einer Zeichnung markiert, und dein Kind wählt oder schreibt den Namen. Im „Merke“ sind die Zeichnungen bunt und nummeriert wie im Buch. Dazu gibt es den „Hunde-Blitz“ und den „Leben-und-Katzen-Blitz“.
 
@@ -135,9 +140,9 @@ Nach dem MusiX-Arbeitsheft 1 A, Kapitel 2 „Rund um die Stimme“:
 
 Dazu gibt es den „Musik-Blitz“.
 
-**Deutsch: Rechtschreibung (5 Linien, 15 Stationen)**
+**Deutsch: Rechtschreibung (5 Linien, 16 Stationen)**
 
-Die Groß-und-klein-Linie übt Satzanfänge, Nomen und Verben, die zu Nomen werden (das Spielen, beim Lesen). Die Zisch-Linie übt s, ss und ß, die Verwandten-Linie e/ä, eu/äu und das Verlängern (b/p, d/t, g/k), die Vokal-Linie kurze und lange Vokale, tz/ck und das lange i. Die Wörterbuch-Linie übt das ABC, die Grundform und Stolperwörter wie Medaille oder Eishockey. In Deutsch zählen Groß- und Kleinschreibung auch beim Tippen: Stimmen alle Buchstaben und nur groß/klein nicht, darf das Kind selbst verbessern (½ Punkt). Unter dem Eingabefeld gibt es ä, ö, ü und ß zum Antippen. Lückendiktate werden vorgelesen, und viele Auswahl-Aufgaben werden später zum Diktat.
+Die Groß-und-klein-Linie übt Satzanfänge, Nomen und Verben, die zu Nomen werden (das Spielen, beim Lesen). Die Zisch-Linie übt s, ss und ß, auch mit der Silben-Regel aus dem Heft (offene Silbe: s oder ß, geschlossene Silbe: ss), die Verwandten-Linie e/ä, eu/äu und das Verlängern (b/p, d/t, g/k), die Vokal-Linie kurze und lange Vokale, tz/ck und das lange i. Die Wörterbuch-Linie übt das ABC, die Grundform und Stolperwörter wie Medaille oder Eishockey. In Deutsch zählen Groß- und Kleinschreibung auch beim Tippen: Stimmen alle Buchstaben und nur groß/klein nicht, darf das Kind selbst verbessern (½ Punkt). Unter dem Eingabefeld gibt es ä, ö, ü und ß zum Antippen. Lückendiktate werden vorgelesen, und viele Auswahl-Aufgaben werden später zum Diktat.
 
 **Aufgabentypen:** Auswahl, Eintippen, Sätze aus Wortkärtchen bauen, Paare finden und Hörverstehen (die englischen Wörter werden vorgelesen).
 

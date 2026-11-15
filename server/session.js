@@ -410,7 +410,10 @@ function checkAnswer(q, given) {
   if (correct) {
     // Groß-/Kleinschreibung wird nicht als Fehler gezählt, aber freundlich angemerkt.
     const exact = q.expected.find((e) => normalize(e, strictOpt) === g);
-    if (exact && /^[A-Z]/.test(exact) && /^[a-z]/.test(raw)) {
+    if (exact && /^[A-Z]{2,}$/.test(exact) && raw !== exact) {
+      // Ganz in Großbuchstaben, z. B. römische Zahlen (XIV)
+      result.note = `Das schreibt man mit großen Buchstaben: ${exact}`;
+    } else if (exact && /^[A-Z]/.test(exact) && /^[a-z]/.test(raw)) {
       result.note = `Denk an den großen Anfangsbuchstaben: ${exact}`;
     } else if (exact && /^[a-z]/.test(exact) && /^[A-Z]/.test(raw) && !exact.includes(' ') && !q.pub.text?.includes('___')) {
       result.note = 'Tipp: Im Englischen schreibt man Nomen klein – nur Namen, Wochentage, Monate und Sprachen groß.';

@@ -1,0 +1,23 @@
+{
+  "id": "roemisch-c",
+  "line": "roemisch",
+  "order": 112,
+  "title": "Römische Zahlen bis 100",
+  "subtitle": "Dazu kommen L und C",
+  "icon": "🛡️",
+  "card": "Wusstest du? C steht für „centum“, das lateinische Wort für hundert. Daher kommt auch der Cent: hundert davon sind ein Euro.",
+  "generator": "roemisch",
+  "params": { "min": 20, "max": 100, "kinds": ["lesen", "schreiben", "waehlen", "plus"] },
+  "itemCount": 250,
+  "explain": [
+    { "table": { "head": ["Zeichen", "I", "V", "X", "L", "C"], "rows": [["Wert", "1", "5", "10", "50", "100"]] } },
+    { "p": "Die Minus-Regel gibt es auch bei den Zehnern: Ein **X links** vor L oder C wird abgezogen: **XL** = 50 − 10 = 40, **XC** = 100 − 10 = 90." },
+    { "p": "Große Zahlen schreibt man **Stelle für Stelle**: erst die Zehner, dann die Einer." },
+    { "table": { "head": ["Zahl", "Zehner", "Einer", "römisch"], "rows": [
+      ["47", "40 = XL", "7 = VII", "**XLVII**"],
+      ["64", "60 = LX", "4 = IV", "**LXIV**"],
+      ["99", "90 = XC", "9 = IX", "**XCIX**"]
+    ] } },
+    { "tip": "Abgezogen wird nur ein **einzelnes** Zeichen, und nur das nächstkleinere passende: I vor V und X, X vor L und C. Darum ist 49 nicht IL, sondern **XLIX**, und 99 nicht IC, sondern **XCIX**." }
+  ]
+}

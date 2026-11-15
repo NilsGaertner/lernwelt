@@ -12,10 +12,11 @@
     { "p": "Mit seiner **Körpersprache** zeigt ein Wolf – und genauso ein Hund –, in welcher Stimmung er gerade ist:" },
     { "table": { "head": ["Stimmung", "So sieht es aus"], "rows": [
       ["**Drohen**", "Zähne fletschen, Nackenfell sträuben, knurren"],
-      ["**Imponieren**", "sich groß machen, steif und aufrecht stehen, Schwanz hoch"],
-      ["**Überlegenheit**", "der ranghöhere Wolf steht aufrecht über dem anderen, Kopf und Schwanz oben"],
+      ["**Imponieren**", "**ein** Wolf zeigt sich: sich groß machen, steif und aufrecht stehen, Ohren gespitzt, Schwanz hoch"],
+      ["**Überlegenheit**", "**zwei** Wölfe: der ranghöhere steht aufrecht über dem anderen, Kopf und Schwanz oben, der andere duckt sich"],
       ["**Demutsverhalten**", "sich klein machen und ducken, Ohren anlegen, Schwanz einziehen, die Schnauze des Ranghöheren lecken, sich auf den Rücken legen"]
     ] } },
+    { "tip": "Imponieren oder Überlegenheit? Beim **Imponieren** zeigt sich ein Wolf von seiner starken Seite, man braucht dafür nur **einen** Wolf. Bei der **Überlegenheit** sieht man immer **zwei**: den ranghöheren oben und den rangniederen, der sich klein macht." },
     { "tip": "Für Wölfe in freier Wildbahn ist die Körpersprache sehr wichtig: So klären sie die **Rangordnung im Rudel**, ohne zu kämpfen. Zeigt ein Wolf Demut, greift der andere nicht an. Keiner wird verletzt, und das Rudel kann gemeinsam jagen." },
     { "p": "Ein Hund ist wie der Wolf ein **Rudeltier**. Wächst er in einer Familie auf, ist die **Familie sein Rudel**. Darum sucht er immer die Nähe seiner Menschen." }
   ],
@@ -29,6 +30,10 @@
     { "type": "choice", "q": "Ein Wolf legt sich vor einem ranghöheren Wolf auf den Rücken. Was zeigt er?", "options": ["Demutsverhalten", "Drohen", "Imponieren", "Überlegenheit"], "answer": "Demutsverhalten", "recall": true, "accept": ["Demut", "Unterwerfung"], "explain": "Wer sich auf den Rücken legt, zeigt: „Du bist stärker, ich will nicht kämpfen.“" },
     { "type": "choice", "q": "Ein junger Wolf leckt einem ranghöheren Wolf die Schnauze. Was zeigt er?", "options": ["Demutsverhalten", "Drohen", "Imponieren", "Angriff"], "answer": "Demutsverhalten", "recall": true, "accept": ["Demut", "Unterwerfung"] },
     { "type": "choice", "q": "Ein Wolf macht sich groß, steht steif da und hält den Schwanz hoch. Was zeigt er?", "options": ["Imponieren", "Demutsverhalten", "Angst", "Müdigkeit"], "answer": "Imponieren", "recall": true, "accept": ["Imponierverhalten", "Imponiergehabe"] },
+    { "type": "choice", "q": "Auf einem Bild steht **ein** Wolf allein: aufrecht, Ohren gespitzt, Schwanz hoch. Was zeigt er?", "options": ["Imponieren", "Überlegenheit", "Demutsverhalten", "Drohen"], "answer": "Imponieren", "explain": "Ein Wolf allein, der sich groß macht: **Imponieren**. Für Überlegenheit braucht es einen zweiten Wolf, der sich duckt." },
+    { "type": "choice", "q": "Auf einem Bild sind **zwei** Wölfe. Der eine steht hoch über dem anderen, der sich duckt. Was zeigt der obere Wolf?", "options": ["Überlegenheit", "Imponieren", "Demutsverhalten", "Drohen"], "answer": "Überlegenheit", "recall": true, "accept": ["Überlegenheit zeigen", "Ueberlegenheit"] },
+    { "type": "choice", "q": "Woran erkennt man Überlegenheit am leichtesten?", "options": ["Ein zweiter Wolf ist dabei, der sich klein macht.", "Der Wolf heult laut.", "Der Wolf liegt auf dem Rücken.", "Der Wolf frisst gerade."], "answer": "Ein zweiter Wolf ist dabei, der sich klein macht." },
+    { "type": "choice", "q": "Ein Wolf zieht den Schwanz ein. Droht er?", "options": ["Nein, er zeigt Demut.", "Ja, er droht."], "answer": "Nein, er zeigt Demut.", "explain": "Wer droht, zeigt die Zähne und sträubt das Fell. Ein eingezogener Schwanz heißt: „Ich will nicht kämpfen.“" },
     { "type": "choice", "q": "Was passiert meistens, wenn ein Wolf einem ranghöheren Wolf Demut zeigt?", "options": ["Der ranghöhere Wolf greift nicht an.", "Die beiden kämpfen.", "Er muss das Rudel verlassen.", "Er wird der neue Anführer."], "answer": "Der ranghöhere Wolf greift nicht an." },
     { "type": "choice", "q": "Warum ist die Körpersprache für Wölfe in freier Wildbahn so wichtig?", "options": ["Sie klären die Rangordnung, ohne zu kämpfen und sich zu verletzen.", "Damit sie Beute anlocken können.", "Damit Menschen sie verstehen.", "Damit sie besser riechen können."], "answer": "Sie klären die Rangordnung, ohne zu kämpfen und sich zu verletzen.", "explain": "Verletzte Wölfe könnten nicht mehr gut jagen. Darum ist es wichtig, dass das Rudel ohne Kampf auskommt." },
     { "type": "choice", "q": "Warum sucht ein Hund, der in einer Familie aufwächst, immer die Nähe seiner Menschen?", "options": ["Die Familie ist sein Rudel, denn Hunde sind Rudeltiere.", "Er hat Angst vor anderen Hunden.", "Er will nur gefüttert werden.", "Er kann nicht allein laufen."], "answer": "Die Familie ist sein Rudel, denn Hunde sind Rudeltiere." },

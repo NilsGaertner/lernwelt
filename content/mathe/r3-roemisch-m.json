@@ -1,0 +1,23 @@
+{
+  "id": "roemisch-m",
+  "line": "roemisch",
+  "order": 113,
+  "title": "Große römische Zahlen",
+  "subtitle": "D, M und Jahreszahlen",
+  "icon": "🏟️",
+  "card": "Wusstest du? Die größte Zahl, die man mit den normalen Regeln schreiben kann, ist MMMCMXCIX = 3999.",
+  "generator": "roemisch",
+  "params": { "min": 100, "max": 3999, "kinds": ["lesen", "schreiben", "waehlen", "jahr"], "years": [1500, 2030] },
+  "itemCount": 400,
+  "explain": [
+    { "table": { "head": ["Zeichen", "I", "V", "X", "L", "C", "D", "M"], "rows": [["Wert", "1", "5", "10", "50", "100", "500", "1000"]] } },
+    { "p": "Bei den Hundertern gilt die Minus-Regel mit **C**: **CD** = 500 − 100 = 400, **CM** = 1000 − 100 = 900." },
+    { "p": "Auch hier geht es **Stelle für Stelle**: Tausender, Hunderter, Zehner, Einer." },
+    { "table": { "head": ["Zahl", "Tausender", "Hunderter", "Zehner", "Einer", "römisch"], "rows": [
+      ["1984", "M", "CM", "LXXX", "IV", "**MCMLXXXIV**"],
+      ["2026", "MM", "–", "XX", "VI", "**MMXXVI**"],
+      ["444", "–", "CD", "XL", "IV", "**CDXLIV**"]
+    ] } },
+    { "tip": "Römische Jahreszahlen findet man oft über Türen alter Häuser, auf Denkmälern und im Abspann von Filmen." }
+  ]
+}
