@@ -4,6 +4,7 @@
   "icon": "🐾",
   "order": 4,
   "lines": [
+    { "id": "hundkatze", "name": "Hund-und-Katze-Linie", "short": "Hund & Katze", "color": "#6D4C9F" },
     { "id": "katze", "name": "Katzen-Linie", "short": "Katze", "color": "#C2410C" },
     { "id": "leben", "name": "Lebewesen-Linie", "short": "Lebewesen", "color": "#2E7D32" },
     { "id": "forschen", "name": "Forscher-Linie", "short": "Forscher", "color": "#00838F" },
@@ -17,7 +18,7 @@
     },
     {
       "id": "hunde", "title": "Hunde-Blitz", "icon": "⚡", "subtitle": "Körper, Gebiss, Wolf und Welpen", "types": ["choice"],
-      "units": ["hunde-helfen", "skelett", "gebiss", "vom-wolf", "hunderassen", "welpen"]
+      "units": ["hunde-helfen", "skelett", "gebiss", "vom-wolf", "hunderassen", "welpen", "wolf-rudel", "pfoten-krallen", "katzensinne", "hund-oder-katze"]
     }
   ]
 }

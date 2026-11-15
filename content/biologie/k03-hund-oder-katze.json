@@ -1,0 +1,48 @@
+{
+  "id": "hund-oder-katze",
+  "line": "hundkatze",
+  "order": 3,
+  "title": "Hund oder Katze?",
+  "subtitle": "Zwei Haustiere im Vergleich",
+  "icon": "🐕",
+  "card": "Wusstest du? Hund und Katze sind beide etwa 63 Tage trächtig. Bei der Katze sagt man meist „neun Wochen“, das ist dasselbe.",
+  "explain": [
+    { "table": { "head": ["", "Hund", "Katze"], "rows": [
+      ["**Jagd**", "**Hetzjäger** wie der Wolf", "**Schleichjäger**"],
+      ["**Zusammenleben**", "**Rudeltier**", "**Einzelgänger**, jagt allein in ihrem Revier"],
+      ["**Krallen**", "kann er nicht einziehen", "kann sie einziehen"],
+      ["**Gebiss**", "Fleischfressergebiss, **42** Zähne", "Fleischfressergebiss, **30** Zähne"],
+      ["**Junge**", "4 bis 10 Welpen nach etwa 63 Tagen", "2 bis 8 Junge nach etwa 9 Wochen"]
+    ] } },
+    { "p": "Beide sind **Säugetiere** und **Wirbeltiere**. Das Skelett der Katze hat die **gleichen Knochen** wie das des Hundes: Schädel, Wirbelsäule, Rippen, Elle, Speiche, Schienbein, Wadenbein … Ihre Wirbelsäule ist aber **sehr beweglich**, und der **Schwanz** hilft ihr beim Klettern und Springen, das **Gleichgewicht** zu halten. Aus dem Stand springt eine Katze bis zu 2 Meter hoch." },
+    { "p": "**Das Katzengebiss:** Mit den spitzen **Eckzähnen** tötet die Katze ihre Beute durch einen **Nackenbiss**. Die kräftigen **Reißzähne** wirken wie eine **Brechschere**: Sie zerbrechen Knochen und zerkleinern die Beute." },
+    { "table": { "head": ["", "B", "E", "S", "S", "E", "B"], "rows": [["**Oberkiefer**", "4", "1", "3", "3", "1", "4"], ["**Unterkiefer**", "3", "1", "3", "3", "1", "3"]] } },
+    { "p": "**Tragstarre:** Muss die Katzenmutter ihre Jungen an einen sicheren Ort bringen, packt sie ein Junges mit den Zähnen im **Genick**. Das Junge hält dann ganz still und bewegt sich nicht. Das nennt man **Tragstarre**. Später bringt die Mutter lebende Mäuse mit, und die Jungen üben spielerisch das Jagen." },
+    { "p": "**Katzenhaltung:** Eine Katze ist kein Rudeltier. Sie ist meist nicht so anhänglich wie ein Hund und mehr an ihr **Zuhause** gebunden als an ihre Menschen. Sie braucht Auslauf, Kletter- und Spielmöglichkeiten und viel **Ruhe**. Katzen sind sehr **reinlich**, darum braucht die **Katzentoilette** jeden Tag frische Streu. Freilaufende Katzen sind eine Gefahr für Vögel und andere kleine Tiere." },
+    { "tip": "Warum lässt sich eine Katze schwerer erziehen? Ein Hund ist ein **Rudeltier** und ordnet sich in die Rangordnung seiner Familie ein. Die Katze ist eine **Einzelgängerin**. Sie hat keine Rangordnung und folgt keinem „Leitwolf“." },
+    { "p": "**„Wie Hund und Katze“** sagt man über Menschen, die sich ständig streiten. Hund und Katze verstehen ihre Körpersprache oft falsch: Wedelt ein Hund mit dem Schwanz, freut er sich meist. Schlägt eine Katze mit dem Schwanz hin und her, ist sie gereizt." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wer ist ein Hetzjäger?", "options": ["der Hund", "die Katze"], "answer": "der Hund", "explain": "Der Hund jagt wie der Wolf: Er verfolgt die Beute lange. Die Katze schleicht sich an." },
+    { "type": "choice", "q": "Wer ist eine Einzelgängerin?", "options": ["die Katze", "der Hund"], "answer": "die Katze" },
+    { "type": "choice", "q": "Wie viele Zähne hat eine Katze?", "options": ["30", "42", "20", "32"], "answer": "30", "explain": "Oberkiefer 4 1 3 | 3 1 4 = 16, Unterkiefer 3 1 3 | 3 1 3 = 14. Zusammen 30. Der Hund hat 42." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Oberkiefer der Katze: 4 1 3 | 3 1 4. Wie viele Zähne sind das zusammen? ___", "answer": "16", "numeric": true },
+    { "type": "input", "task": "Was kommt heraus?", "q": "Unterkiefer der Katze: 3 1 3 | 3 1 3. Wie viele Zähne sind das zusammen? ___", "answer": "14", "numeric": true },
+    { "type": "choice", "q": "Womit tötet die Katze ihre Beute?", "options": ["mit einem Nackenbiss der Eckzähne", "mit den Schneidezähnen", "mit dem Schwanz", "mit den Backenzähnen allein"], "answer": "mit einem Nackenbiss der Eckzähne" },
+    { "type": "choice", "q": "Die Reißzähne der Katze wirken wie eine …", "options": ["Brechschere", "Zange", "Säge", "Bürste"], "answer": "Brechschere", "recall": true },
+    { "type": "choice", "q": "Warum hat die Katze ein Fleischfressergebiss?", "options": ["Sie hat spitze Eckzähne zum Töten und Reißzähne zum Zerkleinern.", "Sie hat breite Mahlzähne für Gras.", "Sie hat gar keine Eckzähne.", "Sie frisst nur Milch."], "answer": "Sie hat spitze Eckzähne zum Töten und Reißzähne zum Zerkleinern." },
+    { "type": "choice", "q": "Hat das Skelett der Katze andere Knochen als das des Hundes?", "options": ["Nein, es hat die gleichen Knochen.", "Ja, die Katze hat keine Wirbelsäule.", "Ja, die Katze hat keine Rippen.", "Ja, die Katze hat keine Elle."], "answer": "Nein, es hat die gleichen Knochen." },
+    { "type": "choice", "q": "Wobei hilft der Schwanz der Katze?", "options": ["das Gleichgewicht zu halten", "zu riechen", "die Beute zu töten", "leise zu schleichen"], "answer": "das Gleichgewicht zu halten" },
+    { "type": "choice", "q": "Eine Katzenmutter packt ihr Junges im Genick, und es hält ganz still. Wie nennt man das?", "options": ["Tragstarre", "Demutsverhalten", "Tragzeit", "Winterstarre"], "answer": "Tragstarre", "recall": true },
+    { "type": "choice", "q": "Wozu ist die Tragstarre gut?", "options": ["Die Mutter kann das Junge sicher tragen, ohne dass es zappelt.", "Das Junge schläft dadurch besser.", "Das Junge lernt so jagen.", "Die Mutter bestraft das Junge."], "answer": "Die Mutter kann das Junge sicher tragen, ohne dass es zappelt." },
+    { "type": "choice", "q": "Wie lernen junge Katzen das Jagen?", "options": ["Sie üben spielerisch mit Mäusen, die die Mutter bringt.", "Sie lesen es nach.", "Der Kater bringt es ihnen bei.", "Sie können es von Geburt an perfekt."], "answer": "Sie üben spielerisch mit Mäusen, die die Mutter bringt." },
+    { "type": "choice", "q": "Warum lässt sich eine Katze schwerer erziehen als ein Hund?", "options": ["Sie ist eine Einzelgängerin und ordnet sich in keine Rangordnung ein.", "Sie hört schlechter als ein Hund.", "Sie ist dümmer als ein Hund.", "Sie schläft zu viel."], "answer": "Sie ist eine Einzelgängerin und ordnet sich in keine Rangordnung ein." },
+    { "type": "choice", "q": "Woran ist eine Katze meist stärker gebunden?", "options": ["an ihr Zuhause", "an ihr Rudel", "an den Tierarzt", "an andere Katzen"], "answer": "an ihr Zuhause" },
+    { "type": "choice", "q": "Warum braucht die Katzentoilette jeden Tag frische Streu?", "options": ["Katzen sind sehr reinlich und riechen gut.", "Sonst wird die Katze zu dick.", "Weil Katzen Rudeltiere sind.", "Damit die Katze besser sieht."], "answer": "Katzen sind sehr reinlich und riechen gut." },
+    { "type": "choice", "q": "Für welche Tiere sind freilaufende Katzen eine Gefahr?", "options": ["für Vögel und andere kleine Tiere", "für Kühe", "für Hunde", "für Pferde"], "answer": "für Vögel und andere kleine Tiere" },
+    { "type": "choice", "q": "Was meint man, wenn zwei Menschen „wie Hund und Katze“ sind?", "options": ["Sie streiten sich oft.", "Sie sind beste Freunde.", "Sie haben beide Haustiere.", "Sie laufen sehr schnell."], "answer": "Sie streiten sich oft.", "explain": "Hund und Katze verstehen ihre Körpersprache oft falsch." },
+    { "type": "choice", "q": "Eine Katze schlägt mit dem Schwanz hin und her. Wie fühlt sie sich vermutlich?", "options": ["gereizt", "fröhlich", "müde", "hungrig"], "answer": "gereizt", "explain": "Beim Hund wäre Schwanzwedeln meist Freude. Darum verstehen sich Hund und Katze oft falsch." },
+    { "type": "input", "q": "Die Katze jagt allein. Sie ist eine ___.", "answer": "Einzelgängerin", "accept": ["Einzelgänger", "Einzelgaengerin", "Einzelgaenger"] },
+    { "type": "input", "q": "Die Katze tötet ihre Beute mit einem ___.", "answer": "Nackenbiss" }
+  ]
+}

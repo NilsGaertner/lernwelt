@@ -1,0 +1,40 @@
+{
+  "id": "katzensinne",
+  "line": "hundkatze",
+  "order": 2,
+  "title": "Katzensinne",
+  "subtitle": "Ein Nachtjäger mit leuchtenden Augen",
+  "icon": "👁️",
+  "card": "Wusstest du? Die Rückstrahler am Fahrrad heißen „Katzenaugen“, weil sie Licht zurückwerfen wie die Augen einer Katze.",
+  "explain": [
+    { "p": "Die Katze jagt am liebsten in der **Dämmerung** und nachts. Sie ist ein **Nachtjäger**. Tagsüber macht sie dafür oft Pause." },
+    { "table": { "head": ["Sinn", "Was kann die Katze?"], "rows": [
+      ["**Sehsinn**", "In der Dämmerung sieht sie fast so gut wie am Tag. Die Augen liegen **vorn am Kopf**, darum kann sie die **Entfernung** zur Beute genau einschätzen."],
+      ["**Hörsinn**", "Sie kann die Ohren **aufstellen und drehen**. So hört sie das Piepsen und Nagen einer Maus noch von Weitem."],
+      ["**Geruchssinn**", "**schlechter** als beim Hund, aber **besser** als beim Menschen. Sie erkennt damit auch **Reviermarkierungen**."],
+      ["**Tastsinn**", "Mit den **Tasthaaren** (Schnurrhaaren) spürt sie Berührungen. So weicht sie auch im Dunkeln Hindernissen aus."]
+    ] } },
+    { "p": "Durch die **Pupille** kommt Licht ins Auge. Bei hellem Licht ist sie ein schmaler **Schlitz**, im Dunkeln wird sie **weit und rund**. So kommt genau die richtige Menge Licht ins Auge." },
+    { "p": "Hinten im Auge hat die Katze eine Schicht, die wie ein **Spiegel** wirkt. Das Licht geht so **zweimal** durchs Auge. Darum reicht der Katze in der Dämmerung schon wenig Licht. Und darum **leuchten** Katzenaugen, wenn man sie anleuchtet." },
+    { "tip": "Die Rückstrahler am Fahrrad werfen Licht zurück wie die Augen einer Katze. Darum heißen sie **Katzenaugen**." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Die Katze jagt vor allem in der Dämmerung und nachts. Was für ein Jäger ist sie?", "options": ["ein Nachtjäger", "ein Hetzjäger", "ein Tagjäger", "ein Rudeljäger"], "answer": "ein Nachtjäger", "recall": true, "accept": ["Nachtjäger", "Nachtjaeger"] },
+    { "type": "choice", "q": "Wie sieht die Pupille der Katze bei hellem Sonnenlicht aus?", "options": ["ein schmaler Schlitz", "weit und rund", "ganz geschlossen", "viereckig"], "answer": "ein schmaler Schlitz" },
+    { "type": "choice", "q": "Wie sieht die Pupille der Katze im Dunkeln aus?", "options": ["weit und rund", "ein schmaler Schlitz", "ganz geschlossen", "grün"], "answer": "weit und rund" },
+    { "type": "choice", "q": "Wozu wird die Pupille größer oder kleiner?", "options": ["Damit die richtige Menge Licht ins Auge kommt.", "Damit die Katze besser riecht.", "Damit die Augen schöner aussehen.", "Damit die Katze weiter springen kann."], "answer": "Damit die richtige Menge Licht ins Auge kommt." },
+    { "type": "choice", "q": "Warum kann sich die Katze auch in der Dämmerung sicher orientieren?", "options": ["Eine spiegelnde Schicht im Auge nutzt das wenige Licht zweimal.", "Sie hat eine Taschenlampe in den Augen.", "Sie schläft in der Dämmerung immer.", "Sie hat größere Ohren als der Hund."], "answer": "Eine spiegelnde Schicht im Auge nutzt das wenige Licht zweimal." },
+    { "type": "choice", "q": "Warum leuchten Katzenaugen, wenn man sie nachts anleuchtet?", "options": ["Eine Schicht hinten im Auge spiegelt das Licht zurück.", "Die Augen machen selbst Licht.", "Die Katze ist erschrocken.", "Die Pupillen sind ganz klein."], "answer": "Eine Schicht hinten im Auge spiegelt das Licht zurück." },
+    { "type": "choice", "q": "Warum heißen die Rückstrahler am Fahrrad „Katzenaugen“?", "options": ["Sie werfen Licht zurück wie die Augen einer Katze.", "Sie sind so groß wie Katzenaugen.", "Sie wurden von einer Katze erfunden.", "Sie sind immer grün."], "answer": "Sie werfen Licht zurück wie die Augen einer Katze." },
+    { "type": "choice", "q": "Die Augen der Katze liegen vorn am Kopf. Wobei hilft ihr das?", "options": ["beim Einschätzen der Entfernung zur Beute", "beim Riechen", "beim Hören", "beim Klettern"], "answer": "beim Einschätzen der Entfernung zur Beute", "explain": "So kann sie den Beutesprung genau planen." },
+    { "type": "choice", "q": "Wie hört die Katze das leise Piepsen einer Maus?", "options": ["Sie stellt die Ohren auf und dreht sie.", "Sie legt die Ohren an.", "Sie schließt die Augen.", "Sie hält die Luft an."], "answer": "Sie stellt die Ohren auf und dreht sie." },
+    { "type": "choice", "q": "Wie gut kann die Katze riechen?", "options": ["schlechter als der Hund, aber besser als der Mensch", "besser als der Hund", "schlechter als der Mensch", "gar nicht"], "answer": "schlechter als der Hund, aber besser als der Mensch", "explain": "Riechschleimhaut: Hund 85 cm², Katze 20 cm², Mensch 4 cm²." },
+    { "type": "choice", "q": "Wozu nutzt die Katze ihren Geruchssinn außer bei der Jagd?", "options": ["um Reviermarkierungen zu erkennen", "um im Dunkeln zu sehen", "um zu klettern", "um zu schnurren"], "answer": "um Reviermarkierungen zu erkennen" },
+    { "type": "choice", "q": "Womit spürt die Katze im Dunkeln Hindernisse?", "options": ["mit den Tasthaaren", "mit dem Schwanz", "mit den Krallen", "mit den Zähnen"], "answer": "mit den Tasthaaren", "recall": true, "accept": ["Tasthaare", "Schnurrhaare", "mit den Schnurrhaaren"] },
+    { "type": "choice", "q": "Wie heißen die Tasthaare am Kopf der Katze auch?", "options": ["Schnurrhaare", "Wimpern", "Nackenhaare", "Krallen"], "answer": "Schnurrhaare" },
+    { "type": "choice", "q": "Was macht die Katze oft am Tag?", "options": ["Sie ruht sich aus.", "Sie jagt im Rudel.", "Sie hütet Schafe.", "Sie gräbt Baue."], "answer": "Sie ruht sich aus.", "explain": "Als Nachtjäger braucht sie am Tag Ruhephasen." },
+    { "type": "input", "q": "Bei hellem Licht ist die Pupille der Katze ein schmaler ___.", "answer": "Schlitz" },
+    { "type": "input", "q": "Die Rückstrahler am Fahrrad heißen ___.", "answer": "Katzenaugen" },
+    { "type": "order", "task": "Wie heißt der Satz richtig?", "de": "Warum die Katze im Dunkeln sicher ist", "answer": "Mit den Tasthaaren spürt die Katze Hindernisse." }
+  ]
+}

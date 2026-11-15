@@ -1,0 +1,39 @@
+{
+  "id": "wolf-rudel",
+  "line": "wolf",
+  "order": 4,
+  "title": "Jagd im Rudel und Zähmung",
+  "subtitle": "Hetzjäger, Leitwolf und die ersten Hunde",
+  "icon": "🌲",
+  "card": "Wusstest du? Wölfe rennen bis zu 65 Kilometer pro Stunde, so schnell wie ein Auto auf der Landstraße.",
+  "explain": [
+    { "p": "Ein **Rudel** hat etwa **5 bis 10 Wölfe**. Es hat ein eigenes **Jagdrevier**. Die Grenzen **markieren** die Wölfe mit Kot und Urin. Das stärkste Tier führt das Rudel an: der **Leitwolf**." },
+    { "p": "Die **Rangordnung** legt fest, wer zuerst **fressen und trinken** darf. Wölfe verständigen sich mit Körpersprache und durch **Heulen**." },
+    { "p": "Legt sich ein rangniederer Wolf auf den Rücken und zeigt dem anderen seine **Kehle**, beißt der andere **nicht** zu. Dieses Demutsverhalten **hemmt** den Gegner." },
+    { "p": "Wölfe jagen **gemeinsam**. Mit bis zu **65 km/h** und großer **Ausdauer** treiben sie die Beute den anderen Wölfen zu, bis sie nicht mehr fliehen kann. Der Wolf ist ein **Hetzjäger**." },
+    { "p": "**Zähmung:** Menschen und Wölfe leben schon seit über **25 000 Jahren** in der Nähe voneinander. Essensreste lockten die Wölfe an, und vielleicht halfen sie den Menschen bei der Jagd. Vor etwa **15 000 Jahren** zogen Menschen **Wolfswelpen** auf. Die Wölfe gewöhnten sich an die Menschen, und der Mensch wurde ihr „**Leitwolf**“. So wurde aus dem **Wildtier** Wolf das **Haustier** Hund. Manche Hunde beschützten sogar Schafe und Ziegen." },
+    { "p": "**Züchtung:** Alle Wölfe können miteinander Junge bekommen. Darum gehören sie zu **einer Art**. Trotzdem sind sie verschieden groß, verschieden mutig oder verschieden gefärbt. Das nennt man **Variabilität**. Der Mensch ließ nur Wölfe Junge bekommen, deren Merkmale er wollte. So entstanden über Jahrtausende die vielen **Hunderassen**." },
+    { "tip": "Im Hund steckt noch viel Wolf: Er **markiert sein Revier** mit Urin, und er lebt mit seiner Familie wie in einem **Rudel**. Der **Dingo** in Australien ist ein verwilderter Hund. Er jagt wieder im Rudel, wie der Wolf." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wie viele Wölfe leben ungefähr in einem Rudel?", "options": ["5 bis 10", "2 bis 3", "50 bis 100", "nur einer"], "answer": "5 bis 10" },
+    { "type": "choice", "q": "Wie heißt das stärkste Tier, das das Rudel anführt?", "options": ["Leitwolf", "Welpe", "Rüde", "Einzelgänger"], "answer": "Leitwolf", "recall": true },
+    { "type": "choice", "q": "Womit markieren Wölfe die Grenzen ihres Reviers?", "options": ["mit Kot und Urin", "mit Steinen", "mit Kratzspuren an Bäumen allein", "mit ihrem Fell"], "answer": "mit Kot und Urin" },
+    { "type": "choice", "q": "Was legt die Rangordnung zum Beispiel fest?", "options": ["wer zuerst fressen und trinken darf", "welche Fellfarbe ein Wolf hat", "wie alt ein Wolf wird", "wie groß das Revier ist"], "answer": "wer zuerst fressen und trinken darf" },
+    { "type": "choice", "q": "Wie verständigen sich Wölfe über weite Strecken?", "options": ["durch Heulen", "durch Schnurren", "durch Pfeifen", "durch Klopfen"], "answer": "durch Heulen", "recall": true, "accept": ["Heulen", "heulen"] },
+    { "type": "choice", "q": "Ein Wolf liegt auf dem Rücken und zeigt seine Kehle. Was macht der ranghöhere Wolf meistens?", "options": ["Er beißt nicht zu.", "Er beißt sofort zu.", "Er läuft weg.", "Er legt sich auch auf den Rücken."], "answer": "Er beißt nicht zu.", "explain": "Das Demutsverhalten **hemmt** den Gegner. So wird keiner verletzt." },
+    { "type": "choice", "q": "Wie schnell kann ein Wolf rennen?", "options": ["bis zu 65 km/h", "bis zu 10 km/h", "bis zu 200 km/h", "bis zu 5 km/h"], "answer": "bis zu 65 km/h" },
+    { "type": "choice", "q": "Was bedeutet „Hetzjäger“?", "options": ["Er verfolgt die Beute lange und schnell, bis sie nicht mehr fliehen kann.", "Er schleicht sich leise an.", "Er wartet im Versteck, bis die Beute kommt.", "Er frisst nur Pflanzen."], "answer": "Er verfolgt die Beute lange und schnell, bis sie nicht mehr fliehen kann." },
+    { "type": "choice", "q": "Wie jagen Wölfe?", "options": ["gemeinsam im Rudel", "immer allein", "nur am Mittag", "nur im Wasser"], "answer": "gemeinsam im Rudel" },
+    { "type": "choice", "q": "Was lockte die Wölfe in die Nähe der Menschen?", "options": ["Essensreste", "das Feuer allein", "Musik", "warme Kleidung"], "answer": "Essensreste" },
+    { "type": "choice", "q": "Vor wie vielen Jahren zogen Menschen wohl die ersten Wolfswelpen auf?", "options": ["vor etwa 15 000 Jahren", "vor etwa 150 Jahren", "vor etwa 1500 Jahren", "vor etwa 15 Millionen Jahren"], "answer": "vor etwa 15 000 Jahren" },
+    { "type": "choice", "q": "Welche Eigenschaft des Wolfes machte es leicht, ihn zu zähmen?", "options": ["Er lebt im Rudel und ordnet sich einem Leitwolf unter.", "Er ist ein Einzelgänger.", "Er frisst nur Pflanzen.", "Er hat keine Zähne."], "answer": "Er lebt im Rudel und ordnet sich einem Leitwolf unter.", "explain": "Der Mensch wurde für den gezähmten Wolf der „Leitwolf“." },
+    { "type": "choice", "q": "Wie nennt man es, wenn aus einem Wildtier ein Haustier wird?", "options": ["Zähmung", "Züchtung", "Paarung", "Variabilität"], "answer": "Zähmung", "recall": true },
+    { "type": "choice", "q": "Warum gehören alle Wölfe zur gleichen Art?", "options": ["Sie können miteinander Junge bekommen.", "Sie haben alle die gleiche Fellfarbe.", "Sie leben alle im gleichen Wald.", "Sie sind alle gleich groß."], "answer": "Sie können miteinander Junge bekommen." },
+    { "type": "choice", "q": "Wölfe sind verschieden groß, verschieden mutig und verschieden gefärbt. Wie nennt man das?", "options": ["Variabilität", "Rangordnung", "Tragstarre", "Zähmung"], "answer": "Variabilität", "recall": true },
+    { "type": "choice", "q": "Ein Hund hebt an einem Baum das Bein. Welches wölfische Verhalten zeigt er?", "options": ["Er markiert sein Revier.", "Er zeigt Demut.", "Er jagt.", "Er ruft sein Rudel."], "answer": "Er markiert sein Revier." },
+    { "type": "choice", "q": "Woran sieht man beim Dingo, dass Hunde noch viel vom Wolf haben?", "options": ["Er ist verwildert und jagt wieder im Rudel.", "Er hütet Schafe.", "Er wohnt im Haus.", "Er kann klettern wie eine Katze."], "answer": "Er ist verwildert und jagt wieder im Rudel." },
+    { "type": "input", "q": "Das stärkste Tier im Rudel ist der ___.", "answer": "Leitwolf" },
+    { "type": "input", "q": "Der Wolf verfolgt seine Beute lange. Er ist ein ___.", "answer": "Hetzjäger", "accept": ["Hetzjaeger"] }
+  ]
+}
