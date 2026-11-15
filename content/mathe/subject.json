@@ -5,6 +5,7 @@
   "order": 2,
   "enabled": true,
   "lines": [
+    { "id": "roemisch", "name": "Römer-Linie", "short": "Römische Zahlen", "color": "#00695C" },
     { "id": "minecraft", "name": "Minecraft-Linie", "short": "Minecraft", "color": "#6AAA3A" },
     { "id": "basketball", "name": "Basketball-Linie", "short": "Basketball", "color": "#F57C00" },
     { "id": "katze", "name": "Katzen-Linie", "short": "Katzen-Check", "color": "#EC407A" },

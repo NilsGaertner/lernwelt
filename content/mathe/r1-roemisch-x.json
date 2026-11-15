@@ -1,0 +1,26 @@
+{
+  "id": "roemisch-x",
+  "line": "roemisch",
+  "order": 111,
+  "title": "Römische Zahlen bis 39",
+  "subtitle": "I, V und X",
+  "icon": "🏛️",
+  "card": "Wusstest du? Die Römer hatten keine Null. Sie brauchten sie auch nicht: Ohne Stellenwerte muss keine Stelle frei bleiben.",
+  "generator": "roemisch",
+  "params": { "min": 1, "max": 39, "kinds": ["lesen", "schreiben", "waehlen", "plus"] },
+  "itemCount": 150,
+  "explain": [
+    { "p": "Die alten Römer schrieben Zahlen mit **Buchstaben**:" },
+    { "table": { "head": ["Zeichen", "I", "V", "X"], "rows": [["Wert", "1", "5", "10"]] } },
+    { "p": "**Plus-Regel:** Steht ein gleiches oder kleineres Zeichen **rechts**, wird es dazugezählt: **III** = 1 + 1 + 1 = 3, **VII** = 5 + 2 = 7, **XXVI** = 10 + 10 + 5 + 1 = 26." },
+    { "p": "**Minus-Regel:** Steht ein **I links** vor V oder X, wird es abgezogen: **IV** = 5 − 1 = 4, **IX** = 10 − 1 = 9." },
+    { "tip": "Ein Zeichen steht höchstens **dreimal** hintereinander. Darum schreibt man 4 nicht als IIII, sondern als **IV**, und 8 als **VIII**, nicht als IIX." },
+    { "table": { "head": ["Zahl", "römisch", "so gerechnet"], "rows": [
+      ["14", "**XIV**", "10 + 4"],
+      ["19", "**XIX**", "10 + 9"],
+      ["16", "**XVI**", "10 + 5 + 1"],
+      ["38", "**XXXVIII**", "10 + 10 + 10 + 5 + 3"]
+    ] } },
+    { "tip": "**XIV** oder **XVI**? Das I links vom V wird abgezogen (14), das I rechts vom V dazugezählt (16)." }
+  ]
+}
