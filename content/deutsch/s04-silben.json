@@ -1,0 +1,50 @@
+{
+  "id": "s-silben",
+  "line": "zisch",
+  "order": 4,
+  "title": "Offene oder geschlossene Silbe?",
+  "subtitle": "Glä-ser, So-ße, Klas-se",
+  "icon": "🔓",
+  "card": "Endet die erste Silbe mit einem Vokal, ist sie offen: s (summt) oder ß (zischt). Endet sie mit einem Konsonanten, ist sie geschlossen: ss.",
+  "explain": [
+    { "p": "Man kann ein Wort in **Silben** klatschen: Glä-ser, So-ße, Klas-se. Dann schaut man, wie die **erste Silbe endet**." },
+    { "table": { "head": ["Die erste Silbe …", "Der s-Laut", "Schreibweise", "Beispiele"], "rows": [
+      ["endet mit einem **Vokal** – sie ist **offen**", "**summt**", "**s**", "Glä-ser, Rie-se, rei-sen, le-sen"],
+      ["endet mit einem **Vokal** – sie ist **offen**", "**zischt**", "**ß**", "So-ße, Fü-ße, drau-ßen"],
+      ["endet mit einem **Konsonanten** – sie ist **geschlossen**", "**zischt**", "**ss**", "müs-sen, Nüs-se, Klas-se"]
+    ] }},
+    { "tip": "Bei **ss** steht ein s am Ende der ersten Silbe und eins am Anfang der zweiten: Klas-se. Darum ist die erste Silbe geschlossen." },
+    { "p": "Auch **au, ei, eu** und **ie** zählen hier wie ein Vokal: rei-sen, drau-ßen, Rie-se." },
+    { "ex": [["der Riese", "Rie-se: ie wie in „Wiese“"], ["die Reise", "Rei-se: ei wie in „leise“"]] }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wie trennt man **Klasse**?", "options": ["Klas-se", "Kla-sse", "Klass-e"], "answer": "Klas-se", "explain": "Ein s bleibt bei der ersten Silbe, eins geht zur zweiten: Klas-se." },
+    { "type": "choice", "q": "Wie trennt man **Gläser**?", "options": ["Glä-ser", "Gläs-er", "Gl-äser"], "answer": "Glä-ser", "explain": "Die erste Silbe endet mit dem Vokal ä: Glä-ser." },
+    { "type": "choice", "q": "Wie trennt man **Nüsse**?", "options": ["Nüs-se", "Nü-sse", "Nüss-e"], "answer": "Nüs-se", "explain": "Wie bei Klasse: Nüs-se." },
+    { "type": "choice", "q": "Wie endet die erste Silbe von **So-ße**?", "options": ["mit einem Vokal – offen", "mit einem Konsonanten – geschlossen"], "answer": "mit einem Vokal – offen", "explain": "So- endet mit o. Die Silbe ist offen, und es zischt: **ß**." },
+    { "type": "choice", "q": "Wie endet die erste Silbe von **müs-sen**?", "options": ["mit einem Konsonanten – geschlossen", "mit einem Vokal – offen"], "answer": "mit einem Konsonanten – geschlossen", "explain": "müs- endet mit s. Die Silbe ist geschlossen: **ss**." },
+    { "type": "choice", "q": "Wie endet die erste Silbe von **le-sen**?", "options": ["mit einem Vokal – offen", "mit einem Konsonanten – geschlossen"], "answer": "mit einem Vokal – offen", "explain": "le- endet mit e. Die Silbe ist offen, und es summt: **s**." },
+    { "type": "choice", "q": "Die erste Silbe ist **geschlossen**. Welche Schreibweise passt?", "options": ["ss", "s", "ß"], "answer": "ss", "explain": "Geschlossene Silbe: **ss**, wie in Klas-se." },
+    { "type": "choice", "q": "Die erste Silbe ist **offen**, und der s-Laut **summt**. Welche Schreibweise passt?", "options": ["s", "ss", "ß"], "answer": "s", "explain": "Offen und summend: **s**, wie in Glä-ser." },
+    { "type": "choice", "q": "Die erste Silbe ist **offen**, und der s-Laut **zischt**. Welche Schreibweise passt?", "options": ["ß", "s", "ss"], "answer": "ß", "explain": "Offen und zischend: **ß**, wie in Fü-ße." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Glä___er", "options": ["s", "ss", "ß"], "answer": "s", "explain": "Glä-ser: offene Silbe, und es summt." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "der Rie___e", "options": ["s", "ss", "ß"], "answer": "s", "explain": "Rie-se: offene Silbe, und es summt." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "rei___en", "options": ["s", "ss", "ß"], "answer": "s", "explain": "rei-sen: offene Silbe, und es summt." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die So___e", "options": ["s", "ss", "ß"], "answer": "ß", "explain": "So-ße: offene Silbe, und es zischt." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Grü___e", "options": ["s", "ss", "ß"], "answer": "ß", "explain": "Grü-ße: offene Silbe, und es zischt." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "gie___en", "options": ["s", "ss", "ß"], "answer": "ß", "explain": "gie-ßen: offene Silbe, und es zischt." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Nü___e", "options": ["s", "ss", "ß"], "answer": "ss", "explain": "Nüs-se: geschlossene Silbe." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Ta___e", "options": ["s", "ss", "ß"], "answer": "ss", "explain": "Tas-se: geschlossene Silbe." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "das Ki___en", "options": ["s", "ss", "ß"], "answer": "ss", "explain": "Kis-sen: geschlossene Silbe." },
+    { "type": "choice", "task": "Was fehlt hier?", "q": "die Mei___e", "options": ["s", "ss", "ß"], "answer": "s", "explain": "Mei-se: offene Silbe, und es summt." },
+    { "type": "choice", "q": "Der ___ ist so groß wie ein Haus.", "options": ["Riese", "Reise"], "answer": "Riese", "explain": "**Rie**-se mit ie – die **Rei**-se ist die Fahrt in den Urlaub." },
+    { "type": "choice", "q": "Im Sommer machen wir eine ___ ans Meer.", "options": ["Reise", "Riese"], "answer": "Reise", "explain": "**Rei**-se mit ei, wie in **reisen**." },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Gläser", "Glässer", "Gläßer"], "answer": "Gläser", "explain": "Glä-ser: offene Silbe, und es summt: **s**.", "recall": "Was hörst du? Wie schreibt man das?", "say": "die Gläser", "accept": ["die Gläser"] },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Soße", "Sosse", "Sose"], "answer": "Soße", "explain": "So-ße: offene Silbe, und es zischt: **ß**.", "recall": "Was hörst du? Wie schreibt man das?", "say": "die Soße", "accept": ["die Soße"] },
+    { "type": "choice", "task": "Welche Schreibweise stimmt?", "options": ["Nüsse", "Nüße", "Nüse"], "answer": "Nüsse", "explain": "Nüs-se: geschlossene Silbe: **ss**.", "recall": "Was hörst du? Wie schreibt man das?", "say": "die Nüsse", "accept": ["die Nüsse"] },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Zu den Nudeln gibt es ___.", "answer": "Soße", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Das Eichhörnchen sammelt ___.", "answer": "Nüsse", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Im Märchen wohnt ein ___ im Wald.", "answer": "Riese", "say": true },
+    { "type": "input", "task": "Was hörst du? Welches Wort fehlt?", "q": "Mia stellt die ___ in den Schrank.", "answer": "Gläser", "say": true }
+  ]
+}
