@@ -1,0 +1,2018 @@
+{
+  "id": "takt-hoeren",
+  "line": "takt",
+  "order": 43,
+  "title": "Ohren auf: Takt und Rhythmus",
+  "subtitle": "2er-, 3er-, 4er-Takt und du-dei",
+  "icon": "🎧",
+  "card": "Wusstest du? Ein **Walzer** hat einen **3er-Takt** (**DU** du du), ein Marsch oft einen **2er-Takt** (links, rechts).",
+  "explain": [
+    {
+      "p": "Hier brauchst du deine **Ohren**. Ein **tiefer, lauter** Schlag ist **betont** (schwer), ein **leiser** Schlag ist leicht. Der betonte Schlag ist immer die **1** eines Taktes."
+    },
+    {
+      "sound": {
+        "notes": [
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          }
+        ]
+      },
+      "label": "**2er-Takt:** **DU** du | **DU** du | **DU** du | **DU** du"
+    },
+    {
+      "sound": {
+        "notes": [
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          }
+        ]
+      },
+      "label": "**3er-Takt:** **DU** du du | **DU** du du | **DU** du du"
+    },
+    {
+      "sound": {
+        "notes": [
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          }
+        ]
+      },
+      "label": "**4er-Takt:** **DU** du du du | **DU** du du du | **DU** du du du"
+    },
+    {
+      "p": "Beim **Rhythmus** zählst du die Töne pro Schlag: **du** = ein Ton auf einen Schlag, **du dei** = zwei Töne auf einen Schlag."
+    },
+    {
+      "sound": {
+        "notes": [
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          }
+        ]
+      },
+      "label": "du – **du dei** – du – du"
+    },
+    {
+      "tip": "Zähl-Trick: Zähl leise bei jedem Schlag weiter und fang beim **lauten** Schlag wieder bei 1 an. Bis zu welcher Zahl kommst du?"
+    },
+    {
+      "tip": "Kein Ton? Ist das Gerät vielleicht stumm geschaltet?"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "takt-2",
+      "type": "choice",
+      "task": "Genau hingehört:",
+      "q": "Wie viele Schläge hat ein Takt?",
+      "sound": {
+        "notes": [
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          }
+        ]
+      },
+      "options": [
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "2",
+      "explain": "Betont, leicht – betont, leicht: ein **2er-Takt**, wie beim Marschieren (links, rechts)."
+    },
+    {
+      "id": "takt-3",
+      "type": "choice",
+      "task": "Genau hingehört:",
+      "q": "Wie viele Schläge hat ein Takt?",
+      "sound": {
+        "notes": [
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          }
+        ]
+      },
+      "options": [
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "3",
+      "explain": "**DU** du du – **DU** du du: ein **3er-Takt**, wie beim Walzer."
+    },
+    {
+      "id": "takt-4",
+      "type": "choice",
+      "task": "Genau hingehört:",
+      "q": "Wie viele Schläge hat ein Takt?",
+      "sound": {
+        "notes": [
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          }
+        ]
+      },
+      "options": [
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "4",
+      "explain": "**DU** du du du – ein **4er-Takt**, wie im Bumerang-Gedicht."
+    },
+    {
+      "id": "takt-3b",
+      "type": "choice",
+      "task": "Noch einmal ganz genau:",
+      "q": "Wie viele Schläge hat ein Takt?",
+      "sound": {
+        "notes": [
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          }
+        ]
+      },
+      "options": [
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "3"
+    },
+    {
+      "id": "takt-4b",
+      "type": "choice",
+      "task": "Noch einmal ganz genau:",
+      "q": "Wie viele Schläge hat ein Takt?",
+      "sound": {
+        "notes": [
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          }
+        ]
+      },
+      "options": [
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "4"
+    },
+    {
+      "id": "beat-oder-takt-1",
+      "type": "choice",
+      "task": "Genau hingehört:",
+      "q": "Grundbeat oder Takt?",
+      "sound": {
+        "notes": [
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          }
+        ]
+      },
+      "options": [
+        "Grundbeat: alle Schläge gleich",
+        "Takt: manche Schläge betont"
+      ],
+      "answer": "Grundbeat: alle Schläge gleich"
+    },
+    {
+      "id": "beat-oder-takt-2",
+      "type": "choice",
+      "task": "Genau hingehört:",
+      "q": "Grundbeat oder Takt?",
+      "sound": {
+        "notes": [
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          }
+        ]
+      },
+      "options": [
+        "Grundbeat: alle Schläge gleich",
+        "Takt: manche Schläge betont"
+      ],
+      "answer": "Takt: manche Schläge betont"
+    },
+    {
+      "id": "beat-oder-rhythmus-1",
+      "type": "choice",
+      "task": "Genau hingehört:",
+      "q": "Grundbeat oder Rhythmus?",
+      "sound": {
+        "notes": [
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          }
+        ]
+      },
+      "options": [
+        "Grundbeat: alle Töne gleich lang",
+        "Rhythmus: kurze und lange Töne"
+      ],
+      "answer": "Grundbeat: alle Töne gleich lang"
+    },
+    {
+      "id": "beat-oder-rhythmus-2",
+      "type": "choice",
+      "task": "Genau hingehört:",
+      "q": "Grundbeat oder Rhythmus?",
+      "sound": {
+        "notes": [
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          }
+        ]
+      },
+      "options": [
+        "Grundbeat: alle Töne gleich lang",
+        "Rhythmus: kurze und lange Töne"
+      ],
+      "answer": "Rhythmus: kurze und lange Töne",
+      "explain": "Manchmal kamen zwei Töne auf einen Schlag (du-dei) – das ist ein **Rhythmus**."
+    },
+    {
+      "id": "beat-oder-rhythmus-3",
+      "type": "choice",
+      "task": "Genau hingehört:",
+      "q": "Grundbeat oder Rhythmus?",
+      "sound": {
+        "notes": [
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 1.06
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          }
+        ]
+      },
+      "options": [
+        "Grundbeat: alle Töne gleich lang",
+        "Rhythmus: kurze und lange Töne"
+      ],
+      "answer": "Rhythmus: kurze und lange Töne"
+    },
+    {
+      "id": "welcher-rhythmus-1",
+      "type": "choice",
+      "task": "Zwei Mal hintereinander:",
+      "q": "Bei welchem Teil hörst du einen Rhythmus?",
+      "sound": {
+        "notes": [
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 1.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          }
+        ]
+      },
+      "options": [
+        "beim ersten",
+        "beim zweiten"
+      ],
+      "answer": "beim zweiten"
+    },
+    {
+      "id": "welcher-rhythmus-2",
+      "type": "choice",
+      "task": "Zwei Mal hintereinander:",
+      "q": "Bei welchem Teil hörst du einen Rhythmus?",
+      "sound": {
+        "notes": [
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 1.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          }
+        ]
+      },
+      "options": [
+        "beim ersten",
+        "beim zweiten"
+      ],
+      "answer": "beim ersten"
+    },
+    {
+      "id": "du-dei-1",
+      "type": "choice",
+      "task": "Ein Rhythmus über 4 Schläge:",
+      "q": "Was hörst du?",
+      "sound": {
+        "notes": [
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          }
+        ]
+      },
+      "options": [
+        "du – du dei – du – du",
+        "du dei – du – du – du",
+        "du – du – du – du dei"
+      ],
+      "answer": "du – du dei – du – du"
+    },
+    {
+      "id": "du-dei-2",
+      "type": "choice",
+      "task": "Ein Rhythmus über 4 Schläge:",
+      "q": "Was hörst du?",
+      "sound": {
+        "notes": [
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          }
+        ]
+      },
+      "options": [
+        "du – du dei – du – du",
+        "du dei – du – du – du",
+        "du – du – du – du dei"
+      ],
+      "answer": "du dei – du – du – du"
+    },
+    {
+      "id": "du-dei-3",
+      "type": "choice",
+      "task": "Ein Rhythmus über 4 Schläge:",
+      "q": "Was hörst du?",
+      "sound": {
+        "notes": [
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          }
+        ]
+      },
+      "options": [
+        "du – du dei – du – du",
+        "du dei – du – du – du",
+        "du – du – du – du dei"
+      ],
+      "answer": "du – du – du – du dei"
+    }
+  ]
+}

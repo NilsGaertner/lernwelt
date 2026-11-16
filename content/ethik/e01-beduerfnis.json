@@ -1,0 +1,32 @@
+{
+  "id": "beduerfnis",
+  "line": "beduerfnis",
+  "order": 1,
+  "title": "Was ist ein Bedürfnis?",
+  "subtitle": "Wunsch, Gefühl, Lebensnotwendigkeit",
+  "icon": "💧",
+  "card": "Merke: Ein **Bedürfnis** ist 1. ein **Wunsch**, ein **Verlangen** nach etwas, 2. das **Gefühl**, etwas zu **benötigen**, zu brauchen, 3. eine **Lebensnotwendigkeit**: etwas, was jemand **zum Leben braucht**.",
+  "explain": [
+    { "p": "Das Wort **Bedürfnis** kommt von **bedürfen**, einem alten Wort für **brauchen**. Im Heft steht die Definition in drei Teilen:" },
+    { "table": { "head": ["", "Ein Bedürfnis ist …"], "rows": [
+      ["1.", "ein **Wunsch**, ein **Verlangen** nach etwas"],
+      ["2.", "das **Gefühl**, etwas zu **benötigen**, zu **brauchen**"],
+      ["3.", "eine **Lebensnotwendigkeit**: etwas, was jemand **zum Leben braucht**"]
+    ] } },
+    { "p": "Beispiele: Wenn du **Durst** hast, hast du das Bedürfnis zu **trinken**. Wenn du müde bist, das Bedürfnis zu **schlafen**. Wenn du allein bist, vielleicht das Bedürfnis nach **Freunden**." },
+    { "p": "Manche Bedürfnisse sind **lebensnotwendig** (Essen, Trinken, Schlaf). Ohne sie kann man nicht leben. Andere machen das Leben **schön und reich** (Freundschaft, ein Hobby, das man richtig gut kann)." },
+    { "tip": "**Lebensnotwendigkeit** ist ein langes Wort. Es steckt drin: **Leben** + **notwendig** – also etwas, das zum Leben **nötig** ist." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Von welchem alten Wort kommt **Bedürfnis**?", "options": ["von bedürfen = brauchen", "von dürfen = erlaubt sein", "von Dürre = Trockenheit", "von Bedienung"], "answer": "von bedürfen = brauchen" },
+    { "type": "choice", "q": "Ein Bedürfnis ist ein Wunsch, ein ___ nach etwas.", "options": ["Verlangen", "Verbot", "Geschenk", "Versprechen"], "answer": "Verlangen", "recall": true },
+    { "type": "choice", "q": "Ein Bedürfnis ist das ___, etwas zu benötigen.", "options": ["Gefühl", "Gesetz", "Spiel", "Geld"], "answer": "Gefühl", "recall": true },
+    { "type": "choice", "q": "Etwas, was jemand **zum Leben braucht**, nennt man eine …", "options": ["Lebensnotwendigkeit", "Lebensfreude", "Lebensgeschichte", "Leistung"], "answer": "Lebensnotwendigkeit", "recall": true },
+    { "type": "choice", "q": "Welcher Satz passt zur Definition von **Bedürfnis**?", "options": ["Es ist etwas, was jemand braucht oder sich wünscht.", "Es ist eine Regel, die man befolgen muss.", "Es ist ein Gefühl, das immer schlecht ist.", "Es ist ein Gegenstand, den man kaufen kann."], "answer": "Es ist etwas, was jemand braucht oder sich wünscht." },
+    { "type": "choice", "q": "Du hast **Durst**. Welches Bedürfnis hast du?", "options": ["zu trinken", "zu schlafen", "zu spielen", "gelobt zu werden"], "answer": "zu trinken" },
+    { "type": "choice", "q": "Du bist sehr **müde**. Welches Bedürfnis hast du?", "options": ["zu schlafen", "zu essen", "Freunde zu treffen", "etwas zu leisten"], "answer": "zu schlafen" },
+    { "type": "choice", "q": "Welches Bedürfnis ist **lebensnotwendig**?", "options": ["trinken", "ein neues Handy", "ein Pokal", "Urlaub am Meer"], "answer": "trinken", "explain": "Ohne Trinken kann ein Mensch nur wenige Tage leben. Das ist eine **Lebensnotwendigkeit**." },
+    { "type": "choice", "q": "Welches Wort steckt in **Lebensnotwendigkeit**?", "options": ["Leben und notwendig", "Leben und Not", "Liebe und wendig", "lesen und wenden"], "answer": "Leben und notwendig" },
+    { "type": "input", "q": "Bedürfnis kommt von bedürfen. Das heißt: ___.", "answer": "brauchen", "accept": ["benötigen"] }
+  ]
+}

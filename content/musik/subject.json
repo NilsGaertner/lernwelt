@@ -4,12 +4,14 @@
   "icon": "🎵",
   "order": 6,
   "lines": [
+    { "id": "ensemble", "name": "Ensemble-Linie", "short": "Ensembles", "color": "#1565C0" },
+    { "id": "takt", "name": "Takt-Linie", "short": "Takt & Rhythmus", "color": "#5D4037" },
     { "id": "klang", "name": "Klang-Linie", "short": "Klang", "color": "#6A1B9A" },
     { "id": "stimme", "name": "Stimm-Linie", "short": "Stimme", "color": "#C2185B" },
     { "id": "instrumente", "name": "Instrumenten-Linie", "short": "Instrumente", "color": "#E65100" },
     { "id": "grund", "name": "Grundton-und-Puls-Linie", "short": "Grundton & Puls", "color": "#00897B" }
   ],
   "blitz": [
-    { "id": "musik", "title": "Musik-Blitz", "icon": "⚡", "subtitle": "Merkmale, Stimme, Instrumente, Grundton und Puls", "types": ["choice"] }
+    { "id": "musik", "title": "Musik-Blitz", "icon": "⚡", "subtitle": "Stimme, Instrumente, Grundton, Takt und Ensembles", "types": ["choice"] }
   ]
 }

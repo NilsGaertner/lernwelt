@@ -1,0 +1,14 @@
+{
+  "id": "ethik",
+  "name": "Ethik",
+  "icon": "🧭",
+  "order": 7,
+  "lines": [
+    { "id": "beduerfnis", "name": "Bedürfnis-Linie", "short": "Bedürfnisse", "color": "#2E7D32" },
+    { "id": "gefuehle", "name": "Gefühle-Linie", "short": "Gefühle", "color": "#C2185B" },
+    { "id": "denker", "name": "Denker-Linie", "short": "Denker", "color": "#3949AB" }
+  ],
+  "blitz": [
+    { "id": "ethik", "title": "Ethik-Blitz", "icon": "⚡", "subtitle": "Bedürfnisse, Gefühle, Kant und der Wortdetektiv", "types": ["choice"] }
+  ]
+}

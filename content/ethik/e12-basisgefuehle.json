@@ -1,0 +1,49 @@
+{
+  "id": "basisgefuehle",
+  "line": "gefuehle",
+  "order": 12,
+  "title": "Fünf Basisgefühle",
+  "subtitle": "Wie im Film „Alles steht Kopf“",
+  "icon": "🎬",
+  "card": "Merke: Die fünf **Basisgefühle** im Film „Alles steht Kopf“ sind **Freude**, **Angst**, **Kummer**, **Wut** und **Ekel**. Sie arbeiten zusammen, so entstehen **gemischte Gefühle**.",
+  "explain": [
+    { "p": "Im Film **„Alles steht Kopf“** steuern **fünf Basisgefühle** das Leben und die Reaktionen eines Mädchens: **Freude**, **Angst**, **Kummer**, **Wut** und **Ekel**. **Basis** heißt **Grundlage**: Aus ihnen setzen sich viele andere Gefühle zusammen." },
+    { "table": { "head": ["Basisgefühl", "verwandte Gefühle"], "rows": [
+      ["**Freude**", "Glück"],
+      ["**Angst**", "Lampenfieber, Unsicherheit, Panik"],
+      ["**Kummer**", "Trauer"],
+      ["**Wut**", "Ärger"],
+      ["**Ekel**", "Abscheu, Verachtung"]
+    ] } },
+    { "p": "Die Gefühle sehen **ein und dieselbe Sache** ganz unterschiedlich. Beim **Umzug** in eine neue Stadt zum Beispiel:" },
+    { "table": { "head": ["Gefühl", "Was es zum Umzug sagen könnte"], "rows": [
+      ["**Freude**", "„Ein neues Zimmer! Das wird ein Abenteuer!“"],
+      ["**Angst**", "„Was, wenn ich in der neuen Schule niemanden kenne?“"],
+      ["**Kummer**", "„Ich vermisse mein altes Zuhause und meine Freunde.“"],
+      ["**Wut**", "„Das ist so unfair! Keiner hat mich gefragt!“"],
+      ["**Ekel**", "„Iiih, das neue Haus riecht ja komisch!“"]
+    ] } },
+    { "tip": "**Lampenfieber** hat nichts mit Fieber zu tun: Es ist die **Angst** vor einem Auftritt, zum Beispiel vor einem Vortrag oder einem wichtigen Spiel. Fast alle haben das, auch Profis." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wie viele **Basisgefühle** gibt es im Film „Alles steht Kopf“?", "options": ["5", "3", "7", "10"], "answer": "5" },
+    { "type": "choice", "q": "Welches ist **kein** Basisgefühl aus dem Film?", "options": ["Stolz", "Freude", "Ekel", "Kummer"], "answer": "Stolz" },
+    { "type": "choice", "q": "Welche fünf Basisgefühle sind es?", "options": ["Freude, Angst, Kummer, Wut, Ekel", "Freude, Stolz, Neid, Liebe, Glück", "Angst, Panik, Lampenfieber, Trauer, Ärger", "Wut, Ärger, Zorn, Neid, Ekel"], "answer": "Freude, Angst, Kummer, Wut, Ekel" },
+    { "type": "choice", "q": "Was bedeutet **Basis**?", "options": ["Grundlage", "Spitze", "Ende", "Ausnahme"], "answer": "Grundlage" },
+    { "id": "glueck", "type": "choice", "q": "Zu welchem Basisgefühl gehört **Glück**?", "options": ["Freude", "Angst", "Kummer", "Wut"], "answer": "Freude" },
+    { "id": "lampenfieber", "type": "choice", "q": "Zu welchem Basisgefühl gehört **Lampenfieber**?", "options": ["Angst", "Freude", "Kummer", "Wut"], "answer": "Angst" },
+    { "id": "unsicherheit", "type": "choice", "q": "Zu welchem Basisgefühl gehört **Unsicherheit**?", "options": ["Angst", "Freude", "Kummer", "Wut"], "answer": "Angst" },
+    { "id": "panik", "type": "choice", "q": "Zu welchem Basisgefühl gehört **Panik**?", "options": ["Angst", "Freude", "Kummer", "Wut"], "answer": "Angst" },
+    { "id": "trauer", "type": "choice", "q": "Zu welchem Basisgefühl gehört **Trauer**?", "options": ["Kummer", "Freude", "Angst", "Wut"], "answer": "Kummer" },
+    { "id": "aerger", "type": "choice", "q": "Zu welchem Basisgefühl gehört **Ärger**?", "options": ["Wut", "Freude", "Angst", "Kummer"], "answer": "Wut" },
+    { "id": "abscheu", "type": "choice", "q": "Zu welchem Basisgefühl gehört **Abscheu**?", "options": ["Ekel", "Freude", "Angst", "Kummer"], "answer": "Ekel" },
+    { "id": "verachtung", "type": "choice", "q": "Zu welchem Basisgefühl gehört **Verachtung**?", "options": ["Ekel", "Freude", "Angst", "Kummer"], "answer": "Ekel" },
+    { "id": "umzug-freude", "type": "choice", "q": "Umzug: „Ein neues Zimmer! Das wird ein Abenteuer!“ Welches Gefühl spricht?", "options": ["Freude", "Angst", "Kummer", "Wut"], "answer": "Freude" },
+    { "id": "umzug-angst", "type": "choice", "q": "Umzug: „Was, wenn ich in der neuen Schule niemanden kenne?“ Welches Gefühl spricht?", "options": ["Angst", "Freude", "Kummer", "Wut"], "answer": "Angst" },
+    { "id": "umzug-kummer", "type": "choice", "q": "Umzug: „Ich vermisse mein altes Zuhause.“ Welches Gefühl spricht?", "options": ["Kummer", "Freude", "Angst", "Wut"], "answer": "Kummer" },
+    { "id": "umzug-wut", "type": "choice", "q": "Umzug: „Das ist so unfair! Keiner hat mich gefragt!“ Welches Gefühl spricht?", "options": ["Wut", "Freude", "Angst", "Kummer"], "answer": "Wut" },
+    { "id": "umzug-ekel", "type": "choice", "q": "Umzug: „Iiih, das neue Haus riecht ja komisch!“ Welches Gefühl spricht?", "options": ["Ekel", "Freude", "Angst", "Kummer"], "answer": "Ekel" },
+    { "type": "choice", "q": "Was entsteht, wenn die Basisgefühle **zusammenarbeiten**?", "options": ["gemischte Gefühle", "gar keine Gefühle", "nur noch Freude", "Bedürfnisse"], "answer": "gemischte Gefühle", "recall": true },
+    { "type": "choice", "q": "Was ist **Lampenfieber**?", "options": ["Angst vor einem Auftritt", "Fieber durch eine Lampe", "Freude über Licht", "Wut auf eine Lampe"], "answer": "Angst vor einem Auftritt" }
+  ]
+}

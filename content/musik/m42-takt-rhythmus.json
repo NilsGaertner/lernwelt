@@ -1,0 +1,564 @@
+{
+  "id": "takt-rhythmus",
+  "line": "takt",
+  "order": 42,
+  "title": "Grundbeat, Takt und Rhythmus",
+  "subtitle": "Vier Begriffe auseinanderhalten",
+  "icon": "📏",
+  "card": "Merke: **Grundbeat** = gleichmäßige, unbetonte Schläge. **Takt** = bestimmte Schläge werden betont (schwer und leicht). **Rhythmus** = die gespielten Töne fallen nicht immer mit dem Grundbeat zusammen.",
+  "explain": [
+    {
+      "p": "Im Arbeitsheft (S. 15, Aufgabe 3) gehören vier Begriffe zu vier Erklärungen:"
+    },
+    {
+      "table": {
+        "head": [
+          "Begriff",
+          "Erklärung"
+        ],
+        "rows": [
+          [
+            "**Grundbeat**",
+            "gleichmäßig aufeinanderfolgende, **unbetonte** Schläge"
+          ],
+          [
+            "**schwere und leichte Schläge**",
+            "**Betonung** bestimmter Schläge des Grundbeats"
+          ],
+          [
+            "**Takt**",
+            "Bestimmte Schläge des Grundbeats werden **betont** – so entstehen Gruppen"
+          ],
+          [
+            "**Rhythmus**",
+            "Die gespielten Töne fallen **nicht immer** mit dem Grundbeat zusammen"
+          ]
+        ]
+      }
+    },
+    {
+      "p": "Und so sehen die Grafiken aus (Aufgabe 3b). In der App: **DU** = betonter (schwerer) Schlag, du = leichter Schlag, **|** = Taktstrich."
+    },
+    {
+      "table": {
+        "head": [
+          "Grafik",
+          "Begriff"
+        ],
+        "rows": [
+          [
+            "du du du du du du du du – alle gleich",
+            "**Grundbeat**"
+          ],
+          [
+            "**DU** du du du **DU** du du du – die 1 ist dick",
+            "**Betonung** (schwere und leichte Schläge)"
+          ],
+          [
+            "**DU** du du du **|** **DU** du du du – Gruppen von 1 bis 4",
+            "**Takt**"
+          ],
+          [
+            "du – du dei – du – du **|** du dei – du dei – du – …",
+            "**Rhythmus**"
+          ]
+        ]
+      }
+    },
+    {
+      "sound": {
+        "notes": [
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          }
+        ]
+      },
+      "label": "**Grundbeat:** du du du du du du du du"
+    },
+    {
+      "sound": {
+        "notes": [
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          }
+        ]
+      },
+      "label": "**Takt:** **DU** du du du | **DU** du du du | **DU**"
+    },
+    {
+      "sound": {
+        "notes": [
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.16
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          },
+          {
+            "n": "-",
+            "d": 0.46
+          },
+          {
+            "n": "E5",
+            "d": 0.06,
+            "v": 0.7,
+            "w": "triangle"
+          }
+        ]
+      },
+      "label": "**Rhythmus:** du – du dei – du – du | du dei – du dei – du – (Pause)"
+    },
+    {
+      "p": "Beim Rhythmus kommen manchmal **zwei Töne auf einen Schlag** (du-dei), manchmal gar keiner (Pause). Der Grundbeat läuft trotzdem gleichmäßig weiter."
+    },
+    {
+      "tip": "Eselsbrücke: **Grund**beat = der **Boden**, auf dem alles steht. **Takt** = der Boden in **Gruppen** (wie Fliesen). **Rhythmus** = was darauf **tanzt** – mal kurz, mal lang."
+    },
+    {
+      "tip": "Beim Basketball: Das gleichmäßige Dribbeln ist wie der **Grundbeat**. Wenn ein Spieler mal schnell zweimal, mal langsam dribbelt, um den Gegner auszutricksen, ist das ein **Rhythmus**."
+    }
+  ],
+  "exercises": [
+    {
+      "type": "choice",
+      "q": "Was passt zu **Grundbeat**?",
+      "options": [
+        "gleichmäßig aufeinanderfolgende, unbetonte Schläge",
+        "Bestimmte Schläge des Grundbeats werden betont.",
+        "Gespielte Töne fallen nicht immer mit dem Grundbeat zusammen.",
+        "der Hauptton einer Melodie"
+      ],
+      "answer": "gleichmäßig aufeinanderfolgende, unbetonte Schläge"
+    },
+    {
+      "type": "choice",
+      "q": "Was passt zu **Takt**?",
+      "options": [
+        "Bestimmte Schläge des Grundbeats werden betont.",
+        "gleichmäßig aufeinanderfolgende, unbetonte Schläge",
+        "Gespielte Töne fallen nicht immer mit dem Grundbeat zusammen.",
+        "eine Gruppe von Musikern"
+      ],
+      "answer": "Bestimmte Schläge des Grundbeats werden betont."
+    },
+    {
+      "type": "choice",
+      "q": "Was passt zu **Rhythmus**?",
+      "options": [
+        "Gespielte Töne fallen nicht immer mit dem Grundbeat zusammen.",
+        "gleichmäßig aufeinanderfolgende, unbetonte Schläge",
+        "Bestimmte Schläge des Grundbeats werden betont.",
+        "Alle Töne sind gleich lang."
+      ],
+      "answer": "Gespielte Töne fallen nicht immer mit dem Grundbeat zusammen."
+    },
+    {
+      "type": "choice",
+      "q": "Was passt zu **schwere und leichte Schläge**?",
+      "options": [
+        "Betonung bestimmter Schläge des Grundbeats",
+        "gleichmäßig aufeinanderfolgende, unbetonte Schläge",
+        "Gespielte Töne fallen nicht immer mit dem Grundbeat zusammen.",
+        "hohe und tiefe Töne"
+      ],
+      "answer": "Betonung bestimmter Schläge des Grundbeats"
+    },
+    {
+      "type": "choice",
+      "q": "Gleichmäßig aufeinanderfolgende, unbetonte Schläge heißen …",
+      "options": [
+        "Grundbeat",
+        "Takt",
+        "Rhythmus",
+        "Grundton"
+      ],
+      "answer": "Grundbeat",
+      "recall": true,
+      "accept": [
+        "Grundschlag",
+        "Puls"
+      ]
+    },
+    {
+      "type": "choice",
+      "q": "Die gespielten Töne fallen nicht immer mit dem Grundbeat zusammen. Das ist der …",
+      "options": [
+        "Rhythmus",
+        "Grundbeat",
+        "Takt",
+        "Grundton"
+      ],
+      "answer": "Rhythmus",
+      "recall": true
+    },
+    {
+      "type": "choice",
+      "q": "Welche Grafik zeigt den **Grundbeat**?",
+      "options": [
+        "du du du du du du du du",
+        "DU du du du | DU du du du",
+        "du – du dei – du – du | du dei – du dei – du",
+        "DU DU DU DU"
+      ],
+      "answer": "du du du du du du du du"
+    },
+    {
+      "type": "choice",
+      "q": "Welche Grafik zeigt den **Takt** (Gruppen mit Taktstrich)?",
+      "options": [
+        "DU du du du | DU du du du",
+        "du du du du du du du du",
+        "du – du dei – du – du | du dei – du dei – du",
+        "du dei dei dei dei"
+      ],
+      "answer": "DU du du du | DU du du du"
+    },
+    {
+      "type": "choice",
+      "q": "Welche Grafik zeigt einen **Rhythmus**?",
+      "options": [
+        "du – du dei – du – du | du dei – du dei – du",
+        "du du du du du du du du",
+        "DU du du du | DU du du du",
+        "DU du DU du DU du DU du"
+      ],
+      "answer": "du – du dei – du – du | du dei – du dei – du"
+    },
+    {
+      "type": "choice",
+      "q": "In der Grafik ist die **1** dicker gezeichnet als 2, 3 und 4. Was zeigt das?",
+      "options": [
+        "die Betonung",
+        "den Rhythmus",
+        "eine Pause",
+        "den Grundton"
+      ],
+      "answer": "die Betonung",
+      "recall": true,
+      "accept": [
+        "Betonung",
+        "betont"
+      ]
+    },
+    {
+      "type": "choice",
+      "q": "Was zeigt der **Taktstrich** ( | )?",
+      "options": [
+        "Hier ist ein Takt zu Ende und der nächste beginnt.",
+        "Hier hört die Musik auf.",
+        "Hier wird es lauter.",
+        "Hier kommt ein hoher Ton."
+      ],
+      "answer": "Hier ist ein Takt zu Ende und der nächste beginnt."
+    },
+    {
+      "type": "choice",
+      "q": "Beim Rhythmus heißt es manchmal „du-dei“. Was bedeutet das?",
+      "options": [
+        "Zwei Töne kommen auf einen Schlag.",
+        "Ein Ton dauert zwei Schläge.",
+        "Der Schlag ist betont.",
+        "Es gibt eine Pause."
+      ],
+      "answer": "Zwei Töne kommen auf einen Schlag."
+    },
+    {
+      "type": "choice",
+      "q": "Läuft der Grundbeat weiter, wenn ein Rhythmus gespielt wird?",
+      "options": [
+        "Ja, er bleibt gleichmäßig.",
+        "Nein, er hört auf.",
+        "Nein, er wird schneller.",
+        "Nur in der Pause."
+      ],
+      "answer": "Ja, er bleibt gleichmäßig."
+    },
+    {
+      "type": "choice",
+      "q": "Welcher Schlag im Takt ist meistens am stärksten betont?",
+      "options": [
+        "der erste",
+        "der zweite",
+        "der letzte",
+        "keiner"
+      ],
+      "answer": "der erste"
+    },
+    {
+      "type": "input",
+      "q": "Der ___ besteht aus gleichmäßig aufeinanderfolgenden, unbetonten Schlägen.",
+      "answer": "Grundbeat",
+      "accept": [
+        "Grundschlag"
+      ]
+    },
+    {
+      "type": "input",
+      "q": "Beim ___ werden bestimmte Schläge des Grundbeats betont.",
+      "answer": "Takt"
+    }
+  ]
+}

@@ -1,0 +1,645 @@
+{
+  "id": "betont",
+  "line": "takt",
+  "order": 41,
+  "title": "Betont und unbetont",
+  "subtitle": "Feel the Beat mit dem Bumerang",
+  "icon": "🪃",
+  "card": "Merke: Manche Silben sprechen wir **betont** (stärker), andere **unbetont**. Durch betonte und unbetonte Silben entsteht eine **Gruppierung der Grundschläge**, die man **Takt** nennt.",
+  "explain": [
+    {
+      "p": "Im Arbeitsheft (S. 15, Aufgabe 2) steht ein Gedicht nach **Joachim Ringelnatz**. Die Zahlen **1 2 3 4** stehen über den Silben, die mit dem **Grundbeat** zusammenfallen:"
+    },
+    {
+      "table": {
+        "head": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "rows": [
+          [
+            "**War**",
+            "ein-**mal**",
+            "ein **Bu**-",
+            "me-**rang**;"
+          ]
+        ]
+      }
+    },
+    {
+      "p": "„War einmal ein Bumerang; / war nur leider etwas lang. / Bumerang, der flog ein Stück, / aber kam nicht mehr zurück. / Publikum – noch stundenlang – / wartete auf Bumerang.“"
+    },
+    {
+      "p": "Wenn du das Gedicht sprichst und dazu **patschst**, fallen manche Silben genau auf einen Patscher: **War** – **mal** – **Bu** – **rang**. Das sind die Silben, die mit dem **Grundbeat** zusammenfallen."
+    },
+    {
+      "p": "Diese Silben sprechen wir auch **betont**, also ein bisschen **lauter** und stärker. Die anderen Silben (ein, ein, me) sind **unbetont**."
+    },
+    {
+      "table": {
+        "head": [
+          "Wort",
+          "betonte Silbe"
+        ],
+        "rows": [
+          [
+            "Bu-me-rang",
+            "**BU**-me-rang"
+          ],
+          [
+            "Pu-bli-kum",
+            "**PU**-bli-kum"
+          ],
+          [
+            "lei-der",
+            "**LEI**-der"
+          ],
+          [
+            "zu-rück",
+            "zu-**RÜCK**"
+          ],
+          [
+            "stun-den-lang",
+            "**STUN**-den-lang"
+          ]
+        ]
+      }
+    },
+    {
+      "p": "Hör mal: Erst kommt der Grundbeat **ohne Betonung**, dann **mit Betonung** auf jedem ersten Schlag. Mit Betonung hört man Gruppen – das ist der **Takt**:"
+    },
+    {
+      "sound": {
+        "notes": [
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          }
+        ]
+      },
+      "label": "**Ohne Betonung:** du du du du du du du du"
+    },
+    {
+      "sound": {
+        "notes": [
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          }
+        ]
+      },
+      "label": "**Mit Betonung:** **DU** du du du **DU** du du du"
+    },
+    {
+      "tip": "Trick für die betonte Silbe: Sag das Wort und klopf dabei. Die Silbe, bei der dein Klopfen von selbst am stärksten wird, ist betont. Probier mal **Bu**-me-rang und Bu-me-**rang** – eins davon klingt komisch."
+    },
+    {
+      "tip": "Das passt auch zu Deutsch: Dort zerlegst du Wörter in **Silben**. In Musik schaust du, welche Silbe **betont** ist."
+    }
+  ],
+  "exercises": [
+    {
+      "type": "choice",
+      "q": "Wie nennt man eine Silbe, die man **stärker** spricht?",
+      "options": [
+        "betont",
+        "unbetont",
+        "leise",
+        "gesungen"
+      ],
+      "answer": "betont",
+      "recall": true,
+      "accept": [
+        "betonte Silbe"
+      ]
+    },
+    {
+      "type": "choice",
+      "q": "Was entsteht durch **betonte und unbetonte** Silben?",
+      "options": [
+        "eine Gruppierung der Grundschläge, der Takt",
+        "ein Grundton",
+        "eine Melodie",
+        "eine Pause"
+      ],
+      "answer": "eine Gruppierung der Grundschläge, der Takt"
+    },
+    {
+      "type": "choice",
+      "q": "Eine Gruppierung der Grundschläge durch betonte und unbetonte Schläge heißt …",
+      "options": [
+        "Takt",
+        "Grundton",
+        "Rhythmus",
+        "Melodie"
+      ],
+      "answer": "Takt",
+      "recall": true
+    },
+    {
+      "type": "choice",
+      "q": "Wie spricht man betonte Silben?",
+      "options": [
+        "etwas lauter und stärker",
+        "flüsternd",
+        "besonders schnell",
+        "gar nicht"
+      ],
+      "answer": "etwas lauter und stärker"
+    },
+    {
+      "type": "choice",
+      "q": "„War einmal ein Bumerang“: Welche Silben fallen mit dem **Grundbeat** zusammen?",
+      "options": [
+        "War – mal – Bu – rang",
+        "ein – ein – me – rang",
+        "War – ein – mal – ein",
+        "Bu – me – rang – War"
+      ],
+      "answer": "War – mal – Bu – rang"
+    },
+    {
+      "type": "choice",
+      "q": "Von wem ist das Bumerang-Gedicht?",
+      "options": [
+        "nach Joachim Ringelnatz",
+        "nach Johann Sebastian Bach",
+        "nach Wolfgang Amadeus Mozart",
+        "nach den Brüdern Grimm"
+      ],
+      "answer": "nach Joachim Ringelnatz"
+    },
+    {
+      "id": "silbe-bumerang",
+      "type": "choice",
+      "q": "Welche Silbe ist betont: **Bu-me-rang**?",
+      "options": [
+        "Bu",
+        "me",
+        "rang"
+      ],
+      "answer": "Bu"
+    },
+    {
+      "id": "silbe-publikum",
+      "type": "choice",
+      "q": "Welche Silbe ist betont: **Pu-bli-kum**?",
+      "options": [
+        "Pu",
+        "bli",
+        "kum"
+      ],
+      "answer": "Pu"
+    },
+    {
+      "id": "silbe-zurueck",
+      "type": "choice",
+      "q": "Welche Silbe ist betont: **zu-rück**?",
+      "options": [
+        "zu",
+        "rück"
+      ],
+      "answer": "rück"
+    },
+    {
+      "id": "silbe-leider",
+      "type": "choice",
+      "q": "Welche Silbe ist betont: **lei-der**?",
+      "options": [
+        "lei",
+        "der"
+      ],
+      "answer": "lei"
+    },
+    {
+      "id": "silbe-musik",
+      "type": "choice",
+      "q": "Welche Silbe ist betont: **Mu-sik**?",
+      "options": [
+        "Mu",
+        "sik"
+      ],
+      "answer": "sik",
+      "explain": "Man sagt mu-**SIK**, nicht **MU**-sik."
+    },
+    {
+      "id": "silbe-gedicht",
+      "type": "choice",
+      "q": "Welche Silbe ist betont: **Ge-dicht**?",
+      "options": [
+        "Ge",
+        "dicht"
+      ],
+      "answer": "dicht"
+    },
+    {
+      "id": "silbe-rhythmus",
+      "type": "choice",
+      "q": "Welche Silbe ist betont: **Rhyth-mus**?",
+      "options": [
+        "Rhyth",
+        "mus"
+      ],
+      "answer": "Rhyth"
+    },
+    {
+      "id": "silbe-orchester",
+      "type": "choice",
+      "q": "Welche Silbe ist betont: **Or-ches-ter**?",
+      "options": [
+        "Or",
+        "ches",
+        "ter"
+      ],
+      "answer": "ches"
+    },
+    {
+      "id": "silbe-trompete",
+      "type": "choice",
+      "q": "Welche Silbe ist betont: **Trom-pe-te**?",
+      "options": [
+        "Trom",
+        "pe",
+        "te"
+      ],
+      "answer": "pe"
+    },
+    {
+      "id": "silbe-basketball",
+      "type": "choice",
+      "q": "Welche Silbe ist betont: **Bas-ket-ball**?",
+      "options": [
+        "Bas",
+        "ket",
+        "ball"
+      ],
+      "answer": "Bas"
+    },
+    {
+      "type": "input",
+      "q": "Durch betonte und unbetonte Silben entsteht eine Gruppierung der Grundschläge, die man ___ nennt.",
+      "answer": "Takt"
+    },
+    {
+      "id": "hoer-betont",
+      "type": "choice",
+      "task": "Genau hingehört:",
+      "q": "Sind manche Schläge betont?",
+      "sound": {
+        "notes": [
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "C3",
+            "d": 0.08,
+            "v": 1,
+            "w": "square",
+            "lp": 1200
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.3,
+            "w": "square",
+            "lp": 900
+          }
+        ]
+      },
+      "options": [
+        "Ja, jeder erste Schlag ist stärker.",
+        "Nein, alle Schläge sind gleich."
+      ],
+      "answer": "Ja, jeder erste Schlag ist stärker."
+    },
+    {
+      "id": "hoer-unbetont",
+      "type": "choice",
+      "task": "Genau hingehört:",
+      "q": "Sind manche Schläge betont?",
+      "sound": {
+        "notes": [
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          },
+          {
+            "n": "-",
+            "d": 0.44
+          },
+          {
+            "n": "G3",
+            "d": 0.08,
+            "v": 0.6,
+            "w": "square",
+            "lp": 900
+          }
+        ]
+      },
+      "options": [
+        "Ja, jeder erste Schlag ist stärker.",
+        "Nein, alle Schläge sind gleich."
+      ],
+      "answer": "Nein, alle Schläge sind gleich.",
+      "explain": "Alle Schläge waren gleich stark – das ist der **Grundbeat** ohne Betonung."
+    }
+  ]
+}

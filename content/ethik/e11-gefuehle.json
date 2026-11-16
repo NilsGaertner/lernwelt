@@ -1,0 +1,38 @@
+{
+  "id": "gefuehle",
+  "line": "gefuehle",
+  "order": 11,
+  "title": "Gefühle",
+  "subtitle": "Die kribbelnden Mitbewohner",
+  "icon": "💭",
+  "card": "Merke: **Gefühle** sind **Emotionen**, die kommen und gehen, wann sie wollen – wie „**kribbelnde Mitbewohner**“. Sie werden **durch etwas ausgelöst**. Positiv: Freude, Stolz. Negativ: Neid, Angst.",
+  "explain": [
+    { "p": "**Gefühle** heißen auch **Emotionen**. Sie kommen und gehen, **wann sie wollen** – man kann sie sich nicht einfach aussuchen. Darum nennt man sie auch „**kribbelnde Mitbewohner**“: Sie wohnen in uns, und manchmal kribbelt es richtig." },
+    { "p": "Gefühle kommen nicht aus dem Nichts. Sie werden **durch etwas ausgelöst**: Ein Tor im Spiel löst Freude aus, ein lauter Knall Angst, ein Streit vielleicht Wut." },
+    { "table": { "head": ["positive Gefühle", "negative Gefühle"], "rows": [
+      ["**Freude**", "**Neid**"],
+      ["**Stolz**", "**Angst**"],
+      ["Glück", "Wut, Ärger"],
+      ["Liebe", "Trauer, Kummer"]
+    ] } },
+    { "p": "**Positiv** heißt: Das Gefühl fühlt sich **angenehm** an. **Negativ** heißt: Es fühlt sich **unangenehm** an. Das heißt nicht, dass es ein „schlechtes“ Gefühl ist: Alle Gefühle sind **okay** und gehören zu uns. Angst warnt uns zum Beispiel vor Gefahr." },
+    { "tip": "Im Basketball: Wenn der Wurf in letzter Sekunde reingeht, ist das **Freude** und **Stolz**. Das Kribbeln vor dem Spiel ist **Lampenfieber** – ein bisschen Angst, ganz normal." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Ein anderes Wort für **Gefühle** ist …", "options": ["Emotionen", "Bedürfnisse", "Gedanken", "Regeln"], "answer": "Emotionen", "recall": true },
+    { "type": "choice", "q": "Wie werden Gefühle im Heft genannt?", "options": ["kribbelnde Mitbewohner", "laute Nachbarn", "stille Freunde", "kleine Monster"], "answer": "kribbelnde Mitbewohner" },
+    { "type": "choice", "q": "Warum passt „**Mitbewohner**“?", "options": ["Gefühle wohnen in uns und kommen und gehen, wann sie wollen.", "Gefühle wohnen bei den Nachbarn.", "Man kann Gefühle immer selbst aussuchen.", "Gefühle bleiben für immer gleich."], "answer": "Gefühle wohnen in uns und kommen und gehen, wann sie wollen." },
+    { "type": "choice", "q": "Woher kommen Gefühle?", "options": ["Sie werden durch etwas ausgelöst.", "Sie kommen aus dem Nichts.", "Man kauft sie.", "Man lernt sie in der Schule."], "answer": "Sie werden durch etwas ausgelöst.", "recall": "Gefühle werden durch etwas ___.", "accept": ["ausgelöst"] },
+    { "id": "freude", "type": "choice", "q": "**Freude** ist ein …", "options": ["positives Gefühl", "negatives Gefühl"], "answer": "positives Gefühl" },
+    { "id": "stolz", "type": "choice", "q": "**Stolz** ist ein …", "options": ["positives Gefühl", "negatives Gefühl"], "answer": "positives Gefühl" },
+    { "id": "neid", "type": "choice", "q": "**Neid** ist ein …", "options": ["positives Gefühl", "negatives Gefühl"], "answer": "negatives Gefühl" },
+    { "id": "angst", "type": "choice", "q": "**Angst** ist ein …", "options": ["positives Gefühl", "negatives Gefühl"], "answer": "negatives Gefühl" },
+    { "id": "glueck", "type": "choice", "q": "**Glück** ist ein …", "options": ["positives Gefühl", "negatives Gefühl"], "answer": "positives Gefühl" },
+    { "id": "aerger", "type": "choice", "q": "**Ärger** ist ein …", "options": ["positives Gefühl", "negatives Gefühl"], "answer": "negatives Gefühl" },
+    { "type": "choice", "q": "Was bedeutet **negativ** bei Gefühlen?", "options": ["Es fühlt sich unangenehm an.", "Man darf es nicht haben.", "Es ist verboten.", "Es geht nie wieder weg."], "answer": "Es fühlt sich unangenehm an.", "explain": "Alle Gefühle sind okay. **Negativ** heißt nur, dass sie sich **unangenehm** anfühlen." },
+    { "type": "choice", "q": "Wozu kann **Angst** gut sein?", "options": ["Sie warnt uns vor Gefahr.", "Sie macht uns schneller satt.", "Sie hilft beim Einschlafen.", "Wozu? Zu gar nichts."], "answer": "Sie warnt uns vor Gefahr." },
+    { "type": "choice", "q": "Dein Team gewinnt ein knappes Spiel. Was wird ausgelöst?", "options": ["Freude", "Ekel", "Neid", "Kummer"], "answer": "Freude" },
+    { "type": "choice", "q": "Welche zwei **positiven** Gefühle stehen im Heft?", "options": ["Freude und Stolz", "Neid und Angst", "Wut und Ekel", "Kummer und Angst"], "answer": "Freude und Stolz" },
+    { "type": "choice", "q": "Welche zwei **negativen** Gefühle stehen im Heft?", "options": ["Neid und Angst", "Freude und Stolz", "Glück und Liebe", "Stolz und Glück"], "answer": "Neid und Angst" }
+  ]
+}
