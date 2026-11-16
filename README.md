@@ -128,7 +128,7 @@ Der Nationalsozialismus kommt nur als Name und Zeitraum vor, im „Merke“ steh
 
 **Aufgaben-Werkstatt:** Hier stellt das Kind selbst Aufgaben (Text und Lösung), und die anderen Profile, z. B. die Erwachsenen-Profile der Eltern, lösen sie. Jeder hat einen Versuch. Das Kind sieht, wer was geantwortet hat und ob es stimmt. Zahlen werden großzügig verglichen: 135, „135 Diamanten“ und 1.728 bzw. 1728 zählen gleich. Für die Werkstatt gibt es keine Sterne.
 
-**Musik: Klang, Stimme und Klasseninstrumente (3 Linien, 9 Stationen)**
+**Musik: Klang, Stimme, Klasseninstrumente, Grundton und Puls (4 Linien, 12 Stationen)**
 
 Nach dem MusiX-Arbeitsheft 1 A, Kapitel 2 „Rund um die Stimme“:
 
@@ -137,6 +137,7 @@ Nach dem MusiX-Arbeitsheft 1 A, Kapitel 2 „Rund um die Stimme“:
 | Klang-Linie | Merkmale der Musik, Hör genau hin! (Merkmale mit den Ohren erkennen), Singen (wie die Stimme entsteht) |
 | Stimm-Linie | Meine Stimme (die drei Versuche: Kehlkopf abtasten, Hände auf Brust und Kopf, Klangschale), Körperteile beim Singen (an einer Zeichnung: Nasenhöhle bis Zwerchfell, Resonanzrohr und Atemorgan), Der Vorgang des Singens (der Lückentext mit den Auswahlwörtern) |
 | Instrumenten-Linie | Klasseninstrumente (zehn Instrumente an einer Zeichnung benennen und schreiben), Instrumente erforschen (Material, Spielweise, Klang, Tonhöhe erkennbar?), Grundbeat und kleine Schläge (Hör-Aufgaben wie im Trainingsraum 2: 🔴 = Grundbeat, • = kleiner Schlag) |
+| Grundton-und-Puls-Linie | Der Grundton (wie ein Haus auf dem Grundstein: der Hauptton, auf dem die Melodie zur Ruhe kommt), Der Grundschlag (Grundbeat, Puls, regelmäßige Schläge zum Mitklopfen), Ohren auf: Grundton und Puls (Hör-Aufgaben: Endet die Melodie auf dem Grundton? Ist der Puls gleichmäßig?) |
 
 Dazu gibt es den „Musik-Blitz“.
 

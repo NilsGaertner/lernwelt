@@ -1,0 +1,38 @@
+{
+  "id": "grundton",
+  "line": "grund",
+  "order": 31,
+  "title": "Der Grundton",
+  "subtitle": "Wo die Melodie zur Ruhe kommt",
+  "icon": "🏠",
+  "card": "Merke: Der **Grundton** ist der Hauptton einer Melodie. Hier kommt die Melodie zur Ruhe – deshalb enden die meisten Lieder auf dem Grundton.",
+  "explain": [
+    { "p": "Wie ein **Haus** auf einem **Grundstein** gebaut ist, der dem Haus **Halt** gibt, so ist der **Grundton** der **Hauptton** einer Melodie." },
+    { "p": "Beim Grundton **kommt die Melodie zur Ruhe**. Deshalb **enden die meisten Lieder auf dem Grundton**." },
+    { "table": { "head": ["Haus", "Melodie"], "rows": [
+      ["**Grundstein**", "**Grundton**"],
+      ["gibt dem Haus **Halt**", "ist der **Hauptton**"],
+      ["darauf ist alles gebaut", "hier kommt die Melodie **zur Ruhe**"]
+    ] } },
+    { "p": "Hör dir „Alle meine Entchen“ an. Das Lied endet auf dem Grundton – es klingt **fertig**:" },
+    { "sound": { "notes": [{ "n": "C4", "d": 0.28 }, { "n": "D4", "d": 0.28 }, { "n": "E4", "d": 0.28 }, { "n": "F4", "d": 0.28 }, { "n": "G4", "d": 0.56 }, { "n": "G4", "d": 0.56 }, { "n": "A4", "d": 0.28 }, { "n": "A4", "d": 0.28 }, { "n": "A4", "d": 0.28 }, { "n": "A4", "d": 0.28 }, { "n": "G4", "d": 0.9 }, { "n": "F4", "d": 0.28 }, { "n": "F4", "d": 0.28 }, { "n": "F4", "d": 0.28 }, { "n": "F4", "d": 0.28 }, { "n": "E4", "d": 0.56 }, { "n": "E4", "d": 0.56 }, { "n": "D4", "d": 0.28 }, { "n": "D4", "d": 0.28 }, { "n": "D4", "d": 0.28 }, { "n": "D4", "d": 0.28 }, { "n": "C4", "d": 1.1 }] }, "label": "**Mit Grundton am Ende:** Die Melodie kommt zur Ruhe." },
+    { "p": "Und jetzt hört dasselbe Lied **einen Ton zu früh** auf. Merkst du, dass noch etwas fehlt?" },
+    { "sound": { "notes": [{ "n": "C4", "d": 0.28 }, { "n": "D4", "d": 0.28 }, { "n": "E4", "d": 0.28 }, { "n": "F4", "d": 0.28 }, { "n": "G4", "d": 0.56 }, { "n": "G4", "d": 0.56 }, { "n": "A4", "d": 0.28 }, { "n": "A4", "d": 0.28 }, { "n": "A4", "d": 0.28 }, { "n": "A4", "d": 0.28 }, { "n": "G4", "d": 0.9 }, { "n": "F4", "d": 0.28 }, { "n": "F4", "d": 0.28 }, { "n": "F4", "d": 0.28 }, { "n": "F4", "d": 0.28 }, { "n": "E4", "d": 0.56 }, { "n": "E4", "d": 0.56 }, { "n": "D4", "d": 0.28 }, { "n": "D4", "d": 0.28 }, { "n": "D4", "d": 0.28 }, { "n": "D4", "d": 1.1 }] }, "label": "**Ohne Grundton am Ende:** Es klingt, als ginge es noch weiter." },
+    { "tip": "Beim Bauen ist es genauso: Zuerst kommt das **Fundament**, sonst wackelt alles. Und eine Melodie „landet“ am liebsten wieder auf ihrem Grundton." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Was ist der **Grundton**?", "options": ["der Hauptton einer Melodie", "der lauteste Ton eines Liedes", "der höchste Ton eines Liedes", "ein gleichmäßiger Schlag"], "answer": "der Hauptton einer Melodie", "explain": "Der Grundton ist der **Hauptton** einer Melodie. Ein gleichmäßiger Schlag ist der **Grundschlag** – das ist etwas anderes." },
+    { "type": "choice", "q": "Womit wird der Grundton im Heft verglichen?", "options": ["mit dem Grundstein eines Hauses", "mit dem Dach eines Hauses", "mit einem Herzschlag", "mit einer Treppe"], "answer": "mit dem Grundstein eines Hauses", "recall": true, "accept": ["Grundstein", "mit dem Grundstein"], "placeholder": "mit dem …" },
+    { "type": "choice", "q": "Was macht der **Grundstein** für das Haus?", "options": ["Er gibt dem Haus Halt.", "Er macht das Haus bunt.", "Er hält den Regen ab.", "Er lässt Licht herein."], "answer": "Er gibt dem Haus Halt." },
+    { "type": "choice", "q": "Was passiert mit der Melodie beim Grundton?", "options": ["Sie kommt zur Ruhe.", "Sie wird immer schneller.", "Sie wird lauter.", "Sie fängt von vorne an."], "answer": "Sie kommt zur Ruhe." },
+    { "type": "choice", "q": "Auf welchem Ton enden die meisten Lieder?", "options": ["auf dem Grundton", "auf dem höchsten Ton", "auf dem lautesten Ton", "auf irgendeinem Ton"], "answer": "auf dem Grundton", "recall": true, "accept": ["Grundton", "dem Grundton"], "placeholder": "auf dem …" },
+    { "type": "choice", "q": "**Warum** enden die meisten Lieder auf dem Grundton?", "options": ["Weil die Melodie dort zur Ruhe kommt.", "Weil er der lauteste Ton ist.", "Weil er der höchste Ton ist.", "Weil man dort Luft holen muss."], "answer": "Weil die Melodie dort zur Ruhe kommt." },
+    { "type": "choice", "q": "Ein Lied hört **nicht** auf dem Grundton auf. Wie klingt das meistens?", "options": ["als ob noch etwas fehlt", "ganz fertig und ruhig", "besonders laut", "schneller als vorher"], "answer": "als ob noch etwas fehlt" },
+    { "type": "choice", "q": "Ein Haus braucht einen Grundstein. Was braucht eine Melodie?", "options": ["einen Grundton", "einen Grundschlag", "ein Dach", "eine Pause"], "answer": "einen Grundton", "recall": true, "accept": ["Grundton"] },
+    { "type": "input", "q": "Der Grundton ist der ___ einer Melodie.", "answer": "Hauptton" },
+    { "type": "input", "q": "Beim Grundton kommt die Melodie zur ___.", "answer": "Ruhe" },
+    { "type": "input", "q": "Die meisten Lieder enden auf dem ___.", "answer": "Grundton" },
+    { "id": "entchen-fertig", "type": "choice", "task": "„Alle meine Entchen“ – der Schluss:", "q": "Endet die Melodie auf dem Grundton?", "sound": { "notes": [{ "n": "F4", "d": 0.28 }, { "n": "F4", "d": 0.28 }, { "n": "F4", "d": 0.28 }, { "n": "F4", "d": 0.28 }, { "n": "E4", "d": 0.56 }, { "n": "E4", "d": 0.56 }, { "n": "D4", "d": 0.28 }, { "n": "D4", "d": 0.28 }, { "n": "D4", "d": 0.28 }, { "n": "D4", "d": 0.28 }, { "n": "C4", "d": 1.1 }] }, "options": ["Ja, sie kommt zur Ruhe.", "Nein, es fehlt noch etwas."], "answer": "Ja, sie kommt zur Ruhe." },
+    { "id": "entchen-offen", "type": "choice", "task": "„Alle meine Entchen“ – der Schluss:", "q": "Endet die Melodie auf dem Grundton?", "sound": { "notes": [{ "n": "F4", "d": 0.28 }, { "n": "F4", "d": 0.28 }, { "n": "F4", "d": 0.28 }, { "n": "F4", "d": 0.28 }, { "n": "E4", "d": 0.56 }, { "n": "E4", "d": 0.56 }, { "n": "D4", "d": 0.28 }, { "n": "D4", "d": 0.28 }, { "n": "D4", "d": 0.28 }, { "n": "D4", "d": 1.1 }] }, "options": ["Ja, sie kommt zur Ruhe.", "Nein, es fehlt noch etwas."], "answer": "Nein, es fehlt noch etwas.", "explain": "Hier fehlt der letzte Ton – der **Grundton**. Darum klingt es nicht fertig." }
+  ]
+}

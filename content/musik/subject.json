@@ -6,9 +6,10 @@
   "lines": [
     { "id": "klang", "name": "Klang-Linie", "short": "Klang", "color": "#6A1B9A" },
     { "id": "stimme", "name": "Stimm-Linie", "short": "Stimme", "color": "#C2185B" },
-    { "id": "instrumente", "name": "Instrumenten-Linie", "short": "Instrumente", "color": "#E65100" }
+    { "id": "instrumente", "name": "Instrumenten-Linie", "short": "Instrumente", "color": "#E65100" },
+    { "id": "grund", "name": "Grundton-und-Puls-Linie", "short": "Grundton & Puls", "color": "#00897B" }
   ],
   "blitz": [
-    { "id": "musik", "title": "Musik-Blitz", "icon": "⚡", "subtitle": "Merkmale, Stimme und Instrumente", "types": ["choice"] }
+    { "id": "musik", "title": "Musik-Blitz", "icon": "⚡", "subtitle": "Merkmale, Stimme, Instrumente, Grundton und Puls", "types": ["choice"] }
   ]
 }
