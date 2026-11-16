@@ -1,0 +1,43 @@
+{
+  "id": "ensembles",
+  "line": "ensemble",
+  "order": 51,
+  "title": "Musizieren in Gruppen",
+  "subtitle": "Ensemble, Chor, Orchester, Big Band",
+  "icon": "🎺",
+  "card": "Merke: Eine Gruppe, in der Musiker zusammen musizieren, nennt man **Ensemble**. Ein **Chor** singt, ein **Orchester** spielt Instrumente, eine **Band** macht beides.",
+  "explain": [
+    { "p": "Im Arbeitsheft (Aufgabe 11) gibt es einen Lückentext mit diesen **Auswahlwörtern**: Band – Big Band – Blaskapelle – Chor – Ensemble – Jazz-Trio – Orchester – Sinfonieorchester – Streichquartett." },
+    { "table": { "head": ["Wort", "Was ist das?"], "rows": [
+      ["**Ensemble**", "eine Gruppe, in der Musiker **zusammen musizieren** (das Oberwort für alle)"],
+      ["**Chor**", "eine große Gemeinschaft von **Singenden**, jede Stimme ist **mehrfach** besetzt"],
+      ["**Orchester**", "setzt sich aus **vielen Instrumentalisten** zusammen"],
+      ["**Sinfonieorchester**", "ein **großes** Orchester (das kleinere heißt **Kammerorchester**)"],
+      ["**Big Band**", "eine **große Jazz-Band**, die **Blasinstrumente** sind mehrfach besetzt"],
+      ["**Blaskapelle**", "**Blechbläser und Holzbläser** zusammen, ursprünglich aus **Militärkapellen** entstanden"],
+      ["**Jazz-Trio**, **Streichquartett**", "Beispiele für **reine Instrumentalensembles**"],
+      ["**Band**", "Beispiel für eine **gemischte** Besetzung (Gesang und Instrumente)"]
+    ] } },
+    { "p": "So lautet der Lückentext vollständig: Eine Gruppe, in der Musiker zusammen musizieren, nennt man **Ensemble**. Es gibt reine Instrumentalensembles (z. B. **Jazz-Trio** oder **Streichquartett**), reine Vokalensembles, aber auch gemischte Besetzungen (z. B. **Band**). Eine große Gemeinschaft von Singenden, in der jede Stimme mehrfach besetzt ist, heißt **Chor**. Ein **Orchester** setzt sich dagegen aus vielen Instrumentalisten zusammen. Dabei unterscheidet man zwischen (großem) **Sinfonieorchester** und kleiner besetztem Kammerorchester. Eine große Jazz-Band, in der Blasinstrumente mehrfach besetzt sind, bezeichnet man als **Big Band**. In einer **Blaskapelle**, die ursprünglich aus Militärkapellen entstanden ist, spielen Blechblasinstrumente und Holzbläser zusammen." },
+    { "tip": "Schreib-Hilfe: **Ensemble** kommt aus dem Französischen und heißt „zusammen“. Man spricht es „Ang-sambl“, schreibt aber **E-n-s-e-m-b-l-e**." },
+    { "tip": "Schreib-Hilfe: **Blaskapelle** kommt von **blasen** – also mit **a**, nicht mit ä. **Sinfonieorchester** schreibt man mit **f** (die alte Schreibweise Symphonie mit ph gibt es auch). **Orchester** spricht man „Or-kes-ter“, schreibt es aber mit **ch**." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Eine Gruppe, in der Musiker zusammen musizieren, nennt man …", "options": ["Ensemble", "Orchester", "Chor", "Blaskapelle"], "answer": "Ensemble", "recall": true, "explain": "**Ensemble** ist das Oberwort: Chor, Orchester und Band sind alles Ensembles." },
+    { "type": "choice", "q": "Eine große Gemeinschaft von Singenden, in der jede Stimme mehrfach besetzt ist, heißt …", "options": ["Chor", "Band", "Orchester", "Trio"], "answer": "Chor", "recall": true },
+    { "type": "choice", "q": "Ein ___ setzt sich aus vielen Instrumentalisten zusammen.", "options": ["Orchester", "Chor", "Duo", "Jazz-Trio"], "answer": "Orchester", "recall": true },
+    { "type": "choice", "q": "Wie heißt das **große** Orchester?", "options": ["Sinfonieorchester", "Kammerorchester", "Streichquartett", "Blaskapelle"], "answer": "Sinfonieorchester", "recall": true, "accept": ["Symphonieorchester"] },
+    { "type": "choice", "q": "Wie heißt das **kleiner besetzte** Orchester?", "options": ["Kammerorchester", "Sinfonieorchester", "Big Band", "Chor"], "answer": "Kammerorchester", "recall": true },
+    { "type": "choice", "q": "Eine große Jazz-Band, in der Blasinstrumente mehrfach besetzt sind, heißt …", "options": ["Big Band", "Blaskapelle", "Band", "Sinfonieorchester"], "answer": "Big Band", "recall": true, "accept": ["Bigband"] },
+    { "type": "choice", "q": "In welchem Ensemble spielen Blechblasinstrumente und Holzbläser zusammen? Es ist ursprünglich aus Militärkapellen entstanden.", "options": ["Blaskapelle", "Big Band", "Streichquartett", "Chor"], "answer": "Blaskapelle", "recall": true, "explain": "**Blaskapelle** – von **blasen**, darum mit **a**." },
+    { "type": "choice", "q": "Woraus ist die **Blaskapelle** ursprünglich entstanden?", "options": ["aus Militärkapellen", "aus Kirchenchören", "aus Rockbands", "aus Jazz-Trios"], "answer": "aus Militärkapellen" },
+    { "type": "choice", "q": "Welches Beispiel ist ein **reines Instrumentalensemble**?", "options": ["Streichquartett", "Chor", "Band mit Sängerin", "Kinderchor"], "answer": "Streichquartett" },
+    { "type": "choice", "q": "Noch ein **reines Instrumentalensemble** aus dem Lückentext:", "options": ["Jazz-Trio", "Chor", "Band", "Vokalensemble"], "answer": "Jazz-Trio" },
+    { "type": "choice", "q": "Welches Beispiel aus dem Lückentext steht für eine **gemischte** Besetzung (Gesang und Instrumente)?", "options": ["Band", "Streichquartett", "Chor", "Jazz-Trio"], "answer": "Band" },
+    { "type": "choice", "q": "Was ist der Unterschied zwischen **Chor** und **Orchester**?", "options": ["Im Chor wird gesungen, im Orchester werden Instrumente gespielt.", "Im Chor werden Instrumente gespielt, im Orchester wird gesungen.", "Das ist dasselbe.", "Ein Chor hat immer nur drei Leute."], "answer": "Im Chor wird gesungen, im Orchester werden Instrumente gespielt." },
+    { "type": "choice", "q": "In einer **Big Band** sind besonders viele …", "options": ["Blasinstrumente", "Geigen", "Sänger", "Trommeln"], "answer": "Blasinstrumente" },
+    { "id": "schreib-ensemble", "type": "choice", "q": "Welches Wort ist richtig geschrieben?", "options": ["Ensemble", "Ansambel", "Ensembel", "Ansemble"], "answer": "Ensemble" },
+    { "id": "schreib-blaskapelle", "type": "choice", "q": "Welches Wort ist richtig geschrieben?", "options": ["Blaskapelle", "Bläskapelle", "Blaskappelle", "Blasskapelle"], "answer": "Blaskapelle", "explain": "Von **blasen** – mit **a**, und Kapelle mit einem **p**." },
+    { "id": "schreib-orchester", "type": "choice", "q": "Welches Wort ist richtig geschrieben?", "options": ["Orchester", "Orkester", "Orchäster", "Orchesta"], "answer": "Orchester" }
+  ]
+}

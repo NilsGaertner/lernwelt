@@ -1,0 +1,43 @@
+{
+  "id": "wortdetektiv",
+  "line": "denker",
+  "order": 22,
+  "title": "Der Wortdetektiv",
+  "subtitle": "Die Methode der Wortuntersuchung",
+  "icon": "🔍",
+  "card": "Merke: Der **Wortdetektiv** untersucht ein Wort in vier Schritten: 1. **verwandte Wörter** zusammenstellen (mindestens 3), 2. **Bedeutung umschreiben**, 3. **Gegenteil** ausdrücken, 4. **Beispielsätze** formulieren (2 Stück).",
+  "explain": [
+    { "p": "Mit der **Methode der Wortuntersuchung** findet man heraus, was ein Wort wirklich bedeutet. So geht der **Wortdetektiv** vor:" },
+    { "table": { "head": ["Schritt", "Was man macht"], "rows": [
+      ["1. **Verwandte Wörter** zusammenstellen (mindestens **3**)", "verwandte und ähnliche Wörter suchen, z. B. im **Wörterbuch**: **Synonyme**"],
+      ["2. **Bedeutung umschreiben**", "den Begriff **mit eigenen Worten** beschreiben"],
+      ["3. **Gegenteil** ausdrücken", "Begriffe finden, die das **Gegenteil** sind (2 Stück)"],
+      ["4. **Beispielsätze** formulieren (**2** Stück)", "mit dem untersuchten Wort **Beispielsätze** bilden"]
+    ] } },
+    { "p": "Ein **Synonym** ist ein Wort mit **gleicher oder ähnlicher Bedeutung**: Ärger – Wut, Furcht – Angst." },
+    { "p": "So sieht das am Beispiel **Ekel** aus:" },
+    { "table": { "head": ["Schritt", "Ekel"], "rows": [
+      ["1. verwandte Wörter", "Abscheu, Widerwille, Aversion"],
+      ["2. Bedeutung", "Ekel ist das Gefühl, wenn man etwas so eklig findet, dass man es nicht anfassen oder essen will."],
+      ["3. Gegenteil", "lecker, köstlich"],
+      ["4. Beispielsätze", "Vor dem schimmeligen Brot hatte ich Ekel. – Ich schaue die Schnecke im Salat voller Ekel an."]
+    ] } },
+    { "tip": "Eselsbrücke für die Reihenfolge: **V**iele **B**ären **g**ähnen **b**eim Basketball – **V**erwandte Wörter, **B**edeutung, **G**egenteil, **B**eispielsätze." }
+  ],
+  "exercises": [
+    { "type": "order", "task": "Welche Reihenfolge stimmt? Was kommt zuerst?", "de": "Die vier Schritte des Wortdetektivs", "answer": "Verwandte Bedeutung Gegenteil Beispielsätze" },
+    { "type": "choice", "q": "Was ist der **1. Schritt** des Wortdetektivs?", "options": ["verwandte Wörter zusammenstellen", "Beispielsätze formulieren", "das Gegenteil ausdrücken", "die Bedeutung umschreiben"], "answer": "verwandte Wörter zusammenstellen" },
+    { "type": "choice", "q": "Was ist der **2. Schritt** des Wortdetektivs?", "options": ["die Bedeutung umschreiben", "verwandte Wörter zusammenstellen", "Beispielsätze formulieren", "das Gegenteil ausdrücken"], "answer": "die Bedeutung umschreiben" },
+    { "type": "choice", "q": "Was ist der **3. Schritt** des Wortdetektivs?", "options": ["das Gegenteil ausdrücken", "die Bedeutung umschreiben", "verwandte Wörter zusammenstellen", "Beispielsätze formulieren"], "answer": "das Gegenteil ausdrücken" },
+    { "type": "choice", "q": "Was ist der **4. Schritt** des Wortdetektivs?", "options": ["Beispielsätze formulieren", "das Gegenteil ausdrücken", "die Bedeutung umschreiben", "verwandte Wörter zusammenstellen"], "answer": "Beispielsätze formulieren" },
+    { "type": "choice", "q": "Wie viele **verwandte Wörter** sucht man mindestens?", "options": ["3", "1", "2", "10"], "answer": "3" },
+    { "type": "choice", "q": "Wie viele **Beispielsätze** formuliert man?", "options": ["2", "1", "3", "5"], "answer": "2" },
+    { "type": "choice", "q": "Ein Wort mit **gleicher oder ähnlicher Bedeutung** heißt …", "options": ["Synonym", "Gegenteil", "Beispielsatz", "Bedürfnis"], "answer": "Synonym", "recall": true },
+    { "type": "choice", "q": "Wo findet man verwandte Wörter gut?", "options": ["im Wörterbuch", "im Kochbuch", "auf der Landkarte", "im Kalender"], "answer": "im Wörterbuch" },
+    { "type": "choice", "q": "Was heißt **Bedeutung umschreiben**?", "options": ["den Begriff mit eigenen Worten beschreiben", "das Wort rückwärts schreiben", "das Wort abschreiben", "das Wort übersetzen"], "answer": "den Begriff mit eigenen Worten beschreiben" },
+    { "id": "schritt-abscheu", "type": "choice", "q": "Zu **Ekel** schreibt jemand: „Abscheu, Widerwille, Aversion“. Welcher Schritt ist das?", "options": ["verwandte Wörter", "Bedeutung umschreiben", "Gegenteil", "Beispielsätze"], "answer": "verwandte Wörter" },
+    { "id": "schritt-lecker", "type": "choice", "q": "Zu **Ekel** schreibt jemand: „lecker, köstlich“. Welcher Schritt ist das?", "options": ["Gegenteil", "verwandte Wörter", "Bedeutung umschreiben", "Beispielsätze"], "answer": "Gegenteil" },
+    { "id": "schritt-bedeutung", "type": "choice", "q": "Zu **Ekel** schreibt jemand: „Das Gefühl, wenn man etwas so eklig findet, dass man es nicht anfassen will.“ Welcher Schritt ist das?", "options": ["Bedeutung umschreiben", "Gegenteil", "verwandte Wörter", "Beispielsätze"], "answer": "Bedeutung umschreiben" },
+    { "id": "schritt-satz", "type": "choice", "q": "Zu **Ekel** schreibt jemand: „Vor dem schimmeligen Brot hatte ich Ekel.“ Welcher Schritt ist das?", "options": ["Beispielsätze", "Bedeutung umschreiben", "verwandte Wörter", "Gegenteil"], "answer": "Beispielsätze" }
+  ]
+}

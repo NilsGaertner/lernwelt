@@ -1,0 +1,48 @@
+{
+  "id": "stufe-zuordnen",
+  "line": "beduerfnis",
+  "order": 3,
+  "title": "Welche Stufe passt?",
+  "subtitle": "Beispiele in die Pyramide sortieren",
+  "icon": "🧩",
+  "card": "Merke: **Schlaf** gehört wie Essen und Trinken zu den **Grundbedürfnissen** (Stufe 1) – der Körper braucht ihn zum Leben. **Materielle Sicherheit** (Geld, Wohnung) gehört zur **Sicherheit** (Stufe 2).",
+  "explain": [
+    { "p": "Bei jedem Beispiel hilft eine Frage: **Wofür** braucht man das?" },
+    { "table": { "head": ["Frage", "Stufe"], "rows": [
+      ["Braucht mein **Körper** das zum Überleben?", "1 – **Grundbedürfnisse**"],
+      ["Schützt es mich? Bin ich damit **sicher**?", "2 – **Sicherheit**"],
+      ["Hat es mit **anderen Menschen** zu tun, die ich mag?", "3 – **soziale Bedürfnisse**"],
+      ["Geht es darum, dass ich **etwas schaffe** und **anerkannt** werde?", "4 – **Individualbedürfnisse**"],
+      ["Geht es darum, **meine Talente** voll zu entfalten?", "5 – **Selbstverwirklichung**"]
+    ] } },
+    { "table": { "head": ["Beispiel", "Stufe"], "rows": [
+      ["Essen und Trinken", "1 Grundbedürfnisse"],
+      ["**Schlaf**", "**1 Grundbedürfnisse**"],
+      ["Schutz vor Schmerz und Angst", "2 Sicherheit"],
+      ["**materielle Sicherheit**", "**2 Sicherheit**"],
+      ["Freundschaft", "3 soziale Bedürfnisse"],
+      ["Liebe", "3 soziale Bedürfnisse"],
+      ["Leistung", "4 Individualbedürfnisse"],
+      ["optimale Entfaltung der Talente", "5 Selbstverwirklichung"]
+    ] } },
+    { "tip": "**Schlaf** fühlt sich vielleicht wie „Ausruhen“ oder „Sicherheit“ an. Aber ohne Schlaf wird der Körper krank – deshalb gehört er nach **ganz unten**, zu Essen und Trinken." },
+    { "tip": "**Materiell** heißt: Es geht um **Dinge und Geld**. Materielle Sicherheit bedeutet: genug Geld, eine Wohnung, das Nötige zum Leben ist **sicher**. Mit **Leistung** (Stufe 4) hat das nichts zu tun – darum Stufe **2**." }
+  ],
+  "exercises": [
+    { "id": "essen", "type": "choice", "q": "**Essen und Trinken** – welche Stufe?", "options": ["Grundbedürfnisse", "Sicherheit", "soziale Bedürfnisse", "Individualbedürfnisse"], "answer": "Grundbedürfnisse" },
+    { "id": "schlaf", "type": "choice", "q": "**Schlaf** – welche Stufe?", "options": ["Grundbedürfnisse", "Sicherheit", "soziale Bedürfnisse", "Selbstverwirklichung"], "answer": "Grundbedürfnisse", "explain": "Der Körper braucht Schlaf zum Leben – genau wie Essen und Trinken. Darum **Stufe 1**." },
+    { "id": "gesundheit", "type": "choice", "q": "**Gesundheit** – welche Stufe?", "options": ["Grundbedürfnisse", "Individualbedürfnisse", "soziale Bedürfnisse", "Selbstverwirklichung"], "answer": "Grundbedürfnisse" },
+    { "id": "schutz", "type": "choice", "q": "**Schutz vor Schmerz und Angst** – welche Stufe?", "options": ["Sicherheit", "Grundbedürfnisse", "soziale Bedürfnisse", "Selbstverwirklichung"], "answer": "Sicherheit" },
+    { "id": "materiell", "type": "choice", "q": "**Materielle Sicherheit** – welche Stufe?", "options": ["Sicherheit", "Individualbedürfnisse", "Grundbedürfnisse", "Selbstverwirklichung"], "answer": "Sicherheit", "explain": "Materiell = Geld und Dinge. Wenn das Nötige zum Leben **sicher** ist, ist das **Stufe 2: Sicherheit**." },
+    { "id": "haus", "type": "choice", "q": "**Ein Haus, ein Dach über dem Kopf** – welche Stufe?", "options": ["Sicherheit", "soziale Bedürfnisse", "Individualbedürfnisse", "Selbstverwirklichung"], "answer": "Sicherheit" },
+    { "id": "freundschaft", "type": "choice", "q": "**Freundschaft** – welche Stufe?", "options": ["soziale Bedürfnisse", "Sicherheit", "Individualbedürfnisse", "Grundbedürfnisse"], "answer": "soziale Bedürfnisse" },
+    { "id": "liebe", "type": "choice", "q": "**Liebe** – welche Stufe?", "options": ["soziale Bedürfnisse", "Grundbedürfnisse", "Selbstverwirklichung", "Sicherheit"], "answer": "soziale Bedürfnisse" },
+    { "id": "familie", "type": "choice", "q": "**Familie und dazugehören** – welche Stufe?", "options": ["soziale Bedürfnisse", "Individualbedürfnisse", "Sicherheit", "Selbstverwirklichung"], "answer": "soziale Bedürfnisse" },
+    { "id": "leistung", "type": "choice", "q": "**Leistung** – welche Stufe?", "options": ["Individualbedürfnisse", "soziale Bedürfnisse", "Sicherheit", "Grundbedürfnisse"], "answer": "Individualbedürfnisse" },
+    { "id": "lob", "type": "choice", "q": "**Lob und Anerkennung** vom Trainer – welche Stufe?", "options": ["Individualbedürfnisse", "Grundbedürfnisse", "Sicherheit", "Selbstverwirklichung"], "answer": "Individualbedürfnisse" },
+    { "id": "talente", "type": "choice", "q": "**Optimale Entfaltung der Talente** – welche Stufe?", "options": ["Selbstverwirklichung", "Individualbedürfnisse", "soziale Bedürfnisse", "Sicherheit"], "answer": "Selbstverwirklichung" },
+    { "id": "materiell-heisst", "type": "choice", "q": "Was heißt **materiell**?", "options": ["Es geht um Geld und Dinge.", "Es geht um Freunde.", "Es geht um Leistung.", "Es geht um Gefühle."], "answer": "Es geht um Geld und Dinge." },
+    { "id": "schlaf-stufe", "type": "choice", "q": "Auf welcher Stufe stehen **Schlaf** und **Essen** gemeinsam?", "options": ["Stufe 1", "Stufe 2", "Stufe 3", "Stufe 4"], "answer": "Stufe 1" },
+    { "id": "frage-koerper", "type": "choice", "q": "Woran erkennst du ein **Grundbedürfnis**?", "options": ["Der Körper braucht es zum Überleben.", "Man bekommt dafür Lob.", "Man braucht dafür Freunde.", "Es ist teuer."], "answer": "Der Körper braucht es zum Überleben." }
+  ]
+}

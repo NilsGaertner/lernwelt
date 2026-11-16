@@ -1,0 +1,40 @@
+{
+  "id": "woerter-untersuchen",
+  "line": "denker",
+  "order": 23,
+  "title": "Wortdetektiv im Einsatz",
+  "subtitle": "Verwandte Wörter und Gegenteile von Gefühlen",
+  "icon": "🕵️",
+  "card": "Merke: **Schadenfreude** ist die Freude darüber, dass **einem anderen etwas Schlechtes passiert**. Das Gegenteil ist **Mitgefühl**.",
+  "explain": [
+    { "p": "Hier untersucht der Wortdetektiv **Gefühlswörter**. Zu jedem gibt es **verwandte Wörter** (ähnliche Bedeutung) und **Gegenteile**:" },
+    { "table": { "head": ["Wort", "verwandte Wörter", "Gegenteil"], "rows": [
+      ["**Ekel**", "Abscheu, Widerwille, Aversion", "lecker, köstlich (beim Essen)"],
+      ["**Freude**", "Glück, Fröhlichkeit, Spaß", "Trauer, Kummer"],
+      ["**Angst**", "Furcht, Panik, Sorge", "Mut, Sicherheit"],
+      ["**Wut**", "Ärger, Zorn", "Ruhe, Gelassenheit"],
+      ["**Kummer**", "Trauer, Traurigkeit, Sorge", "Freude, Glück"],
+      ["**Schadenfreude**", "auslachen, verspotten, hämisch", "Mitgefühl, hilfsbereit"]
+    ] } },
+    { "p": "**Schadenfreude** steckt schon im Wort: **Schaden** + **Freude**. Man freut sich, wenn jemand anderem ein Missgeschick passiert, zum Beispiel wenn er hinfällt. Das Gegenteil ist **Mitgefühl**: Man fühlt mit und hilft." },
+    { "tip": "Schreib-Hilfe: **köstlich** kommt von **Kost** (Essen) – also k-ö-s-t-l-i-c-h, ohne ch in der Mitte. **Widerwille** schreibt man mit **i** (wider = gegen), nicht mit „ie“." }
+  ],
+  "exercises": [
+    { "id": "ekel-verwandt", "type": "choice", "q": "Welches Wort ist mit **Ekel** verwandt?", "options": ["Abscheu", "Mut", "Freude", "Stolz"], "answer": "Abscheu", "recall": true, "accept": ["Widerwille", "Widerwillen", "Aversion"] },
+    { "id": "ekel-gegenteil", "type": "choice", "q": "Was ist ein **Gegenteil** zu eklig beim Essen?", "options": ["köstlich", "widerlich", "scheußlich", "ungenießbar"], "answer": "köstlich", "recall": true, "accept": ["lecker", "fein"] },
+    { "id": "freude-verwandt", "type": "choice", "q": "Welches Wort ist mit **Freude** verwandt?", "options": ["Fröhlichkeit", "Trauer", "Angst", "Ekel"], "answer": "Fröhlichkeit", "accept": ["Glück", "Spaß"] },
+    { "id": "freude-gegenteil", "type": "choice", "q": "Was ist ein **Gegenteil** von **Freude**?", "options": ["Trauer", "Glück", "Spaß", "Fröhlichkeit"], "answer": "Trauer", "recall": true, "accept": ["Kummer", "Traurigkeit"] },
+    { "id": "angst-verwandt", "type": "choice", "q": "Welches Wort ist mit **Angst** verwandt?", "options": ["Furcht", "Mut", "Freude", "Stolz"], "answer": "Furcht", "recall": true, "accept": ["Panik", "Sorge"] },
+    { "id": "angst-gegenteil", "type": "choice", "q": "Was ist ein **Gegenteil** von **Angst**?", "options": ["Mut", "Furcht", "Panik", "Sorge"], "answer": "Mut", "recall": true, "accept": ["Sicherheit"] },
+    { "id": "wut-verwandt", "type": "choice", "q": "Welches Wort ist mit **Wut** verwandt?", "options": ["Zorn", "Ruhe", "Freude", "Mut"], "answer": "Zorn", "recall": true, "accept": ["Ärger"] },
+    { "id": "wut-gegenteil", "type": "choice", "q": "Was ist ein **Gegenteil** von **Wut**?", "options": ["Gelassenheit", "Zorn", "Ärger", "Hass"], "answer": "Gelassenheit", "accept": ["Ruhe"] },
+    { "id": "kummer-verwandt", "type": "choice", "q": "Welches Wort ist mit **Kummer** verwandt?", "options": ["Traurigkeit", "Glück", "Mut", "Stolz"], "answer": "Traurigkeit", "accept": ["Trauer", "Sorge"] },
+    { "id": "schadenfreude-bedeutung", "type": "choice", "q": "Was bedeutet **Schadenfreude**?", "options": ["Freude darüber, dass einem anderen etwas Schlechtes passiert", "Freude über ein Geschenk", "Angst vor einem Schaden", "Ärger über einen Schaden"], "answer": "Freude darüber, dass einem anderen etwas Schlechtes passiert" },
+    { "id": "schadenfreude-gegenteil", "type": "choice", "q": "Was ist das **Gegenteil** von **Schadenfreude**?", "options": ["Mitgefühl", "Spott", "Auslachen", "Neid"], "answer": "Mitgefühl", "recall": true, "accept": ["Mitleid", "hilfsbereit", "Hilfsbereitschaft"] },
+    { "id": "schadenfreude-verwandt", "type": "choice", "q": "Welches Wort ist mit **Schadenfreude** verwandt?", "options": ["verspotten", "trösten", "helfen", "teilen"], "answer": "verspotten", "accept": ["auslachen"] },
+    { "id": "schadenfreude-teile", "type": "choice", "q": "Aus welchen zwei Wörtern besteht **Schadenfreude**?", "options": ["Schaden und Freude", "Schatten und Freude", "Schade und Freund", "Schaden und Freund"], "answer": "Schaden und Freude" },
+    { "id": "schreib-koestlich", "type": "choice", "q": "Welches Wort ist richtig geschrieben?", "options": ["köstlich", "köchstlich", "kößtlich", "köstlisch"], "answer": "köstlich", "explain": "Von **Kost** (Essen): **köst-lich**." },
+    { "id": "schreib-widerwille", "type": "choice", "q": "Welches Wort ist richtig geschrieben?", "options": ["Widerwille", "Wiederwille", "Widerwile", "Wiederwile"], "answer": "Widerwille", "explain": "**wider** = gegen. Man ist **gegen** etwas – darum mit **i**, ohne e." },
+    { "id": "beispielsatz", "type": "choice", "q": "Welcher Satz ist ein guter **Beispielsatz** für **Mut**?", "options": ["Mit viel Mut sprang sie vom Dreimeterbrett.", "Mut ist ein Gefühl.", "Mut, Tapferkeit, Kühnheit.", "Das Gegenteil von Mut ist Angst."], "answer": "Mit viel Mut sprang sie vom Dreimeterbrett.", "explain": "Ein Beispielsatz **benutzt** das Wort in einer Situation. Die anderen sind Erklärung, verwandte Wörter und Gegenteil." }
+  ]
+}

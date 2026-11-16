@@ -1,6 +1,6 @@
 # Lernwelt
 
-Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch, Mathe, Deutsch, Geographie, Biologie, Geschichte und Musik auf einem **Netzplan** wie bei der U-Bahn: Jede Lernlinie ist eine Bahnlinie, jede Einheit eine Station. Für jede Übung gibt es Sterne, dazu Abzeichen, und die Sterne lassen sich gegen **Fahrkarten für Medienzeit** tauschen. Du bestätigst die Tickets im Elternbereich und siehst dort auch den Lernfortschritt.
+Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch, Mathe, Deutsch, Geographie, Biologie, Geschichte, Musik und Ethik auf einem **Netzplan** wie bei der U-Bahn: Jede Lernlinie ist eine Bahnlinie, jede Einheit eine Station. Für jede Übung gibt es Sterne, dazu Abzeichen, und die Sterne lassen sich gegen **Fahrkarten für Medienzeit** tauschen. Du bestätigst die Tickets im Elternbereich und siehst dort auch den Lernfortschritt.
 
 ## Was drin ist
 
@@ -128,18 +128,32 @@ Der Nationalsozialismus kommt nur als Name und Zeitraum vor, im „Merke“ steh
 
 **Aufgaben-Werkstatt:** Hier stellt das Kind selbst Aufgaben (Text und Lösung), und die anderen Profile, z. B. die Erwachsenen-Profile der Eltern, lösen sie. Jeder hat einen Versuch. Das Kind sieht, wer was geantwortet hat und ob es stimmt. Zahlen werden großzügig verglichen: 135, „135 Diamanten“ und 1.728 bzw. 1728 zählen gleich. Für die Werkstatt gibt es keine Sterne.
 
-**Musik: Klang, Stimme, Klasseninstrumente, Grundton und Puls (4 Linien, 12 Stationen)**
+**Musik: Ensembles, Takt, Klang, Stimme, Klasseninstrumente, Grundton und Puls (6 Linien, 18 Stationen)**
 
-Nach dem MusiX-Arbeitsheft 1 A, Kapitel 2 „Rund um die Stimme“:
+Nach dem MusiX-Arbeitsheft 1 A (Kapitel 2 „Rund um die Stimme“, Kapitel 3 „Meet the Beat“ und die Seite „Musizieren in Gruppen“):
 
 | Linie | Stationen |
 |---|---|
+| Ensemble-Linie | Musizieren in Gruppen (der Lückentext mit den Auswahlwörtern: Ensemble, Chor, Orchester, Sinfonie- und Kammerorchester, Big Band, Blaskapelle, mit Schreib-Hilfen für Ensemble und Blaskapelle), Wie viele spielen mit? (Trio, Quartett, Quintett, dazu Duo), Vokal, instrumental oder gemischt? (Art der Besetzung, die Forscher-Aufgabe zu Ensembles in der eigenen Stadt als Tipp) |
+| Takt-Linie | Betont und unbetont (das Bumerang-Gedicht nach Ringelnatz, betonte Silben, daraus entsteht der Takt), Grundbeat, Takt und Rhythmus (die vier Begriffe und die Grafiken aus Aufgabe 3, DU = schwerer Schlag), Ohren auf: Takt und Rhythmus (Hör-Aufgaben: 2er-, 3er- oder 4er-Takt? Grundbeat oder Rhythmus? du-dei) |
 | Klang-Linie | Merkmale der Musik, Hör genau hin! (Merkmale mit den Ohren erkennen), Singen (wie die Stimme entsteht) |
 | Stimm-Linie | Meine Stimme (die drei Versuche: Kehlkopf abtasten, Hände auf Brust und Kopf, Klangschale), Körperteile beim Singen (an einer Zeichnung: Nasenhöhle bis Zwerchfell, Resonanzrohr und Atemorgan), Der Vorgang des Singens (der Lückentext mit den Auswahlwörtern) |
 | Instrumenten-Linie | Klasseninstrumente (zehn Instrumente an einer Zeichnung benennen und schreiben), Instrumente erforschen (Material, Spielweise, Klang, Tonhöhe erkennbar?), Grundbeat und kleine Schläge (Hör-Aufgaben wie im Trainingsraum 2: 🔴 = Grundbeat, • = kleiner Schlag) |
 | Grundton-und-Puls-Linie | Der Grundton (wie ein Haus auf dem Grundstein: der Hauptton, auf dem die Melodie zur Ruhe kommt), Der Grundschlag (Grundbeat, Puls, regelmäßige Schläge zum Mitklopfen), Ohren auf: Grundton und Puls (Hör-Aufgaben: Endet die Melodie auf dem Grundton? Ist der Puls gleichmäßig?) |
 
 Dazu gibt es den „Musik-Blitz“.
+
+**Ethik: Bedürfnisse, Gefühle und große Fragen (3 Linien, 9 Stationen)**
+
+Nach dem Ethikheft, dem Arbeitsblatt zu „Alles steht Kopf“ und der täglichen Übung zur Bedürfnispyramide:
+
+| Linie | Stationen |
+|---|---|
+| Bedürfnis-Linie | Was ist ein Bedürfnis? (die Definition in drei Teilen), Die Bedürfnispyramide (Abraham Maslow mit Vor- und Nachnamen, die fünf Stufen von unten nach oben), Welche Stufe passt? (Beispiele einsortieren: Schlaf gehört nach unten zu Essen und Trinken, materielle Sicherheit zur Sicherheit) |
+| Gefühle-Linie | Gefühle (die „kribbelnden Mitbewohner“, ausgelöst durch etwas, positiv und negativ, alle Gefühle sind okay), Fünf Basisgefühle (Freude, Angst, Kummer, Wut, Ekel und die verwandten Gefühle, wer was zum Umzug sagt), Zwei Seiten einer Sache (die fünf Alltagssituationen: Was könnte daran gut sein?) |
+| Denker-Linie | Kant und die großen Fragen (die vier Fragen mit Fachgebiet, Persönlichkeit), Der Wortdetektiv (die vier Schritte der Wortuntersuchung am Beispiel Ekel), Wortdetektiv im Einsatz (verwandte Wörter und Gegenteile von Gefühlswörtern, Schadenfreude und Mitgefühl) |
+
+Die vierte Stufe der Pyramide heißt in der App „Individualbedürfnisse“. Beim Selbstschreiben zählen auch „Anerkennung“ und „Wertschätzung“. Dazu gibt es den „Ethik-Blitz“.
 
 **Deutsch: Rechtschreibung (5 Linien, 16 Stationen)**
 
@@ -149,12 +163,12 @@ Die Groß-und-klein-Linie übt Satzanfänge, Nomen und Verben, die zu Nomen werd
 
 **So lernt es mit:**
 - Wörter, die gut sitzen, kommen seltener dran. Neue und wacklige kommen öfter und werden nach und nach schwieriger (erst Auswahl, dann selbst schreiben, dann nach Gehör schreiben).
-- **Erst auswählen, dann selbst schreiben:** Genauso werden über 200 Auswahlfragen in Biologie, Geographie, Geschichte, Musik und Mathe (Fachbegriffe) zum Schreiben, sobald sie ein bisschen sitzen: neu antippen, ab der zweiten Box selbst schreiben. Selbst draufkommen prägt sich besser ein als wiedererkennen. Schreiben ist dabei ein Angebot, kein Muss: Mit **„Lieber auswählen?“** kommen die Antworten zurück, dann gibt es wie beim Tipp einen halben Punkt, und die Aufgabe rückt keine Box höher. Nach einem Fehler kommt wieder die Auswahl. Im Endbahnhof und in der Blitzrunde bleibt alles zum Antippen. Früher gab es viele Kartenfragen doppelt (einmal zum Auswählen, einmal zum Schreiben). Die sind jetzt eine Aufgabe, der Lernstand der Schreib-Aufgabe ist übernommen.
+- **Erst auswählen, dann selbst schreiben:** Genauso werden über 200 Auswahlfragen in Biologie, Geographie, Geschichte, Musik, Ethik und Mathe (Fachbegriffe) zum Schreiben, sobald sie ein bisschen sitzen: neu antippen, ab der zweiten Box selbst schreiben. Selbst draufkommen prägt sich besser ein als wiedererkennen. Schreiben ist dabei ein Angebot, kein Muss: Mit **„Lieber auswählen?“** kommen die Antworten zurück, dann gibt es wie beim Tipp einen halben Punkt, und die Aufgabe rückt keine Box höher. Nach einem Fehler kommt wieder die Auswahl. Im Endbahnhof und in der Blitzrunde bleibt alles zum Antippen. Früher gab es viele Kartenfragen doppelt (einmal zum Auswählen, einmal zum Schreiben). Die sind jetzt eine Aufgabe, der Lernstand der Schreib-Aufgabe ist übernommen.
 - **Keine Zwillinge in einer Fahrt:** Zwei Fragen zur selben markierten Stelle einer Karte (z. B. „Nordosten“ antippen und „NO“ schreiben) kommen nie in dieselbe Fahrt, in Fächern ohne Fremdsprache auch keine zwei Fragen mit derselben Antwort – sonst verrät die eine die andere. Kleine Stationen ohne Wörter haben dafür eine kürzere Fahrt (die Kontinente: 7 Aufgaben).
 - **Wiederholen mit Abständen:** Jede Aufgabe liegt in einer von 8 Boxen. Eine richtige Antwort hebt sie nur eine Box höher, wenn sie wieder fällig war, also nicht mehrmals am selben Tag. Fällig wird sie nach 1, 3, 7, 14, 30, 60 und 120 Tagen. Die langen Abstände halten die tägliche Wiederholung klein, auch wenn es viele Hundert gelernte Wörter gibt. Ein Fehler wirft eine Aufgabe zwei Boxen zurück, aus den langen Abständen bis in Box 3. Was fällig ist, zeigt der Netzplan als **„Wiederholen“**, über alle Stationen hinweg, auch über die auf dem Abstellgleis. Ist etwas fällig, steht die Wiederholung bei den „Ideen für heute“. Die Blitzrunde kann eine Box nur senken, nicht heben, weil dort nur angetippt wird.
 - **„Das sitzt“:** Eine Aufgabe sitzt, wenn sie an mindestens drei Tagen richtig war, mit Pausen dazwischen (ab Box 3). Die Startseite zeigt, wie viel schon sitzt und wie viel diese Woche dazugekommen ist, jede Fach-Kachel die Zahl fürs Fach. Am Ziel einer Fahrt steht, was durch diese Fahrt neu sitzt. Sterne zeigen, wie eine Fahrt lief – diese Zahl zeigt, was im Kopf geblieben ist. Sie sinkt nie: Wackelt eine Aufgabe später wieder, holt sie das Fehler-Training, gezählt bleibt sie trotzdem. Eine Zahl, die schrumpft, fühlt sich wie Verlieren an – aus demselben Grund wie bei der Wochenkarte.
 - Falsch beantwortete Aufgaben kommen am Ende der Übung noch einmal, mit neu gemischten Antworten. Gewertet wird aber nur der erste Versuch.
-- **Fast richtig:** Ist nur ein Buchstabe falsch, darf dein Kind die Antwort einmal selbst verbessern, bevor die Lösung kommt. Klappt das, gibt es einen **halben Punkt** (z. B. „8½ von 10“). Das gilt für Vokabeln und für alles, was in Biologie, Geographie, Geschichte, Musik und Mathe geschrieben wird (in Biologie zählt das Wissen, nicht der eine Buchstabe). Nicht bei Zahlen (3120 statt 3720 ist ein Rechenfehler) und nicht in Englisch-Lücken, wo der eine Buchstabe oft genau das Geübte ist (he like → likes).
+- **Fast richtig:** Ist nur ein Buchstabe falsch, darf dein Kind die Antwort einmal selbst verbessern, bevor die Lösung kommt. Klappt das, gibt es einen **halben Punkt** (z. B. „8½ von 10“). Das gilt für Vokabeln und für alles, was in Biologie, Geographie, Geschichte, Musik, Ethik und Mathe geschrieben wird (in Biologie zählt das Wissen, nicht der eine Buchstabe). Nicht bei Zahlen (3120 statt 3720 ist ein Rechenfehler) und nicht in Englisch-Lücken, wo der eine Buchstabe oft genau das Geübte ist (he like → likes).
 - **Tipp-Knopf:** Bei Aufgaben zum Schreiben zeigt „💡 Tipp“ den ersten Buchstaben und für jeden weiteren ein leeres Kästchen (E _ _ _ _ _). Mit Tipp gibt es höchstens einen halben Punkt. Die Serie in der Fahrt bleibt dabei stehen, sie reißt nicht – Hilfe holen soll nichts kosten, was das Kind sich erarbeitet hat. So bleibt dein Kind beim Erinnern, statt aufzugeben. Bei der Wiederholung am Ende der Fahrt kostet der Tipp nichts, in der Blitzrunde gibt es keinen, und bei Antworten unter drei Buchstaben auch nicht.
 - **Abschreiben:** Ist eine Vokabel falsch geschrieben, tippt dein Kind die Lösung einmal richtig ab, bevor es weitergeht.
 - Nach einem Fehler gibt es eine kurze Erklärung (bei allen Englisch-Grammatikaufgaben) und den Knopf **„📌 Merke ansehen“** mit der Erklärung der Station. Am Ziel listet **„Das übst du noch“** alle Fehler der Fahrt mit Lösung und Vorlese-Knopf auf.

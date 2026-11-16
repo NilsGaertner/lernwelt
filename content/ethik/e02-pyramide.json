@@ -1,0 +1,37 @@
+{
+  "id": "pyramide",
+  "line": "beduerfnis",
+  "order": 2,
+  "title": "Die Bedürfnispyramide",
+  "subtitle": "Fünf Stufen nach Abraham Maslow",
+  "icon": "🔺",
+  "card": "Merke: Die **Bedürfnispyramide** stammt von **Abraham Maslow**. Von unten nach oben: 1. **Grundbedürfnisse**, 2. **Sicherheit**, 3. **soziale Bedürfnisse**, 4. **Individualbedürfnisse** (Anerkennung), 5. **Selbstverwirklichung**.",
+  "explain": [
+    { "p": "Der Psychologe **Abraham Maslow** hat die Bedürfnisse der Menschen in einer **Pyramide** geordnet. Die **unterste** Stufe ist die **wichtigste**: Ohne sie kann man nicht leben. Erst wenn die unteren Stufen erfüllt sind, werden die oberen wichtig." },
+    { "table": { "head": ["Stufe", "Name", "Beispiele"], "rows": [
+      ["5 (Spitze)", "**Selbstverwirklichung**", "optimale **Entfaltung der Talente**: werden, was in einem steckt"],
+      ["4", "**Individualbedürfnisse** (Anerkennung, Wertschätzung)", "**Leistung**, Lob, Erfolg, Respekt"],
+      ["3", "**soziale Bedürfnisse**", "**Freundschaft**, **Liebe**, Familie, dazugehören"],
+      ["2", "**Sicherheit** (Schutz und Sicherheit)", "**Schutz vor Schmerz und Angst**, **materielle Sicherheit**, ein Haus, ein Unterschlupf"],
+      ["1 (unten)", "**Grundbedürfnisse** (körperliche Bedürfnisse)", "**Essen und Trinken**, **Schlaf**, Gesundheit"]
+    ] } },
+    { "p": "Wichtig: Man fängt **unten** an. Die **wichtigste** Stufe sind die **Grundbedürfnisse** – wer Hunger hat oder nicht schlafen kann, denkt nicht zuerst an Lob oder Talente." },
+    { "tip": "Eselsbrücke von unten nach oben: **G**roße **S**childkröten **s**chwimmen **i**n **S**een – **G**rundbedürfnisse, **S**icherheit, **s**oziale Bedürfnisse, **I**ndividualbedürfnisse, **S**elbstverwirklichung." },
+    { "tip": "Der Erfinder hat einen **Vor- und einen Nachnamen**: **Abraham Maslow**. Gefragt ist meist beides." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Von wem stammt die **Bedürfnispyramide**?", "options": ["Abraham Maslow", "Immanuel Kant", "Albert Einstein", "Joachim Ringelnatz"], "answer": "Abraham Maslow", "recall": true, "explain": "Vor- und Nachname: **Abraham Maslow**." },
+    { "type": "choice", "q": "Wie heißt Abraham, der Erfinder der Bedürfnispyramide, mit **Nachnamen**?", "options": ["Maslow", "Kant", "Mozart", "Müller"], "answer": "Maslow", "recall": true },
+    { "type": "order", "task": "Welche Reihenfolge stimmt? Was kommt zuerst?", "de": "Die fünf Stufen von unten (am wichtigsten) nach oben", "answer": "Grundbedürfnisse Sicherheit Sozialbedürfnisse Individualbedürfnisse Selbstverwirklichung" },
+    { "type": "choice", "q": "Welche Stufe ist die **wichtigste** (ganz unten)?", "options": ["Grundbedürfnisse", "Selbstverwirklichung", "soziale Bedürfnisse", "Sicherheit"], "answer": "Grundbedürfnisse", "recall": true, "accept": ["körperliche Bedürfnisse", "Grundbedürfnis"] },
+    { "type": "choice", "q": "Wie heißt die **2. Stufe** von unten?", "options": ["Sicherheit", "Selbstverwirklichung", "Individualbedürfnisse", "Grundbedürfnisse"], "answer": "Sicherheit", "recall": true, "accept": ["Schutz und Sicherheit", "Sicherheitsbedürfnisse"] },
+    { "type": "choice", "q": "Wie heißt die **3. Stufe** von unten?", "options": ["soziale Bedürfnisse", "Grundbedürfnisse", "Selbstverwirklichung", "Sicherheit"], "answer": "soziale Bedürfnisse", "recall": true, "accept": ["Sozialbedürfnisse", "soziale Bedürfnis"] },
+    { "type": "choice", "q": "Wie heißt die **4. Stufe** von unten?", "options": ["Individualbedürfnisse", "soziale Bedürfnisse", "Grundbedürfnisse", "Sicherheit"], "answer": "Individualbedürfnisse", "recall": true, "accept": ["Anerkennung", "Wertschätzung", "Individualbedürfnis", "Anerkennung und Wertschätzung"] },
+    { "type": "choice", "q": "Wie heißt die **Spitze** der Pyramide (5. Stufe)?", "options": ["Selbstverwirklichung", "Sicherheit", "Grundbedürfnisse", "soziale Bedürfnisse"], "answer": "Selbstverwirklichung", "recall": true },
+    { "type": "choice", "q": "Was kommt **direkt über** den Grundbedürfnissen?", "options": ["Sicherheit", "soziale Bedürfnisse", "Selbstverwirklichung", "Individualbedürfnisse"], "answer": "Sicherheit" },
+    { "type": "choice", "q": "Was kommt **direkt über** den sozialen Bedürfnissen?", "options": ["Individualbedürfnisse (Anerkennung)", "Sicherheit", "Grundbedürfnisse", "nichts, das ist die Spitze"], "answer": "Individualbedürfnisse (Anerkennung)" },
+    { "type": "choice", "q": "Warum sind die **Grundbedürfnisse** ganz unten?", "options": ["Ohne sie kann man nicht leben, sie sind die wichtigsten.", "Sie sind am unwichtigsten.", "Sie kommen erst ganz am Ende.", "Weil sie am wenigsten Platz brauchen."], "answer": "Ohne sie kann man nicht leben, sie sind die wichtigsten." },
+    { "type": "choice", "q": "Was bedeutet **Selbstverwirklichung**?", "options": ["die optimale Entfaltung der eigenen Talente", "genug essen und trinken", "ein sicheres Zuhause", "viele Freunde haben"], "answer": "die optimale Entfaltung der eigenen Talente" },
+    { "type": "choice", "q": "Welche Form hat Maslows Modell?", "options": ["eine Pyramide", "ein Kreis", "eine Treppe nach unten", "ein Würfel"], "answer": "eine Pyramide" }
+  ]
+}

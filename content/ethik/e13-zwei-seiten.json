@@ -1,0 +1,35 @@
+{
+  "id": "zwei-seiten",
+  "line": "gefuehle",
+  "order": 13,
+  "title": "Zwei Seiten einer Sache",
+  "subtitle": "Was kann daran gut, was schlecht sein?",
+  "icon": "🔄",
+  "card": "Merke: Man kann **ein und dieselbe Sache** gut **und** schlecht sehen. Wie in „Alles steht Kopf“: Jedes Gefühl schaut anders auf dieselbe Sache.",
+  "explain": [
+    { "p": "Im Arbeitsblatt (Aufgabe 4) stehen fünf **alltägliche Situationen**. Bei jeder kann man fragen: Was ist daran **schlecht**? Und: Was könnte daran **gut** sein?" },
+    { "p": "Die schlechte Seite fällt einem meistens **sofort** ein. Die gute Seite ist oft **versteckt** – man muss ein bisschen suchen. Das ist ganz normal, und es ist auch okay, wenn sich etwas erst mal nur blöd anfühlt." },
+    { "table": { "head": ["Situation", "schlecht", "gut (versteckt)"], "rows": [
+      ["Den Schulbus verpassen", "Ich komme zu spät.", "Ich kann in Ruhe laufen und frische Luft schnappen."],
+      ["Ein Glas fällt herunter und geht kaputt", "Ich bekomme Ärger.", "Vielleicht gibt es ein neues, schöneres Glas."],
+      ["Der erste Schultag", "Es ist sehr aufregend.", "Ich finde neue Freunde."],
+      ["Der Trainer ist unzufrieden", "Er meckert bei jeder Kleinigkeit.", "Er traut mir mehr zu und zeigt mir, was ich besser machen kann."],
+      ["Die Hausaufgaben waren komplett falsch", "Ich muss alles noch mal machen.", "Jetzt weiß ich genau, was ich noch üben kann."]
+    ] } },
+    { "tip": "Such-Frage für die gute Seite: **Was lerne ich daraus?** Oder: **Was kann jetzt Neues passieren?**" },
+    { "tip": "Die gute Seite zu finden heißt nicht, dass man sich nicht ärgern darf. Beides darf gleichzeitig da sein." }
+  ],
+  "exercises": [
+    { "id": "bus-gut", "type": "choice", "q": "Du verpasst den **Schulbus**. Was könnte daran **gut** sein?", "options": ["Ich kann in Ruhe laufen und frische Luft schnappen.", "Ich komme zu spät.", "Ich muss im Regen warten.", "Ich verpasse den Anfang der Stunde."], "answer": "Ich kann in Ruhe laufen und frische Luft schnappen." },
+    { "id": "bus-schlecht", "type": "choice", "q": "Du verpasst den **Schulbus**. Was ist daran **schlecht**?", "options": ["Ich komme zu spät.", "Ich bewege mich mehr.", "Ich habe Zeit zum Nachdenken.", "Ich sehe die Gegend."], "answer": "Ich komme zu spät." },
+    { "id": "glas-gut", "type": "choice", "q": "Ein **Glas** fällt herunter und geht kaputt. Was könnte daran **gut** sein?", "options": ["Vielleicht gibt es ein neues, schöneres Glas.", "Ich bekomme Ärger.", "Ich muss Scherben aufkehren.", "Ich könnte mich schneiden."], "answer": "Vielleicht gibt es ein neues, schöneres Glas." },
+    { "id": "schultag-gut", "type": "choice", "q": "Der **erste Schultag**. Was könnte daran **gut** sein?", "options": ["Ich finde neue Freunde.", "Es ist sehr aufregend.", "Ich kenne den Weg noch nicht.", "Alles ist fremd."], "answer": "Ich finde neue Freunde." },
+    { "id": "schultag-schlecht", "type": "choice", "q": "Der **erste Schultag**. Was kann daran **schlecht** sein?", "options": ["Es ist sehr aufregend und alles ist fremd.", "Ich finde neue Freunde.", "Ich lerne neue Lehrer kennen.", "Ich bekomme neue Hefte."], "answer": "Es ist sehr aufregend und alles ist fremd." },
+    { "id": "trainer-gut", "type": "choice", "q": "Der **Trainer** ist unzufrieden. Was könnte daran **gut** sein?", "options": ["Er traut mir mehr zu und zeigt, was ich besser machen kann.", "Er meckert bei jeder Kleinigkeit.", "Ich habe keine Lust mehr.", "Ich fühle mich schlecht."], "answer": "Er traut mir mehr zu und zeigt, was ich besser machen kann." },
+    { "id": "hausaufgaben-gut", "type": "choice", "q": "Die **Hausaufgaben** waren komplett falsch. Was könnte daran **gut** sein?", "options": ["Jetzt weiß ich genau, was ich noch üben kann.", "Ich muss alles noch mal machen.", "Ich ärgere mich.", "Ich habe weniger Freizeit."], "answer": "Jetzt weiß ich genau, was ich noch üben kann." },
+    { "id": "training-gut", "type": "choice", "q": "Das **Training fällt aus**, weil die Halle gesperrt ist. Was könnte daran **gut** sein?", "options": ["Ich habe Zeit für etwas anderes, zum Beispiel ein Spiel mit Freunden.", "Ich kann nicht üben.", "Ich sehe mein Team nicht.", "Ich bin enttäuscht."], "answer": "Ich habe Zeit für etwas anderes, zum Beispiel ein Spiel mit Freunden." },
+    { "type": "choice", "q": "Was zeigt die Aufgabe mit den fünf Situationen?", "options": ["Man kann dieselbe Sache gut und schlecht sehen.", "Alles im Leben ist schlecht.", "Alles im Leben ist gut.", "Man darf sich nie ärgern."], "answer": "Man kann dieselbe Sache gut und schlecht sehen." },
+    { "type": "choice", "q": "Welche Frage hilft, die **gute Seite** zu finden?", "options": ["Was lerne ich daraus?", "Wer ist schuld?", "Warum immer ich?", "Wie schlimm ist das?"], "answer": "Was lerne ich daraus?" },
+    { "type": "choice", "q": "Darf man sich ärgern, auch wenn man eine gute Seite gefunden hat?", "options": ["Ja, beides darf gleichzeitig da sein.", "Nein, dann muss man sich freuen.", "Nein, Ärger ist verboten.", "Nur am Wochenende."], "answer": "Ja, beides darf gleichzeitig da sein." }
+  ]
+}

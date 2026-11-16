@@ -1,0 +1,37 @@
+{
+  "id": "vokal-instrumental",
+  "line": "ensemble",
+  "order": 53,
+  "title": "Vokal, instrumental oder gemischt?",
+  "subtitle": "Die Art der Besetzung",
+  "icon": "🎤",
+  "card": "Merke: **vokal** = nur Gesang (lateinisch vox = Stimme). **instrumental** = nur Instrumente. **gemischt** = Gesang und Instrumente.",
+  "explain": [
+    { "p": "Neben der Größe gibt es die **Art der Besetzung**: Wird gesungen, gespielt oder beides?" },
+    { "table": { "head": ["Art der Besetzung", "Was passiert?", "Beispiele"], "rows": [
+      ["**vokal**", "nur **Stimmen**, es wird gesungen", "Chor, Kinderchor"],
+      ["**instrumental**", "nur **Instrumente**", "Orchester, Streichquartett, Jazz-Trio, Blaskapelle"],
+      ["**gemischt**", "**Gesang und Instrumente** zusammen", "Rockband mit Sänger, Band"]
+    ] } },
+    { "p": "Im Heft (Aufgabe 12) steht ein Beispiel: Die Rockband **Fantastic Five** spielt mit **Gesang, Klavier, Bass, Gitarre und Schlagzeug**. Das ist **gemischt vokal und instrumental**." },
+    { "tip": "Eselsbrücke: **Vokal** klingt wie **Vokale** (a, e, i, o, u) – und die singt man mit der Stimme." },
+    { "tip": "Aufgabe 12 ist eine Forscher-Aufgabe: Welche Ensembles gibt es bei euch in der Stadt? Vielleicht wissen deine Eltern oder Freunde etwas, oder ihr sucht zusammen im Internet, z. B. mit dem Namen eurer Stadt und **Kinderchor**, **Blaskapelle** oder **Big Band**." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Was bedeutet **vokal**?", "options": ["Es wird nur gesungen.", "Es werden nur Instrumente gespielt.", "Gesang und Instrumente zusammen", "Es ist besonders laut."], "answer": "Es wird nur gesungen." },
+    { "type": "choice", "q": "Was bedeutet **instrumental**?", "options": ["Es werden nur Instrumente gespielt.", "Es wird nur gesungen.", "Gesang und Instrumente zusammen", "Es spielt nur ein Musiker."], "answer": "Es werden nur Instrumente gespielt." },
+    { "type": "choice", "q": "Gesang **und** Instrumente zusammen – wie heißt diese Besetzung?", "options": ["gemischt", "vokal", "instrumental", "Trio"], "answer": "gemischt", "recall": true },
+    { "type": "choice", "q": "Nur Stimmen, kein Instrument – wie heißt diese Besetzung?", "options": ["vokal", "instrumental", "gemischt", "Quartett"], "answer": "vokal", "recall": true },
+    { "type": "choice", "q": "Nur Instrumente, niemand singt – wie heißt diese Besetzung?", "options": ["instrumental", "vokal", "gemischt", "Chor"], "answer": "instrumental", "recall": true },
+    { "id": "art-chor", "type": "choice", "q": "Ein **Kinderchor** ist …", "options": ["vokal", "instrumental", "gemischt"], "answer": "vokal" },
+    { "id": "art-streichquartett", "type": "choice", "q": "Ein **Streichquartett** ist …", "options": ["vokal", "instrumental", "gemischt"], "answer": "instrumental" },
+    { "id": "art-rockband", "type": "choice", "q": "Eine **Rockband** mit Gesang, Gitarre, Bass und Schlagzeug ist …", "options": ["vokal", "instrumental", "gemischt"], "answer": "gemischt" },
+    { "id": "art-blaskapelle", "type": "choice", "q": "Eine **Blaskapelle** ist …", "options": ["vokal", "instrumental", "gemischt"], "answer": "instrumental" },
+    { "id": "art-sinfonie", "type": "choice", "q": "Ein **Sinfonieorchester** ohne Sänger ist …", "options": ["vokal", "instrumental", "gemischt"], "answer": "instrumental" },
+    { "id": "art-jazztrio", "type": "choice", "q": "Ein **Jazz-Trio** mit Klavier, Bass und Schlagzeug ist …", "options": ["vokal", "instrumental", "gemischt"], "answer": "instrumental" },
+    { "id": "art-kirchenchor-orgel", "type": "choice", "q": "Ein Chor singt und eine **Orgel** spielt dazu. Das ist …", "options": ["vokal", "instrumental", "gemischt"], "answer": "gemischt", "explain": "Sobald ein Instrument mitspielt, ist es **gemischt**." },
+    { "id": "art-acapella", "type": "choice", "q": "Fünf Leute singen ganz **ohne** Instrumente. Das ist …", "options": ["vokal", "instrumental", "gemischt"], "answer": "vokal", "explain": "Nur Stimmen – also **vokal**. Und weil es fünf sind, ein **Vokalquintett**." },
+    { "type": "choice", "q": "Woher kommt das Wort **vokal**?", "options": ["von lateinisch vox = Stimme", "von Vogel", "von voll", "von Volk"], "answer": "von lateinisch vox = Stimme" },
+    { "type": "choice", "q": "Die Band aus dem Heft spielt mit **Gesang, Klavier, Bass, Gitarre und Schlagzeug**. Was für ein Ensemble ist das?", "options": ["Rockband", "Chor", "Streichquartett", "Blaskapelle"], "answer": "Rockband" }
+  ]
+}

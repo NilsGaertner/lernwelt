@@ -1,0 +1,36 @@
+{
+  "id": "besetzung",
+  "line": "ensemble",
+  "order": 52,
+  "title": "Wie viele spielen mit?",
+  "subtitle": "Trio, Quartett, Quintett",
+  "icon": "🔢",
+  "card": "Merke: **Trio** = 3 Musiker, **Quartett** = 4 Musiker, **Quintett** = 5 Musiker. Das nennt man die **Besetzungsgröße**.",
+  "explain": [
+    { "p": "Man unterscheidet Ensembles nach ihrer **Besetzungsgröße**, also danach, **wie viele** Musiker mitmachen:" },
+    { "table": { "head": ["Name", "Musiker", "Eselsbrücke"], "rows": [
+      ["Duo", "**2**", "**Duo** wie **Duell** – zwei gegeneinander"],
+      ["**Trio**", "**3**", "**Tri**angel hat **3** Ecken"],
+      ["**Quartett**", "**4**", "Ein **Quart**ett-Kartenspiel hat Gruppen von **4** Karten"],
+      ["**Quintett**", "**5**", "Qu**a**rtett vor Qu**i**ntett: Das **a** kommt im ABC vor dem **i** – und die 4 vor der 5"]
+    ] } },
+    { "p": "Im Heft stehen **Trio**, **Quartett** und **Quintett**, danach „usw.“. **Duo** ist hier als Extra dabei." },
+    { "p": "Die Namen hängen oft am Instrument: Ein **Streichquartett** sind **4** Streicher (zwei Geigen, eine Bratsche, ein Cello). Ein **Jazz-Trio** sind **3** Jazzmusiker, zum Beispiel Klavier, Bass und Schlagzeug." },
+    { "tip": "Beim Basketball stehen pro Team **5** Spieler auf dem Feld – das wäre in der Musik ein **Quintett**." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wie viele Musiker spielen in einem **Trio**?", "options": ["2", "3", "4", "5"], "answer": "3" },
+    { "type": "choice", "q": "Wie viele Musiker spielen in einem **Quartett**?", "options": ["2", "3", "4", "5"], "answer": "4" },
+    { "type": "choice", "q": "Wie viele Musiker spielen in einem **Quintett**?", "options": ["2", "3", "4", "5"], "answer": "5" },
+    { "type": "choice", "q": "Drei Musiker spielen zusammen. Das ist ein …", "options": ["Trio", "Duo", "Quartett", "Quintett"], "answer": "Trio", "recall": true },
+    { "type": "choice", "q": "Vier Musiker spielen zusammen. Das ist ein …", "options": ["Quartett", "Trio", "Quintett", "Duo"], "answer": "Quartett", "recall": true },
+    { "type": "choice", "q": "Fünf Musiker spielen zusammen. Das ist ein …", "options": ["Quintett", "Quartett", "Trio", "Duo"], "answer": "Quintett", "recall": true },
+    { "type": "choice", "q": "Zwei Musiker spielen zusammen. Das ist ein …", "options": ["Duo", "Trio", "Quartett", "Quintett"], "answer": "Duo" },
+    { "type": "choice", "q": "Wie viele Streicher spielen in einem **Streichquartett**?", "options": ["4", "3", "5", "viele"], "answer": "4" },
+    { "type": "choice", "q": "Wie nennt man es, **wie viele** Musiker in einem Ensemble mitmachen?", "options": ["Besetzungsgröße", "Grundbeat", "Klangfarbe", "Taktart"], "answer": "Besetzungsgröße" },
+    { "type": "choice", "q": "Ein **Jazz-Trio** – wie viele spielen mit?", "options": ["3", "2", "4", "5"], "answer": "3" },
+    { "type": "choice", "q": "Ein Basketball-Team hat 5 Spieler auf dem Feld. Wie hieße so eine Gruppe in der Musik?", "options": ["Quintett", "Quartett", "Trio", "Orchester"], "answer": "Quintett" },
+    { "type": "choice", "q": "Was ist **größer**: ein Quartett oder ein Orchester?", "options": ["ein Orchester", "ein Quartett", "beide gleich groß"], "answer": "ein Orchester", "explain": "Ein Orchester hat **viele** Instrumentalisten, ein Quartett nur **4**." },
+    { "type": "choice", "q": "Welche Reihe ist richtig sortiert, von **wenig** nach **viel**?", "options": ["Trio – Quartett – Quintett", "Quartett – Trio – Quintett", "Quintett – Quartett – Trio", "Trio – Quintett – Quartett"], "answer": "Trio – Quartett – Quintett" }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "kant",
+  "line": "denker",
+  "order": 21,
+  "title": "Kant und die großen Fragen",
+  "subtitle": "Vier Fragen der Philosophie, Persönlichkeit",
+  "icon": "🤔",
+  "card": "Merke: Der Philosoph **Immanuel Kant** stellte vier Fragen: **Was kann ich wissen?** (Erkenntnistheorie) – **Was soll ich tun?** (Moralphilosophie) – **Was darf ich hoffen?** (Religion) – **Was ist der Mensch?** (Anthropologie).",
+  "explain": [
+    { "p": "**Immanuel Kant** war ein berühmter **Philosoph**. Er lebte von **1724 bis 1804** in Königsberg. **Philosophie** heißt „Liebe zur Weisheit“: Man denkt gründlich über die großen Fragen des Lebens nach." },
+    { "table": { "head": ["Kants Frage", "Fachgebiet", "Beispiel-Frage"], "rows": [
+      ["**Was kann ich wissen?**", "**Erkenntnistheorie**", "Kann ich alles wissen?"],
+      ["**Was soll ich tun?**", "**Moralphilosophie**", "Was ist gut und böse?"],
+      ["**Was darf ich hoffen?**", "**Religion**", "Gibt es einen Gott?"],
+      ["**Was ist der Mensch?**", "**Anthropologie**", "Wer bin ich?"]
+    ] } },
+    { "p": "Die Frage **„Wer bin ich?“** führt zur **Persönlichkeit**. Die **Persönlichkeit** setzt sich aus den **prägenden Eigenschaften** eines Menschen zusammen: was er mag, was er kann, wie er ist." },
+    { "p": "Beim Spiel „**Finde jemanden, der …**“ (dieselbe Augenfarbe hat, dieselbe Musik hört, ein interessantes Hobby hat …) merkt man: Jeder Mensch hat **andere** Eigenschaften. Manche teilt man mit anderen, aber die Mischung ist bei jedem **einzigartig**." },
+    { "tip": "**Anthropologie** kommt aus dem Griechischen: **anthropos** = Mensch. Also die Lehre vom **Menschen**. **Moral** hat mit **gut und böse**, richtig und falsch zu tun." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Welcher **Philosoph** stellte die vier großen Fragen?", "options": ["Immanuel Kant", "Abraham Maslow", "Joachim Ringelnatz", "Albert Einstein"], "answer": "Immanuel Kant", "recall": true, "accept": ["Kant"] },
+    { "type": "choice", "q": "Was bedeutet **Philosophie**?", "options": ["Liebe zur Weisheit", "Lehre vom Körper", "Kunst des Malens", "Lehre von den Zahlen"], "answer": "Liebe zur Weisheit" },
+    { "type": "choice", "q": "Wann lebte Immanuel Kant?", "options": ["1724 bis 1804", "1883 bis 1934", "um 500 vor Christus", "1950 bis 2010"], "answer": "1724 bis 1804" },
+    { "type": "choice", "q": "Zu welchem Fachgebiet gehört **„Was kann ich wissen?“**?", "options": ["Erkenntnistheorie", "Moralphilosophie", "Religion", "Anthropologie"], "answer": "Erkenntnistheorie", "recall": true },
+    { "type": "choice", "q": "Zu welchem Fachgebiet gehört **„Was soll ich tun?“**?", "options": ["Moralphilosophie", "Erkenntnistheorie", "Religion", "Anthropologie"], "answer": "Moralphilosophie", "recall": true, "accept": ["Moral", "Ethik"] },
+    { "type": "choice", "q": "Zu welchem Fachgebiet gehört **„Was darf ich hoffen?“**?", "options": ["Religion", "Anthropologie", "Erkenntnistheorie", "Moralphilosophie"], "answer": "Religion", "recall": true },
+    { "type": "choice", "q": "Zu welchem Fachgebiet gehört **„Was ist der Mensch?“**?", "options": ["Anthropologie", "Religion", "Moralphilosophie", "Erkenntnistheorie"], "answer": "Anthropologie", "recall": true },
+    { "id": "frage-alles-wissen", "type": "choice", "q": "„**Kann ich alles wissen?**“ – zu welcher Kant-Frage passt das?", "options": ["Was kann ich wissen?", "Was soll ich tun?", "Was darf ich hoffen?", "Was ist der Mensch?"], "answer": "Was kann ich wissen?" },
+    { "id": "frage-gut-boese", "type": "choice", "q": "„**Was ist gut und böse?**“ – zu welcher Kant-Frage passt das?", "options": ["Was soll ich tun?", "Was kann ich wissen?", "Was darf ich hoffen?", "Was ist der Mensch?"], "answer": "Was soll ich tun?" },
+    { "id": "frage-wer-bin-ich", "type": "choice", "q": "„**Wer bin ich?**“ – zu welcher Kant-Frage passt das?", "options": ["Was ist der Mensch?", "Was soll ich tun?", "Was kann ich wissen?", "Was darf ich hoffen?"], "answer": "Was ist der Mensch?" },
+    { "id": "frage-gott", "type": "choice", "q": "„**Gibt es einen Gott?**“ – zu welcher Kant-Frage passt das?", "options": ["Was darf ich hoffen?", "Was ist der Mensch?", "Was kann ich wissen?", "Was soll ich tun?"], "answer": "Was darf ich hoffen?" },
+    { "id": "frage-luegen", "type": "choice", "q": "„**Darf man lügen, um einen Freund zu schützen?**“ – zu welcher Kant-Frage passt das?", "options": ["Was soll ich tun?", "Was darf ich hoffen?", "Was ist der Mensch?", "Was kann ich wissen?"], "answer": "Was soll ich tun?" },
+    { "type": "choice", "q": "Woraus setzt sich die **Persönlichkeit** zusammen?", "options": ["aus den prägenden Eigenschaften eines Menschen", "aus dem Namen eines Menschen", "aus dem Geld eines Menschen", "aus der Kleidung eines Menschen"], "answer": "aus den prägenden Eigenschaften eines Menschen" },
+    { "type": "choice", "q": "Die prägenden Eigenschaften eines Menschen ergeben zusammen seine …", "options": ["Persönlichkeit", "Bedürfnisse", "Gefühle", "Philosophie"], "answer": "Persönlichkeit", "recall": true },
+    { "type": "choice", "q": "Was zeigt das Spiel „Finde jemanden, der …“?", "options": ["Jeder hat andere Eigenschaften, die Mischung ist einzigartig.", "Alle Menschen sind genau gleich.", "Nur Erwachsene haben Hobbys.", "Man soll keine Fragen stellen."], "answer": "Jeder hat andere Eigenschaften, die Mischung ist einzigartig." },
+    { "type": "choice", "q": "Was heißt **anthropos** auf Griechisch?", "options": ["Mensch", "Tier", "Gott", "Wissen"], "answer": "Mensch" }
+  ]
+}
