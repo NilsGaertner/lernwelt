@@ -1,0 +1,37 @@
+{
+  "id": "bekannte-schelme",
+  "line": "schelme",
+  "order": 3,
+  "title": "Bekannte Schelme",
+  "subtitle": "Till Eulenspiegel und Nasreddin Hoca",
+  "icon": "🦉",
+  "card": "Merke: **Till Eulenspiegel** nimmt seine Aufträge oft **wörtlich** und führt sie damit nicht im gemeinten Sinne aus. In der **orientalischen** Literatur ist **Nasreddin Hoca** (sprich: Hodscha) bekannt: ein **gewitzter Mann**, der zu jeder Situation eine **treffende Antwort** oder **Lebensweisheit** hat.",
+  "explain": [
+    { "p": "Zwei Schelme sind besonders bekannt:" },
+    { "table": { "head": ["", "Till Eulenspiegel", "Nasreddin Hoca"], "rows": [
+      ["Woher?", "aus Deutschland", "aus der **orientalischen** Literatur (Türkei, arabische Länder, Persien)"],
+      ["Was macht er?", "Er nimmt Aufträge **wörtlich** und führt sie darum **nicht so aus, wie sie gemeint sind**.", "Er ist ein **gewitzter Mann** und hat zu jeder Situation eine **treffende Antwort** oder **Lebensweisheit**."],
+      ["Beispiel", "Er soll die Kerze löschen und nimmt das wörtlich.", "Iss, mein Pelz! – Der Topf, der ein Kind bekam"]
+    ] } },
+    { "p": "**Wörtlich nehmen** heißt: genau das tun, was die Wörter sagen, und nicht das, was gemeint ist." },
+    { "p": "**Eulen und Meerkatzen**: Till arbeitet bei einem Bäcker. Am Abend fragt er, was er backen soll. Der Bäcker ist schlecht gelaunt und ruft spöttisch: „Back doch Eulen und Meerkatzen!“ Till nimmt ihn beim Wort und formt die ganze Nacht aus dem Teig Eulen und kleine Affen. Am Morgen schimpft der Bäcker. Till sagt: „Ich habe doch nur gebacken, was Ihr gesagt habt.“" },
+    { "tip": "Eine **Meerkatze** ist eine Affenart. Und **Hoca** ist Türkisch und heißt „Lehrer“. Man schreibt es mit **c** und spricht es „Hodscha“." },
+    { "ex": [["„Wirf mal einen Blick in den Topf!“", "gemeint: kurz hineinschauen – wörtlich genommen: etwas in den Topf werfen"], ["„Kannst du mir unter die Arme greifen?“", "gemeint: helfen – wörtlich genommen: jemanden unter den Armen packen"]] }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Welcher Schelm nimmt seine Aufträge oft **wörtlich**?", "options": ["Till Eulenspiegel", "Nasreddin Hoca", "Rotkäppchen", "Rumpelstilzchen"], "answer": "Till Eulenspiegel", "recall": true, "accept": ["Eulenspiegel", "Till"] },
+    { "type": "choice", "q": "Welcher Schelm kommt aus der **orientalischen** Literatur?", "options": ["Nasreddin Hoca", "Till Eulenspiegel", "Hänsel", "der gestiefelte Kater"], "answer": "Nasreddin Hoca", "recall": true, "accept": ["Nasreddin", "Hoca", "Nasreddin Hodscha", "Hodscha"] },
+    { "type": "choice", "q": "Wie spricht man **Hoca** aus?", "options": ["Hodscha", "Hoka", "Hotscha", "Hoza"], "answer": "Hodscha" },
+    { "type": "choice", "q": "Was heißt **Hoca** auf Türkisch?", "options": ["Lehrer", "Narr", "König", "Bäcker"], "answer": "Lehrer" },
+    { "type": "choice", "q": "Was heißt es, wenn Till Eulenspiegel einen Auftrag **wörtlich nimmt**?", "options": ["Er tut genau, was die Wörter sagen, und nicht, was gemeint ist.", "Er schreibt den Auftrag Wort für Wort ab.", "Er macht den Auftrag besonders gut.", "Er sagt den Auftrag laut auf."], "answer": "Er tut genau, was die Wörter sagen, und nicht, was gemeint ist." },
+    { "type": "choice", "q": "Wie wird uns **Nasreddin Hoca** in den Geschichten vorgestellt?", "options": ["als gewitzter Mann mit einer treffenden Antwort zu jeder Situation", "als Mann, der alles wörtlich nimmt", "als böser Zauberer", "als reicher Sultan"], "answer": "als gewitzter Mann mit einer treffenden Antwort zu jeder Situation" },
+    { "type": "choice", "q": "Nasreddin Hoca hat zu jeder Situation eine treffende Antwort oder eine …", "options": ["Lebensweisheit", "Zauberformel", "Schatzkarte", "Rechenaufgabe"], "answer": "Lebensweisheit", "recall": true },
+    { "type": "choice", "q": "Wer backt **Eulen und Meerkatzen**?", "options": ["Till Eulenspiegel", "Nasreddin Hoca"], "answer": "Till Eulenspiegel", "explain": "Der Bäcker ruft spöttisch „Back doch Eulen und Meerkatzen!“, und Till nimmt ihn beim Wort." },
+    { "type": "choice", "q": "Wer sagt „**Iss, mein Pelz!**“?", "options": ["Nasreddin Hoca", "Till Eulenspiegel"], "answer": "Nasreddin Hoca" },
+    { "type": "choice", "q": "Wer erzählt, dass ein Topf ein Kind bekommen hat?", "options": ["Nasreddin Hoca", "Till Eulenspiegel"], "answer": "Nasreddin Hoca" },
+    { "type": "choice", "q": "Was ist eine **Meerkatze**?", "options": ["eine Affenart", "eine Katze, die schwimmen kann", "ein Fisch", "ein Kuchen"], "answer": "eine Affenart" },
+    { "type": "choice", "task": "Was würde ein Schelm wie Eulenspiegel tun?", "q": "Der Koch sagt: „Wirf mal einen Blick in den Topf!“", "options": ["Er wirft etwas in den Topf.", "Er schaut kurz in den Topf."], "answer": "Er wirft etwas in den Topf.", "explain": "Gemeint ist „kurz hineinschauen“. Eulenspiegel nimmt das Wort „werfen“ aber wörtlich." },
+    { "type": "choice", "task": "Was würde ein Schelm wie Eulenspiegel tun?", "q": "Ein Bauer fragt: „Kannst du mir unter die Arme greifen?“", "options": ["Er packt den Bauern unter den Armen.", "Er hilft dem Bauern bei der Arbeit."], "answer": "Er packt den Bauern unter den Armen.", "explain": "Gemeint ist „helfen“. Wörtlich genommen greift er ihm wirklich unter die Arme." },
+    { "type": "choice", "q": "Der Bäcker meint mit „Back doch Eulen und Meerkatzen!“ eigentlich …", "options": ["Lass mich in Ruhe, frag nicht so viel!", "Back bitte Tierfiguren aus Teig!", "Geh in den Zoo!", "Back heute nichts!"], "answer": "Lass mich in Ruhe, frag nicht so viel!", "explain": "Der Bäcker ist schlecht gelaunt und spottet nur. Till tut so, als wäre es ein echter Auftrag." }
+  ]
+}

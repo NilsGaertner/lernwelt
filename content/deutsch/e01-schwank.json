@@ -1,0 +1,38 @@
+{
+  "id": "schwank",
+  "line": "schelme",
+  "order": 1,
+  "title": "Was ist ein Schwank?",
+  "subtitle": "Schelmengeschichte, Streich, List",
+  "icon": "🃏",
+  "card": "Merke: Eine **Schelmengeschichte** (auch **Schwank**) ist eine **kurze, lustige Erzählung**. Sie handelt von einem **witzigen Ereignis** oder einem **Streich**. Die Helden sind **Schelme und Narren**, die ihre Mitmenschen mit einer **List** hereinlegen und ihnen damit eine **Lehre** erteilen.",
+  "explain": [
+    { "p": "Eine **Schelmengeschichte** heißt auch **Schwank**. Woran erkennt man sie?" },
+    { "table": { "head": ["Merkmal", "Was heißt das?"], "rows": [
+      ["**kurz**", "Die Geschichte ist schnell erzählt, oft nur ein paar Sätze."],
+      ["**lustig**", "Beim Lesen oder Zuhören muss man lachen oder schmunzeln."],
+      ["ein **Streich** oder ein **witziges Ereignis**", "Jemandem wird ein Streich gespielt, oder es passiert etwas Komisches."],
+      ["Helden: **Schelme und Narren**", "Die Hauptfigur ist ein Spaßvogel, der gern anderen Streiche spielt."],
+      ["eine **List**", "Der Schelm legt die anderen mit einem schlauen Trick herein."],
+      ["eine **Lehre**", "Wer hereingelegt wurde, kann daraus etwas lernen."]
+    ] } },
+    { "tip": "Eine **List** ist ein schlauer Trick. Jemandem eine **Lehre erteilen** heißt: Er soll aus der Sache etwas lernen, zum Beispiel, dass Geiz oder Angeberei nichts bringt." },
+    { "p": "Und was ist der Unterschied zum **Märchen**? Im Märchen gibt es oft Zauberei, Feen, Hexen oder sprechende Tiere. Im Schwank wird nicht gezaubert: Der Schelm kommt mit seinem **Witz** und seiner **Schlauheit** weiter." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wie nennt man eine **Schelmengeschichte** noch?", "options": ["Schwank", "Märchen", "Sage", "Gedicht"], "answer": "Schwank", "recall": true, "accept": ["ein Schwank", "der Schwank"] },
+    { "type": "choice", "q": "Wie lang ist ein Schwank meistens?", "options": ["kurz", "sehr lang, wie ein dickes Buch", "genau eine Seite", "so lang wie ein Film"], "answer": "kurz" },
+    { "type": "choice", "q": "Wie ist ein Schwank meistens?", "options": ["lustig", "traurig", "gruselig", "langweilig"], "answer": "lustig" },
+    { "type": "choice", "q": "Wovon handelt ein Schwank?", "options": ["von einem Streich oder einem witzigen Ereignis", "von Feen, Hexen und Zauberei", "von einer wahren Begebenheit aus der Zeitung", "von einem Ausflug in die Natur"], "answer": "von einem Streich oder einem witzigen Ereignis" },
+    { "type": "choice", "q": "Wer sind die **Helden** in einer Schelmengeschichte?", "options": ["Schelme und Narren", "Prinzen und Prinzessinnen", "Ritter und Drachen", "Riesen und Zwerge"], "answer": "Schelme und Narren" },
+    { "type": "choice", "q": "Womit legen die Schelme ihre Mitmenschen herein?", "options": ["mit einer List", "mit Zauberei", "mit Gewalt", "mit viel Geld"], "answer": "mit einer List", "recall": "Womit legen die Schelme ihre Mitmenschen herein? Mit einer …", "accept": ["List", "einer List", "eine List"] },
+    { "type": "choice", "q": "Was erteilen die Schelme den Hereingelegten damit?", "options": ["eine Lehre", "eine Strafe", "ein Geschenk", "eine Note"], "answer": "eine Lehre", "recall": true, "accept": ["Lehre", "die Lehre"] },
+    { "type": "choice", "q": "Was ist eine **List**?", "options": ["ein schlauer Trick", "ein Zauberspruch", "ein lauter Streit", "eine Liste zum Einkaufen"], "answer": "ein schlauer Trick" },
+    { "type": "choice", "q": "Was ist ein **Schelm**?", "options": ["ein Spaßvogel, der anderen Streiche spielt", "ein mächtiger König", "ein Zauberer mit Zauberstab", "ein Räuber, der Geld stiehlt"], "answer": "ein Spaßvogel, der anderen Streiche spielt" },
+    { "type": "choice", "q": "Was heißt „jemandem eine **Lehre erteilen**“?", "options": ["Er soll aus der Sache etwas lernen.", "Er bekommt eine Hausaufgabe.", "Er wird Lehrer.", "Er bekommt einen Preis."], "answer": "Er soll aus der Sache etwas lernen." },
+    { "type": "choice", "q": "Wie kommt der Schelm im Schwank weiter?", "options": ["mit Witz und Schlauheit", "mit einem Zauberstab", "mit der Hilfe einer Fee", "mit einem Schatz"], "answer": "mit Witz und Schlauheit" },
+    { "type": "choice", "task": "Was für eine Geschichte ist das?", "q": "Ein armer Junge legt mit einem schlauen Trick einen geizigen Händler herein. Am Ende lachen alle über den Händler.", "options": ["ein Schwank", "ein Märchen"], "answer": "ein Schwank", "explain": "Ein Streich, eine List und ein lustiges Ende: Das ist ein Schwank." },
+    { "type": "choice", "task": "Was für eine Geschichte ist das?", "q": "Eine gute Fee verwandelt ein Mädchen mit ihrem Zauberstab in eine Prinzessin.", "options": ["ein Märchen", "ein Schwank"], "answer": "ein Märchen", "explain": "Feen und Zauberei gibt es im Märchen. Im Schwank wird nicht gezaubert." },
+    { "type": "choice", "task": "Was für eine Geschichte ist das?", "q": "Ein Knecht soll für seinen strengen Herrn arbeiten. Mit einer List bringt er den Herrn dazu, die Arbeit selbst zu machen.", "options": ["ein Schwank", "ein Märchen"], "answer": "ein Schwank", "explain": "Der Knecht legt seinen Herrn mit einer List herein: ein Schwank." }
+  ]
+}
