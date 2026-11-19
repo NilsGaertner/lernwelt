@@ -1,0 +1,37 @@
+{
+  "id": "pointe",
+  "line": "schelme",
+  "order": 2,
+  "title": "Die Pointe",
+  "subtitle": "Der Schwächere führt den Stärkeren an der Nase herum",
+  "icon": "😄",
+  "card": "Merke: Wie ein Witz hat auch die Schelmengeschichte einen **lustigen Höhepunkt**, die **Pointe**. Meist führt dabei der **Schwächere** (z. B. der Schelm, der Knecht) den **Stärkeren** (z. B. den Reichen, den Herrn oder den Sultan) **an der Nase herum**.",
+  "explain": [
+    { "p": "Kennst du das von Witzen? Ganz am Ende kommt der Satz, über den alle lachen. Dieser **lustige Höhepunkt** heißt **Pointe**. Auch eine Schelmengeschichte hat eine Pointe." },
+    { "tip": "**Pointe** kommt aus dem Französischen. Man spricht es ungefähr „Po-äng-te“ und schreibt es mit **oi**." },
+    { "p": "Meist besteht die Pointe darin, dass der **Schwächere** den **Stärkeren** **an der Nase herumführt**, also hereinlegt:" },
+    { "table": { "head": ["Der Schwächere …", "… führt den Stärkeren an der Nase herum"], "rows": [
+      ["der **Schelm**", "den **Reichen**"],
+      ["der **Knecht**", "den **Herrn**"],
+      ["der einfache Mann", "den **Sultan** (einen mächtigen Herrscher im Orient)"]
+    ] } },
+    { "p": "**Der Topf, der ein Kind bekam** – eine Geschichte von Nasreddin Hoca:" },
+    { "p": "Nasreddin leiht sich beim Nachbarn einen Kochtopf. Als er ihn zurückbringt, liegt darin ein kleiner Topf. „Dein Topf hat ein Kind bekommen“, sagt er. Der Nachbar freut sich und behält beide Töpfe. Bald leiht sich Nasreddin den Topf wieder, bringt ihn aber nicht zurück. „Dein Topf ist leider gestorben“, sagt er. „Unsinn!“, ruft der Nachbar. „Ein Topf kann doch nicht sterben!“ Da antwortet Nasreddin: **„Dass er ein Kind bekommen kann, hast du doch auch geglaubt.“**" },
+    { "tip": "Der letzte Satz ist die **Pointe**. Und die **Lehre**? Der Nachbar hat die Geschichte vom Kind nur geglaubt, weil er etwas geschenkt bekam." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wie heißt der **lustige Höhepunkt** einer Schelmengeschichte?", "options": ["Pointe", "Einleitung", "Überschrift", "Lehre"], "answer": "Pointe", "recall": true, "accept": ["die Pointe", "eine Pointe"] },
+    { "type": "choice", "q": "Womit hat die Schelmengeschichte die **Pointe** gemeinsam?", "options": ["mit einem Witz", "mit einem Kochrezept", "mit einem Brief", "mit einem Wetterbericht"], "answer": "mit einem Witz" },
+    { "type": "choice", "q": "Wo steht die Pointe meistens?", "options": ["am Ende", "ganz am Anfang", "in der Überschrift", "gleich nach dem ersten Satz"], "answer": "am Ende" },
+    { "type": "choice", "q": "Wer führt in einer Schelmengeschichte meist wen **an der Nase herum**?", "options": ["der Schwächere den Stärkeren", "der Stärkere den Schwächeren", "der König seine Diener", "die Eltern ihre Kinder"], "answer": "der Schwächere den Stärkeren" },
+    { "type": "choice", "q": "Was heißt „jemanden **an der Nase herumführen**“?", "options": ["ihn hereinlegen", "ihn an der Nase ziehen", "ihm den Weg zeigen", "ihn zum Arzt bringen"], "answer": "ihn hereinlegen" },
+    { "type": "choice", "task": "Wer ist hier der **Schwächere**?", "q": "der Knecht oder der Herr?", "options": ["der Knecht", "der Herr"], "answer": "der Knecht" },
+    { "type": "choice", "task": "Wer ist hier der **Stärkere**?", "q": "der Schelm oder der Sultan?", "options": ["der Sultan", "der Schelm"], "answer": "der Sultan" },
+    { "type": "choice", "task": "Wer ist hier der **Stärkere**?", "q": "der Reiche oder der Schelm?", "options": ["der Reiche", "der Schelm"], "answer": "der Reiche" },
+    { "type": "choice", "q": "Was ist ein **Sultan**?", "options": ["ein mächtiger Herrscher im Orient", "ein armer Bauer", "ein Spaßmacher am Hof", "eine Süßigkeit"], "answer": "ein mächtiger Herrscher im Orient" },
+    { "type": "choice", "task": "Der Topf, der ein Kind bekam", "q": "Welcher Satz ist die **Pointe**?", "options": ["„Dass er ein Kind bekommen kann, hast du doch auch geglaubt.“", "Nasreddin leiht sich beim Nachbarn einen Kochtopf.", "Der Nachbar freut sich und behält beide Töpfe.", "„Dein Topf hat ein Kind bekommen“, sagt er."], "answer": "„Dass er ein Kind bekommen kann, hast du doch auch geglaubt.“", "explain": "Der letzte Satz ist der lustige Höhepunkt: Der Nachbar wird mit seinen eigenen Gedanken hereingelegt." },
+    { "type": "choice", "task": "Der Topf, der ein Kind bekam", "q": "Warum glaubt der Nachbar, dass der Topf ein Kind bekommen hat?", "options": ["Weil er dabei einen Topf geschenkt bekommt.", "Weil Töpfe wirklich Kinder bekommen.", "Weil Nasreddin ihm einen Brief zeigt.", "Weil seine Frau es ihm erzählt."], "answer": "Weil er dabei einen Topf geschenkt bekommt.", "explain": "Die Geschichte gefällt ihm, weil er etwas dabei gewinnt. Darum glaubt er sie." },
+    { "type": "choice", "task": "Iss, mein Pelz!", "q": "Nasreddin geht in alten Kleidern zu einem Fest bei einem Reichen. Keiner beachtet ihn. Er geht nach Hause und kommt im prächtigen Pelzmantel zurück. Jetzt bekommt er den besten Platz. Da taucht er den Ärmel in die Suppe und sagt: … Was passt als **Pointe**?", "options": ["„Iss, mein Pelz! Eingeladen bist ja du, nicht ich.“", "„Vielen Dank für das leckere Essen.“", "„Ich gehe jetzt lieber nach Hause.“", "„Darf ich noch etwas Brot haben?“"], "answer": "„Iss, mein Pelz! Eingeladen bist ja du, nicht ich.“", "explain": "Der Satz ist witzig und zeigt dem Reichen seinen Fehler." },
+    { "type": "choice", "task": "Iss, mein Pelz!", "q": "Welche **Lehre** bekommt der Reiche in dieser Geschichte?", "options": ["Man soll Menschen nicht nach ihrer Kleidung beurteilen.", "Man soll keine Suppe kochen.", "Man soll keine Feste feiern.", "Man soll im Winter einen Mantel tragen."], "answer": "Man soll Menschen nicht nach ihrer Kleidung beurteilen." }
+  ]
+}

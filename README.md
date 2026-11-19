@@ -155,7 +155,9 @@ Nach dem Ethikheft, dem Arbeitsblatt zu „Alles steht Kopf“ und der tägliche
 
 Die vierte Stufe der Pyramide heißt in der App „Individualbedürfnisse“. Beim Selbstschreiben zählen auch „Anerkennung“ und „Wertschätzung“. Dazu gibt es den „Ethik-Blitz“.
 
-**Deutsch: Rechtschreibung (5 Linien, 16 Stationen)**
+**Deutsch: Schelmengeschichten und Rechtschreibung (6 Linien, 19 Stationen)**
+
+Die Schelmen-Linie erklärt die Schelmengeschichte (Schwank) nach dem Merkwissen aus dem Lesebuch: Was ist ein Schwank? (kurz, lustig, ein Streich, Schelme und Narren, List und Lehre, Abgrenzung zum Märchen), Die Pointe (der lustige Höhepunkt, der Schwächere führt den Stärkeren an der Nase herum, an „Der Topf, der ein Kind bekam“ und „Iss, mein Pelz!“) und Bekannte Schelme (Till Eulenspiegel nimmt Aufträge wörtlich, Nasreddin Hoca hat immer eine treffende Antwort). Dazu gibt es den „Schelmen-Blitz“, der Rechtschreib-Blitz bleibt bei der Rechtschreibung.
 
 Die Groß-und-klein-Linie übt Satzanfänge, Nomen und Verben, die zu Nomen werden (das Spielen, beim Lesen). Die Zisch-Linie übt s, ss und ß, auch mit der Silben-Regel aus dem Heft (offene Silbe: s oder ß, geschlossene Silbe: ss), die Verwandten-Linie e/ä, eu/äu und das Verlängern (b/p, d/t, g/k), die Vokal-Linie kurze und lange Vokale, tz/ck und das lange i. Die Wörterbuch-Linie übt das ABC, die Grundform und Stolperwörter wie Medaille oder Eishockey. In Deutsch zählen Groß- und Kleinschreibung auch beim Tippen: Stimmen alle Buchstaben und nur groß/klein nicht, darf das Kind selbst verbessern (½ Punkt). Unter dem Eingabefeld gibt es ä, ö, ü und ß zum Antippen. Lückendiktate werden vorgelesen, und viele Auswahl-Aufgaben werden später zum Diktat.
 
