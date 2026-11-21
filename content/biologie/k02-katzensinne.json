@@ -35,6 +35,6 @@
     { "type": "choice", "q": "Was macht die Katze oft am Tag?", "options": ["Sie ruht sich aus.", "Sie jagt im Rudel.", "Sie hütet Schafe.", "Sie gräbt Baue."], "answer": "Sie ruht sich aus.", "explain": "Als Nachtjäger braucht sie am Tag Ruhephasen." },
     { "type": "input", "q": "Bei hellem Licht ist die Pupille der Katze ein schmaler ___.", "answer": "Schlitz" },
     { "type": "input", "q": "Die Rückstrahler am Fahrrad heißen ___.", "answer": "Katzenaugen" },
-    { "type": "order", "task": "Wie heißt der Satz richtig?", "de": "Warum die Katze im Dunkeln sicher ist", "answer": "Mit den Tasthaaren spürt die Katze Hindernisse." }
+    { "type": "order", "task": "Wie heißt der Satz richtig?", "de": "Warum die Katze im Dunkeln sicher ist", "answer": "Mit den Tasthaaren spürt die Katze Hindernisse.", "accept": ["Die Katze spürt mit den Tasthaaren Hindernisse.", "Die Katze spürt Hindernisse mit den Tasthaaren.", "Hindernisse spürt die Katze mit den Tasthaaren."] }
   ]
 }

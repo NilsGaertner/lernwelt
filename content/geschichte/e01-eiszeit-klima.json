@@ -50,6 +50,6 @@
     { "type": "choice", "q": "Im Buch steht: „mächtige Gletscher“. Was heißt „mächtig“ hier?", "options": ["sehr groß und dick", "sehr klug", "sehr schnell", "sehr laut"], "answer": "sehr groß und dick" },
     { "type": "choice", "q": "Im Buch steht: „Die Temperaturen stiegen allmählich an.“ Was heißt „allmählich“?", "options": ["langsam, nach und nach", "ganz plötzlich", "jeden Tag gleich", "gar nicht"], "answer": "langsam, nach und nach" },
     { "type": "input", "q": "Wie das Wetter an einem Ort über viele Jahre ist, nennt man ___.", "answer": "Klima" },
-    { "type": "order", "de": "Was geschah am Ende der Kaltzeit?", "answer": "Die Temperaturen stiegen und das Eis schmolz." }
+    { "type": "order", "de": "Was geschah am Ende der Kaltzeit?", "answer": "Die Temperaturen stiegen und das Eis schmolz.", "accept": ["Das Eis schmolz und die Temperaturen stiegen."] }
   ]
 }

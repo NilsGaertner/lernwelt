@@ -39,6 +39,6 @@
     { "type": "choice", "task": "Welche Kurzform ist richtig?", "q": "She is nice. → ___ nice.", "options": ["She's", "Shes'", "She're", "She'm"], "answer": "She's", "speak": false, "explain": "She is → **She's**. Der Apostroph **'** steht da, wo das „i“ weggefallen ist." },
     { "type": "order", "de": "Ich bin elf Jahre alt.", "answer": "I am eleven years old.", "accept": ["I'm eleven years old."], "explain": "Im Englischen „ist“ man so alt: **I am** eleven years old. (nicht: I have …)" },
     { "type": "order", "de": "Sie sind meine Freunde.", "answer": "They are my friends.", "explain": "**They are** = sie sind. Dann kommt „my friends“." },
-    { "type": "order", "de": "Mein Name ist Max.", "answer": "My name is Max.", "explain": "My name = er/sie/es → **is**: My name **is** Max." }
+    { "type": "order", "de": "Mein Name ist Max.", "answer": "My name is Max.", "accept": ["Max is my name."], "explain": "My name = er/sie/es → **is**: My name **is** Max." }
   ]
 }

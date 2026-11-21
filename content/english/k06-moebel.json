@@ -41,6 +41,6 @@
     { "type": "input", "q": "I do my homework at my ___.", "de": "Ich mache meine Hausaufgaben an meinem Schreibtisch.", "answer": "desk" },
     { "type": "input", "q": "a table with ___", "de": "ein Tisch mit Stühlen", "answer": "chairs", "explain": "Stuhl = **chair**, Stühle = **chairs**." },
     { "type": "input", "q": "The ___ is on my desk.", "de": "Die Lampe steht auf meinem Schreibtisch.", "answer": "lamp" },
-    { "type": "order", "de": "Mein Computer steht auf dem Schreibtisch.", "answer": "My computer is on the desk.", "accept": ["My computer is on my desk."] }
+    { "type": "order", "de": "Mein Computer steht auf dem Schreibtisch.", "answer": "My computer is on the desk." }
   ]
 }

@@ -35,6 +35,6 @@
     { "type": "choice", "q": "Warum haben ausgewachsene Kater oft Verletzungen?", "options": ["Sie verteidigen ihr Revier und kämpfen um Katzen.", "Sie fallen oft von Bäumen.", "Sie werden von Mäusen gebissen.", "Sie schlafen zu wenig."], "answer": "Sie verteidigen ihr Revier und kämpfen um Katzen." },
     { "type": "choice", "q": "Wie nennt man das Gebiet, das ein Kater verteidigt?", "options": ["Revier", "Rudel", "Nest", "Stall"], "answer": "Revier", "recall": true },
     { "type": "choice", "q": "Beim Hund heißt das Männchen Rüde. Und bei der Katze?", "options": ["Kater", "Bock", "Hahn", "Eber"], "answer": "Kater" },
-    { "type": "order", "de": "Warum ist die Katze ein Säugetier?", "answer": "Die Katze säugt ihre Jungen mit Milch." }
+    { "type": "order", "de": "Warum ist die Katze ein Säugetier?", "answer": "Die Katze säugt ihre Jungen mit Milch.", "accept": ["Mit Milch säugt die Katze ihre Jungen.", "Die Katze säugt mit Milch ihre Jungen.", "Ihre Jungen säugt die Katze mit Milch."] }
   ]
 }

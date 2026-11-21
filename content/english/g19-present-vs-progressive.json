@@ -30,7 +30,7 @@
     { "type": "input", "q": "Look! The cat ___ a mouse. (chase)", "answer": "is chasing", "hint": "chase", "explain": "Look! = es passiert **jetzt gerade** → **is chasing**." },
     { "type": "input", "q": "At the moment we ___ English. (learn)", "answer": "are learning", "hint": "learn", "explain": "at the moment = **gerade**, we → **are learning**." },
     { "type": "input", "q": "My sister ___ fish. She thinks it's yucky. (not like)", "answer": "doesn't like", "hint": "not like", "explain": "Sie mag es grundsätzlich nicht → Simple Present: she → **doesn't like**." },
-    { "type": "order", "de": "Ich esse gerade.", "answer": "I am eating now.", "accept": ["I'm eating now."], "explain": "gerade = **am + -ing**: I **am eating** now." },
-    { "type": "order", "de": "Sie spielt jeden Tag Gitarre.", "answer": "She plays the guitar every day.", "explain": "jeden Tag = **regelmäßig** → Simple Present: She **plays** the guitar every day." }
+    { "type": "order", "de": "Ich esse gerade.", "answer": "I am eating now.", "accept": ["I'm eating now.", "Now I am eating."], "explain": "gerade = **am + -ing**: I **am eating** now." },
+    { "type": "order", "de": "Sie spielt jeden Tag Gitarre.", "answer": "She plays the guitar every day.", "accept": ["Every day she plays the guitar."], "explain": "jeden Tag = **regelmäßig** → Simple Present: She **plays** the guitar every day." }
   ]
 }

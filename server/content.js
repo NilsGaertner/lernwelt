@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { shortHash, DATA_DIR } from './util.js';
+import { shortHash, normalize, DATA_DIR } from './util.js';
 
 /** Die mitgelieferten Aufgaben (im Repo gepflegt). */
 const BUILTIN_DIR = process.env.CONTENT_DIR || path.resolve(import.meta.dirname, '..', 'content');
@@ -182,6 +182,13 @@ function validateUnit(meta, unit, file, problems, subjectDir) {
     if (ex.sound && ex.type !== 'choice') problems.push(`${where}: Hör-Aufgaben gibt es nur als choice: ${JSON.stringify(ex)}`);
     if (ex.accept != null && !(Array.isArray(ex.accept) && ex.accept.every((a) => typeof a === 'string'))) {
       problems.push(`${where}: "accept" muss eine Liste von Texten sein: ${JSON.stringify(ex)}`);
+    } else if (ex.type === 'order' && ex.accept) {
+      // Beim Zusammensetzen liegen nur die Wörter aus "answer" da – eine andere Reihenfolge davon darf "accept" sein,
+      // andere Wörter kann das Kind gar nicht legen. Kurzformen (I'm = I am) zählen als dieselben Wörter.
+      const words = (s) => normalize(s).split(' ').sort().join(' ');
+      for (const a of ex.accept) {
+        if (words(a) !== words(ex.answer)) problems.push(`${where}: "${a}" lässt sich aus den Wörtern von "${ex.answer}" nicht legen`);
+      }
     }
     // recall: erst auswählen, später selbst schreiben (siehe session.js)
     if (ex.recall != null) {

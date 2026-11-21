@@ -36,7 +36,7 @@
     { "type": "input", "q": "Als Schutz vor der Kälte trugen die Menschen ___.", "answer": "Felle", "accept": ["Fell", "Tierfelle"] },
     { "type": "input", "q": "In den Wäldern fanden die Menschen Beeren, Wurzeln und ___.", "answer": "Pilze" },
     { "type": "input", "q": "Während der Kaltzeit wurde das Essen ___.", "answer": "weniger", "accept": ["knapp", "knapper"], "hint": "Es gab nicht mehr so viel." },
-    { "type": "order", "de": "Wohin zogen die Menschen?", "answer": "Die Menschen zogen in Richtung Norden." },
-    { "type": "order", "de": "Warum zogen sie los? (nicht ganz sicher)", "answer": "Vermutlich gab es in Afrika weniger zu essen." }
+    { "type": "order", "de": "Wohin zogen die Menschen?", "answer": "Die Menschen zogen in Richtung Norden.", "accept": ["In Richtung Norden zogen die Menschen."] },
+    { "type": "order", "de": "Warum zogen sie los? (nicht ganz sicher)", "answer": "Vermutlich gab es in Afrika weniger zu essen.", "accept": ["In Afrika gab es vermutlich weniger zu essen.", "Es gab vermutlich in Afrika weniger zu essen.", "Es gab in Afrika vermutlich weniger zu essen."] }
   ]
 }

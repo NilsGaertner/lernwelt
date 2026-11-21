@@ -39,6 +39,6 @@
     { "type": "choice", "q": "Vom Vormenschen bis zum Jetztzeitmenschen: Wie nennt man diese lange Entwicklung?", "options": ["Evolution", "Besatzung", "Antike", "Epoche"], "answer": "Evolution", "recall": true },
     { "type": "choice", "q": "Stimmt das? „Ein einzelner Mensch verändert im Laufe seines Lebens seine Art.“", "options": ["Nein, das dauert viele Generationen.", "Ja, das geht in einem Jahr.", "Ja, aber nur im Winter.", "Ja, immer."], "answer": "Nein, das dauert viele Generationen." },
     { "type": "input", "q": "Die Menschen passen sich an ihre ___ an.", "answer": "Umgebung", "accept": ["Umwelt"] },
-    { "type": "order", "de": "Wie lange dauert Evolution?", "answer": "Evolution dauert viele Generationen." }
+    { "type": "order", "de": "Wie lange dauert Evolution?", "answer": "Evolution dauert viele Generationen.", "accept": ["Viele Generationen dauert Evolution."] }
   ]
 }

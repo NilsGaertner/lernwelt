@@ -36,6 +36,6 @@
     { "type": "choice", "q": "Wie viele Merkmale des Lebens hat ein Lebewesen?", "options": ["alle", "nur eines", "nur zwei", "gar keines"], "answer": "alle" },
     { "type": "choice", "q": "Eine Hyazinthenzwiebel wird eingepflanzt, und ihr Trieb wird jeden Tag länger. Welches Merkmal des Lebens zeigt das?", "options": ["Wachstum", "Reizbarkeit", "Bewegung", "Fortpflanzung"], "answer": "Wachstum", "recall": true },
     { "type": "choice", "q": "Was folgt daraus, dass der Trieb der Zwiebel wächst?", "options": ["Die Zwiebel lebt.", "Die Zwiebel ist kaputt.", "Die Zwiebel ist ein Stein.", "Das sagt gar nichts."], "answer": "Die Zwiebel lebt." },
-    { "type": "order", "de": "Warum ist das Auto kein Lebewesen?", "answer": "Das Auto ist kein Lebewesen, weil es nicht wächst." }
+    { "type": "order", "de": "Warum ist das Auto kein Lebewesen?", "answer": "Das Auto ist kein Lebewesen, weil es nicht wächst.", "accept": ["Weil es nicht wächst, ist das Auto kein Lebewesen.", "Kein Lebewesen ist das Auto, weil es nicht wächst."] }
   ]
 }

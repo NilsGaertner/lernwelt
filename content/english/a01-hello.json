@@ -27,7 +27,7 @@
     { "en": "Goodbye!", "de": "Auf Wiedersehen!" },
     { "en": "See you later!", "de": "Bis später!" },
     { "en": "How are you?", "de": "Wie geht es dir?" },
-    { "en": "I'm fine, thanks.", "de": "Mir geht es gut, danke." },
+    { "en": "I'm fine, thanks.", "alt": ["Thanks, I'm fine."], "de": "Mir geht es gut, danke." },
     { "en": "What's your name?", "de": "Wie heißt du?" },
     { "en": "My name is Max.", "de": "Ich heiße Max." },
     { "en": "How old are you?", "de": "Wie alt bist du?" },
