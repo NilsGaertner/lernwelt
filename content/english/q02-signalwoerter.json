@@ -1,0 +1,43 @@
+{
+  "id": "signalwoerter",
+  "line": "signal",
+  "order": 2,
+  "title": "every day or now?",
+  "subtitle": "Erst das Signalwort suchen",
+  "icon": "🔎",
+  "card": "Merke: **every day, always, usually** → Simple Present, **ohne** am/is/are. **now, Look!, Listen!** → am/is/are + -ing.",
+  "explain": [
+    { "p": "Bevor du die Lücke füllst, such das **Signalwort**. Es verrät dir die Zeit." },
+    { "table": { "head": ["Signalwort", "Zeit", "Beispiel"], "rows": [
+      ["every day, every Friday, always, usually, often, never, on Mondays", "**Simple Present** (immer wieder)", "We **go** to the cinema every Friday."],
+      ["now, right now, at the moment, Look!, Listen!, Be quiet!", "**Present Progressive** (genau jetzt)", "Look! We **are going** to the cinema."]
+    ] } },
+    { "tip": "Bei **every day** und Co. gibt es **kein** am/is/are: I **go** to school every day – nicht „I am going …“." },
+    { "tip": "Bei he/she/it bekommt das Simple Present ein **-s**: She walk**s** to school every day." },
+    { "p": "In der **Frage** tauschen die Wörter den Platz:" },
+    { "table": { "head": ["Aussage", "Frage"], "rows": [
+      ["She **is** doing her homework.", "What **is she** doing?"],
+      ["He plays tennis on Mondays.", "**Does** he **play** tennis on Mondays?"]
+    ] } },
+    { "tip": "Nach **Does** steht das Verb **ohne -s**: Does he **like** apples?" }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Welches Signalwort steckt im Satz?", "q": "I play football every Saturday.", "options": ["every Saturday", "I", "play", "football"], "answer": "every Saturday", "explain": "**every Saturday** zeigt: regelmäßig → Simple Present." },
+    { "type": "choice", "task": "Welches Signalwort steckt im Satz?", "q": "Look! The baby is laughing.", "options": ["Look!", "The", "baby", "laughing"], "answer": "Look!", "explain": "**Look!** zeigt: genau jetzt → Present Progressive." },
+    { "type": "choice", "task": "Immer wieder oder genau jetzt?", "q": "She usually walks to school.", "options": ["immer wieder → Simple Present", "genau jetzt → Present Progressive"], "answer": "immer wieder → Simple Present", "explain": "**usually** = normalerweise → immer wieder." },
+    { "type": "choice", "task": "Immer wieder oder genau jetzt?", "q": "At the moment he is reading.", "options": ["genau jetzt → Present Progressive", "immer wieder → Simple Present"], "answer": "genau jetzt → Present Progressive", "explain": "**at the moment** = gerade → genau jetzt." },
+    { "type": "choice", "q": "We ___ to the cinema every Friday.", "options": ["go", "are going", "goes", "going"], "answer": "go", "explain": "every Friday → immer wieder → Simple Present **ohne** are: we **go**." },
+    { "type": "choice", "q": "My mum ___ coffee every morning.", "options": ["drinks", "is drinking", "drink", "drinking"], "answer": "drinks", "explain": "every morning → Simple Present, my mum = she → drink**s**." },
+    { "type": "choice", "q": "Be quiet! Grandpa ___.", "options": ["is sleeping", "sleeps", "sleep", "sleeping"], "answer": "is sleeping", "explain": "Be quiet! → genau jetzt → **is sleeping**." },
+    { "type": "choice", "q": "Look! Two dogs ___ in the garden.", "options": ["are playing", "is playing", "play", "plays"], "answer": "are playing", "explain": "Look! → jetzt. Two dogs = mehrere → **are** playing." },
+    { "type": "choice", "q": "What ___ now?", "options": ["is she doing", "she is doing", "does she do", "she does"], "answer": "is she doing", "explain": "In der Frage tauschen die Wörter: What **is she** doing?" },
+    { "type": "choice", "q": "___ he play tennis on Mondays?", "options": ["Does", "Is", "Do", "Are"], "answer": "Does", "explain": "on Mondays → Simple Present. Frage mit he → **Does** he play …?" },
+    { "type": "choice", "q": "Does he ___ apples?", "options": ["like", "likes", "liking"], "answer": "like", "explain": "Nach **Does** steht das Verb ohne -s: Does he **like** apples?" },
+    { "type": "input", "q": "He ___ his teeth every evening. (brush)", "answer": "brushes", "hint": "brush", "explain": "every evening → Simple Present, he → brush**es** (nach sh kommt -es)." },
+    { "type": "input", "q": "Listen! The birds ___. (sing)", "answer": "are singing", "accept": ["'re singing"], "hint": "sing", "explain": "Listen! → genau jetzt, the birds = mehrere → **are singing**." },
+    { "type": "input", "q": "Right now I ___ my homework. (do)", "answer": "am doing", "accept": ["'m doing"], "hint": "do", "explain": "right now → genau jetzt, I → **am doing**." },
+    { "type": "input", "q": "My brother never ___ his room. (clean)", "answer": "cleans", "hint": "clean", "explain": "never → Simple Present, my brother = he → clean**s**." },
+    { "type": "order", "de": "Wir gehen jeden Freitag schwimmen.", "answer": "We go swimming every Friday.", "accept": ["Every Friday we go swimming."], "explain": "every Friday → Simple Present: We **go** swimming every Friday." },
+    { "type": "order", "de": "Was machst du gerade?", "answer": "What are you doing now?", "explain": "Frage im Present Progressive: What **are you** doing now?" }
+  ]
+}

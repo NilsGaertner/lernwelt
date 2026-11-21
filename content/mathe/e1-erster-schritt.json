@@ -1,0 +1,44 @@
+{
+  "id": "erster-schritt",
+  "line": "erster-schritt",
+  "order": 1,
+  "title": "Was kommt zuerst?",
+  "subtitle": "Klammer, Potenz, Punkt, Strich",
+  "icon": "1️⃣",
+  "card": "Merke: Erst den **ersten Schritt** suchen: **Kl**ammer → **Po**tenz → **Pu**nkt (· :) → **Stri**ch (+ −). Gleiche Stufe: von links nach rechts.",
+  "explain": [
+    { "p": "Bevor du rechnest, frag dich: **Was kommt zuerst dran?** Dabei hilft die Stufenleiter **KlaPoPuStri**:" },
+    { "table": { "head": ["Stufe", "Was?", "Beispiel"], "rows": [
+      ["**1. Klammer**", "( … )", "(8 + 2) · 3 → erst 8 + 2"],
+      ["**2. Potenz**", "4², 2³", "3 · 2³ → erst 2³"],
+      ["**3. Punkt**", "· und :", "6 + 4 · 5 → erst 4 · 5"],
+      ["**4. Strich**", "+ und −", "ganz zum Schluss"]
+    ] } },
+    { "p": "Schritt für Schritt bei **100 − 5 · 4²**:" },
+    { "table": { "head": ["Schritt", "Rechnung", "Es bleibt stehen"], "rows": [
+      ["Potenz", "4² = 16", "100 − 5 · 16"],
+      ["Punkt", "5 · 16 = 80", "100 − 80"],
+      ["Strich", "100 − 80 = 20", "**20**"]
+    ] } },
+    { "tip": "Stehen zwei Rechnungen auf **derselben Stufe** (z. B. nur minus), rechnest du **von links nach rechts**: 50 − 10 − 5 → erst 50 − 10." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Was rechnest du zuerst?", "q": "6 + 4 · 5", "options": ["4 · 5", "6 + 4"], "answer": "4 · 5", "explain": "Punkt vor Strich: erst **4 · 5 = 20**, dann 6 + 20 = 26." },
+    { "type": "choice", "task": "Was rechnest du zuerst?", "q": "100 − 5 · 4²", "options": ["4²", "5 · 4", "100 − 5"], "answer": "4²", "explain": "Die Potenz kommt vor Punkt und Strich: erst **4² = 16**." },
+    { "type": "choice", "task": "Was rechnest du zuerst?", "q": "(8 + 2) · 3", "options": ["8 + 2", "2 · 3"], "answer": "8 + 2", "explain": "Die Klammer kommt immer zuerst: **8 + 2 = 10**, dann 10 · 3 = 30." },
+    { "type": "choice", "task": "Was rechnest du zuerst?", "q": "3 · 2³", "options": ["2³", "3 · 2"], "answer": "2³", "explain": "Potenz vor Punkt: erst **2³ = 8**, dann 3 · 8 = 24." },
+    { "type": "choice", "task": "Was rechnest du zuerst?", "q": "20 − 12 : 4", "options": ["12 : 4", "20 − 12"], "answer": "12 : 4", "explain": "Punkt vor Strich: erst **12 : 4 = 3**, dann 20 − 3 = 17." },
+    { "type": "choice", "task": "Was rechnest du zuerst?", "q": "50 − 10 − 5", "options": ["50 − 10", "10 − 5"], "answer": "50 − 10", "explain": "Gleiche Stufe → von links nach rechts: erst **50 − 10 = 40**, dann 40 − 5 = 35." },
+    { "type": "choice", "task": "Was rechnest du zuerst?", "q": "(6 − 2)² · 5", "options": ["6 − 2", "2 · 5"], "answer": "6 − 2", "explain": "Erst die Klammer: **6 − 2 = 4**, dann 4² = 16, dann 16 · 5 = 80." },
+    { "type": "choice", "task": "Wie heißt die Reihenfolge?", "q": "Was kommt zuerst dran, was zuletzt?", "options": ["Klammer, Potenz, Punkt, Strich", "Punkt, Strich, Klammer, Potenz", "Strich, Punkt, Potenz, Klammer", "Potenz, Klammer, Strich, Punkt"], "answer": "Klammer, Potenz, Punkt, Strich", "explain": "**KlaPoPuStri**: Klammer, Potenz, Punkt, Strich." },
+    { "type": "choice", "task": "🐱 Wo hakt es?", "q": "Deine Katze rechnet: 2 + 3 · 4 = 20. Was hat sie zuerst gerechnet?", "options": ["2 + 3", "3 · 4"], "answer": "2 + 3", "explain": "Die Katze hat 2 + 3 = 5 und dann 5 · 4 gerechnet. Richtig ist erst **3 · 4 = 12**, dann 2 + 12 = **14**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "8 + 2 · 6 = ___", "answer": "20", "numeric": true, "placeholder": "Ergebnis", "explain": "Erst 2 · 6 = 12, dann 8 + 12 = **20**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "(9 − 4)² = ___", "answer": "25", "numeric": true, "placeholder": "Ergebnis", "explain": "Erst die Klammer: 9 − 4 = 5, dann 5² = **25**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "3 · 2³ = ___", "answer": "24", "numeric": true, "placeholder": "Ergebnis", "explain": "Erst 2³ = 2 · 2 · 2 = 8, dann 3 · 8 = **24**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "40 − 6 · 5 = ___", "answer": "10", "numeric": true, "placeholder": "Ergebnis", "explain": "Erst 6 · 5 = 30, dann 40 − 30 = **10**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "2 · (3 + 4)² = ___", "answer": "98", "numeric": true, "placeholder": "Ergebnis", "explain": "Klammer: 3 + 4 = 7. Potenz: 7² = 49. Punkt: 2 · 49 = **98**." },
+    { "type": "input", "task": "Schritt für Schritt", "q": "100 − 5 · 3²: Erst die Potenz. 3² = ___", "answer": "9", "numeric": true, "placeholder": "Zahl", "explain": "3² = 3 · 3 = **9**. Jetzt steht da 100 − 5 · 9." },
+    { "type": "input", "task": "Schritt für Schritt", "q": "100 − 5 · 9: Jetzt der Punkt. 100 − ___", "answer": "45", "numeric": true, "placeholder": "Zahl", "explain": "5 · 9 = **45**. Zum Schluss 100 − 45 = 55." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "100 − 5 · 3² = ___", "answer": "55", "numeric": true, "placeholder": "Ergebnis", "explain": "3² = 9, 5 · 9 = 45, 100 − 45 = **55**." }
+  ]
+}

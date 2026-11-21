@@ -1,0 +1,38 @@
+{
+  "id": "links-nach-rechts",
+  "line": "erster-schritt",
+  "order": 2,
+  "title": "Gleiche Stufe: von links nach rechts",
+  "subtitle": "Geteilt und minus nicht zusammenfassen",
+  "icon": "➡️",
+  "card": "Merke: Stehen nur **: und ·** (oder nur **+ und −**) da, rechnest du **von links nach rechts**. 24 : 4 : 2 = 6 : 2 = **3**.",
+  "explain": [
+    { "p": "Manchmal stehen nur Rechnungen **derselben Stufe** da, zum Beispiel nur geteilt und mal. Dann gilt: **von links nach rechts**, immer die ersten zwei Zahlen zuerst." },
+    { "table": { "head": ["Aufgabe", "richtig: von links", "falsch: zusammengefasst"], "rows": [
+      ["24 : 4 : 2", "24 : 4 = 6, 6 : 2 = **3**", "24 : (4 : 2) = 24 : 2 = 12 ✗"],
+      ["48 : 4 · 2", "48 : 4 = 12, 12 · 2 = **24**", "48 : (4 · 2) = 48 : 8 = 6 ✗"],
+      ["30 − 10 − 5", "30 − 10 = 20, 20 − 5 = **15**", "30 − (10 − 5) = 25 ✗"],
+      ["50 − 20 + 10", "50 − 20 = 30, 30 + 10 = **40**", "50 − (20 + 10) = 20 ✗"]
+    ] } },
+    { "tip": "Stell dir vor: 24 Diamanten kommen in **4 Kisten**, und jede Kiste wird noch auf **2 Spieler** aufgeteilt. Jeder Spieler bekommt 24 : 4 = 6, davon die Hälfte: **3**." },
+    { "tip": "Zusammenfassen und tauschen darfst du nur, wenn **nur mal** oder **nur plus** dasteht: 5 · 7 · 2 = 7 · (5 · 2)." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Welcher Weg stimmt?", "q": "24 : 4 : 2", "options": ["24 : 4 = 6, dann 6 : 2 = 3", "4 : 2 = 2, dann 24 : 2 = 12"], "answer": "24 : 4 = 6, dann 6 : 2 = 3", "explain": "Von links nach rechts: erst **24 : 4**, dann : 2. Ergebnis **3**." },
+    { "type": "choice", "task": "Welcher Weg stimmt?", "q": "48 : 4 · 2", "options": ["48 : 4 = 12, dann 12 · 2 = 24", "4 · 2 = 8, dann 48 : 8 = 6"], "answer": "48 : 4 = 12, dann 12 · 2 = 24", "explain": "Geteilt und mal sind dieselbe Stufe → von links: erst **48 : 4**. Ergebnis **24**." },
+    { "type": "choice", "task": "Welcher Weg stimmt?", "q": "30 − 10 − 5", "options": ["30 − 10 = 20, dann 20 − 5 = 15", "10 − 5 = 5, dann 30 − 5 = 25"], "answer": "30 − 10 = 20, dann 20 − 5 = 15", "explain": "Von links: erst **30 − 10**, dann − 5. Ergebnis **15**." },
+    { "type": "choice", "task": "Welcher Weg stimmt?", "q": "50 − 20 + 10", "options": ["50 − 20 = 30, dann 30 + 10 = 40", "20 + 10 = 30, dann 50 − 30 = 20"], "answer": "50 − 20 = 30, dann 30 + 10 = 40", "explain": "Plus und minus sind dieselbe Stufe → von links: erst **50 − 20**. Ergebnis **40**." },
+    { "type": "choice", "task": "🐱 Wo hakt es?", "q": "Deine Katze rechnet: 40 : 4 : 2 = 40 : 2 = 20. Stimmt das?", "options": ["Nein, von links nach rechts: 10 : 2 = 5", "Ja, geteilt darf man zusammenfassen", "Nein, 40 : 4 = 10, dann 10 · 2 = 20", "Nein, erst 4 · 2, dann 40 : 8 = 5"], "answer": "Nein, von links nach rechts: 10 : 2 = 5", "explain": "Erst 40 : 4 = 10, dann 10 : 2 = **5**. Geteilt darf man **nicht** zusammenfassen." },
+    { "type": "choice", "task": "🐱 Wo hakt es?", "q": "Deine Katze rechnet: 30 − 10 + 5 = 30 − 15 = 15. Stimmt das?", "options": ["Nein, von links nach rechts: 20 + 5 = 25", "Ja, das stimmt", "Nein, erst 30 − 5 = 25, dann 25 − 10 = 15"], "answer": "Nein, von links nach rechts: 20 + 5 = 25", "explain": "Erst 30 − 10 = 20, dann 20 + 5 = **25**. Die Katze hat 10 + 5 zusammengefasst." },
+    { "type": "choice", "task": "Wann darf man zusammenfassen?", "q": "Bei welcher Aufgabe darfst du die Zahlen beliebig zusammenfassen?", "options": ["5 · 7 · 2 (nur mal)", "24 : 4 : 2 (nur geteilt)", "20 − 8 − 2 (nur minus)"], "answer": "5 · 7 · 2 (nur mal)", "explain": "Bei **nur mal** oder **nur plus** darfst du tauschen und klammern. Bei geteilt und minus nicht." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "36 : 6 : 2 = ___", "answer": "3", "numeric": true, "placeholder": "Ergebnis", "explain": "36 : 6 = 6, dann 6 : 2 = **3**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "60 : 5 · 3 = ___", "answer": "36", "numeric": true, "placeholder": "Ergebnis", "explain": "60 : 5 = 12, dann 12 · 3 = **36**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "70 − 25 − 5 = ___", "answer": "40", "numeric": true, "placeholder": "Ergebnis", "explain": "70 − 25 = 45, dann 45 − 5 = **40**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "100 − 40 + 20 = ___", "answer": "80", "numeric": true, "placeholder": "Ergebnis", "explain": "100 − 40 = 60, dann 60 + 20 = **80**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "120 : 4 : 2 = ___", "answer": "15", "numeric": true, "placeholder": "Ergebnis", "explain": "120 : 4 = 30, dann 30 : 2 = **15**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "16 · 3 : 4 = ___", "answer": "12", "numeric": true, "placeholder": "Ergebnis", "explain": "16 · 3 = 48, dann 48 : 4 = **12**." },
+    { "type": "input", "task": "Was kommt heraus?", "q": "90 − 30 + 10 − 20 = ___", "answer": "50", "numeric": true, "placeholder": "Ergebnis", "explain": "Von links: 90 − 30 = 60, 60 + 10 = 70, 70 − 20 = **50**." },
+    { "type": "input", "task": "Minecraft", "q": "Du verteilst 64 Fackeln gleich auf 4 Truhen. Jede Truhe teilst du auf 2 Spieler auf. Wie viele Fackeln bekommt jeder Spieler? 64 : 4 : 2 = ___", "answer": "8", "numeric": true, "placeholder": "Fackeln", "explain": "64 : 4 = 16 pro Truhe, 16 : 2 = **8** pro Spieler." },
+    { "type": "input", "task": "Basketball", "q": "Ein Team wirft 60 Punkte. Die Hälfte davon sind Dreier-Punkte. Wie viele Dreier sind das? 60 : 2 : 3 = ___", "answer": "10", "numeric": true, "placeholder": "Dreier", "explain": "60 : 2 = 30 Punkte aus Dreiern, 30 : 3 = **10** Dreier." }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "sinnesorgane",
+  "line": "reiz",
+  "order": 2,
+  "title": "Welches Sinnesorgan?",
+  "subtitle": "Reiz → Sinnesorgan → Reaktion",
+  "icon": "👂",
+  "card": "Merke: **Reiz → Sinnesorgan → Reaktion.** Es klingelt (Reiz), das **Ohr** nimmt es auf (Sinnesorgan), der Hund bellt (Reaktion).",
+  "explain": [
+    { "p": "Zwischen Reiz und Reaktion steht immer ein **Sinnesorgan**. Es nimmt den Reiz auf. Erst dann kann das Lebewesen reagieren." },
+    { "table": { "head": ["Reiz", "→ Sinnesorgan", "→ Reaktion"], "rows": [
+      ["Es klingelt.", "**Ohr**", "Der Hund bellt."],
+      ["Die Sonne blendet.", "**Auge**", "Mia kneift die Augen zu."],
+      ["Es riecht nach Wurst.", "**Nase**", "Der Hund läuft in die Küche."]
+    ] } },
+    { "table": { "head": ["Sinnesorgan", "nimmt auf …", "Sinn"], "rows": [
+      ["Auge", "Licht und Bilder", "Sehsinn"],
+      ["Ohr", "Geräusche (Schall)", "Hörsinn"],
+      ["Nase", "Gerüche", "Riechsinn"],
+      ["Zunge", "Geschmack: süß, sauer, salzig, bitter", "Geschmackssinn"],
+      ["Haut", "Berührung, Wärme, Kälte und Schmerz", "Tastsinn"]
+    ] } },
+    { "tip": "Katzen und Hunde haben zusätzlich **Tasthaare** an der Schnauze. Damit spüren sie im Dunkeln, ob sie durch einen Spalt passen." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "In welcher Reihenfolge läuft es ab?", "options": ["Reiz → Sinnesorgan → Reaktion", "Reaktion → Reiz → Sinnesorgan", "Sinnesorgan → Reaktion → Reiz", "Reiz → Reaktion → Sinnesorgan"], "answer": "Reiz → Sinnesorgan → Reaktion", "explain": "Erst kommt der **Reiz**, das **Sinnesorgan** nimmt ihn auf, dann kommt die **Reaktion**." },
+    { "type": "choice", "q": "Der Hund hört die Türklingel. Welches Sinnesorgan nimmt den Reiz auf?", "options": ["das Ohr", "das Auge", "die Nase", "die Pfote"], "answer": "das Ohr", "recall": true, "accept": ["Ohr", "die Ohren", "Ohren"], "explain": "Geräusche nimmt das **Ohr** auf." },
+    { "type": "choice", "q": "Die Katze sieht im Garten einen Vogel. Welches Sinnesorgan nimmt den Reiz auf?", "options": ["das Auge", "das Ohr", "die Haut", "die Zunge"], "answer": "das Auge", "recall": true, "accept": ["Auge", "die Augen", "Augen"], "explain": "Licht und Bilder nimmt das **Auge** auf." },
+    { "type": "choice", "q": "Der Hund riecht die Wurst auf dem Tisch. Welches Sinnesorgan nimmt den Reiz auf?", "options": ["die Nase", "die Zunge", "das Ohr", "das Auge"], "answer": "die Nase", "recall": true, "accept": ["Nase"], "explain": "Gerüche nimmt die **Nase** auf." },
+    { "type": "choice", "q": "Das Eis schmeckt süß. Welches Sinnesorgan nimmt den Reiz auf?", "options": ["die Zunge", "die Nase", "die Haut", "das Auge"], "answer": "die Zunge", "recall": true, "accept": ["Zunge"], "explain": "Den Geschmack nimmt die **Zunge** auf." },
+    { "type": "choice", "q": "Eine Ameise krabbelt über deinen Arm. Welches Sinnesorgan nimmt den Reiz auf?", "options": ["die Haut", "das Auge", "das Ohr", "die Zunge"], "answer": "die Haut", "recall": true, "accept": ["Haut"], "explain": "Berührungen nimmt die **Haut** auf." },
+    { "type": "choice", "q": "Eine Katze spürt im Dunkeln, ob sie durch einen schmalen Spalt passt. Womit?", "options": ["mit den Tasthaaren", "mit dem Schwanz", "mit den Ohren", "mit der Zunge"], "answer": "mit den Tasthaaren", "explain": "Die **Tasthaare** an der Schnauze sind so breit wie der Körper der Katze." },
+    { "type": "choice", "q": "Welchen Reiz nimmt das Auge auf?", "options": ["Licht", "Geräusche", "Gerüche", "Wärme"], "answer": "Licht", "explain": "Das **Auge** nimmt **Licht** auf." },
+    { "type": "choice", "q": "Welchen Reiz nimmt das Ohr auf?", "options": ["Geräusche", "Licht", "Gerüche", "Geschmack"], "answer": "Geräusche", "explain": "Das **Ohr** nimmt **Geräusche** (Schall) auf." },
+    { "type": "choice", "q": "Welche Reize nimmt die Haut auf?", "options": ["Berührung, Wärme und Kälte", "Licht und Farben", "Gerüche", "Geräusche"], "answer": "Berührung, Wärme und Kälte", "explain": "Die **Haut** spürt Berührung, Wärme, Kälte und Schmerz." },
+    { "type": "choice", "q": "Die Schulglocke läutet, und die Kinder gehen in die Pause. Was passt?", "options": ["Reiz: das Läuten – Sinnesorgan: Ohr – Reaktion: in die Pause gehen", "Reiz: die Pause – Sinnesorgan: Auge – Reaktion: das Läuten", "Reiz: das Läuten – Sinnesorgan: Nase – Reaktion: in die Pause gehen", "Reiz: die Kinder – Sinnesorgan: Ohr – Reaktion: die Glocke"], "answer": "Reiz: das Läuten – Sinnesorgan: Ohr – Reaktion: in die Pause gehen", "explain": "Das **Läuten** ist der Reiz, das **Ohr** nimmt es auf, und die Kinder **gehen in die Pause**." },
+    { "type": "choice", "q": "Es riecht nach Rauch, und die Familie verlässt das Haus. Was passt?", "options": ["Reiz: der Rauchgeruch – Sinnesorgan: Nase – Reaktion: das Haus verlassen", "Reiz: das Haus – Sinnesorgan: Auge – Reaktion: der Rauch", "Reiz: die Familie – Sinnesorgan: Haut – Reaktion: der Geruch"], "answer": "Reiz: der Rauchgeruch – Sinnesorgan: Nase – Reaktion: das Haus verlassen", "explain": "Den **Geruch** nimmt die **Nase** auf. Die Familie reagiert und **verlässt das Haus**." },
+    { "type": "choice", "q": "Wie heißen die Körperteile, die Reize aufnehmen?", "options": ["Sinnesorgane", "Reaktionen", "Muskeln", "Knochen"], "answer": "Sinnesorgane", "recall": true, "accept": ["die Sinnesorgane", "Sinnesorgan"], "explain": "Auge, Ohr, Nase, Zunge und Haut sind **Sinnesorgane**." }
+  ]
+}

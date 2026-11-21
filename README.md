@@ -4,12 +4,13 @@ Eine kleine Lern-Webseite fürs Heimnetz. Dein Kind übt Englisch, Mathe, Deutsc
 
 ## Was drin ist
 
-**Englisch (Klasse 5, Grundlagen): 61 Stationen, gut 1000 Wörter und Aufgaben und der Satz-Trainer mit immer neuen Sätzen**
+**Englisch (Klasse 5, Grundlagen): 64 Stationen, gut 1000 Wörter und Aufgaben und der Satz-Trainer mit immer neuen Sätzen**
 
 Jede Linie hat 3 Stationen und danach den Endbahnhof. So ist eine Linie in ein paar Tagen geschafft, und die Lootbox dafür bleibt in Reichweite. Wörter und Grammatik sind nach Themen gemischt, die zusammenpassen.
 
 | Linie | Stationen |
 |---|---|
+| Signalwort-Linie | Present Progressive in zwei Schritten bauen (am/is/are + -ing, chase → chasing, swim → swimming), every day oder now? (erst das Signalwort suchen, Fragen mit is/does), an egg, an owl (auf das Wort direkt nach der Lücke schauen) |
 | Karteikarten-Linie | Die Vokabelkarten aus der Schule: Farben und Dinge, Verben mit „to“, kurze Sätze für jeden Tag |
 | Zimmer-Linie | Weitere Vokabelkarten: Rooms, Kitchen and bathroom, Furniture |
 | Glücks-Linie | Neue Vokabelblätter: You are lucky, Be quiet please, und Wörter aus dem Heft, die schwer zu schreiben sind (seagull, purple, eight …) |
@@ -34,6 +35,10 @@ Jede Linie hat 3 Stationen und danach den Endbahnhof. So ist eine Linie in ein p
 Früher gab es nur drei lange Englisch-Linien (Wörter, Grammatik, Alltag). Der Fortschritt der Stationen bleibt bei der neuen Aufteilung erhalten. Wer dort schon einen Endbahnhof bestanden hatte, behält die Goldkarte im Album unter „Frühere Linien“.
 
 Jede Station hat eine **„Merke“-Erklärung** auf Deutsch (kindgerecht, mit Beispielen und Vorlese-Knopf) und danach eine Übung mit 10 Aufgaben. Die Wörter-Stationen (Familie, Schule, Tiere, Essen, Körper, Kleidung, Zuhause, Freizeit, Verben, Adjektive) haben dazu je vier Lückensätze, damit die Wörter auch im Satz vorkommen – mit typischen Fallen wie „take photos“ statt „make photos“ oder „hair“ ohne -s.
+
+**Mathe: Erster Schritt (3 Stationen + Endbahnhof)**
+
+Die Erster-Schritt-Linie steht ganz oben im Mathe-Netzplan und übt, **womit** man anfängt, bevor gerechnet wird: Was kommt zuerst? (Klammer, Potenz, Punkt, Strich, Schritt für Schritt), Gleiche Stufe: von links nach rechts (24 : 4 : 2 = 3, geteilt und minus nicht zusammenfassen), Gute Partner finden (2 · 5, 4 · 25, 8 · 125, Einer, die zusammen 10 ergeben; bei mal bleibt mal). Dazu Minecraft-, Basketball- und Katzen-Aufgaben. Die Stationen sind auch im Rechenregel-Blitz.
 
 **Mathe: Römische Zahlen (3 Stationen + Endbahnhof)**
 
@@ -82,24 +87,26 @@ Nach den Heften und Arbeitsblättern aus der Schule. Bei einem Fehler zeigen vie
 
 Dazu gibt es den „Rechenregel-Blitz“. Zahlen dürfen mit Tausenderpunkt oder Leerzeichen eingetippt werden: 45.000 und 45 000 zählen wie 45000.
 
-**Geographie: Die Erde, der Atlas, Kontinente und Meere (3 Linien, 10 Stationen)**
+**Geographie: Die Erde, der Atlas, Kontinente und Meere (4 Linien, 13 Stationen)**
 
 Die Welt-Linie hat die Stationen Die Kontinente, Kontinente-Wissen, Die Ozeane und Meere in Europa. Auf einer Welt- bzw. Europakarte wird ein Gebiet farbig markiert, und dein Kind wählt oder schreibt den Namen. Dazu kommen Wissensfragen (größter Kontinent, Sylt liegt in der …). Im „Merke“ ist jeweils eine bunte Karte mit Legende.
 
 | Linie | Stationen |
 |---|---|
+| Kompass-Linie | Zwischen zwei Richtungen (Nord oder Süd steht vorne, gegenüberliegende Richtungen, Abkürzungen), Drin oder daneben? (erst fragen, ob ein Ort im Land liegt: im Norden von oder nördlich von), Im Atlas suchen (Register oder Inhaltsverzeichnis, Seite und Planquadrat, physische oder thematische Karte, Legende) |
 | Erde-Linie | Der Globus (Pole, Erdachse, Äquator, Halbkugeln an einer Globus-Zeichnung; was Geographie ist), Die Planeten, Tag und Nacht, Sommer und Winter (Rotation und Revolution) |
 | Atlas-Linie | Himmelsrichtungen an der Kompassrose, Lagebeschreibung („nördlich von“ oder „im Norden von“), Der Atlas (physische und thematische Karten, Register) |
 | Welt-Linie | Die Kontinente, Kontinente-Wissen, Die Ozeane, Meere in Europa |
 
 Dazu gibt es den „Welt-Blitz“ und den „Erde-und-Atlas-Blitz“.
 
-**Biologie: Katze, Merkmale des Lebens, Versuche und Hund (6 Linien, 19 Stationen, je mit Endbahnhof)**
+**Biologie: Reiz und Reaktion, Katze, Merkmale des Lebens, Versuche und Hund (7 Linien, 22 Stationen, je mit Endbahnhof)**
 
 Passend zum Kapitel „Haustiere“ im Biologiebuch, zu den Arbeitsblättern und zum Test über die Merkmale des Lebens:
 
 | Linie | Stationen |
 |---|---|
+| Reiz-Linie | Was löst es aus? (Was passiert zuerst, von außen? Was tut das Lebewesen danach? Auch wenn der Reiz hinten im Satz steht), Welches Sinnesorgan? (Reiz → Sinnesorgan → Reaktion, die fünf Sinne, Tasthaare), Beobachten oder deuten? (der Mehlwurm-Versuch: hell oder dunkel, und die Bohne im Karton) |
 | Hund-und-Katze-Linie | Pfoten und Krallen (Zehen- und Sohlengänger, die Ferse beim Hund, wie die Katze ihre Krallen ausfährt: Struktur und Funktion, Spuren im Schnee), Katzensinne (Nachtjäger, Pupillen, leuchtende Augen und Katzenaugen am Fahrrad, Tasthaare), Hund oder Katze? (Vergleich, Katzengebiss mit 30 Zähnen, Tragstarre, Katzenhaltung, „wie Hund und Katze“) |
 | Katzen-Linie | Die Katze als Schleichjäger (die vier Phasen beim Beutefang), Perfekt angepasst (Krallen, Fangzähne, Augen, Tasthaare), Fortpflanzung der Katzen (Fachwörter, Säugetier richtig begründen, Revier) |
 | Lebewesen-Linie | Merkmale des Lebens, Lebewesen oder nicht? (Maus, Spielzeugmaus, Auto: Bewegung zählt nur, wenn sie selbstständig ist), Reiz und Reaktion (reizbar heißt nicht wütend) |
@@ -169,6 +176,7 @@ Die Groß-und-klein-Linie übt Satzanfänge, Nomen und Verben, die zu Nomen werd
 - **Keine Zwillinge in einer Fahrt:** Zwei Fragen zur selben markierten Stelle einer Karte (z. B. „Nordosten“ antippen und „NO“ schreiben) kommen nie in dieselbe Fahrt, in Fächern ohne Fremdsprache auch keine zwei Fragen mit derselben Antwort – sonst verrät die eine die andere. Kleine Stationen ohne Wörter haben dafür eine kürzere Fahrt (die Kontinente: 7 Aufgaben).
 - **Wiederholen mit Abständen:** Jede Aufgabe liegt in einer von 8 Boxen. Eine richtige Antwort hebt sie nur eine Box höher, wenn sie wieder fällig war, also nicht mehrmals am selben Tag. Fällig wird sie nach 1, 3, 7, 14, 30, 60 und 120 Tagen. Die langen Abstände halten die tägliche Wiederholung klein, auch wenn es viele Hundert gelernte Wörter gibt. Ein Fehler wirft eine Aufgabe zwei Boxen zurück, aus den langen Abständen bis in Box 3. Was fällig ist, zeigt der Netzplan als **„Wiederholen“**, über alle Stationen hinweg, auch über die auf dem Abstellgleis. Ist etwas fällig, steht die Wiederholung bei den „Ideen für heute“. Die Blitzrunde kann eine Box nur senken, nicht heben, weil dort nur angetippt wird.
 - **„Das sitzt“:** Eine Aufgabe sitzt, wenn sie an mindestens drei Tagen richtig war, mit Pausen dazwischen (ab Box 3). Die Startseite zeigt, wie viel schon sitzt und wie viel diese Woche dazugekommen ist, jede Fach-Kachel die Zahl fürs Fach. Am Ziel einer Fahrt steht, was durch diese Fahrt neu sitzt. Sterne zeigen, wie eine Fahrt lief – diese Zahl zeigt, was im Kopf geblieben ist. Sie sinkt nie: Wackelt eine Aufgabe später wieder, holt sie das Fehler-Training, gezählt bleibt sie trotzdem. Eine Zahl, die schrumpft, fühlt sich wie Verlieren an – aus demselben Grund wie bei der Wochenkarte.
+- **Lösung ansehen:** Nach einem Fehler bleibt die richtige Lösung 3 Sekunden stehen, bevor „Weiter“ geht. Der Knopf füllt sich dabei sichtbar. So wird die Lösung angeschaut, statt gleich weiterzutippen. Richtige Antworten und die Blitzrunde bleiben so schnell wie bisher.
 - Falsch beantwortete Aufgaben kommen am Ende der Übung noch einmal, mit neu gemischten Antworten. Gewertet wird aber nur der erste Versuch.
 - **Fast richtig:** Ist nur ein Buchstabe falsch, darf dein Kind die Antwort einmal selbst verbessern, bevor die Lösung kommt. Klappt das, gibt es einen **halben Punkt** (z. B. „8½ von 10“). Das gilt für Vokabeln und für alles, was in Biologie, Geographie, Geschichte, Musik, Ethik und Mathe geschrieben wird (in Biologie zählt das Wissen, nicht der eine Buchstabe). Nicht bei Zahlen (3120 statt 3720 ist ein Rechenfehler) und nicht in Englisch-Lücken, wo der eine Buchstabe oft genau das Geübte ist (he like → likes).
 - **Tipp-Knopf:** Bei Aufgaben zum Schreiben zeigt „💡 Tipp“ den ersten Buchstaben und für jeden weiteren ein leeres Kästchen (E _ _ _ _ _). Mit Tipp gibt es höchstens einen halben Punkt. Die Serie in der Fahrt bleibt dabei stehen, sie reißt nicht – Hilfe holen soll nichts kosten, was das Kind sich erarbeitet hat. So bleibt dein Kind beim Erinnern, statt aufzugeben. Bei der Wiederholung am Ende der Fahrt kostet der Tipp nichts, in der Blitzrunde gibt es keinen, und bei Antworten unter drei Buchstaben auch nicht.

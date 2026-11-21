@@ -5,6 +5,7 @@
   "order": 1,
   "speechLang": "en-GB",
   "lines": [
+    { "id": "signal", "name": "Signalwort-Linie", "short": "Signalwörter", "color": "#E65100" },
     { "id": "karten", "name": "Karteikarten-Linie", "short": "Karteikarten", "color": "#00695C" },
     { "id": "zimmer", "name": "Zimmer-Linie", "short": "Zimmer", "color": "#0D3B66" },
     { "id": "glueck", "name": "Glücks-Linie", "short": "Glück", "color": "#2E7D32" },
@@ -38,7 +39,7 @@
     },
     {
       "id": "grammatik", "title": "Grammatik-Blitz", "icon": "🌩️", "subtitle": "Welche Form passt?", "types": ["choice"],
-      "units": ["short-answers", "where-is-the-ball", "trainer-be-have", "trainer-s", "trainer-do", "test-be-have", "test-pronouns", "test-possessives", "pronouns", "to-be", "to-be-not", "a-an", "plural", "have-got", "possessives", "genitive", "this-that", "there-is", "prepositions", "can", "question-words", "simple-present", "dont-doesnt", "do-does", "frequency", "present-progressive", "present-vs-progressive", "object-pronouns"]
+      "units": ["short-answers", "where-is-the-ball", "trainer-be-have", "trainer-s", "trainer-do", "test-be-have", "test-pronouns", "test-possessives", "pronouns", "to-be", "to-be-not", "a-an", "plural", "have-got", "possessives", "genitive", "this-that", "there-is", "prepositions", "can", "question-words", "simple-present", "dont-doesnt", "do-does", "frequency", "present-progressive", "present-vs-progressive", "object-pronouns", "ing-bauen", "signalwoerter", "an-vor-vokal"]
     }
   ]
 }

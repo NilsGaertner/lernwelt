@@ -157,6 +157,12 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 }
 .btn:active { transform: translateY(1px); }
 .btn[disabled] { opacity: 0.45; cursor: not-allowed; transform: none; }
+/* „Weiter“ nach einem Fehler: füllt sich, während die Lösung stehen bleibt */
+.btn.wait { position: relative; overflow: hidden; }
+.btn.wait[disabled] { opacity: 0.75; cursor: wait; }
+.btn.wait::after { content: ''; position: absolute; inset: auto 0 0 0; height: 5px; background: currentColor; transform-origin: left; animation: btn-wait var(--wait, 3s) linear forwards; }
+@keyframes btn-wait { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { .btn.wait::after { animation: none; transform: none; opacity: 0.4; } }
 .btn.line { background: var(--line); color: #fff; }
 .btn.ghost { background: transparent; color: var(--ink); border-color: var(--rule); }
 .btn.go { background: var(--go); color: #fff; }

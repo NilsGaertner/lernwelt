@@ -4,6 +4,7 @@
   "icon": "🐾",
   "order": 4,
   "lines": [
+    { "id": "reiz", "name": "Reiz-Linie", "short": "Reiz & Reaktion", "color": "#1565C0" },
     { "id": "hundkatze", "name": "Hund-und-Katze-Linie", "short": "Hund & Katze", "color": "#6D4C9F" },
     { "id": "katze", "name": "Katzen-Linie", "short": "Katze", "color": "#C2410C" },
     { "id": "leben", "name": "Lebewesen-Linie", "short": "Lebewesen", "color": "#2E7D32" },
@@ -14,7 +15,7 @@
   "blitz": [
     {
       "id": "leben-katze", "title": "Leben-und-Katzen-Blitz", "icon": "⚡", "subtitle": "Merkmale des Lebens, Versuche und Katzen", "types": ["choice"],
-      "units": ["schleichjaeger", "katze-koerper", "katze-fortpflanzung", "merkmale-leben", "lebewesen-oder-nicht", "reiz-reaktion", "arbeitsweisen", "versuch-planen", "diagramme"]
+      "units": ["schleichjaeger", "katze-koerper", "katze-fortpflanzung", "merkmale-leben", "lebewesen-oder-nicht", "reiz-reaktion", "arbeitsweisen", "versuch-planen", "diagramme", "was-loest-aus", "sinnesorgane", "beobachten-deuten"]
     },
     {
       "id": "hunde", "title": "Hunde-Blitz", "icon": "⚡", "subtitle": "Körper, Gebiss, Wolf und Welpen", "types": ["choice"],

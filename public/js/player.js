@@ -10,6 +10,8 @@ import { lootbox } from './lootbox.js';
 import { companion } from './companion.js';
 
 const PRAISE = ['Richtig!', 'Super!', 'Klasse!', 'Genau!', 'Stark!', 'Perfekt!'];
+/** So lange bleibt die Lösung nach einem Fehler stehen, bevor „Weiter“ geht. */
+const LOOK_AT_SOLUTION_MS = 3000;
 const pick = (a) => a[Math.floor(Math.random() * a.length)];
 const shuffle = (arr) => {
   const a = [...arr];
@@ -970,12 +972,22 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
           : null,
         btn));
     document.body.append(sheet);
-    // Kurz warten, damit ein Doppel-Enter nicht gleich weiterspringt.
+    // Nach einem Fehler bleibt die Lösung ein paar Sekunden stehen, bevor „Weiter“ geht – sonst tippt man
+    // schnell weiter, ohne sie anzusehen. Der Knopf füllt sich dabei, damit klar ist, dass es gleich weitergeht.
+    // Sonst nur kurz warten, damit ein Doppel-Enter nicht gleich weiterspringt.
+    const wait = res.correct ? 250 : LOOK_AT_SOLUTION_MS;
+    if (!res.correct) {
+      btn.disabled = true;
+      btn.classList.add('wait');
+      btn.style.setProperty('--wait', `${wait}ms`);
+    }
     setTimeout(() => {
+      btn.disabled = false;
+      btn.classList.remove('wait');
       onEnter = next;
       // Nicht ins Abschreib-Feld springen: Die Handy-Tastatur würde sich aufdrängen.
-      btn.focus({ preventScroll: true });
-    }, 250);
+      if (!sheet.contains(document.activeElement)) btn.focus({ preventScroll: true });
+    }, wait);
   }
 
   /** Eingabefeld zum Abschreiben der Lösung (Satzzeichen sind egal, Groß/klein nur bei Rechtschreibung nicht). */

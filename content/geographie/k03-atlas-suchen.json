@@ -1,0 +1,38 @@
+{
+  "id": "atlas-suchen",
+  "line": "kompass",
+  "order": 3,
+  "title": "Im Atlas suchen",
+  "subtitle": "Register, Seite und Planquadrat",
+  "icon": "🔍",
+  "card": "Merke: Einen **Ort** suchst du **hinten im Register** (nach dem ABC). Dort steht z. B. **Leipzig 25 D2**: Seite 25, Planquadrat D2.",
+  "explain": [
+    { "p": "Im Atlas gibt es zwei Verzeichnisse. Welches du brauchst, hängt davon ab, **was du suchst**:" },
+    { "table": { "head": ["", "Inhaltsverzeichnis", "Register"], "rows": [
+      ["Wo?", "**vorne** im Atlas", "**hinten** im Atlas"],
+      ["Was steht drin?", "welche **Karte** auf welcher Seite ist", "alle **Orte**, Flüsse und Berge nach dem **ABC**"],
+      ["Wann brauchst du es?", "Du suchst eine Karte, z. B. „Deutschland – Klima“.", "Du suchst einen Ort, z. B. „Leipzig“."]
+    ] } },
+    { "p": "Im Register steht hinter dem Namen eine **Seitenzahl** und ein **Planquadrat** (Gradnetzfeld): **Leipzig 25 D2** → Seite **25**, Feld **D2**." },
+    { "tip": "Das Feld findest du wie beim Schiffe-versenken: den **Buchstaben** am Rand **oben oder unten**, die **Zahl** am Rand **links oder rechts**. Wo sich beide treffen, liegt der Ort." },
+    { "table": { "head": ["Kartenart", "zeigt", "Farben und Zeichen"], "rows": [
+      ["**physische Karte**", "Höhen, Gebirge, Flüsse, Städte", "grün = Tiefland, gelb bis hellbraun = höher, dunkelbraun = Hochgebirge, blau = Wasser"],
+      ["**thematische Karte**", "ein Thema, z. B. Klima, Wirtschaft, Bevölkerung", "eigene Farben und Symbole – was sie bedeuten, steht in der **Legende**"]
+    ] } }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Du suchst die Stadt **Leipzig** im Atlas. Wo schaust du nach?", "options": ["hinten im Register", "vorne im Inhaltsverzeichnis", "auf der ersten Karte", "in der Legende"], "answer": "hinten im Register", "explain": "Einzelne **Orte** stehen im **Register** hinten im Atlas, nach dem ABC." },
+    { "type": "choice", "q": "Du suchst die **Karte** „Deutschland – Klima“. Wo schaust du nach?", "options": ["vorne im Inhaltsverzeichnis", "hinten im Register", "in der Legende", "auf dem Buchrücken"], "answer": "vorne im Inhaltsverzeichnis", "explain": "Welche **Karte** auf welcher Seite ist, steht **vorne im Inhaltsverzeichnis**." },
+    { "type": "choice", "q": "Wie sind die Orte im Register geordnet?", "options": ["nach dem ABC", "nach der Größe", "nach den Kontinenten", "nach den Seitenzahlen"], "answer": "nach dem ABC", "explain": "Im Register stehen alle Orte **alphabetisch**, also nach dem ABC." },
+    { "type": "choice", "q": "Im Register steht: **Leipzig 25 D2**. Was bedeutet die **25**?", "options": ["die Seitenzahl", "das Planquadrat", "die Einwohnerzahl", "die Höhe über dem Meer"], "answer": "die Seitenzahl", "explain": "Die erste Zahl ist die **Seite**: Leipzig findest du auf Seite 25." },
+    { "type": "choice", "q": "Im Register steht: **Leipzig 25 D2**. Was bedeutet **D2**?", "options": ["das Planquadrat auf der Karte", "die Seitenzahl", "die Postleitzahl", "der Maßstab"], "answer": "das Planquadrat auf der Karte", "explain": "**D2** ist das **Planquadrat** (Gradnetzfeld): Buchstabe D und Zahl 2." },
+    { "type": "choice", "q": "Bei **D2**: Wo findest du den Buchstaben **D**?", "options": ["am Kartenrand oben oder unten", "am Kartenrand links oder rechts", "in der Legende", "in der Kartenmitte"], "answer": "am Kartenrand oben oder unten", "explain": "Die **Buchstaben** stehen **oben oder unten** am Rand, die Zahlen links oder rechts." },
+    { "type": "choice", "q": "Bei **D2**: Wo findest du die Zahl **2**?", "options": ["am Kartenrand links oder rechts", "am Kartenrand oben oder unten", "unten bei der Seitenzahl", "im Inhaltsverzeichnis"], "answer": "am Kartenrand links oder rechts", "explain": "Die **Zahlen** stehen **links oder rechts** am Rand. Wo sich D und 2 treffen, liegt Leipzig." },
+    { "type": "choice", "q": "Wo steht, was die Farben und Zeichen einer Karte bedeuten?", "options": ["in der Legende", "im Register", "im Inhaltsverzeichnis", "auf der Rückseite des Atlas"], "answer": "in der Legende", "recall": true, "accept": ["Legende", "die Legende"], "explain": "Die **Legende** erklärt die Farben und Zeichen der Karte." },
+    { "type": "choice", "q": "Du willst wissen, wie **hoch** die Alpen sind. Welche Karte brauchst du?", "options": ["eine physische Karte", "eine thematische Karte zur Bevölkerung", "eine Wirtschaftskarte", "eine Klimakarte"], "answer": "eine physische Karte", "explain": "Die **physische Karte** zeigt die Höhe mit Farben." },
+    { "type": "choice", "q": "Du willst wissen, wo in Deutschland **viele Menschen** wohnen. Welche Karte brauchst du?", "options": ["eine thematische Karte zur Bevölkerung", "eine physische Karte", "eine Karte der Flüsse", "eine Karte der Gebirge"], "answer": "eine thematische Karte zur Bevölkerung", "explain": "Ein bestimmtes **Thema** wie die Bevölkerung zeigt eine **thematische Karte**." },
+    { "type": "choice", "q": "Ein Gebiet ist auf der physischen Karte **dunkelbraun**. Was ist dort?", "options": ["ein Hochgebirge", "ein Tiefland", "ein See", "eine große Stadt"], "answer": "ein Hochgebirge", "explain": "Je höher, desto brauner: **dunkelbraun = Hochgebirge**." },
+    { "type": "choice", "q": "Ein Gebiet ist auf der physischen Karte **grün**. Was ist dort?", "options": ["ein Tiefland", "ein Wald", "ein Hochgebirge", "eine Wiese"], "answer": "ein Tiefland", "explain": "Grün heißt auf der physischen Karte **tief gelegenes Land**, nicht Wald oder Wiese!" },
+    { "type": "choice", "q": "Wie heißt das Verzeichnis hinten im Atlas, in dem alle Orte nach dem ABC stehen?", "options": ["Register", "Inhaltsverzeichnis", "Legende", "Maßstab"], "answer": "Register", "recall": true, "accept": ["das Register"], "explain": "Hinten im Atlas steht das **Register**." }
+  ]
+}

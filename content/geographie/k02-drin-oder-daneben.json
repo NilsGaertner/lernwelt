@@ -1,0 +1,37 @@
+{
+  "id": "drin-oder-daneben",
+  "line": "kompass",
+  "order": 2,
+  "title": "Drin oder daneben?",
+  "subtitle": "im Norden von oder nördlich von",
+  "icon": "📌",
+  "card": "Merke: Erst fragen: **Liegt es drin oder daneben?** Drin → **im Norden von** Deutschland (Hamburg). Daneben → **nördlich von** Deutschland (Dänemark).",
+  "explain": [
+    { "p": "Bevor du die Lage beschreibst, frag dich: **Liegt der Ort im Land drin – oder außerhalb, daneben?**" },
+    { "table": { "head": ["", "drin (innerhalb)", "daneben (außerhalb)"], "rows": [
+      ["So sagt man es", "**im Norden von** Deutschland", "**nördlich von** Deutschland"],
+      ["Beispiel Norden", "Hamburg liegt **im Norden von** Deutschland.", "Dänemark liegt **nördlich von** Deutschland."],
+      ["Beispiel Süden", "München liegt **im Süden von** Deutschland.", "Österreich liegt **südlich von** Deutschland."],
+      ["Beispiel Westen", "Köln liegt **im Westen von** Deutschland.", "Frankreich liegt **westlich von** Deutschland."],
+      ["Beispiel Osten", "Berlin liegt **im Osten von** Deutschland.", "Polen liegt **östlich von** Deutschland."]
+    ] } },
+    { "map": "europa", "legend": [["deutschland", "Deutschland"], ["nordsee", "Nordsee"], ["ostsee", "Ostsee"]] },
+    { "tip": "Eine Stadt in Deutschland liegt **in** Deutschland → „im …“. Ein anderes Land oder ein Meer liegt **neben** Deutschland → „…lich von“." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Drin oder daneben?", "q": "Hamburg und Deutschland", "options": ["Hamburg liegt in Deutschland drin.", "Hamburg liegt neben Deutschland."], "answer": "Hamburg liegt in Deutschland drin.", "explain": "Hamburg ist eine Stadt **in** Deutschland. Darum: **im Norden von** Deutschland." },
+    { "type": "choice", "task": "Drin oder daneben?", "q": "Dänemark und Deutschland", "options": ["Dänemark liegt neben Deutschland.", "Dänemark liegt in Deutschland drin."], "answer": "Dänemark liegt neben Deutschland.", "explain": "Dänemark ist ein eigenes Land **neben** Deutschland. Darum: **nördlich von** Deutschland." },
+    { "type": "choice", "task": "Wie geht die Lagebeschreibung weiter?", "q": "Hamburg liegt ___ Deutschland.", "options": ["im Norden von", "nördlich von", "im Süden von", "südlich von"], "answer": "im Norden von", "explain": "Hamburg liegt **drin** → **im Norden von** Deutschland." },
+    { "type": "choice", "task": "Wie geht die Lagebeschreibung weiter?", "q": "Dänemark liegt ___ Deutschland.", "options": ["nördlich von", "im Norden von", "südlich von", "im Süden von"], "answer": "nördlich von", "explain": "Dänemark liegt **daneben** → **nördlich von** Deutschland." },
+    { "type": "choice", "task": "Wie geht die Lagebeschreibung weiter?", "q": "München liegt ___ Deutschland.", "options": ["im Süden von", "südlich von", "im Norden von", "östlich von"], "answer": "im Süden von", "explain": "München liegt **drin** → **im Süden von** Deutschland." },
+    { "type": "choice", "task": "Wie geht die Lagebeschreibung weiter?", "q": "Österreich liegt ___ Deutschland.", "options": ["südlich von", "im Süden von", "nördlich von", "im Osten von"], "answer": "südlich von", "explain": "Österreich ist ein eigenes Land **daneben** → **südlich von** Deutschland." },
+    { "type": "choice", "task": "Wie geht die Lagebeschreibung weiter?", "q": "Frankreich liegt ___ Deutschland.", "options": ["westlich von", "im Westen von", "östlich von", "im Osten von"], "answer": "westlich von", "explain": "Frankreich liegt **daneben** und links auf der Karte → **westlich von** Deutschland." },
+    { "type": "choice", "task": "Wie geht die Lagebeschreibung weiter?", "q": "Köln liegt ___ Deutschland.", "options": ["im Westen von", "westlich von", "im Osten von", "östlich von"], "answer": "im Westen von", "explain": "Köln liegt **drin** und links auf der Karte → **im Westen von** Deutschland." },
+    { "type": "choice", "task": "Wie geht die Lagebeschreibung weiter?", "q": "Polen liegt ___ Deutschland.", "options": ["östlich von", "im Osten von", "westlich von", "im Westen von"], "answer": "östlich von", "explain": "Polen liegt **daneben** und rechts auf der Karte → **östlich von** Deutschland." },
+    { "type": "choice", "task": "Wie geht die Lagebeschreibung weiter?", "q": "Berlin liegt ___ Deutschland.", "options": ["im Osten von", "östlich von", "im Westen von", "westlich von"], "answer": "im Osten von", "explain": "Berlin liegt **drin** und rechts auf der Karte → **im Osten von** Deutschland." },
+    { "type": "choice", "task": "Wie geht die Lagebeschreibung weiter?", "q": "Die Ostsee liegt ___ Deutschland.", "options": ["nördlich von", "im Norden von", "südlich von", "im Süden von"], "answer": "nördlich von", "explain": "Das Meer liegt **außerhalb** von Deutschland → **nördlich von** Deutschland." },
+    { "type": "choice", "task": "Wie geht die Lagebeschreibung weiter?", "q": "Ägypten liegt ___ Afrika.", "options": ["im Norden von", "nördlich von", "im Süden von", "südlich von"], "answer": "im Norden von", "explain": "Ägypten ist ein Land **in** Afrika, ganz oben → **im Norden von** Afrika." },
+    { "type": "choice", "q": "Welcher Satz stimmt?", "options": ["Dänemark liegt nördlich von Deutschland.", "Dänemark liegt im Norden von Deutschland.", "Hamburg liegt nördlich von Deutschland.", "München liegt südlich von Deutschland."], "answer": "Dänemark liegt nördlich von Deutschland.", "explain": "Dänemark liegt **daneben** → nördlich von. Hamburg und München liegen **drin** → im Norden von, im Süden von." },
+    { "type": "choice", "q": "Was bedeutet „**im Süden von** Deutschland“?", "options": ["innerhalb von Deutschland, unten auf der Karte", "außerhalb von Deutschland, unterhalb der Grenze", "außerhalb von Deutschland, rechts daneben", "innerhalb von Deutschland, oben auf der Karte"], "answer": "innerhalb von Deutschland, unten auf der Karte", "explain": "„im …“ heißt **drin**. Süden ist auf der Karte **unten**." }
+  ]
+}
