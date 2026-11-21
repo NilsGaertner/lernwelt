@@ -59,10 +59,17 @@ function badgeStats(childId) {
   };
 }
 
-/** Sterne-Limit für einen Tag: ein Sonder-Limit aus dem Elternbereich, sonst die normale Einstellung (0 = unbegrenzt). */
+/** Das übliche Limit eines Tages ohne Sonder-Limit: am Samstag und Sonntag das Wochenend-Limit, falls eins eingestellt ist (0 = unbegrenzt). */
+export function regularLimitFor(day = localDay()) {
+  const s = getPublicSettings();
+  const weekday = new Date(`${day}T12:00:00`).getDay();
+  return (weekday === 0 || weekday === 6) && s.weekendStarLimit != null ? s.weekendStarLimit : s.dailyStarLimit;
+}
+
+/** Sterne-Limit für einen Tag: ein Sonder-Limit aus dem Elternbereich, sonst das übliche Limit (0 = unbegrenzt). */
 export function starLimitFor(day = localDay()) {
   const special = db.prepare('SELECT star_limit FROM day_limits WHERE day = ?').get(day);
-  return special ? special.star_limit : getPublicSettings().dailyStarLimit;
+  return special ? special.star_limit : regularLimitFor(day);
 }
 
 /** Sonder-Limits ab heute. */

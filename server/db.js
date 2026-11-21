@@ -188,6 +188,7 @@ export const EARN_KINDS = ['session', 'bonus', 'badge'];
 const DEFAULT_SETTINGS = {
   minutesPerStar: '1',
   dailyStarLimit: '60',
+  weekendStarLimit: '', // leer = wie unter der Woche
   questionsPerSession: '10',
   ticketMinutes: '15,30,60',
   starScale: '2',
@@ -241,6 +242,8 @@ export function getPublicSettings() {
   return {
     minutesPerStar: Number(getSetting('minutesPerStar')),
     dailyStarLimit: Number(getSetting('dailyStarLimit')),
+    // null = am Wochenende gilt dasselbe Limit wie unter der Woche
+    weekendStarLimit: (getSetting('weekendStarLimit') ?? '') === '' ? null : Number(getSetting('weekendStarLimit')),
     questionsPerSession: Number(getSetting('questionsPerSession')),
     retireAfter: Number(getSetting('retireAfter')),
     ticketMinutes: getSetting('ticketMinutes')

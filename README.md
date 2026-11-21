@@ -239,6 +239,7 @@ Nach einer geschafften Fahrt (ab 2 Sternen) schlägt die Ankunft den **nächsten
 Im **Elternbereich** stellst du ein:
 - wie viele Minuten Medienzeit ein Stern wert ist (Standard: 1 Minute, auch 0,5er-Schritte möglich)
 - wie viele Sterne es höchstens pro Tag gibt (Standard: 60). Üben geht danach weiter, nur ohne Sterne.
+- optional ein eigenes Limit fürs Wochenende (Samstag und Sonntag). Leer bleibt es beim normalen Limit.
 - welche Ticket-Größen es gibt (Standard: 15, 30 und 60 Minuten)
 
 Für besondere Tage gibt es im Elternbereich zwei Extras (sie gelten für alle Kinder):
