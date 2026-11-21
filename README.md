@@ -189,6 +189,8 @@ Jede Fahrt wird mit 1 bis 3 Sternen bewertet (unter 70 % richtig: 1 Stern, ab 70
 | 2. Fahrt | Bewertung × 1 (1, 2 oder 3) |
 | ab der 3. Fahrt | 1 |
 
+Eine Fahrt, bei der keine einzige Antwort richtig war, bringt keine Sterne (auch keinen Tagesbonus). Sie zählt trotzdem als Übung. So lohnt es sich nicht, kurze Fahrten einfach durchzuklicken.
+
 So lohnt sich Wiederholen weiterhin, aber eine leichte Station immer wieder abzufahren bringt kaum etwas. Die Endbahnhof-Prüfung ist genauso gestaffelt (pro Linie). Das Fehler-Training und die Wiederholung bringen immer Bewertung × 2: Sie enthalten nur Aufgaben, die noch nicht sitzen oder gerade fällig sind.
 
 | Bonus | Sterne |
