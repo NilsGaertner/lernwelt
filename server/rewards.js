@@ -59,10 +59,17 @@ function badgeStats(childId) {
   };
 }
 
-/** Sterne-Limit für einen Tag: ein Sonder-Limit aus dem Elternbereich, sonst die normale Einstellung (0 = unbegrenzt). */
+/** Das übliche Limit eines Tages ohne Sonder-Limit: am Samstag und Sonntag das Wochenend-Limit, falls eins eingestellt ist (0 = unbegrenzt). */
+export function regularLimitFor(day = localDay()) {
+  const s = getPublicSettings();
+  const weekday = new Date(`${day}T12:00:00`).getDay();
+  return (weekday === 0 || weekday === 6) && s.weekendStarLimit != null ? s.weekendStarLimit : s.dailyStarLimit;
+}
+
+/** Sterne-Limit für einen Tag: ein Sonder-Limit aus dem Elternbereich, sonst das übliche Limit (0 = unbegrenzt). */
 export function starLimitFor(day = localDay()) {
   const special = db.prepare('SELECT star_limit FROM day_limits WHERE day = ?').get(day);
-  return special ? special.star_limit : getPublicSettings().dailyStarLimit;
+  return special ? special.star_limit : regularLimitFor(day);
 }
 
 /** Sonder-Limits ab heute. */
@@ -183,8 +190,11 @@ export function completeSession({
     const countsToday = !!station && rating === 3 && !station.perfectToday;
     const justRetired = !!station && !station.retired && countsToday && station.limit > 0 && station.perfect + 1 >= station.limit;
     if (station?.retired && !parked) useExtraRide(childId, subject, unitId);
+    // Ohne eine einzige richtige Antwort gibt es keine Sterne – sonst lohnt es sich, kurze Fahrten einfach durchzuklicken.
+    const noneRight = correct <= 0 && mode !== 'blitz' && !parked;
     // Der Tagesbonus gehört zur ersten Fahrt, die Sterne bringt.
-    const firstToday = !parked && !db.prepare('SELECT 1 FROM sessions WHERE child_id = ? AND day = ? AND parked = 0').get(childId, day);
+    const firstToday = !parked && !noneRight
+      && !db.prepare('SELECT 1 FROM sessions WHERE child_id = ? AND day = ? AND parked = 0 AND correct > 0').get(childId, day);
     const runToday =
       mode === 'unit' || mode === 'exam'
         ? db.prepare('SELECT COUNT(*) AS n FROM sessions WHERE child_id = ? AND day = ? AND mode = ? AND subject = ? AND unit_id = ?')
@@ -194,7 +204,7 @@ export function completeSession({
     const duration = Math.max(0, Math.round((Date.now() - new Date(startedAt).getTime()) / 1000));
     // Sterne der Fahrt selbst (ohne Boni und Tageslimit) – zählen auch für die Serie
     const rideStars =
-      mode === 'blitz' || parked ? 0 : short ? shortRideStars(rating, runToday, total, full) : sessionStars(rating, runToday);
+      mode === 'blitz' || parked || noneRight ? 0 : short ? shortRideStars(rating, runToday, total, full) : sessionStars(rating, runToday);
     db.prepare(
       `INSERT INTO sessions (id, child_id, subject, unit_id, mode, day, started_at, finished_at, total, correct, rating, stars, duration_sec, best_combo, run_today, boosted, parked, ride_stars)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?)`
@@ -205,7 +215,7 @@ export function completeSession({
 
     const W = worldOf(childId);
     const rewards = [];
-    if (mode !== 'blitz' && !parked) {
+    if (mode !== 'blitz' && !parked && !noneRight) {
       const repeat = runToday > 1 ? ` (${runToday}. ${W.ride.s} heute)` : '';
       const stars = rideStars;
       rewards.push({ kind: 'session', amount: stars, note: `${unitTitle}: ${fmtScore(correct)} von ${total} richtig${repeat}` });
@@ -291,6 +301,7 @@ export function completeSession({
       correct,
       rating,
       short,
+      noneRight,
       awarded,
       capped,
       adult,

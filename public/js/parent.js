@@ -172,6 +172,7 @@ async function dashboard(root, render, reloadMeta) {
     h('.form-grid',
       f('minutesPerStar', 'Minuten Medienzeit pro Stern', s.minutesPerStar, 'Die erste Fahrt einer Station am Tag bringt bis zu 6 Sterne, die zweite bis zu 3, jede weitere 1. Dazu kommen Boni.', { type: 'number', min: 0.5, max: 60, step: 0.5 }),
       f('dailyStarLimit', 'Maximale Sterne pro Tag', s.dailyStarLimit, '0 = unbegrenzt. Üben geht auch danach, nur ohne Sterne.', { type: 'number', min: 0, max: 2000 }),
+      f('weekendStarLimit', 'Maximale Sterne am Wochenende', s.weekendStarLimit ?? '', 'Gilt samstags und sonntags. Leer = wie unter der Woche, 0 = unbegrenzt.', { type: 'number', min: 0, max: 2000, placeholder: `wie unter der Woche (${s.dailyStarLimit})` }),
       f('questionsPerSession', 'Aufgaben pro Übung', s.questionsPerSession, 'Empfohlen: 8–12.', { type: 'number', min: 5, max: 30 }),
       f('retireAfter', 'Abstellgleis nach … Tagen mit 3 Sternen', s.retireAfter, 'Pro Tag zählt eine Fahrt. Danach bringt die Station keine Sterne mehr, dafür gibt es einmal eine Lootbox. 0 = nie.', { type: 'number', min: 0, max: 50 }),
       f('ticketMinutes', 'Ticket-Größen in Minuten', s.ticketMinutes.join(', '), 'Mit Komma getrennt, z. B. 15, 30, 60.')),
@@ -404,6 +405,7 @@ function weekendDays() {
 function dayLimitPanel(data, refresh) {
   const today = localIso(new Date());
   const normal = data.settings.dailyStarLimit;
+  const weekend = data.settings.weekendStarLimit;
   const dateInput = h('input.input', { id: 'dl-day', type: 'date', min: today, value: today });
   const limitInput = h('input.input', { id: 'dl-limit', type: 'number', min: 0, max: 2000, value: normal ? normal * 2 : 0 });
   const save = async (days) => {
@@ -422,7 +424,7 @@ function dayLimitPanel(data, refresh) {
   };
   return h('section.panel',
     h('h2', '📅 Tageslimit für einzelne Tage'),
-    h('p.muted', `Normalerweise gibt es höchstens ${limitText(normal)} pro Tag. Hier kannst du das Limit für bestimmte Tage ändern – höher, z. B. am Wochenende, oder niedriger. 0 = unbegrenzt. Das Limit begrenzt, wie viele Sterne dein Kind an dem Tag verdienen kann; gesparte Sterne kann es trotzdem eintauschen.`),
+    h('p.muted', `Normalerweise gibt es höchstens ${limitText(normal)} pro Tag${weekend != null && weekend !== normal ? `, am Wochenende ${limitText(weekend)}` : ''}. Hier kannst du das Limit für bestimmte Tage ändern – höher, z. B. am Wochenende, oder niedriger. 0 = unbegrenzt. Das Limit begrenzt, wie viele Sterne dein Kind an dem Tag verdienen kann; gesparte Sterne kann es trotzdem eintauschen.`),
     h('form', {
       onsubmit: (e) => { e.preventDefault(); save([dateInput.value]); },
     },

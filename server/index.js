@@ -7,7 +7,7 @@ import { startSession, answerQuestion, finishSession, hintQuestion, chooseQuesti
 import { practiceCounts, migrateSpacing, knownCounts, foldFormerItems, markKnownItems } from './srs.js';
 import {
   balance, earnedOn, streak, unitProgress, earnedBadges, requestTicket, decideTicket, tickets, adjustStars,
-  starLimitFor, upcomingDayLimits, activeBoost, startBoost, stopBoost,
+  starLimitFor, regularLimitFor, upcomingDayLimits, activeBoost, startBoost, stopBoost,
 } from './rewards.js';
 import { localDay, addDays, nowIso, randomId, hashPin, verifyPin } from './util.js';
 import {
@@ -77,8 +77,8 @@ app.get('/api/children/:id/overview', (req, res) => {
     balance: balance(child.id),
     earnedToday: earnedOn(child.id),
     dailyLimit: starLimitFor(),
-    // Nur ein höheres Sonder-Limit wird dem Kind als Geschenk angezeigt (0 = unbegrenzt)
-    limitRaised: settings.dailyStarLimit > 0 && (starLimitFor() === 0 || starLimitFor() > settings.dailyStarLimit),
+    // Nur ein höheres Sonder-Limit wird dem Kind als Geschenk angezeigt (0 = unbegrenzt), das Wochenend-Limit nicht
+    limitRaised: regularLimitFor() > 0 && (starLimitFor() === 0 || starLimitFor() > regularLimitFor()),
     boost: activeBoost(),
     streak: streak(child.id),
     streakInfo: streakInfo(child.id),
@@ -476,6 +476,9 @@ parent.put('/settings', (req, res) => {
     setSetting('minutesPerStar', n);
   }
   if (b.dailyStarLimit != null) setSetting('dailyStarLimit', int(b.dailyStarLimit, 0, 2000));
+  if (b.weekendStarLimit != null) {
+    setSetting('weekendStarLimit', String(b.weekendStarLimit).trim() === '' ? '' : int(b.weekendStarLimit, 0, 2000));
+  }
   if (b.questionsPerSession != null) setSetting('questionsPerSession', int(b.questionsPerSession, 5, 30));
   if (b.retireAfter != null) setSetting('retireAfter', int(b.retireAfter, 0, 50));
   if (b.ticketMinutes != null) {

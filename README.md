@@ -189,6 +189,8 @@ Jede Fahrt wird mit 1 bis 3 Sternen bewertet (unter 70 % richtig: 1 Stern, ab 70
 | 2. Fahrt | Bewertung × 1 (1, 2 oder 3) |
 | ab der 3. Fahrt | 1 |
 
+Eine Fahrt, bei der keine einzige Antwort richtig war, bringt keine Sterne (auch keinen Tagesbonus). Sie zählt trotzdem als Übung. So lohnt es sich nicht, kurze Fahrten einfach durchzuklicken.
+
 So lohnt sich Wiederholen weiterhin, aber eine leichte Station immer wieder abzufahren bringt kaum etwas. Die Endbahnhof-Prüfung ist genauso gestaffelt (pro Linie). Das Fehler-Training und die Wiederholung bringen immer Bewertung × 2: Sie enthalten nur Aufgaben, die noch nicht sitzen oder gerade fällig sind.
 
 | Bonus | Sterne |
@@ -237,6 +239,7 @@ Nach einer geschafften Fahrt (ab 2 Sternen) schlägt die Ankunft den **nächsten
 Im **Elternbereich** stellst du ein:
 - wie viele Minuten Medienzeit ein Stern wert ist (Standard: 1 Minute, auch 0,5er-Schritte möglich)
 - wie viele Sterne es höchstens pro Tag gibt (Standard: 60). Üben geht danach weiter, nur ohne Sterne.
+- optional ein eigenes Limit fürs Wochenende (Samstag und Sonntag). Leer bleibt es beim normalen Limit.
 - welche Ticket-Größen es gibt (Standard: 15, 30 und 60 Minuten)
 
 Für besondere Tage gibt es im Elternbereich zwei Extras (sie gelten für alle Kinder):

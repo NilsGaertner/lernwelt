@@ -1148,8 +1148,11 @@ export function runRide(root, session, { childId, subject = null, lineColor, tra
             result.week && !result.weekDay && !result.week.countedToday
               ? h('p.muted', weekHint(result.week))
               : null,
+            result.noneRight
+              ? h('p.muted', 'Diesmal war noch keine Antwort richtig – dafür gibt es keine Sterne. Magst du es nochmal in Ruhe probieren?')
+              : null,
             result.capped > 0 ? h('p.muted', 'Dein Sterne-Limit für heute ist erreicht. Morgen gibt es wieder neue – üben lohnt sich trotzdem!') : null,
-            !result.capped && result.runToday >= 2 && ['unit', 'exam'].includes(result.mode)
+            !result.capped && !result.noneRight && result.runToday >= 2 && ['unit', 'exam'].includes(result.mode)
               ? h('p.muted', result.runToday === 2
                   ? `${cap(W.ride.art('dein', 'nom'))} 2. ${W.ride.s} ${result.mode === 'exam' ? `zu ${W.terminus.dies('dat')}` : W.station.onThis} heute – dafür gibt es halbe Sterne. Neue ${W.station.p} bringen mehr!`
                   : `${cap(W.station.onThis)} gibt es heute nur noch 1 Stern. ${cap(W.station.onOthers)} gibt es wieder die vollen Sterne.`)
