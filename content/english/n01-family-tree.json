@@ -42,8 +42,8 @@
     { "type": "input", "task": "Wie heißt das auf Englisch?", "q": "Vater", "answer": "father", "accept": ["dad"], "speak": false, "placeholder": "auf Englisch …", "explain": "Vater = **father**, mit f und th." },
     { "type": "input", "task": "Wie heißt das auf Englisch?", "q": "Bruder", "answer": "brother", "speak": false, "placeholder": "auf Englisch …", "explain": "Bruder = **brother**, mit o und th." },
     { "type": "input", "task": "Wie heißt das auf Englisch?", "q": "Cousin oder Cousine", "answer": "cousin", "speak": false, "placeholder": "auf Englisch …" },
-    { "type": "order", "de": "Oliver ist Emmas Bruder.", "answer": "Oliver is Emma's brother." },
-    { "type": "order", "de": "Susan ist Michaels Tante.", "answer": "Susan is Michael's aunt." },
-    { "type": "order", "de": "Andrew ist Emmas Onkel.", "answer": "Andrew is Emma's uncle." }
+    { "type": "order", "de": "Oliver ist Emmas Bruder.", "answer": "Oliver is Emma's brother.", "accept": ["Emma's brother is Oliver."] },
+    { "type": "order", "de": "Susan ist Michaels Tante.", "answer": "Susan is Michael's aunt.", "accept": ["Michael's aunt is Susan."] },
+    { "type": "order", "de": "Andrew ist Emmas Onkel.", "answer": "Andrew is Emma's uncle.", "accept": ["Emma's uncle is Andrew."] }
   ]
 }

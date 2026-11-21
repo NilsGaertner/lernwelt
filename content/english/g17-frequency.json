@@ -33,6 +33,6 @@
     { "type": "order", "de": "Ich spiele oft Fußball.", "answer": "I often play football.", "explain": "often steht vor dem Verb: I **often play** football." },
     { "type": "order", "de": "Sie isst nie Fleisch.", "answer": "She never eats meat.", "explain": "never steht vor dem Verb, und bei she: eat**s** – She **never eats** meat." },
     { "type": "order", "de": "Er ist immer zu spät.", "answer": "He is always late.", "explain": "Bei is/am/are steht always **danach**: He **is always** late." },
-    { "type": "order", "de": "Wir fahren manchmal mit dem Bus.", "answer": "We sometimes go by bus.", "explain": "sometimes steht vor dem Verb: We **sometimes go** by bus." }
+    { "type": "order", "de": "Wir fahren manchmal mit dem Bus.", "answer": "We sometimes go by bus.", "accept": ["Sometimes we go by bus.", "We go by bus sometimes."], "explain": "sometimes steht meist vor dem Verb: We **sometimes go** by bus. Es darf aber auch ganz vorne oder am Ende stehen." }
   ]
 }

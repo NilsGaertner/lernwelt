@@ -35,6 +35,6 @@
     { "type": "choice", "q": "Im Winter war es sehr kalt. ___ brauchten die Menschen Feuer und Felle.", "options": ["Deshalb", "Weil", "Obwohl", "Wenn"], "answer": "Deshalb", "explain": "**Deshalb** zeigt die Folge: Es war kalt – darum brauchten sie Feuer." },
     { "type": "input", "q": "Durch den aufrechten Gang waren die ___ frei.", "answer": "Hände" },
     { "type": "input", "q": "In den ___ war es sehr kalt, und das Essen wurde knapp.", "answer": "Kaltzeiten", "accept": ["Kaltzeit", "Eiszeiten", "Eiszeit"] },
-    { "type": "order", "de": "Wozu war das Feuer gut?", "answer": "Das Feuer schützte vor wilden Tieren." }
+    { "type": "order", "de": "Wozu war das Feuer gut?", "answer": "Das Feuer schützte vor wilden Tieren.", "accept": ["Vor wilden Tieren schützte das Feuer."] }
   ]
 }

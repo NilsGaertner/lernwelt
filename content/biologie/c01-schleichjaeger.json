@@ -32,7 +32,7 @@
     { "type": "input", "q": "Ein Tier, das von einer Katze gefangen wird, nennt man ___.", "answer": "Beute", "accept": ["Beutetier"] },
     { "type": "input", "q": "Die Katze ___ sich leise an.", "hint": "schleichen", "answer": "schleicht" },
     { "type": "input", "q": "Plötzlich ___ die Katze los.", "hint": "springen", "answer": "springt" },
-    { "type": "order", "de": "Phase A", "answer": "Die Katze schleicht sich leise an." },
-    { "type": "order", "de": "Phase D", "answer": "Die Katze packt die Beute mit Krallen und Zähnen." }
+    { "type": "order", "de": "Phase A", "answer": "Die Katze schleicht sich leise an.", "accept": ["Leise schleicht sich die Katze an."] },
+    { "type": "order", "de": "Phase D", "answer": "Die Katze packt die Beute mit Krallen und Zähnen.", "accept": ["Mit Krallen und Zähnen packt die Katze die Beute.", "Die Katze packt mit Krallen und Zähnen die Beute.", "Die Katze packt die Beute mit Zähnen und Krallen.", "Mit Zähnen und Krallen packt die Katze die Beute.", "Die Katze packt mit Zähnen und Krallen die Beute."] }
   ]
 }

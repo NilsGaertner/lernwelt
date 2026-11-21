@@ -34,7 +34,7 @@
     { "type": "choice", "q": "Was macht die Schritte der Katze so leise?", "options": ["weiche Ballen und eingezogene Krallen", "lange Beine", "ihr dickes Fell am Rücken", "ihr Schwanz"], "answer": "weiche Ballen und eingezogene Krallen" },
     { "type": "choice", "q": "Mit welchen Zähnen zerlegt die Katze ihre Beute?", "options": ["mit den Reißzähnen", "mit den Fangzähnen", "mit den Schneidezähnen", "mit den Milchzähnen"], "answer": "mit den Reißzähnen", "explain": "Mit den Fangzähnen hält sie die Beute fest, mit den Reißzähnen zerlegt sie sie." },
     { "type": "choice", "q": "Was bedeutet „angepasst“?", "options": ["Der Körper passt genau zu der Art, wie das Tier lebt und jagt.", "Das Tier trägt passende Kleidung.", "Das Tier ist besonders klein.", "Das Tier macht alles nach."], "answer": "Der Körper passt genau zu der Art, wie das Tier lebt und jagt." },
-    { "type": "order", "de": "Wozu sind die Krallen gut?", "answer": "Die Krallen halten die Beute fest." },
-    { "type": "order", "de": "Warum kann die Katze in der Dämmerung jagen?", "answer": "Die Katze jagt in der Dämmerung, weil ihre Augen lichtempfindlich sind." }
+    { "type": "order", "de": "Wozu sind die Krallen gut?", "answer": "Die Krallen halten die Beute fest.", "accept": ["Die Beute halten die Krallen fest."] },
+    { "type": "order", "de": "Warum kann die Katze in der Dämmerung jagen?", "answer": "Die Katze jagt in der Dämmerung, weil ihre Augen lichtempfindlich sind.", "accept": ["In der Dämmerung jagt die Katze, weil ihre Augen lichtempfindlich sind.", "Weil ihre Augen lichtempfindlich sind, jagt die Katze in der Dämmerung.", "Die Katze jagt, weil ihre Augen lichtempfindlich sind, in der Dämmerung."] }
   ]
 }

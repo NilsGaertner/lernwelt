@@ -36,7 +36,7 @@
     { "type": "input", "task": "Complete Emma's text.", "q": "The McBrides are very nice. ___ house is next to our house.", "answer": "Their", "hint": "the McBrides → ?", "explain": "Das Haus der McBrides (they) → **Their** house." },
     { "type": "input", "task": "Complete Emma's text.", "q": "Caroline McBride is eleven. ___ is in my class.", "answer": "She", "hint": "Caroline → ?", "explain": "**Sie** (Caroline) ist in meiner Klasse → **She**." },
     { "type": "input", "task": "Complete Emma's text.", "q": "Caroline and I are friends. ___ can go to school together!", "answer": "We", "hint": "Caroline and I → ?", "explain": "Caroline und ich = **We**." },
-    { "type": "order", "de": "Ist das dein Buch, Mike?", "answer": "Is this your book, Mike?", "explain": "dein = **your**." },
+    { "type": "order", "de": "Ist das dein Buch, Mike?", "answer": "Is this your book, Mike?", "accept": ["Mike, is this your book?"], "explain": "dein = **your**." },
     { "type": "order", "de": "Das ist unsere Englischlehrerin.", "answer": "This is our English teacher.", "explain": "unsere = **our**." }
   ]
 }

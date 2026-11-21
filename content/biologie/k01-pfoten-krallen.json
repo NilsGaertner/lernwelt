@@ -38,6 +38,6 @@
     { "type": "choice", "q": "Wozu fährt die Katze ihre Krallen aus?", "options": ["zum Klettern und zum Packen der Beute", "zum leisen Schleichen", "zum Schlafen", "zum Riechen"], "answer": "zum Klettern und zum Packen der Beute" },
     { "type": "input", "q": "Hund und Katze laufen auf den Zehen. Sie sind ___.", "answer": "Zehengänger", "accept": ["Zehengaenger"] },
     { "type": "input", "q": "Die Bauteile der Pfote nennt man Strukturen, ihre Aufgabe nennt man ___.", "answer": "Funktion" },
-    { "type": "order", "task": "Wie heißt der Satz richtig?", "de": "Warum Katzen leise schleichen", "answer": "Die Katze zieht beim Schleichen ihre Krallen ein." }
+    { "type": "order", "task": "Wie heißt der Satz richtig?", "de": "Warum Katzen leise schleichen", "answer": "Die Katze zieht beim Schleichen ihre Krallen ein.", "accept": ["Beim Schleichen zieht die Katze ihre Krallen ein.", "Die Katze zieht ihre Krallen beim Schleichen ein.", "Ihre Krallen zieht die Katze beim Schleichen ein."] }
   ]
 }

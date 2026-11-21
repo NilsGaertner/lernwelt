@@ -35,6 +35,6 @@
     { "type": "input", "q": "1:15 → It's quarter ___ one.", "answer": "past", "hint": "past / to", "speak": false, "explain": ":15 = quarter **past** (nach)." },
     { "type": "input", "q": "3:45 → It's quarter ___ four.", "answer": "to", "hint": "past / to", "speak": false, "explain": ":45 = quarter **to** (vor) der nächsten Stunde." },
     { "type": "order", "de": "Wie spät ist es?", "answer": "What time is it?", "explain": "Wie spät ist es? = **What time** is it?" },
-    { "type": "order", "de": "Ich stehe um sieben Uhr auf.", "answer": "I get up at seven o'clock.", "explain": "Uhrzeit mit **at**: I get up **at** seven o'clock." }
+    { "type": "order", "de": "Ich stehe um sieben Uhr auf.", "answer": "I get up at seven o'clock.", "accept": ["At seven o'clock I get up."], "explain": "Uhrzeit mit **at**: I get up **at** seven o'clock." }
   ]
 }

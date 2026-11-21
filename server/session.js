@@ -174,7 +174,8 @@ function vocabQuestion(subject, cand, stat, canSpeak, onlyChoice = false) {
     case 'order':
       return {
         pub: { type: 'order', prompt: 'Wie heißt der Satz auf Englisch?', text: v.de, words: scrambled(tokens(v.en)) },
-        expected: [v.en], qtype: 'order', speak: v.en,
+        // Auch beim Zusammensetzen zählen die Varianten aus "alt" („Please be quiet.“ statt „Be quiet, please.“)
+        expected: accept, qtype: 'order', speak: v.en,
       };
     default:
       return {

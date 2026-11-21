@@ -38,6 +38,6 @@
     { "type": "input", "q": "My dad is ___ the car. (wash)", "answer": "washing", "hint": "wash", "explain": "Einfach **-ing** anhängen: wash → wash**ing**." },
     { "type": "order", "de": "Ich lese gerade ein Buch.", "answer": "I am reading a book.", "accept": ["I'm reading a book."], "explain": "Gerade = **am/is/are + -ing**: I **am reading** a book." },
     { "type": "order", "de": "Was machst du gerade?", "answer": "What are you doing?", "explain": "Frage: Fragewort + **are** + you + do**ing**?" },
-    { "type": "order", "de": "Die Kinder spielen im Park.", "answer": "The children are playing in the park.", "explain": "The children = they → **are playing**." }
+    { "type": "order", "de": "Die Kinder spielen im Park.", "answer": "The children are playing in the park.", "accept": ["In the park the children are playing."], "explain": "The children = they → **are playing**." }
   ]
 }

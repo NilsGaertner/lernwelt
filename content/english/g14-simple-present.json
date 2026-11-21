@@ -38,7 +38,7 @@
     { "type": "input", "q": "We ___ our grandma on Sundays. (visit)", "answer": "visit", "hint": "visit", "explain": "we → kein -s: We **visit** …" },
     { "type": "input", "q": "She ___ her teeth every morning. (brush)", "answer": "brushes", "hint": "brush", "explain": "she, und brush endet auf -sh → **-es**: brush**es**." },
     { "type": "input", "q": "My brother ___ a new phone. (have)", "answer": "has", "hint": "have", "explain": "My brother = he → have wird zu **has**." },
-    { "type": "order", "de": "Er spielt jeden Tag Fußball.", "answer": "He plays football every day.", "explain": "He → plays (mit -s). Die Zeit („every day“) kommt ans Ende." },
+    { "type": "order", "de": "Er spielt jeden Tag Fußball.", "answer": "He plays football every day.", "accept": ["Every day he plays football."], "explain": "He → plays (mit -s). Die Zeit („every day“) kommt ans Ende." },
     { "type": "order", "de": "Meine Schwester mag Katzen.", "answer": "My sister likes cats.", "explain": "My sister = she → like**s**: My sister **likes** cats." }
   ]
 }

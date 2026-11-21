@@ -29,7 +29,7 @@
     { "type": "input", "q": "There ___ a big tree in our garden.", "answer": "is", "hint": "is / are", "explain": "a big tree = eins → There **is**." },
     { "type": "input", "q": "There ___ five people in my family.", "answer": "are", "hint": "is / are", "explain": "five people = mehrere → There **are**." },
     { "type": "input", "q": "___ there a bus stop near here?", "answer": "Is", "hint": "Frage", "explain": "Frage mit einem Ding: **Is** there …?" },
-    { "type": "order", "de": "Es gibt einen Park in meiner Stadt.", "answer": "There is a park in my town.", "accept": ["There's a park in my town."], "explain": "Es gibt (eins) = **There is** … – „It gives“ sagt man im Englischen nicht." },
-    { "type": "order", "de": "Es gibt zwei Katzen im Garten.", "answer": "There are two cats in the garden.", "explain": "Es gibt (mehrere) = **There are** two cats …" }
+    { "type": "order", "de": "Es gibt einen Park in meiner Stadt.", "answer": "There is a park in my town.", "accept": ["There's a park in my town.", "In my town there is a park."], "explain": "Es gibt (eins) = **There is** … – „It gives“ sagt man im Englischen nicht." },
+    { "type": "order", "de": "Es gibt zwei Katzen im Garten.", "answer": "There are two cats in the garden.", "accept": ["In the garden there are two cats."], "explain": "Es gibt (mehrere) = **There are** two cats …" }
   ]
 }

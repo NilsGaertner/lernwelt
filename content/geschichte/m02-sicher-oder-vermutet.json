@@ -34,6 +34,6 @@
     { "type": "choice", "task": "Sicher oder vermutet?", "q": "Im Neandertal wurden 1856 Knochen gefunden.", "options": ["sicher", "vermutet"], "answer": "sicher" },
     { "type": "choice", "task": "Sicher oder vermutet?", "q": "Wahrscheinlich konnte der Urmensch einfache Laute machen.", "options": ["vermutet", "sicher"], "answer": "vermutet" },
     { "type": "input", "q": "Vermutlich, wahrscheinlich und eventuell zeigen: Das ist nicht ganz ___.", "answer": "sicher", "accept": ["gewiss"] },
-    { "type": "order", "de": "Wer weiß es nicht ganz sicher?", "answer": "Forscher vermuten, dass der Urmensch kein Feuer kannte." }
+    { "type": "order", "de": "Wer weiß es nicht ganz sicher?", "answer": "Forscher vermuten, dass der Urmensch kein Feuer kannte.", "accept": ["Dass der Urmensch kein Feuer kannte, vermuten Forscher."] }
   ]
 }

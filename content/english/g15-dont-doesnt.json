@@ -32,6 +32,6 @@
     { "type": "input", "q": "He doesn't ___ in London. (live)", "answer": "live", "hint": "live", "explain": "Nach doesn't kommt die Grundform ohne -s: **live**." },
     { "type": "order", "de": "Ich mag keinen Fisch.", "answer": "I don't like fish.", "explain": "I + **don't** + like + fish." },
     { "type": "order", "de": "Er spielt nicht Fußball.", "answer": "He doesn't play football.", "explain": "He + **doesn't** + play (ohne -s!) + football." },
-    { "type": "order", "de": "Wir gehen samstags nicht zur Schule.", "answer": "We don't go to school on Saturdays.", "explain": "We + **don't** + go to school + on Saturdays." }
+    { "type": "order", "de": "Wir gehen samstags nicht zur Schule.", "answer": "We don't go to school on Saturdays.", "accept": ["On Saturdays we don't go to school."], "explain": "We + **don't** + go to school + on Saturdays." }
   ]
 }
