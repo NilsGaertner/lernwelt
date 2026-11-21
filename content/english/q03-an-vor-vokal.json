@@ -1,0 +1,45 @@
+{
+  "id": "an-vor-vokal",
+  "line": "signal",
+  "order": 3,
+  "title": "an egg, an owl, an ice cream",
+  "subtitle": "a oder an? Schau aufs nächste Wort",
+  "icon": "🦉",
+  "card": "Merke: Schau auf das Wort **direkt nach der Lücke**. Fängt es mit **a, e, i, o, u** an, heißt es **an**: an egg, an owl, an ice cream.",
+  "explain": [
+    { "p": "So findest du es in **zwei Schritten**:" },
+    { "table": { "head": ["Schritt", "Was?", "Beispiel"], "rows": [
+      ["**1**", "Schau auf das Wort **direkt nach** der Lücke.", "It's ___ **o**range cat."],
+      ["**2**", "Fängt es mit **a, e, i, o, u** an? Dann **an**. Sonst **a**.", "It's **an** orange cat."]
+    ] } },
+    { "table": { "head": ["an (vor a, e, i, o, u)", "a (vor allen anderen)"], "rows": [
+      ["an **a**pple, an **a**ctor", "a **b**anana, a **d**octor"],
+      ["an **e**gg, an **e**agle, an **E**nglish test", "a **b**ig egg"],
+      ["an **i**ce cream, an **i**gloo", "a **n**ew idea"],
+      ["an **o**wl, an **o**range, an **o**ld bike", "a **r**ed apple"],
+      ["an **u**mbrella, an **u**ncle", "a **g**reen umbrella"]
+    ] } },
+    { "tip": "Sag es laut! „a egg“ stolpert, „**an** egg“ fließt. Das **n** ist eine kleine Brücke zum Vokal." },
+    { "tip": "Steht ein Wort dazwischen, zählt dieses Wort: an egg, aber **a b**ig egg." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Welches Wort steht direkt nach der Lücke?", "q": "I've got ___ old bike.", "options": ["old", "bike", "got", "I've"], "answer": "old", "explain": "Direkt nach der Lücke steht **o**ld. Es fängt mit o an → **an** old bike." },
+    { "type": "choice", "task": "Welches Wort steht direkt nach der Lücke?", "q": "She has got ___ big umbrella.", "options": ["big", "umbrella", "has", "got"], "answer": "big", "explain": "Direkt nach der Lücke steht **b**ig → **a** big umbrella. Das umbrella dahinter zählt nicht." },
+    { "type": "choice", "q": "My uncle has got ___ owl.", "options": ["an", "a"], "answer": "an", "explain": "**o**wl fängt mit o an → **an** owl." },
+    { "type": "choice", "q": "Can I have ___ orange juice, please?", "options": ["an", "a"], "answer": "an", "explain": "**o**range fängt mit o an → **an** orange juice." },
+    { "type": "choice", "q": "There is ___ egg on the table.", "options": ["an", "a"], "answer": "an", "explain": "**e**gg fängt mit e an → **an** egg." },
+    { "type": "choice", "q": "He has got ___ big umbrella.", "options": ["a", "an"], "answer": "a", "explain": "Direkt dahinter steht **b**ig → **a** big umbrella." },
+    { "type": "choice", "q": "She eats ___ ice lolly.", "de": "Sie isst ein Eis am Stiel.", "options": ["an", "a"], "answer": "an", "explain": "**i**ce fängt mit i an → **an** ice lolly." },
+    { "type": "choice", "q": "Look! ___ eagle!", "de": "Schau! Ein Adler!", "options": ["An", "A"], "answer": "An", "explain": "**e**agle fängt mit e an → **An** eagle." },
+    { "type": "choice", "q": "We've got ___ English test today.", "options": ["an", "a"], "answer": "an", "explain": "**E**nglish fängt mit E an → **an** English test." },
+    { "type": "choice", "q": "That's ___ easy question.", "options": ["an", "a"], "answer": "an", "explain": "**e**asy fängt mit e an → **an** easy question." },
+    { "type": "choice", "q": "My cousin is ___ actor.", "options": ["an", "a"], "answer": "an", "explain": "**a**ctor fängt mit a an → **an** actor. Bei Berufen steht im Englischen immer a oder an." },
+    { "type": "choice", "q": "My aunt is ___ doctor.", "options": ["a", "an"], "answer": "a", "explain": "**d**octor fängt mit d an → **a** doctor." },
+    { "type": "choice", "task": "Welches Paar stimmt?", "q": "Obst für die Pause:", "options": ["an orange, a banana", "a orange, an banana", "a orange, a banana", "an orange, an banana"], "answer": "an orange, a banana", "explain": "**o**range → an, **b**anana → a." },
+    { "type": "input", "q": "Is there ___ igloo in the picture?", "answer": "an", "hint": "a / an · igloo = Iglu", "explain": "**i**gloo fängt mit i an → **an** igloo." },
+    { "type": "input", "q": "We need ___ orange bag.", "answer": "an", "hint": "a / an", "explain": "**o**range fängt mit o an → **an** orange bag." },
+    { "type": "input", "q": "He's got ___ red apple.", "answer": "a", "hint": "a / an", "explain": "Direkt dahinter steht **r**ed → **a** red apple. Das apple dahinter zählt nicht." },
+    { "type": "input", "q": "It's ___ exciting game!", "answer": "an", "hint": "a / an · exciting = spannend", "explain": "**e**xciting fängt mit e an → **an** exciting game." },
+    { "type": "input", "q": "My brother has got ___ new idea.", "answer": "a", "hint": "a / an", "explain": "Direkt dahinter steht **n**ew → **a** new idea." }
+  ]
+}

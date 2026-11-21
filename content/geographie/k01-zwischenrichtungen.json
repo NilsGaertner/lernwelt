@@ -1,0 +1,38 @@
+{
+  "id": "zwischenrichtungen",
+  "line": "kompass",
+  "order": 1,
+  "title": "Zwischen zwei Richtungen",
+  "subtitle": "Nord oder Süd steht immer vorne",
+  "icon": "🧭",
+  "card": "Merke: Bei den Nebenrichtungen steht **Nord oder Süd immer vorne**: Nord-Osten, Süd-Osten, Süd-Westen, Nord-Westen. „Westsüden“ gibt es nicht.",
+  "explain": [
+    { "p": "Zwischen zwei Haupthimmelsrichtungen liegt immer eine **Nebenhimmelsrichtung**. Ihr Name ist aus den beiden Nachbarn zusammengesetzt:" },
+    { "map": "kompass", "legend": [["n", "Norden (N)"], ["no", "Nordosten (NO)"], ["o", "Osten (O)"], ["so", "Südosten (SO)"], ["s", "Süden (S)"], ["sw", "Südwesten (SW)"], ["w", "Westen (W)"], ["nw", "Nordwesten (NW)"]] },
+    { "table": { "head": ["liegt zwischen …", "heißt", "kurz"], "rows": [
+      ["Norden und Osten", "**Nord**osten", "NO"],
+      ["Süden und Osten", "**Süd**osten", "SO"],
+      ["Süden und Westen", "**Süd**westen", "SW"],
+      ["Norden und Westen", "**Nord**westen", "NW"]
+    ] } },
+    { "tip": "**Nord** oder **Süd** kommt immer zuerst: Südwesten, nicht „Westsüden“." },
+    { "tip": "Gegenüber liegt immer die Richtung mit den **anderen beiden** Teilen: Nordosten ↔ Südwesten, Nordwesten ↔ Südosten." },
+    { "p": "Schaust du nach **Norden**, ist **Osten rechts**, **Westen links** und **Süden hinter dir**." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Welche Richtung liegt genau zwischen **Süden und Westen**?", "options": ["Südwesten", "Westsüden", "Südosten", "Nordwesten"], "answer": "Südwesten", "recall": true, "accept": ["Suedwesten", "SW"], "explain": "Süd kommt zuerst: **Südwesten** (SW)." },
+    { "type": "choice", "q": "Welche Richtung liegt genau zwischen **Norden und Osten**?", "options": ["Nordosten", "Ostnorden", "Nordwesten", "Südosten"], "answer": "Nordosten", "recall": true, "accept": ["NO"], "explain": "Nord kommt zuerst: **Nordosten** (NO)." },
+    { "type": "choice", "q": "Welche Richtung liegt genau zwischen **Süden und Osten**?", "options": ["Südosten", "Ostsüden", "Südwesten", "Nordosten"], "answer": "Südosten", "recall": true, "accept": ["Suedosten", "SO"], "explain": "Süd kommt zuerst: **Südosten** (SO)." },
+    { "type": "choice", "q": "Welche Richtung liegt genau zwischen **Norden und Westen**?", "options": ["Nordwesten", "Westnorden", "Nordosten", "Südwesten"], "answer": "Nordwesten", "recall": true, "accept": ["NW"], "explain": "Nord kommt zuerst: **Nordwesten** (NW)." },
+    { "id": "zwischen-sw", "type": "choice", "task": "Zwischen welchen zwei Hauptrichtungen liegt die markierte Richtung?", "map": "kompass", "mark": "sw", "options": ["zwischen Süden und Westen", "zwischen Norden und Westen", "zwischen Süden und Osten", "zwischen Norden und Osten"], "answer": "zwischen Süden und Westen", "explain": "Markiert ist **Südwesten**: zwischen Süden und Westen." },
+    { "id": "zwischen-no", "type": "choice", "task": "Zwischen welchen zwei Hauptrichtungen liegt die markierte Richtung?", "map": "kompass", "mark": "no", "options": ["zwischen Norden und Osten", "zwischen Süden und Osten", "zwischen Norden und Westen", "zwischen Süden und Westen"], "answer": "zwischen Norden und Osten", "explain": "Markiert ist **Nordosten**: zwischen Norden und Osten." },
+    { "type": "choice", "q": "Welche Richtung liegt **gegenüber von Nordosten**?", "options": ["SW", "NW", "SO", "S"], "answer": "SW", "explain": "Gegenüber von **N**ord**o**sten liegt **S**üd**w**esten (SW): beide Teile wechseln." },
+    { "type": "choice", "q": "Welche Richtung liegt **gegenüber von Südosten**?", "options": ["NW", "SW", "NO", "N"], "answer": "NW", "explain": "Gegenüber von **S**üd**o**sten liegt **N**ord**w**esten (NW)." },
+    { "type": "choice", "q": "Du schaust nach Norden. Welche Richtung ist **rechts** von dir?", "options": ["Osten", "Westen", "Süden"], "answer": "Osten", "explain": "Schaust du nach Norden, ist **Osten rechts** (wie auf der Karte: Norden oben, Osten rechts)." },
+    { "type": "choice", "q": "Du schaust nach Norden. Welche Richtung ist **hinter** dir?", "options": ["Süden", "Osten", "Westen"], "answer": "Süden", "explain": "Gegenüber von Norden liegt **Süden** – also hinter dir." },
+    { "type": "choice", "q": "Welche Richtung kommt im Uhrzeigersinn **direkt nach Osten**, wenn es acht Richtungen gibt?", "options": ["Südosten", "Süden", "Nordosten", "Westen"], "answer": "Südosten", "explain": "Im Uhrzeigersinn: N, NO, O, **SO**, S, SW, W, NW." },
+    { "type": "choice", "q": "Welche Schreibweise stimmt?", "options": ["Südwesten", "Westsüden", "Westensüden"], "answer": "Südwesten", "explain": "Nord oder **Süd** steht immer vorne: **Südwesten**." },
+    { "type": "input", "q": "Wie kürzt man **Nordwesten** ab?", "answer": "NW", "accept": ["nw"], "placeholder": "z. B. N", "explain": "**N**ord**w**esten → **NW**." },
+    { "type": "input", "q": "Wie kürzt man **Südosten** ab?", "answer": "SO", "accept": ["so"], "placeholder": "z. B. N", "explain": "**S**üd**o**sten → **SO**. Auf Deutsch steht O für Osten." }
+  ]
+}

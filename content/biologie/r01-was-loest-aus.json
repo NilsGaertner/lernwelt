@@ -1,0 +1,35 @@
+{
+  "id": "was-loest-aus",
+  "line": "reiz",
+  "order": 1,
+  "title": "Was löst es aus?",
+  "subtitle": "Der Reiz kommt zuerst, dann die Reaktion",
+  "icon": "🔔",
+  "card": "Merke: Der **Reiz** kommt **von außen** und kommt **zuerst** (es klingelt). Die **Reaktion** ist, was das Lebewesen **danach tut** (der Hund bellt).",
+  "explain": [
+    { "p": "Zwei Fragen helfen dir, Reiz und Reaktion auseinanderzuhalten:" },
+    { "table": { "head": ["Frage", "Antwort", "Beispiel: Der Hund hört die Türklingel und bellt."], "rows": [
+      ["**Was passiert zuerst, von außen?**", "der **Reiz**", "die **Türklingel** (das Klingeln)"],
+      ["**Was tut das Lebewesen danach?**", "die **Reaktion**", "das **Bellen**"]
+    ] } },
+    { "tip": "Die Reaktion ist immer etwas, das das **Lebewesen selbst tut**: bellen, springen, weglaufen, aufwachen, die Augen zukneifen." },
+    { "p": "Reize sind zum Beispiel **Geräusche, Licht, Gerüche, Berührungen, Wärme und Kälte**." },
+    { "tip": "Vorsicht: Im Satz steht der Reiz nicht immer vorne. „Lisa duckt sich, **weil ein Ball auf sie zufliegt**.“ Der Ball kommt zuerst – er ist der Reiz. Das Ducken ist die Reaktion." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Die Katze hört eine Maus rascheln und springt los. Was ist die **Reaktion**?", "options": ["das Losspringen", "das Rascheln", "die Maus", "das Ohr"], "answer": "das Losspringen", "explain": "Was tut die Katze? Sie **springt los**. Das Rascheln kommt vorher von außen – das ist der Reiz." },
+    { "type": "choice", "q": "Die Katze hört eine Maus rascheln und springt los. Was ist der **Reiz**?", "options": ["das Rascheln", "das Losspringen", "die Katze", "das Ohr"], "answer": "das Rascheln", "explain": "Das **Rascheln** kommt zuerst und von außen. Darauf reagiert die Katze." },
+    { "type": "choice", "q": "Der Wecker klingelt, und Tim wacht auf. Was ist die **Reaktion**?", "options": ["das Aufwachen", "das Klingeln", "der Wecker", "das Bett"], "answer": "das Aufwachen", "explain": "Was tut Tim? Er **wacht auf**. Das Klingeln ist der Reiz." },
+    { "type": "choice", "q": "Ein Kind berührt eine heiße Herdplatte und zieht die Hand zurück. Was ist der **Reiz**?", "options": ["die Hitze", "das Zurückziehen der Hand", "die Hand", "der Herd ist ausgeschaltet"], "answer": "die Hitze", "explain": "Die **Hitze** kommt von außen und zuerst. Das Zurückziehen der Hand ist die Reaktion." },
+    { "type": "choice", "q": "Die Sonne blendet, und Mia kneift die Augen zu. Was ist der **Reiz**?", "options": ["das helle Licht", "das Zukneifen der Augen", "Mia", "die Augen"], "answer": "das helle Licht", "explain": "Das **helle Licht** ist der Reiz. Das Zukneifen ist die Reaktion." },
+    { "type": "choice", "q": "Eine Fliege landet auf der Nase des Pferdes. Das Pferd schüttelt den Kopf. Was ist die **Reaktion**?", "options": ["das Kopfschütteln", "die Fliege", "die Nase", "das Landen der Fliege"], "answer": "das Kopfschütteln", "explain": "Was tut das Pferd? Es **schüttelt den Kopf**. Die Fliege auf der Nase ist der Reiz." },
+    { "type": "choice", "q": "Eine Blume am Fenster dreht ihre Blüte zur Sonne. Was ist der **Reiz**?", "options": ["das Sonnenlicht", "das Drehen der Blüte", "das Fenster", "die Erde im Topf"], "answer": "das Sonnenlicht", "explain": "Auch Pflanzen reagieren: Das **Sonnenlicht** ist der Reiz, das Drehen die Reaktion." },
+    { "type": "choice", "q": "Lisa duckt sich, weil ein Ball auf sie zufliegt. Was ist der **Reiz**?", "options": ["der Ball, der auf sie zufliegt", "das Ducken", "Lisa", "der Sportplatz"], "answer": "der Ball, der auf sie zufliegt", "explain": "Im Satz steht er hinten, aber der **Ball** kommt zuerst. Das Ducken ist die Reaktion." },
+    { "type": "choice", "q": "Es donnert. Der Hund versteckt sich unter dem Bett. Was passt?", "options": ["Reiz: der Donner – Reaktion: das Verstecken", "Reiz: das Verstecken – Reaktion: der Donner", "Reiz: das Bett – Reaktion: der Hund", "Reiz: der Hund – Reaktion: das Bett"], "answer": "Reiz: der Donner – Reaktion: das Verstecken", "explain": "Erst donnert es (**Reiz**), dann versteckt sich der Hund (**Reaktion**)." },
+    { "type": "choice", "q": "Welcher Satz nennt Reiz **und** Reaktion?", "options": ["Die Ampel wird rot, und der Radfahrer bremst.", "Die Ampel ist hoch.", "Der Radfahrer hat ein blaues Fahrrad.", "Der Radfahrer bremst."], "answer": "Die Ampel wird rot, und der Radfahrer bremst.", "explain": "Reiz: Die Ampel wird **rot**. Reaktion: Der Radfahrer **bremst**. Im letzten Satz fehlt der Reiz." },
+    { "type": "choice", "q": "Was kommt immer zuerst?", "options": ["der Reiz", "die Reaktion"], "answer": "der Reiz", "recall": true, "accept": ["Reiz", "ein Reiz"], "explain": "Erst kommt der **Reiz**, dann die Reaktion." },
+    { "type": "choice", "q": "Woran erkennst du die Reaktion?", "options": ["Das Lebewesen tut selbst etwas.", "Es ist ein Geräusch.", "Es kommt von außen.", "Es ist immer ein Körperteil."], "answer": "Das Lebewesen tut selbst etwas.", "explain": "Die Reaktion ist, was das **Lebewesen selbst tut**: bellen, springen, aufwachen." },
+    { "type": "input", "q": "Der Hund riecht Wurst und läuft in die Küche. Die Wurst riecht – das ist der ___.", "answer": "Reiz", "accept": ["der Reiz"], "explain": "Der Geruch kommt von außen und zuerst: der **Reiz**." },
+    { "type": "input", "q": "Der Hund riecht Wurst und läuft in die Küche. Das Laufen in die Küche ist die ___.", "answer": "Reaktion", "accept": ["die Reaktion"], "explain": "Was der Hund daraufhin **tut**, ist die **Reaktion**." }
+  ]
+}

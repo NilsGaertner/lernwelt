@@ -1,0 +1,40 @@
+{
+  "id": "gute-partner",
+  "line": "erster-schritt",
+  "order": 3,
+  "title": "Gute Partner finden",
+  "subtitle": "Erst schauen, dann rechnen",
+  "icon": "🤝",
+  "card": "Merke: Erst **Partner suchen**, die eine runde Zahl geben: 2 · 5 = 10, 4 · 25 = 100, 2 · 50 = 100, 8 · 125 = 1000. Bei **mal** bleibt es **mal**!",
+  "explain": [
+    { "p": "Steht **nur mal** (oder **nur plus**) da, darfst du die Zahlen tauschen und neu klammern. Dann lohnt es sich, **zuerst gute Partner zu suchen**." },
+    { "table": { "head": ["gute Partner bei mal", "", "gute Partner bei plus", ""], "rows": [
+      ["2 · 5", "= 10", "36 + 64", "= 100"],
+      ["4 · 25", "= 100", "148 + 52", "= 200"],
+      ["2 · 50", "= 100", "73 + 27", "= 100"],
+      ["8 · 125", "= 1000", "249 + 51", "= 300"]
+    ] } },
+    { "p": "So geht es bei **2 · 47 · 5**: Partner sind 2 und 5. Also 47 · (2 · 5) = 47 · 10 = **470**." },
+    { "tip": "Bei mal bleibt es **mal**: 2 · 47 · 5 = 47 · (2 · 5). **Nicht** 2 · (47 + 5) – da wäre auf einmal ein Plus, das vorher gar nicht da war." },
+    { "tip": "Bei plus passen Zahlen gut, deren **Einer zusammen 10** ergeben: 3**6** + 6**4**, 14**8** + 5**2**." }
+  ],
+  "exercises": [
+    { "type": "choice", "task": "Welche Zahlen sind gute Partner?", "q": "2 · 47 · 5", "options": ["2 und 5", "2 und 47", "47 und 5"], "answer": "2 und 5", "explain": "2 · 5 = **10**. Dann 47 · 10 = 470." },
+    { "type": "choice", "task": "Welche Zahlen sind gute Partner?", "q": "4 · 39 · 25", "options": ["4 und 25", "4 und 39", "39 und 25"], "answer": "4 und 25", "explain": "4 · 25 = **100**. Dann 39 · 100 = 3900." },
+    { "type": "choice", "task": "Welche Zahlen sind gute Partner?", "q": "50 · 13 · 2", "options": ["50 und 2", "50 und 13", "13 und 2"], "answer": "50 und 2", "explain": "50 · 2 = **100**. Dann 13 · 100 = 1300." },
+    { "type": "choice", "task": "Welche Zahlen sind gute Partner?", "q": "125 · 7 · 8", "options": ["125 und 8", "125 und 7", "7 und 8"], "answer": "125 und 8", "explain": "125 · 8 = **1000**. Dann 7 · 1000 = 7000." },
+    { "type": "choice", "task": "Welche Zahlen sind gute Partner?", "q": "36 + 57 + 64", "options": ["36 und 64", "36 und 57", "57 und 64"], "answer": "36 und 64", "explain": "36 + 64 = **100**. Dann 100 + 57 = 157." },
+    { "type": "choice", "task": "Welche Zahlen sind gute Partner?", "q": "148 + 75 + 52", "options": ["148 und 52", "148 und 75", "75 und 52"], "answer": "148 und 52", "explain": "148 + 52 = **200**. Dann 200 + 75 = 275." },
+    { "type": "choice", "task": "Welcher Zwischenschritt ist geschickt?", "q": "2 · 63 · 5", "options": ["63 · (2 · 5)", "2 · (63 + 5)", "(2 + 5) · 63", "(2 · 63) · 5"], "answer": "63 · (2 · 5)", "explain": "Partner 2 · 5 = 10, und es bleibt **mal**: 63 · 10 = **630**." },
+    { "type": "choice", "task": "Welcher Zwischenschritt ist geschickt?", "q": "25 · 19 · 4", "options": ["19 · (25 · 4)", "25 · (19 + 4)", "(25 + 4) · 19", "(25 · 19) · 4"], "answer": "19 · (25 · 4)", "explain": "Partner 25 · 4 = 100: 19 · 100 = **1900**." },
+    { "type": "choice", "task": "Welcher Zwischenschritt ist geschickt?", "q": "73 + 45 + 27", "options": ["(73 + 27) + 45", "(73 + 45) + 27", "73 + (45 + 27)"], "answer": "(73 + 27) + 45", "explain": "73 + 27 = 100, dann 100 + 45 = **145**." },
+    { "type": "choice", "task": "🐱 Wo hakt es?", "q": "Deine Katze rechnet: 5 · 46 · 2 = 5 · (46 + 2) = 240. Stimmt das?", "options": ["Nein, bei mal bleibt mal: 46 · (5 · 2) = 460", "Ja, das stimmt", "Nein, (5 + 2) · 46 = 322"], "answer": "Nein, bei mal bleibt mal: 46 · (5 · 2) = 460", "explain": "In der Aufgabe gibt es kein Plus. Die Partner sind 5 und 2: 46 · 10 = **460**." },
+    { "type": "input", "task": "Hier steckt ein Trick drin:", "q": "2 · 47 · 5 = ___", "answer": "470", "numeric": true, "placeholder": "Ergebnis", "explain": "47 · (2 · 5) = 47 · 10 = **470**." },
+    { "type": "input", "task": "Hier steckt ein Trick drin:", "q": "4 · 39 · 25 = ___", "answer": "3900", "numeric": true, "placeholder": "Ergebnis", "explain": "39 · (4 · 25) = 39 · 100 = **3900**." },
+    { "type": "input", "task": "Hier steckt ein Trick drin:", "q": "125 · 7 · 8 = ___", "answer": "7000", "numeric": true, "placeholder": "Ergebnis", "explain": "7 · (125 · 8) = 7 · 1000 = **7000**." },
+    { "type": "input", "task": "Hier steckt ein Trick drin:", "q": "36 + 57 + 64 = ___", "answer": "157", "numeric": true, "placeholder": "Ergebnis", "explain": "(36 + 64) + 57 = 100 + 57 = **157**." },
+    { "type": "input", "task": "Hier steckt ein Trick drin:", "q": "148 + 75 + 52 = ___", "answer": "275", "numeric": true, "placeholder": "Ergebnis", "explain": "(148 + 52) + 75 = 200 + 75 = **275**." },
+    { "type": "input", "task": "Hier steckt ein Trick drin:", "q": "50 · 13 · 2 = ___", "answer": "1300", "numeric": true, "placeholder": "Ergebnis", "explain": "13 · (50 · 2) = 13 · 100 = **1300**." },
+    { "type": "input", "task": "Minecraft", "q": "Du hast 25 Kisten. In jeder liegen 4 Stacks mit je 64 Blöcken. Wie viele Blöcke sind das? 25 · 4 · 64 = ___", "answer": "6400", "numeric": true, "placeholder": "Blöcke", "explain": "Partner zuerst: 25 · 4 = 100. Dann 100 · 64 = **6400**." }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "ing-bauen",
+  "line": "signal",
+  "order": 1,
+  "title": "Look! The cat is chasing …",
+  "subtitle": "Present Progressive in zwei Schritten bauen",
+  "icon": "🏃",
+  "card": "Merke: Gerade jetzt braucht **zwei Teile**: **am / is / are** + Verb mit **-ing**. The cat **is chasing** a mouse.",
+  "explain": [
+    { "p": "Was **gerade jetzt** passiert, baust du in **zwei Schritten**. Beide Teile müssen da sein!" },
+    { "table": { "head": ["Schritt", "Was?", "Beispiel"], "rows": [
+      ["**1**", "**am / is / are** passend zur Person", "I **am** · he, she, it, the cat **is** · we, you, they, the children **are**"],
+      ["**2**", "das Verb mit **-ing**", "chase → chas**ing**"]
+    ] } },
+    { "ex": [["The cat is chasing a mouse.", "Die Katze jagt gerade eine Maus."], ["My friends are playing football.", "Meine Freunde spielen gerade Fußball."]] },
+    { "tip": "„The cat chasing a mouse.“ – da fehlt Schritt 1! Ohne **is** ist der Satz nicht fertig." },
+    { "p": "Beim **-ing** gibt es drei kleine Regeln:" },
+    { "table": { "head": ["Regel", "Beispiele"], "rows": [
+      ["meistens einfach **-ing** dran", "play → play**ing**, read → read**ing**, sing → sing**ing**"],
+      ["stummes **e** am Ende fällt weg", "ride → rid**ing**, chase → chas**ing**, make → mak**ing**"],
+      ["kurzer Vokal + ein Konsonant: Konsonant **doppelt**", "run → ru**nn**ing, swim → swi**mm**ing, sit → si**tt**ing"]
+    ] } },
+    { "tip": "Mehrere Personen oder Tiere (Tom and Ben, the children, two dogs) bekommen **are**." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "The cat ___ chasing a mouse.", "options": ["is", "are", "am"], "answer": "is", "explain": "the cat = it → **is** chasing." },
+    { "type": "choice", "q": "My friends ___ playing football.", "options": ["are", "is", "am"], "answer": "are", "explain": "my friends = they (mehrere) → **are** playing." },
+    { "type": "choice", "q": "I ___ reading a comic.", "options": ["am", "is", "are"], "answer": "am", "explain": "I → **am** reading." },
+    { "type": "choice", "q": "Tom and Ben ___ swimming in the lake.", "options": ["are", "is", "am"], "answer": "are", "explain": "Tom **and** Ben = zwei Personen → **are**." },
+    { "type": "choice", "q": "The children ___ singing a song.", "options": ["are", "is", "am"], "answer": "are", "explain": "children = Kinder (mehrere) → **are**." },
+    { "type": "choice", "task": "Wie heißt die -ing-Form?", "q": "ride", "options": ["riding", "rideing", "ridding"], "answer": "riding", "explain": "Das stumme **e** fällt weg: rid**ing**." },
+    { "type": "choice", "task": "Wie heißt die -ing-Form?", "q": "chase", "options": ["chasing", "chaseing", "chassing"], "answer": "chasing", "explain": "Das stumme **e** fällt weg: chas**ing**." },
+    { "type": "choice", "task": "Wie heißt die -ing-Form?", "q": "swim", "options": ["swimming", "swiming", "swimeing"], "answer": "swimming", "explain": "Kurzes i und ein m am Ende → **mm**: swi**mm**ing." },
+    { "type": "choice", "task": "Wie heißt die -ing-Form?", "q": "run", "options": ["running", "runing", "runeing"], "answer": "running", "explain": "Kurzes u und ein n am Ende → **nn**: ru**nn**ing." },
+    { "type": "choice", "task": "Wie heißt die -ing-Form?", "q": "play", "options": ["playing", "plaing", "playying"], "answer": "playing", "explain": "Einfach **-ing** dran: play**ing**." },
+    { "type": "choice", "task": "Welcher Satz ist fertig?", "q": "Gerade jetzt:", "options": ["The dog is chasing the ball.", "The dog chasing the ball.", "The dog is chase the ball.", "The dog are chasing the ball."], "answer": "The dog is chasing the ball.", "explain": "Beide Teile sind da: **is** + chas**ing**." },
+    { "type": "input", "q": "Look! The dog ___ the ball. (chase)", "answer": "is chasing", "accept": ["'s chasing"], "hint": "is + chase-ing", "explain": "Schritt 1: the dog → **is**. Schritt 2: chase → **chasing** (e fällt weg)." },
+    { "type": "input", "q": "Listen! My sister ___ in the bathroom. (sing)", "answer": "is singing", "accept": ["'s singing"], "hint": "is + sing-ing", "explain": "my sister = she → **is**, dann **singing**." },
+    { "type": "input", "q": "We ___ a cake at the moment. (make)", "answer": "are making", "accept": ["'re making"], "hint": "are + make-ing", "explain": "we → **are**, make → **making** (e fällt weg)." },
+    { "type": "input", "q": "Look at me! I ___ ! (swim)", "answer": "am swimming", "accept": ["'m swimming"], "hint": "am + swim-ing", "explain": "I → **am**, swim → **swimming** (mm)." },
+    { "type": "input", "q": "The boys ___ to the bus stop. (run)", "answer": "are running", "accept": ["'re running"], "hint": "are + run-ing", "explain": "the boys = they → **are**, run → **running** (nn)." },
+    { "type": "order", "de": "Die Katze jagt gerade eine Maus.", "answer": "The cat is chasing a mouse.", "explain": "**is** + **chasing** – beide Teile gehören dazu." }
+  ]
+}

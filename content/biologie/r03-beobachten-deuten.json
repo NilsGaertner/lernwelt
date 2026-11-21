@@ -1,0 +1,38 @@
+{
+  "id": "beobachten-deuten",
+  "line": "reiz",
+  "order": 3,
+  "title": "Beobachten oder deuten?",
+  "subtitle": "Der Mehlwurm-Versuch: Hell oder dunkel?",
+  "icon": "🔬",
+  "card": "Merke: **Beobachtung** = was ich **sehe** (9 Mehlwürmer sind auf der dunklen Seite). **Deutung** = was das **bedeutet** (Mehlwürmer mögen es dunkel).",
+  "explain": [
+    { "p": "Ein Versuch zu **Reiz und Reaktion**: Reagieren Mehlwürmer auf Licht? So sieht das Versuchsprotokoll aus:" },
+    { "table": { "head": ["Teil", "Mehlwurm-Versuch"], "rows": [
+      ["**Fragestellung**: Was will ich herausfinden?", "Halten sich Mehlwürmer lieber im Hellen oder im Dunkeln auf?"],
+      ["**Vermutung** (Hypothese): Was denke ich vorher?", "Ich vermute, dass Mehlwürmer lieber im Dunkeln sind."],
+      ["**Material**: Was brauche ich?", "eine Schachtel, ein Deckel für eine Hälfte, eine Lampe, 10 Mehlwürmer"],
+      ["**Durchführung**: Was mache ich?", "Eine Hälfte der Schachtel wird abgedeckt. Die Mehlwürmer kommen in die Mitte. Nach 10 Minuten zählen wir."],
+      ["**Beobachtung**: Was sehe ich?", "9 Mehlwürmer sind auf der dunklen Seite, 1 ist auf der hellen Seite."],
+      ["**Deutung**: Was bedeutet das?", "Mehlwürmer halten sich lieber im Dunkeln auf. Die Vermutung stimmt."]
+    ] } },
+    { "tip": "**Beobachtung**: Man kann es sehen, zählen oder messen. **Deutung**: Man erklärt, was das Ergebnis bedeutet." },
+    { "tip": "Die **Vermutung** steht **vorher**, die **Deutung** steht **nachher**. Oft klingen sie ähnlich. In der Vermutung steht aber „Ich vermute …“, die Deutung beruht auf dem Ergebnis." },
+    { "p": "Und was ist hier Reiz und Reaktion? Das **Licht** ist der Reiz, das **Wegkrabbeln ins Dunkle** ist die Reaktion." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Welcher Satz ist die **Beobachtung**?", "options": ["9 Mehlwürmer sind auf der dunklen Seite.", "Mehlwürmer halten sich lieber im Dunkeln auf.", "Ich vermute, dass Mehlwürmer das Dunkle mögen.", "Eine Hälfte der Schachtel wird abgedeckt."], "answer": "9 Mehlwürmer sind auf der dunklen Seite.", "explain": "Das kann man **sehen und zählen** – das ist die Beobachtung." },
+    { "type": "choice", "q": "Welcher Satz ist die **Deutung**?", "options": ["Mehlwürmer halten sich lieber im Dunkeln auf.", "9 Mehlwürmer sind auf der dunklen Seite.", "Wir brauchen eine Schachtel und eine Lampe.", "Halten sich Mehlwürmer lieber im Hellen auf?"], "answer": "Mehlwürmer halten sich lieber im Dunkeln auf.", "explain": "Die Deutung erklärt, was das Ergebnis **bedeutet**." },
+    { "type": "choice", "q": "Welcher Satz ist die **Vermutung**?", "options": ["Ich vermute, dass Mehlwürmer lieber im Dunkeln sind.", "9 Mehlwürmer sind auf der dunklen Seite.", "Die Mehlwürmer kommen in die Mitte.", "Die Vermutung stimmt."], "answer": "Ich vermute, dass Mehlwürmer lieber im Dunkeln sind.", "explain": "Die Vermutung schreibt man **vorher** auf: „Ich vermute, …“" },
+    { "type": "choice", "q": "Welcher Satz gehört zur **Durchführung**?", "options": ["Eine Hälfte der Schachtel wird abgedeckt.", "Mehlwürmer mögen es dunkel.", "eine Lampe und 10 Mehlwürmer", "1 Mehlwurm ist auf der hellen Seite."], "answer": "Eine Hälfte der Schachtel wird abgedeckt.", "explain": "Die Durchführung beschreibt, **was man macht**." },
+    { "type": "choice", "q": "Was gehört zum **Material**?", "options": ["eine Schachtel, ein Deckel, eine Lampe, 10 Mehlwürmer", "Nach 10 Minuten zählen wir.", "Die Vermutung stimmt.", "Mehlwürmer sind gern im Dunkeln."], "answer": "eine Schachtel, ein Deckel, eine Lampe, 10 Mehlwürmer", "explain": "Beim Material steht, **was man braucht**." },
+    { "type": "choice", "q": "Welcher Satz ist die **Fragestellung**?", "options": ["Halten sich Mehlwürmer lieber im Hellen oder im Dunkeln auf?", "Mehlwürmer halten sich lieber im Dunkeln auf.", "Die Mehlwürmer kommen in die Mitte.", "9 Mehlwürmer sind im Dunkeln."], "answer": "Halten sich Mehlwürmer lieber im Hellen oder im Dunkeln auf?", "explain": "Die Fragestellung ist eine **Frage**: Was will ich herausfinden?" },
+    { "type": "choice", "q": "Wie heißt die Reihenfolge im Versuchsprotokoll?", "options": ["Fragestellung, Vermutung, Material, Durchführung, Beobachtung, Deutung", "Material, Fragestellung, Beobachtung, Vermutung, Deutung, Durchführung", "Vermutung, Durchführung, Deutung, Material, Beobachtung, Fragestellung", "Beobachtung, Deutung, Fragestellung, Vermutung, Material, Durchführung"], "answer": "Fragestellung, Vermutung, Material, Durchführung, Beobachtung, Deutung", "explain": "Erst **fragen** und **vermuten**, dann **Material** und **Durchführung**, dann **beobachten** und **deuten**." },
+    { "type": "choice", "q": "Woran erkennst du eine **Beobachtung**?", "options": ["Man kann es sehen, zählen oder messen.", "Es beginnt mit „Ich vermute“.", "Es ist eine Frage.", "Es erklärt, warum etwas so ist."], "answer": "Man kann es sehen, zählen oder messen.", "explain": "Beobachten heißt: genau hinschauen und aufschreiben, **was man sieht**." },
+    { "type": "choice", "q": "Was ist in diesem Versuch der **Reiz**?", "options": ["das Licht der Lampe", "das Wegkrabbeln", "die Schachtel", "das Zählen"], "answer": "das Licht der Lampe", "explain": "Das **Licht** kommt von außen. Darauf reagieren die Mehlwürmer." },
+    { "type": "choice", "q": "Was ist in diesem Versuch die **Reaktion**?", "options": ["Die Mehlwürmer krabbeln ins Dunkle.", "Die Lampe leuchtet.", "Der Deckel liegt auf der Schachtel.", "Wir zählen nach 10 Minuten."], "answer": "Die Mehlwürmer krabbeln ins Dunkle.", "explain": "Was **tun** die Mehlwürmer? Sie krabbeln weg vom Licht – das ist die Reaktion." },
+    { "type": "choice", "task": "Ein anderer Versuch: Eine Bohne keimt in einem dunklen Karton mit einem kleinen Loch an der Seite.", "q": "Welcher Satz ist die **Beobachtung**?", "options": ["Der Keimling wächst zum Loch hin.", "Pflanzen wachsen zum Licht hin.", "Ich vermute, dass die Bohne zum Licht wächst.", "Wir brauchen einen Karton und eine Bohne."], "answer": "Der Keimling wächst zum Loch hin.", "explain": "Das kann man **sehen**: Der Keimling wächst zum Loch." },
+    { "type": "choice", "task": "Ein anderer Versuch: Eine Bohne keimt in einem dunklen Karton mit einem kleinen Loch an der Seite.", "q": "Welcher Satz ist die **Deutung**?", "options": ["Pflanzen wachsen zum Licht hin.", "Der Keimling wächst zum Loch hin.", "Der Karton ist braun.", "Nach einer Woche ist der Keimling 10 cm lang."], "answer": "Pflanzen wachsen zum Licht hin.", "explain": "Die Deutung **erklärt** die Beobachtung: Durch das Loch kommt Licht, und die Pflanze wächst dorthin." },
+    { "type": "choice", "q": "Wie heißt die **Vermutung** mit einem Fachwort?", "options": ["Hypothese", "Deutung", "Protokoll", "Durchführung"], "answer": "Hypothese", "recall": true, "accept": ["die Hypothese"], "explain": "Eine Vermutung nennt man auch **Hypothese**." }
+  ]
+}
