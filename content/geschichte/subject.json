@@ -4,6 +4,8 @@
   "icon": "🏺",
   "order": 5,
   "lines": [
+    { "id": "lager", "name": "Lagerplatz-Linie", "short": "Lagerplatz", "color": "#8D6E3F" },
+    { "id": "dorf", "name": "Dorf-Linie", "short": "Dorf", "color": "#5B8C3A" },
     { "id": "spuren", "name": "Spurensucher-Linie", "short": "Spurensucher", "color": "#1F6F8B" },
     { "id": "eiszeit", "name": "Eiszeit-Linie", "short": "Eiszeit", "color": "#3F88C5" },
     { "id": "hoehle", "name": "Höhlen-Linie", "short": "Höhle", "color": "#A0522D" },
@@ -13,8 +15,8 @@
   ],
   "blitz": [
     {
-      "id": "geschichte", "title": "Geschichts-Blitz", "icon": "⚡", "subtitle": "Zeitstrahl, Quellen, Eiszeit und frühe Menschen", "types": ["choice"],
-      "units": ["quelle-oder-darstellung", "quellenarten", "epochen-eintragen", "eiszeit-klima", "nach-norden", "evolution", "hoehlenmalerei", "sicher-oder-vermutet", "blick-zurueck", "zeitstrahl", "epochen", "quellen", "menschenarten", "faehigkeiten", "ueberleben"]
+      "id": "geschichte", "title": "Geschichts-Blitz", "icon": "⚡", "subtitle": "Zeitstrahl, Quellen, Eiszeit, Steinzeit und frühe Menschen", "types": ["choice"],
+      "units": ["altsteinzeit-leben", "werkzeug-nahrung", "sachtext-erschliessen", "sesshaft", "neue-geraete", "hausbau-umwelt", "quelle-oder-darstellung", "quellenarten", "epochen-eintragen", "eiszeit-klima", "nach-norden", "evolution", "hoehlenmalerei", "sicher-oder-vermutet", "blick-zurueck", "zeitstrahl", "epochen", "quellen", "menschenarten", "faehigkeiten", "ueberleben"]
     }
   ]
 }

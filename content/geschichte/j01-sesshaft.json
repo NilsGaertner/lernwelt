@@ -1,0 +1,43 @@
+{
+  "id": "sesshaft",
+  "line": "dorf",
+  "order": 1,
+  "title": "Warum wurden die Menschen sesshaft?",
+  "subtitle": "Die Neolithische Revolution",
+  "icon": "🌾",
+  "card": "Merke: **Altsteinzeit** = umherziehen, jagen und sammeln. **Jungsteinzeit** = an einem Ort bleiben, Ackerbau und Viehzucht.",
+  "explain": [
+    { "p": "Zwischen der Altsteinzeit und der Jungsteinzeit änderte sich das Leben der Menschen völlig: Aus umherziehenden **Jägern und Sammlern** wurden **Bauern und Viehzüchter**. Sie blieben an einem Ort und lebten in **Dörfern**. Sie wurden **sesshaft**." },
+    { "table": { "head": ["", "Altsteinzeit", "Jungsteinzeit"], "rows": [
+      ["**Wohnen**", "zeltartige Hütten, immer wieder weiterziehen", "feste Häuser im **Dorf**"],
+      ["**Nahrung**", "jagen und sammeln", "**Ackerbau** (Getreide) und **Viehzucht**"],
+      ["**Tiere**", "wilde Tiere werden gejagt", "Schafe, Ziegen, Schweine und Rinder werden **Haustiere**"]
+    ] } },
+    { "p": "Wann war das? Am Ende der letzten Eiszeit, um **10.000 v. Chr.**, wurde es wärmer. Im Raum des heutigen **Irak** begann die Jungsteinzeit (griechisch: **Neolithikum**). Von dort breitete sich die neue Lebensweise aus. **Mitteleuropa** erreichte sie um **5500 v. Chr.** Die Jungsteinzeit endete um **2200 v. Chr.**, danach kam die Bronzezeit." },
+    { "p": "Der Wandel war so wichtig, dass viele Forscher von der **Neolithischen Revolution** sprechen. **Revolution** heißt: eine grundlegende, große Veränderung." },
+    { "table": { "head": ["Vorteile", "Nachteile"], "rows": [
+      ["Mehr Menschen konnten ernährt werden.", "**Ratten** und andere Schädlinge fraßen die Vorräte."],
+      ["**Vorräte** halfen bei schlechten Ernten.", "Im engen Zusammenleben verbreiteten sich **Krankheiten**."],
+      ["Einzelne Menschen konnten sich auf **Berufe** spezialisieren.", "Dörfer wurden vermutlich angegriffen und mussten verteidigt werden."]
+    ] } },
+    { "tip": "Auf Seite 37 im Buch gibt es zwei Funde, die gut zeigen, was sich änderte: das **Zelt** aus der Altsteinzeit und den **Mahlstein** aus der Jungsteinzeit. Auf dem Mahlstein wurden Getreidekörner zu Mehl gemahlen. Den braucht nur, wer Getreide anbaut." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wie lebten die meisten Menschen in der Altsteinzeit?", "options": ["als umherziehende Jäger und Sammler", "als Bauern in Dörfern", "in Städten mit Mauern", "als Händler auf Schiffen"], "answer": "als umherziehende Jäger und Sammler" },
+    { "type": "choice", "q": "Wie lebten die Menschen in der Jungsteinzeit?", "options": ["als Bauern und Viehzüchter in Dörfern", "als Nomaden in Zelten", "nur von der Jagd", "in Höhlen ohne Feuer"], "answer": "als Bauern und Viehzüchter in Dörfern" },
+    { "type": "choice", "q": "Menschen, die an einem Ort bleiben, sind …", "options": ["sesshaft", "Nomaden", "Wildbeuter", "Sammler"], "answer": "sesshaft", "recall": "Menschen, die an einem Ort bleiben und in Dörfern leben, sind ___.", "accept": ["seßhaft"] },
+    { "type": "choice", "q": "Wie nennt man den großen Wandel vom Jagen und Sammeln zum Ackerbau?", "options": ["Neolithische Revolution", "Industrielle Revolution", "Eiszeit", "Evolution"], "answer": "Neolithische Revolution", "recall": true, "accept": ["neolithische Revolution", "die Neolithische Revolution"] },
+    { "type": "choice", "q": "Was bedeutet „Revolution“?", "options": ["eine grundlegende, große Veränderung", "ein kleiner Streit", "ein Werkzeug aus Stein", "ein Fest im Dorf"], "answer": "eine grundlegende, große Veränderung" },
+    { "type": "choice", "q": "Wo begann die Jungsteinzeit?", "options": ["im Raum des heutigen Irak", "in Thüringen", "in Skandinavien", "in Amerika"], "answer": "im Raum des heutigen Irak" },
+    { "type": "choice", "q": "Wann erreichte die neue Lebensweise Mitteleuropa?", "options": ["um 5500 v. Chr.", "um 10.000 v. Chr.", "um 2200 v. Chr.", "bei Christi Geburt"], "answer": "um 5500 v. Chr.", "explain": "Um **10.000 v. Chr.** begann die Jungsteinzeit im Irak, um **2200 v. Chr.** endete sie." },
+    { "type": "choice", "q": "Welche Tiere wurden in der Jungsteinzeit zu Haustieren?", "options": ["Schafe, Ziegen, Schweine und Rinder", "Mammuts und Wollnashörner", "Löwen und Bären", "Rentiere und Schneehasen"], "answer": "Schafe, Ziegen, Schweine und Rinder" },
+    { "type": "choice", "q": "Welchen Vorteil hatte die Vorratshaltung?", "options": ["Man überlebte auch schlechte Ernten.", "Man musste nie mehr arbeiten.", "Es gab keine Krankheiten mehr.", "Ratten blieben weg."], "answer": "Man überlebte auch schlechte Ernten." },
+    { "type": "choice", "q": "Welchen Nachteil hatte die neue Lebensweise?", "options": ["Im engen Zusammenleben verbreiteten sich Krankheiten.", "Die Menschen hatten zu wenig zu essen.", "Man durfte keine Häuser bauen.", "Es gab keine Tiere mehr."], "answer": "Im engen Zusammenleben verbreiteten sich Krankheiten." },
+    { "type": "choice", "q": "Warum mussten Dörfer vermutlich verteidigt werden?", "options": ["Sie waren ein beliebtes Ziel von Angriffen durch Nomaden.", "Weil Mammuts sie angriffen.", "Weil es dort Gold gab.", "Weil die Häuser aus Eis waren."], "answer": "Sie waren ein beliebtes Ziel von Angriffen durch Nomaden." },
+    { "type": "choice", "q": "Warum gab es in der Jungsteinzeit Berufe?", "options": ["Nicht mehr alle mussten Nahrung beschaffen, einige spezialisierten sich.", "Ein König hat sie erfunden.", "Weil es Schulen gab.", "Weil es Geld gab."], "answer": "Nicht mehr alle mussten Nahrung beschaffen, einige spezialisierten sich." },
+    { "type": "choice", "q": "Wozu diente der Mahlstein?", "options": ["um Getreidekörner zu Mehl zu mahlen", "um Speere zu werfen", "um Felle zu gerben", "um Feuer zu machen"], "answer": "um Getreidekörner zu Mehl zu mahlen" },
+    { "type": "choice", "q": "Zelt oder Mahlstein: Welcher Fund passt zu Jägern und Sammlern, die umherziehen?", "options": ["das Zelt", "der Mahlstein"], "answer": "das Zelt", "explain": "Ein Zelt kann man abbauen und mitnehmen. Ein schwerer Mahlstein lohnt sich erst, wenn man an einem Ort bleibt und Getreide anbaut." },
+    { "type": "choice", "q": "Im Grab von Eulau lagen ein Mann, eine Frau und zwei Kinder zusammen. Was vermuten die Forscher?", "options": ["Es war eine Familie.", "Es waren Fremde.", "Es waren Soldaten.", "Es war ein Lager."], "answer": "Es war eine Familie." },
+    { "type": "order", "de": "Jungsteinzeit → wie lebten sie?", "answer": "In der Jungsteinzeit wurden die Menschen sesshaft.", "accept": ["Die Menschen wurden in der Jungsteinzeit sesshaft."] }
+  ]
+}

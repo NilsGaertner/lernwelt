@@ -1,0 +1,40 @@
+{
+  "id": "meerschweinchen-pflege",
+  "line": "heimtier",
+  "order": 3,
+  "title": "Ist mein Meerschweinchen gesund und sicher?",
+  "subtitle": "Pflege, Freilauf und Freilandhaltung",
+  "icon": "🩺",
+  "card": "Merke: Ein **Gitter** über dem Freigehege hält **Feinde** wie Katzen, Marder und Greifvögel ab, und Luft und Licht kommen trotzdem durch.",
+  "explain": [
+    { "p": "Bevor ein Heimtier einzieht, gibt es viel zu klären: Wer kümmert sich jeden Tag? Ist genug Platz da? Hat jemand eine **Allergie**? Ein Tier zu halten heißt, **Verantwortung** zu übernehmen. Informationen gibt es in Büchern, im Tierfachgeschäft und bei Freunden, die selbst so ein Tier haben." },
+    { "table": { "head": ["Woran erkennt man ein gesundes Meerschweinchen?", "Wann wird es gefährlich?"], "rows": [
+      ["**klare Augen**", "zu lange **Krallen**"],
+      ["**glänzendes Fell**", "schlechte **Zähne**"],
+      ["**sauberer After**, nicht verklebt", "Das Tier wirkt nicht munter und aufgeweckt → ab in die **Tierarztpraxis**."]
+    ] } },
+    { "p": "Die Krallen kann man vorsichtig mit einer **speziellen Schere** kürzen." },
+    { "p": "**Hochheben:** Eine Hand greift **unter den Brustkorb**, die andere **stützt das Hinterteil** ab. Nach dem Spielen werden die **Hände gewaschen**. Die Tiere dürfen nicht geängstigt oder gequält werden." },
+    { "p": "**Freilauf im Zimmer:** Meerschweinchen dürfen keine **elektrischen Kabel** anfressen. Das kann für alle gefährlich werden." },
+    { "p": "**Freilandhaltung im Sommer:** Draußen braucht das Gehege einen **schattigen Platz** und Schutz vor **Nässe**. Springen können Meerschweinchen nicht, trotzdem gehört ein **stabiles Gitter** obendrauf: Von oben können **Feinde** kommen, zum Beispiel Katzen, Marder oder Greifvögel." },
+    { "tip": "Warum ein **Gitter** und keine **Decke**? Unter einer Decke staut sich im Sommer die **Hitze**, und es kommt kaum Luft hinein. Das Gitter schützt vor Feinden und lässt **Luft** durch. Für **Schatten** sorgt man zusätzlich, zum Beispiel mit einem Häuschen oder einem Platz unter einem Baum." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Warum braucht ein Freigehege im Sommer ein stabiles Gitter obendrauf, obwohl Meerschweinchen nicht springen?", "options": ["Es schützt vor Feinden wie Katzen, Mardern und Greifvögeln.", "Damit die Meerschweinchen nicht wegfliegen.", "Damit es drinnen dunkel ist.", "Damit kein Gras wächst."], "answer": "Es schützt vor Feinden wie Katzen, Mardern und Greifvögeln." },
+    { "type": "choice", "q": "Warum ist ein Gitter besser als eine Decke über dem Freigehege?", "options": ["Unter einer Decke staut sich die Hitze, das Gitter lässt Luft durch.", "Eine Decke ist zu bunt.", "Decken sind zu teuer.", "Das Gitter macht es wärmer."], "answer": "Unter einer Decke staut sich die Hitze, das Gitter lässt Luft durch." },
+    { "type": "choice", "q": "Welche Tiere können einem Meerschweinchen im Garten gefährlich werden?", "options": ["Katzen, Marder und Greifvögel", "Schmetterlinge und Bienen", "Regenwürmer", "Schnecken"], "answer": "Katzen, Marder und Greifvögel" },
+    { "type": "choice", "q": "Wovor muss das Freigehege außerdem schützen?", "options": ["vor direkter Sonne und Nässe", "vor Gras", "vor frischer Luft", "vor Heu"], "answer": "vor direkter Sonne und Nässe" },
+    { "type": "choice", "q": "Woran erkennt man ein gesundes Meerschweinchen?", "options": ["klare Augen und glänzendes Fell", "trübe Augen und struppiges Fell", "sehr lange Krallen", "ein verklebter After"], "answer": "klare Augen und glänzendes Fell" },
+    { "type": "choice", "q": "Ein Meerschweinchen wirkt müde und gar nicht munter. Was ist zu tun?", "options": ["in die Tierarztpraxis gehen", "abwarten, bis es weg ist", "mehr Trockenfutter geben", "es allein in ein anderes Zimmer stellen"], "answer": "in die Tierarztpraxis gehen" },
+    { "type": "choice", "q": "Womit kürzt man zu lange Krallen?", "options": ["vorsichtig mit einer speziellen Schere", "mit einer Nagelfeile für Menschen", "gar nicht, sie fallen ab", "mit dem Rasenmäher"], "answer": "vorsichtig mit einer speziellen Schere" },
+    { "type": "choice", "q": "Wie hebt man ein Meerschweinchen richtig hoch?", "options": ["eine Hand unter den Brustkorb, die andere stützt das Hinterteil", "am Nackenfell", "an den Hinterbeinen", "an den Ohren"], "answer": "eine Hand unter den Brustkorb, die andere stützt das Hinterteil" },
+    { "type": "choice", "q": "Was ist nach dem Spielen mit dem Meerschweinchen wichtig?", "options": ["Hände waschen", "das Tier baden", "das Licht ausmachen", "das Futter wegnehmen"], "answer": "Hände waschen" },
+    { "type": "choice", "q": "Worauf muss man beim Freilauf im Zimmer achten?", "options": ["dass die Meerschweinchen keine elektrischen Kabel anfressen", "dass sie nicht fliegen", "dass sie nicht schwimmen", "dass sie nicht auf den Schrank springen"], "answer": "dass die Meerschweinchen keine elektrischen Kabel anfressen" },
+    { "type": "choice", "q": "Was sollte vor der Anschaffung eines Heimtiers geklärt werden?", "options": ["Ob jemand in der Familie eine Allergie gegen das Tier hat.", "Welche Farbe das Tier haben soll, sonst nichts.", "Ob das Tier Tricks kann.", "Nichts, man kann es einfach kaufen."], "answer": "Ob jemand in der Familie eine Allergie gegen das Tier hat." },
+    { "type": "choice", "q": "Wo kann man sich vor der Anschaffung informieren?", "options": ["in Büchern, im Tierfachgeschäft und bei Freunden mit so einem Tier", "nur im Fernsehen", "nirgends", "nur beim Bäcker"], "answer": "in Büchern, im Tierfachgeschäft und bei Freunden mit so einem Tier" },
+    { "type": "choice", "q": "Was bedeutet es, ein Heimtier zu halten?", "options": ["eine große Verantwortung zu übernehmen", "nur ab und zu mit ihm zu spielen", "es zu füttern, wenn man Lust hat", "nichts Besonderes"], "answer": "eine große Verantwortung zu übernehmen" },
+    { "type": "choice", "q": "Wann besteht eine hohe Gefahr, dass ein Meerschweinchen krank wird?", "options": ["bei zu langen Krallen und schlechten Zähnen", "bei glänzendem Fell", "bei klaren Augen", "wenn es pfeift"], "answer": "bei zu langen Krallen und schlechten Zähnen" },
+    { "type": "input", "q": "Über das Freigehege gehört ein stabiles ___, damit keine Feinde hineinkommen.", "answer": "Gitter", "accept": ["Gitterdach", "Drahtgitter"] },
+    { "type": "order", "de": "Gitter → Feinde", "answer": "Das Gitter schützt die Meerschweinchen vor Feinden.", "accept": ["Vor Feinden schützt das Gitter die Meerschweinchen.", "Die Meerschweinchen schützt das Gitter vor Feinden."] }
+  ]
+}

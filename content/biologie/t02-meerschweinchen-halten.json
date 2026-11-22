@@ -1,0 +1,48 @@
+{
+  "id": "meerschweinchen-halten",
+  "line": "heimtier",
+  "order": 2,
+  "title": "Wie leben Meerschweinchen gut?",
+  "subtitle": "Käfig, Futter und Gesellschaft",
+  "icon": "🐹",
+  "card": "Wusstest du? Meerschweinchen verständigen sich durch Pfeifen und andere Laute.",
+  "explain": [
+    { "p": "Meerschweinchen stammen aus **Südamerika**. Niederländische Seefahrer brachten sie um **1670** nach Europa, als Spielgefährten für ihre Kinder. Sie werden etwa **25 Zentimeter** groß und viele Jahre alt, deutlich älter als 4 Jahre." },
+    { "p": "**Verhaltensgerechte Haltung** heißt: Man hält ein Tier so, dass es möglichst wie in der Natur leben kann. Dafür muss man seine **Ansprüche** kennen." },
+    { "table": { "head": ["Was brauchen sie?", "Warum?"], "rows": [
+      ["mindestens einen **Artgenossen**, also ein zweites Meerschweinchen", "Meerschweinchen sind **gesellig**. Allein werden sie einsam."],
+      ["Käfig mindestens **100 cm lang** und **50 cm breit**, 40 cm hoch reicht", "Sie brauchen Platz zum Laufen. Hoch springen können sie nicht."],
+      ["**keine Zugluft**", "Zugluft kann eine Lungenentzündung auslösen."],
+      ["Schutz vor **direkter Sonne** und **Nässe**", "Ihnen wird schnell zu heiß, und Nässe macht sie krank."],
+      ["Gänge aus Kork, **Einstreu**, **Nagermaterial** und ein **Schlafhaus**", "zum Verstecken, Spielen, Schlafen und Nagen"]
+    ] } },
+    { "p": "Meerschweinchen sind **Pflanzenfresser**. Sie fressen frisches **Gemüse**, ein wenig **Obst**, gern frische **Kräuter**, dazu **Heu**, Gras und Zweige. Trockenfutter allein reicht nicht." },
+    { "tip": "**Warum Heu und Zweige so wichtig sind:** Die Nagezähne **wachsen ein Leben lang nach**. Hartes Futter mit vielen Rohfasern **nutzt die Zähne ab**. Fehlt es, werden die Zähne zu lang, und das Tier kann nicht mehr richtig fressen." },
+    { "table": { "head": ["Gegenstand", "Wozu?"], "rows": [
+      ["**Nippeltränke**", "täglich frisches Wasser, das nicht verdreckt; jeden Tag reinigen und neu füllen"],
+      ["**Heuraufe**", "Das Heu bleibt sauber."],
+      ["**Futternapf aus Keramik**", "Ein Holznapf würde zernagt."],
+      ["**Häuschen**", "Schlafen und Verstecken"]
+    ] } }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Woher stammen Meerschweinchen?", "options": ["aus Südamerika", "aus Australien", "aus Afrika", "aus dem Meer"], "answer": "aus Südamerika", "recall": "Meerschweinchen stammen aus ___.", "accept": ["Südamerika", "Suedamerika"] },
+    { "type": "choice", "q": "Meerschweinchen fressen nur pflanzliche Nahrung. Stimmt das?", "options": ["richtig", "falsch"], "answer": "richtig" },
+    { "type": "choice", "q": "Meerschweinchen sind Einzelgänger und sollten einzeln gehalten werden. Stimmt das?", "options": ["falsch", "richtig"], "answer": "falsch", "explain": "Meerschweinchen sind **gesellig**. Sie brauchen mindestens einen **Artgenossen**." },
+    { "type": "choice", "q": "Meerschweinchen können höchstens 4 Jahre alt werden. Stimmt das?", "options": ["falsch", "richtig"], "answer": "falsch", "explain": "Sie werden deutlich älter, oft 6 bis 10 Jahre, manche noch älter." },
+    { "type": "choice", "q": "Ein Meerschweinchen kann mit einem Wurf bis zu 6 Junge bekommen. Stimmt das?", "options": ["richtig", "falsch"], "answer": "richtig", "explain": "Meist sind es 2 bis 4 Junge, es können aber bis zu 6 sein." },
+    { "type": "choice", "q": "Meerschweinchenzähne wachsen ständig nach. Stimmt das?", "options": ["richtig", "falsch"], "answer": "richtig" },
+    { "type": "choice", "q": "Wie sollten Meerschweinchen gehalten werden?", "options": ["mindestens zu zweit", "allein", "zusammen mit einer Katze", "im Aquarium"], "answer": "mindestens zu zweit" },
+    { "type": "choice", "q": "Was ist ein Artgenosse für ein Meerschweinchen?", "options": ["ein anderes Meerschweinchen", "ein Kaninchen", "ein Hamster", "ein Mensch"], "answer": "ein anderes Meerschweinchen", "recall": "Ein zweites Meerschweinchen ist für ein Meerschweinchen ein ___.", "accept": ["Artgenosse", "Artgenossen"] },
+    { "type": "choice", "q": "Warum ist hartes Futter wie Heu und Zweige wichtig für die Zähne?", "options": ["Beim Kauen nutzen sich die ständig nachwachsenden Zähne ab.", "Es macht die Zähne weißer.", "Es lässt die Zähne schneller wachsen.", "Es ist nur lecker, für die Zähne egal."], "answer": "Beim Kauen nutzen sich die ständig nachwachsenden Zähne ab." },
+    { "type": "choice", "q": "Was passiert, wenn sich die Zähne nicht abnutzen?", "options": ["Sie werden zu lang, und das Tier kann nicht mehr richtig fressen.", "Sie fallen sofort aus.", "Nichts.", "Das Tier kann dann besser fressen."], "answer": "Sie werden zu lang, und das Tier kann nicht mehr richtig fressen." },
+    { "type": "choice", "q": "Warum reicht ein 40 cm hoher Käfig?", "options": ["Meerschweinchen springen nicht.", "Meerschweinchen sind nur 5 cm groß.", "Sie klettern gern.", "Sie schlafen immer."], "answer": "Meerschweinchen springen nicht." },
+    { "type": "choice", "q": "Wie groß sollte der Käfig mindestens sein?", "options": ["100 cm lang und 50 cm breit", "30 cm lang und 20 cm breit", "so groß wie ein Schuhkarton", "Größe ist egal"], "answer": "100 cm lang und 50 cm breit" },
+    { "type": "choice", "q": "Warum darf der Käfig nicht in der Zugluft stehen?", "options": ["Zugluft kann eine Lungenentzündung auslösen.", "Das Heu fliegt weg.", "Die Tiere werden zu dick.", "Sie hören dann schlecht."], "answer": "Zugluft kann eine Lungenentzündung auslösen." },
+    { "type": "choice", "q": "Warum gibt man Wasser am besten in einer Nippeltränke?", "options": ["Damit es nicht verdreckt.", "Damit die Tiere weniger trinken.", "Weil Schüsseln verboten sind.", "Damit es warm bleibt."], "answer": "Damit es nicht verdreckt." },
+    { "type": "choice", "q": "Warum sollte der Futternapf aus Keramik sein?", "options": ["Einen Holznapf würden die Tiere zernagen.", "Keramik ist bunter.", "Keramik hält das Futter warm.", "Holz ist zu schwer."], "answer": "Einen Holznapf würden die Tiere zernagen." },
+    { "type": "choice", "q": "Wozu dient die Heuraufe?", "options": ["Das Heu bleibt sauber.", "Darin schlafen die Tiere.", "Daraus trinken sie.", "Damit kürzt man die Krallen."], "answer": "Das Heu bleibt sauber." },
+    { "type": "choice", "q": "Was bedeutet „verhaltensgerechte Haltung“?", "options": ["Das Tier wird so gehalten, dass es möglichst wie in der Natur leben kann.", "Das Tier muss sich gut benehmen.", "Das Tier lebt allein im Käfig.", "Das Tier bekommt nur Trockenfutter."], "answer": "Das Tier wird so gehalten, dass es möglichst wie in der Natur leben kann." },
+    { "type": "order", "de": "Heu → Zähne", "answer": "Beim Fressen von Heu nutzen sich die Zähne ab.", "accept": ["Die Zähne nutzen sich beim Fressen von Heu ab."] }
+  ]
+}
