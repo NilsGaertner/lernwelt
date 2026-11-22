@@ -11,7 +11,7 @@ import { companion } from './companion.js';
 
 const PRAISE = ['Richtig!', 'Super!', 'Klasse!', 'Genau!', 'Stark!', 'Perfekt!'];
 /** So lange bleibt die Lösung nach einem Fehler stehen, bevor „Weiter“ geht. */
-const LOOK_AT_SOLUTION_MS = 3000;
+const LOOK_AT_SOLUTION_MS = 1000;
 const pick = (a) => a[Math.floor(Math.random() * a.length)];
 const shuffle = (arr) => {
   const a = [...arr];
