@@ -1,0 +1,41 @@
+{
+  "id": "neue-geraete",
+  "line": "dorf",
+  "order": 2,
+  "title": "Neue Geräte in der Jungsteinzeit",
+  "subtitle": "Wozu war das gut?",
+  "icon": "🏺",
+  "card": "Wusstest du? Mit dem Räderwagen konnten die Menschen schwere Lasten wie die Ernte transportieren, ohne alles selbst zu tragen.",
+  "explain": [
+    { "p": "Als die Menschen sesshaft wurden, erfanden sie **neue Geräte**. Jedes Gerät löste eine Aufgabe des Bauernlebens:" },
+    { "table": { "head": ["Gerät oder Technik", "Wozu war es nützlich?"], "rows": [
+      ["**Webstuhl**", "**Stoffe** weben für Kleidung und Decken"],
+      ["**Töpferwaren**", "In Gefäßen aus **Ton** bewahrte man **Vorräte** auf und bereitete Essen zu."],
+      ["**Steinbohrer**", "**Löcher** in Steine bohren, zum Beispiel für den Stiel einer Axt"],
+      ["**geschliffene (polierte) Steinaxt**", "**Bäume fällen** und **Holz** bearbeiten, für Häuser und Geräte"],
+      ["**Räderwagen**", "schwere Lasten **transportieren**, zum Beispiel die **Ernte** und Baumaterial"],
+      ["**Pflug**", "den **Boden** lockern und **Furchen** für die Aussaat ziehen"],
+      ["**Mahlstein**", "Getreidekörner zu **Mehl** mahlen"]
+    ] } },
+    { "tip": "Ein guter Trick: Zu jedem Gerät die Frage stellen: **Was wurde damit leichter?** Der Pflug macht das Säen leichter, der Wagen das Tragen, der Topf das Aufbewahren." },
+    { "p": "**Acker** oder **Boden**? Der Pflug lockert den **Boden**. Die Fläche, auf der Getreide wächst, heißt **Acker**. Beides passt also zusammen: Man pflügt den Boden des Ackers." },
+    { "p": "Viele Geräte brauchte man nur, weil die Menschen an einem Ort blieben: Ein Webstuhl oder ein schwerer Tontopf ist zum Herumziehen zu unpraktisch." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wozu benutzte man den Webstuhl?", "options": ["um Stoffe für Kleidung und Decken zu weben", "um Löcher in Steine zu bohren", "um Getreide zu mahlen", "um Bäume zu fällen"], "answer": "um Stoffe für Kleidung und Decken zu weben" },
+    { "type": "choice", "q": "Was bewahrten die Menschen in Töpferwaren auf?", "options": ["Vorräte", "Werkzeuge aus Knochen", "Tiere", "Felle"], "answer": "Vorräte", "recall": "In Gefäßen aus Ton bewahrten sie ___ auf.", "accept": ["Vorrat", "Essen", "Nahrung", "Lebensmittel"] },
+    { "type": "choice", "q": "Woraus wurden Töpferwaren gemacht?", "options": ["aus Ton", "aus Eisen", "aus Glas", "aus Plastik"], "answer": "aus Ton" },
+    { "type": "choice", "q": "Wozu diente der Steinbohrer?", "options": ["um Löcher in Steine zu bohren, zum Beispiel für den Stiel einer Axt", "um Brunnen zu graben", "um Zähne zu ziehen", "um Feuer zu machen"], "answer": "um Löcher in Steine zu bohren, zum Beispiel für den Stiel einer Axt" },
+    { "type": "choice", "q": "Was konnte man mit der geschliffenen Steinaxt tun?", "options": ["Bäume fällen und Holz bearbeiten", "Stoffe weben", "Getreide mahlen", "Lasten transportieren"], "answer": "Bäume fällen und Holz bearbeiten" },
+    { "type": "choice", "q": "Was transportierten die Menschen mit dem Räderwagen?", "options": ["schwere Lasten wie die Ernte und Baumaterial", "nur Kinder", "Wasser in Flaschen", "nichts, er war ein Spielzeug"], "answer": "schwere Lasten wie die Ernte und Baumaterial" },
+    { "type": "choice", "q": "Was macht der Pflug?", "options": ["Er lockert den Boden und zieht Furchen für die Aussaat.", "Er schneidet das Getreide.", "Er mahlt Mehl.", "Er webt Stoff."], "answer": "Er lockert den Boden und zieht Furchen für die Aussaat." },
+    { "type": "choice", "q": "Womit wurden Getreidekörner zu Mehl?", "options": ["mit dem Mahlstein", "mit dem Pflug", "mit dem Webstuhl", "mit dem Steinbohrer"], "answer": "mit dem Mahlstein" },
+    { "type": "choice", "q": "Mit welchem Gerät ging das Tragen leichter?", "options": ["Räderwagen", "Webstuhl", "Steinbohrer", "Mahlstein"], "answer": "Räderwagen" },
+    { "type": "choice", "q": "Mit welchem Gerät wurde Kleidung leichter herzustellen?", "options": ["Webstuhl", "Pflug", "Räderwagen", "Steinaxt"], "answer": "Webstuhl" },
+    { "type": "choice", "q": "Warum brauchten Jäger und Sammler, die umherzogen, keinen Webstuhl und keine schweren Tontöpfe?", "options": ["Das wäre beim Herumziehen viel zu unpraktisch gewesen.", "Sie hatten keine Hände.", "Es war verboten.", "Sie trugen nie Kleidung."], "answer": "Das wäre beim Herumziehen viel zu unpraktisch gewesen." },
+    { "type": "input", "q": "Der Pflug lockert den ___ und zieht Furchen für die Aussaat.", "answer": "Boden", "accept": ["Acker", "Ackerboden"] },
+    { "type": "input", "q": "Mit der Steinaxt fällten die Menschen Bäume und bearbeiteten ___.", "answer": "Holz" },
+    { "type": "input", "q": "Mit dem Steinbohrer bohrten sie ___ in Steine.", "answer": "Löcher", "accept": ["Loch", "ein Loch"] },
+    { "type": "order", "de": "Räderwagen → Ernte", "answer": "Mit dem Räderwagen transportierten sie die Ernte.", "accept": ["Sie transportierten die Ernte mit dem Räderwagen.", "Die Ernte transportierten sie mit dem Räderwagen."] }
+  ]
+}

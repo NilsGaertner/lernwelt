@@ -1,0 +1,39 @@
+{
+  "id": "werkzeug-nahrung",
+  "line": "lager",
+  "order": 2,
+  "title": "Werkzeuge, Nahrung, Behausung, Kleidung",
+  "subtitle": "Was nutzten die Menschen in Bilzingsleben?",
+  "icon": "🪓",
+  "card": "Merke: **Geweih** ist ein **Material**, so wie Holz, Stein und Knochen. Daraus machten die Menschen Werkzeuge.",
+  "explain": [
+    { "p": "Was wissen wir über das Leben in **Bilzingsleben**? Die Tabelle fasst das Buch (Darstellungstext und Text M4) in **vier Bereichen** zusammen:" },
+    { "table": { "head": ["Bereich", "Was wurde gefunden oder vermutet?"], "rows": [
+      ["**Werkzeuge und Waffen**", "**Faustkeile**, **Schaber** und **messerartige Schneidegeräte** aus Stein; **Spitzen** und **Meißel** aus Knochen; **Bohrer**; **Speere**"],
+      ["**Nahrung**", "**Fleisch** von Wild, **Fisch**, **Wildfrüchte**, **Wurzeln**, **Eier**, **Bienenhonig**; vermutlich auch Nüsse, Eicheln, Beeren, Pilze, junge Sprossen und Muscheln"],
+      ["**Behausung**", "**zeltartige Hütten**, dazu **Feuerstellen** und **Werkplätze** im Lager"],
+      ["**Kleidung**", "vermutlich **Felle** und **Häute**, im Winter liefen sie wohl nicht nackt herum"]
+    ] } },
+    { "tip": "**Material oder Werkzeug?** Holz, Stein, **Knochen** und **Geweih** sind Materialien. Ein **Meißel aus Knochen** oder eine **Spitze aus Geweih** ist ein Werkzeug. In die Werkzeug-Spalte gehört also das Ding, das daraus gemacht wurde." },
+    { "p": "Die Menschen sammelten einen Teil ihrer Nahrung, den anderen erjagten sie. Darum heißen sie **Wildbeuter und Sammler**." },
+    { "p": "Die vielen **Bohrer** zeigen vermutlich, dass Holz, Bast, Felle und Häute bearbeitet wurden, etwa für Behälter, Tragen oder einfache Kleidung." },
+    { "tip": "Haut, die nicht **gegerbt** ist, verursacht schlimme Hautentzündungen. **Gerben** heißt: Tierhäute zu Pelzen oder Leder verarbeiten. Ob die Frühmenschen das schon konnten, ist eine offene Frage." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Was davon ist ein Werkzeug?", "options": ["Faustkeil", "Geweih", "Holz", "Stein"], "answer": "Faustkeil", "explain": "Geweih, Holz und Stein sind **Materialien**. Der Faustkeil ist ein Werkzeug aus Stein." },
+    { "type": "choice", "q": "Was ist Geweih?", "options": ["ein Material, aus dem man Werkzeuge machen kann", "ein Werkzeug zum Schneiden", "eine Hütte", "eine Speise"], "answer": "ein Material, aus dem man Werkzeuge machen kann" },
+    { "type": "choice", "q": "Woraus waren die Spitzen und Meißel in Bilzingsleben?", "options": ["aus Knochen", "aus Eisen", "aus Kunststoff", "aus Glas"], "answer": "aus Knochen" },
+    { "type": "choice", "q": "Woraus waren Faustkeile, Schaber und Schneidegeräte?", "options": ["aus Stein", "aus Gold", "aus Kupfer", "aus Ton"], "answer": "aus Stein" },
+    { "type": "choice", "q": "Was passt in die Spalte „Nahrung“?", "options": ["Wurzeln, Eier, Bienenhonig", "Speer, Meißel, Schaber", "Hütte, Feuerstelle", "Felle, Häute"], "answer": "Wurzeln, Eier, Bienenhonig" },
+    { "type": "choice", "q": "Was passt in die Spalte „Werkzeuge“?", "options": ["Speer, Meißel, Schaber", "Fleisch, Fisch, Beeren", "zeltartige Hütten", "Felle und Häute"], "answer": "Speer, Meißel, Schaber" },
+    { "type": "choice", "q": "Was passt in die Spalte „Kleidung“?", "options": ["vermutlich Felle und Häute", "T-Shirts aus Baumwolle", "Schuhe aus Gummi", "Wollpullover vom Webstuhl"], "answer": "vermutlich Felle und Häute", "explain": "Webstühle gab es erst in der **Jungsteinzeit**." },
+    { "type": "choice", "q": "Wie wohnten die Menschen in Bilzingsleben?", "options": ["in zeltartigen Hütten", "in Langhäusern aus Holz und Lehm", "in Steinhäusern mit Fenstern", "in Burgen"], "answer": "in zeltartigen Hütten", "recall": "Die Menschen in Bilzingsleben wohnten in zeltartigen ___.", "accept": ["Hütten", "zeltartigen Hütten", "Zelten"] },
+    { "type": "choice", "q": "Was ist keine Nahrung, die das Buch nennt?", "options": ["Brot", "Wildfrüchte", "Bienenhonig", "Fisch"], "answer": "Brot", "explain": "Brot backten die Menschen erst, als sie in der **Jungsteinzeit** selbst Getreide anbauten." },
+    { "type": "choice", "q": "Was bedeutet „gerben“?", "options": ["Tierhäute zu Pelzen oder Leder verarbeiten", "Fleisch braten", "Steine schärfen", "Hütten bauen"], "answer": "Tierhäute zu Pelzen oder Leder verarbeiten" },
+    { "type": "choice", "q": "Wozu dienten die vielen Bohrer vermutlich?", "options": ["um Holz, Bast, Felle und Häute zu bearbeiten", "um nach Öl zu bohren", "um Zähne zu ziehen", "um Löcher in Eis zu bohren"], "answer": "um Holz, Bast, Felle und Häute zu bearbeiten" },
+    { "type": "choice", "q": "Was zeigt der Plan des Lagerplatzes (M3) außer den Hütten?", "options": ["Feuerstellen und Werkplätze", "Äcker und Ställe", "Straßen und Brücken", "einen Marktplatz"], "answer": "Feuerstellen und Werkplätze" },
+    { "type": "input", "q": "Holz, Stein, Knochen und Geweih sind keine Werkzeuge, sondern ___.", "answer": "Materialien", "accept": ["Material", "Werkstoffe", "Rohstoffe"] },
+    { "type": "order", "de": "Werkzeug aus Knochen", "answer": "Die Menschen stellten Meißel aus Knochen her.", "accept": ["Meißel aus Knochen stellten die Menschen her.", "Aus Knochen stellten die Menschen Meißel her."] },
+    { "type": "order", "de": "Kleidung (nicht ganz sicher)", "answer": "Vermutlich trugen die Menschen Felle und Häute.", "accept": ["Die Menschen trugen vermutlich Felle und Häute.", "Felle und Häute trugen die Menschen vermutlich."] }
+  ]
+}

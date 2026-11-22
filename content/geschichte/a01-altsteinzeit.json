@@ -1,0 +1,41 @@
+{
+  "id": "altsteinzeit-leben",
+  "line": "lager",
+  "order": 1,
+  "title": "Wie lebten die Menschen in der Altsteinzeit?",
+  "subtitle": "Der Lagerplatz von Bilzingsleben",
+  "icon": "🏕️",
+  "card": "Wusstest du? In Bilzingsleben in Thüringen fanden Forscher etwa 500.000 Gegenstände aus der Altsteinzeit.",
+  "explain": [
+    { "p": "Die **Altsteinzeit** begann vor ungefähr **2 Millionen Jahren** und endete etwa **9000 v. Chr.** Sie ist der längste Abschnitt der Menschheitsgeschichte." },
+    { "p": "Im Eiszeitalter wechselten sich **Kaltzeiten** und **Warmzeiten** ab. In den Kaltzeiten reichte das Eis bis über die Elbe. In den Warmzeiten schmolz es, Wälder wuchsen, und Tiere und Menschen kamen zurück. Die Warmzeit, in der wir heute leben, begann um 9000 v. Chr." },
+    { "p": "Im thüringischen Dorf **Bilzingsleben** fanden Archäologen **1969** einen **Lagerplatz**. Vor etwa **350.000 bis 400.000 Jahren** lebten dort **Frühmenschen** (Homo erectus)." },
+    { "table": { "head": ["Wort", "Bedeutung"], "rows": [
+      ["**Wildbeuter**", "Menschen, die wilde Tiere jagen, also **Beute** machen"],
+      ["**Sammler**", "Menschen, die Wildfrüchte, Wurzeln, Eier und Honig **sammeln**"],
+      ["**Nomaden**", "Menschen, die **umherziehen** und nicht an einem Ort bleiben"],
+      ["**Lagerplatz**", "ein Ort, an dem eine Gruppe eine Zeit lang wohnt"]
+    ] } },
+    { "p": "Die Lagerplätze lagen meist **in Wassernähe**, denn dort fand sich das Wild: Rentiere, Wollnashörner, Schneehasen und Wildfüchse. Eine Gruppe hatte **25 bis 30 Personen**. Sie blieb so lange an einem Ort, wie die Umgebung sie ernähren konnte. Gab es nichts mehr, zog sie weiter." },
+    { "p": "Die Jagd auf große Tiere war gefährlich, denn die Waffen aus **Holz, Stein oder Geweih** waren sehr einfach. Mit der **Speerschleuder** flog der Speer weiter. So konnte man Tiere aus sicherer Entfernung erlegen." },
+    { "tip": "Wer machte was? Das Buch sagt: **Es wird vermutet**, dass die Männer Werkzeuge herstellten und jagten. Frauen und Kinder sammelten Nahrung und halfen bei der Treibjagd. Ganz sicher weiß man das nicht." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Wann begann die Altsteinzeit ungefähr?", "options": ["vor ungefähr 2 Millionen Jahren", "vor ungefähr 2000 Jahren", "um 5500 v. Chr.", "vor ungefähr 75.000 Jahren"], "answer": "vor ungefähr 2 Millionen Jahren" },
+    { "type": "choice", "q": "Wann endete die Altsteinzeit ungefähr?", "options": ["etwa 9000 v. Chr.", "bei Christi Geburt", "1969", "vor 2 Millionen Jahren"], "answer": "etwa 9000 v. Chr.", "explain": "1969 ist das Jahr, in dem der Lagerplatz in Bilzingsleben **gefunden** wurde." },
+    { "type": "choice", "q": "Was wechselte sich im Eiszeitalter ab?", "options": ["Kaltzeiten und Warmzeiten", "Steinzeit und Bronzezeit", "Ebbe und Flut", "Frühling und Herbst"], "answer": "Kaltzeiten und Warmzeiten" },
+    { "type": "choice", "q": "Was geschah in den Warmzeiten?", "options": ["Das Eis schmolz, Wälder wuchsen, Tiere und Menschen kamen zurück.", "Das Eis wurde immer dicker.", "Alle Menschen zogen nach Afrika zurück.", "Alle Tiere starben aus."], "answer": "Das Eis schmolz, Wälder wuchsen, Tiere und Menschen kamen zurück." },
+    { "type": "choice", "q": "In welchem Bundesland liegt Bilzingsleben?", "options": ["in Thüringen", "in Bayern", "in Hamburg", "in Bremen"], "answer": "in Thüringen" },
+    { "type": "choice", "q": "Wer lebte vor etwa 350.000 bis 400.000 Jahren in Bilzingsleben?", "options": ["Frühmenschen (Homo erectus)", "Jetztzeitmenschen", "Römer", "Bauern aus der Jungsteinzeit"], "answer": "Frühmenschen (Homo erectus)" },
+    { "type": "choice", "q": "Warum lagen die Lagerplätze meist in Wassernähe?", "options": ["Dort fand sich das Wild.", "Die Menschen wollten baden.", "Dort gab es schon Häuser.", "Dort war es immer warm."], "answer": "Dort fand sich das Wild." },
+    { "type": "choice", "q": "Menschen, die wilde Tiere jagen und Beute machen, nennt man auch …", "options": ["Wildbeuter", "Bauern", "Viehzüchter", "Händler"], "answer": "Wildbeuter", "recall": true, "accept": ["Wildbeutern"] },
+    { "type": "choice", "q": "Wie heißen Menschen, die umherziehen und nicht an einem Ort bleiben?", "options": ["Nomaden", "Siedler", "Bauern", "Städter"], "answer": "Nomaden", "recall": true, "accept": ["Nomade"] },
+    { "type": "choice", "q": "Wie groß war eine Gruppe von Wildbeutern und Sammlern ungefähr?", "options": ["25 bis 30 Personen", "2 bis 3 Personen", "500 Personen", "10.000 Personen"], "answer": "25 bis 30 Personen" },
+    { "type": "choice", "q": "Wann zog eine Gruppe weiter?", "options": ["wenn es keine Beutetiere oder andere Nahrung mehr gab", "jeden Montag", "nie", "wenn es regnete"], "answer": "wenn es keine Beutetiere oder andere Nahrung mehr gab" },
+    { "type": "choice", "q": "Warum war die Jagd auf große Tiere gefährlich?", "options": ["Die Waffen aus Holz, Stein oder Geweih waren sehr einfach.", "Man durfte nur nachts jagen.", "Die Tiere waren winzig.", "Die Menschen hatten keine Hände frei."], "answer": "Die Waffen aus Holz, Stein oder Geweih waren sehr einfach." },
+    { "type": "choice", "q": "Was wurde mit der Speerschleuder möglich?", "options": ["Tiere aus sicherer Entfernung zu erlegen", "Feuer zu machen", "Häuser zu bauen", "Fische zu kochen"], "answer": "Tiere aus sicherer Entfernung zu erlegen" },
+    { "type": "choice", "q": "Warum war das Leben in der Gruppe so wichtig?", "options": ["Die Gemeinschaft sorgte für Schutz und Versorgung.", "Allein war es nur langweilig.", "Ein König hatte es befohlen.", "In der Gruppe brauchte man nichts zu essen."], "answer": "Die Gemeinschaft sorgte für Schutz und Versorgung." },
+    { "type": "choice", "q": "Männer jagten, Frauen und Kinder sammelten. Wie sicher ist das?", "options": ["Es wird vermutet, ganz sicher weiß man es nicht.", "Es steht in alten Briefen, also ist es sicher.", "Es ist sicher, weil es Fotos davon gibt.", "Es ist ausgedacht und sicher falsch."], "answer": "Es wird vermutet, ganz sicher weiß man es nicht.", "explain": "Aus der Altsteinzeit gibt es keine schriftlichen Quellen und natürlich keine Fotos. Darum schreibt das Buch: **Es wird vermutet**." },
+    { "type": "order", "de": "Lagerplätze → Wasser → Wild", "answer": "Die Lagerplätze lagen in Wassernähe, weil sich dort das Wild fand.", "accept": ["Weil sich dort das Wild fand, lagen die Lagerplätze in Wassernähe."] }
+  ]
+}

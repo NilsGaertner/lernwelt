@@ -100,12 +100,13 @@ Die Welt-Linie hat die Stationen Die Kontinente, Kontinente-Wissen, Die Ozeane u
 
 Dazu gibt es den „Welt-Blitz“ und den „Erde-und-Atlas-Blitz“.
 
-**Biologie: Reiz und Reaktion, Katze, Merkmale des Lebens, Versuche und Hund (7 Linien, 22 Stationen, je mit Endbahnhof)**
+**Biologie: Heimtiere, Reiz und Reaktion, Katze, Merkmale des Lebens, Versuche und Hund (8 Linien, 25 Stationen, je mit Endbahnhof)**
 
 Passend zum Kapitel „Haustiere“ im Biologiebuch, zu den Arbeitsblättern und zum Test über die Merkmale des Lebens:
 
 | Linie | Stationen |
 |---|---|
+| Heimtier-Linie | Heimtier, Nutztier oder Haustier? (Haustier ist der Oberbegriff, ein Hund ist Haustier und Heimtier zugleich, der Wachhund hat einen Nutzen, Vögel und Insekten als Haustiere, die drei Tier-Rätsel), Wie leben Meerschweinchen gut? (die Richtig-oder-falsch-Aussagen vom Arbeitsblatt, Artgenossen, Käfig, Futter, warum Heu die nachwachsenden Zähne abnutzt), Ist mein Meerschweinchen gesund und sicher? (Gesundheit, Hochheben, Freilauf, und warum über das Freigehege ein Gitter gehört und keine Decke: Schutz vor Katzen, Mardern und Greifvögeln) |
 | Reiz-Linie | Was löst es aus? (Was passiert zuerst, von außen? Was tut das Lebewesen danach? Auch wenn der Reiz hinten im Satz steht), Welches Sinnesorgan? (Reiz → Sinnesorgan → Reaktion, die fünf Sinne, Tasthaare), Beobachten oder deuten? (der Mehlwurm-Versuch: hell oder dunkel, und die Bohne im Karton) |
 | Hund-und-Katze-Linie | Pfoten und Krallen (Zehen- und Sohlengänger, die Ferse beim Hund, wie die Katze ihre Krallen ausfährt: Struktur und Funktion, Spuren im Schnee), Katzensinne (Nachtjäger, Pupillen, leuchtende Augen und Katzenaugen am Fahrrad, Tasthaare), Hund oder Katze? (Vergleich, Katzengebiss mit 30 Zähnen, Tragstarre, Katzenhaltung, „wie Hund und Katze“) |
 | Katzen-Linie | Die Katze als Schleichjäger (die vier Phasen beim Beutefang), Perfekt angepasst (Krallen, Fangzähne, Augen, Tasthaare), Fortpflanzung der Katzen (Fachwörter, Säugetier richtig begründen, Revier) |
@@ -116,12 +117,14 @@ Passend zum Kapitel „Haustiere“ im Biologiebuch, zu den Arbeitsblättern und
 
 Beim Skelett und beim Gebiss ist ein Knochen bzw. eine Zahnart auf einer Zeichnung markiert, und dein Kind wählt oder schreibt den Namen. Im „Merke“ sind die Zeichnungen bunt und nummeriert wie im Buch. Dazu gibt es den „Hunde-Blitz“ und den „Leben-und-Katzen-Blitz“.
 
-**Geschichte: Quellen, Eiszeit, Höhlenmalerei und Deutschland (6 Linien, 18 Stationen)**
+**Geschichte: Steinzeit, Quellen, Eiszeit, Höhlenmalerei und Deutschland (8 Linien, 24 Stationen)**
 
-Nach dem Geschichtsheft, dem Buch und dem Test über Zeitstrahl und Quellen:
+Nach dem Geschichtsheft, dem Buch (Kapitel „Das Leben der Menschen in frühgeschichtlicher Zeit“), dem Arbeitsblatt zur Sesshaftwerdung und dem Test über Zeitstrahl und Quellen:
 
 | Linie | Stationen |
 |---|---|
+| Lagerplatz-Linie | Wie lebten die Menschen in der Altsteinzeit? (Bilzingsleben, Kalt- und Warmzeiten, Wildbeuter, Nomaden, Speerschleuder), Werkzeuge, Nahrung, Behausung, Kleidung (die Tabelle aus Aufgabe 4a; Geweih ist ein Material, kein Werkzeug), Einen Sachtext erschließen (die fünf Arbeitsschritte am Text von Dietrich Mania, sicher oder vermutet, Rekonstruktionszeichnung) |
+| Dorf-Linie | Warum wurden die Menschen sesshaft? (Neolithische Revolution, Zeiten, Vor- und Nachteile, Zelt oder Mahlstein), Neue Geräte in der Jungsteinzeit (Webstuhl bis Pflug: Wozu war das gut?), Ein Haus entsteht, der Wald verschwindet (die Reihenfolge beim Hausbau mit Zuerst … Zum Schluss: Pfosten zuerst, Lehm zuletzt; roden, unfruchtbare Böden, Naturverbrauch) |
 | Spurensucher-Linie | Quelle oder Darstellung? (die Leitfrage: Stammt es aus der Zeit, um die es geht?), Welche Quellenart?, Was gehört in welche Epoche? (Zeitstrahl wie im Test, Jahreszahlen an den Übergängen, Funde einordnen) |
 | Eiszeit-Linie | Europa in der Eiszeit (Karte nach dem Buch, Gletscher, Tundra, Steppe, schwierige Wörter aus dem Sachtext), Die Menschen ziehen nach Norden, Evolution (mit Generationen rechnen) |
 | Höhlen-Linie | Warum malten die Menschen?, Sicher oder vermutet? (vermutlich, wahrscheinlich, etwa), Aus Stichworten werden Sätze (Formulierungshilfen, weil, dadurch, deshalb) |

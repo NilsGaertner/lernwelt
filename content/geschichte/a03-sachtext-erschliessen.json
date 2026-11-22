@@ -1,0 +1,47 @@
+{
+  "id": "sachtext-erschliessen",
+  "line": "lager",
+  "order": 3,
+  "title": "Einen Sachtext erschließen",
+  "subtitle": "Fünf Schritte und der Text von Dietrich Mania",
+  "icon": "📖",
+  "card": "Merke: **Überblick – Fragen – Schlüsselwörter – Aufbau – Inhalt wiedergeben.** In dieser Reihenfolge wird ein Sachtext verständlich.",
+  "explain": [
+    { "p": "Mit **fünf Arbeitsschritten** lässt sich jeder Sachtext erschließen:" },
+    { "table": { "head": ["Schritt", "Was passiert da?"], "rows": [
+      ["**1. Überblick verschaffen**", "Welche Überschrift hat der Text? Worum geht es ungefähr?"],
+      ["**2. Fragen stellen**", "Was weiß ich schon? **Wer** kommt vor? **Wo** und **wann** spielt es? **Worum** geht es? Welche Fragen bleiben offen?"],
+      ["**3. Schlüsselwörter klären**", "Schwierige Fachbegriffe nachschlagen (Lexikon, Internet, Kasten im Buch)"],
+      ["**4. Textaufbau erfassen**", "In welche Abschnitte lässt sich der Text gliedern? Welche Überschriften passen?"],
+      ["**5. Inhalt wiedergeben**", "Mit den Überschriften und Schlüsselwörtern kurz erzählen: in wenigen Sätzen oder in Stichworten"]
+    ] } },
+    { "p": "Ein Beispiel ist der Text **M4**: Der Ausgrabungsleiter **Dietrich Mania** schreibt **2004** über den Fundort **Bilzingsleben**. Er hat Funde untersucht und schreibt **später** darüber. Darum ist sein Text eine **Darstellung**, keine Quelle." },
+    { "table": { "head": ["Frage", "Antwort für M4"], "rows": [
+      ["Wer kommt vor?", "die **Frühmenschen** (Homo erectus) von Bilzingsleben"],
+      ["Wo und wann?", "Bilzingsleben in Thüringen, vor etwa 350.000 bis 400.000 Jahren"],
+      ["Worum geht es?", "Nahrung, Werkzeuge, Kleidung und das Leben im Lager"],
+      ["Schlüsselwörter", "Bohrer, gerben, Ekzeme (Hautentzündungen), **Arbeitsteilung**"],
+      ["Offene Frage", "Kannten die Frühmenschen schon einfache Gerbverfahren?"]
+    ] } },
+    { "p": "Mania unterscheidet genau zwischen **sicher** und **vermutet**: „Mit **Sicherheit** …“, „Doch ist **anzunehmen** …“, „**Sicherlich** …“, „bedeuten **vermutlich** …“, „**vielleicht** auch Felle“." },
+    { "p": "**Arbeitsteilung** heißt: Nicht alle machen dasselbe. Einige ziehen zur Jagd los, andere sammeln, wieder andere bleiben im Lager." },
+    { "tip": "Das Lebensbild **M2** ist eine **Rekonstruktionszeichnung**. Sie wurde 1999 gezeichnet, nach den Funden. So **kann** es gewesen sein, aber nicht unbedingt genau so. Gesichter, Haare und Bewegungen hat sich die Zeichnerin oder der Zeichner ausgedacht." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Was kommt beim Sachtext-Lesen zuerst?", "options": ["einen Überblick verschaffen", "den Inhalt wiedergeben", "den Textaufbau erfassen", "Schlüsselwörter klären"], "answer": "einen Überblick verschaffen" },
+    { "type": "choice", "q": "Was kommt beim Sachtext-Lesen ganz zum Schluss?", "options": ["den Inhalt wiedergeben", "Fragen stellen", "einen Überblick verschaffen", "Schlüsselwörter klären"], "answer": "den Inhalt wiedergeben" },
+    { "type": "choice", "q": "In welchem Schritt fragt man: Wer? Wo? Wann? Worum geht es?", "options": ["Schritt 2: Fragen stellen", "Schritt 1: Überblick verschaffen", "Schritt 4: Textaufbau erfassen", "Schritt 5: Inhalt wiedergeben"], "answer": "Schritt 2: Fragen stellen" },
+    { "type": "choice", "q": "Was macht man im Schritt „Schlüsselwörter klären“?", "options": ["schwierige Fachbegriffe nachschlagen", "den Text abschreiben", "die Überschrift unterstreichen", "Bilder malen"], "answer": "schwierige Fachbegriffe nachschlagen" },
+    { "type": "choice", "q": "Was macht man im Schritt „Textaufbau erfassen“?", "options": ["den Text in Abschnitte gliedern und Überschriften finden", "den Text laut vorlesen", "die Fehler im Text suchen", "die Wörter zählen"], "answer": "den Text in Abschnitte gliedern und Überschriften finden" },
+    { "type": "choice", "q": "Dietrich Mania schrieb 2004 über Bilzingsleben. Ist sein Text eine Quelle oder eine Darstellung?", "options": ["Darstellung", "Quelle"], "answer": "Darstellung", "explain": "Der Text entstand **später**, nicht in der Altsteinzeit. Die Funde selbst, zum Beispiel die Bohrer, sind **Quellen**." },
+    { "type": "choice", "q": "Ein Bohrer aus Bilzingsleben, 350.000 Jahre alt. Quelle oder Darstellung?", "options": ["Quelle", "Darstellung"], "answer": "Quelle", "explain": "Der Bohrer stammt **aus der Zeit**, um die es geht. Er ist eine gegenständliche Quelle." },
+    { "type": "choice", "q": "Mania schreibt: „Mit Sicherheit haben sich die frühen Menschen nicht nur von Fleisch und Fisch ernährt.“ Wie sicher ist das für ihn?", "options": ["sicher", "nur vermutet"], "answer": "sicher" },
+    { "type": "choice", "q": "Mania schreibt: „Die vielen Bohrer bedeuten vermutlich, dass organische Materialien bearbeitet wurden.“ Wie sicher ist das?", "options": ["nur vermutet", "sicher"], "answer": "nur vermutet" },
+    { "type": "choice", "q": "Welche Frage lässt Mania offen?", "options": ["Kannten die Frühmenschen schon einfache Gerbverfahren?", "Gab es in Bilzingsleben Bohrer?", "Wurde das Lager gefunden?", "Lebten dort Menschen?"], "answer": "Kannten die Frühmenschen schon einfache Gerbverfahren?" },
+    { "type": "choice", "q": "Was bedeutet „Arbeitsteilung“?", "options": ["Nicht alle machen dasselbe: Einige jagen, andere sammeln oder bleiben im Lager.", "Alle machen immer genau dasselbe.", "Niemand muss arbeiten.", "Die Arbeit wird halbiert und bleibt liegen."], "answer": "Nicht alle machen dasselbe: Einige jagen, andere sammeln oder bleiben im Lager.", "recall": "Einige jagen, andere sammeln, wieder andere bleiben im Lager. Wie heißt das?", "accept": ["Arbeitsteilung"] },
+    { "type": "choice", "q": "Was sind Ekzeme?", "options": ["Hautentzündungen", "Werkzeuge aus Stein", "Hütten aus Fell", "Beeren"], "answer": "Hautentzündungen" },
+    { "type": "choice", "q": "Das Lebensbild M2 wurde 1999 gezeichnet. Was stimmt?", "options": ["So kann es gewesen sein, aber nicht unbedingt genau so.", "Es zeigt genau, wie es war.", "Es ist eine Quelle aus der Altsteinzeit.", "Es ist ein Foto."], "answer": "So kann es gewesen sein, aber nicht unbedingt genau so." },
+    { "type": "choice", "q": "Woher wissen die Zeichner von M2, was sie zeichnen sollen?", "options": ["aus den Funden und Untersuchungen der Archäologen", "aus alten Fotos", "aus Briefen der Frühmenschen", "Sie haben alles erfunden."], "answer": "aus den Funden und Untersuchungen der Archäologen" },
+    { "type": "order", "de": "Rekonstruktionszeichnung – wie sicher?", "answer": "Die Zeichnung zeigt, wie es gewesen sein kann.", "accept": ["Wie es gewesen sein kann, zeigt die Zeichnung."] }
+  ]
+}

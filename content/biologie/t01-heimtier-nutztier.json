@@ -1,0 +1,40 @@
+{
+  "id": "heimtier-nutztier",
+  "line": "heimtier",
+  "order": 1,
+  "title": "Heimtier, Nutztier oder Haustier?",
+  "subtitle": "Der Mensch lebt mit Tieren",
+  "icon": "🐓",
+  "card": "Merke: **Haustier** ist der Oberbegriff. **Heimtiere** und **Nutztiere** sind beides Haustiere.",
+  "explain": [
+    { "p": "**Haustiere** sind Tiere, die der Mensch vor langer Zeit aus Wildtieren **gezüchtet** hat und die mit ihm leben. Es gibt zwei Gruppen:" },
+    { "table": { "head": ["", "Heimtier", "Nutztier"], "rows": [
+      ["**Warum gehalten?**", "aus Freude, als Gefährte, zur Gesellschaft", "weil es dem Menschen einen **Nutzen** bringt"],
+      ["**Wo?**", "meist im Haushalt, in der Obhut einer Familie", "meist auf dem Bauernhof"],
+      ["**Beispiele**", "Hund, Katze, Meerschweinchen, Kaninchen, Wellensittich", "Huhn (Eier), Kuh (Milch), Schaf (Wolle), Schwein (Fleisch), Honigbiene (Honig)"]
+    ] } },
+    { "tip": "Ein Hund ist also ein **Haustier** und zugleich ein **Heimtier**. Das schließt sich nicht aus, so wie eine Rose eine Blume **und** eine Pflanze ist." },
+    { "p": "Ob ein Tier Heimtier oder Nutztier ist, hängt davon ab, **wozu** es gehalten wird. Ein Kaninchen kann ein Heimtier sein oder ein Nutztier. Ein Hund, der das Haus **bewacht** oder Schafe **hütet**, hat einen Nutzen und wird darum oft auch zu den Nutztieren gezählt." },
+    { "p": "Nicht alle Haustiere sind **Säugetiere**. Auch einige **Vögel** (Huhn, Ente, Wellensittich) und sogar **Insekten** (Honigbiene, Seidenspinner) wurden durch Züchtung zu Haustieren." },
+    { "p": "**Wildtiere** leben frei in der Natur und wurden nicht gezüchtet, zum Beispiel Fuchs, Reh oder Wolf." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Welcher Begriff ist der Oberbegriff?", "options": ["Haustier", "Heimtier", "Nutztier"], "answer": "Haustier" },
+    { "type": "choice", "q": "Ina sagt: „Hunde sind keine Haustiere, sondern Heimtiere.“ Stimmt das?", "options": ["Nein, Hunde sind Haustiere und zugleich Heimtiere.", "Ja, Hunde sind nur Heimtiere.", "Nein, Hunde sind Wildtiere.", "Ja, Heimtiere sind keine Haustiere."], "answer": "Nein, Hunde sind Haustiere und zugleich Heimtiere." },
+    { "type": "choice", "q": "Klaus' Oma hat Hühner, Enten, Kaninchen, eine Katze, einen Hund und ein Pferd. Sind das alles Haustiere?", "options": ["Ja, alle sind Haustiere.", "Nein, Hühner sind Wildtiere.", "Nein, nur Hund und Katze.", "Nein, Pferde sind Wildtiere."], "answer": "Ja, alle sind Haustiere." },
+    { "type": "choice", "q": "Felix meint, der Hund der Oma sei eher ein Nutztier, weil er das Haus bewacht. Was stimmt?", "options": ["Teilweise: Ein Wachhund hat einen Nutzen. Er ist aber auch ein Haustier und oft ein Heimtier.", "Völlig falsch, Hunde sind nie nützlich.", "Hunde sind immer Nutztiere.", "Hunde sind Wildtiere."], "answer": "Teilweise: Ein Wachhund hat einen Nutzen. Er ist aber auch ein Haustier und oft ein Heimtier." },
+    { "type": "choice", "q": "Wann ist ein Tier ein Nutztier?", "options": ["wenn es dem Menschen einen Nutzen bringt", "wenn es besonders klein ist", "wenn es im Wald lebt", "wenn es Fell hat"], "answer": "wenn es dem Menschen einen Nutzen bringt", "recall": "Ein Haustier, das dem Menschen einen Nutzen bringt, heißt ___.", "accept": ["Nutztier", "ein Nutztier"] },
+    { "type": "choice", "q": "Wie heißen Tiere, die in der Obhut des Menschen leben, zum Beispiel im Haushalt einer Familie?", "options": ["Heimtiere", "Wildtiere", "Raubtiere", "Nutztiere"], "answer": "Heimtiere", "recall": true, "accept": ["Heimtier"] },
+    { "type": "choice", "q": "Welches Tier ist ein Nutztier?", "options": ["Kuh", "Wellensittich", "Meerschweinchen", "Fuchs"], "answer": "Kuh" },
+    { "type": "choice", "q": "Welches Tier ist ein Wildtier?", "options": ["Fuchs", "Huhn", "Katze", "Schaf"], "answer": "Fuchs" },
+    { "type": "choice", "q": "Welches Haustier ist ein Insekt?", "options": ["Honigbiene", "Wellensittich", "Kaninchen", "Ente"], "answer": "Honigbiene" },
+    { "type": "choice", "q": "Sind alle Haustiere Säugetiere?", "options": ["Nein, auch Vögel und Insekten können Haustiere sein.", "Ja, alle.", "Nein, nur Fische.", "Ja, außer dem Hund."], "answer": "Nein, auch Vögel und Insekten können Haustiere sein." },
+    { "type": "choice", "q": "Welchen Nutzen bringt das Schaf?", "options": ["Wolle", "Eier", "Honig", "Seide"], "answer": "Wolle" },
+    { "type": "choice", "q": "Welchen Nutzen bringt das Huhn?", "options": ["Eier", "Wolle", "Milch", "Honig"], "answer": "Eier" },
+    { "type": "choice", "q": "Rätsel A: „Ich fange Mäuse.“ Wer ist das?", "options": ["Katze", "Meerschweinchen", "Hund", "Kaninchen"], "answer": "Katze" },
+    { "type": "choice", "q": "Rätsel B: „Mein Name hat etwas mit Wasser zu tun, obwohl ich nicht im Meer lebe.“ Wer ist das?", "options": ["Meerschweinchen", "Katze", "Hund", "Wellensittich"], "answer": "Meerschweinchen", "recall": true },
+    { "type": "choice", "q": "Rätsel C: „Ich beschütze mein Herrchen.“ Wer ist das?", "options": ["Hund", "Katze", "Meerschweinchen", "Huhn"], "answer": "Hund" },
+    { "type": "choice", "q": "Welches Heimtier frisst Heu, Kräuter, Möhren und dünne Zweige?", "options": ["Meerschweinchen", "Katze", "Hund"], "answer": "Meerschweinchen" },
+    { "type": "choice", "q": "Welches Heimtier frisst Fleisch und Knochen?", "options": ["Hund", "Meerschweinchen", "Kaninchen"], "answer": "Hund" }
+  ]
+}

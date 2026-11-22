@@ -1,0 +1,44 @@
+{
+  "id": "hausbau-umwelt",
+  "line": "dorf",
+  "order": 3,
+  "title": "Ein Haus entsteht, der Wald verschwindet",
+  "subtitle": "Hausbau und Umwelt in der Jungsteinzeit",
+  "icon": "🏠",
+  "card": "Merke: Erst das **Gerüst** aus Pfosten, zum Schluss der **Lehm**. Lehm braucht eine fertige Flechtwand, an der er hält.",
+  "explain": [
+    { "p": "Ein Haus wird gebaut wie ein Körper: zuerst das **Gerüst**, dann das, was daran hängt, und zuletzt die **Haut** außen herum." },
+    { "table": { "head": ["Schritt", "Was passiert?", "Warum an dieser Stelle?"], "rows": [
+      ["**1**", "**Tragpfosten** aus Holz aufstellen", "Sie tragen alles andere. Ohne sie hält nichts."],
+      ["**2**", "die **Dachkonstruktion** aus Holz bauen", "Das Dachgerüst liegt auf den Pfosten."],
+      ["**3**", "**Flechtwände** zwischen den Wandpfosten herstellen", "Zweige werden zwischen die Pfosten geflochten."],
+      ["**4**", "das Dach mit **Schilf** decken", "Das Schilf kommt auf das Dachgerüst."],
+      ["**5**", "die Wände mit **Lehm** verputzen", "Der Lehm braucht die fertige Flechtwand, an der er hält."]
+    ] } },
+    { "tip": "Ganz sicher ist: Die **Pfosten** kommen **zuerst**, der **Lehm** kommt **zuletzt**. Ob die Flechtwände oder das Schilfdach früher fertig waren, weiß man nicht genau. Die Zeichnung im Buch zeigt alle Arbeiten gleichzeitig." },
+    { "p": "Für die Reihenfolge im Text helfen diese Wörter: **Zuerst** … **Dann** … **Danach** … **Zum Schluss** …" },
+    { "p": "Für Bauholz und Ackerland **rodeten** die Menschen den Wald. **Roden** heißt: Bäume **fällen** oder Waldstücke **abbrennen**, damit freie Fläche entsteht. Auf den neuen **Äckern** bauten sie Getreide an." },
+    { "p": "Die Böden wurden nach wenigen Jahren **unfruchtbar**. Dann brannte man weitere Waldstücke nieder. So veränderte sich die Landschaft: weniger Wald, mehr Äcker, Dörfer und Weiden." },
+    { "p": "Die Grafik **M3** vergleicht eine gleich große Fläche (1 Quadratkilometer): **Ackerbau** ernährt dort viele Menschen, **Viehzucht** weniger, die **Jagd** nur ganz wenige. Bauern brauchen also weniger Fläche pro Mensch, verändern die Natur aber viel stärker." },
+    { "tip": "Im Buch steht „**abbrennen**“ oder „**niederbrennen**“. Das Wort „abfackeln“ ist Umgangssprache, im Geschichtsheft passt „**roden**“ oder „**abbrennen**“ besser." }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "Was kam beim Hausbau zuerst?", "options": ["Tragpfosten aus Holz aufstellen", "die Wände mit Lehm verputzen", "das Dach mit Schilf decken", "Flechtwände herstellen"], "answer": "Tragpfosten aus Holz aufstellen" },
+    { "type": "choice", "q": "Was kam beim Hausbau zum Schluss?", "options": ["die Wände mit Lehm verputzen", "Tragpfosten aufstellen", "die Dachkonstruktion bauen", "Flechtwände herstellen"], "answer": "die Wände mit Lehm verputzen" },
+    { "type": "choice", "q": "Warum kann der Lehm nicht zuerst kommen?", "options": ["Er braucht eine fertige Flechtwand, an der er hält.", "Lehm ist zu teuer.", "Lehm gab es erst später.", "Lehm kommt nur aufs Dach."], "answer": "Er braucht eine fertige Flechtwand, an der er hält." },
+    { "type": "choice", "q": "Worauf liegt die Dachkonstruktion?", "options": ["auf den Tragpfosten", "auf dem Lehm", "auf dem Schilf", "auf dem Boden"], "answer": "auf den Tragpfosten" },
+    { "type": "choice", "q": "Womit wurde das Dach gedeckt?", "options": ["mit Schilf", "mit Ziegeln", "mit Blech", "mit Glas"], "answer": "mit Schilf", "recall": "Das Dach wurde mit ___ gedeckt.", "accept": ["Schilf", "Stroh"] },
+    { "type": "choice", "q": "Woraus waren die Wände, bevor der Lehm darauf kam?", "options": ["aus geflochtenen Zweigen", "aus Steinen", "aus Beton", "aus Fellen"], "answer": "aus geflochtenen Zweigen" },
+    { "type": "choice", "q": "Welches Wort zeigt den letzten Schritt?", "options": ["Zum Schluss", "Zuerst", "Dann", "Danach"], "answer": "Zum Schluss" },
+    { "type": "choice", "q": "Was bedeutet „roden“?", "options": ["Bäume fällen oder Waldstücke abbrennen, damit freie Fläche entsteht", "Bäume pflanzen", "Getreide mahlen", "Tiere jagen"], "answer": "Bäume fällen oder Waldstücke abbrennen, damit freie Fläche entsteht", "recall": "Bäume fällen oder Waldstücke abbrennen, damit freie Fläche entsteht. Wie heißt das?", "accept": ["roden", "Roden", "rodeten"] },
+    { "type": "choice", "q": "Wozu rodeten die Menschen den Wald?", "options": ["für Bauholz und Ackerland", "um Mammuts zu jagen", "weil sie Bäume nicht mochten", "um Höhlen zu finden"], "answer": "für Bauholz und Ackerland" },
+    { "type": "choice", "q": "Was entstand auf den gerodeten Flächen?", "options": ["Äcker, auf denen Getreide wuchs", "neue Wälder", "Gletscher", "Seen"], "answer": "Äcker, auf denen Getreide wuchs" },
+    { "type": "choice", "q": "Was passierte, wenn die Böden nach wenigen Jahren unfruchtbar waren?", "options": ["Weitere Waldgebiete wurden abgebrannt.", "Die Menschen hörten auf zu essen.", "Der Boden wurde von selbst wieder gut.", "Sie zogen zurück in die Höhlen."], "answer": "Weitere Waldgebiete wurden abgebrannt." },
+    { "type": "choice", "q": "Auf einer gleich großen Fläche: Welche Lebensweise ernährt die meisten Menschen?", "options": ["Ackerbau", "Viehzucht", "Jagd"], "answer": "Ackerbau" },
+    { "type": "choice", "q": "Welches Wort passt am besten ins Geschichtsheft? „Die Menschen haben den Wald …“", "options": ["gerodet", "abgefackelt", "weggemacht", "kaputt gemacht"], "answer": "gerodet" },
+    { "type": "order", "de": "Schritt 1", "answer": "Zuerst stellten sie Tragpfosten aus Holz auf.", "accept": ["Sie stellten zuerst Tragpfosten aus Holz auf."] },
+    { "type": "order", "de": "Schritt 2", "answer": "Dann bauten sie die Dachkonstruktion aus Holz.", "accept": ["Sie bauten dann die Dachkonstruktion aus Holz."] },
+    { "type": "order", "de": "letzter Schritt", "answer": "Zum Schluss verputzten sie die Wände mit Lehm.", "accept": ["Sie verputzten zum Schluss die Wände mit Lehm.", "Sie verputzten die Wände zum Schluss mit Lehm."] },
+    { "type": "order", "de": "Wald → Äcker", "answer": "Die Menschen rodeten den Wald für neue Äcker.", "accept": ["Für neue Äcker rodeten die Menschen den Wald."] }
+  ]
+}
