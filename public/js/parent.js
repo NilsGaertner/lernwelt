@@ -100,8 +100,12 @@ async function dashboard(root, render, reloadMeta) {
 
   const decide = async (id, status) => {
     try {
-      await papi(`/tickets/${id}`, { method: 'POST', body: { status } });
-      toast(status === 'approved' ? 'Ticket genehmigt.' : 'Ticket abgelehnt, Sterne zurückgebucht.');
+      const r = await papi(`/tickets/${id}`, { method: 'POST', body: { status } });
+      if (status !== 'approved') toast('Ticket abgelehnt, Sterne zurückgebucht.');
+      else if (r.booking) {
+        const until = r.booking.endsAt ? ` – am PC bis ${new Date(r.booking.endsAt).toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })}` : '';
+        toast(`Genehmigt, ${r.minutes} Minuten sind auf dem PC${until}.`);
+      } else toast('Ticket genehmigt.');
       refresh();
     } catch (err) { toast(err.message); }
   };
@@ -112,7 +116,9 @@ async function dashboard(root, render, reloadMeta) {
         h('ul.pending-list', data.pending.map((t) =>
           h('li',
             h('span', { style: { fontSize: '1.6rem' } }, avatarText(t.avatar)),
-            h('.what', h('strong', `${t.child_name}: ${t.minutes} Minuten Medienzeit`), h('div.muted.small', `${t.stars} Sterne · ${relDay(t.created_at)}`)),
+            h('.what',
+              h('strong', `${t.child_name}: ${t.minutes} Minuten ${t.target === 'pc' ? 'am PC 🖥️' : 'Medienzeit'}`),
+              h('div.muted.small', `${t.stars} Sterne · ${relDay(t.created_at)}${t.target === 'pc' ? ' · wird beim Genehmigen direkt auf dem PC gebucht' : ''}`)),
             h('button.btn.go.small', { type: 'button', onclick: () => decide(t.id, 'approved') }, 'Genehmigen'),
             h('button.btn.danger.small', { type: 'button', onclick: () => decide(t.id, 'rejected') }, 'Ablehnen')))))
     : null;

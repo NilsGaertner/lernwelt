@@ -6,9 +6,10 @@ import { publicBadges } from './badges.js';
 import { startSession, answerQuestion, finishSession, hintQuestion, chooseQuestion } from './session.js';
 import { practiceCounts, migrateSpacing, knownCounts, foldFormerItems, markKnownItems } from './srs.js';
 import {
-  balance, earnedOn, streak, unitProgress, earnedBadges, requestTicket, decideTicket, tickets, adjustStars,
+  balance, earnedOn, streak, unitProgress, earnedBadges, requestTicket, decideTicket, ticket, tickets, adjustStars,
   starLimitFor, regularLimitFor, upcomingDayLimits, activeBoost, startBoost, stopBoost,
 } from './rewards.js';
+import { pcTimeConfigured, pcTimeFor, bookPcTime } from './screentime.js';
 import { localDay, addDays, nowIso, randomId, hashPin, verifyPin } from './util.js';
 import {
   streakInfo, weekInfo, xpOf, rankInfo, unlockedTrains, ranksFor, dailyPlan, stampDays, stampCount, lineStatus, blitzBests, blitzRecords, blitzTopics,
@@ -24,6 +25,7 @@ prepareCustomDir();
 const problems = await loadContent();
 for (const p of problems) console.warn(`[Inhalt] ${p}`);
 if (contentSource().custom) console.log(`[Inhalt] Eigene Aufgaben aus ${contentDir()}`);
+if (pcTimeConfigured) console.log(`[PC-Zeit] Tickets für den PC von „${process.env.SCREENTIME_CHILD}“ gehen an ${process.env.SCREENTIME_URL}`);
 migrateSpacing();
 foldFormerItems();
 markKnownItems();
@@ -97,6 +99,8 @@ app.get('/api/children/:id/overview', (req, res) => {
     known: knownCounts(child.id),
     badges: earnedBadges(child.id),
     tickets: tickets(child.id, 10),
+    // Tickets für den PC lösen (bucht beim Genehmigen direkt Zeit beim Bildschirmzeit-Relay)
+    pcTime: pcTimeFor(child),
     lootboxes: child.adult ? { closed: [], opened: [] } : lootboxes(child.id),
     avatarState: avatarState(child.id),
     werkstatt: werkstattCounts(child.id),
@@ -198,7 +202,9 @@ app.post('/api/sessions/:id/finish', (req, res) => {
 app.post('/api/children/:id/tickets', (req, res) => {
   const child = childOr404(req.params.id);
   if (child.adult) throw fail(400, 'Erwachsenen-Profile können keine Medienzeit eintauschen.');
-  res.json(requestTicket(child.id, Number(req.body?.minutes)));
+  const target = req.body?.target === 'pc' ? 'pc' : 'other';
+  if (target === 'pc' && !pcTimeFor(child)) throw fail(400, 'Für diesen PC gibt es noch keine Tickets.');
+  res.json(requestTicket(child.id, Number(req.body?.minutes), target));
 });
 
 app.post('/api/children/:id/tickets/:ticket/cancel', (req, res) => {
@@ -457,10 +463,17 @@ parent.post('/children/:id/skins', (req, res) => {
   res.json(avatarState(child.id));
 });
 
-parent.post('/tickets/:id', (req, res) => {
+// Ein PC-Ticket wird erst beim Relay gebucht und nur dann genehmigt. Klappt das nicht, bleibt es offen.
+// Das Relay bucht jedes Ticket höchstens einmal, ein zweiter Versuch ist also gefahrlos.
+parent.post('/tickets/:id', async (req, res) => {
   const status = req.body?.status;
   if (!['approved', 'rejected'].includes(status)) throw fail(400, 'Unbekannte Entscheidung.');
-  res.json(decideTicket(Number(req.params.id), status));
+  const id = Number(req.params.id);
+  const t = ticket(id);
+  let booking = null;
+  if (status === 'approved' && t?.status === 'pending' && t.target === 'pc') booking = await bookPcTime(t);
+  const result = decideTicket(id, status, { booked: !!booking });
+  res.json({ ...result, booking: booking ? { endsAt: booking.account?.ends_at ?? null, remainingSeconds: booking.account?.remaining_seconds ?? null } : null });
 });
 
 parent.put('/settings', (req, res) => {
@@ -623,8 +636,9 @@ app.use('/api', (req, res) => res.status(404).json({ error: 'Unbekannte Adresse.
 
 app.use((err, req, res, next) => {
   const status = err.status || 500;
-  if (status >= 500) console.error(err);
-  res.status(status).json({ error: status >= 500 ? 'Da ist auf dem Server etwas schiefgelaufen.' : err.message });
+  if (status >= 500 && !err.expose) console.error(err);
+  // expose: Fehler mit einer Meldung für die Eltern (z. B. das Bildschirmzeit-Relay antwortet nicht)
+  res.status(status).json({ error: status >= 500 && !err.expose ? 'Da ist auf dem Server etwas schiefgelaufen.' : err.message });
 });
 
 app.listen(PORT, () => console.log(`Lernwelt läuft auf http://localhost:${PORT}`));

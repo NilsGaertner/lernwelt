@@ -13,6 +13,10 @@ services:
       - PUID=99              # Besitzer der Dateien im Datenordner (Unraid: nobody)
       - PGID=100             # Gruppe (Unraid: users)
       - PARENT_PIN=1234      # Start-PIN für den Elternbereich (gilt nur beim allerersten Start)
+      # Medienzeit direkt auf den PC (Bildschirmzeit-Relay aus FamilySafety), siehe README. Leer = aus.
+      - SCREENTIME_URL=
+      - SCREENTIME_KEY=
+      - SCREENTIME_CHILD=
     volumes:
       # Fortschritt, Sterne und Einstellungen – bleiben bei Updates erhalten
       - /mnt/user/appdata/lernwelt/data:/data
