@@ -171,6 +171,9 @@ addColumn('children', 'train', 'TEXT');
 addColumn('children', 'theme', 'TEXT');
 addColumn('children', 'theme_locked', 'INTEGER NOT NULL DEFAULT 0');
 addColumn('children', 'adult', 'INTEGER NOT NULL DEFAULT 0');
+// Medienzeit-Tickets: wofür ('pc' = beim Bildschirmzeit-Relay gebucht, siehe screentime.js; 'other' = von Hand)
+addColumn('redemptions', 'target', "TEXT NOT NULL DEFAULT 'other'");
+addColumn('redemptions', 'booked_at', 'TEXT');
 addColumn('children', 'skin', 'TEXT');
 // Wiederholen mit Abständen: an diesem Tag (YYYY-MM-DD) ist die Aufgabe wieder dran (siehe srs.js)
 addColumn('item_stats', 'due', 'TEXT');

@@ -346,31 +346,40 @@ export function completeSession({
   });
 }
 
-export function requestTicket(childId, minutes) {
+/** target: 'pc' (wird beim Genehmigen auf dem PC gebucht) oder 'other' (Medienzeit, die die Eltern von Hand geben). */
+export function requestTicket(childId, minutes, target = 'other') {
   const { minutesPerStar, ticketMinutes } = getPublicSettings();
   if (!ticketMinutes.includes(minutes)) throw Object.assign(new Error('Dieses Ticket gibt es nicht.'), { status: 400 });
+  if (!['pc', 'other'].includes(target)) throw Object.assign(new Error('Wofür ist das Ticket?'), { status: 400 });
   const stars = Math.ceil(minutes / minutesPerStar);
   return transaction(() => {
     if (balance(childId) < stars) throw Object.assign(new Error('Dafür reichen deine Sterne noch nicht.'), { status: 400 });
     const now = nowIso();
     db.prepare('INSERT INTO star_ledger (child_id, amount, kind, note, day, created_at) VALUES (?, ?, ?, ?, ?, ?)').run(
-      childId, -stars, 'ticket', `Ticket: ${minutes} Minuten`, localDay(), now
+      childId, -stars, 'ticket', `Ticket: ${minutes} Minuten${target === 'pc' ? ' am PC' : ''}`, localDay(), now
     );
     const { lastInsertRowid } = db
-      .prepare('INSERT INTO redemptions (child_id, stars, minutes, status, created_at) VALUES (?, ?, ?, ?, ?)')
-      .run(childId, stars, minutes, 'pending', now);
-    return { id: Number(lastInsertRowid), stars, minutes };
+      .prepare('INSERT INTO redemptions (child_id, stars, minutes, status, created_at, target) VALUES (?, ?, ?, ?, ?, ?)')
+      .run(childId, stars, minutes, 'pending', now, target);
+    return { id: Number(lastInsertRowid), stars, minutes, target };
   });
 }
 
-/** status: 'approved' | 'rejected' | 'cancelled' — bei rejected/cancelled gibt es die Sterne zurück. */
-export function decideTicket(id, status, { childId } = {}) {
+export function ticket(id) {
+  return db.prepare('SELECT * FROM redemptions WHERE id = ?').get(id);
+}
+
+/**
+ * status: 'approved' | 'rejected' | 'cancelled' — bei rejected/cancelled gibt es die Sterne zurück.
+ * booked: ein PC-Ticket wurde vorher beim Relay gebucht (siehe screentime.js).
+ */
+export function decideTicket(id, status, { childId, booked = false } = {}) {
   return transaction(() => {
     const r = db.prepare('SELECT * FROM redemptions WHERE id = ?').get(id);
     if (!r || (childId && r.child_id !== childId)) throw Object.assign(new Error('Ticket nicht gefunden.'), { status: 404 });
     if (r.status !== 'pending') throw Object.assign(new Error('Über dieses Ticket wurde schon entschieden.'), { status: 409 });
     const now = nowIso();
-    db.prepare('UPDATE redemptions SET status = ?, decided_at = ? WHERE id = ?').run(status, now, id);
+    db.prepare('UPDATE redemptions SET status = ?, decided_at = ?, booked_at = ? WHERE id = ?').run(status, now, booked ? now : null, id);
     if (status !== 'approved') {
       const note = status === 'cancelled' ? 'Ticket zurückgegeben' : 'Ticket abgelehnt – Sterne zurück';
       db.prepare('INSERT INTO star_ledger (child_id, amount, kind, note, day, created_at) VALUES (?, ?, ?, ?, ?, ?)').run(

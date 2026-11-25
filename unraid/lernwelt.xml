@@ -26,5 +26,8 @@
   <Config Name="Start-PIN Elternbereich" Target="PARENT_PIN" Default="" Mode="" Description="Gilt nur beim allerersten Start. Leer lassen = 1234. Später im Elternbereich änderbar." Type="Variable" Display="always" Required="false" Mask="true"/>
   <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Benutzer-ID für die Dateien im Datenordner (Unraid-Standard: 99 = nobody)." Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
   <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Gruppen-ID für die Dateien im Datenordner (Unraid-Standard: 100 = users)." Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+  <Config Name="PC-Zeit: Relay" Target="SCREENTIME_URL" Default="" Mode="" Description="Bildschirmzeit-Relay (FamilySafety), z. B. http://10.0.0.5:8765. Leer = PC-Tickets aus." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="PC-Zeit: Schlüssel" Target="SCREENTIME_KEY" Default="" Mode="" Description="LERNWELT_KEY aus der Konfiguration des Relays." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="PC-Zeit: Kind" Target="SCREENTIME_CHILD" Default="" Mode="" Description="Name des Kinderprofils, dessen PC-Zeit das Relay verwaltet (z. B. Paul)." Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="Zeitzone" Target="TZ" Default="Europe/Berlin" Mode="" Description="Für „heute“ und die Tage am Stück." Type="Variable" Display="advanced" Required="false" Mask="false">Europe/Berlin</Config>
 </Container>

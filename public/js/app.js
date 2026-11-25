@@ -1081,14 +1081,22 @@ async function boxesView(id) {
 
 const STATUS = { pending: 'wartet auf OK', approved: 'genehmigt', rejected: 'abgelehnt', cancelled: 'zurückgegeben' };
 
+// Für den PC gelöste Tickets bucht die Lernwelt beim Genehmigen direkt als PC-Zeit (siehe server/screentime.js).
+let ticketTarget = 'pc';
+
 async function ticketsView(id) {
   const ov = await kidOverview(id);
   const { minutesPerStar, ticketMinutes } = ov.settings;
+  const target = () => (ov.pcTime ? ticketTarget : 'other');
 
   const buy = async (minutes, stars) => {
-    if (!(await ask(`${minutes} Minuten Medienzeit eintauschen?`, { text: `Das kostet ${stars} Sterne. Danach müssen deine Eltern das Ticket noch bestätigen.`, ok: 'Eintauschen', cancel: 'Lieber nicht' }))) return;
+    const pc = target() === 'pc';
+    const text = pc
+      ? `Das kostet ${stars} Sterne. Sobald deine Eltern das Ticket bestätigen, sind die Minuten auf dem PC.`
+      : `Das kostet ${stars} Sterne. Danach müssen deine Eltern das Ticket noch bestätigen.`;
+    if (!(await ask(`${minutes} Minuten ${pc ? 'am PC' : 'Medienzeit'} eintauschen?`, { text, ok: 'Eintauschen', cancel: 'Lieber nicht' }))) return;
     try {
-      await api(`/children/${id}/tickets`, { method: 'POST', body: { minutes } });
+      await api(`/children/${id}/tickets`, { method: 'POST', body: { minutes, target: target() } });
       toast('Ticket gelöst! Jetzt müssen deine Eltern es noch bestätigen.');
       ticketsView(id);
     } catch (err) {
@@ -1105,18 +1113,39 @@ async function ticketsView(id) {
     }
   };
 
+  // Wofür? Nur für das Profil, dessen PC-Zeit die Lernwelt buchen darf.
+  const labels = [];
+  const choices = [['pc', '🖥️ Für den PC'], ['other', '📺 Für etwas anderes']].map(([value, text]) => {
+    const btn = h('button.btn.small', { type: 'button', 'aria-pressed': String(value === target()) }, text);
+    btn.addEventListener('click', () => {
+      ticketTarget = value;
+      for (const [v, b] of choices) {
+        b.classList.toggle('ghost', v !== value);
+        b.setAttribute('aria-pressed', String(v === value));
+      }
+      for (const l of labels) l.textContent = value === 'pc' ? 'PC-Zeit' : 'Medienzeit';
+    });
+    if (value !== target()) btn.classList.add('ghost');
+    return [value, btn];
+  });
+
   render(
     kidBar(ov),
     h('section.panel',
       h('h2', '🎟️ Sterne gegen Medienzeit tauschen'),
       h('p.muted', `${minutesPerStar < 1
         ? `${1 / minutesPerStar} Sterne sind 1 Minute wert.`
-        : `Ein Stern ist ${String(minutesPerStar).replace('.', ',')} ${minutesPerStar === 1 ? 'Minute' : 'Minuten'} wert.`} Deine Eltern bestätigen das Ticket, dann geht’s los.`)),
+        : `Ein Stern ist ${String(minutesPerStar).replace('.', ',')} ${minutesPerStar === 1 ? 'Minute' : 'Minuten'} wert.`} Deine Eltern bestätigen das Ticket, dann geht’s los.`),
+      ov.pcTime
+        ? h('div', { style: { display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '10px' } }, choices.map(([, b]) => b))
+        : null),
     h('.tickets', ticketMinutes.map((m) => {
       const stars = Math.ceil(m / minutesPerStar);
       const missing = stars - ov.balance;
+      const label = h('span.t-label', target() === 'pc' ? 'PC-Zeit' : 'Medienzeit');
+      labels.push(label);
       return h('.ticket',
-        h('span.t-label', 'Medienzeit'),
+        label,
         h('span.t-min', `${m} Min.`),
         h('span.t-price', `${stars} ★`),
         h('button.btn', { type: 'button', disabled: missing > 0, onclick: () => buy(m, stars) },
@@ -1127,9 +1156,9 @@ async function ticketsView(id) {
       ov.tickets.length
         ? h('ul.ticket-list', ov.tickets.map((t) =>
             h('li',
-              h('strong', `${t.minutes} Minuten`),
+              h('strong', `${t.target === 'pc' ? '🖥️ ' : ''}${t.minutes} Minuten`),
               h('span.muted', `${t.stars} ★ · ${new Date(t.created_at).toLocaleDateString('de-DE')}`),
-              h('span.status', { class: t.status }, STATUS[t.status] ?? t.status),
+              h('span.status', { class: t.status }, t.status === 'approved' && t.booked_at ? 'auf dem PC' : STATUS[t.status] ?? t.status),
               t.status === 'pending' ? h('button.btn.ghost.small', { type: 'button', onclick: () => cancel(t.id) }, 'Zurückgeben') : null)))
         : h('p.muted', 'Du hast noch keine Tickets gelöst.'))
   );

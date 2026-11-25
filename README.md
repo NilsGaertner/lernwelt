@@ -261,6 +261,20 @@ Hattest du die Lernwelt schon vor der Staffelung im Einsatz, stellt sie beim ers
 
 Löst dein Kind ein Ticket, werden die Sterne sofort abgezogen und das Ticket wartet auf dein OK. Lehnst du ab (oder gibt dein Kind es zurück), kommen die Sterne zurück. Du kannst außerdem von Hand Sterne gutschreiben oder abziehen, etwa für einen guten Vokabeltest.
 
+### Medienzeit direkt auf den PC
+
+Läuft auf dem Windows-PC deines Kindes die Bildschirmzeit aus dem Projekt FamilySafety (Relay auf Unraid plus Wächter-Dienst auf dem PC), kann die Lernwelt Tickets direkt dort gutschreiben. Dein Kind wählt beim Eintauschen **🖥️ Für den PC** oder **📺 Für etwas anderes**. Genehmigst du ein PC-Ticket, bucht die Lernwelt die Minuten sofort beim Relay; sie sind ein paar Sekunden später auf dem PC und im Overlay zu sehen. Erreicht die Lernwelt das Relay nicht, bleibt das Ticket offen und du siehst den Grund. Ein zweiter Versuch bucht nichts doppelt, denn das Relay nimmt jedes Ticket nur einmal an. Nicht genutzte Minuten gehen dort auf den nächsten Tag über, bis zur eingestellten Grenze. Die erlaubte Uhrzeit gilt trotzdem.
+
+Eingeschaltet wird das mit drei Variablen im Container (ohne sie ändert sich nichts):
+
+| Variable | Wert |
+|---|---|
+| `SCREENTIME_URL` | Adresse des Relays, z. B. `http://10.0.0.5:8765` |
+| `SCREENTIME_KEY` | der `LERNWELT_KEY` aus der Konfiguration des Relays |
+| `SCREENTIME_CHILD` | Name des Kinderprofils, dessen PC-Zeit das Relay verwaltet, z. B. `Paul` |
+
+Nur dieses Profil sieht die Auswahl, alle anderen tauschen wie bisher. Im Log steht beim Start `[PC-Zeit] Tickets für den PC von „Paul“ gehen an …`.
+
 ## Spiel-Elemente
 
 Diese Elemente sollen die Aufmerksamkeit halten, ohne zusätzliche Medienzeit zu verteilen:
@@ -488,6 +502,7 @@ server/        Node.js-Server (Express, SQLite über das eingebaute node:sqlite)
   index.js       API-Routen für Kinder und Eltern
   session.js     Aufgaben auswählen, Antworten prüfen, Wiederholungs-Logik
   rewards.js     Sterne, Tageslimit, Abzeichen, Tickets
+  screentime.js  PC-Tickets beim Bildschirmzeit-Relay buchen
   progress.js    Ränge, Serie, Wochenkarte, Tagesfahrplan, Endbahnhöfe, Abstellgleis und Archiv
   lootbox.js     Lootboxen
   content.js     liest die Inhalte ein
