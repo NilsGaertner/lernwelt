@@ -1,0 +1,44 @@
+{
+  "id": "karten-helpful",
+  "line": "rundgang",
+  "order": 3,
+  "title": "That's helpful!",
+  "subtitle": "Freunde, Geheimnisse und viel Lärm",
+  "icon": "🤫",
+  "typePhrases": true,
+  "explain": [
+    { "p": "Hier geht es um Freunde, Lehrer und Lärm. Bei einigen Karten ist das kleine Wort hinter dem Verb das Wichtigste." },
+    { "ex": [
+      ["to wait for a friend", "auf einen Freund warten"],
+      ["to have a secret", "ein Geheimnis haben"],
+      ["That's helpful.", "Das ist hilfreich."],
+      ["to make a lot of noise", "viel Lärm machen"],
+      ["to email the teacher", "der Lehrerin eine E-Mail schreiben"]
+    ] },
+    { "tip": "warten **auf** heißt auf Englisch wait **for**, nicht wait on: I wait **for** a friend." },
+    { "tip": "Lärm **macht** man mit **make**: make a lot of noise. **a lot of** heißt dasselbe wie **lots of**: viel, viele." },
+    { "tip": "**helpful** = help + **ful** (voll). Am Ende steht nur **ein** l: help**ful**." },
+    { "tip": "**email** ist auch ein Verb: to email the teacher = dem Lehrer eine E-Mail schreiben. Direkt danach kommt, wem du schreibst." }
+  ],
+  "vocab": [
+    { "en": "to wait for a friend", "de": "auf einen Freund warten" },
+    { "en": "to have a secret", "de": "ein Geheimnis haben" },
+    { "en": "That's helpful.", "de": "Das ist hilfreich.", "alt": ["That is helpful."] },
+    { "en": "to make a lot of noise", "de": "viel Lärm machen", "alt": ["to make lots of noise"] },
+    { "en": "to email the teacher", "de": "dem Lehrer / der Lehrerin eine E-Mail schreiben", "alt": ["to e-mail the teacher", "to mail the teacher", "to mail to the teacher", "to send an email to the teacher"] },
+    { "en": "a secret", "de": "ein Geheimnis" },
+    { "en": "noise", "de": "Lärm" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "to wait ___ a friend", "de": "auf einen Freund warten", "options": ["for", "on", "at", "to"], "answer": "for", "explain": "warten auf = **wait for**: wait **for** a friend." },
+    { "type": "choice", "q": "to ___ a lot of noise", "de": "viel Lärm machen", "options": ["make", "do", "have", "take"], "answer": "make", "explain": "Lärm machen = **make** noise." },
+    { "type": "input", "q": "to make a lot of ___", "de": "viel Lärm machen", "answer": "noise", "explain": "Lärm = **noise**, am Ende mit -se." },
+    { "type": "input", "q": "to have a ___", "de": "ein Geheimnis haben", "answer": "secret" },
+    { "type": "choice", "q": "That's ___.", "de": "Das ist hilfreich.", "options": ["helpful", "helpfull", "helpfol", "helpy"], "answer": "helpful", "explain": "help + **ful** – am Ende nur ein l." },
+    { "type": "choice", "task": "Was heißt das auf Deutsch?", "q": "to have a secret", "options": ["ein Geheimnis haben", "eine Sekunde haben", "ein Geschenk haben", "einen Sekretär haben"], "answer": "ein Geheimnis haben", "explain": "**secret** = Geheimnis. Sekunde heißt **second**." },
+    { "type": "input", "q": "I wait ___ my friend after basketball.", "de": "Ich warte nach dem Basketball auf meinen Freund.", "answer": "for", "explain": "warten auf = wait **for**." },
+    { "type": "choice", "q": "The zombies make a lot ___ noise.", "de": "Die Zombies machen viel Lärm.", "options": ["of", "off", "from", "with"], "answer": "of", "explain": "viel = **a lot of**. Das of gehört immer dazu – genau wie bei lots of." },
+    { "type": "order", "de": "Ich warte auf einen Freund.", "answer": "I wait for a friend.", "explain": "warten auf = wait **for**." },
+    { "type": "input", "q": "to ___ the teacher", "de": "dem Lehrer eine E-Mail schreiben", "answer": "email", "accept": ["e-mail", "mail"], "explain": "eine E-Mail schreiben = **email** – das geht auf Englisch mit einem einzigen Verb." }
+  ]
+}

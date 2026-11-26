@@ -1,0 +1,44 @@
+{
+  "id": "karten-off-we-go",
+  "line": "rundgang",
+  "order": 1,
+  "title": "Off we go!",
+  "subtitle": "Rundgang über das Schulgelände",
+  "icon": "🗺️",
+  "typePhrases": true,
+  "explain": [
+    { "p": "Ein Rundgang durch eine neue Schule: Karte ansehen, Fotos machen, staunen, wie groß alles ist." },
+    { "ex": [
+      ["Off we go!", "Los geht's!"],
+      ["to look at the map", "sich die Karte ansehen"],
+      ["How big are the school grounds?", "Wie groß ist das Schulgelände?"],
+      ["That's so far.", "Das ist so weit (weg)."],
+      ["to take a photo", "ein Foto machen"]
+    ] },
+    { "tip": "**school grounds** ist im Englischen Mehrzahl (mit **s**). Darum heißt es: How big **are** the school grounds? Im Deutschen sagt man dagegen „das Schulgelände“, also Einzahl." },
+    { "tip": "Ein Foto **macht** man auf Englisch nicht mit make, sondern mit **take**: to **take** a photo." },
+    { "tip": "Etwas anschauen = **look at**. Das at gehört immer dazu: look **at** the map." },
+    { "tip": "**That's** ist die Kurzform von **That is**." }
+  ],
+  "vocab": [
+    { "en": "Off we go!", "de": "Los geht's!" },
+    { "en": "to look at the map", "de": "sich die Karte ansehen", "alt": ["to look at a map"] },
+    { "en": "How big are the school grounds?", "de": "Wie groß ist das Schulgelände?" },
+    { "en": "That's so far.", "de": "Das ist so weit weg.", "alt": ["That is so far."] },
+    { "en": "to take a photo", "de": "ein Foto machen", "alt": ["to take a picture"] },
+    { "en": "the school grounds", "de": "das Schulgelände" },
+    { "en": "a map", "de": "eine Karte (Landkarte, Lageplan)" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "How big ___ the school grounds?", "de": "Wie groß ist das Schulgelände?", "options": ["are", "is", "am", "be"], "answer": "are", "explain": "**grounds** hat ein s und ist Mehrzahl → How big **are** the school grounds?" },
+    { "type": "choice", "q": "to ___ a photo", "de": "ein Foto machen", "options": ["take", "make", "do", "have"], "answer": "take", "explain": "Fotos **nimmt** man auf Englisch: to **take** a photo. Mit make wäre es falsch." },
+    { "type": "choice", "q": "to look ___ the map", "de": "sich die Karte ansehen", "options": ["at", "on", "in", "for"], "answer": "at", "explain": "anschauen = **look at**: look **at** the map." },
+    { "type": "input", "q": "to look at the ___", "de": "sich die Karte ansehen", "answer": "map" },
+    { "type": "input", "q": "How big are the school ___?", "de": "Wie groß ist das Schulgelände?", "answer": "grounds", "explain": "Schulgelände = school **grounds** – mit s am Ende." },
+    { "type": "choice", "task": "Was heißt das auf Deutsch?", "q": "Off we go!", "options": ["Los geht's!", "Wir gehen weg.", "Wir sind fertig.", "Geh weg!"], "answer": "Los geht's!", "explain": "**Off we go!** sagt man, wenn es losgeht – wie „Los geht's!“." },
+    { "type": "choice", "q": "The village is on the other side of the map. That's so ___!", "de": "Das Dorf ist auf der anderen Seite der Karte. Das ist so weit weg!", "options": ["far", "big", "fast", "fun"], "answer": "far", "explain": "weit weg = **far**: That's so **far**." },
+    { "type": "order", "de": "Wie groß ist das Schulgelände?", "answer": "How big are the school grounds?", "explain": "Fragewörter vorne: **How big** + are + the school grounds?" },
+    { "type": "order", "de": "Ich mache ein Foto von meiner Minecraft-Burg.", "answer": "I take a photo of my Minecraft castle.", "explain": "ein Foto machen = **take** a photo." },
+    { "type": "input", "q": "Let's ___ a photo of the basketball court.", "de": "Lass uns ein Foto vom Basketballplatz machen.", "answer": "take", "explain": "ein Foto machen = **take** a photo." }
+  ]
+}

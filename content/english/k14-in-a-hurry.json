@@ -1,0 +1,43 @@
+{
+  "id": "karten-in-a-hurry",
+  "line": "rundgang",
+  "order": 2,
+  "title": "I'm in a hurry!",
+  "subtitle": "Stundenplan, Stunden und Minuten",
+  "icon": "⏰",
+  "typePhrases": true,
+  "explain": [
+    { "p": "Schnell, schnell! Die nächste Stunde fängt gleich an." },
+    { "ex": [
+      ["I'm in a hurry.", "Ich habe es eilig."],
+      ["5 minutes", "5 Minuten"],
+      ["a new timetable", "ein neuer Stundenplan"],
+      ["to go to the next lesson", "zur nächsten Stunde gehen"],
+      ["to finish the lesson", "die Stunde beenden"]
+    ] },
+    { "tip": "**I'm** ist die Kurzform von **I am**. Wörtlich heißt I'm in a hurry: „Ich bin in Eile.“" },
+    { "tip": "**timetable** besteht aus **time** (Zeit) + **table** (Tabelle). Darum endet es genau wie table auf **-ble**: time**table**." },
+    { "tip": "**lesson** = Schulstunde. Es hat zwei s in der Mitte: le**ss**on." },
+    { "tip": "**minutes** spricht man „MI-nits“, betont vorne." }
+  ],
+  "vocab": [
+    { "en": "I'm in a hurry.", "de": "Ich habe es eilig.", "alt": ["I am in a hurry."] },
+    { "en": "5 minutes", "de": "5 Minuten", "alt": ["five minutes"] },
+    { "en": "a new timetable", "de": "ein neuer Stundenplan" },
+    { "en": "to go to the next lesson", "de": "zur nächsten Stunde gehen" },
+    { "en": "to finish the lesson", "de": "die Stunde beenden" },
+    { "en": "a lesson", "de": "eine (Schul-)Stunde" }
+  ],
+  "exercises": [
+    { "type": "choice", "q": "I'm in a ___.", "de": "Ich habe es eilig.", "options": ["hurry", "harry", "hurri", "hury"], "answer": "hurry", "explain": "**hurry** mit zwei r und y am Ende." },
+    { "type": "choice", "q": "a new ___", "de": "ein neuer Stundenplan", "options": ["timetable", "timetabel", "timetabele", "time table"], "answer": "timetable", "explain": "time + **table** = timetable. Es endet wie table auf **-ble**." },
+    { "type": "input", "q": "a new ___", "de": "ein neuer Stundenplan", "answer": "timetable", "explain": "time + **table** = timetable – ohne Leerzeichen." },
+    { "type": "input", "q": "to go to the next ___", "de": "zur nächsten Stunde gehen", "answer": "lesson", "explain": "Schulstunde = **lesson**, mit ss in der Mitte." },
+    { "type": "choice", "q": "to go ___ the next lesson", "de": "zur nächsten Stunde gehen", "options": ["to", "at", "in", "on"], "answer": "to", "explain": "irgendwohin gehen = go **to**: go **to** the next lesson." },
+    { "type": "choice", "q": "to ___ the lesson", "de": "die Stunde beenden", "options": ["finish", "final", "fish", "end of"], "answer": "finish", "explain": "beenden = **finish**." },
+    { "type": "choice", "task": "Was heißt das auf Deutsch?", "q": "I'm in a hurry.", "options": ["Ich habe es eilig.", "Ich habe Hunger.", "Ich bin müde.", "Ich bin zu spät."], "answer": "Ich habe es eilig.", "explain": "**hurry** = Eile. I'm in a hurry = Ich bin in Eile, ich habe es eilig." },
+    { "type": "choice", "q": "The basketball game starts in 5 ___.", "de": "Das Basketballspiel fängt in 5 Minuten an.", "options": ["minutes", "minute", "minuts", "minits"], "answer": "minutes", "explain": "Mehr als eine Minute → Mehrzahl mit s: 5 **minutes**." },
+    { "type": "order", "de": "Ich habe es eilig.", "answer": "I'm in a hurry.", "accept": ["I am in a hurry."], "explain": "I'm in a hurry. – wörtlich: Ich bin in Eile." },
+    { "type": "order", "de": "Wir gehen zur nächsten Stunde.", "answer": "We go to the next lesson.", "explain": "zur nächsten Stunde = **to the next lesson**." }
+  ]
+}
